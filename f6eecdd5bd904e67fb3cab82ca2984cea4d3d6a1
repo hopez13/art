@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de65092b_a0bfcf46",
+        "filename": "runtime/native/dalvik_system_Zygote.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-11-11T16:35:26Z",
+      "side": 1,
+      "message": ".",
+      "revId": "f6eecdd5bd904e67fb3cab82ca2984cea4d3d6a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e570543_85be2199",
+        "filename": "runtime/native/dalvik_system_Zygote.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-11-11T16:35:26Z",
+      "side": 1,
+      "message": "where\u0027s niceName coming from?",
+      "revId": "f6eecdd5bd904e67fb3cab82ca2984cea4d3d6a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e570543_45b409bb",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-11-11T16:35:26Z",
+      "side": 1,
+      "message": "thread_name \u003d\u003d NULL",
+      "revId": "f6eecdd5bd904e67fb3cab82ca2984cea4d3d6a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e5dfd5e_4d78abda",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-11-11T16:35:26Z",
+      "side": 1,
+      "message": "return;\n\n\nalso, you can move this to the top of the function. what are we, C programmers?",
+      "revId": "f6eecdd5bd904e67fb3cab82ca2984cea4d3d6a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
