@@ -16,6 +16,24 @@
       "revId": "89ea331ffa2f4c39d81701f812665683e8c4c319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ea8e58f_2f9e4909",
+        "filename": "runtime/arch/mips/futex_syscall_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003284
+      },
+      "writtenOn": "2013-11-13T20:56:59Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right that the current bionic implementation of syscall() for MIPS is prone to error on unpatched kernels. I\u0027ll make a patch for bionic to shift the arguments around in userland as is done for the other architectures.\n\nThe NR_syscall code is in arch/mips/kernel/scall32-o32.S:sys_syscall().",
+      "parentUuid": "9eb471df_039b148b",
+      "revId": "89ea331ffa2f4c39d81701f812665683e8c4c319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
