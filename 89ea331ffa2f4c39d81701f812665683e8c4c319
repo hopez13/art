@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb471df_039b148b",
+        "filename": "runtime/arch/mips/futex_syscall_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-11-13T20:47:04Z",
+      "side": 1,
+      "message": "doesn\u0027t this just mean we fucked up the mips syscall.S in bionic? the other architectures move the syscall number into the appropriate register and then make that system call directly. on mips, we actually use a \u0027syscall\u0027 system call. i don\u0027t think that\u0027s necessary, and we should just fix the mips syscall.S in bionic.\n\n(is __NR_syscall even implemented? i can\u0027t find it in the kernel source.)",
+      "revId": "89ea331ffa2f4c39d81701f812665683e8c4c319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
