@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63d566ff_e36e2c44",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-02T10:11:55Z",
+      "side": 1,
+      "message": "This is a valid and potentially useful instruction. The one I\u0027m removing is undefined. (\"#UD If the LOCK prefix is used but the destination is not a memory operand.\")",
+      "parentUuid": "63ae4695_f85331c8",
+      "revId": "c29bb614c60e0eb9a2bacf90f6dfce796344021e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63ae4695_18ae256b",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "23c8ce74_d629e49c",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-02T10:11:55Z",
+      "side": 1,
+      "message": "I\u0027d rather not have this but as long as we have it on ARM, let\u0027s be consistent.",
+      "parentUuid": "63ae4695_18ae256b",
+      "revId": "c29bb614c60e0eb9a2bacf90f6dfce796344021e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23dfee24_6163f0a1",
         "filename": "compiler/dex/quick/x86/x86_lir.h",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2013-11-29T23:48:03Z",
       "side": 1,
       "message": "similar to removal of locked variant",
+      "revId": "c29bb614c60e0eb9a2bacf90f6dfce796344021e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63ae4695_b81539ca",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-02T10:11:55Z",
+      "side": 1,
+      "message": "No, as explained in assemble_x86.cc.",
+      "parentUuid": "23dfee24_6163f0a1",
       "revId": "c29bb614c60e0eb9a2bacf90f6dfce796344021e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
