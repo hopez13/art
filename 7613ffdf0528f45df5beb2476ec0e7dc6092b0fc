@@ -16,6 +16,24 @@
       "revId": "7613ffdf0528f45df5beb2476ec0e7dc6092b0fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_6e5053f0",
+        "filename": "runtime/gc/collector/mark_sweep-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-06T18:42:41Z",
+      "side": 0,
+      "message": "It was visiting classes twice since we no longer mask the bit in the reference word.",
+      "parentUuid": "03d10a3f_641634d6",
+      "revId": "7613ffdf0528f45df5beb2476ec0e7dc6092b0fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
