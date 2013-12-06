@@ -1,0 +1,463 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03d10a3f_692a8dab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Would it be safe/possible to embed class pointers into compiled code (eg, for faster allocation paths) after this change?\n\nThe classes that are in the image file don\u0027t move and can be embedded, I suppose.\n\nRelated factors are:\n\n- We don\u0027t currently scan compiled code for roots at a GC (which we could in theory.)\n\n- The current way of ahead-of-time compilation precludes embedding pointers to classes that are not created at image creation time, without patching the compiled code (which we don\u0027t want to do.)",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_bdbb43ca",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Would it be reasonable to expect that the klass is outside the image in the else block here?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_3da97374",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Was this fixing an oversight that it needed an exclusive lock here, or is this so because we move classes?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_aaf41742",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Would it make sense to let EnsureResolved to take a SirtRef as well as (or instead of) a raw Class* a la EnsureInitialized?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_8a8cbbda",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Is this down_cast necessary?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d10a3f_c41f4841",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2428,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "The same comment on using const reference if it\u0027s an in parameter (not modified).",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_1d5477b0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2974,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "const reference for the \u0027klass\u0027 parameter or use a pointer if it\u0027s modified?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d10a3f_043f80a1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3179,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "a const reference or a pointer?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_4ab2237d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3229,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Optional: using shorter names might make it a bit cleaner such as loader1, loader2, or cl1, cl2. Up to you.",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d10a3f_244a7c3c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3256,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Update the comment by replacing klass1 -\u003e class_loader1 and klass2 -\u003e class_loader2?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_7df00b7d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3266,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Optional: not necessary, but for symmetry, wrap found2 in a SirtRef like found1?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_7d192b03",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3275,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Is the intention to rename can_init_parents to can_run_clinit and reorder the two bool parameters?\n\nIt seems odd that can_init_fields is passed as the 3rd param to the other EnsureInitialized which has its 2nd param named can_init_fields? Any bug here?\n\nOn a related note, we should probably match the param names with the .h file (the SirtRef version of EnsureInitialized().)\n\nFinally, do we still need the raw Class* version of EnsureInitialized(), not that I checked all the call site?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_dd9f1f4a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3278,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "I think if a reference is used as a parameter, it should be const and an in parameter. If it\u0027s modified, then it should be a pointer, as per the style guide.",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_2a9da7d4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3302,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "We are only moving classes, not fields with this CL? Is the plan to move fields as well in the future?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_ca599377",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3549,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "I think the lifetime of ClassHelper is shortened compared to the original code by putting into a nested block since ClassHelper does not use SirtRef internally. Have you considered letting ClassHelper use SirtRef internally now that we may move classes?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_8a2ddbc3",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "I wonder if we will eventually end up always passing Class\u0027es wrapped in SirtRef\u0027s in this class for robustness against future code changes.",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d10a3f_24c95c3f",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "const for \u0027array\u0027 like \u0027array_descripter\u0027?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d10a3f_04d780de",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "const for \u0027klass\u0027?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_bd08e380",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Just a side comment: if this marking phase was (or is going to be made) concurrent, this would not be valid?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_c54e2484",
+        "filename": "runtime/globals.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Oh, I see that we are not moving fields and methods but classes only (referring to one of my earlier comment.)",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_a588c857",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Just to confirm the rationale (though probably obvious), is it the case that since EnsureInitilized() call below might trigger GC and we are not wrapping the method (inside the MethodHelper) in a SirtRef, this code would break if we move methods, right?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_0563fcf4",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Is this reinterpret_cast necessary?\n\nAlso, the rationale is that now that we move classes, the array_class_ was a new root that was previously not treated as a root, right?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_45c69482",
+        "filename": "runtime/mirror/art_field.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Looks like the indentation of line 59 (the closing brace of the if block) is off.",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_e51a4053",
+        "filename": "runtime/mirror/stack_trace_element.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "I\u0027m curious. Why is this SHARED_LOCKS_REQUIRED as opposed to EXCLUSIVE_LOCKS_REQUIRED? This might be equivalent to asking the same question to MarkSweep::MarkRoots() and ReMarkRoots().",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d10a3f_642074fa",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "const reference for \u0027array\u0027?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d44e2d_ea29ef19",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "Is T always mirror::Object? If so, hardcode T \u003d mirror::Object?",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cdd6a7_1d2477da",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-06T01:09:08Z",
+      "side": 1,
+      "message": "A side thought: I wonder if there\u0027s a way to declare certain functions to be MIGHT_TRIGGER_GC and statically check that they do not take raw Class pointers as parameters, etc. sort of like the thread annotation analysis. But I guess there\u0027s none.",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
