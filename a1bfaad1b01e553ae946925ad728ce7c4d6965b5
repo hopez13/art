@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3df5e7e_6b01b15f",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-07T23:18:38Z",
+      "side": 1,
+      "message": "Might be nice to move this to its own file as new garbage collector?",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e41a52_b50b183d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-07T23:18:38Z",
+      "side": 1,
+      "message": "!from_space_-\u003eHasAddress(last_space_to_space_end_)",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43eea235_08010b1d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-07T23:18:38Z",
+      "side": 1,
+      "message": "Move this check into the else and remove the forward_address \u003d\u003d nullptr?",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3df5e7e_ab13b9b7",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-07T23:18:38Z",
+      "side": 1,
+      "message": "Might be nice to have this as a parameter like the to_space_ and from_space_. Maybe promotion_space_?\nAlso, one issue with putting everything in the non moving space is that it makes it impossible to do background compaction since the GC can\u0027t know what is and isn\u0027t movable.",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3df5e7e_cb0efd8d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-07T23:18:38Z",
+      "side": 1,
+      "message": "GetContinuousSpaceBitmap is pretty slow, but as long as the number of objects promoted is low, this should be OK.",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e41a52_1501241d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-07T23:18:38Z",
+      "side": 1,
+      "message": "Since you are searching for the live and mark bitmaps, it would probably be faster to use heap-\u003eFindContinuousSpaceFromObject. And then space-\u003eGetLiveBitmap, space-\u003eGetMarkBitmap.",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
