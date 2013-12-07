@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "a3df5e7e_054f3481",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-07T00:29:57Z",
+      "side": 1,
+      "message": "I mean, would it make sense to add an else block to the if statement in line 156 and insert EXPECT(...) that asserts the \u0027klass\u0027 is outside of the image if it\u0027s not an image class, that is, something like:\n\nif (image_classes.find(descriptor) !\u003d image_classes.end()) {\n  // Image classes should be located inside the image. \n  EXPECT_LT(image_begin, reinterpret_cast\u003cbyte*\u003e(klass)) \u003c\u003c descriptor;\n  EXPECT_LT(reinterpret_cast\u003cbyte*\u003e(klass), image_end) \u003c\u003c descriptor;\n} else {\n  EXPECT_LE(image_end, reinterpret_cast\u003cbyte*\u003e(klass)) \u003c\u003c descriptor;\n  EXPECT_LT(reinterpret_cast\u003cbyte*\u003e(klass), image_begin) \u003c\u003c descriptor;\n}\n\n?",
+      "parentUuid": "e3cdd6a7_e3135cb7",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3cdd6a7_3da97374",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -404,6 +422,24 @@
     },
     {
       "key": {
+        "uuid": "83e41a52_24507cef",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3275,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-07T00:29:57Z",
+      "side": 1,
+      "message": "I believe this comment is addressed. Right?",
+      "parentUuid": "e3cdd6a7_7d192b03",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3cdd6a7_dd9f1f4a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -433,6 +469,24 @@
       "side": 1,
       "message": "Done, I fixed all of these up in the current file.",
       "parentUuid": "e3cdd6a7_dd9f1f4a",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43eea235_1fce63f1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3278,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-07T00:29:57Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "e3cdd6a7_eee22346",
       "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -800,6 +854,24 @@
       "side": 1,
       "message": "We mark the roots concurrently at the start of the GC to reduce pauses. If we miss roots, they will get marked in the pause.",
       "parentUuid": "23d44e2d_e51a4053",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43eea235_a2e800d6",
+        "filename": "runtime/mirror/stack_trace_element.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-07T00:29:57Z",
+      "side": 1,
+      "message": "OK. Just to paraphrase, as VisitRoots() is used by both the concurrent root scan and the non-concurrent root scan, it has to use the weaker of SHARED_LOCKS_REQUIRED and EXCLUSIVE_LOCKS_REQUIRED. Hence, it uses SHARED_LOCKS_REQUIRED.",
+      "parentUuid": "a31cbefb_fa376966",
       "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
