@@ -16,6 +16,24 @@
       "revId": "1a7e7d6a885bded1ffcdc8ff2490632698dc5139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43eea235_99b28b7a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-09T23:27:59Z",
+      "side": 0,
+      "message": "Using concurrent_gc_ is good for now, but eventually I want to constant fold out the if statement. This is not currently possible due to the allocator type possibly the large object one. I know how to fix this issue and will do it in a future performance CL.",
+      "parentUuid": "83e41a52_9b41e3c3",
+      "revId": "1a7e7d6a885bded1ffcdc8ff2490632698dc5139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "83e41a52_4aaca284",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-09T23:27:59Z",
+      "side": 1,
+      "message": "It shouldn\u0027t hurt performance, or increase code size in the fast path since grow is constant from the call sites. May change to a template bool in the future to ensure this.",
+      "parentUuid": "a3df5e7e_1cd14de7",
+      "revId": "5ec981637ee5307eba3d7cfc3665d9eab3d96129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43eea235_ee994f66",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-09T20:49:58Z",
       "side": 1,
       "message": "Would it be more precise if the parameter collector_type gets renamed to post_zygote_collector_type?",
+      "revId": "5ec981637ee5307eba3d7cfc3665d9eab3d96129",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e41a52_0a68da79",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-09T23:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43eea235_ee994f66",
       "revId": "5ec981637ee5307eba3d7cfc3665d9eab3d96129",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
