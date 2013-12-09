@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83e41a52_9b41e3c3",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-09T20:49:58Z",
+      "side": 0,
+      "message": "Would it make sense to replace this with\n\nif (concurrent_gc_) { .. }\n\nand get rid of AllocatorHasConcurrentGC() ?",
+      "revId": "1a7e7d6a885bded1ffcdc8ff2490632698dc5139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
