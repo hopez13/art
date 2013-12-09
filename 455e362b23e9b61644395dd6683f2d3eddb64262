@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3df5e7e_57472ed7",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2013-12-09T22:27:14Z",
+      "side": 1,
+      "message": "you can delete this check, its okay for findLoadedClass to return null",
+      "revId": "455e362b23e9b61644395dd6683f2d3eddb64262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
