@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43eea235_e1067d36",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-10T22:39:00Z",
+      "side": 1,
+      "message": "or should this have been IsAssignableFrom?",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83809a7a_906c424c",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-10T22:39:00Z",
+      "side": 1,
+      "message": "why is this necessary? none of the other getters have this special case.",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
