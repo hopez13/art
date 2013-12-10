@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "43eea235_d4069a36",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-10T20:48:30Z",
+      "side": 1,
+      "message": "I currently feel that it\u0027s not very clear how things will be laid out until it gets developed more. It could be an independent collector or a mode of operation on top of the other collectors, I don\u0027t know yet.\n\nAs this simple promo thing currently has most of the code in this file, it seems a little awkward to have just kEnableSimplePromo in a separate file. As we go and find more things appropriate to put in new file, we could add a new file?\n\nLeft a TODO.",
+      "parentUuid": "a3df5e7e_6b01b15f",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e41a52_b50b183d",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-07T23:18:38Z",
       "side": 1,
       "message": "!from_space_-\u003eHasAddress(last_space_to_space_end_)",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430782cb_bab14def",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-10T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e41a52_b50b183d",
       "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6302c6bc_7bd05b07",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-10T20:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43eea235_08010b1d",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3df5e7e_ab13b9b7",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2013-12-07T23:18:38Z",
       "side": 1,
       "message": "Might be nice to have this as a parameter like the to_space_ and from_space_. Maybe promotion_space_?\nAlso, one issue with putting everything in the non moving space is that it makes it impossible to do background compaction since the GC can\u0027t know what is and isn\u0027t movable.",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6302c6bc_fb890b0d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-10T20:48:30Z",
+      "side": 1,
+      "message": "Not sure what you mean by \"as a parameter like the to_space_ and from_space_\". What are they parameters to?\n\nI thought about this some more and realize that the \"impossible to do background compaction\" issue has a larger scope and is somewhat orthogonal to this feature because it also exists similarly in the CMS/MS collector (if we add background compaction to the foreground CMS/MS collector.) It seems that we\u0027d need to split the current non-moving space into a \"truly-non-moving\" space (classes if not moving, fields, methods, non-moving arrays) and a \"non-moving-but-could-be-compacted\" space for the rest (movable objects that happen to be in a non-moving space) where we treat the truly-non-moving space as a special case like the LOS. But we\u0027d likely want to do this split only after a zygote fork because 1) otherwise we\u0027d need to manage two zygote spaces, one for truly-non-moving and another for the rest, to maximize the inter-process sharing of the classes, fields, etc. a lot of which are likely be allocated before a zygote fork, and because 2) we probably aren\u0027t going to do background compaction for the zygote space.\n\nDoes this make sense? Any better/simpler idea?\n\nIf you feel we should solve this problem now before this CL, then we should solve it likely in a separate CL. Otherwise I think we can defer it and submit this CL in its current form (note the feature is disabled behind a flag) and tackle the problem.\n\nEither way, if we actually go down this route, let me know if you\u0027d like to work on this (as it\u0027s a prerequisite for background compaction). Or, I could have a look.",
+      "parentUuid": "a3df5e7e_ab13b9b7",
       "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6302c6bc_de3a35e5",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-10T20:48:30Z",
+      "side": 1,
+      "message": "Used GetHeap()-\u003eGetNonMovingSpace()-\u003eGetLiveBitmap() instead as we know that forward_address is in it.",
+      "parentUuid": "a3df5e7e_cb0efd8d",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e41a52_1501241d",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2013-12-07T23:18:38Z",
       "side": 1,
       "message": "Since you are searching for the live and mark bitmaps, it would probably be faster to use heap-\u003eFindContinuousSpaceFromObject. And then space-\u003eGetLiveBitmap, space-\u003eGetMarkBitmap.",
+      "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231c4e1e_9cb60de3",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-10T20:48:30Z",
+      "side": 1,
+      "message": "See the previous comment.",
+      "parentUuid": "83e41a52_1501241d",
       "revId": "a1bfaad1b01e553ae946925ad728ce7c4d6965b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
