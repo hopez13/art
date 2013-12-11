@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "632c867b_4efce7e5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-11T18:23:07Z",
+      "side": 1,
+      "message": "s/Contrary to/Unlike/ (or \"In contrast to\").\n\nwhat does the RI actually do?",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8337bac2_af863d8c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-11T18:23:07Z",
+      "side": 1,
+      "message": "please be consistent with NULL/nullptr. (i think unless you\u0027re going to change all the NULLs in a file you should stick with NULL.)",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8337bac2_8f4fb9a9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-11T18:23:07Z",
+      "side": 1,
+      "message": "state",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "632c867b_ce00d71b",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-11T18:23:07Z",
+      "side": 1,
+      "message": "unless we have a good reason to do otherwise, i think we should comply with common sense and have this same check in all three :-) it\u0027s not obvious to me why we\u0027d want EnableCollection to behave differently.",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
