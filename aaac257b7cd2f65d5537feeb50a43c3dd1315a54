@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "a8101b3f_1decf738",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T18:36:06Z",
+      "side": 1,
+      "message": "I meant even with IsAssignableFrom, we\u0027d still need to check \"argument\" is null: \n\n\"if (argument !\u003d nullptr \u0026\u0026 !parameter_type-\u003eIsAssignableFrom(argument-\u003eGetClass())) { return JDWP::ERR_ILLEGAL_ARGUMENT }\". \n\nInstanceOf is just a shortcut here. There is no version of Class::IsAssignableFrom taking an Object* and dealing with NULL. Maybe this is what you\u0027d expect here?",
+      "parentUuid": "a332fed0_d0323427",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83809a7a_906c424c",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 1
