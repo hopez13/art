@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a8101b3f_9df7e7ff",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T18:49:57Z",
+      "side": 1,
+      "message": "Done. The RI does not return any error.",
+      "parentUuid": "632c867b_4efce7e5",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8337bac2_af863d8c",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-11T18:23:07Z",
       "side": 1,
       "message": "please be consistent with NULL/nullptr. (i think unless you\u0027re going to change all the NULLs in a file you should stick with NULL.)",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e31f9643_c7aa809c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T18:49:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8337bac2_af863d8c",
       "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e31f9643_e7af7ca9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T18:49:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8337bac2_8f4fb9a9",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "632c867b_ce00d71b",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2013-12-11T18:23:07Z",
       "side": 1,
       "message": "unless we have a good reason to do otherwise, i think we should comply with common sense and have this same check in all three :-) it\u0027s not obvious to me why we\u0027d want EnableCollection to behave differently.",
+      "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8101b3f_7d041330",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T18:49:57Z",
+      "side": 1,
+      "message": "Agreed. It\u0027s weird specs are different for EnableCollection. I\u0027m OK to return an error in case of invalid object. I just wonder if some IDE relies on this difference and not expect any error even for invalid ID. \n\nAnyway, I\u0027ll update the corresponding JDWP test to reflect this change in CL https://android-review.googlesource.com/#/c/72033",
+      "parentUuid": "632c867b_ce00d71b",
       "revId": "9601d7c34fa1eb54a166fde20b2ce390896f13c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
