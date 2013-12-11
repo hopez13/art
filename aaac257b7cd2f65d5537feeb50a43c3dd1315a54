@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "a332fed0_5ee2d5f2",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-11T20:29:57Z",
+      "side": 1,
+      "message": "ah, i see. yeah, i was forgetting that you\u0027d need to call GetClass.",
+      "parentUuid": "a8101b3f_1decf738",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83809a7a_906c424c",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 1
