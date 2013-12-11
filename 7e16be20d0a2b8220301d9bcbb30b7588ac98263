@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "23f36e1c_e1f200c6",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-11T00:01:33Z",
+      "side": 1,
+      "message": "Done, though what we want is \u003c image || \u003e\u003d image.",
+      "parentUuid": "a3df5e7e_054f3481",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3cdd6a7_3da97374",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -434,6 +452,24 @@
       "side": 1,
       "message": "I believe this comment is addressed. Right?",
       "parentUuid": "e3cdd6a7_7d192b03",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23f36e1c_41d81440",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3275,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-11T00:01:33Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "83e41a52_24507cef",
       "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -872,6 +908,24 @@
       "side": 1,
       "message": "OK. Just to paraphrase, as VisitRoots() is used by both the concurrent root scan and the non-concurrent root scan, it has to use the weaker of SHARED_LOCKS_REQUIRED and EXCLUSIVE_LOCKS_REQUIRED. Hence, it uses SHARED_LOCKS_REQUIRED.",
       "parentUuid": "a31cbefb_fa376966",
+      "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3df5e7e_f16772aa",
+        "filename": "runtime/mirror/stack_trace_element.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-11T00:01:33Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "43eea235_a2e800d6",
       "revId": "7e16be20d0a2b8220301d9bcbb30b7588ac98263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

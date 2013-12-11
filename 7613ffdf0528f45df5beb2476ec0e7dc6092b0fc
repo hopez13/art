@@ -52,6 +52,24 @@
       "revId": "7613ffdf0528f45df5beb2476ec0e7dc6092b0fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e41a52_70e23eba",
+        "filename": "runtime/gc/collector/mark_sweep-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-11T00:01:33Z",
+      "side": 0,
+      "message": "I\u0027ll fix up the class visit parameter along with refactor this code in the near future.",
+      "parentUuid": "83e41a52_24ed1ca1",
+      "revId": "7613ffdf0528f45df5beb2476ec0e7dc6092b0fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
