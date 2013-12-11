@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "08f84737_1d03d326",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T09:15:55Z",
+      "side": 1,
+      "message": "InstanceOf calls IsAssignableFrom already.",
+      "parentUuid": "43eea235_e1067d36",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83809a7a_906c424c",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-10T22:39:00Z",
       "side": 1,
       "message": "why is this necessary? none of the other getters have this special case.",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f84737_7d2f77aa",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T09:15:55Z",
+      "side": 1,
+      "message": "The \"null\" object is not registered in the id_to_entry_ map. It is also handled in ObjectRegistry::Get.\n\nI can move this to Dbg::InvokeMethod if you prefer. The other use of GetJObject is the ScopedThreadSuspension constructor for a non-null thread ID.",
+      "parentUuid": "83809a7a_906c424c",
       "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
