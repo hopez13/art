@@ -16,6 +16,24 @@
       "revId": "4ffab046f676f538dff6e62c19e063adda9b71b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f84737_dd40cbc0",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2013-12-11T15:40:46Z",
+      "side": 1,
+      "message": "eeeeeeeee. yuck. only SHARED for the target, only in STATIC for the host.",
+      "parentUuid": "8337bac2_4c4eafa9",
+      "revId": "4ffab046f676f538dff6e62c19e063adda9b71b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
