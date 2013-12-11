@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "a8101b3f_da1c45c4",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2715,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T16:19:20Z",
+      "side": 1,
+      "message": "Class::IsAssignableFrom takes another Class* as parameter so we would need to check for null too.",
+      "parentUuid": "8337bac2_4c278fe1",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83809a7a_906c424c",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 1
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "ah, i\u0027d only looked at InternalGet. that\u0027s okay then.\n\ni do wonder about DisableCollection and EnableCollection though. presumably you can crash us by sending ObjectId 0 in those JDWP packets too?",
       "parentUuid": "08f84737_7d2f77aa",
+      "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08f84737_1d81939c",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2013-12-11T16:19:20Z",
+      "side": 1,
+      "message": "It\u0027s funny you\u0027re talking about these ones because I\u0027m actually writing new JDWP tests for this special case :) I found this by chance looking at these lines below.",
+      "parentUuid": "632c867b_ab6d558e",
       "revId": "aaac257b7cd2f65d5537feeb50a43c3dd1315a54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
