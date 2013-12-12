@@ -1,0 +1,204 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8a77388_243b12b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "clang doesn\u0027t like const qualifiers on function types, not function pointer types, see my comment in interpreter.cc",
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a46f89_e34c125e",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6839c300_2013ca26",
+        "filename": "runtime/entrypoints/portable/portable_invoke_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a77388_443c0eab",
+        "filename": "runtime/entrypoints/quick/quick_invoke_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "range": {
+        "startLine": 178,
+        "startChar": 11,
+        "endLine": 178,
+        "endChar": 32
+      },
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a46f89_c3da3637",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "This is a misnomer. It defines a function type, not a function pointer type. Maybe we should move the \u0027*\u0027 here. Same for the 5 typedefs below.",
+      "range": {
+        "startLine": 93,
+        "startChar": 23,
+        "endLine": 93,
+        "endChar": 28
+      },
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a46f89_43e72609",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "range": {
+        "startLine": 561,
+        "startChar": 11,
+        "endLine": 561,
+        "endChar": 32
+      },
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a46f89_63eca2ec",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "range": {
+        "startLine": 582,
+        "startChar": 11,
+        "endLine": 582,
+        "endChar": 32
+      },
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a46f89_03f12ebf",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6839c300_a0feba84",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6839c300_00fcc68b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-12T11:46:47Z",
+      "side": 1,
+      "message": "Align line continuation backslashes.",
+      "revId": "a5848fff853cf1e232bf8252ee8dda315a5f7609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
