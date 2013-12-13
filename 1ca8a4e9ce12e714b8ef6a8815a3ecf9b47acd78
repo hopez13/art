@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28ab4b9f_de5a8542",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-13T22:27:33Z",
+      "side": 1,
+      "message": "i think you can remove this line!",
+      "revId": "1ca8a4e9ce12e714b8ef6a8815a3ecf9b47acd78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_a2b0be0b",
+        "filename": "runtime/arch/x86/entrypoints_init_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-13T22:27:33Z",
+      "side": 1,
+      "message": "NULL like the other unneeded ones?",
+      "revId": "1ca8a4e9ce12e714b8ef6a8815a3ecf9b47acd78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
