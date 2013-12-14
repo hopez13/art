@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c86c6f4a_49d8e5b8",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-14T01:47:32Z",
+      "side": 1,
+      "message": "You can refactor this to be cleaner if you have a variable called start which you add kPageSize for debug builds.",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_49062578",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-14T01:47:32Z",
+      "side": 1,
+      "message": "Is there a way to have this be dynamic? I could see situations where we would want to release all pages based on runtime options, for example: low memory devices.",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_690be17e",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-14T01:47:32Z",
+      "side": 1,
+      "message": "Variable?",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_21b26878",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-14T01:47:32Z",
+      "side": 1,
+      "message": "You can declare functions like this as constexpr I believe.",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
