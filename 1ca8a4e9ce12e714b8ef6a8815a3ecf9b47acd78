@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a8973b5d_253b984e",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2013-12-14T00:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28ab4b9f_de5a8542",
+      "revId": "1ca8a4e9ce12e714b8ef6a8815a3ecf9b47acd78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8973b5d_a2b0be0b",
         "filename": "runtime/arch/x86/entrypoints_init_x86.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-13T22:27:33Z",
       "side": 1,
       "message": "NULL like the other unneeded ones?",
+      "revId": "1ca8a4e9ce12e714b8ef6a8815a3ecf9b47acd78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_453e9c3e",
+        "filename": "runtime/arch/x86/entrypoints_init_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2013-12-14T00:00:23Z",
+      "side": 1,
+      "message": "Not sure what you are referring to.  This was missing before",
+      "parentUuid": "a8973b5d_a2b0be0b",
       "revId": "1ca8a4e9ce12e714b8ef6a8815a3ecf9b47acd78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
