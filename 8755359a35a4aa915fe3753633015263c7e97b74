@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28ab4b9f_5e71d5b3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 0,
+      "message": "Same comment as the one for line 1310 below.",
+      "range": {
+        "startLine": 1161,
+        "startChar": 0,
+        "endLine": 1161,
+        "endChar": 4
+      },
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_02e76a09",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 0,
+      "message": "Maybe this CHECK can be replaced with another that checks temp_space_-\u003eSize() \u003d\u003d 0 or something (low-cost) like that, rather than removed?",
+      "range": {
+        "startLine": 1310,
+        "startChar": 4,
+        "endLine": 1310,
+        "endChar": 12
+      },
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b31ffa_5aefb16f",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 0,
+      "message": "Looks like this was dead code?",
+      "range": {
+        "startLine": 724,
+        "startChar": 0,
+        "endLine": 724,
+        "endChar": 2
+      },
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_deb5e5d5",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 0,
+      "message": "Does this mean that MallocSpace/DlMallocSpace/RosAllocSpace can also drop these GetTotal functions()?",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 2
+      },
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

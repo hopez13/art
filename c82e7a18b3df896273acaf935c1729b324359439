@@ -1,0 +1,659 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c86c6f4a_2334aaf8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Better to use the same term as line 12 above (region -\u003e buffer) ?",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8be2fc6_b614665a",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "_TLAB -\u003e _tlab  and \n_TLAB_instrumented -\u003e _tlab_instrumented\n\nto be consistent with the lower case?",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b31ffa_5a0971bd",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "I guess for MS/CMS with rosalloc it does not make a difference where RevokeAllThreadLocalBuffers() is called as long as it\u0027s between SuspendAll() and ResumeAll() (during the pause.) But it made a different for the TLAB allocator, I suppose?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c8ab74_19838ff1",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "This still isn\u0027t used (ignored) and is just renamed, right?",
+      "range": {
+        "startLine": 324,
+        "startChar": 15,
+        "endLine": 324,
+        "endChar": 30
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8be2fc6_96a5aace",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "One more constant folding. Nice.",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c8ab74_39876bb5",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Is there a situation where \"if (concurrent_gc_) { ... }\" isn\u0027t sufficient?",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 34
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8be2fc6_361a1653",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 222,
+        "startChar": 9,
+        "endLine": 222,
+        "endChar": 37
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8be2fc6_d649e24b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Do the removal of the use of SirtRef\u0027s and the addition of StartAssertNoThreadSuspension() call mean that we don\u0027t need them as we expect there would be no GC during the life time of a VisitObjects() call?",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_e32452df",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Why do we call UpdateMainBlockHeader() here (before calling Walk())?",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 6
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_e340d24e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Why do we call UpdateMainBlockHeader() here?",
+      "range": {
+        "startLine": 855,
+        "startChar": 4,
+        "endLine": 855,
+        "endChar": 6
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_a202fe1f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "To confirm the intention: we skip temp_space_ because it does not have objects in it and BumpPointerSpace::GetObjectsAllocated() isn\u0027t free as it would have to iterate over the threads?",
+      "range": {
+        "startLine": 928,
+        "startChar": 0,
+        "endLine": 928,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_23a02a46",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "This is interesting. Since the heap keeps track of the total total objects/bytes freed (ever), each space does not have to keep track of them. Is this correct?\n\nIf so, MallocSpace/DlMallocSpace/RosAllocSpace could drop GetTotalBytesAllocated() and GetTotalObjectsAllocated() (and the associated internal variables) as well, which would mean a small optimization opportunity for them?",
+      "range": {
+        "startLine": 936,
+        "startChar": 0,
+        "endLine": 936,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_be821939",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "optional: DCHECK that if the collector type is SS, then the allocator must be BumpPointer or TLAB?",
+      "range": {
+        "startLine": 1292,
+        "startChar": 0,
+        "endLine": 1292,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c8ab74_b9161bd0",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "GCC wasn\u0027t inlining this? Bummer.",
+      "range": {
+        "startLine": 513,
+        "startChar": 9,
+        "endLine": 513,
+        "endChar": 22
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b31ffa_ba8b6dc3",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Might \"allocator_type \u003e\u003d kAllocatorTypeFreeList\" be faster?",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_c3e116b7",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "It looks like the end of the space is shifted by the size of the header. Is there any worry about buffer/space overrun here? We could DCHECK that limit_ - end_ \u003e\u003d sizeof(ContinuousBlockHeader) just in case?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_3e4a8940",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Lock the runtime_shutdown_lock_ here too?",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_9e687d7f",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "So, the \u0027main\u0027 block means that the block at the beginning of the space, right? And what this function does is to reset the space so that the entire space is a single block? Does this imply that all thread-local buffers/blocks are already revoked?\n\nIs there a way to rename it to clarify what it does?",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_03688e0f",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Is the reason that we don\u0027t know how many objects are allocated in the current block is that accessing the Thread::thread_local_pos_ pointer is racy?",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_42c9f291",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Acquire the runtime_shutdown_lock_ as well so that we don\u0027t have a race against a new thread being created or a thread being terminated?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_82a6dad6",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Also, since we are not suspending threads here, the accesses to thread_local_pos_ and thread_local_start_ can be racy but it\u0027s ok, right?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8be2fc6_d6a5629b",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "This comment does not have much info. Remove it or elaborate it?",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_0356ce1e",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "What\u0027s the \"main\" block header mean?",
+      "range": {
+        "startLine": 112,
+        "startChar": 7,
+        "endLine": 112,
+        "endChar": 28
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_8276da1c",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Optional: Is it simpler/ok to call it BlockHeader as there\u0027s no such thing as \u0027discontinuous block\u0027?",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_23874ab5",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "This size_ includes the size of the header, correct? Add this to the comment?",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 4
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_06041c2f",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "If we pass \u0027true\u0027 to kCheckLarge, then how about inserting a DCHECK that allocator_type isn\u0027t the LOS type?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_4650d41f",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Passing false because we only do large object allocation for (primitive) arrays, right?",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_45fb3cee",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "Is this fixing a moving GC bug?",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_5e1795cd",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-14T00:24:22Z",
+      "side": 1,
+      "message": "This causes the mutator lock to be shared-held during the life time of this function call. Is this fixing a bug?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 2
+      },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
