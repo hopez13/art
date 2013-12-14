@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68baa3ef_58a31dc8",
+        "filename": "runtime/arch/x86/entrypoints_init_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-14T00:02:35Z",
+      "side": 1,
+      "message": "you don\u0027t need the quick entry point, do you? isn\u0027t this \"Not needed on x86\"?",
+      "revId": "f0ff2946b804874e3d46d95febe633ed99aaf4ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
