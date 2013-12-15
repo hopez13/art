@@ -25,6 +25,42 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_01b76c6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_2334aaf8",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_69d3e1eb",
+        "filename": "c86c6f4a_69d3e1eb",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, walking the space doesn\u0027t require all threads to be suspended, but if you do this you may end up missing some objects.",
+      "parentUuid": "c86c6f4a_03688e0f",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8be2fc6_b614665a",
         "filename": "runtime/arch/quick_alloc_entrypoints.S",
         "patchSetId": 3
@@ -36,6 +72,24 @@
       "writtenOn": "2013-12-14T00:24:22Z",
       "side": 1,
       "message": "_TLAB -\u003e _tlab  and \n_TLAB_instrumented -\u003e _tlab_instrumented\n\nto be consistent with the lower case?",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_61a99077",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8be2fc6_b614665a",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_615bd0e3",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, TLAB uses the number of allocated bytes which is held in the TLABs. But since there is two bump pointer spaces the logic gets confusing. Its easier to just do it before doing the marking.",
+      "parentUuid": "48b31ffa_5a0971bd",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c8ab74_19838ff1",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 3
@@ -82,6 +154,24 @@
         "endLine": 324,
         "endChar": 30
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_e819075f",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "I had used it for some debugging, its unused now.",
+      "parentUuid": "28c8ab74_19838ff1",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +201,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_a99159c2",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yup, check should be removed for non array entrypoints.",
+      "parentUuid": "c8be2fc6_96a5aace",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c8ab74_39876bb5",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 3
@@ -128,6 +236,24 @@
         "endLine": 92,
         "endChar": 34
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_c1b624c0",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "concurrent_gc_ isn\u0027t known at compile time so we can optimize by not checking it for BumpPointer or TLAB allocators. This is nice since it allows the entire if statement to be optimized out. And for the other allocators, AllocatorMayHaveConcurrentGC is a constant since the allocator_type should be constant propagated.",
+      "parentUuid": "28c8ab74_39876bb5",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -157,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_49f1c5be",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "c8be2fc6_361a1653",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8be2fc6_d649e24b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -174,6 +318,24 @@
         "endLine": 337,
         "endChar": 2
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_28300fce",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "I decided to remove support for allocations when you are visiting the objects. The behavior of doing allocations inside the callback was not very well defined anyways since there was a chance the allocated object would or wouldn\u0027t get visited.",
+      "parentUuid": "c8be2fc6_d649e24b",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -203,6 +365,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_61be3098",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Going to refactor this logic into the space.",
+      "parentUuid": "c86c6f4a_e32452df",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_e340d24e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -220,6 +400,24 @@
         "endLine": 855,
         "endChar": 6
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_c83523bd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "c86c6f4a_e340d24e",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -249,6 +447,24 @@
     },
     {
       "key": {
+        "uuid": "a8973b5d_e8b587d5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, it shouldn\u0027t have any objects. I found a way to remove the check however.",
+      "parentUuid": "a8973b5d_a202fe1f",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_23a02a46",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -266,6 +482,24 @@
         "endLine": 936,
         "endChar": 2
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_c9ce956b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "I believe so, this may break down if we start adding or removing spaces during runtime in the future but it seems sound for now.",
+      "parentUuid": "c86c6f4a_23a02a46",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -295,6 +529,24 @@
     },
     {
       "key": {
+        "uuid": "a8973b5d_48cfd367",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28ab4b9f_be821939",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c8ab74_b9161bd0",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 3
@@ -318,6 +570,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_49b705bd",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Might have been inlined, I just put it here for safe measure.",
+      "parentUuid": "28c8ab74_b9161bd0",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48b31ffa_ba8b6dc3",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 3
@@ -329,6 +599,24 @@
       "writtenOn": "2013-12-14T00:24:22Z",
       "side": 1,
       "message": "Might \"allocator_type \u003e\u003d kAllocatorTypeFreeList\" be faster?",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_68a97777",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "All of the performance critical paths should have it inlined and constant folded to a constant return value.",
+      "parentUuid": "48b31ffa_ba8b6dc3",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -358,6 +646,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_c9e135b7",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_c3e116b7",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ab4b9f_3e4a8940",
         "filename": "runtime/gc/space/bump_pointer_space.cc",
         "patchSetId": 3
@@ -375,6 +681,24 @@
         "endLine": 102,
         "endChar": 2
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_213b884e",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28ab4b9f_3e4a8940",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -404,6 +728,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_614190c2",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "The main block is used by the bump pointer allocator and during semispace GC.",
+      "parentUuid": "28ab4b9f_9e687d7f",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_03688e0f",
         "filename": "runtime/gc/space/bump_pointer_space.cc",
         "patchSetId": 3
@@ -421,6 +763,24 @@
         "endLine": 138,
         "endChar": 4
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_283b6f4e",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll probably fix this in the future by using the other word in the header block header to know how long the objects allocated inside are.",
+      "parentUuid": "c86c6f4a_03688e0f",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -450,6 +810,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_e186c0b6",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8973b5d_42c9f291",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8973b5d_82a6dad6",
         "filename": "runtime/gc/space/bump_pointer_space.cc",
         "patchSetId": 3
@@ -467,6 +845,24 @@
         "endLine": 152,
         "endChar": 2
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_e910b1d4",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Fixed the race.",
+      "parentUuid": "a8973b5d_82a6dad6",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -496,6 +892,24 @@
     },
     {
       "key": {
+        "uuid": "a8973b5d_a8bbffa7",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8be2fc6_d6a5629b",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_0356ce1e",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 3
@@ -513,6 +927,24 @@
         "endLine": 112,
         "endChar": 28
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_09498df8",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "c86c6f4a_0356ce1e",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -542,6 +974,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_a95959c3",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8973b5d_8276da1c",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_23874ab5",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 3
@@ -559,6 +1009,24 @@
         "endLine": 146,
         "endChar": 4
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_08d42bd4",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, done.",
+      "parentUuid": "c86c6f4a_23874ab5",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -588,6 +1056,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_a94079bf",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_06041c2f",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_4650d41f",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 3
@@ -605,6 +1091,24 @@
         "endLine": 364,
         "endChar": 2
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_c1ee2473",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, arrays must be allocated by the Array::Alloc since their class doesn\u0027t have an object_size_.",
+      "parentUuid": "c86c6f4a_4650d41f",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -634,6 +1138,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_09826da4",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "Yes, came up during testing.",
+      "parentUuid": "a8973b5d_45fb3cee",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ab4b9f_5e1795cd",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 3
@@ -651,6 +1173,24 @@
         "endLine": 250,
         "endChar": 2
       },
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_29eac960",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 1,
+      "message": "BumpPointerSpace::GetBytesAllocated requires mutator lock, I just put the soa inside of the for loop.",
+      "parentUuid": "28ab4b9f_5e1795cd",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

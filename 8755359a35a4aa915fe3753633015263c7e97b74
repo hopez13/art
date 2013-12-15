@@ -2,6 +2,24 @@
   "comments": [
     {
       "key": {
+        "uuid": "a8973b5d_88c5db49",
+        "filename": "a8973b5d_88c5db49",
+        "patchSetId": 3
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "28ab4b9f_5e71d5b3",
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ab4b9f_5e71d5b3",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -19,6 +37,24 @@
         "endLine": 1161,
         "endChar": 4
       },
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_77c01839",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "28ab4b9f_5e71d5b3",
       "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -48,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "a8973b5d_68c29741",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "a8973b5d_02e76a09",
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48b31ffa_5aefb16f",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 3
@@ -71,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_69bcc1a0",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 0,
+      "message": "Yes",
+      "parentUuid": "48b31ffa_5aefb16f",
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ab4b9f_deb5e5d5",
         "filename": "runtime/gc/space/space.h",
         "patchSetId": 3
@@ -88,6 +160,24 @@
         "endLine": 201,
         "endChar": 2
       },
+      "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8973b5d_88e83b9e",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-15T02:20:41Z",
+      "side": 0,
+      "message": "I believe so, the heap should have all the necessary info.",
+      "parentUuid": "28ab4b9f_deb5e5d5",
       "revId": "8755359a35a4aa915fe3753633015263c7e97b74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
