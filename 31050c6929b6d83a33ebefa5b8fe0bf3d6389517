@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8973b5d_5612d46d",
+        "filename": "compiler/elf_writer_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-12-15T21:52:33Z",
+      "side": 1,
+      "message": "i don\u0027t think you need this idiom unless you\u0027d otherwise end on a }, which isn\u0027t the case here.",
+      "revId": "31050c6929b6d83a33ebefa5b8fe0bf3d6389517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
