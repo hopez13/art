@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8e57b1d_32977076",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-16T14:38:02Z",
+      "side": 1,
+      "message": "kX86FSTPdM is unused but I don\u0027t mind having it here. It should be kX86FstpdM, though.",
+      "revId": "bff1ef0746048978b877c0664f758d2d6006f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68ef0300_903df4dd",
+        "filename": "runtime/arch/x86/entrypoints_init_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-16T14:38:02Z",
+      "side": 1,
+      "message": "Two spaces before the second // (`make cpplint-art` would complain if the whole line wasn\u0027t commented out)",
+      "revId": "bff1ef0746048978b877c0664f758d2d6006f27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
