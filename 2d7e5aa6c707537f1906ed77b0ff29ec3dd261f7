@@ -22,6 +22,24 @@
       "revId": "2d7e5aa6c707537f1906ed77b0ff29ec3dd261f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_d2cb9ae1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2013-12-16T18:14:15Z",
+      "side": 1,
+      "message": "Brian said Ian might have had a reason to leave the const off mirror object pointers. This line is the same as the old code, just moved, so I\u0027ll leave it as is, and make sure Ian is ok with it.",
+      "parentUuid": "e8b4d3fd_dcb60d09",
+      "revId": "2d7e5aa6c707537f1906ed77b0ff29ec3dd261f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
