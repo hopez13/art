@@ -260,6 +260,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_ac4fa250",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-16T23:44:24Z",
+      "side": 1,
+      "message": "Got it. Can you leave a comment on this point?",
+      "parentUuid": "28ab4b9f_c1b624c0",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8be2fc6_361a1653",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 3
@@ -506,6 +524,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_8df96d39",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-16T23:44:24Z",
+      "side": 1,
+      "message": "OK. I will attempt to remove GetTotalBytesAllocated() and GetTotalObjectsAllocated() from MallocSpace/DlMallocSpace/RosAllocSpace later.",
+      "parentUuid": "c86c6f4a_c9ce956b",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ab4b9f_be821939",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -746,6 +782,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_b8022920",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-16T23:44:24Z",
+      "side": 1,
+      "message": "OK. How about adding DCHECK(num_of_blocks_ \u003d\u003d 0) in UpdateMainBlock()?",
+      "parentUuid": "28ab4b9f_614190c2",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_03688e0f",
         "filename": "runtime/gc/space/bump_pointer_space.cc",
         "patchSetId": 3
@@ -863,6 +917,24 @@
       "side": 1,
       "message": "Fixed the race.",
       "parentUuid": "a8973b5d_82a6dad6",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_ec135ade",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-16T23:44:24Z",
+      "side": 1,
+      "message": "What prevents the race newly in patch set 4? block_lock_? But it was locked before.",
+      "parentUuid": "c86c6f4a_e910b1d4",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
