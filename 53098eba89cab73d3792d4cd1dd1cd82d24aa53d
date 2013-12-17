@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_825f0f20",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-17T21:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_49d8e5b8",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_49062578",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-14T01:47:32Z",
       "side": 1,
       "message": "Is there a way to have this be dynamic? I could see situations where we would want to release all pages based on runtime options, for example: low memory devices.",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28ab4b9f_8526e19d",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-17T21:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_49062578",
       "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c86c6f4a_454e0102",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-17T21:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_690be17e",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ab4b9f_21b26878",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2013-12-14T01:47:32Z",
       "side": 1,
       "message": "You can declare functions like this as constexpr I believe.",
+      "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_a55c15b4",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2013-12-17T21:54:48Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment applies any more.",
+      "parentUuid": "28ab4b9f_21b26878",
       "revId": "53098eba89cab73d3792d4cd1dd1cd82d24aa53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
