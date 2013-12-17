@@ -278,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_b30a4a79",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-17T00:57:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c86c6f4a_ac4fa250",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8be2fc6_361a1653",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 3
@@ -800,6 +818,24 @@
     },
     {
       "key": {
+        "uuid": "28ab4b9f_b3f36a57",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-17T00:57:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28ab4b9f_b8022920",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c86c6f4a_03688e0f",
         "filename": "runtime/gc/space/bump_pointer_space.cc",
         "patchSetId": 3
@@ -935,6 +971,24 @@
       "side": 1,
       "message": "What prevents the race newly in patch set 4? block_lock_? But it was locked before.",
       "parentUuid": "c86c6f4a_e910b1d4",
+      "revId": "c82e7a18b3df896273acaf935c1729b324359439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86c6f4a_456521f6",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-17T00:57:42Z",
+      "side": 1,
+      "message": "Yes, but before I wasn\u0027t holding the block lock when I did thread-\u003eSetTLAB. This had a race where you could set the start but not the end of the TLAB then have a racy read from the thread doing GetBytesAllocated. This would have returned some very strange values.",
+      "parentUuid": "c86c6f4a_ec135ade",
       "revId": "c82e7a18b3df896273acaf935c1729b324359439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
