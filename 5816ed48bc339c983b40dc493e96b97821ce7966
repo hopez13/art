@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "08a847a1_635ab6b8",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2013-12-17T19:09:24Z",
+      "side": 1,
+      "message": "Yes, I believe you\u0027re correct. We should be using kSignedByte. In practice, though, it hasn\u0027t mattered. Historically (to simply the interpreter and make volatile support easier) Dalvik stores sub-word data types in word-size instance field buckets. The \"size\" argument to GenIGet only cares about whether it\u0027s a 64-bit data type or not. We should get this right, though.",
+      "parentUuid": "68ef0300_9324de41",
+      "revId": "5816ed48bc339c983b40dc493e96b97821ce7966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8e57b1d_f580b275",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 3
@@ -30,6 +48,23 @@
       "writtenOn": "2013-12-17T18:28:38Z",
       "side": 1,
       "message": "In call_arm.cc, Byte and Boolean are using kUnsignedByte. For IPUT, the difference is irrelevant.",
+      "revId": "5816ed48bc339c983b40dc493e96b97821ce7966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08a847a1_a30d5ecb",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2013-12-17T19:09:24Z",
+      "side": 1,
+      "message": "Yes - this comes up a lot.  I\u0027d intended to add this to the specials, but hadn\u0027t gotten around to it.",
       "revId": "5816ed48bc339c983b40dc493e96b97821ce7966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
