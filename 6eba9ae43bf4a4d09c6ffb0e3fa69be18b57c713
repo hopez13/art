@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "480ddfba_c7d85e0c",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-17T16:18:50Z",
+      "side": 1,
+      "message": "In call_arm.cc, Byte and Boolean are using kUnsignedByte. Is this a bug? (At least for Byte as the Java byte is signed?)",
+      "range": {
+        "startLine": 278,
+        "startChar": 29,
+        "endLine": 278,
+        "endChar": 39
+      },
+      "revId": "6eba9ae43bf4a4d09c6ffb0e3fa69be18b57c713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8e57b1d_f5e43295",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-17T16:18:50Z",
+      "side": 1,
+      "message": "In call_arm.cc, Byte and Boolean are using kUnsignedByte. For IPUT, the difference is irrelevant.",
+      "revId": "6eba9ae43bf4a4d09c6ffb0e3fa69be18b57c713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
