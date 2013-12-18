@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "085be7e1_28a36397",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2013-12-18T17:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f0470e_dd240b43",
+      "range": {
+        "startLine": 549,
+        "startChar": 6,
+        "endLine": 549,
+        "endChar": 20
+      },
+      "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8f9cfff_7bcb3f3c",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -59,6 +83,24 @@
       "writtenOn": "2013-12-18T17:02:05Z",
       "side": 1,
       "message": "We could avoid excessive branching below by setting `rl_index.low_reg \u003d INVALID_SREG;` here with a comment about LoadBaseIndexedDisp() handling it as non-array load. `scale \u003d 0;` is unnecessary.",
+      "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "085be7e1_a8967331",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2013-12-18T17:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f9cfff_7bcb3f3c",
       "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "085be7e1_c882cfec",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2013-12-18T17:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f0470e_3d1a4ff8",
+      "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8f9cfff_bbd307ee",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -93,6 +153,24 @@
       "writtenOn": "2013-12-18T17:02:05Z",
       "side": 1,
       "message": "We could avoid excessive branching below by setting `rl_index.low_reg \u003d INVALID_SREG; scale \u003d 0;` here with a comment about StoreBaseIndexedDisp() handling it as non-array store. `scale \u003d 0;` is unnecessary.",
+      "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "085be7e1_e8878bf9",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2013-12-18T17:50:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8f9cfff_bbd307ee",
       "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
