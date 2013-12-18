@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0844c7e7_e097bc30",
+        "filename": "runtime/gc/space/malloc_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-18T00:10:13Z",
+      "side": 1,
+      "message": "Could you add a comment like, \"When true the low memory mode argument specifies that the heap wishes the created space to be more aggressive in releasing unused pages.\"",
+      "range": {
+        "startLine": 131,
+        "startChar": 68,
+        "endLine": 131,
+        "endChar": 83
+      },
+      "revId": "6510421e018c2aa8edcb039bb9eea18b01bb9bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0844c7e7_a091b43d",
+        "filename": "runtime/gc/space/malloc_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-18T00:10:13Z",
+      "side": 1,
+      "message": "Similarly here.",
+      "range": {
+        "startLine": 158,
+        "startChar": 37,
+        "endLine": 158,
+        "endChar": 52
+      },
+      "revId": "6510421e018c2aa8edcb039bb9eea18b01bb9bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
