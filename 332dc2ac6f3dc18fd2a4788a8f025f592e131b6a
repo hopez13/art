@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "28f34b1c_be55b913",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-18T17:47:10Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 189,
+        "startChar": 73,
+        "endLine": 189,
+        "endChar": 76
+      },
+      "revId": "332dc2ac6f3dc18fd2a4788a8f025f592e131b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08f0470e_dd240b43",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
