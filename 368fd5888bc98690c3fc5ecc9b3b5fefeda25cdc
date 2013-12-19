@@ -51,6 +51,24 @@
       "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86e2fb0_b664e6fb",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2013-12-19T19:20:42Z",
+      "side": 1,
+      "message": "It surprised me a bit as well.  I had a similar issue with cbz/cbnz - but those were frequent enough that I did not want to stop using them.  Instead I added a mechanism to estimate the target distance and guess at compile time.  It would be possible to do the same trick here (though target is often NULL in practice), but again the number of reaching kThumbBConds was really small so were aren\u0027t losing much by just doing kThumb2BConds always.",
+      "parentUuid": "884ef754_b1e9406e",
+      "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
