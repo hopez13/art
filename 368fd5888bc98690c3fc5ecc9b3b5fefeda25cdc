@@ -69,6 +69,24 @@
       "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a832dbd0_ea2e6711",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T19:31:33Z",
+      "side": 1,
+      "message": "I think it would be much better to rewrite ArmMir2Lir::AssembleLIR() to do the fixup in one pass and the encoding in another pass. I don\u0027t see any advantage in the single pass approach.",
+      "parentUuid": "c86e2fb0_b664e6fb",
+      "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
