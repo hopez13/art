@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48631fc4_57038c6a",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2013-12-19T18:50:06Z",
+      "side": 1,
+      "message": "It doesn\u0027t necessarily have to be part of this CL, but any compiler bug fixes should, if practical, include a regression test.  A good place to put this one is art/test/083-compiler-regressions.",
+      "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e871338d_d4cddc4b",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2013-12-19T18:50:06Z",
+      "side": 1,
+      "message": "My fault here for not adding a comment previously, but this should be a kThumb2BCond for compilation time reasons.  It originally was a kThumbBCond, but the reach of a 16-bit Thumb1 conditional branch is tiny and failure to reach at assembly time causes another assembly pass.  Statistics showed that something on the order of 20% of assembly retries were because of kThumbBConds failing to reach, while the number of reaching kThumbBConds was relatively small.  The reduction in compile time easily outweighed the very small reduction of code size.\n\nCould you restore the kThumb2BCond, and add the command I should have added about the compile time savings?  Thanks.",
+      "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
