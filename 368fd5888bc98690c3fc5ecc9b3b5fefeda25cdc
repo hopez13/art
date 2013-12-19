@@ -87,6 +87,24 @@
       "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8438f32_2b73192f",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T20:16:15Z",
+      "side": 1,
+      "message": "Added the comment and reverted all related changes. This may be revisited later.",
+      "parentUuid": "a832dbd0_ea2e6711",
+      "revId": "368fd5888bc98690c3fc5ecc9b3b5fefeda25cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
