@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "c8438f32_cbfd35de",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T11:10:37Z",
+      "side": 1,
+      "message": "Oops, that\u0027s not true. Can\u0027t simplify it that way. But the CMP can be taken out of the switch.",
+      "parentUuid": "a832dbd0_6a0fd746",
+      "revId": "017552777fc2f492715ce4e2ef27987f6702a61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_ebebd120",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
