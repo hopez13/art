@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a832dbd0_ea02e720",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T10:24:06Z",
+      "side": 1,
+      "message": "Why don\u0027t we use std::swap()?",
+      "revId": "017552777fc2f492715ce4e2ef27987f6702a61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8438f32_ebebd120",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T10:24:06Z",
+      "side": 1,
+      "message": "This seems correct. The arm version with kCondCc seems broken.",
+      "revId": "017552777fc2f492715ce4e2ef27987f6702a61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a832dbd0_4a12136e",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T10:24:06Z",
+      "side": 1,
+      "message": "This seems correct. The arm version with kCondCs seems broken.",
+      "revId": "017552777fc2f492715ce4e2ef27987f6702a61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
