@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "884ef754_512d74a9",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T10:44:02Z",
+      "side": 1,
+      "message": "This clutters low_reg. I think this could theoretically cause a problem.",
+      "revId": "017552777fc2f492715ce4e2ef27987f6702a61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_ebebd120",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
