@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "884ef754_f1bbc8a6",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-19T15:57:20Z",
+      "side": 1,
+      "message": "Pulling the CMP out of the switch would result in missed optimization using the CBNZ instruction. (Unlike x86.)",
+      "revId": "688296fa82c7ec48e0b49d49139bc542377e784b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
