@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8649bc8_291a39f8",
+        "filename": "runtime/atomic_integer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T02:35:56Z",
+      "side": 1,
+      "message": "These were lower case to match std::atomic since we are going to do the transition eventually.\nhttp://en.cppreference.com/w/cpp/atomic/atomic",
+      "revId": "7a078c053b22e151eed6d82a14c7927db486409c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
