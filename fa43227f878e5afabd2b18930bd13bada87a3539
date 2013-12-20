@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8438f32_0ef10b0e",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2013-12-20T14:27:25Z",
+      "side": 1,
+      "message": "I don\u0027t know what the gt_bias is but shouldn\u0027t this be kCondGlt? It looks really inconsistent with the rest.",
+      "revId": "fa43227f878e5afabd2b18930bd13bada87a3539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
