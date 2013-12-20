@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48631fc4_860fb445",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T23:52:12Z",
+      "side": 1,
+      "message": "Add some bitmap scanning logic in here? The logic should be as follows: For each immune space: If have a mod union table, use that, or else assert that the bitmaps are bound and scan the live bitmap of said space. If the immune space is a bump pointer space, I guess we can do space-\u003eWalk?",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e871338d_684a6b41",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T23:52:12Z",
+      "side": 1,
+      "message": "This won\u0027t be correct after the background compaction CL since the non_moving_space and main alloc space are different.",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e871338d_c8eb7fd3",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T23:52:12Z",
+      "side": 1,
+      "message": "Since classes can move, don\u0027t you need to scan large objects update their classes? Even thought the classes never get collected, they can still move.",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86e2fb0_42ee6c31",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T23:52:12Z",
+      "side": 1,
+      "message": "Might be worth refactoring the sweep logic to ignore immune spaces, this way you don\u0027t need this special logic assuming you immune all of the right spaces.",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e871338d_28db133d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T23:52:12Z",
+      "side": 1,
+      "message": "I think you could bind the bitmaps earlier to avoid needing to mark both the live and mark bitmaps?",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c86e2fb0_42158c53",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2013-12-20T23:52:12Z",
+      "side": 1,
+      "message": "We probably want to copy somewhere other than the non_moving_space in the future, since these objects will never get copied again.",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
