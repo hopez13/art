@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8438f32_ce1f03e8",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "Add the 0x66 prefix. (Or remove this unused instruction.)",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8438f32_8e25fb41",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "Also REG_USE0 as the value is used when the condition isn\u0027t met.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a832dbd0_adbba959",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "I\u0027d prefer less code. Use EmitPrefixAndOpcode() above and add the condition to code_buffer_.back() as in EmitOpRegOpcode().",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8438f32_ae2ab70e",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "Unnecessary, IMO. Use DCHECK_GE or CHECK_GE if you really want to check this.",
+      "range": {
+        "startLine": 301,
+        "startChar": 2,
+        "endLine": 301,
+        "endChar": 8
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "884ef754_747346fc",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t add any value here. A proper documentation of InlineTarget/EvalLoc would be more useful.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8438f32_0e1aebf7",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t add any value here. A proper documentation of the StoreValue itself would be more useful.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8438f32_ee24bf42",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "Drop the switch. Just CHECK/DCHECK the op and return NewLIR.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "884ef754_547642ed",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2013-12-26T10:42:31Z",
+      "side": 1,
+      "message": "Remove the space between function name and opening bracket.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
