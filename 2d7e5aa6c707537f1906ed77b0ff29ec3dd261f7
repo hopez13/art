@@ -40,6 +40,24 @@
       "revId": "2d7e5aa6c707537f1906ed77b0ff29ec3dd261f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dec497b_27f55eac",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:33:53Z",
+      "side": 1,
+      "message": "const is ok on local variables but not for fields. The particular problem is that const for C++ differs from Java, where a pointer may move because of moving GC. If you make fields constant then repeated loads may be cached by C++ and this may mean a stale pointer gets used even if the code attempts to explicitly reload it. Were the code below to have a safe point then we should place the mirror::Class* into a handle (SirtRef).",
+      "parentUuid": "c86c6f4a_d2cb9ae1",
+      "revId": "2d7e5aa6c707537f1906ed77b0ff29ec3dd261f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
