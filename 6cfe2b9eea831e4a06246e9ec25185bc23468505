@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "8dec497b_07c01a17",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T23:44:40Z",
+      "side": 1,
+      "message": "So cmov isn\u0027t just microcoded into a branch?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_d1c6b880",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T23:44:40Z",
+      "side": 1,
+      "message": "that when true will perform the opcode.",
+      "range": {
+        "startLine": 756,
+        "startChar": 35,
+        "endLine": 756,
+        "endChar": 36
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_ce1f03e8",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
@@ -47,6 +93,29 @@
       "writtenOn": "2013-12-26T10:42:31Z",
       "side": 1,
       "message": "I\u0027d prefer less code. Use EmitPrefixAndOpcode() above and add the condition to code_buffer_.back() as in EmitOpRegOpcode().",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_111af052",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T23:44:40Z",
+      "side": 1,
+      "message": "The comment and the variable name don\u0027t convey much meaning here, elsewhere we\u0027re calling the registers r_dest and r_src to convey intentions.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
       "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
