@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8649bc8_ce17f599",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "Extra period.",
+      "range": {
+        "startLine": 179,
+        "startChar": 26,
+        "endLine": 179,
+        "endChar": 27
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_e3ee4c9f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "This comment isn\u0027t adding value, why would a deoptimization request want or not want to be enabled?\nPerhaps the struct should be MethodInstrumentationRequest and the boolean deoptimize_. Note that the _ should only appear for classes.",
+      "range": {
+        "startLine": 181,
+        "startChar": 5,
+        "endLine": 181,
+        "endChar": 38
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_2ec151ce",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "We need to visit the methods here as roots.",
+      "range": {
+        "startLine": 190,
+        "startChar": 42,
+        "endLine": 190,
+        "endChar": 65
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_a3f8445f",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "These need to be roots too. You can at least place a TODO.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 0
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_aecc81fb",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "const? also single use, is it worth the variable?",
+      "range": {
+        "startLine": 185,
+        "startChar": 10,
+        "endLine": 185,
+        "endChar": 15
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dec497b_a7472e36",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "used once, just place Thread::Current in MutexLock?",
+      "range": {
+        "startLine": 278,
+        "startChar": 16,
+        "endLine": 278,
+        "endChar": 20
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dec497b_87e66a0c",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-30T22:23:49Z",
+      "side": 1,
+      "message": "unnecessary scoping",
+      "range": {
+        "startLine": 303,
+        "startChar": 2,
+        "endLine": 303,
+        "endChar": 3
+      },
+      "revId": "18f0a23151e22ff1181aa9e67aa41c329699745a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
