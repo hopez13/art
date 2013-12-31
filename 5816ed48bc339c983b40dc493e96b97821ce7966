@@ -91,6 +91,24 @@
       "revId": "5816ed48bc339c983b40dc493e96b97821ce7966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_63ee1132",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T06:21:34Z",
+      "side": 1,
+      "message": "@buzbee Similarly it\u0027d be interesting to know the case of a method that returns this because of the builder pattern so that the builder pattern doesn\u0027t defeat null pointer elimination (ie we know this is non-null but we don\u0027t know a return object reference is non-null).",
+      "parentUuid": "08a847a1_a30d5ecb",
+      "revId": "5816ed48bc339c983b40dc493e96b97821ce7966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
