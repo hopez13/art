@@ -1,0 +1,901 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e89853f7_91c9a6ec",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(lock_)",
+      "range": {
+        "startLine": 45,
+        "startChar": 61,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_71cc1afb",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(lock_)",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_b1806275",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "ws",
+      "range": {
+        "startLine": 492,
+        "startChar": 11,
+        "endLine": 492,
+        "endChar": 13
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_b167823f",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Profiler* const",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 11
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_d386ccb6",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "units?",
+      "range": {
+        "startLine": 104,
+        "startChar": 12,
+        "endLine": 104,
+        "endChar": 27
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_155f4421",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "kMaxBackOffS",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 26
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_357440a5",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "uint64_t",
+      "range": {
+        "startLine": 121,
+        "startChar": 6,
+        "endLine": 121,
+        "endChar": 13
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_1381249d",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "start_us",
+      "range": {
+        "startLine": 149,
+        "startChar": 13,
+        "endLine": 149,
+        "endChar": 18
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_3376281f",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "There\u0027s probably a MsToNs style helper for this.",
+      "range": {
+        "startLine": 150,
+        "startChar": 49,
+        "endLine": 150,
+        "endChar": 58
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_317c52ce",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "end_us",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 16
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_53739c2d",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "now_us",
+      "range": {
+        "startLine": 151,
+        "startChar": 13,
+        "endLine": 151,
+        "endChar": 16
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_7370a020",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Thread*",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 11
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_d16c0e26",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Thread*, hoist to top of loop and re-use.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_1167563e",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "there should at least be a TODO here. We should be using wake lock information from the system, I worry the profiler will drain battery and samples when all apps are asleep aren\u0027t very interesting.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_5179dedc",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "yay units! int?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_f37bd007",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "waitstart_us",
+      "range": {
+        "startLine": 179,
+        "startChar": 15,
+        "endLine": 179,
+        "endChar": 24
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_b3e4f894",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "on the declaration not the definition",
+      "range": {
+        "startLine": 209,
+        "startChar": 34,
+        "endLine": 209,
+        "endChar": 55
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_917366fb",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "needs to be a LOCKS_EXCLUDED(Locks::profiler_lock_) on the declaration because of this.",
+      "range": {
+        "startLine": 249,
+        "startChar": 31,
+        "endLine": 249,
+        "endChar": 45
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_5571ccb3",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Profiler*",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_d3e96c6d",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED",
+      "range": {
+        "startLine": 265,
+        "startChar": 43,
+        "endLine": 265,
+        "endChar": 64
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_956b54c6",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "profiler_ \u003d nullptr; // ie clear the profiler_ field to avoid use after delete.",
+      "range": {
+        "startLine": 266,
+        "startChar": 15,
+        "endLine": 266,
+        "endChar": 24
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_756ec8d8",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(wait_lock_)",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_f3ee7072",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "on declaration not definition",
+      "range": {
+        "startLine": 305,
+        "startChar": 55,
+        "endLine": 305,
+        "endChar": 76
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_95943470",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "A better name and description please.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_13f4c43d",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Put",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 10
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_b5ca108c",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Write",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_13aa0427",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Clear",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 12
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_d185ee83",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "GetNumSamples() const",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_33f9c837",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Hash",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_7597a874",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "\u0026 ?\nwhy doesn\u0027t ProfileTable provide its own Mutex? This should be documented as to what the behavior is.",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 8
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_558aac51",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Could we disambiguate this from the other kinds of profiling, perhaps ContinualBackgroundProfiler? A comment on the class declaration explaining what\u0027s here please.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_b38158a2",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(Locks::profiler_lock_)",
+      "range": {
+        "startLine": 95,
+        "startChar": 14,
+        "endLine": 95,
+        "endChar": 26
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_538c7cdb",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "empty",
+      "range": {
+        "startLine": 108,
+        "startChar": 51,
+        "endLine": 108,
+        "endChar": 55
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_f18aea92",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "size_t or uint32_t, or does negative make sense?\nI prefer, period_s_, that is place the units in the name so that in uses of the field its clear.",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 5
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_b55f7022",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "comment please",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 25
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_338f08d3",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "int? comment please",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 5
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_73998018",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "units? So after duration the file will be written regardless?",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 15
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_d564fcfc",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "Can you back out all the whitespace changes in this file and keep the changes that are profiler related.",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_f559f83d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T01:53:04Z",
+      "side": 1,
+      "message": "can you fix the types (unsigned) and place the units into the field names, especially as the units vary for the different fields.",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
