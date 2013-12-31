@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "886997a4_93b29476",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T05:52:46Z",
+      "side": 1,
+      "message": "we can imply this from the opcode rather than compute it. Add to the template?",
+      "range": {
+        "startLine": 81,
+        "startChar": 17,
+        "endLine": 81,
+        "endChar": 25
+      },
+      "revId": "9119c5f9e4f447f4209d51cff66d1aace510ce5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
