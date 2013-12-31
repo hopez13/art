@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "886997a4_73cc20fb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "I find adding the consts here odd. The point is that klass could move, or be collected, if it weren\u0027t for the handle (SirtRef). The SirtRef means over a safepoint the value could change and so a different value be loaded, which the const doesn\u0027t tend to imply. For clarity I\u0027d prefer not to have the consts, like the original code.",
+      "range": {
+        "startLine": 4103,
+        "startChar": 46,
+        "endLine": 4103,
+        "endChar": 51
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_83fb1ded",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "aside from this, I think you should revert the changes to this file.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_93c9b4ec",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "comment that we use SetFieldPtr to avoid the card mark.",
+      "range": {
+        "startLine": 85,
+        "startChar": 13,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "886997a4_d385ec83",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "SirtRef\u003cT\u003e* const\nI\u0027m paranoid about the const on the SirtRef",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 0
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_23032927",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(method_verifiers_lock_)\non both Add and Remove",
+      "range": {
+        "startLine": 446,
+        "startChar": 0,
+        "endLine": 447,
+        "endChar": 0
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89853f7_03fe2dd9",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "DEFAULT_MUTEX_ACQUIRED_AFTER",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 0
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8954fbe_1524a497",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-12-31T07:16:03Z",
+      "side": 1,
+      "message": "comment that this is only non-const due to moving classes",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 0
+      },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
