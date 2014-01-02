@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_1b0e3bfe",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_91c9a6ec",
+      "range": {
+        "startLine": 45,
+        "startChar": 61,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_71cc1afb",
         "filename": "runtime/barrier.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "LOCKS_EXCLUDED(lock_)",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_5c8f1fd1",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_71cc1afb",
       "range": {
         "startLine": 47,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_69b8ddf4",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_b1806275",
+      "range": {
+        "startLine": 492,
+        "startChar": 11,
+        "endLine": 492,
+        "endChar": 13
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_b167823f",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "Profiler* const",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 11
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_8980c175",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_b167823f",
       "range": {
         "startLine": 90,
         "startChar": 2,
@@ -186,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_c99da9d5",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_1381249d",
+      "range": {
+        "startLine": 149,
+        "startChar": 13,
+        "endLine": 149,
+        "endChar": 18
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_3376281f",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -232,6 +352,54 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_a99a65d9",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_317c52ce",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 16
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_775b1ce3",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_3376281f",
+      "range": {
+        "startLine": 150,
+        "startChar": 49,
+        "endLine": 150,
+        "endChar": 58
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_53739c2d",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -243,6 +411,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "now_us",
+      "range": {
+        "startLine": 151,
+        "startChar": 13,
+        "endLine": 151,
+        "endChar": 16
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_9758b0e6",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_53739c2d",
       "range": {
         "startLine": 151,
         "startChar": 13,
@@ -278,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_fb938fc9",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_7370a020",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 11
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_d16c0e26",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -289,6 +505,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "Thread*, hoist to top of loop and re-use.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_17b740bd",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_d16c0e26",
       "range": {
         "startLine": 156,
         "startChar": 0,
@@ -324,6 +564,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_6957bd43",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Indeed.  My worry too.  Although a background service is running when the screen is off.  At this level we don\u0027t know about Activities and Services.",
+      "parentUuid": "e89853f7_1167563e",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_5179dedc",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -335,6 +599,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "yay units! int?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_495cf963",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_5179dedc",
       "range": {
         "startLine": 176,
         "startChar": 0,
@@ -370,6 +658,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_2961b521",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_f37bd007",
+      "range": {
+        "startLine": 179,
+        "startChar": 15,
+        "endLine": 179,
+        "endChar": 24
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_b3e4f894",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -393,6 +705,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_db79f3dd",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_b3e4f894",
+      "range": {
+        "startLine": 209,
+        "startChar": 34,
+        "endLine": 209,
+        "endChar": 55
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_917366fb",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -404,6 +740,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "needs to be a LOCKS_EXCLUDED(Locks::profiler_lock_) on the declaration because of this.",
+      "range": {
+        "startLine": 249,
+        "startChar": 31,
+        "endLine": 249,
+        "endChar": 45
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_b7df74eb",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Already there",
+      "parentUuid": "e89853f7_917366fb",
       "range": {
         "startLine": 249,
         "startChar": 31,
@@ -462,6 +822,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_5e0a713c",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Already there",
+      "parentUuid": "886997a4_d3e96c6d",
+      "range": {
+        "startLine": 265,
+        "startChar": 43,
+        "endLine": 265,
+        "endChar": 64
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8954fbe_956b54c6",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -473,6 +857,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "profiler_ \u003d nullptr; // ie clear the profiler_ field to avoid use after delete.",
+      "range": {
+        "startLine": 266,
+        "startChar": 15,
+        "endLine": 266,
+        "endChar": 24
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_d74868f7",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Hmm, the profile might be running when this happens so setting the profiler_ to nullptr might cause a crash.  Safer not to do this I think.",
+      "parentUuid": "c8954fbe_956b54c6",
       "range": {
         "startLine": 266,
         "startChar": 15,
@@ -508,6 +916,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_c92809b4",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8954fbe_756ec8d8",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_f3ee7072",
         "filename": "runtime/profiler.cc",
         "patchSetId": 3
@@ -519,6 +951,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "on declaration not definition",
+      "range": {
+        "startLine": 305,
+        "startChar": 55,
+        "endLine": 305,
+        "endChar": 76
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd01e1f4_1e04e92c",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_f3ee7072",
       "range": {
         "startLine": 305,
         "startChar": 55,
@@ -554,6 +1010,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_fb5eefd1",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "c8954fbe_95943470",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_13f4c43d",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -565,6 +1045,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "Put",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 10
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_3c0b4b80",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Oh yeah, old habits die hard",
+      "parentUuid": "886997a4_13f4c43d",
       "range": {
         "startLine": 49,
         "startChar": 7,
@@ -600,6 +1104,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_0976f167",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8954fbe_b5ca108c",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_13aa0427",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -611,6 +1139,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "Clear",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 12
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_e972ad71",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_13aa0427",
       "range": {
         "startLine": 51,
         "startChar": 7,
@@ -646,6 +1198,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_a97ca543",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_d185ee83",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_33f9c837",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -657,6 +1233,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "Hash",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_896b217c",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_33f9c837",
       "range": {
         "startLine": 56,
         "startChar": 11,
@@ -692,6 +1292,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_6970dd65",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8954fbe_7597a874",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 8
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8954fbe_558aac51",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -703,6 +1327,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "Could we disambiguate this from the other kinds of profiling, perhaps ContinualBackgroundProfiler? A comment on the class declaration explaining what\u0027s here please.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_296ad575",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8954fbe_558aac51",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -738,6 +1386,30 @@
     },
     {
       "key": {
+        "uuid": "a8649bc8_fc6c7325",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_b38158a2",
+      "range": {
+        "startLine": 95,
+        "startChar": 14,
+        "endLine": 95,
+        "endChar": 26
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_538c7cdb",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -749,6 +1421,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "empty",
+      "range": {
+        "startLine": 108,
+        "startChar": 51,
+        "endLine": 108,
+        "endChar": 55
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd01e1f4_fbf14f7f",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_538c7cdb",
       "range": {
         "startLine": 108,
         "startChar": 51,
@@ -784,6 +1480,30 @@
     },
     {
       "key": {
+        "uuid": "a8649bc8_d78228ec",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_f18aea92",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 5
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8954fbe_b55f7022",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -795,6 +1515,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "comment please",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 25
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_c9cc89fc",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8954fbe_b55f7022",
       "range": {
         "startLine": 114,
         "startChar": 7,
@@ -830,6 +1574,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_1bde3ba4",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_338f08d3",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 5
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_73998018",
         "filename": "runtime/profiler.h",
         "patchSetId": 3
@@ -841,6 +1609,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "units? So after duration the file will be written regardless?",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 15
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8649bc8_178d801a",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_73998018",
       "range": {
         "startLine": 126,
         "startChar": 6,
@@ -876,6 +1668,30 @@
     },
     {
       "key": {
+        "uuid": "cd01e1f4_fbc38f43",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Don\u0027t know why all the ws changes are there.  They shouldn\u0027t be.",
+      "parentUuid": "c8954fbe_d564fcfc",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8954fbe_f559f83d",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
@@ -887,6 +1703,30 @@
       "writtenOn": "2013-12-31T01:53:04Z",
       "side": 1,
       "message": "can you fix the types (unsigned) and place the units into the field names, especially as the units vary for the different fields.",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 0
+      },
+      "revId": "31bb8c8865cd5647aa7e781b494613c5bb678b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6df1d54f_09a711d7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-01-02T20:50:39Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "c8954fbe_f559f83d",
       "range": {
         "startLine": 580,
         "startChar": 0,
