@@ -122,6 +122,30 @@
     },
     {
       "key": {
+        "uuid": "a832dbd0_d00794e0",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-02T10:36:54Z",
+      "side": 1,
+      "message": "Emit* functions don\u0027t care what\u0027s source/destination. reg1 and reg2 are in line with EmitRegReg/-Imm.",
+      "parentUuid": "a8649bc8_111af052",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_ae2ab70e",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
