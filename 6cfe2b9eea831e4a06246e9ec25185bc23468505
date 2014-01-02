@@ -146,6 +146,30 @@
     },
     {
       "key": {
+        "uuid": "6df1d54f_06aa5e04",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-02T16:14:13Z",
+      "side": 1,
+      "message": "Agreed, we do try to pull apart base and index registers in Emit* functions.",
+      "parentUuid": "a832dbd0_d00794e0",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_ae2ab70e",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
