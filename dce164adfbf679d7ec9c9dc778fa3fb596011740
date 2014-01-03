@@ -104,6 +104,24 @@
       "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4b0572_44662e06",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-03T16:28:47Z",
+      "side": 1,
+      "message": "No, not the only one. find() traverses the RB-tree (or AVL-tree or whatever implementation the STL contains) whether it finds the key or not. Put() traverses the RB-tree again.",
+      "parentUuid": "eda0655c_bcf64103",
+      "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
