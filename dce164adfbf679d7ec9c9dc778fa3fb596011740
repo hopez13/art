@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0d94d9fd_7d0af73c",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-03T16:18:56Z",
+      "side": 1,
+      "message": "expected to miss, hence the warning in the else.",
+      "parentUuid": "0d4f797f_a5f95ef5",
+      "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd48017b_23ffaad6",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "eda0655c_9cf905f6",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-03T16:18:56Z",
+      "side": 1,
+      "message": "yes, although it requires the \u003d",
+      "parentUuid": "cd48017b_23ffaad6",
+      "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d4f797f_85f66203",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2014-01-03T10:14:20Z",
       "side": 1,
       "message": "Second map lookup.",
+      "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda0655c_bcf64103",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-03T16:18:56Z",
+      "side": 1,
+      "message": "Only map lookup.",
+      "parentUuid": "0d4f797f_85f66203",
       "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
