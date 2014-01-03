@@ -122,6 +122,24 @@
       "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d299d85_b12bda95",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-03T16:33:05Z",
+      "side": 1,
+      "message": "But as stated, its actually safe to just do the put. There are good reasons we have SafeMap, if you have issues with SafeMap, then you need to modify SafeMap. Note in your later CL you keep this as is.",
+      "parentUuid": "ed4b0572_44662e06",
+      "revId": "dce164adfbf679d7ec9c9dc778fa3fb596011740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
