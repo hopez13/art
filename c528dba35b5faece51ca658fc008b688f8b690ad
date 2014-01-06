@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "edcea54a_32dee8a4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "It is const in this context though since it is only modified through another context (thread SIRT list by the GC). I believe adding const here is the correct move which matches the cpp style guide. I\u0027ll leave this here until we determine whether or not the  const will enable loads to incorrectly be optimized out.",
+      "parentUuid": "886997a4_73cc20fb",
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_83fb1ded",
         "filename": "runtime/class_linker.h",
         "patchSetId": 7
@@ -42,6 +60,24 @@
         "endLine": 49,
         "endChar": 0
       },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edcea54a_d2d20497",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "Comment in .cpp file. Will revert if we determine there is a correctness issue caused by const.",
+      "parentUuid": "e89853f7_83fb1ded",
       "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "6ddb9506_138ace92",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886997a4_93c9b4ec",
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "886997a4_d385ec83",
         "filename": "runtime/object_utils.h",
         "patchSetId": 7
@@ -88,6 +142,24 @@
         "endLine": 67,
         "endChar": 0
       },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ddb9506_338fd2a3",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "Need to const to make it compile, I can add do const SirtRef\u003cT\u003e* const however.",
+      "parentUuid": "886997a4_d385ec83",
       "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "edcea54a_f2cf00ee",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_23032927",
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e89853f7_03fe2dd9",
         "filename": "runtime/runtime.h",
         "patchSetId": 7
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "0dc2191e_73e1d842",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89853f7_03fe2dd9",
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8954fbe_1524a497",
         "filename": "runtime/verifier/reg_type.h",
         "patchSetId": 7
@@ -157,6 +265,24 @@
         "endLine": 289,
         "endChar": 0
       },
+      "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edcea54a_92cc7cfb",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:27:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8954fbe_1524a497",
       "revId": "c528dba35b5faece51ca658fc008b688f8b690ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
