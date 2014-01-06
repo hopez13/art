@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "edcea54a_12c08cc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "I think is is the correct word here.",
+      "parentUuid": "a8649bc8_6e47c990",
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8649bc8_31fe14da",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 5
@@ -42,6 +60,24 @@
         "endLine": 93,
         "endChar": 15
       },
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dc2191e_d02e82c0",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8649bc8_31fe14da",
       "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "edcea54a_92b31c7d",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dec497b_c7cd926f",
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dec497b_a7ca8e53",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 5
@@ -88,6 +142,24 @@
         "endLine": 99,
         "endChar": 0
       },
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ddb9506_53805674",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dec497b_a7ca8e53",
       "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "edcea54a_52dff4a2",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dec497b_e7c09639",
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8649bc8_71188c8f",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 5
@@ -134,6 +224,24 @@
         "endLine": 154,
         "endChar": 8
       },
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edcea54a_b2b09870",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Its easier to just guard it by a lock. We need a lock when we allocate a new block anyways to prevent races where one thread is allocating a new block and another thread is walking the space.",
+      "parentUuid": "a8649bc8_71188c8f",
       "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "0dc2191e_f02b7ead",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dec497b_8799ca67",
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dec497b_679ec64f",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -180,6 +306,24 @@
         "endLine": 806,
         "endChar": 27
       },
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dc2191e_9028fab2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dec497b_679ec64f",
       "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "0dc2191e_b025f6db",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8649bc8_b112246b",
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6df1d54f_838300a9",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -226,6 +388,24 @@
         "endLine": 818,
         "endChar": 25
       },
+      "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ddb9506_73855a83",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-06T19:16:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df1d54f_838300a9",
       "revId": "692fafd9778141fa6ef0048c9569abd7ee0253bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
