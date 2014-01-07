@@ -220,6 +220,24 @@
     },
     {
       "key": {
+        "uuid": "4db331fa_f7b0a071",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-07T18:41:28Z",
+      "side": 1,
+      "message": "This is about potentially eliminating the instruction that loads the register _before_ the CMOV:\n\n    mov eax, 0\n    cmovz eax, ebx\n\nREG_DEF0 without REG_USE0 means the `mov eax, 0` is dead.",
+      "parentUuid": "0d17798c_88247799",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a832dbd0_adbba959",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
