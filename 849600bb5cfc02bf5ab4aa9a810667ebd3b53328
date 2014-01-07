@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4db331fa_1778b4a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-07T11:06:35Z",
+      "side": 1,
+      "message": "I briefly looked at what an imprecise constant is, but do we agree it\u0027s more of a dummy value?",
+      "range": {
+        "startLine": 14,
+        "startChar": 12,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "849600bb5cfc02bf5ab4aa9a810667ebd3b53328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dae3595_7887214b",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-07T11:06:35Z",
+      "side": 1,
+      "message": "Why does this method requires the mutator lock?",
+      "range": {
+        "startLine": 614,
+        "startChar": 6,
+        "endLine": 614,
+        "endChar": 27
+      },
+      "revId": "849600bb5cfc02bf5ab4aa9a810667ebd3b53328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4db331fa_57822c3c",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-07T11:06:35Z",
+      "side": 1,
+      "message": "Why do you need positive versions?",
+      "range": {
+        "startLine": 460,
+        "startChar": 40,
+        "endLine": 460,
+        "endChar": 55
+      },
+      "revId": "849600bb5cfc02bf5ab4aa9a810667ebd3b53328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
