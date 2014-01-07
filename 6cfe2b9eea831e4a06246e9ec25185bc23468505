@@ -202,6 +202,24 @@
     },
     {
       "key": {
+        "uuid": "0d17798c_88247799",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-07T18:35:44Z",
+      "side": 1,
+      "message": "Assuming my understanding of movcc is correct, reg0 is either defined or not defined by this instruction, but it is not used as a source (unless, of course, it also shows up in the reg1 slot).  With current usage of these flags, a USE0 is not required.   Vladimir may be thinking ahead to some future optimization passes he intends to add - in that case, we\u0027ll need to revisit all of the use/def encodings at that time.",
+      "parentUuid": "ad266df6_3314da26",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a832dbd0_adbba959",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
