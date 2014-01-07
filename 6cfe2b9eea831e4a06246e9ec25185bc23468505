@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d2b69c2_e92b7594",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Cmov is not microcoded into a branch. It is generally better to use cmov than jcc+mov because it takes up less space. Additionally, using cmov can be beneficial if there is possibility of mispredict because it won\u0027t cause speculative instruction fetching that may cause a stall on mispredict. Also it is good because it won\u0027t take up slot in branch target buffer which in rare cases may alias.",
+      "parentUuid": "8dec497b_07c01a17",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8649bc8_d1c6b880",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2013-12-30T23:44:40Z",
       "side": 1,
       "message": "that when true will perform the opcode.",
+      "range": {
+        "startLine": 756,
+        "startChar": 35,
+        "endLine": 756,
+        "endChar": 36
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad266df6_0ab51bd6",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8649bc8_d1c6b880",
       "range": {
         "startLine": 756,
         "startChar": 35,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ad266df6_8a72ab70",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Removed. But good catch :)",
+      "parentUuid": "c8438f32_ce1f03e8",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_8e25fb41",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "ad266df6_0a4d1b03",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Actually I am not sure the value is used when condition isn\u0027t met. The specifications for Cmovcc in Intel\u0027s Software Developer\u0027s Manual show that the DEST is always defined and never used. But I can always oblige if you believe I should add it.",
+      "parentUuid": "c8438f32_8e25fb41",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a832dbd0_adbba959",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
@@ -93,6 +177,24 @@
       "writtenOn": "2013-12-26T10:42:31Z",
       "side": 1,
       "message": "I\u0027d prefer less code. Use EmitPrefixAndOpcode() above and add the condition to code_buffer_.back() as in EmitOpRegOpcode().",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d2b69c2_4998c15e",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a832dbd0_adbba959",
       "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -170,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "ad266df6_4af39358",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Agreed with Vladimir that the names used here are consistent with the rest of the file.",
+      "parentUuid": "6df1d54f_06aa5e04",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_ae2ab70e",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -181,6 +307,30 @@
       "writtenOn": "2013-12-26T10:42:31Z",
       "side": 1,
       "message": "Unnecessary, IMO. Use DCHECK_GE or CHECK_GE if you really want to check this.",
+      "range": {
+        "startLine": 301,
+        "startChar": 2,
+        "endLine": 301,
+        "endChar": 8
+      },
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d2b69c2_09b1a9c9",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "c8438f32_ae2ab70e",
       "range": {
         "startLine": 301,
         "startChar": 2,
@@ -210,6 +360,24 @@
     },
     {
       "key": {
+        "uuid": "8d2b69c2_e9c9b542",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Okay, I will do that.",
+      "parentUuid": "884ef754_747346fc",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8438f32_0e1aebf7",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -221,6 +389,24 @@
       "writtenOn": "2013-12-26T10:42:31Z",
       "side": 1,
       "message": "This comment doesn\u0027t add any value here. A proper documentation of the StoreValue itself would be more useful.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d25f1ed_47b26e15",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Okay, I will do that.",
+      "parentUuid": "c8438f32_0e1aebf7",
       "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -244,6 +430,60 @@
     },
     {
       "key": {
+        "uuid": "4d25f1ed_27149a26",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8438f32_ee24bf42",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d2b69c2_e9e255ba",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8438f32_ee24bf42",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d25f1ed_c79dbe7c",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8438f32_ee24bf42",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "884ef754_547642ed",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -255,6 +495,24 @@
       "writtenOn": "2013-12-26T10:42:31Z",
       "side": 1,
       "message": "Remove the space between function name and opening bracket.",
+      "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d2b69c2_89e599c6",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-07T01:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "884ef754_547642ed",
       "revId": "6cfe2b9eea831e4a06246e9ec25185bc23468505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
