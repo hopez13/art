@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d76fd12_69bf61b4",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-08T19:05:12Z",
+      "side": 1,
+      "message": "Currently, full GCs (called from System.gc / native allocations) are assumed to process all of the references, collecting only the bump pointer space in this case would probably not be correct. Either way, this is only a minor issue.",
+      "revId": "ebf88769017d98eb1163000994d6e8fe2bdfe9eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
