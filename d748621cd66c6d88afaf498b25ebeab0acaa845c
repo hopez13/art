@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6da395b3_d3fba65a",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-08T19:04:30Z",
+      "side": 1,
+      "message": "Forgot about the allocation stack, the current approach should be fine then.",
+      "parentUuid": "8d2b69c2_5d57db90",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e871338d_684a6b41",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -171,6 +189,24 @@
       "side": 1,
       "message": "Here\u0027s my thinking: Here (in the else block of this if statement), the non-moving space (the destination of the promotion) is not immune (i.e., it\u0027s being collected) and its live/mark bitmaps aren\u0027t bound (or, they don\u0027t point to the same bit map). In addition, the promoted object is sort of a special-case allocation for the non-moving space, that is, it does not go through the allocation stack and is not marked in the live bitmap at this point, but it should be for it to be handled (swept) in future collections. So, I think we can\u0027t avoid marking both bitmaps.",
       "parentUuid": "e871338d_28db133d",
+      "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da395b3_932e7ebf",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-08T19:04:30Z",
+      "side": 1,
+      "message": "Nevermind, I think you\u0027re right.",
+      "parentUuid": "8d2b69c2_f86e9dd5",
       "revId": "d748621cd66c6d88afaf498b25ebeab0acaa845c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
