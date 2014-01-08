@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adb4adde_ba5b71e0",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-08T09:46:31Z",
+      "side": 1,
+      "message": "Isn\u0027t CHECK_EQ just for assertion purposes? So am I understanding correctly that you\u0027re taking a lock even if the CHECK_EQ is just a nop?",
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dae3595_d8e2edba",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-08T09:46:31Z",
+      "side": 1,
+      "message": "Extra braces?",
+      "range": {
+        "startLine": 2442,
+        "startChar": 2,
+        "endLine": 2442,
+        "endChar": 3
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad974d5d_621f566e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-08T09:46:31Z",
+      "side": 1,
+      "message": "How does this method know if EnableDeoptimization has been called? Or is that not a requirement?",
+      "range": {
+        "startLine": 492,
+        "startChar": 5,
+        "endLine": 492,
+        "endChar": 20
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d73f924_2533ce13",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-08T09:46:31Z",
+      "side": 1,
+      "message": "if we not deoptimized -\u003e if we did not deoptimize",
+      "range": {
+        "startLine": 521,
+        "startChar": 52,
+        "endLine": 521,
+        "endChar": 63
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6f8539_8418068f",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-08T09:46:31Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 968,
+        "startChar": 29,
+        "endLine": 968,
+        "endChar": 31
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
