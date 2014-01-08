@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6da395b3_b3154258",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-08T19:45:26Z",
+      "side": 1,
+      "message": "Good catch! Fixed.",
+      "parentUuid": "ad974d5d_426fb2d2",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad974d5d_02b08ae5",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-01-08T12:15:37Z",
       "side": 1,
       "message": "Avoid overwriting rl_src2.low_reg by the kOpMov below:\n    if (rl_result.low_reg \u003d\u003d rl_src2.low_reg) std::swap(rl_src1, rl_src2);\nThat should fix the obviously broken\n    mov     ebp, ebx\n    cmp     ebx, ebp\n    cmovl/nge ebp, ebp",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da89190_15dc3485",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-08T19:45:26Z",
+      "side": 1,
+      "message": "I believed that asking for a temp for the result would give a unique one. I should have realized that since requesting a temp gives a physical register instead of an actual temp out of an unlimited pool, then we can run into this case. Anyway, great catch and I did create a case that confirms your analysis. And your solution works. Thanks for the detailed explanation of the issue with this patch!",
+      "parentUuid": "ad974d5d_02b08ae5",
       "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6da395b3_364dc003",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-08T19:45:26Z",
+      "side": 1,
+      "message": "I am using OpRegCopy now and added the check to OpRegCopyNoInsert to match arm implementation.",
+      "parentUuid": "ad974d5d_42a7b2a3",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d73f924_e5c4567c",
         "filename": "disassembler/disassembler_x86.cc",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2014-01-08T12:15:37Z",
       "side": 1,
       "message": "load \u003d true;",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da89190_2f856984",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-08T19:45:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d73f924_e5c4567c",
       "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
