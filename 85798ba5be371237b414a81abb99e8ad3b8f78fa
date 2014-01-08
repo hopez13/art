@@ -16,6 +16,40 @@
       "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad974d5d_02b08ae5",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-08T12:15:37Z",
+      "side": 1,
+      "message": "Avoid overwriting rl_src2.low_reg by the kOpMov below:\n    if (rl_result.low_reg \u003d\u003d rl_src2.low_reg) std::swap(rl_src1, rl_src2);\nThat should fix the obviously broken\n    mov     ebp, ebx\n    cmp     ebx, ebp\n    cmovl/nge ebp, ebp",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d73f924_e5c4567c",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-08T12:15:37Z",
+      "side": 1,
+      "message": "load \u003d true;",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
