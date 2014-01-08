@@ -16,6 +16,24 @@
       "revId": "988e6ea9ac66edf1e205851df9bb53de3f3763f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_953bc4af",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-08T21:14:05Z",
+      "side": 1,
+      "message": "For the x86 target we\u0027re using StringPrintf and std::string\u0027s concatenate operator+. I prefer that approach and we should revisit and refactor this code.",
+      "parentUuid": "2d76fd12_ccf943f5",
+      "revId": "988e6ea9ac66edf1e205851df9bb53de3f3763f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
