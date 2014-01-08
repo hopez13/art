@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ed6f8539_c4cd9e6f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-08T13:25:55Z",
+      "side": 1,
+      "message": "No, CHECK (and variants like CHECK_EQ) are always executed. We also have DCHECK (and variants) which are only executed in debug builds.",
+      "parentUuid": "adb4adde_ba5b71e0",
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6dae3595_d8e2edba",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2014-01-08T09:46:31Z",
       "side": 1,
       "message": "Extra braces?",
+      "range": {
+        "startLine": 2442,
+        "startChar": 2,
+        "endLine": 2442,
+        "endChar": 3
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d73f924_85ac8289",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-08T13:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dae3595_d8e2edba",
       "range": {
         "startLine": 2442,
         "startChar": 2,
@@ -65,6 +107,53 @@
     },
     {
       "key": {
+        "uuid": "ed6f8539_e4ca9a54",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-08T13:25:55Z",
+      "side": 1,
+      "message": "By design, it must be called once...",
+      "parentUuid": "ad974d5d_621f566e",
+      "range": {
+        "startLine": 492,
+        "startChar": 5,
+        "endLine": 492,
+        "endChar": 20
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6f8539_04997665",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-08T13:25:55Z",
+      "side": 1,
+      "message": "... and here we ensure we\u0027re not trying to deoptimize a method twice.",
+      "range": {
+        "startLine": 499,
+        "startChar": 2,
+        "endLine": 499,
+        "endChar": 29
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d73f924_2533ce13",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -88,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "0d73f924_a5a97e78",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-08T13:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d73f924_2533ce13",
+      "range": {
+        "startLine": 521,
+        "startChar": 52,
+        "endLine": 521,
+        "endChar": 63
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed6f8539_8418068f",
         "filename": "runtime/jdwp/jdwp_event.cc",
         "patchSetId": 2
@@ -99,6 +212,30 @@
       "writtenOn": "2014-01-08T09:46:31Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 968,
+        "startChar": 29,
+        "endLine": 968,
+        "endChar": 31
+      },
+      "revId": "7d20e5dc1a8c57bd6b80c2191a1595975b71eb03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad974d5d_c264e2ac",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-08T13:25:55Z",
+      "side": 1,
+      "message": "Some artifact from an old PS. Thanks for catching this, will remove the others too.",
+      "parentUuid": "ed6f8539_8418068f",
       "range": {
         "startLine": 968,
         "startChar": 29,
