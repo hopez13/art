@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d76fd12_468c521e",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-08T16:59:42Z",
+      "side": 1,
+      "message": "I think it is still where the statics are held. There should be a clean-up of our static terminology..",
+      "parentUuid": "ed6f8539_a4a98278",
+      "range": {
+        "startLine": 383,
+        "startChar": 53,
+        "endLine": 383,
+        "endChar": 77
+      },
+      "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed96a557_0ce43794",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "6da395b3_9044b4d6",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-08T16:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed96a557_0ce43794",
+      "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd93a168_0b9a5d12",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2014-01-08T16:36:26Z",
       "side": 1,
       "message": "As above...",
+      "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da395b3_b041b8c5",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-08T16:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd93a168_0b9a5d12",
       "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "2d76fd12_268756fe",
+        "filename": "compiler/llvm/gbc_expander.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1882,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-08T16:59:42Z",
+      "side": 1,
+      "message": "You could do the optimization, as GBC is going away I wanted to keep the change minimal.",
+      "parentUuid": "ed6f8539_84ac8689",
+      "range": {
+        "startLine": 1882,
+        "startChar": 7,
+        "endLine": 1882,
+        "endChar": 21
+      },
+      "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed96a557_8cf74743",
         "filename": "runtime/mirror/dex_cache.cc",
         "patchSetId": 2
@@ -93,6 +177,24 @@
       "writtenOn": "2014-01-08T16:36:26Z",
       "side": 1,
       "message": "If we\u0027re going to switch from NULL to nullptr, I\u0027d think it would be best to do it all at once with a single CL whose sole purpose is to convert NULL to nullptr.  Piecemeal conversion just adds noise to CLs unrelated to the real purpose of the CL.",
+      "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d76fd12_06825aed",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-08T16:59:42Z",
+      "side": 1,
+      "message": "We\u0027ve been doing the transition piecemeal to avoid a large CL. I was modifying DexCache::Init hence doing a piecemeal clean-up here. Agreed the DexCache::Fixup wasn\u0027t touched.",
+      "parentUuid": "ed96a557_8cf74743",
       "revId": "2c827a32d06ba871830acc20711f96fc775ade25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
