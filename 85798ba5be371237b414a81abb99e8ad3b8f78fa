@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad974d5d_426fb2d2",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-08T10:54:49Z",
+      "side": 1,
+      "message": "IS_TERTIARY_OP since the condition code counts as well (assertion failing at mir_to_lir-inl.cc#102)",
+      "revId": "85798ba5be371237b414a81abb99e8ad3b8f78fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
