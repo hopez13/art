@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6da395b3_760e68ff",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-08T19:24:03Z",
+      "side": 1,
+      "message": "You might add a TODO here suggesting that the handling of temp doubles be cleaned up.  What we\u0027ve got is pretty ugly (in part because of currently unnecessary vestigial support for old Arm devices without hardware FP support).",
+      "revId": "473008596493908186be6a1e7137513e3bb5290a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
