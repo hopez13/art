@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdcac190_227dd03e",
+        "filename": "runtime/catch_block_stack_visitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-09T20:54:11Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "1223e3bd82d73f965e9488a7ecc5f917989b34e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_ebe8d168",
+        "filename": "runtime/catch_block_stack_visitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-09T20:54:11Z",
+      "side": 1,
+      "message": "CatchFinder* const, not a fan of reference fields although they capture non-nullness they hide ownership.",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "1223e3bd82d73f965e9488a7ecc5f917989b34e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
