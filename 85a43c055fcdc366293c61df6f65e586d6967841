@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "0dd1393f_0f80b973",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-09T19:55:27Z",
+      "side": 1,
+      "message": "Just a habit, compiler will optimize it out anyways.",
+      "parentUuid": "0dd1393f_af90a530",
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_6774fa15",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 360,
         "endChar": 48
       },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_8f94c9b3",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-09T19:55:27Z",
+      "side": 1,
+      "message": "Maybe I\u0027ll change it in the future.",
+      "parentUuid": "cdcac190_6774fa15",
       "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "2dd43d2d_cb3635c9",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-09T19:55:27Z",
+      "side": 1,
+      "message": "Maybe in another CL, I am also tempted of just deleting the if and putting a DCHECK.",
+      "parentUuid": "2dd43d2d_b0dda8a8",
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dd43d2d_0bdc2d84",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -111,6 +165,24 @@
         "endLine": 1336,
         "endChar": 45
       },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_eae0cb41",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-09T19:55:27Z",
+      "side": 1,
+      "message": "Will fix later.",
+      "parentUuid": "2dd43d2d_0bdc2d84",
       "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "0dd1393f_cae50f50",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-09T19:55:27Z",
+      "side": 1,
+      "message": "Will fix later.",
+      "parentUuid": "0dd1393f_afb1c511",
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dd1393f_cf3641c9",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -157,6 +247,24 @@
         "endLine": 1381,
         "endChar": 4
       },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_42fa0cea",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-09T19:55:27Z",
+      "side": 1,
+      "message": "I thought of just putting all the bin building code in the constructor, but it would not do much other than save a few lines of code.",
+      "parentUuid": "0dd1393f_cf3641c9",
       "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
