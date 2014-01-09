@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dd1393f_af90a530",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "nit: no need to initialize to nullptr? It\u0027s assigned to in all following control paths?",
+      "range": {
+        "startLine": 312,
+        "startChar": 36,
+        "endLine": 312,
+        "endChar": 43
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_6774fa15",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "Nit: this could\u0027ve just been called ForwardObject()?",
+      "range": {
+        "startLine": 360,
+        "startChar": 26,
+        "endLine": 360,
+        "endChar": 48
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_0fb0b9e5",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "Nice simplification.",
+      "range": {
+        "startLine": 538,
+        "startChar": 11,
+        "endLine": 538,
+        "endChar": 29
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_b0dda8a8",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "Perhaps, surrounding the condition with an UNLIKELY?",
+      "range": {
+        "startLine": 539,
+        "startChar": 13,
+        "endLine": 539,
+        "endChar": 22
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_0bdc2d84",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "nit: no need to initialize to zero?",
+      "range": {
+        "startLine": 1336,
+        "startChar": 38,
+        "endLine": 1336,
+        "endChar": 45
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_afb1c511",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "nit: no need to initialize it to zero?",
+      "range": {
+        "startLine": 1342,
+        "startChar": 31,
+        "endLine": 1342,
+        "endChar": 32
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_cf3641c9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-09T19:22:50Z",
+      "side": 1,
+      "message": "Maybe ZygoteCompactingCollector\u0027s interface could be simplified somewhat.\n\nFor example, something like coalescing the constructor call with the BuildBins call (i.e., calling BuildBins() from within the constructor) and even coalesce the four calls (constructor, BuildBins, SetFromSpace, and SetToSpace) into one call.",
+      "range": {
+        "startLine": 1381,
+        "startChar": 0,
+        "endLine": 1381,
+        "endChar": 4
+      },
+      "revId": "85a43c055fcdc366293c61df6f65e586d6967841",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
