@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad0e6db3_0acafbdd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-09T18:00:34Z",
+      "side": 1,
+      "message": "Right. I\u0027d need to move out these classes to their own module to introduce reference (CatchFinder references CatchStackBlockVisitor and respectively). Part of the next PS.",
+      "parentUuid": "2dd43d2d_251838ca",
+      "range": {
+        "startLine": 1747,
+        "startChar": 0,
+        "endLine": 1747,
+        "endChar": 25
+      },
+      "revId": "ea3abfafbab2ccbbf08a8f99df618086a0525bc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dd1393f_e42b6412",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ede2251a_6c219b00",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-09T18:00:34Z",
+      "side": 1,
+      "message": "you mean fields holding information not applicable to the portable, right?",
+      "parentUuid": "0dd1393f_e42b6412",
+      "range": {
+        "startLine": 1748,
+        "startChar": 0,
+        "endLine": 1748,
+        "endChar": 70
+      },
+      "revId": "ea3abfafbab2ccbbf08a8f99df618086a0525bc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dd1393f_24e03cb1",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-01-09T17:34:20Z",
       "side": 1,
       "message": "unused?",
+      "range": {
+        "startLine": 1911,
+        "startChar": 0,
+        "endLine": 1911,
+        "endChar": 32
+      },
+      "revId": "ea3abfafbab2ccbbf08a8f99df618086a0525bc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd6993f_2d66ed87",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1911,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-09T18:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dd1393f_24e03cb1",
       "range": {
         "startLine": 1911,
         "startChar": 0,
