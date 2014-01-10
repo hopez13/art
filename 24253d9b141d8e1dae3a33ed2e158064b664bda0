@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d3d554c_a0d3fa44",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-10T18:50:39Z",
+      "side": 1,
+      "message": "I think there is a operator\u003c\u003c for const Space\u0026? Might be worth using that instead.",
+      "revId": "24253d9b141d8e1dae3a33ed2e158064b664bda0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
