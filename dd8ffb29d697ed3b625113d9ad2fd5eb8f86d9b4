@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "0dd1393f_4d9eb478",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "remove whitespace",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 0
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_958cd76c",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "comment convention is that they are sentences and should end with a full-stop. The comments below too.",
+      "range": {
+        "startLine": 65,
+        "startChar": 60,
+        "endLine": 65,
+        "endChar": 68
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_55963f7a",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "1 line of whitespace.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 0
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dd43d2d_479e9178",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
@@ -19,6 +88,47 @@
     },
     {
       "key": {
+        "uuid": "0dd1393f_ad28a86c",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "2dd43d2d_479e9178",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_cd22c48e",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "full-stop.",
+      "range": {
+        "startLine": 335,
+        "startChar": 38,
+        "endLine": 335,
+        "endChar": 41
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_3f2f2273",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -30,6 +140,47 @@
       "writtenOn": "2014-01-10T15:59:16Z",
       "side": 1,
       "message": "Is there a better location for this?",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_0d42fc2c",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "Sentence for comments. Although quick hasn\u0027t been following this pattern, the pattern is supposed to be that comments for functions appear at their declaration and not definition.",
+      "parentUuid": "cdcac190_3f2f2273",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_9575f7a4",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "comment as to what low_reg !\u003d high_reg implies",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 44
+      },
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -64,6 +215,47 @@
       "writtenOn": "2014-01-10T15:59:16Z",
       "side": 1,
       "message": "Factoring out the code, to allow overriding",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_a228b36c",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "0dd1393f_173d6fa5",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_8d4e0c52",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "Comments are sentences...",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 39
+      },
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +297,93 @@
     },
     {
       "key": {
+        "uuid": "cdcac190_d5d36f44",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "The DCHECK_NE will give you the failing values. We prefer to use CHECK as DCHECK is only used in libartd phone boots and when running unit tests (ie you get much better coverage with a CHECK). eng builds don\u0027t imply libartd.",
+      "parentUuid": "2dd43d2d_a77565a4",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_addae834",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "comment to explain the test",
+      "range": {
+        "startLine": 811,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 38
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_b5d8f35f",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "comment to explain the test",
+      "range": {
+        "startLine": 1066,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 36
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_4de114ed",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 355,
+        "startChar": 31,
+        "endLine": 355,
+        "endChar": 32
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dd1393f_f208c1f3",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 1
@@ -122,6 +401,29 @@
     },
     {
       "key": {
+        "uuid": "2dd43d2d_c23bafae",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 44
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_122e9dac",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 1
@@ -133,6 +435,52 @@
       "writtenOn": "2014-01-10T18:50:14Z",
       "side": 1,
       "message": "As above, don\u0027t change the .fp flag here.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_55c87f8d",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "comments are sentences, here and below.",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 37
+      },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_02ebe7d4",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T20:10:06Z",
+      "side": 1,
+      "message": "scary, yet more todos for AllocTempDouble (currently an assert that AllocTempDouble returns a double register fails).",
+      "range": {
+        "startLine": 743,
+        "startChar": 23,
+        "endLine": 743,
+        "endChar": 26
+      },
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
