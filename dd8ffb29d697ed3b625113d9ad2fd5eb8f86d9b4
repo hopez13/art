@@ -296,6 +296,23 @@
     },
     {
       "key": {
+        "uuid": "0dd1393f_8d5cccd9",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "This might be the right time to rethink the \"pair\" notion at a higher level.  I don\u0027t much like the \"low !\u003d high\" test here (though given the current setup it isn\u0027t unreasonable).  Rather than change that all in this CL, though, I should do it in a new CL.  Something like reworking MarkLive() and MarkPair to operate on RegLocations rather than individual registers so we can hide the physical storage.  The original notion behind RegLocations was to abstract away the physical location of a value, and it may make life cleaner for everyone if we also use it to hide more of the architecture-dependent storage quirks.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_9575f7a4",
         "filename": "compiler/dex/quick/gen_loadstore.cc",
         "patchSetId": 1
@@ -531,6 +548,24 @@
     },
     {
       "key": {
+        "uuid": "0dd1393f_cd97642f",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "The compiler generally goes with DCHECK.  We get decent coverage with host cross builds using dex2oatd, and want to avoid the extra on-device cost of CHECKs.",
+      "parentUuid": "cdcac190_d5d36f44",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dd1393f_addae834",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 1
@@ -753,6 +788,23 @@
     },
     {
       "key": {
+        "uuid": "cdcac190_f52b0b12",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "Don\u0027t try to use the fp flag in a RegLocation to determine the register class of the physical storage.  Again, that tells how the value is being used - not how it is being held.  Use IsFpReg() on the physical register in question to determine its register class.  UpdateLoc\u0027s job is to determine if the Dalvik value in question currently exists in valid physical registers.  It\u0027s perfectly reasonable for a Dalvik int value to be held in an fp register, or a double value to be held in a pair of core registers.  UpdateLoc just finds the nearest valid location for the value - other code is responsible for making sure that the value is in the right kind of register, and correct if not.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_55c87f8d",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -800,6 +852,57 @@
     },
     {
       "key": {
+        "uuid": "2dd43d2d_c20baf7c",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "As above, don\u0027t use loc.fp in this manner.  I think you probably just want to use reg_class here.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_4d4d94ab",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "ditto - lose the loc.fp.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_2805a62c",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "Add a TODO to unify the EvalLoc and UpdateLoc routines.  I think it should be doable once I clean up the pair mess, and historically these routines have been the source of subtle bugs.  I\u0027m a bit queasy at having multiple copies of them.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dd43d2d_02ebe7d4",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -841,6 +944,40 @@
         "endLine": 743,
         "endChar": 26
       },
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_e2622b2f",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "+1.  I really don\u0027t like this - but it\u0027s the fault of the \"pair\" mechanism.  Add a TODO to revisit this after the pair cleanup.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_359bc3e1",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T21:25:20Z",
+      "side": 1,
+      "message": "Invalid use of rl.fp.  Also add a TODO to reunify this with the main routine.  As far as I can tell, the only significant difference is the DCHECK that makes sure pair is set on the high reg.  That should cease to be an issue with the pair reworking.",
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
