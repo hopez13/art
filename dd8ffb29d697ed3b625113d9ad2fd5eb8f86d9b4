@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdcac190_3f2f2273",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-10T15:59:16Z",
+      "side": 1,
+      "message": "Is there a better location for this?",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_173d6fa5",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-10T15:59:16Z",
+      "side": 1,
+      "message": "Factoring out the code, to allow overriding",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_f741d328",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-10T15:59:16Z",
+      "side": 1,
+      "message": "Is DCHECK_NE better?",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
