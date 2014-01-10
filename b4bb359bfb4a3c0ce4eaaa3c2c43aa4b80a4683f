@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdcac190_905985c3",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T22:41:44Z",
+      "side": 1,
+      "message": "\u003d\u003d nullptr",
+      "range": {
+        "startLine": 716,
+        "startChar": 31,
+        "endLine": 716,
+        "endChar": 32
+      },
+      "revId": "b4bb359bfb4a3c0ce4eaaa3c2c43aa4b80a4683f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d4251dd_bf3c77df",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-10T22:41:44Z",
+      "side": 1,
+      "message": "*s on the left:\nconst char* suffix \u003d nullptr",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 80
+      },
+      "revId": "b4bb359bfb4a3c0ce4eaaa3c2c43aa4b80a4683f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
