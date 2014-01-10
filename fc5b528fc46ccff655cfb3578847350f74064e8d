@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dd43d2d_36f74d02",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-10T00:50:08Z",
+      "side": 1,
+      "message": "My intuition of the \"main\" space is what is always non-null (the only free list space prezygote and the free list space that occupies the space right after the zygote space.) But this \"main_space_\" follows this sense only post-zygote fork as what you needed is a way to tell if an object is movable or not and is null pre-zygote fork. Just a side note.",
+      "range": {
+        "startLine": 2092,
+        "startChar": 8,
+        "endLine": 2092,
+        "endChar": 19
+      },
+      "revId": "fc5b528fc46ccff655cfb3578847350f74064e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
