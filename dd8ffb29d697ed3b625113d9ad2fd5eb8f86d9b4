@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2dd43d2d_479e9178",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "Rearrange to place the bit fields together.  We are sensitive to the size of the RegLocation struct - it needs to stay 64 bits to allow it to be passed in registers when possible (which is why you see it passed by value all over the place).",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_3f2f2273",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -13,6 +30,23 @@
       "writtenOn": "2014-01-10T15:59:16Z",
       "side": 1,
       "message": "Is there a better location for this?",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_92bbcdf5",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "use DCHECK",
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -47,6 +81,92 @@
       "writtenOn": "2014-01-10T15:59:16Z",
       "side": 1,
       "message": "Is DCHECK_NE better?",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dd43d2d_a77565a4",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "0dd1393f_f741d328",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_f208c1f3",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "The \"fp\" field says nothing about what register class is being used to store the value (that is inferred from the physical register number).  Rather, it specifies what type being used.  So, do not change it here.  It\u0027s perfectly reasonable to have .fp set in a regloc, but the value is contained in core registers.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_122e9dac",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "As above, don\u0027t change the .fp flag here.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_b20369d5",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdcac190_b23c89df",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-10T18:50:14Z",
+      "side": 1,
+      "message": "If this is a placeholder, use UNIMPLEMENTED(FATAL)",
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
