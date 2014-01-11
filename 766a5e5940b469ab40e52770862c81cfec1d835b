@@ -22,6 +22,30 @@
       "revId": "766a5e5940b469ab40e52770862c81cfec1d835b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d4251dd_a506aa75",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-11T21:02:46Z",
+      "side": 1,
+      "message": "To explain further, the various flavors of UpdateLoc must determine whether the requested Dalvik value is located in any class of physical register.  It matters not at all whether that class matches the expected usage of the value (which is what the fp flag in the RegLocation signifies).  Callers of UpdateLoc are responsible for ensuring that the register class is appropriate for the target instructions being used.  For example, if you are doing a series of logical operations on a floating point value in core registers, you want the Dalvik value to stay in core registers.  UpdateLoc  as designed will allow that.  The use of loc.fp here breaks that capbility.",
+      "parentUuid": "2dd43d2d_182c7729",
+      "range": {
+        "startLine": 564,
+        "startChar": 16,
+        "endLine": 564,
+        "endChar": 17
+      },
+      "revId": "766a5e5940b469ab40e52770862c81cfec1d835b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
