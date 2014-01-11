@@ -805,6 +805,24 @@
     },
     {
       "key": {
+        "uuid": "2dd43d2d_84a144c1",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-11T03:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdcac190_f52b0b12",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdcac190_55c87f8d",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -869,6 +887,24 @@
     },
     {
       "key": {
+        "uuid": "cdcac190_50108d63",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-11T03:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd43d2d_c20baf7c",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dd1393f_4d4d94ab",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -880,6 +916,24 @@
       "writtenOn": "2014-01-10T21:25:20Z",
       "side": 1,
       "message": "ditto - lose the loc.fp.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_0870aa64",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-11T03:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dd1393f_4d4d94ab",
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -978,6 +1032,24 @@
       "writtenOn": "2014-01-10T21:25:20Z",
       "side": 1,
       "message": "Invalid use of rl.fp.  Also add a TODO to reunify this with the main routine.  As far as I can tell, the only significant difference is the DCHECK that makes sure pair is set on the high reg.  That should cease to be an issue with the pair reworking.",
+      "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dd1393f_286b667e",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-11T03:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdcac190_359bc3e1",
       "revId": "dd8ffb29d697ed3b625113d9ad2fd5eb8f86d9b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
