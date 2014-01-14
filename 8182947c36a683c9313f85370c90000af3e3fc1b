@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d30bd7d_1cca5d37",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-14T01:16:36Z",
+      "side": 1,
+      "message": "Instead of adding a bool here I would prefer a new collector type, something like:\nkCollectorTypeGSS",
+      "revId": "8182947c36a683c9313f85370c90000af3e3fc1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1635de_61288c6c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-14T01:16:36Z",
+      "side": 1,
+      "message": "Worth adding a new cause? This really isn\u0027t for alloc.",
+      "revId": "8182947c36a683c9313f85370c90000af3e3fc1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1b3107_20e4d0fd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-14T01:16:36Z",
+      "side": 1,
+      "message": "Good job adding this new cause.",
+      "revId": "8182947c36a683c9313f85370c90000af3e3fc1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
