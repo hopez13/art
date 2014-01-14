@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d1b3107_a008e0f2",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T01:17:19Z",
+      "side": 1,
+      "message": "Makes sense to move this to MIRGraph constructor since we always create this special temporary.",
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1635de_61516cf2",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T01:17:19Z",
+      "side": 1,
+      "message": "I moved the register information to stack.h since stack layout is dependent on this. Let me know if there is a better place to move these.",
+      "range": {
+        "startLine": 525,
+        "startChar": 10,
+        "endLine": 525,
+        "endChar": 24
+      },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

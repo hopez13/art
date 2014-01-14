@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d1b3107_a0b9c0d1",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T01:17:19Z",
+      "side": 0,
+      "message": "The interface for compiler temps is now in MIRGraph because this TODO hinted it was the right thing to do.",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "71b2acb0045d2bff0f3d9f7cd080779244407e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
