@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "4d1b3107_d1b12411",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T19:08:58Z",
+      "side": 1,
+      "message": "Sure, I will fix it in next patch.",
+      "parentUuid": "cd7ba135_2b103963",
+      "range": {
+        "startLine": 580,
+        "startChar": 9,
+        "endLine": 580,
+        "endChar": 28
+      },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d1635de_ac369bc7",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 1
@@ -71,6 +95,47 @@
       "writtenOn": "2014-01-14T02:21:09Z",
       "side": 1,
       "message": "And, this \"negative value\" for compiler temps makes life a bit ugly elsewhere in the code.  I\u0027ve probably flushed out the bulk of the issues by getting the method pointer special working - but beware of code that expects to index an array based on vreg.",
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1b3107_519e7478",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T19:08:58Z",
+      "side": 1,
+      "message": "Agreed. I will seek out if there are any other instances of this possible problem.",
+      "parentUuid": "6d1635de_ac369bc7",
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1635de_8d4e3152",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T19:08:58Z",
+      "side": 1,
+      "message": "Instead of assuming that we need as much space as there are temps, this should instead call a Mir2Lir method named GetNeededSpillSpaceForTemps where initially it will return space for each temp. But as it evolves, quick BE should only return space if it needs to spill and also for non-overlapping ranges it should use same spill location.",
+      "range": {
+        "startLine": 1072,
+        "startChar": 31,
+        "endLine": 1072,
+        "endChar": 50
+      },
       "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -134,6 +199,30 @@
       "writtenOn": "2014-01-14T02:21:09Z",
       "side": 1,
       "message": "Off the top of my head, I don\u0027t remember for sure why I started with -2 for Method* - but I might be using -1 as the code for an invalid or unknown Dalvik vreg.  When I\u0027m at work tomorrow, I\u0027ll take a look at the code to jog my memory.",
+      "range": {
+        "startLine": 536,
+        "startChar": 32,
+        "endLine": 536,
+        "endChar": 33
+      },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1635de_2da125bf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T19:08:58Z",
+      "side": 1,
+      "message": "That would be great! Thanks!",
+      "parentUuid": "6d1635de_6c03a3d6",
       "range": {
         "startLine": 536,
         "startChar": 32,
