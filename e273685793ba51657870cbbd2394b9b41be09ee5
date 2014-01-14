@@ -19,6 +19,41 @@
     },
     {
       "key": {
+        "uuid": "2d30bd7d_fc3f61eb",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-14T02:21:09Z",
+      "side": 1,
+      "message": "+1.",
+      "parentUuid": "4d1b3107_a008e0f2",
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1635de_ac369bc7",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-14T02:21:09Z",
+      "side": 1,
+      "message": "And, this \"negative value\" for compiler temps makes life a bit ugly elsewhere in the code.  I\u0027ve probably flushed out the bulk of the issues by getting the method pointer special working - but beware of code that expects to index an array based on vreg.",
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d1635de_61516cf2",
         "filename": "runtime/stack.h",
         "patchSetId": 1
@@ -58,6 +93,29 @@
         "startChar": 10,
         "endLine": 527,
         "endChar": 27
+      },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1635de_6c03a3d6",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-14T02:21:09Z",
+      "side": 1,
+      "message": "Off the top of my head, I don\u0027t remember for sure why I started with -2 for Method* - but I might be using -1 as the code for an invalid or unknown Dalvik vreg.  When I\u0027m at work tomorrow, I\u0027ll take a look at the code to jog my memory.",
+      "range": {
+        "startLine": 536,
+        "startChar": 32,
+        "endLine": 536,
+        "endChar": 33
       },
       "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",

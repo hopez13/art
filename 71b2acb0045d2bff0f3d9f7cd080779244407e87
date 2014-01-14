@@ -22,6 +22,30 @@
       "revId": "71b2acb0045d2bff0f3d9f7cd080779244407e87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1b3107_c0ddd4a7",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-14T02:21:09Z",
+      "side": 0,
+      "message": "Yes, that\u0027s what I had in mind.  Because it\u0027s a target-independent MIR feature, it should go there.",
+      "parentUuid": "4d1b3107_a0b9c0d1",
+      "range": {
+        "startLine": 85,
+        "startChar": 11,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "71b2acb0045d2bff0f3d9f7cd080779244407e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
