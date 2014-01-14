@@ -39,6 +39,29 @@
       "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d1b3107_00daec01",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-14T01:36:13Z",
+      "side": 1,
+      "message": "Instead of defines we can add static methods to get these fields.",
+      "range": {
+        "startLine": 527,
+        "startChar": 10,
+        "endLine": 527,
+        "endChar": 27
+      },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
