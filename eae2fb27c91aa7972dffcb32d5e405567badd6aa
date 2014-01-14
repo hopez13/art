@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed294520_3d74f3e2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3528,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-14T23:42:33Z",
+      "side": 1,
+      "message": "Weird we didn\u0027t need the clear before, a missing test?",
+      "range": {
+        "startLine": 3528,
+        "startChar": 0,
+        "endLine": 3528,
+        "endChar": 29
+      },
+      "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed294520_dd513f50",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3594,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-14T23:42:33Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 3594,
+        "startChar": 26,
+        "endLine": 3594,
+        "endChar": 29
+      },
+      "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd26414f_1c3fb939",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3692,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-14T23:42:33Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 3692,
+        "startChar": 0,
+        "endLine": 3692,
+        "endChar": 27
+      },
+      "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
