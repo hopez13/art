@@ -22,6 +22,24 @@
       "revId": "d8076864565a9cd4fd4fc22a3d34f88f4caf3d01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4deed135_94cd32f8",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-15T22:41:59Z",
+      "side": 1,
+      "message": "This function runs with all of the threads suspended. The profiler checkpoint does has a ScopedObjectAccess. This would normally work if we were in kRunnable, but since we SetStateUnsafe back to the old_state, it ends up trying to acquire the mutator lock which is already exclusively held. This causes a deadlock since we don\u0027t support recursive reader writer locks. I can\u0027t think of any clean ways to change the profiler checkpoint to deal with this issue, maybe irogers can.",
+      "parentUuid": "edaa25eb_35f8b231",
+      "revId": "d8076864565a9cd4fd4fc22a3d34f88f4caf3d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
