@@ -60,6 +60,70 @@
     },
     {
       "key": {
+        "uuid": "0df0590e_2c74db14",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T21:43:09Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "0df0590e_0c08ffb8",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df0590e_2c25fb93",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T21:43:09Z",
+      "side": 1,
+      "message": "[my first comment here was going to be \"don\u0027t do this!\", but now I think I see what you\u0027re after.  Note, though, that it\u0027s really dangerous to directly modify the register fields of RegLocations.  Avoid doing so if possible.].\n\n\nAs you\u0027ve no doubt noticed, the general structure of Quick codegen has a 3-address bias.  I\u0027m assuming that you are intending this routine to better support 2-address operations.  Let\u0027s move this to gen_loadstore.cc, and make it available for all targets.  Also, don\u0027t pass RegLocations by reference.  They are small enough to frequently be held in registers, so make this a function that returns a RegLocation.  I could envision a similar use for int, single and double - but let\u0027s not worry about that now.  Just call this one RegLocation ForceTempWide(RegLocation loc) and DCHECK to make sure that your incoming registers are core.\n\nI\u0027m in the midst of a rework of register handling (part of the \"pair\" cleanup).  As part of that, I\u0027ll rework your new ForceTempWide() to handle core and FP regs.",
+      "range": {
+        "startLine": 901,
+        "startChar": 17,
+        "endLine": 901,
+        "endChar": 26
+      },
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edaa25eb_d2606420",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T21:43:09Z",
+      "side": 1,
+      "message": "The various UpdateLocs tell you if the desired value happens to already be live in a register.  It will not, however, allocate any registers.  For rl_dest, what you generaly want is EvalLoc().  EvalLoc() will ensure that physical registers are allocated for your eventual result.  Your use of UpdateLoc to snoop on the current state of the world is fine, but if you can\u0027t do the operation directly into registers you may end up at the final StoreValue with no registers having been allocated.\n\nYou may generally get away with this, but I think you may get caught if one of the two Dalvik vregs that makes up the wide value here was promoted, but the other wasn\u0027t.  EvalLocWide() deals with this case.\n\n\nAdd an EvalLocWide below, immediately before the final StoreValueWide().",
+      "range": {
+        "startLine": 921,
+        "startChar": 33,
+        "endLine": 921,
+        "endChar": 35
+      },
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_b2983863",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -95,6 +159,41 @@
     },
     {
       "key": {
+        "uuid": "4deed135_14ff62d5",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T21:43:09Z",
+      "side": 1,
+      "message": "The above call to LoadValueWide lets you specify the register class you want (which could be anything - float even if it\u0027s core, or core if it\u0027s float).  It will ensure that the value is loaded into physical register[s] of the specified class.  However, you cannot assume that the register[s] will be temp.  If the value has been promoted, you\u0027ll get the promoted register.",
+      "parentUuid": "edaa25eb_b2983863",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edaa25eb_32460896",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T21:43:09Z",
+      "side": 1,
+      "message": "EvalLocWide() here.",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_d2bea4b6",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -106,6 +205,24 @@
       "writtenOn": "2014-01-15T20:27:58Z",
       "side": 1,
       "message": "This is a bug fix.  IsFpReg(INVALID_REG) returns \u0027true\u0027",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4deed135_54228abe",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T21:43:09Z",
+      "side": 1,
+      "message": "Ah, yes.  I\u0027ll keep that in mind during my register rework. 0xff does match all of the bit mask flags.  Yuck.",
+      "parentUuid": "edaa25eb_d2bea4b6",
       "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
