@@ -236,6 +236,24 @@
     },
     {
       "key": {
+        "uuid": "4deed135_74950edb",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-15T22:34:07Z",
+      "side": 1,
+      "message": "Now that I think about it, my advice about needing an EvalLocWide() here was wrong.  What threw me here was not seeing an EvalLoc anywhere - which is something that\u0027s usually required.  However, your new ForceTempWide() plays a similar role to EvalLoc elsewhere.  Normally, you\u0027d:\n\nrl_src1 \u003d LoadValue()\n\nrl_src2 \u003d LoadValue()\n\nrl_result \u003d EvalLoc(rl_dest)\n\n... do operations into rl_result\u0027s registers\n\nStoreValue(rl_dest, rl_result);  // flush to home location\n\n\nYour ForceTempWide can be looked at as the functional equivalent of\n\n\nrl_src \u003d LoadValue(rl_src)\n\nrl_result \u003d EvalLoc(rl_dest)\n\ncopy(rl_result, rl_src)\n\n\nSo, I don\u0027t think you need the explicit EvalLoc after all.  However, to make this code fit in better with the existing scheme, go ahead and use the \"rl_result\" name for the result of ForceTempWide:\n\nRegLocation rl_result \u003d ForceTempWide(rl_src)\n\n.. then operate on rl_result\n\nStoreValue(rl_dest, rl_result);\n\n\nNow, I think there may be another problem that I overlooked.  In your ForceTempWide, if either of the registers is already a temp you leave it alone and use it as-is.  In this case, you also need to Clobber() it to break the association between that temp register and the src vReg it was loaded from.  Otherwise, a subsequent operation may attempt to reuse that register assuming the original vreg\u0027s value is still live in it (and you\u0027ve since stepped on it).",
+      "parentUuid": "edaa25eb_32460896",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_d2bea4b6",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
