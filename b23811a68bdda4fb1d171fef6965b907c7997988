@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "0df0590e_0c08ffb8",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T21:22:27Z",
+      "side": 1,
+      "message": "If the location is DalvikFrame or CompilerTemp after an UpdateLoc, then the value isn\u0027t in registers (as far as I know)",
+      "parentUuid": "0df0590e_8ccecf68",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_b2983863",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
