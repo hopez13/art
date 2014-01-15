@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0df0590e_2caa1b6c",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T21:11:15Z",
+      "side": 1,
+      "message": "I think EvalLocWide is what I really wanted.",
+      "parentUuid": "edaa25eb_b2983863",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_d2bea4b6",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
