@@ -40,6 +40,24 @@
       "revId": "d8076864565a9cd4fd4fc22a3d34f88f4caf3d01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4deed135_68bed2e7",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-15T23:05:54Z",
+      "side": 1,
+      "message": "Our reader writer lock is non-reentrant. Scoped object access ignores transitions in the runnable case, and so this change achieves that. I\u0027d rather that we were running checkpoints with all threads suspended, so we should be able to move the checkpoint to after the ResumeAll.",
+      "parentUuid": "4deed135_94cd32f8",
+      "revId": "d8076864565a9cd4fd4fc22a3d34f88f4caf3d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
