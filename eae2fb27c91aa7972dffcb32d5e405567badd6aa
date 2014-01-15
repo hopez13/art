@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4deed135_5f9e2b78",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3528,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-15T00:01:23Z",
+      "side": 1,
+      "message": "Before we always passed in false, this meant that exceptions could never get thrown. I started getting some errors caused by exceptions after changing it to can_load_classes_ so I added the ClearException. I assume this is OK?",
+      "parentUuid": "ed294520_3d74f3e2",
+      "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed294520_dd513f50",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "4deed135_bf13f73e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3594,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-15T00:01:23Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "ed294520_dd513f50",
+      "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd26414f_1c3fb939",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 3692,
         "endChar": 27
       },
+      "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df0590e_9d32830d",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3692,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-15T00:01:23Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "cd26414f_1c3fb939",
       "revId": "eae2fb27c91aa7972dffcb32d5e405567badd6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
