@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edaa25eb_b2983863",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T20:27:58Z",
+      "side": 1,
+      "message": "Is this necessary?  I couldn\u0027t figure out if LoadValueWide returns a temporary copy if the home location is in Core registers.",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edaa25eb_d2bea4b6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T20:27:58Z",
+      "side": 1,
+      "message": "This is a bug fix.  IsFpReg(INVALID_REG) returns \u0027true\u0027",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edaa25eb_12c14c3c",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T20:27:58Z",
+      "side": 1,
+      "message": "More fixes..",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
