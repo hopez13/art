@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "4deed135_39efff9c",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-15T21:11:31Z",
+      "side": 1,
+      "message": "immediate",
+      "range": {
+        "startLine": 260,
+        "startChar": 20,
+        "endLine": 260,
+        "endChar": 30
+      },
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df0590e_8ccecf68",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-15T21:11:31Z",
+      "side": 1,
+      "message": "Even though the destination may be a dalvik register, it is possible it has been promoted or is in a physical register. I wonder if there are additional checks needed here before you do the operation in memory.",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_b2983863",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
