@@ -101,6 +101,30 @@
     },
     {
       "key": {
+        "uuid": "4deed135_74e18eed",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T22:03:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0df0590e_2c25fb93",
+      "range": {
+        "startLine": 901,
+        "startChar": 17,
+        "endLine": 901,
+        "endChar": 26
+      },
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edaa25eb_d2606420",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -188,6 +212,24 @@
       "writtenOn": "2014-01-15T21:43:09Z",
       "side": 1,
       "message": "EvalLocWide() here.",
+      "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0df0590e_6c26e3e7",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-15T22:03:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edaa25eb_32460896",
       "revId": "b23811a68bdda4fb1d171fef6965b907c7997988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
