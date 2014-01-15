@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edaa25eb_35f8b231",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-01-15T22:33:04Z",
+      "side": 1,
+      "message": "wouldn\u0027t it be cleaner to make the checkpoint restore the world the way it found it?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 30
+      },
+      "revId": "d8076864565a9cd4fd4fc22a3d34f88f4caf3d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
