@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d6331c4_9726044c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T16:04:53Z",
+      "side": 1,
+      "message": "If we ever hit this, DexFile_openDexFileNative shall crash on\n\n  CHECK_EQ(env-\u003eExceptionCheck(), JNI_TRUE);",
+      "range": {
+        "startLine": 856,
+        "startChar": 11,
+        "endLine": 856,
+        "endChar": 18
+      },
+      "revId": "c8e62a48d259064ad2306db2f880955a951f61cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed71458d_94ab645c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T16:04:53Z",
+      "side": 1,
+      "message": "Same here.",
+      "revId": "c8e62a48d259064ad2306db2f880955a951f61cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
