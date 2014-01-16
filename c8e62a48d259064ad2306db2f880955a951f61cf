@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6dd0f588_11594ec1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-01-16T17:34:17Z",
+      "side": 1,
+      "message": "we could be doing ThrowIOException here and below then.\n\nhowever, it then seems odd to have error_msg as an out argument?\n\nI\u0027m thinking this was just some bad mix of old exception code and newer error_msg code. I think the preferred style now is to just use error_msg and let the caller make the exception. That would mean adjusting GenerateOatFile to not use ThrowIOException and change DexFile_openDexFileNative to do so.",
+      "parentUuid": "4d6331c4_9726044c",
+      "range": {
+        "startLine": 856,
+        "startChar": 11,
+        "endLine": 856,
+        "endChar": 18
+      },
+      "revId": "c8e62a48d259064ad2306db2f880955a951f61cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed71458d_94ab645c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
