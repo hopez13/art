@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd6e41b0_73426058",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "Why is this called ForceTempWide if it works for non-wide loc as well?",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6331c4_d7bf9c42",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "Rename to in_mem.\n\nOptionally, make it a function argument and drop the loc. The DCHECK below can be moved to the caller.",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6331c4_f7c4a0df",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "There is no reason to declare variables early. You can have 4 independent variables x86op in this function.",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6331c4_17aaf404",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "Same as x86op.",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed71458d_34745015",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "And here.",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd6e41b0_7318a0cb",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "This makes the branch unreachable. We have already filtered loc.location \u003d\u003d kLocPhysReg above.",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed71458d_746ec846",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "Is this necessary?",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6331c4_57b46c64",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T20:43:47Z",
+      "side": 1,
+      "message": "LOG(INFO) \u003c\u003c ...",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
