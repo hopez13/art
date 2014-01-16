@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8d80c97a_e4b954d1",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-16T20:53:09Z",
+      "side": 1,
+      "message": "My fault - I asked him to call it wide, assuming there\u0027d be a separate non-wide variant (keeping with EvalLoc() and EvalLocWide() conventions).  I occasionally regret the proliferation of Wide and non-Wide variants, but no so much that I\u0027d go to the effort of combining them all.  Meanwhile, I\u0027d say go ahead and make this Wide-only (DCHECK to assert) and create a separate non-Wide.  I\u0027ll be revisiting this function as part of the pair cleanup, so may change it further.",
+      "parentUuid": "cd6e41b0_73426058",
+      "revId": "0d3d8bbde9c8b2bbb058b9e36b671112e0431449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d6331c4_d7bf9c42",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
