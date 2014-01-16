@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d6331c4_5798ec13",
+        "filename": "compiler/dex/pass_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T19:25:25Z",
+      "side": 1,
+      "message": "const here and on the return type.\n\nconstexpr would be even better but for that I would need\n\n  protected:\n    ~Pass() \u003d default;\n\nand that makes the gcc -Wnon-virtual-dtor complain. I could work around that with a #pragma but the derived classes should really be marked final and the host build on my development machine uses gcc 4.6 without support for C++11 final classes.",
+      "revId": "b53d3a1e406382cdf76f325fa38fe6abbe8dd1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed71458d_741248de",
+        "filename": "compiler/dex/pass_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-16T19:25:25Z",
+      "side": 1,
+      "message": "Top-level const on function arguments is almost completely meaningless. I would discourage its usage.",
+      "range": {
+        "startLine": 55,
+        "startChar": 40,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "b53d3a1e406382cdf76f325fa38fe6abbe8dd1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
