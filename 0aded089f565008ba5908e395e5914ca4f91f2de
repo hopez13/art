@@ -22,6 +22,30 @@
       "revId": "0aded089f565008ba5908e395e5914ca4f91f2de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d37e9c2_cc8b7f05",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-01-17T00:43:01Z",
+      "side": 1,
+      "message": "PLOG",
+      "parentUuid": "0d23f98e_68f7db00",
+      "range": {
+        "startLine": 238,
+        "startChar": 18,
+        "endLine": 238,
+        "endChar": 35
+      },
+      "revId": "0aded089f565008ba5908e395e5914ca4f91f2de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
