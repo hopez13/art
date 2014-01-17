@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0d23f98e_c881af38",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-17T17:58:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d30bd7d_fc3f61eb",
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd7ba135_2b103963",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
@@ -71,6 +89,30 @@
       "writtenOn": "2014-01-14T19:08:58Z",
       "side": 1,
       "message": "Sure, I will fix it in next patch.",
+      "parentUuid": "cd7ba135_2b103963",
+      "range": {
+        "startLine": 580,
+        "startChar": 9,
+        "endLine": 580,
+        "endChar": 28
+      },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d37e9c2_8c98a763",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-17T17:58:04Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "cd7ba135_2b103963",
       "range": {
         "startLine": 580,
@@ -136,6 +178,23 @@
         "endLine": 1072,
         "endChar": 50
       },
+      "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd43a132_ce2aa3fe",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-17T17:58:04Z",
+      "side": 1,
+      "message": "Indexing should use some helper function instead of manually managing it. Namely there should be a consistent way to determine the location in an array that keeps information for VRs and temps.",
       "revId": "e273685793ba51657870cbbd2394b9b41be09ee5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
