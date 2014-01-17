@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d23f98e_08be67e6",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-01-17T00:46:27Z",
+      "side": 1,
+      "message": "you don\u0027t want a trailing \u0027.\u0027 --- PLOG will append a \u0027:\u0027 right after that.",
+      "revId": "8a4865e04f128c7bc6d897f7cd3b2ad0db1d65a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
