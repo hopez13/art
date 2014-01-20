@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3229fe85_f71dd2c5",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": "() const {",
+      "range": {
+        "startLine": 580,
+        "startChar": 34,
+        "endLine": 580,
+        "endChar": 35
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_f8d4a511",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": "() const {",
+      "range": {
+        "startLine": 590,
+        "startChar": 0,
+        "endLine": 590,
+        "endChar": 42
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_d8d1e11f",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": "There are a number of terms being introduced, temporaries, special, non-special, is there an overview comment to show how things fit together?\nHaving read the rest of the code, having the descriptions live in stack.h would make sense to me. A reference to that from here may be useful.",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 595,
+        "endChar": 87
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_df4ae741",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": ") const {",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 47
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3229fe85_97144e9e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": "Seems this should just be a constant. I find the TempBaseReg thing a mouth-full.",
+      "range": {
+        "startLine": 530,
+        "startChar": 12,
+        "endLine": 530,
+        "endChar": 13
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_bf472338",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": "Parse error. Could you give a clearer comment :-)",
+      "range": {
+        "startLine": 544,
+        "startChar": 6,
+        "endLine": 544,
+        "endChar": 11
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_9f445f34",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:42:20Z",
+      "side": 1,
+      "message": "again use a constant (an enum?), you can move the assertions to COMPILE_ASSERT or unit tests.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 28
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
