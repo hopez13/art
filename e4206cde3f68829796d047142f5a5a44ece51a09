@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "723ff6b5_ffc00b6b",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "The code gen here should be naive, ie put down a fast or slow path. The compiler driver should say which and any pertinent extra details. Compiler code runs as native, whereas this code is touching naked mirror objects. The choice about fast/slow paths is made in the compiler driver so all compilers can leverage an optimization and theres a single place to look at compile time assumptions (usually necessary when checking verifier sanity).",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 893,
+        "endChar": 84
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_1fdcef58",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "As there are no sub-classes, these member functions don\u0027t need to be virtual.",
+      "range": {
+        "startLine": 351,
+        "startChar": 4,
+        "endLine": 351,
+        "endChar": 11
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_38aeadae",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 33
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_18b3e916",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "template specialization? s/GCC/annotalysis/",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 83
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_dfbd47e9",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "Only used in quick_alloc_entrypoints.cc so move to only point of use?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 100
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_f8a705cd",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 145,
+        "startChar": 20,
+        "endLine": 145,
+        "endChar": 21
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_d8a441cb",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T00:49:46Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 96
+      },
+      "revId": "e4206cde3f68829796d047142f5a5a44ece51a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
