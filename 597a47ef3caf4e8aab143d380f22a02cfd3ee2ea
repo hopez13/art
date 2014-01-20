@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3229fe85_17097e87",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:23:36Z",
+      "side": 1,
+      "message": "Would it be simpler/cleaner to have a GrowableArray\u003cLIRSlowPath*\u003e rather than a linked list?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 0,
+        "endLine": 1126,
+        "endChar": 50
+      },
+      "revId": "597a47ef3caf4e8aab143d380f22a02cfd3ee2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_9f2d7f76",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:23:36Z",
+      "side": 1,
+      "message": "i don\u0027t believe the __ buys much here.",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 11
+      },
+      "revId": "597a47ef3caf4e8aab143d380f22a02cfd3ee2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_38eb4dcf",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:23:36Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 839,
+        "startChar": 0,
+        "endLine": 839,
+        "endChar": 17
+      },
+      "revId": "597a47ef3caf4e8aab143d380f22a02cfd3ee2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3229fe85_37047a6f",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:23:36Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 17
+      },
+      "revId": "597a47ef3caf4e8aab143d380f22a02cfd3ee2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_7f3adbae",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-20T04:23:36Z",
+      "side": 1,
+      "message": "declare in Mir2Lir?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 19
+      },
+      "revId": "597a47ef3caf4e8aab143d380f22a02cfd3ee2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
