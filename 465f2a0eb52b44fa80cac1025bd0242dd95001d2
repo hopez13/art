@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5244b256_a3c7127f",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-21T15:52:20Z",
+      "side": 1,
+      "message": "The usage of \"update\" in the existing code has the sense of finding out where things are and updating the data to reflect the reality - not changing the reality.  Here you are changing the state of dest, so should name this something else.",
+      "range": {
+        "startLine": 297,
+        "startChar": 41,
+        "endLine": 297,
+        "endChar": 42
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3229fe85_e2f3ce51",
         "filename": "compiler/dex/quick/gen_loadstore.cc",
         "patchSetId": 5
@@ -19,6 +42,23 @@
         "endLine": 306,
         "endChar": 54
       },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_6afe9b52",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-21T15:52:20Z",
+      "side": 1,
+      "message": "Clobbering is necessary only in the case that you\u0027ve re-assigned or modified the registers associated with a src Dalvik value.  In the location \u003d\u003d kLocPhysReg case you\u0027ve done a physical copy, so the src registers are untouched (and therefore don\u0027t need to be clobbered).  Move these into the preceeding else clause.",
       "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -202,6 +242,29 @@
         "startChar": 0,
         "endLine": 648,
         "endChar": 56
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3229fe85_42bbc257",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-21T15:52:20Z",
+      "side": 1,
+      "message": "Not that it matters too much here, but the convention is to pass RegLocations by value.",
+      "range": {
+        "startLine": 793,
+        "startChar": 44,
+        "endLine": 793,
+        "endChar": 45
       },
       "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
