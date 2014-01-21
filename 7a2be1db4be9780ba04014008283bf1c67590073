@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "723ff6b5_77555f16",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-21T19:47:27Z",
+      "side": 1,
+      "message": "In the above TODO, can you elaborate a bit more on the issue with the .macro in OS/X, along the line of .macro uses $0, $1,... as arguments on OS/X and their assembler fails to assemble if those $0, $1,... for different macros exist on the same line, which is how I interpreted the issue in our in-person discussion.\n\nAs for the name suffixes of these macros, instead of numbers 1-6, I prefer names that correspond to the entry points like GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT and GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_WITH_ACCESS. The reason is that with numbers, if we insert a new entrypoint into the middle of the list of these six entrypoints in the future, we\u0027d most likely have to renumber them all, as opposed to simply add a line there.",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 1
+      },
+      "revId": "7a2be1db4be9780ba04014008283bf1c67590073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
