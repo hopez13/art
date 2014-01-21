@@ -22,6 +22,30 @@
       "revId": "38f566132408ac8bb6e69db3d72b028253159ce4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32973e04_a16cd861",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-21T16:27:26Z",
+      "side": 0,
+      "message": "Reread the code. This change uses the correct dex cache, so this excessive FindDexCache() is removed.",
+      "parentUuid": "3229fe85_82d88ac1",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 55
+      },
+      "revId": "38f566132408ac8bb6e69db3d72b028253159ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
