@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3229fe85_029b7aea",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:41:14Z",
+      "side": 1,
+      "message": "I don\u0027t follow the \"re-read\" comment. In all of the cases you are searching the class linker for dex caches from dex files, whereas in the original code this was only done if the reference was across dex files. The original reason to do this was driven by profiling the code, something I suspect wasn\u0027t done here.",
+      "range": {
+        "startLine": 1175,
+        "startChar": 0,
+        "endLine": 1175,
+        "endChar": 89
+      },
+      "revId": "0a9d348cc66f0b2b1fc87b1e9d2d88a1e2987ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3229fe85_a2ab86ff",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
