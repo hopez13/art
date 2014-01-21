@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d29d0227_fb5fefaa",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-21T20:40:09Z",
+      "side": 1,
+      "message": "Thanks. I think there\u0027s one more thing to cover:\n\n  rm -rf /tmp/android-data/dalvik-cache/*@classes.dex\n\nthis is where I see the oat files for command-line benchmarks (eg RitzPerf) end up on my machine.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 1
+      },
+      "revId": "b32a3ad73be87835faec086eb587d23570de3296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
