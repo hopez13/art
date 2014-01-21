@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "723ff6b5_1793b391",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-21T20:08:30Z",
+      "side": 1,
+      "message": "Nice to have this enabled.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_def30952",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-21T20:08:30Z",
+      "side": 1,
+      "message": "I think this could/should be surrounded by\n\n  if (!Runtime::Current()-\u003eIsZygote() || !kMovingCollector) {\n\nas we won\u0027t use the post zygote non-moving space otherwise?",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 2
+      },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5244b256_fe1dadc5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-21T20:08:30Z",
+      "side": 1,
+      "message": "Is this the case for the java.lang.Class object? Leave a comment ?",
+      "range": {
+        "startLine": 796,
+        "startChar": 8,
+        "endLine": 796,
+        "endChar": 20
+      },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
