@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5244b256_8313ee43",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:18:36Z",
+      "side": 1,
+      "message": "When the return is assuming that an exception has been thrown then assert this prior to returning so that we at least document the expected behavior.\n\nDCHECK(self-\u003eIsExceptionPending());  // Throw exception and unwind.\nreturn nullptr;  // Failure.",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 21
+      },
+      "revId": "a405b02456493424b4965d90ec74c0172fe21435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_aaf36380",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:18:36Z",
+      "side": 1,
+      "message": "as above.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 21
+      },
+      "revId": "a405b02456493424b4965d90ec74c0172fe21435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_6a257b38",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:18:36Z",
+      "side": 1,
+      "message": "method\u0027s",
+      "range": {
+        "startLine": 241,
+        "startChar": 43,
+        "endLine": 241,
+        "endChar": 51
+      },
+      "revId": "a405b02456493424b4965d90ec74c0172fe21435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
