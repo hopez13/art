@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3229fe85_a2ab86ff",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:12:34Z",
+      "side": 1,
+      "message": "Don\u0027t do this. Create the SirtRefs in the scoped limited cases they are necessary.",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1177,
+        "endChar": 77
+      },
+      "revId": "0a9d348cc66f0b2b1fc87b1e9d2d88a1e2987ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723ff6b5_eae96b92",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:12:34Z",
+      "side": 1,
+      "message": "variable used once, just use target_method-\u003edex_method_index at its use. Note the term method_idx is overloaded and so this variable name introduces ambiguity.",
+      "range": {
+        "startLine": 1182,
+        "startChar": 0,
+        "endLine": 1182,
+        "endChar": 56
+      },
+      "revId": "0a9d348cc66f0b2b1fc87b1e9d2d88a1e2987ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3229fe85_82d88ac1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-21T16:12:34Z",
+      "side": 0,
+      "message": "This change loses this optimization and is thereby going to increase the number of slow, under lock searches to map a dex file to a dex cache.",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 55
+      },
+      "revId": "38f566132408ac8bb6e69db3d72b028253159ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
