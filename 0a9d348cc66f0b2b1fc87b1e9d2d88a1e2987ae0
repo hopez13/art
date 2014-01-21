@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "728d36f2_2398d465",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-21T16:48:24Z",
+      "side": 1,
+      "message": "In the original code, Compute{Field,Method}ReferencedFromCompilingMethod() performs the first FindDexCache() and then, ComputeCompilingMethodsClass() may do a second FindDexCache() for the same DexFile since the caller initialized the dex_cache from the resolved field/method. With this change, we only do the FindDexCache() once and use that dex_cache as many times as needed.",
+      "parentUuid": "3229fe85_029b7aea",
+      "range": {
+        "startLine": 1175,
+        "startChar": 0,
+        "endLine": 1175,
+        "endChar": 89
+      },
+      "revId": "0a9d348cc66f0b2b1fc87b1e9d2d88a1e2987ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3229fe85_a2ab86ff",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
