@@ -91,6 +91,29 @@
       "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2cb423b_0b337d0f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-22T21:06:43Z",
+      "side": 1,
+      "message": "This should be \"collector_type\" instead of \"gc::kCollectorTypeGSS\". Currently, the GC type override (-Xgc) does not work. Will fix this.",
+      "range": {
+        "startLine": 597,
+        "startChar": 36,
+        "endLine": 597,
+        "endChar": 57
+      },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
