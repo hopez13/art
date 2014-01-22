@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "127dda9f_1b1d034f",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Changed to StoreFinalValueWide.  I am very open to better names",
+      "parentUuid": "5244b256_a3c7127f",
+      "range": {
+        "startLine": 297,
+        "startChar": 41,
+        "endLine": 297,
+        "endChar": 42
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3229fe85_e2f3ce51",
         "filename": "compiler/dex/quick/gen_loadstore.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-01-21T15:30:38Z",
       "side": 1,
       "message": "full-stop at end of comments",
+      "range": {
+        "startLine": 306,
+        "startChar": 53,
+        "endLine": 306,
+        "endChar": 54
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "127dda9f_bb708fad",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3229fe85_e2f3ce51",
       "range": {
         "startLine": 306,
         "startChar": 53,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "32801ec4_19bbcf58",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723ff6b5_6afe9b52",
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "723ff6b5_0ae6efca",
         "filename": "compiler/dex/quick/gen_loadstore.cc",
         "patchSetId": 5
@@ -76,6 +142,30 @@
       "writtenOn": "2014-01-21T15:30:38Z",
       "side": 1,
       "message": "and here",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 71
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32801ec4_d9a47734",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723ff6b5_0ae6efca",
       "range": {
         "startLine": 314,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "32801ec4_b9abbbff",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723ff6b5_eae28bb4",
+      "range": {
+        "startLine": 633,
+        "startChar": 63,
+        "endLine": 633,
+        "endChar": 64
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3229fe85_c200d261",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 5
@@ -122,6 +236,30 @@
       "writtenOn": "2014-01-21T15:30:38Z",
       "side": 1,
       "message": "ws",
+      "range": {
+        "startLine": 636,
+        "startChar": 88,
+        "endLine": 636,
+        "endChar": 89
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32801ec4_59d867c0",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3229fe85_c200d261",
       "range": {
         "startLine": 636,
         "startChar": 88,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "f27926b6_14d2b49e",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5244b256_43d74637",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 33
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5244b256_23dc4259",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 5
@@ -168,6 +330,30 @@
       "writtenOn": "2014-01-21T15:30:38Z",
       "side": 1,
       "message": "full-stop",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 52
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "127dda9f_7bb997f6",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5244b256_23dc4259",
       "range": {
         "startLine": 615,
         "startChar": 0,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "127dda9f_1bae63ae",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3229fe85_a2fdc61f",
+      "range": {
+        "startLine": 626,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 59
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "723ff6b5_aadc83fe",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 5
@@ -214,6 +424,30 @@
       "writtenOn": "2014-01-21T15:30:38Z",
       "side": 1,
       "message": "full-stop",
+      "range": {
+        "startLine": 632,
+        "startChar": 0,
+        "endLine": 632,
+        "endChar": 53
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32801ec4_b9c2dbc5",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723ff6b5_aadc83fe",
       "range": {
         "startLine": 632,
         "startChar": 0,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "127dda9f_fba4c7ca",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "At this point, I just wanted to minimize changes.   That can be done as another CL.",
+      "parentUuid": "5244b256_e3bd1ae9",
+      "range": {
+        "startLine": 648,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 56
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3229fe85_42bbc257",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 5
@@ -260,6 +518,30 @@
       "writtenOn": "2014-01-21T15:52:20Z",
       "side": 1,
       "message": "Not that it matters too much here, but the convention is to pass RegLocations by value.",
+      "range": {
+        "startLine": 793,
+        "startChar": 44,
+        "endLine": 793,
+        "endChar": 45
+      },
+      "revId": "465f2a0eb52b44fa80cac1025bd0242dd95001d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f27926b6_34c010ca",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-22T18:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3229fe85_42bbc257",
       "range": {
         "startLine": 793,
         "startChar": 44,
