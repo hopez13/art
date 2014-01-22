@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d2cb423b_4b02e527",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-22T21:02:36Z",
+      "side": 1,
+      "message": "I\u0027d like to have a rough expectation for myself - do you have a sense of how much slower the debug build is with this heap verification enabled than before?",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5244b256_def30952",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
