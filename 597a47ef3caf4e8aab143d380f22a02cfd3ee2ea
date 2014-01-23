@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "72b456b0_913d5ed1",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-23T18:52:16Z",
+      "side": 1,
+      "message": "Yea, though I tend to prefer terseness, I\u0027d avoid this.",
+      "parentUuid": "723ff6b5_9f2d7f76",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 11
+      },
+      "revId": "597a47ef3caf4e8aab143d380f22a02cfd3ee2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5244b256_38eb4dcf",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
