@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b2ba4e9a_f945a389",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-23T18:53:03Z",
+      "side": 1,
+      "message": "That one takes uint32_t.  This one is uint64_t.  Guess I can replace them both with a common one taking uint64_t.",
+      "parentUuid": "b2ba4e9a_99a4a721",
+      "revId": "bacf75497f92a940453a44c3329370885f137b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92bf0a8c_3d224788",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-01-23T18:45:11Z",
       "side": 1,
       "message": "Similarly, this looks like the arm BadOverlap.  If it works for both, let\u0027s move to common code and use a single copy.",
+      "revId": "bacf75497f92a940453a44c3329370885f137b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b456b0_919c7ea0",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-23T18:53:03Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "92bf0a8c_3d224788",
       "revId": "bacf75497f92a940453a44c3329370885f137b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
