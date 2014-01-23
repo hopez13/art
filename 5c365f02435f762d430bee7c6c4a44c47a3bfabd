@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "523e72eb_9f74b314",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-23T17:02:58Z",
+      "side": 1,
+      "message": "For 64-bit line_offset this doesn\u0027t push the bits out of the variable, so the line above will access memory outside gHexDigit even if offset isn\u0027t initially more than 2^32.",
+      "revId": "5c365f02435f762d430bee7c6c4a44c47a3bfabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72b456b0_2e9d3356",
         "filename": "runtime/base/logging.cc",
         "patchSetId": 1
