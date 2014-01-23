@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72b456b0_91f8feef",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-23T18:39:07Z",
+      "side": 1,
+      "message": "Add a TODO here - the already exists a reg location dumper in vreg_analysis.cc, but it has some Quick-specific features, and should probably be split.   For another CL, we should clean up the RegLocation dumping utility routines.",
+      "revId": "a2fd0cc01a6c418bd96e055588af73feaaa1302e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
