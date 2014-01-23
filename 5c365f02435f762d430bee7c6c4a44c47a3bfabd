@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72b456b0_2e9d3356",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-23T16:56:26Z",
+      "side": 1,
+      "message": "note, usual style is ++i here but I didn\u0027t want to also change the other for loops",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 42
+      },
+      "revId": "5c365f02435f762d430bee7c6c4a44c47a3bfabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
