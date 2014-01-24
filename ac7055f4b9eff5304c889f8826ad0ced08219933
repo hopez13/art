@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "9202aa40_112eeca6",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-24T21:59:09Z",
+      "side": 1,
+      "message": "We could always test it by adding the infrastructure to load passes like modules. This would allow us to create a \"pass\" that would make the CFG exactly what we want to test.\n\nAnyway, until we have that, would you prefer that I remove the code I added to patchset 2?",
+      "parentUuid": "92bf0a8c_86b43b01",
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92bf0a8c_a607ff34",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
