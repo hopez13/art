@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f265a62a_da2645df",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-01-24T01:01:54Z",
+      "side": 1,
+      "message": "i think rather than copy this everywhere you should add it to the host cpp flags with a comment explaining that our prebuilt has ancient headers.\n\nsee bugs like http://b/8187523.",
+      "revId": "debeb3aaaa4257684029f15733dc30af5dcb8aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
