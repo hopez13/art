@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "523e72eb_e27f2835",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T20:36:03Z",
+      "side": 1,
+      "message": "I don\u0027t think we should have this special-case here. If we want to optimize the true_val\u003d\u003dfalse_val case, we should change the kMirOpSelect to CONST on the MIR level long before we get here.",
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
