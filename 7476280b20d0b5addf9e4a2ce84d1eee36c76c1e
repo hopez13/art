@@ -22,6 +22,24 @@
       "revId": "7476280b20d0b5addf9e4a2ce84d1eee36c76c1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7239b600_4687068f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:23:00Z",
+      "side": 1,
+      "message": "Yes, that was the main reason that the tests were running so slow. Since the remaining_bytes was \u003e min_free we would always run sticky GC back to back. This was especially bad since the heap verification runs with all mutators paused. Regarding heap size.\n\nIf the GC starts later it will still keep up, just the heap will grow to a slightly larger size then it otherwise would have.",
+      "parentUuid": "b2fdee74_f2ca4888",
+      "revId": "7476280b20d0b5addf9e4a2ce84d1eee36c76c1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
