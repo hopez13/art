@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "523e72eb_22bc70bf",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T16:41:47Z",
+      "side": 1,
+      "message": "%zu",
+      "revId": "15a26670e809baa464f208bd65aff7929f047685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3243be82_01316cd1",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T16:41:47Z",
+      "side": 1,
+      "message": "static_cast\u003cchar\u003e(type)?",
+      "revId": "15a26670e809baa464f208bd65aff7929f047685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12407a74_40cd30a6",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T16:41:47Z",
+      "side": 1,
+      "message": "%zu for expandBufGetLength().",
+      "range": {
+        "startLine": 178,
+        "startChar": 80,
+        "endLine": 178,
+        "endChar": 83
+      },
+      "revId": "15a26670e809baa464f208bd65aff7929f047685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
