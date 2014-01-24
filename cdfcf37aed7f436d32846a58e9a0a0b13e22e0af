@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "523e72eb_82029cd2",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T15:38:01Z",
+      "side": 1,
+      "message": "Do we want to support files with size 2^32+x where 0 \u003c\u003d x \u003c sizeof(llvm::ELF::Elf32_Ehdr)?",
+      "parentUuid": "72b456b0_3d8ec369",
+      "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12407a74_009de89a",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
