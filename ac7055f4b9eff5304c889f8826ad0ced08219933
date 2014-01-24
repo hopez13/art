@@ -16,6 +16,47 @@
       "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f265a62a_e9c7fd7d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-24T21:01:24Z",
+      "side": 1,
+      "message": "In this instance we get it almost for free because there are overlapping cases. But yes I agree with you that the middle-end should optimize this case. Until that is done, it should be okay to leave this in.",
+      "parentUuid": "523e72eb_e27f2835",
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92bf0a8c_a607ff34",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-24T21:01:24Z",
+      "side": 1,
+      "message": "Should I free temp after I am done with it?",
+      "range": {
+        "startLine": 235,
+        "startChar": 10,
+        "endLine": 235,
+        "endChar": 19
+      },
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
