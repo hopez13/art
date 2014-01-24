@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "92bf0a8c_86b43b01",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-24T21:32:28Z",
+      "side": 1,
+      "message": "Agreed - this kind of thing should be handled at the MIR level.  Also, I\u0027m a little hesitant to add code for which there is no way to test.  Until inlining is active, we\u0027ll never see this case, and if you do add code at the MIR level we cannot test it.  Might be better to add a TODO at the appropriate spot.",
+      "parentUuid": "f265a62a_29e61506",
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92bf0a8c_a607ff34",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -66,6 +84,30 @@
       "writtenOn": "2014-01-24T21:01:24Z",
       "side": 1,
       "message": "Should I free temp after I am done with it?",
+      "range": {
+        "startLine": 235,
+        "startChar": 10,
+        "endLine": 235,
+        "endChar": 19
+      },
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92bf0a8c_26a54fc5",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-01-24T21:32:28Z",
+      "side": 1,
+      "message": "As a matter of general cleanliness, you should always free any temps you allocate at the point they are no longer needed.  As a practical matter, though, all temps are automatically freed at the end of processing for each Dalvik opcode.",
+      "parentUuid": "92bf0a8c_a607ff34",
       "range": {
         "startLine": 235,
         "startChar": 10,
