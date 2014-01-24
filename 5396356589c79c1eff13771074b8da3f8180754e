@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92bf0a8c_28899e60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T06:34:54Z",
+      "side": 1,
+      "message": "This feels like a CSE like pass, not sure why we need side data other than to say whether initialization is necessary or not. The pass only being necessary if there are static field accesses.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "5396356589c79c1eff13771074b8da3f8180754e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f265a62a_a3a404ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T06:34:54Z",
+      "side": 1,
+      "message": "how does this relate to the \"inliner\u0027s\" special methods.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "5396356589c79c1eff13771074b8da3f8180754e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b456b0_82418e7a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T06:34:54Z",
+      "side": 1,
+      "message": "If you are speculating like this you can use the start/end assert no thread suspensions methods on Thread. If you hit the assert then you need a handle/SirtRef.",
+      "range": {
+        "startLine": 1153,
+        "startChar": 0,
+        "endLine": 1153,
+        "endChar": 36
+      },
+      "revId": "5396356589c79c1eff13771074b8da3f8180754e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
