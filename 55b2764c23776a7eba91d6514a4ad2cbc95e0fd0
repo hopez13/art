@@ -22,6 +22,30 @@
       "revId": "55b2764c23776a7eba91d6514a4ad2cbc95e0fd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92346a08_c4fb1094",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T00:51:25Z",
+      "side": 1,
+      "message": "As this is a compiler builtin, the expectation is that it will do the right thing.",
+      "parentUuid": "72b456b0_f75feaaa",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "55b2764c23776a7eba91d6514a4ad2cbc95e0fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
