@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "92346a08_270d9e06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:41:14Z",
+      "side": 1,
+      "message": "In general, it is at least causing some of the ART bugs people are seeing in master.",
+      "parentUuid": "72b456b0_f292958b",
+      "revId": "a7bd0377c921eec4fb1add850106ce9ee1d8baba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2fdee74_12bc2cbf",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 2124,
         "endChar": 4
       },
+      "revId": "a7bd0377c921eec4fb1add850106ce9ee1d8baba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7239b600_8668ee09",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:41:14Z",
+      "side": 1,
+      "message": "I prefer the second statement, but these changes don\u0027t really matter. Done.",
+      "parentUuid": "b2fdee74_12bc2cbf",
       "revId": "a7bd0377c921eec4fb1add850106ce9ee1d8baba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
