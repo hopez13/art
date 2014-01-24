@@ -48,6 +48,24 @@
     },
     {
       "key": {
+        "uuid": "72b456b0_af527a50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:02:51Z",
+      "side": 1,
+      "message": "Adds ~100ms per GC iteration post gc (pre sweeping) verification.",
+      "parentUuid": "d2cb423b_4b02e527",
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5244b256_def30952",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -65,6 +83,24 @@
         "endLine": 226,
         "endChar": 2
       },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9202aa40_b11c4082",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:02:51Z",
+      "side": 1,
+      "message": "Currently this still happens for non-moving GC. I added the check for IsZygote though,",
+      "parentUuid": "5244b256_def30952",
       "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "b2fdee74_72893860",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:02:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5244b256_fe1dadc5",
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2cb423b_0b337d0f",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -111,6 +165,24 @@
         "endLine": 597,
         "endChar": 57
       },
+      "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9202aa40_d123c4b5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-24T22:02:51Z",
+      "side": 1,
+      "message": "I see you fixed this, thanks.",
+      "parentUuid": "d2cb423b_0b337d0f",
       "revId": "938a03b3f196895e1fce2b862ae01039deca4c34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
