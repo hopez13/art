@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "523e72eb_62f038b9",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T14:50:17Z",
+      "side": 1,
+      "message": "On 32-bit systems, you\u0027re dropping the high 32 bits.",
+      "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12407a74_009de89a",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-24T14:50:17Z",
+      "side": 1,
+      "message": "Dropping high bits.",
+      "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
