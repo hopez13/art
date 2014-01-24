@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "72b456b0_9d9c8fa0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T15:38:22Z",
+      "side": 1,
+      "message": "I could see this being a data flow pass like the null-pointer elimination. Is there a reason to key off the field rather than the type?",
+      "parentUuid": "12407a74_5d64fb2a",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "5396356589c79c1eff13771074b8da3f8180754e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f265a62a_a3a404ca",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
