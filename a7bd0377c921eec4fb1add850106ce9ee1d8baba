@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72b456b0_f292958b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-24T22:26:45Z",
+      "side": 1,
+      "message": "Is this buggy JNI code referring to some specific regression/code/bug or in general?",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "a7bd0377c921eec4fb1add850106ce9ee1d8baba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2fdee74_12bc2cbf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-24T22:26:45Z",
+      "side": 1,
+      "message": "minor cleanup idea: would it make sense to turn this into\n\nreturn main_space_ !\u003d nullptr \u0026\u0026 main_space_-\u003eHasAddress(obj) \u0026\u0026\n    (IsCompactingGC(background_collector_type_) || IsCompactingGC(collector_type_));\n\n(and get rid of the if statement)\n\nor\n\nif (main_space_ !\u003d nullptr \u0026\u0026 main_space_-\u003eHasAddress(obj)) \u0026\u0026\n    ((IsCompactingGC(background_collector_type_) || IsCompactingGC(collector_type_))) {\n    return true;\n}\n\n?",
+      "range": {
+        "startLine": 2124,
+        "startChar": 0,
+        "endLine": 2124,
+        "endChar": 4
+      },
+      "revId": "a7bd0377c921eec4fb1add850106ce9ee1d8baba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
