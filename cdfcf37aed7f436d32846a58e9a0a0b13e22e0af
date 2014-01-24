@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "72b456b0_3d8ec369",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T15:34:33Z",
+      "side": 1,
+      "message": "Agreed, this is why I\u0027m using static_cast. In the code below the sizes in the elf file are all computed as size_t and for the sake of comparisons this type is the most convenient. We do pass the length through to MemMap, but we re-read it if we\u0027re trying to map the whole file.",
+      "parentUuid": "523e72eb_62f038b9",
+      "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12407a74_009de89a",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-01-24T14:50:17Z",
       "side": 1,
       "message": "Dropping high bits.",
+      "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92bf0a8c_a8ab4e68",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-24T15:34:33Z",
+      "side": 1,
+      "message": "This was being consistent with the code above and adding in a missing error check.",
+      "parentUuid": "12407a74_009de89a",
       "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
