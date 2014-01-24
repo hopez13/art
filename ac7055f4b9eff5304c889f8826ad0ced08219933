@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f265a62a_29e61506",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-24T21:13:33Z",
+      "side": 1,
+      "message": "Let me look at making the change in the ME pass and remove this special case which should never really happen anyway.",
+      "parentUuid": "523e72eb_e27f2835",
+      "revId": "ac7055f4b9eff5304c889f8826ad0ced08219933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92bf0a8c_a607ff34",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
