@@ -73,6 +73,29 @@
     },
     {
       "key": {
+        "uuid": "72b456b0_1d665fad",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-01-24T18:06:47Z",
+      "side": 1,
+      "message": "clearly there will need to be another round to deal with the all the Elf32 vs Elf64 diff. probably using an approach like system/bin/linker with macros. might also switch to elf.h from the llvm elf header if it makes life easier.",
+      "range": {
+        "startLine": 84,
+        "startChar": 47,
+        "endLine": 84,
+        "endChar": 52
+      },
+      "revId": "cdfcf37aed7f436d32846a58e9a0a0b13e22e0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12407a74_009de89a",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
