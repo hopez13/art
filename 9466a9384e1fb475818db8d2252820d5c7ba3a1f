@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9202aa40_b41c2e82",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-25T00:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3229fe85_f71dd2c5",
+      "range": {
+        "startLine": 580,
+        "startChar": 34,
+        "endLine": 580,
+        "endChar": 35
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5244b256_f8d4a511",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-01-20T04:42:20Z",
       "side": 1,
       "message": "() const {",
+      "range": {
+        "startLine": 590,
+        "startChar": 0,
+        "endLine": 590,
+        "endChar": 42
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b456b0_12eac986",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-25T00:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5244b256_f8d4a511",
       "range": {
         "startLine": 590,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f2fa0681_4c01ff1d",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-25T00:47:26Z",
+      "side": 1,
+      "message": "Added explanation to stack.h. How should I reference that here? I could do a \"@see StackVisitor::GetVRegOffset\" or \"@remark StackVisitor explains what compiler temporaries are and different types of them\"",
+      "parentUuid": "5244b256_d8d1e11f",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 595,
+        "endChar": 87
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "723ff6b5_df4ae741",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-01-20T04:42:20Z",
       "side": 1,
       "message": ") const {",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 47
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72b456b0_f2ecd5a4",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-25T00:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723ff6b5_df4ae741",
       "range": {
         "startLine": 622,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "12eebac6_6d6675ae",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-25T00:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3229fe85_97144e9e",
+      "range": {
+        "startLine": 530,
+        "startChar": 12,
+        "endLine": 530,
+        "endChar": 13
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "723ff6b5_bf472338",
         "filename": "runtime/stack.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-01-20T04:42:20Z",
       "side": 1,
       "message": "Parse error. Could you give a clearer comment :-)",
+      "range": {
+        "startLine": 544,
+        "startChar": 6,
+        "endLine": 544,
+        "endChar": 11
+      },
+      "revId": "9466a9384e1fb475818db8d2252820d5c7ba3a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2f7c297_ebded12e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-25T00:47:26Z",
+      "side": 1,
+      "message": "Removed method in favor of enum. The enum should have better explanations.",
+      "parentUuid": "723ff6b5_bf472338",
       "range": {
         "startLine": 544,
         "startChar": 6,
