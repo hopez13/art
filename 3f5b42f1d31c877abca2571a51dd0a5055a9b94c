@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2f7c297_91401c52",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-26T07:16:44Z",
+      "side": 0,
+      "message": "identity hashcode now resides in the lock word rather than being the object address, we should be getting these in the image.",
+      "range": {
+        "startLine": 1789,
+        "startChar": 0,
+        "endLine": 1789,
+        "endChar": 130
+      },
+      "revId": "3f5b42f1d31c877abca2571a51dd0a5055a9b94c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2fa0681_6f682d09",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-26T07:16:44Z",
+      "side": 0,
+      "message": "An even nicer class to get in the image due to all the dependent classes.",
+      "range": {
+        "startLine": 1827,
+        "startChar": 0,
+        "endLine": 1827,
+        "endChar": 112
+      },
+      "revId": "3f5b42f1d31c877abca2571a51dd0a5055a9b94c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
