@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "12dcfa2e_3d2e6fa7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-27T08:55:41Z",
+      "side": 0,
+      "message": "You mean we could add System.identityHashCode to the native methods whitelist, right?",
+      "parentUuid": "d2f7c297_91401c52",
+      "range": {
+        "startLine": 1789,
+        "startChar": 0,
+        "endLine": 1789,
+        "endChar": 130
+      },
+      "revId": "3f5b42f1d31c877abca2571a51dd0a5055a9b94c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2fa0681_6f682d09",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1

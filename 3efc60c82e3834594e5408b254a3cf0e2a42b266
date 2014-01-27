@@ -22,6 +22,30 @@
       "revId": "3efc60c82e3834594e5408b254a3cf0e2a42b266",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32df3e25_1e028d26",
+        "filename": "runtime/transaction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-27T08:55:41Z",
+      "side": 1,
+      "message": "Its lock level is the new kTransactionLogLock in the lock order.",
+      "parentUuid": "d2f7c297_b143985d",
+      "range": {
+        "startLine": 170,
+        "startChar": 17,
+        "endLine": 170,
+        "endChar": 18
+      },
+      "revId": "3efc60c82e3834594e5408b254a3cf0e2a42b266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
