@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f2fa0681_b515425e",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-27T17:43:50Z",
+      "side": 1,
+      "message": "I think the \u0027FlushAllRegs\u0027 will ensure that there is no temp here, but I will add the DCHECK anyways",
+      "parentUuid": "f2fa0681_128c2cb1",
+      "revId": "e7fea87a2588dd00df2ce818962500b2446e3152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12eebac6_b6438e5d",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-01-27T17:15:42Z",
       "side": 1,
       "message": "We actually can\u0027t put the LoadConstant under the OpIT.  The issue is we can\u0027t know how many instructions are needed to materialize the constant - which is something that must be known and unchanging to use the proper IT form.  You could conceivably enhance IT generation to support this, but you won\u0027t know the answer until the assembly phase when all offsets are known.  If a constant can\u0027t be materialized with ALU ops, we fall back to loading it from the constant pool.  However, it\u0027s possible that after all code is generated we may find that the constant pool is too far to reach in a single load+displacement, so we have to expand the instruction sequence during the assembly fixup stage.  For this reason, OpIT must tread carefully.",
+      "revId": "e7fea87a2588dd00df2ce818962500b2446e3152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2f7c297_f17b60d1",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-27T17:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12eebac6_b6438e5d",
       "revId": "e7fea87a2588dd00df2ce818962500b2446e3152",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "12eebac6_f6deb62e",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-27T17:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2fa0681_928dbcdc",
+      "revId": "e7fea87a2588dd00df2ce818962500b2446e3152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2fa0681_526d1417",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2014-01-27T17:15:42Z",
       "side": 1,
       "message": "For instruction scheduling purposes, re-order these such that the LoadConstant (which could turn into a memory load from the literal pool) comes before the OpRegCopy().",
+      "revId": "e7fea87a2588dd00df2ce818962500b2446e3152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2fa0681_d50c4e56",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-27T17:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2fa0681_526d1417",
       "revId": "e7fea87a2588dd00df2ce818962500b2446e3152",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
