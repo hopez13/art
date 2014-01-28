@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2f7c297_60c67859",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-28T02:35:16Z",
+      "side": 1,
+      "message": "LOG(WARNING) ? If we\u0027re doing redundant work we should worry as it will be costing us in dex2oat time.",
+      "range": {
+        "startLine": 62,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 32
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12eebac6_f64fd1a6",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-28T02:35:16Z",
+      "side": 1,
+      "message": "thanks for the LOCKS_EXCLUDED!",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 81
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2f7c297_a0c7c050",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-28T02:35:16Z",
+      "side": 1,
+      "message": "this seems redundant, the typedef name is nearly the same as the original type which provides more information. We used to do this in particular for iterators, but now we use auto for iterators.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 58
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2fa0681_33716767",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-28T02:35:16Z",
+      "side": 1,
+      "message": "sounds rare, so leaving as a CHECK would be fine.",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12eebac6_763be1fe",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-28T02:35:16Z",
+      "side": 1,
+      "message": "Can you help fix the comments by placing full-stops. Thanks!",
+      "range": {
+        "startLine": 84,
+        "startChar": 46,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12eebac6_b62c29c3",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-28T02:35:16Z",
+      "side": 1,
+      "message": "DCHECKs?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 44
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
