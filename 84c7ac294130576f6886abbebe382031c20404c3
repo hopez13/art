@@ -16,6 +16,24 @@
       "revId": "84c7ac294130576f6886abbebe382031c20404c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12eebac6_596ed618",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-01-28T07:15:24Z",
+      "side": 1,
+      "message": "hmm, this seemed to work for me because boot.art wasn\u0027t defined, there wasn\u0027t anything else depending on the installed versus built version of the boot.art file.\n\nI can exclude it in dex_preopt_libart.mk too, but I think we might need it excluded here so I don\u0027t get \"no rule to make target: $(DEFAULT_DEX_PREOPT_INSTALLED_IMAGE)\"\n\nI\u0027ll look again tomorrow morning.",
+      "parentUuid": "922b8ac2_6c02f3d5",
+      "revId": "84c7ac294130576f6886abbebe382031c20404c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
