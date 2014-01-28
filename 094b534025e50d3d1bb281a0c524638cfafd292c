@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "12eebac6_8c98fa67",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-28T16:44:46Z",
+      "side": 1,
+      "message": "Add CHECK(Thread::Current()-\u003eIsExceptionPending()); ?",
+      "range": {
+        "startLine": 133,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 18
+      },
+      "revId": "094b534025e50d3d1bb281a0c524638cfafd292c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2e846cd_bfbd13ea",
         "filename": "runtime/mirror/object_array-inl.h",
         "patchSetId": 1
@@ -18,6 +41,52 @@
         "startChar": 12,
         "endLine": 93,
         "endChar": 35
+      },
+      "revId": "094b534025e50d3d1bb281a0c524638cfafd292c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2f7c297_34b031c2",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-28T16:44:46Z",
+      "side": 1,
+      "message": "missing spaces",
+      "range": {
+        "startLine": 110,
+        "startChar": 29,
+        "endLine": 110,
+        "endChar": 36
+      },
+      "revId": "094b534025e50d3d1bb281a0c524638cfafd292c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2fa0681_560a2180",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-01-28T16:44:46Z",
+      "side": 1,
+      "message": "missing spaces",
+      "range": {
+        "startLine": 112,
+        "startChar": 29,
+        "endLine": 112,
+        "endChar": 36
       },
       "revId": "094b534025e50d3d1bb281a0c524638cfafd292c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
