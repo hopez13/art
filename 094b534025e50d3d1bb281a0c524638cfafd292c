@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2e846cd_bfbd13ea",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-28T10:40:14Z",
+      "side": 1,
+      "message": "Calling CheckIsAssignable here during image writing leads to a crash. It seems we try to read a field from an image address. I\u0027ll file a bug for this one.",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "094b534025e50d3d1bb281a0c524638cfafd292c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
