@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "92870a29_ecf523f6",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-29T03:13:34Z",
+      "side": 1,
+      "message": "Annotalysis, as it is in our toolchains, only complains about missing required locks not about other bits of hygiene. I believe the clang/llvm work is the most up-to-date and I\u0027m sure DeLesley appreciates feedback.",
+      "parentUuid": "f2e846cd_3f6bc3c7",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 81
+      },
+      "revId": "cfbdf30807b63d0d96d4d8e304d0f65b0d3292b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2f7c297_a0c7c050",
         "filename": "compiler/dex/verification_results.h",
         "patchSetId": 1
