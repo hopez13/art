@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "92870a29_1250d226",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-29T18:41:30Z",
+      "side": 1,
+      "message": "I think that would be a good idea",
+      "parentUuid": "f2b4c6fd_dfb5df63",
+      "revId": "5f291978cf6bbef80d4d7ab0b253524e5dbde085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92870a29_c9ae9111",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "side": 1,
       "message": "There is logic in LoadBaseDispWide that does the annotation.",
       "parentUuid": "92870a29_c9ae9111",
+      "revId": "5f291978cf6bbef80d4d7ab0b253524e5dbde085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52811216_f0f5f6f5",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-29T18:41:30Z",
+      "side": 1,
+      "message": "Makes sense",
+      "parentUuid": "f2b4c6fd_ff09bb8b",
       "revId": "5f291978cf6bbef80d4d7ab0b253524e5dbde085",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
