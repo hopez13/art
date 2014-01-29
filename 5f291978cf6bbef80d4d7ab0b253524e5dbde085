@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f2b4c6fd_dfb5df63",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-29T17:51:54Z",
+      "side": 1,
+      "message": "I wonder if I should have a similar mechanism as FlushReg to place VR in memory. Namely, get the register information and first check whether it is dirty. That would eliminate some unnecessary storebacks.",
+      "revId": "5f291978cf6bbef80d4d7ab0b253524e5dbde085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92870a29_c9ae9111",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 2
@@ -13,6 +30,24 @@
       "writtenOn": "2014-01-29T02:37:16Z",
       "side": 1,
       "message": "Not sure if we need an AnnotateDalvikRegAccess here",
+      "revId": "5f291978cf6bbef80d4d7ab0b253524e5dbde085",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2b4c6fd_ff09bb8b",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-01-29T17:51:54Z",
+      "side": 1,
+      "message": "There is logic in LoadBaseDispWide that does the annotation.",
+      "parentUuid": "92870a29_c9ae9111",
       "revId": "5f291978cf6bbef80d4d7ab0b253524e5dbde085",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
