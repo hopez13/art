@@ -77,6 +77,30 @@
     },
     {
       "key": {
+        "uuid": "52811216_10a9a56f",
+        "filename": "runtime/arch/x86_64/context_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-30T03:39:15Z",
+      "side": 1,
+      "message": "This code is used when quick does a long jump to deliver an exception. In the event that the handler is an upcall into managed code we want to ensure the \"returned value\" (we\u0027re delivering an exception so there isn\u0027t a returned value) is 0. It would suffice to have RAX be zero, on 32bit we needed RAX and RDX. We know no temporary/argument registers are live when doing the exception long jump.",
+      "parentUuid": "52811216_5c9179c8",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2b4c6fd_b6ab5824",
         "filename": "runtime/arch/x86_64/registers_x86_64.cc",
         "patchSetId": 2
