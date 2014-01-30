@@ -153,6 +153,24 @@
     },
     {
       "key": {
+        "uuid": "52811216_5025dd37",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-30T04:25:42Z",
+      "side": 1,
+      "message": "word is defined to be the size of a pointer, I can imagine it\u0027d be confusing with Intel\u0027s use of word meaning 16bit. I\u0027ll try to think of a more neutral term.",
+      "parentUuid": "52811216_d0bb8da2",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92870a29_b290e1f4",
         "filename": "runtime/utils.h",
         "patchSetId": 2
