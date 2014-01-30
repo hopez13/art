@@ -648,6 +648,23 @@
     },
     {
       "key": {
+        "uuid": "d2b1820e_fe39bdb9",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-01-30T19:01:10Z",
+      "side": 1,
+      "message": "Are these uint64_t because of cross-compilation on the host?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12a87aa1_20dca434",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 2
