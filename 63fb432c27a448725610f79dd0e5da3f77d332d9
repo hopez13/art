@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "d2b1820e_bbd1079c",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "s/SetFieldPtr/SetFieldObjectWithoutWriteBarrier",
+      "range": {
+        "startLine": 716,
+        "startChar": 15,
+        "endLine": 716,
+        "endChar": 26
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_e159267d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "s/SetFieldPtr/SetFieldObjectWithoutWriteBarrier",
+      "range": {
+        "startLine": 726,
+        "startChar": 11,
+        "endLine": 726,
+        "endChar": 22
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_61463697",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Might be worth to assert we have either quick code or portable code, not both ?",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 61
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_7b9b7fea",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Could you add a TODO or remove ?",
+      "range": {
+        "startLine": 488,
+        "startChar": 6,
+        "endLine": 488,
+        "endChar": 61
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_4027b0c4",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Include with \u003c \u003e ?",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 21
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2b4c6fd_764710da",
         "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
         "patchSetId": 2
@@ -187,6 +302,351 @@
     },
     {
       "key": {
+        "uuid": "d2b1820e_1b50fb47",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Add a TODO to fix thread safety analysis later. I guess it\u0027s due to the template, right?",
+      "range": {
+        "startLine": 1084,
+        "startChar": 4,
+        "endLine": 1084,
+        "endChar": 29
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_006648fe",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Would be nice to track this in buganizer. Do we have a bug opened?",
+      "range": {
+        "startLine": 722,
+        "startChar": 2,
+        "endLine": 722,
+        "endChar": 36
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_240ddc4f",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "s/SetFieldPtr/SetFieldObjectWithoutWriteBarrier",
+      "range": {
+        "startLine": 85,
+        "startChar": 15,
+        "endLine": 85,
+        "endChar": 26
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_e4837440",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "s/SetFieldPtr/SetFieldObjectWithoutWriteBarrier",
+      "range": {
+        "startLine": 606,
+        "startChar": 47,
+        "endLine": 606,
+        "endChar": 58
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_5eec3131",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Can we create a method/macro with this code and use it so we do not duplicate code at multiple locations?",
+      "range": {
+        "startLine": 249,
+        "startChar": 17,
+        "endLine": 249,
+        "endChar": 35
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_249a7ca3",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Use a foreach loop ?",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 66
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_1ef6a901",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Use a foreach loop ?",
+      "range": {
+        "startLine": 558,
+        "startChar": 4,
+        "endLine": 558,
+        "endChar": 66
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_a4644cf3",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Would be nice to use GetRawData(sizeof(T), 0) to avoid duplicating code. I missed this one when refactoring array for interpreter.",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 38
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_3e104569",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Same than above.",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 38
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_de2de1aa",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 21
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_4048d048",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "This probably will slow down invokes a bit going through this path since we need to do this test each time (plus the extra entrypoint). Wondering what\u0027s the impact here, especially for reflection. Interpreter could be impacted too because transition to compiled code take this route.",
+      "range": {
+        "startLine": 276,
+        "startChar": 10,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_00e1a8ed",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Remove extra semi-colon.",
+      "range": {
+        "startLine": 298,
+        "startChar": 76,
+        "endLine": 298,
+        "endChar": 77
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_5e1af185",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure I\u0027ve already seen this log but I don\u0027t remember where. Is this happening only during compilation?",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 298,
+        "endChar": 76
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_20dca434",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Nice renaming! I prefer this one I think.",
+      "range": {
+        "startLine": 430,
+        "startChar": 11,
+        "endLine": 430,
+        "endChar": 32
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_24c83c8f",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Why not uintptr_t ?",
+      "range": {
+        "startLine": 153,
+        "startChar": 2,
+        "endLine": 153,
+        "endChar": 10
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c6a85_4410e069",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 2
@@ -204,6 +664,98 @@
     },
     {
       "key": {
+        "uuid": "d2b1820e_be49f582",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Why changing this line? GetWithoutChecks does this already.",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 54
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_40f690ab",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Same than above for SetWithoutChecks.",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 54
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_20f384bb",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 107,
+        "startChar": 9,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2b1820e_7e448d65",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12a87aa1_e0835c40",
         "filename": "runtime/mirror/string.h",
         "patchSetId": 2
@@ -215,6 +767,52 @@
       "writtenOn": "2014-01-30T11:22:35Z",
       "side": 1,
       "message": "Shouldn\u0027t we change private members of StringClass also?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_60c86c62",
+        "filename": "runtime/native/java_lang_System.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "Why multiple UNLIKELYs rather than only one? Is the generated code different with this pattern?",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 76,
+        "endChar": 14
+      },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_e0a23c91",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-01-30T15:18:12Z",
+      "side": 1,
+      "message": "As noticed earlier, we should move this to a separate method/macro and use it here.",
+      "range": {
+        "startLine": 443,
+        "startChar": 10,
+        "endLine": 443,
+        "endChar": 29
+      },
       "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
