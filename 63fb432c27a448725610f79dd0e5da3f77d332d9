@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2b4c6fd_764710da",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-30T00:30:36Z",
+      "side": 1,
+      "message": "pushq \u0026 8?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2b4c6fd_b6ab5824",
+        "filename": "runtime/arch/x86_64/registers_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-30T00:30:36Z",
+      "side": 1,
+      "message": "\"rax\"?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
