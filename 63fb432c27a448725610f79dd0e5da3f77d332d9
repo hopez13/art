@@ -72,6 +72,23 @@
     },
     {
       "key": {
+        "uuid": "929c6a85_8416e866",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-01-30T11:22:35Z",
+      "side": 1,
+      "message": "Offsets are incorrect for 64-bit",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52811216_5c9179c8",
         "filename": "runtime/arch/x86_64/context_x86_64.cc",
         "patchSetId": 2
@@ -119,6 +136,23 @@
     },
     {
       "key": {
+        "uuid": "929c6a85_c4fbd0e6",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-01-30T11:22:35Z",
+      "side": 1,
+      "message": "Missed declaration of some stubs (e.g. GENERATE_ALLOC_ENTRYPOINTS_ALLOC_ARRAY_RESOLVED), cause linker error",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2b4c6fd_b6ab5824",
         "filename": "runtime/arch/x86_64/registers_x86_64.cc",
         "patchSetId": 2
@@ -130,6 +164,57 @@
       "writtenOn": "2014-01-30T00:30:36Z",
       "side": 1,
       "message": "\"rax\"?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_a08d546d",
+        "filename": "runtime/arch/x86_64/thread_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-01-30T11:22:35Z",
+      "side": 1,
+      "message": "LDT entry related code is non functional in host mode",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_4410e069",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-01-30T11:22:35Z",
+      "side": 1,
+      "message": "This field contains reference to monitor for fat locks. Do you think it could be reasonable to extend it to 64-bit?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_e0835c40",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-01-30T11:22:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we change private members of StringClass also?",
       "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
