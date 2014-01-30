@@ -167,6 +167,24 @@
       "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52811216_10f44568",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-30T04:24:28Z",
+      "side": 1,
+      "message": "We have code that assumes a pointer as a uint32_t will be in the low 4GB, this is a cast \u0026 mask with a test to make sure the pointer was allocated in low memory.",
+      "parentUuid": "92870a29_b290e1f4",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
