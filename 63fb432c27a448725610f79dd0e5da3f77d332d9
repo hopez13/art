@@ -665,6 +665,24 @@
     },
     {
       "key": {
+        "uuid": "32d9fe6f_ce17632e",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-30T19:28:51Z",
+      "side": 1,
+      "message": "they\u0027re uint64_t so they agree with the Java long. They need to be longs so they can hold pointers. We expect all of this to get condensed but we want to get 64bit functional first.",
+      "parentUuid": "d2b1820e_fe39bdb9",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12a87aa1_20dca434",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 2
