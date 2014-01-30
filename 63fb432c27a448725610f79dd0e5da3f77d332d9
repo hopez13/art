@@ -133,6 +133,40 @@
       "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52811216_d0bb8da2",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-30T04:10:52Z",
+      "side": 1,
+      "message": "Is word the right type here?  I can\u0027t easily see the definition.  Also, does it handle compiler temps (not currently used, but...)",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92870a29_b290e1f4",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-30T04:10:52Z",
+      "side": 1,
+      "message": "This seems weird.  Either the DCHECK will fail, or the masking isn\u0027t needed.\n\nIs the mask really needed, since the caller will only reference a uint32_t result?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
