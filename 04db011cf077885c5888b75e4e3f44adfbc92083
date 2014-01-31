@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12a87aa1_a38d5e6d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-31T15:42:27Z",
+      "side": 1,
+      "message": "There\u0027s more to fix here!",
+      "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c6a85_e72db6aa",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-01-31T15:42:27Z",
+      "side": 1,
+      "message": "With no_guarantee_of_dex_cache_entry\u003d\u003dtrue, the GetCodeAndMethodForDirectCall() may use the wrong referrer_class-\u003eGetDexCache()-\u003eGetDexFile().",
+      "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
