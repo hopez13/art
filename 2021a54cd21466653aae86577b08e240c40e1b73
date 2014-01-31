@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2e2061a_ec010b23",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T18:14:10Z",
+      "side": 1,
+      "message": "should trimming get its own GC type?",
+      "range": {
+        "startLine": 770,
+        "startChar": 0,
+        "endLine": 770,
+        "endChar": 41
+      },
+      "revId": "2021a54cd21466653aae86577b08e240c40e1b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
