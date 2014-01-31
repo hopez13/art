@@ -33,6 +33,24 @@
       "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92870a29_dc1ac4cb",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T16:17:18Z",
+      "side": 1,
+      "message": "I thought/think there\u0027s an ugly cut-out to cover this case. Its messy and I thought this was the kind of issue being in this code would cause :-)",
+      "parentUuid": "929c6a85_e72db6aa",
+      "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
