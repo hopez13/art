@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "92138adb_e9da1591",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-01-31T18:46:16Z",
+      "side": 1,
+      "message": "I see that this is essentially to prevent a race condition between trimming and gc.",
+      "range": {
+        "startLine": 747,
+        "startChar": 5,
+        "endLine": 747,
+        "endChar": 12
+      },
+      "revId": "2021a54cd21466653aae86577b08e240c40e1b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2e2061a_ec010b23",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
