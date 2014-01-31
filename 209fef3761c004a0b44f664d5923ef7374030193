@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2e2061a_0fa20914",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-31T21:31:42Z",
+      "side": 1,
+      "message": "This only needs to be done if reg_location_ is not null.  Otherwise it has already been done.",
+      "revId": "209fef3761c004a0b44f664d5923ef7374030193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b20eceb3_6d799154",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-01-31T21:31:42Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "209fef3761c004a0b44f664d5923ef7374030193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
