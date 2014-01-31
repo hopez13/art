@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2dfc254_0edd6bf9",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "Slow path to ensure a class is initialized for sget/sput.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 41
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b20eceb3_8d0725ab",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "funny indent or gerrit bug :-/",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 447,
+        "endChar": 67
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2e2061a_92005c1c",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "funny indent or gerrit bug :-/",
+      "range": {
+        "startLine": 538,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 67
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2dfc254_6eed0f9e",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "accidental ws?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 0
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2e2061a_32108869",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "unnecessary consts",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 81
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b20eceb3_ed1fc1ef",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "() const {",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 33
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b20eceb3_2df71970",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-01-31T21:50:05Z",
+      "side": 1,
+      "message": "unnecessary const",
+      "range": {
+        "startLine": 1005,
+        "startChar": 25,
+        "endLine": 1005,
+        "endChar": 30
+      },
+      "revId": "a6291b2648840bb281ac0590005c053d3c437cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
