@@ -22,6 +22,24 @@
       "revId": "2021a54cd21466653aae86577b08e240c40e1b73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2dfc254_abe4094c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-01-31T18:18:13Z",
+      "side": 1,
+      "message": "The current assumptions in the code are WaitForGcToComplete returning kGcTypeNone means that a GC didn\u0027t just complete. Since trimming isn\u0027t a real GC I think this is OK for now.",
+      "parentUuid": "f2e2061a_ec010b23",
+      "revId": "2021a54cd21466653aae86577b08e240c40e1b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
