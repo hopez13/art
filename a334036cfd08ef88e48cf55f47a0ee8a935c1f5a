@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12ff9ab9_68ef3b28",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-01T07:48:38Z",
+      "side": 1,
+      "message": "comment what the struct is, ie instance field annotation. The field index is local to the dex file of the of method being compiled.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 25
+      },
+      "revId": "a334036cfd08ef88e48cf55f47a0ee8a935c1f5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5242f2dc_6216586a",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-01T07:48:38Z",
+      "side": 1,
+      "message": "similarly",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "a334036cfd08ef88e48cf55f47a0ee8a935c1f5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
