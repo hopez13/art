@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "d2dfc254_4010dc69",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-03T21:00:31Z",
+      "side": 1,
+      "message": "The main issue with StartGC was that special logic needed to be guarded by the lock at each call site, like compacting_gc \u003d IsCompactingGC(collector_type_);",
+      "parentUuid": "b20eceb3_bffb2be7",
+      "revId": "d5a89ee74c00bd24a34b6e795828a0b86842630f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2dfc254_658e4ad8",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 1208,
         "endChar": 67
       },
+      "revId": "d5a89ee74c00bd24a34b6e795828a0b86842630f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2dfc254_8016c466",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-03T21:00:31Z",
+      "side": 1,
+      "message": "It shouldn\u0027t make a difference, though we probably don\u0027t want to use GSS for heap transitions.",
+      "parentUuid": "d2dfc254_658e4ad8",
       "revId": "d5a89ee74c00bd24a34b6e795828a0b86842630f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
