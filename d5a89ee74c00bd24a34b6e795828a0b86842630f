@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b20eceb3_bffb2be7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-03T20:26:06Z",
+      "side": 1,
+      "message": "At the surface, it seems like a good idea to keep StartGC() (that\u0027s probably more parameterized) to match FinishGC()? Alternatively, get rid of FinishGC()?",
+      "range": {
+        "startLine": 1197,
+        "startChar": 32,
+        "endLine": 1197,
+        "endChar": 39
+      },
+      "revId": "d5a89ee74c00bd24a34b6e795828a0b86842630f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2dfc254_658e4ad8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-03T20:26:06Z",
+      "side": 1,
+      "message": "I think using TypeSS is ok here even when GSS is actually used, as IsCompactingGC() should behave the same, right?",
+      "range": {
+        "startLine": 1208,
+        "startChar": 51,
+        "endLine": 1208,
+        "endChar": 67
+      },
+      "revId": "d5a89ee74c00bd24a34b6e795828a0b86842630f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
