@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "12a87aa1_43745aa1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-03T11:43:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12a87aa1_a38d5e6d",
+      "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c6a85_e72db6aa",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "side": 1,
       "message": "I thought/think there\u0027s an ugly cut-out to cover this case. Its messy and I thought this was the kind of issue being in this code would cause :-)",
       "parentUuid": "929c6a85_e72db6aa",
+      "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12a87aa1_03cd32a6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-03T11:43:05Z",
+      "side": 1,
+      "message": "Fixed by using target_method-\u003edex_file in GetCodeAndMethodForDirectCall().",
+      "parentUuid": "92870a29_dc1ac4cb",
       "revId": "04db011cf077885c5888b75e4e3f44adfbc92083",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
