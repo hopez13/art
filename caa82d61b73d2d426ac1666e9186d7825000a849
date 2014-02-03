@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2e2061a_c188505f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-03T20:27:33Z",
+      "side": 1,
+      "message": "This is ok even if the GC is GSS, right?",
+      "range": {
+        "startLine": 1212,
+        "startChar": 55,
+        "endLine": 1212,
+        "endChar": 71
+      },
+      "revId": "caa82d61b73d2d426ac1666e9186d7825000a849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
