@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7264569a_68908383",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-04T10:28:43Z",
+      "side": 1,
+      "message": "Why do we have non-debug checks? How can it go wrong, and how does it fail?",
+      "range": {
+        "startLine": 1260,
+        "startChar": 10,
+        "endLine": 1260,
+        "endChar": 15
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
