@@ -22,6 +22,30 @@
       "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "926f0a76_a98d1d6d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-04T11:20:38Z",
+      "side": 1,
+      "message": "This CHECK verifies the input parameter, the DCHECK below verifies that the local variable dex_cache is correct. Also, this CHECK expression is cheap and the DCHECK expression is expensive.",
+      "parentUuid": "7264569a_68908383",
+      "range": {
+        "startLine": 1260,
+        "startChar": 10,
+        "endLine": 1260,
+        "endChar": 15
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
