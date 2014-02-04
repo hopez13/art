@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "d25422b3_86fb6ce7",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-04T22:23:09Z",
+      "side": 1,
+      "message": "Ignore return value?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25422b3_a600e81b",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-04T22:23:09Z",
+      "side": 1,
+      "message": "Ignore return value?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2b1820e_bbd1079c",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 2
@@ -48,6 +82,23 @@
     },
     {
       "key": {
+        "uuid": "d25422b3_26c8788f",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-04T22:23:09Z",
+      "side": 1,
+      "message": "soa.Self()?",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c6a85_61463697",
         "filename": "compiler/oat_test.cc",
         "patchSetId": 2
@@ -88,6 +139,23 @@
         "endLine": 488,
         "endChar": 61
       },
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72e9b62a_c06d3e1c",
+        "filename": "compiler/utils/dedupe_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-04T22:23:09Z",
+      "side": 1,
+      "message": "I prefer StringPrintf.",
       "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -901,6 +969,24 @@
     },
     {
       "key": {
+        "uuid": "b2dfae7e_45277c96",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-04T22:23:09Z",
+      "side": 1,
+      "message": "PointerToLowMemUInt32?",
+      "parentUuid": "12a87aa1_e0a23c91",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52811216_d0bb8da2",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
@@ -948,6 +1034,23 @@
       "side": 1,
       "message": "Yeah, this terminology also confused me when I started looking at quick. Then I realized you use \"word\" to refer to \"doubleword\" :)",
       "parentUuid": "52811216_5025dd37",
+      "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2dfae7e_e5db3061",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-04T22:23:09Z",
+      "side": 1,
+      "message": "Use PointerToLowMemUInt32?",
       "revId": "63fb432c27a448725610f79dd0e5da3f77d332d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
