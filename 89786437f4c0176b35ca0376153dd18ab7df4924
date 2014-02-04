@@ -46,6 +46,76 @@
       "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9221ca33_ffa2f790",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-04T17:15:28Z",
+      "side": 1,
+      "message": "We should use CHECK when ever possible as you must use libartd to get debug checks enabled and most folks just use libart.",
+      "parentUuid": "926f0a76_a98d1d6d",
+      "range": {
+        "startLine": 1260,
+        "startChar": 10,
+        "endLine": 1260,
+        "endChar": 15
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9221ca33_bf9c7f5a",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-04T17:15:28Z",
+      "side": 1,
+      "message": "References should be const as arguments.",
+      "range": {
+        "startLine": 271,
+        "startChar": 42,
+        "endLine": 271,
+        "endChar": 50
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "521bd206_1a2a59a6",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-04T17:15:28Z",
+      "side": 1,
+      "message": "References should be const as arguments.",
+      "range": {
+        "startLine": 281,
+        "startChar": 43,
+        "endLine": 281,
+        "endChar": 51
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
