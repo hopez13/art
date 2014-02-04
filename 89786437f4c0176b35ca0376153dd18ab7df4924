@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "125b1ae2_85036268",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-04T18:02:27Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/80446",
+      "parentUuid": "9221ca33_bf9c7f5a",
+      "range": {
+        "startLine": 271,
+        "startChar": 42,
+        "endLine": 271,
+        "endChar": 50
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "521bd206_1a2a59a6",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 3
@@ -107,6 +131,30 @@
       "writtenOn": "2014-02-04T17:15:28Z",
       "side": 1,
       "message": "References should be const as arguments.",
+      "range": {
+        "startLine": 281,
+        "startChar": 43,
+        "endLine": 281,
+        "endChar": 51
+      },
+      "revId": "89786437f4c0176b35ca0376153dd18ab7df4924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "125b1ae2_451ecac2",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-04T18:02:27Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/80446",
+      "parentUuid": "521bd206_1a2a59a6",
       "range": {
         "startLine": 281,
         "startChar": 43,
