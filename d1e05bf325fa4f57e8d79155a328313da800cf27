@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2aa06eb_aff8d565",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-05T19:20:09Z",
+      "side": 1,
+      "message": "Side note: might it more assuring to assert that obj is in LOS, not just it\u0027s not in the to-space here, like the DCHECK in line 393 in MarkLargeObject()?",
+      "range": {
+        "startLine": 505,
+        "startChar": 8,
+        "endLine": 505,
+        "endChar": 13
+      },
+      "revId": "d1e05bf325fa4f57e8d79155a328313da800cf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
