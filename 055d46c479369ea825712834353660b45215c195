@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "32cadede_cfb27511",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3237,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-06T20:36:06Z",
+      "side": 1,
+      "message": "SharedLibrary has a raw Object* class_loader_ field. Should it use Sirt as well there?",
+      "range": {
+        "startLine": 3237,
+        "startChar": 17,
+        "endLine": 3237,
+        "endChar": 31
+      },
+      "revId": "055d46c479369ea825712834353660b45215c195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
