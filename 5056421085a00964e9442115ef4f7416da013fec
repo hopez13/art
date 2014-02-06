@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "129ebad0_59b2d6e1",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-06T18:29:42Z",
+      "side": 1,
+      "message": "If the index is not constant, moving the load here is a slight performance regression for non-x86 targets.  Perhaps it should be restored, but guarded with a \"((instruction_set !\u003d kX86) \u0026\u0026 !is_const)",
+      "range": {
+        "startLine": 1011,
+        "startChar": 13,
+        "endLine": 1011,
+        "endChar": 22
+      },
+      "revId": "5056421085a00964e9442115ef4f7416da013fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2aa06eb_819b2817",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -13,6 +36,24 @@
       "writtenOn": "2014-02-06T14:26:31Z",
       "side": 1,
       "message": "Not 100% certain that this shouldn\u0027t check for x86 or if rl_idx.low_reg \u003d\u003d INVALID_REG",
+      "revId": "5056421085a00964e9442115ef4f7416da013fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32a1fe0c_ae544c1b",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-06T18:29:42Z",
+      "side": 1,
+      "message": "Looks right to me, but we\u0027ll definitely want to test this on all targets.",
+      "parentUuid": "f2aa06eb_819b2817",
       "revId": "5056421085a00964e9442115ef4f7416da013fec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
