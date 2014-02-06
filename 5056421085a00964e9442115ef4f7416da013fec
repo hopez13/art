@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2aa06eb_819b2817",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-06T14:26:31Z",
+      "side": 1,
+      "message": "Not 100% certain that this shouldn\u0027t check for x86 or if rl_idx.low_reg \u003d\u003d INVALID_REG",
+      "revId": "5056421085a00964e9442115ef4f7416da013fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
