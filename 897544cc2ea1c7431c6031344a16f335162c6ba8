@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d26ee2af_936b7c77",
+        "filename": "runtime/native/dalvik_system_Zygote.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2014-02-06T20:55:50Z",
+      "side": 1,
+      "message": "Should \"i\" be a \"jsize\", not \"int\"?",
+      "revId": "897544cc2ea1c7431c6031344a16f335162c6ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d26ee2af_33762864",
+        "filename": "runtime/native/dalvik_system_Zygote.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2014-02-06T20:55:50Z",
+      "side": 1,
+      "message": "nit: whitespace between \"open\" and \"(\"",
+      "revId": "897544cc2ea1c7431c6031344a16f335162c6ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
