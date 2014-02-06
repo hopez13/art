@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "129ebad0_c23b7000",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-06T05:44:21Z",
+      "side": 1,
+      "message": "I know the style pre-dates this change, but elsewhere in ART the style is:\n(flags \u0026 MASK) !\u003d 0",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 59
+      },
+      "revId": "5fd1f5f8eaf3e77974f8a93795f47fe08187ad9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32a1fe0c_3875460f",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-06T05:44:21Z",
+      "side": 1,
+      "message": "Mirror classes don\u0027t belong in the compiler but in the compiler driver \"interface\" to the compilers.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "5fd1f5f8eaf3e77974f8a93795f47fe08187ad9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32a1fe0c_f59587b5",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 1
@@ -13,6 +59,30 @@
       "writtenOn": "2014-02-06T02:38:56Z",
       "side": 1,
       "message": "I like the better names but I prefer the call the Decode. Looks cleaner since it abstracts the knowledge about format.",
+      "range": {
+        "startLine": 643,
+        "startChar": 34,
+        "endLine": 643,
+        "endChar": 43
+      },
+      "revId": "5fd1f5f8eaf3e77974f8a93795f47fe08187ad9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32a1fe0c_98727a25",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-06T05:44:21Z",
+      "side": 1,
+      "message": "For performance reasons we\u0027ve been trying to deprecate Decode.",
+      "parentUuid": "32a1fe0c_f59587b5",
       "range": {
         "startLine": 643,
         "startChar": 34,
