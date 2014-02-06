@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d2c0a2c1_234eca57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-06T11:09:47Z",
+      "side": 1,
+      "message": "This is a reference to a patch set that wasn\u0027t committed and cannot be found by `git log`. Use 8d31bbd3d6536de12bc20e3d29cfe03fe848f9da instead.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "c41f7d9bd420e96825cc5cd3d803a7771a914837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2aa06eb_0130d868",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2014-02-06T07:47:58Z",
       "side": 1,
       "message": "not needed with the constructor in the .cc file?",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "c41f7d9bd420e96825cc5cd3d803a7771a914837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b27b2e5f_42a592c3",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-06T11:09:47Z",
+      "side": 1,
+      "message": "Needed for the modification_lock.",
+      "parentUuid": "f2aa06eb_0130d868",
       "range": {
         "startLine": 24,
         "startChar": 15,
@@ -179,6 +226,29 @@
         "startChar": 16,
         "endLine": 905,
         "endChar": 17
+      },
+      "revId": "c41f7d9bd420e96825cc5cd3d803a7771a914837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12c79ad6_a512be3e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-06T11:09:47Z",
+      "side": 1,
+      "message": "Is this intentional?",
+      "range": {
+        "startLine": 347,
+        "startChar": 25,
+        "endLine": 347,
+        "endChar": 29
       },
       "revId": "c41f7d9bd420e96825cc5cd3d803a7771a914837",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
