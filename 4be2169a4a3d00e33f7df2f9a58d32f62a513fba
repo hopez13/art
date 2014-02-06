@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2496e4f_1293ec91",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "Fix name to match convention thread_local_free_bit_map -\u003e ThreadLocalFreeBitMap?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d26ee2af_53cba48d",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "You could make these const if you added a\nThreadLocalFreeBitMap() const",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924e2a55_512734c4",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "It might be cleaner to put this logic before the GC begins in heap.cc? Something like\nSuspendAll();\nPreGcRosAllocVerification();\nResumeAll();\nSo that we don\u0027t need to have the RosAlloc verification in each GC file?\n\nAlso, where do you call PostGcRosAllocVerification from?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2496e4f_52f9f4f1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "VLOG(heap)?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924e2a55_d1e4044e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "Delete?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924e2a55_31ec7031",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "ScopedDisableRosAllocVerification?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924e2a55_b154e01b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "Stale comment?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2496e4f_b254e01b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2141,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924e2a55_1144cc64",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-06T20:38:39Z",
+      "side": 1,
+      "message": "ScopedDisableRosAllocVerification is clearer",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
