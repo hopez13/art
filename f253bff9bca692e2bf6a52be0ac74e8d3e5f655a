@@ -22,6 +22,30 @@
       "revId": "f253bff9bca692e2bf6a52be0ac74e8d3e5f655a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2434232_cb49b582",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-07T10:24:57Z",
+      "side": 1,
+      "message": "Done. Moved the DCHECKs to the beginning.",
+      "parentUuid": "32a1fe0c_98c6fada",
+      "range": {
+        "startLine": 613,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 96
+      },
+      "revId": "f253bff9bca692e2bf6a52be0ac74e8d3e5f655a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
