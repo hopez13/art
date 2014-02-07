@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f2468641_5518fed2",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2496e4f_1293ec91",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d26ee2af_53cba48d",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-02-06T20:38:39Z",
       "side": 1,
       "message": "You could make these const if you added a\nThreadLocalFreeBitMap() const",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "323d7e9f_e265aea0",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Tried this, but I don\u0027t think this is worth enough to have to use a const_cast to cast away const in ThreadLocalFreeBitMap(). Also, since the point of ThreadLocalFreeBitMap() is to return a pointer to read/write, so it\u0027s not really meant to be const.",
+      "parentUuid": "d26ee2af_53cba48d",
       "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "123a3aa9_219176f8",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "I\u0027d rather not move the logic to heap.cc as it\u0027d require adding it at each GC::Run() call site (or miss one if one is added later in the future.) In this regard, putting it in GC::Run() might be better, which I did.\n\nAlso, it seems better to not cause a separate pause (SuspendAll/ResumeAll) just for this rosalloc verification. Because (aside from the extra cost of doing that) mutators could still cause a race/corruption after that pause during the (concurrent) marking phase, which means we don\u0027t get much information on whether mutators, concurrent part of GC, or non-concurrent part of GC has caused it. If we do rosalloc verification during the GC pause, then at least we can tell that the non-concurrent part of GC hasn\u0027t likely caused it (assuming we enabled both pre/post verifications.) This should help narrow down the cause. Especially so if the concurrent part of GC (like concurrent marking) isn\u0027t likely to write to the heap or allocate/move an object.",
+      "parentUuid": "924e2a55_512734c4",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2496e4f_52f9f4f1",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2014-02-06T20:38:39Z",
       "side": 1,
       "message": "VLOG(heap)?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "123a3aa9_36c9beee",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2496e4f_52f9f4f1",
       "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "323d7e9f_625a9ee5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "924e2a55_d1e4044e",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "924e2a55_31ec7031",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2014-02-06T20:38:39Z",
       "side": 1,
       "message": "ScopedDisableRosAllocVerification?",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "123a3aa9_b68bee99",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "924e2a55_31ec7031",
       "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "123a3aa9_f69576b5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Yes. Done.",
+      "parentUuid": "924e2a55_b154e01b",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2496e4f_b254e01b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "323d7e9f_e2b4ceb7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2141,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Yes. Done.",
+      "parentUuid": "b2496e4f_b254e01b",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "924e2a55_1144cc64",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -149,6 +293,24 @@
       "writtenOn": "2014-02-06T20:38:39Z",
       "side": 1,
       "message": "ScopedDisableRosAllocVerification is clearer",
+      "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2468641_f56c8a1d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-07T23:33:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "924e2a55_1144cc64",
       "revId": "4be2169a4a3d00e33f7df2f9a58d32f62a513fba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
