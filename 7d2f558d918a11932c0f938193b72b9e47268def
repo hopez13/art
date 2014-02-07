@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "12c79ad6_c8642ff5",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-02-07T06:21:28Z",
+      "side": 1,
+      "message": "Missed monitor_pool.cc for 32-bit",
+      "revId": "7d2f558d918a11932c0f938193b72b9e47268def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5263d2c3_37461896",
         "filename": "runtime/Android.mk",
         "patchSetId": 3
@@ -31,6 +48,23 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "5263d2c3_37461896",
+      "revId": "7d2f558d918a11932c0f938193b72b9e47268def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b27b2e5f_056554ee",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-02-07T06:21:28Z",
+      "side": 1,
+      "message": "Missed monitor_pool.cc for 32-bit",
       "revId": "7d2f558d918a11932c0f938193b72b9e47268def",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
