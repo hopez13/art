@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5263d2c3_37461896",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-02-07T03:16:59Z",
+      "side": 1,
+      "message": "monitor_pool.cc is missed in this commit, the 64-bit build fails. Please add monitor_pool.* or remove it from makefiles.",
+      "revId": "7d2f558d918a11932c0f938193b72b9e47268def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
