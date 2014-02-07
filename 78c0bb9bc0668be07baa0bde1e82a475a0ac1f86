@@ -22,6 +22,30 @@
       "revId": "78c0bb9bc0668be07baa0bde1e82a475a0ac1f86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924e2a55_da02599c",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-07T01:56:26Z",
+      "side": 0,
+      "message": "Its moved into the if.",
+      "parentUuid": "d2b1820e_1bc35bcd",
+      "range": {
+        "startLine": 45,
+        "startChar": 50,
+        "endLine": 45,
+        "endChar": 80
+      },
+      "revId": "78c0bb9bc0668be07baa0bde1e82a475a0ac1f86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
