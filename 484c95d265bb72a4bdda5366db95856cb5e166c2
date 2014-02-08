@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf48f97a_c3133677",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-08T06:19:35Z",
+      "side": 1,
+      "message": "I\u0027m confused between why this MUST do something while being a hint, could you clarify.",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 96
+      },
+      "revId": "484c95d265bb72a4bdda5366db95856cb5e166c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_04e95622",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-08T06:19:35Z",
+      "side": 1,
+      "message": "DCHECK_STREQ",
+      "range": {
+        "startLine": 616,
+        "startChar": 4,
+        "endLine": 616,
+        "endChar": 13
+      },
+      "revId": "484c95d265bb72a4bdda5366db95856cb5e166c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
