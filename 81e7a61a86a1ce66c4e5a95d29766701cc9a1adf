@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf1ab966_19d2cbee",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-08T05:31:10Z",
+      "side": 1,
+      "message": "Please use Thread::Start/EndAssertNoThreadSuspension as this would make this comment actually check :-)",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 66
+      },
+      "revId": "81e7a61a86a1ce66c4e5a95d29766701cc9a1adf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf1ab966_f9e6efca",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-08T05:31:10Z",
+      "side": 1,
+      "message": "similarly",
+      "range": {
+        "startLine": 1120,
+        "startChar": 8,
+        "endLine": 1120,
+        "endChar": 9
+      },
+      "revId": "81e7a61a86a1ce66c4e5a95d29766701cc9a1adf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf1ab966_d9e333b9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-08T05:31:10Z",
+      "side": 1,
+      "message": "and again",
+      "range": {
+        "startLine": 1163,
+        "startChar": 0,
+        "endLine": 1163,
+        "endChar": 66
+      },
+      "revId": "81e7a61a86a1ce66c4e5a95d29766701cc9a1adf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f3f0db6_963b2cd9",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-08T05:31:10Z",
+      "side": 1,
+      "message": "nullptr?",
+      "range": {
+        "startLine": 65,
+        "startChar": 27,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "81e7a61a86a1ce66c4e5a95d29766701cc9a1adf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
