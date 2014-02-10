@@ -69,6 +69,24 @@
       "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_c61b44ce",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-02-10T17:46:14Z",
+      "side": 1,
+      "message": "How about instead of putting this here, make the dumper function accept a FILE* and then we can open it at the start of PassDriver\u0027s work and close it when it quits?\n\nThat would move the const char* above back to pass_driver* though",
+      "parentUuid": "efa05d5c_1f32c70b",
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
