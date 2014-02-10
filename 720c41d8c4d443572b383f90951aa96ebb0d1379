@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ef4bfd71_4de77193",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-10T21:06:49Z",
+      "side": 1,
+      "message": "its preferred not to use the phony target names.\n\nso:\n  dalvikvm -\u003e $(HOST_OUT)/bin/dalvikvm\n  dex2oat -\u003e $(HOST_OUT)/bin/dex2oat\n  libart -\u003e $(HOST_OUT)/lib/libart.so\n  libart -\u003e $(HOST_OUT)/lib/libart-compiler.so\n\nmaybe also the debug versions?\n  dex2oat -\u003e $(HOST_OUT)/bin/dex2oatd\n  libart -\u003e $(HOST_OUT)/lib/libartd.so\n  libart -\u003e $(HOST_OUT)/lib/libartd-compiler.so\n\nbut maybe they could be an extra art-host-debug phony target?\n\nI have some special manifests like dalvik-dev-dalvik-host and master-dalvik-host that actually build the dalvik-host target to make sure we don\u0027t grow unexpected dependencies. We could add the -art-host versions as well.",
+      "parentUuid": "0f7db19f_75bbe8c7",
+      "range": {
+        "startLine": 304,
+        "startChar": 3,
+        "endLine": 304,
+        "endChar": 4
+      },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f7db19f_55b6ece2",
         "filename": "dalvikvm/Android.mk",
         "patchSetId": 2
@@ -42,6 +66,64 @@
         "endLine": 53,
         "endChar": 35
       },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_6db0ed74",
+        "filename": "dalvikvm/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-10T21:06:49Z",
+      "side": 1,
+      "message": "the preferred way is to have the Android.mk with the source, so I\u0027d make this part addition to a new art/tools/Android.mk. Then add to art/Android.mk\n\ninclude $(art_path)/tools/Android.mk\n\nnext to the other \"include $(art_path)\" lines.",
+      "parentUuid": "0f7db19f_55b6ece2",
+      "range": {
+        "startLine": 53,
+        "startChar": 25,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af83c5c3_6bb0f174",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-10T21:06:49Z",
+      "side": 1,
+      "message": "if (!kIsTargetBuildm \u0026\u0026 parsed-\u003ehost_prefix_.empty()) to prevent accidents on the target.",
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_0d95f9b5",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-10T21:06:49Z",
+      "side": 1,
+      "message": "so is this along with the runtime.cc change sufficient to make this work. I\u0027d hope the restriction on running in $ANDROID_BUILD_TOP would be easy to fix, but wasn\u0027t expecting it to be this easy.",
       "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
