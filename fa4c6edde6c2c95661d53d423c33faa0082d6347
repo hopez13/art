@@ -37,6 +37,369 @@
     },
     {
       "key": {
+        "uuid": "ef4bfd71_730b2a83",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "I think its ok to add to the dex2oat options.",
+      "parentUuid": "0f7db19f_d8bf91df",
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af83c5c3_dcf465fc",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "std::string rather than using arenas? I\u0027d expect const char* unless the caller will mutate the string.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 54
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_f31efabf",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "why is this set on some paths? comment to describe",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 16
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_52726a6d",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "you don\u0027t need to do C style forward declaration",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_d25d3adc",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 43
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_b25abee0",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 70
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_9257c2ba",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 59
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af83c5c3_9c081d46",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 145,
+        "startChar": 47,
+        "endLine": 145,
+        "endChar": 56
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_f3a39a29",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 148,
+        "startChar": 71,
+        "endLine": 148,
+        "endChar": 76
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_b3ad2216",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 152,
+        "startChar": 72,
+        "endLine": 152,
+        "endChar": 77
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_32b48eb6",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 155,
+        "startChar": 57,
+        "endLine": 155,
+        "endChar": 59
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_12b992ac",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "comments at the declaration rather than definition.",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 35
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf48f97a_52fdca51",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "const MIR*",
+      "range": {
+        "startLine": 207,
+        "startChar": 16,
+        "endLine": 207,
+        "endChar": 17
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_b3c642dc",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "MIRGraph* const",
+      "range": {
+        "startLine": 320,
+        "startChar": 10,
+        "endLine": 320,
+        "endChar": 11
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af83c5c3_fc1b6986",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "FILE? ostream? see also art/runtime/indenter.h",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 28
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af83c5c3_9c56dd23",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "comments at declaration",
+      "range": {
+        "startLine": 405,
+        "startChar": 42,
+        "endLine": 405,
+        "endChar": 44
+      },
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef4bfd71_673b6cb1",
         "filename": "compiler/dex/mir_tracer.cc",
         "patchSetId": 2
@@ -84,6 +447,24 @@
       "side": 1,
       "message": "How about instead of putting this here, make the dumper function accept a FILE* and then we can open it at the start of PassDriver\u0027s work and close it when it quits?\n\nThat would move the const char* above back to pass_driver* though",
       "parentUuid": "efa05d5c_1f32c70b",
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_b3a3e218",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-10T23:24:53Z",
+      "side": 1,
+      "message": "We\u0027re generally using ostreams for this.",
+      "parentUuid": "cf48f97a_c61b44ce",
       "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
