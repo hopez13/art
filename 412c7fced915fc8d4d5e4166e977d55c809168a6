@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efa05d5c_9ca265bc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-10T09:09:26Z",
+      "side": 1,
+      "message": "Can\u0027t the std::vector be a std::vector of Sirt?",
+      "range": {
+        "startLine": 1089,
+        "startChar": 29,
+        "endLine": 1089,
+        "endChar": 37
+      },
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf7639c5_f3bcf0ec",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-10T09:09:26Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1126,
+        "startChar": 29,
+        "endLine": 1126,
+        "endChar": 37
+      },
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf7639c5_b3c67883",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-10T09:09:26Z",
+      "side": 1,
+      "message": "What classes? Is it the \"o\" parameter that is the problem? Shouldn\u0027t it be a Sirt then?",
+      "range": {
+        "startLine": 1172,
+        "startChar": 49,
+        "endLine": 1172,
+        "endChar": 52
+      },
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
