@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af83c5c3_85ba04ea",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-02-10T16:31:01Z",
+      "side": 1,
+      "message": "Will we have a way to modify this with an option at some point, it seems to me that for host dumping, we want to be able to change this to ./ for example (perhaps a TODO?)",
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_673b6cb1",
+        "filename": "compiler/dex/mir_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-02-10T16:31:01Z",
+      "side": 1,
+      "message": "Is it me or we never close this file?\nAnd is static really necessary?",
+      "revId": "fa4c6edde6c2c95661d53d423c33faa0082d6347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
