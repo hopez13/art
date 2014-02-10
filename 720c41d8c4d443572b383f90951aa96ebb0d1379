@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f7db19f_75bbe8c7",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-10T10:01:25Z",
+      "side": 1,
+      "message": "This name to make it consistent with dalvik-host.",
+      "range": {
+        "startLine": 304,
+        "startChar": 3,
+        "endLine": 304,
+        "endChar": 4
+      },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f7db19f_55b6ece2",
+        "filename": "dalvikvm/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-10T10:01:25Z",
+      "side": 1,
+      "message": "What\u0027s the preferred way?\n1) OK to do like this/\n2) Move script to this directory\n3) Add a Makefile in the tools directory",
+      "range": {
+        "startLine": 53,
+        "startChar": 25,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
