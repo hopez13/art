@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "af83c5c3_cbda5d39",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-10T20:33:59Z",
+      "side": 1,
+      "message": "That requires gross code since a vector of SIRTs would need to be a vector of SIRT pointers which are constructed and destructed in the right order.",
+      "parentUuid": "efa05d5c_9ca265bc",
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf48f97a_ec1bbf86",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 1094,
         "endChar": 14
       },
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af83c5c3_abdd9933",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-10T20:33:59Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "cf48f97a_ec1bbf86",
       "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "cf48f97a_8cd0cb0a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-10T20:33:59Z",
+      "side": 1,
+      "message": "Could make c a SIRT but I rather keep the behavior as the same functions.",
+      "parentUuid": "cf7639c5_f3bcf0ec",
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf7639c5_b3c67883",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 1172,
         "endChar": 52
       },
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_4d72d16d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-10T20:33:59Z",
+      "side": 1,
+      "message": "I could make o a SIRT but I just copied the pattern of the other functions. Will change the comment in another CL.",
+      "parentUuid": "cf7639c5_b3c67883",
       "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "ef4bfd71_8ddd69fb",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-10T20:33:59Z",
+      "side": 1,
+      "message": "Is () the C++ style guide? Couldn\u0027t find it. \nI\u0027m confused as to what you mean by making a separate ObjectRegistryEntry? Before, we were always storing ObjectRegistryEntry in the object_to_entry_ map, just not as a pointer. This caused issues where I removed stale objects in UpdateObjectPointers since it moved the object registry entries.",
+      "parentUuid": "6f8d4df2_e061826b",
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af83c5c3_e8788709",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 238,
         "endChar": 67
       },
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4bfd71_6df8ed63",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-10T20:33:59Z",
+      "side": 1,
+      "message": "Done in another CL.",
+      "parentUuid": "af83c5c3_e8788709",
       "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
