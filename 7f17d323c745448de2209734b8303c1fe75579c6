@@ -16,6 +16,29 @@
       "revId": "7f17d323c745448de2209734b8303c1fe75579c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_0c31576e",
+        "filename": "runtime/runtime_linux.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T05:22:31Z",
+      "side": 1,
+      "message": "uint64_t\u0027s formatter is llx on 32bit builds so:\n\n%016\" PRIx64",
+      "range": {
+        "startLine": 233,
+        "startChar": 33,
+        "endLine": 233,
+        "endChar": 38
+      },
+      "revId": "7f17d323c745448de2209734b8303c1fe75579c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
