@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fb46db0_28b9abac",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 93,
+        "startChar": 14,
+        "endLine": 93,
+        "endChar": 15
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afbae599_caeb2389",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 94,
+        "startChar": 6,
+        "endLine": 94,
+        "endChar": 7
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fc51524_8e6bfb47",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 111,
+        "startChar": 14,
+        "endLine": 111,
+        "endChar": 15
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fc51524_ae68374b",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 7
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afbae599_2a075fae",
+        "filename": "runtime/object_callbacks.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "Thread\u0027s id is a uint32_t",
+      "range": {
+        "startLine": 47,
+        "startChar": 72,
+        "endLine": 47,
+        "endChar": 77
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fc51524_4e375366",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "if this should be a tid then this should be pid_t",
+      "range": {
+        "startLine": 1149,
+        "startChar": 2,
+        "endLine": 1149,
+        "endChar": 10
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fb46db0_c8bd6f99",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 1967,
+        "startChar": 14,
+        "endLine": 1967,
+        "endChar": 15
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afbae599_aaf26f7c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 1968,
+        "startChar": 6,
+        "endLine": 1968,
+        "endChar": 7
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fc51524_6e3c8f47",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1969,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "const uint32_t",
+      "range": {
+        "startLine": 1969,
+        "startChar": 2,
+        "endLine": 1969,
+        "endChar": 10
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afbae599_4a21732d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T06:25:36Z",
+      "side": 1,
+      "message": "seems out of keeping with other immutable wrappers",
+      "range": {
+        "startLine": 766,
+        "startChar": 7,
+        "endLine": 766,
+        "endChar": 27
+      },
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
