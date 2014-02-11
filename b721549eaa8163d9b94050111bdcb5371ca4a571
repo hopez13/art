@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fc2111e_c141d2c4",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:38:48Z",
+      "side": 1,
+      "message": "s/const//",
+      "range": {
+        "startLine": 99,
+        "startChar": 45,
+        "endLine": 99,
+        "endChar": 52
+      },
+      "revId": "b721549eaa8163d9b94050111bdcb5371ca4a571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efce9d4a_55283e99",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:38:48Z",
+      "side": 1,
+      "message": "* const?",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 7
+      },
+      "revId": "b721549eaa8163d9b94050111bdcb5371ca4a571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
