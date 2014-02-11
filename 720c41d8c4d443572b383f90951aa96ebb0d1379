@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0fabf157_65bb46c8",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-11T12:14:23Z",
+      "side": 1,
+      "message": "Done for the renames and the art-host-debug phony target.\n\nWhere are those manifests? I\u0027d very much also like not to have unexpected dependencies inadvertently showing up.",
+      "parentUuid": "ef4bfd71_4de77193",
+      "range": {
+        "startLine": 304,
+        "startChar": 3,
+        "endLine": 304,
+        "endChar": 4
+      },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f7db19f_55b6ece2",
         "filename": "dalvikvm/Android.mk",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "4f3ec9eb_ffc7bf2f",
+        "filename": "dalvikvm/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-11T12:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef4bfd71_6db0ed74",
+      "range": {
+        "startLine": 53,
+        "startChar": 25,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af83c5c3_6bb0f174",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -107,6 +155,24 @@
       "writtenOn": "2014-02-10T21:06:49Z",
       "side": 1,
       "message": "if (!kIsTargetBuildm \u0026\u0026 parsed-\u003ehost_prefix_.empty()) to prevent accidents on the target.",
+      "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fabf157_45b64ae3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-11T12:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af83c5c3_6bb0f174",
       "revId": "720c41d8c4d443572b383f90951aa96ebb0d1379",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
