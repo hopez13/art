@@ -409,6 +409,24 @@
       "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_2ff1ad4d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:36:31Z",
+      "side": 1,
+      "message": "use of struct rather than class with private \"* const\" fields.",
+      "parentUuid": "0fc2111e_a1c7e630",
+      "revId": "9807ee92394b5c29bf1eb4164251ffaaf5173a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
