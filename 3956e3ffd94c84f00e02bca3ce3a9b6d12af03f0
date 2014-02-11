@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fbfe18b_efe395b8",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "DCHECK(!...IsActiveTransaction...);\n\nTransactions add moving GC :-/",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 56
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_8fe0d9ad",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "DCHECK(!...IsActiveTransaction...);\n\nTransactions add moving GC :-/",
+      "range": {
+        "startLine": 606,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 54
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efce9d4a_12ec0c73",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "I\u0027d also expect not to be here in a transaction, but I don\u0027t think it\u0027d be inherently wrong.",
+      "range": {
+        "startLine": 2307,
+        "startChar": 0,
+        "endLine": 2307,
+        "endChar": 50
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_8ff53969",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "broken due to the templating? add to comment the reason",
+      "range": {
+        "startLine": 155,
+        "startChar": 38,
+        "endLine": 155,
+        "endChar": 44
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_aff27d7c",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 92
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efce9d4a_b215f89b",
+        "filename": "runtime/mirror/art_field.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "sounds like this could be enabled, \"if (kIsDebugBuild)\" is preferred to #ifdef",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 14
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_2f20cd26",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "needed because image writing is in a transaction?",
+      "range": {
+        "startLine": 432,
+        "startChar": 48,
+        "endLine": 432,
+        "endChar": 49
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efce9d4a_7259d079",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "another bogus case, thanks for cleaning the one below, annotalysis belongs on the declaration not definition",
+      "range": {
+        "startLine": 36,
+        "startChar": 30,
+        "endLine": 36,
+        "endChar": 75
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_4f8501ae",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "It should be sound to set this unconditionally as the hash code is invariant.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 83
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fbfe18b_cf78110a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "runtime",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 27
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efce9d4a_b22738dc",
+        "filename": "test/Transaction/Transaction.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-11T18:33:36Z",
+      "side": 1,
+      "message": "ws",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 8
+      },
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
