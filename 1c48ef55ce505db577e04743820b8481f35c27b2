@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fabf157_c8600f91",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-11T18:04:32Z",
+      "side": 1,
+      "message": "This DCHECK is wrong. While we must have gone through the \"called-\u003eIsRuntimeMethod()\" branch above where dex_method_idx was initialized from the \"instr\", we have since changed \"called\" and cannot use it here to check that we originally took that branch.\n\nThe important assumptions we use below are still satisfied.",
+      "revId": "1c48ef55ce505db577e04743820b8481f35c27b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
