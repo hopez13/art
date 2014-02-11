@@ -207,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "0fc2111e_e1a3ae29",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-11T19:04:22Z",
+      "side": 1,
+      "message": "I don\u0027t know if () the C++ style guide. Just thought there might be a reason to omit () since I haven\u0027t often seen omitted () in ART code.\n\nRe: ObjectRegistryEntry, I was confused. This change changed the second template parameter type of object_to_entry_ from ObjectRegistryEntry (value) to ObjectRegistryEntry* (pointer) and I was looking at the old revision.",
+      "parentUuid": "ef4bfd71_8ddd69fb",
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af83c5c3_e8788709",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 2
