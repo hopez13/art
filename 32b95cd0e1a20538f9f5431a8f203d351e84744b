@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf62b923_dcc4812e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-12T19:24:47Z",
+      "side": 1,
+      "message": "Did you mean improvement? If so, nice!",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "32b95cd0e1a20538f9f5431a8f203d351e84744b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f6c3514_6a02bf25",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-12T19:24:47Z",
+      "side": 1,
+      "message": "IIUC, this checks if the dest page and the src page contain the same bits (hence no copying is necessary.) Assuming the dest page must have been madvised away (all zero) at the previous GC, this is in reality checking if the src page is all zero (worth leaving a short comment on this?). The performance improvements comes from avoiding writing into the dest page. Did you consider avoiding reading from the dest page (by reading the src page only and checking if it\u0027s all zero)? That might bring additional performance improvement.",
+      "range": {
+        "startLine": 429,
+        "startChar": 8,
+        "endLine": 429,
+        "endChar": 14
+      },
+      "revId": "32b95cd0e1a20538f9f5431a8f203d351e84744b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
