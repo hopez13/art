@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "0f405174_91b4acb8",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-12T18:00:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_1203b2da",
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fbfe18b_8fe0d9ad",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 8
@@ -84,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "0fabf157_3437befc",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-12T18:00:58Z",
+      "side": 1,
+      "message": "Agreed. Actually we do not change the object, just its address so no need to roll it back.",
+      "parentUuid": "efce9d4a_d530ae1a",
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efce9d4a_12ec0c73",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 8
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "In some cases, this is called when the referent moves, we do not want to store that case in the transaction.",
       "parentUuid": "efce9d4a_12ec0c73",
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fabf157_d41bca86",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-12T18:00:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efce9d4a_f52daabd",
       "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -228,6 +282,24 @@
       "writtenOn": "2014-02-11T20:30:16Z",
       "side": 1,
       "message": "Worth doing kCheckTransition \u003d kIsDebugBuild for performance? Or nah?",
+      "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fabf157_d4166a69",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-12T18:00:58Z",
+      "side": 1,
+      "message": "I\u0027ll move the transaction mode check from CHECK to DCHECK to fix that.",
+      "parentUuid": "8fbfe18b_d2fc3a8e",
       "revId": "3956e3ffd94c84f00e02bca3ce3a9b6d12af03f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
