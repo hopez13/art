@@ -243,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "cf62b923_c7fcae8e",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-12T19:46:51Z",
+      "side": 1,
+      "message": "Yes, it appears that there\u0027s subtle differences members initialized vs uninitialized. It\u0027s heap-allocated here, and the struct has a constructor, so it shouldn\u0027t matter in this case.",
+      "parentUuid": "efce9d4a_7540da25",
+      "revId": "412c7fced915fc8d4d5e4166e977d55c809168a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af83c5c3_e8788709",
         "filename": "runtime/native/dalvik_system_VMDebug.cc",
         "patchSetId": 2
