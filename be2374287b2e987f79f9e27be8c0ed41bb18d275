@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f028140_da7119b3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-12T18:45:21Z",
+      "side": 1,
+      "message": "At some point we should kill the DexCompilationUnit turd, its ridiculous that we basically just bundle and unbundle things over the 1 API interface using it.",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 996,
+        "endChar": 77
+      },
+      "revId": "be2374287b2e987f79f9e27be8c0ed41bb18d275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
