@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf62b923_0775069f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-12T19:39:25Z",
+      "side": 1,
+      "message": "Nit future cleanup idea: does IsContinuousSpaceHeapAddress() fit better?",
+      "range": {
+        "startLine": 803,
+        "startChar": 11,
+        "endLine": 803,
+        "endChar": 45
+      },
+      "revId": "d68ac700820f3e4253c8b4bcf718daf452f6da4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f028140_fac69ddc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-12T19:39:25Z",
+      "side": 1,
+      "message": "Why might this not work for large objects?",
+      "range": {
+        "startLine": 808,
+        "startChar": 2,
+        "endLine": 808,
+        "endChar": 49
+      },
+      "revId": "d68ac700820f3e4253c8b4bcf718daf452f6da4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
