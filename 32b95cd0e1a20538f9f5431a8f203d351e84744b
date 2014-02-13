@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_a81ebfbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T01:28:38Z",
+      "side": 1,
+      "message": "No performance improvement, maybe a slight regression but it\u0027s hard to tell. I believe the main memory savings are from the java.lang.Dexcache.resolvedFields, ArtMethod.dexCacheInitializedStaticStorage which aren\u0027t in the large object space.",
+      "parentUuid": "cf62b923_dcc4812e",
+      "revId": "32b95cd0e1a20538f9f5431a8f203d351e84744b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f6c3514_6a02bf25",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 429,
         "endChar": 14
       },
+      "revId": "32b95cd0e1a20538f9f5431a8f203d351e84744b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_48de13ad",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T01:28:38Z",
+      "side": 1,
+      "message": "New version doesn\u0027t use memcmp or memcpy in the inner loop. Added a comment.",
+      "parentUuid": "2f6c3514_6a02bf25",
       "revId": "32b95cd0e1a20538f9f5431a8f203d351e84744b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
