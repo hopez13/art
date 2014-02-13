@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afcbc564_51595e79",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "Is testing index instead of just new_index for integer overflow case?",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_9344a68f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "Nice that this provides a large speedup!",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_d1964ec0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "Instead of copy paste you could do:\n!kUseThreadLocalAllocationStack || obj !\u003d nullptr",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_11a1960f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2021,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "!kUseThreadLocalAllocationStack || *it !\u003d nullptr?",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_f32a3aa3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "I think operator -\u003e is overloaded, so you shouldn\u0027t need the .get().",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_7169020b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "I think you can use the ranged based loop for less code:\nfor (Thread* t : thread_list) {",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_f17c32cc",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-13T18:16:05Z",
+      "side": 1,
+      "message": "I don\u0027t believe that thread_local_alloc_stack_start_ is used, is it worth keeping?",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
