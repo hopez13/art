@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afcbc564_fc3ec9c9",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-13T18:23:44Z",
+      "side": 1,
+      "message": "let\u0027s switch this to a CHECK so we\u0027re less likely to be surprised",
+      "range": {
+        "startLine": 492,
+        "startChar": 4,
+        "endLine": 492,
+        "endChar": 10
+      },
+      "revId": "5bc78abd9c5e65a5d0b873fc884571694240db2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
