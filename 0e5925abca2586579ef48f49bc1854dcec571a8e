@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_1fa0bcb2",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_bd9877a9",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 52
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fc2111e_07784a95",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "const char*",
+      "range": {
+        "startLine": 380,
+        "startChar": 23,
+        "endLine": 380,
+        "endChar": 34
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_8b3ac1a7",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Used const std::string\u0026 instead of const char*",
+      "parentUuid": "0fc2111e_07784a95",
       "range": {
         "startLine": 380,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ef13fd9e_2172b96c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2595,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "parentUuid": "efce9d4a_bb7153b3",
+      "range": {
+        "startLine": 2595,
+        "startChar": 33,
+        "endLine": 2595,
+        "endChar": 45
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fbfe18b_9d2fb36c",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "VLOG(compiler) and below",
+      "range": {
+        "startLine": 2596,
+        "startChar": 2,
+        "endLine": 2596,
+        "endChar": 13
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_81672da9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_9d2fb36c",
       "range": {
         "startLine": 2596,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_7fc0e83c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2642,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_3ddb2763",
+      "range": {
+        "startLine": 2642,
+        "startChar": 4,
+        "endLine": 2642,
+        "endChar": 15
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fbfe18b_5d3b7bb0",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "100 char wrap",
+      "range": {
+        "startLine": 2665,
+        "startChar": 0,
+        "endLine": 2665,
+        "endChar": 108
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_81b44db8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_5d3b7bb0",
       "range": {
         "startLine": 2665,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ef13fd9e_61b951ac",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2667,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efce9d4a_bb45d331",
+      "range": {
+        "startLine": 2667,
+        "startChar": 0,
+        "endLine": 2667,
+        "endChar": 119
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fbfe18b_fdbcafec",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "100 char wrap",
+      "range": {
+        "startLine": 503,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 185
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_0bf411a1",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_fdbcafec",
       "range": {
         "startLine": 503,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "ef13fd9e_61d2f1ef",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_9dc9f395",
+      "range": {
+        "startLine": 511,
+        "startChar": 7,
+        "endLine": 511,
+        "endChar": 9
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efce9d4a_5bccefa9",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 77
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_bfb270df",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efce9d4a_5bccefa9",
       "range": {
         "startLine": 512,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "ef13fd9e_c1e645cb",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc2111e_e7bf3edf",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 513,
+        "endChar": 74
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efce9d4a_dbbf7fdf",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 514,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 75
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_ffacf881",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efce9d4a_dbbf7fdf",
       "range": {
         "startLine": 514,
         "startChar": 0,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "ef13fd9e_21fd9953",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "parentUuid": "8fbfe18b_1daf43aa",
+      "range": {
+        "startLine": 522,
+        "startChar": 19,
+        "endLine": 522,
+        "endChar": 30
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fc2111e_67b58efc",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "const char*",
+      "range": {
+        "startLine": 525,
+        "startChar": 23,
+        "endLine": 525,
+        "endChar": 34
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_81028d9b",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "parentUuid": "0fc2111e_67b58efc",
       "range": {
         "startLine": 525,
         "startChar": 23,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_5f89640f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc2111e_87bafae9",
+      "range": {
+        "startLine": 819,
+        "startChar": 5,
+        "endLine": 819,
+        "endChar": 15
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fc2111e_27af86aa",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 1
@@ -358,6 +718,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "Make part of the log above and explain the uid/gid values.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 57
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_c11485d3",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc2111e_27af86aa",
       "range": {
         "startLine": 214,
         "startChar": 0,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_3fd3c0f6",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efce9d4a_5bb5cffb",
+      "range": {
+        "startLine": 107,
+        "startChar": 20,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fbfe18b_bd9f1779",
         "filename": "runtime/profiler.h",
         "patchSetId": 1
@@ -404,6 +812,30 @@
       "writtenOn": "2014-02-11T22:42:14Z",
       "side": 1,
       "message": "const char* or const std::string\u0026",
+      "range": {
+        "startLine": 125,
+        "startChar": 44,
+        "endLine": 125,
+        "endChar": 55
+      },
+      "revId": "0e5925abca2586579ef48f49bc1854dcec571a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_0b7fb136",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-13T23:43:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbfe18b_bd9f1779",
       "range": {
         "startLine": 125,
         "startChar": 44,
