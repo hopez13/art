@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8f9e016b_da5ad9e1",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-13T21:44:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afcbc564_51595e79",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef13fd9e_9344a68f",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 1
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_57bb0ec7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-13T21:44:23Z",
+      "side": 1,
+      "message": "Right. Done.",
+      "parentUuid": "afcbc564_d1964ec0",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afcbc564_11a1960f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -64,6 +100,24 @@
       "writtenOn": "2014-02-13T18:16:05Z",
       "side": 1,
       "message": "!kUseThreadLocalAllocationStack || *it !\u003d nullptr?",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_19d8d70d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2021,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-13T21:44:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afcbc564_11a1960f",
       "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "8f9e016b_7ad2cdef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-13T21:44:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef13fd9e_f32a3aa3",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afcbc564_7169020b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "afcbc564_57a4ee9d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-13T21:44:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afcbc564_7169020b",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afcbc564_f17c32cc",
         "filename": "runtime/thread-inl.h",
         "patchSetId": 1
@@ -115,6 +205,24 @@
       "writtenOn": "2014-02-13T18:16:05Z",
       "side": 1,
       "message": "I don\u0027t believe that thread_local_alloc_stack_start_ is used, is it worth keeping?",
+      "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_d7747e5e",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-13T21:44:23Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "afcbc564_f17c32cc",
       "revId": "8f69dc3677433a912df6b5fe57a690a9b42c172b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
