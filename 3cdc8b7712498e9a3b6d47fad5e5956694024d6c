@@ -22,6 +22,127 @@
       "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_90210d86",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-14T13:55:31Z",
+      "side": 1,
+      "message": "Do you have a better suggestion?  Is the messiness hidden in a couple of routines that aren\u0027t generally visible?",
+      "parentUuid": "8f9e016b_7d372214",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 81
+      },
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_90a6515c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-14T13:55:31Z",
+      "side": 1,
+      "message": "Wasn\u0027t Method* being passed in RAX (arg0)?",
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_b0253191",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-14T13:55:31Z",
+      "side": 1,
+      "message": "comment: arg_array+\u003d2 ??",
+      "range": {
+        "startLine": 261,
+        "startChar": 34,
+        "endLine": 261,
+        "endChar": 48
+      },
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_f02fb96a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-14T13:55:31Z",
+      "side": 1,
+      "message": "rcx?   I am also uncertain about movl r10q vs. movq r10.",
+      "range": {
+        "startLine": 302,
+        "startChar": 17,
+        "endLine": 302,
+        "endChar": 18
+      },
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_303b01b2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-14T13:55:31Z",
+      "side": 1,
+      "message": "Is it better to have an array and a range check?",
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_703589ba",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-14T13:55:31Z",
+      "side": 1,
+      "message": "Seems like this could be optimized to choosing 0 or 8, and not bothering with the popcount.",
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
