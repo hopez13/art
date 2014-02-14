@@ -16,6 +16,93 @@
       "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_5db5fe62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-14T07:44:41Z",
+      "side": 1,
+      "message": "If we deoptimize a method that has been inlined, the outer method its inlined into won\u0027t also be deoptimized.",
+      "parentUuid": "8f9e016b_651b0e03",
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_736c9fdd",
+        "filename": "compiler/dex/bb_optimizations.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-14T07:44:41Z",
+      "side": 1,
+      "message": "\"* \" here and elsewhere",
+      "range": {
+        "startLine": 26,
+        "startChar": 49,
+        "endLine": 26,
+        "endChar": 51
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_936123e7",
+        "filename": "compiler/dex/bb_optimizations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-14T07:44:41Z",
+      "side": 1,
+      "message": "\" : \"",
+      "range": {
+        "startLine": 59,
+        "startChar": 15,
+        "endLine": 59,
+        "endChar": 17
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_306cbddc",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-14T07:44:41Z",
+      "side": 1,
+      "message": "DEFAULT_MUTEX_ACQUIRED_AFTER;",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 28
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
