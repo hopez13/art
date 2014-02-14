@@ -1035,6 +1035,30 @@
     },
     {
       "key": {
+        "uuid": "2fab559f_be60d9e1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T18:45:48Z",
+      "side": 1,
+      "message": "kIsDebugBuild is preferred over the #ifdef",
+      "parentUuid": "6f7c6df1_c8104f6d",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 323,
+        "endChar": 5
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f9e016b_7d6722aa",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
@@ -1117,6 +1141,30 @@
       "side": 1,
       "message": "It is the last statement in the procedure",
       "parentUuid": "8f9e016b_1df37683",
+      "range": {
+        "startLine": 78,
+        "startChar": 12,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fab559f_9e651df2",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T18:45:48Z",
+      "side": 1,
+      "message": "duh... my eyes are broken and the new gerrit search failed me",
+      "parentUuid": "ef13fd9e_d0f5693a",
       "range": {
         "startLine": 78,
         "startChar": 12,
