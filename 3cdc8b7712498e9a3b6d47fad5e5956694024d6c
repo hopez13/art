@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f9e016b_7d372214",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-14T08:57:08Z",
+      "side": 1,
+      "message": "There\u0027s an issue with using native argument convention disagree with the implied location of GPRs from the core spill mask. It leads to this messy interwoven pushes and the GprIndexToGprOffset routine in the quick argument visitor.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 81
+      },
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
