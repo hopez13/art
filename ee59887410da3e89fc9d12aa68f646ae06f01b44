@@ -1,0 +1,671 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef13fd9e_957f63f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "... OatWriter and ElfWriterQuick (file name extension wrong, but class names are probably better anyway)",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_dd4bae43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "from",
+      "range": {
+        "startLine": 24,
+        "startChar": 19,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_38fd961d",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "simpler just to have DeduplicateCFIInfo handle the null check?",
+      "range": {
+        "startLine": 163,
+        "startChar": 12,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_d578bb09",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "curious why these aren\u0027t in the initializer list like above",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 178,
+        "endChar": 21
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_98d302a3",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "just have \n\nUniquePtr\u003cstd::vector\u003cuint8_t\u003e \u003e cfi_info(ReturnCallFrameInformation())\n\nand lose the bool?",
+      "range": {
+        "startLine": 1077,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 55
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_f5fcd722",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "we have a leb128.h, move there? it would be nice to have a leb128_test too.",
+      "range": {
+        "startLine": 962,
+        "startChar": 0,
+        "endLine": 971,
+        "endChar": 1
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_d51efbbf",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "We pull external imports out, see art/compiler/elf_writer.h for example",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_9d93e641",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "The other content to write comes from the CompilerDriver, it seems like we\u0027d want to keep the cfi_info there as well?",
+      "range": {
+        "startLine": 72,
+        "startChar": 13,
+        "endLine": 72,
+        "endChar": 44
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_3d84bafa",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "yeah, this seems to be the most hackish part. Why isn\u0027t this hiden away within the CompilerDriver? Is that part of the WIP?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 56
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_35de6fac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "I\u0027d add a command line flag for this. I\u0027d make it default on in dex2oatd, and off in dex2oat. I have a WIP change (not yet uploaded) to make it a bit easier to add command line options to dex2oat and have them flow through, so you may want to wait and rebase on that. a corresponding change will also let us use Android system properties to control dex2oat flags for debugging.",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 323,
+        "endChar": 5
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_7d6722aa",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "{ 1, 0, nullptr, nullptr }; \n\nmakes it clearer the last two are pointers\n\nactually, is the 0 signifying JIT_NOACTION?",
+      "range": {
+        "startLine": 59,
+        "startChar": 41,
+        "endLine": 59,
+        "endChar": 56
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_1df37683",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "doesn\u0027t this need to call __jit_debug_register_code at the end?",
+      "range": {
+        "startLine": 78,
+        "startChar": 12,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_55868b94",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "if (entry-\u003enext !\u003d nullptr) {\n\n(we don\u0027t typically use implicit bool conversion)",
+      "range": {
+        "startLine": 81,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 21
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_f896cebf",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_358b0f9b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 21
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_dde80e8f",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "we seem to Create/Register Unregister/Delete together. Any reason why the Create/Delete can\u0027t be folded into the other functions?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 1
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_f8440e90",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "it would be good to have at least a magic constant for this in ElfFile to keep in sync with ElfWriterQuick",
+      "range": {
+        "startLine": 856,
+        "startChar": 34,
+        "endLine": 856,
+        "endChar": 37
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_bde6eac9",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "1024 -\u003e KB\n\nbut more important, why this much?",
+      "range": {
+        "startLine": 869,
+        "startChar": 27,
+        "endLine": 869,
+        "endChar": 31
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_98378213",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "constant here too",
+      "range": {
+        "startLine": 914,
+        "startChar": 40,
+        "endLine": 914,
+        "endChar": 42
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_7842be7f",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "I\u0027d just use the expression 1+3*4 here. is there a sizeof that should be used in the expression?",
+      "range": {
+        "startLine": 972,
+        "startChar": 32,
+        "endLine": 972,
+        "endChar": 34
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_dde3aeb8",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "WS around + here and elsewhere",
+      "range": {
+        "startLine": 978,
+        "startChar": 20,
+        "endLine": 978,
+        "endChar": 21
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_35594f7b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "does the LLVM Dwarf include have any declarations of these so we could use sizeof?",
+      "range": {
+        "startLine": 982,
+        "startChar": 42,
+        "endLine": 982,
+        "endChar": 43
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_955e4361",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "and here?",
+      "range": {
+        "startLine": 985,
+        "startChar": 58,
+        "endLine": 985,
+        "endChar": 59
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_7563c724",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "define named constant for offset, especially since it may vary by architecture?",
+      "range": {
+        "startLine": 990,
+        "startChar": 40,
+        "endLine": 990,
+        "endChar": 42
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f9e016b_fde072ae",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 1008,
+        "startChar": 40,
+        "endLine": 1008,
+        "endChar": 42
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_b83c46f6",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "i\u0027m kind of fine with the size being repeated here, but its also used below, so maybe a constant?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 12,
+        "endLine": 1011,
+        "endChar": 13
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef13fd9e_d5471b92",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "use constant from above",
+      "range": {
+        "startLine": 1065,
+        "startChar": 21,
+        "endLine": 1065,
+        "endChar": 23
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_d8302a1b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "use constant from above?",
+      "range": {
+        "startLine": 1076,
+        "startChar": 16,
+        "endLine": 1076,
+        "endChar": 17
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afcbc564_182b72a9",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-14T06:44:51Z",
+      "side": 1,
+      "message": "use constant from above",
+      "range": {
+        "startLine": 1079,
+        "startChar": 21,
+        "endLine": 1079,
+        "endChar": 23
+      },
+      "revId": "ee59887410da3e89fc9d12aa68f646ae06f01b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
