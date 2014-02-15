@@ -22,6 +22,30 @@
       "revId": "b665ab77a616a87d77ceda72906c7b45e748ecd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fd9956f_37751a9f",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2014-02-15T01:04:00Z",
+      "side": 1,
+      "message": "-msse2 is never set by build/\nOther -msse flags are set if ARCH_X86_HAVE_SSE* is set, but the base x86.mk doesn\u0027t have any of those flags set.",
+      "parentUuid": "0fd6913f_36f87eed",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 31
+      },
+      "revId": "b665ab77a616a87d77ceda72906c7b45e748ecd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
