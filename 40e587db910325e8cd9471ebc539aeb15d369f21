@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f21a133_3c695d4f",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-15T02:15:04Z",
+      "side": 1,
+      "message": "do these need SirtRef protection as well?",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fd6913f_d6713a69",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2469,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-15T02:15:04Z",
+      "side": 1,
+      "message": "lowercase nullptr in macro name?",
+      "range": {
+        "startLine": 2469,
+        "startChar": 4,
+        "endLine": 2469,
+        "endChar": 22
+      },
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f21a133_bc06cdae",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2473,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-15T02:15:04Z",
+      "side": 1,
+      "message": "if ignoring the return value is a bug, shouldn\u0027t we use the annotation if people ignore the result?",
+      "range": {
+        "startLine": 2472,
+        "startChar": 3,
+        "endLine": 2473,
+        "endChar": 38
+      },
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
