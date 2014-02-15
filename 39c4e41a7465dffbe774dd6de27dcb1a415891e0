@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fd6913f_939d0457",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1927,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-15T00:16:37Z",
+      "side": 1,
+      "message": "This is sound as spilled GPRs will be word sized (ie 32 or 64bit), could you add a comment to that effect.",
+      "range": {
+        "startLine": 1927,
+        "startChar": 0,
+        "endLine": 1927,
+        "endChar": 87
+      },
+      "revId": "39c4e41a7465dffbe774dd6de27dcb1a415891e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f21a133_7914c75f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-15T00:16:37Z",
+      "side": 1,
+      "message": "This isn\u0027t sound wrt 64bit as the plan is to have references in the stack be 32bit. You can fix in the same way you did for ShadowFrame.",
+      "range": {
+        "startLine": 1929,
+        "startChar": 0,
+        "endLine": 1931,
+        "endChar": 39
+      },
+      "revId": "39c4e41a7465dffbe774dd6de27dcb1a415891e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
