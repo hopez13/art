@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef293d20_f4b45869",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-02-17T21:14:06Z",
+      "side": 1,
+      "message": "Maybe you can generalize it to say \"Update identityHashCode and compareAndSwapInt in method whitelist\" as the title since your patch has two fixes.",
+      "revId": "6dfa075de5783d14881c8cc3295780b0ca22ac7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_731ce0c6",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-02-17T21:14:06Z",
+      "side": 1,
+      "message": "SetZ instead?",
+      "range": {
+        "startLine": 83,
+        "startChar": 12,
+        "endLine": 83,
+        "endChar": 16
+      },
+      "revId": "6dfa075de5783d14881c8cc3295780b0ca22ac7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
