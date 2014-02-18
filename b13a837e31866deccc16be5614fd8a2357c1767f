@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f8b8d70_339992ad",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T01:40:51Z",
+      "side": 1,
+      "message": "Comment to describe what this is",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "b13a837e31866deccc16be5614fd8a2357c1767f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f8b8d70_139c8e9c",
+        "filename": "compiler/dex/debug_lifo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T01:40:51Z",
+      "side": 1,
+      "message": "I prefer stack to LIFO.",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "b13a837e31866deccc16be5614fd8a2357c1767f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_77784a97",
+        "filename": "compiler/dex/debug_lifo.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T01:40:51Z",
+      "side": 1,
+      "message": "Reference counting what?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 88
+      },
+      "revId": "b13a837e31866deccc16be5614fd8a2357c1767f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_3772d2b7",
+        "filename": "compiler/dex/scoped_arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T01:40:51Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 6
+      },
+      "revId": "b13a837e31866deccc16be5614fd8a2357c1767f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
