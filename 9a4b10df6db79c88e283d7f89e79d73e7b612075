@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afdf457e_e20686af",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T18:48:35Z",
+      "side": 1,
+      "message": "2 spaces then tab, should just be tab?",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 2
+      },
+      "revId": "9a4b10df6db79c88e283d7f89e79d73e7b612075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afdf457e_22e98e91",
+        "filename": "compiler/compiler_backend.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T18:48:35Z",
+      "side": 1,
+      "message": "ws",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 2
+      },
+      "revId": "9a4b10df6db79c88e283d7f89e79d73e7b612075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef577db2_24de32f6",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T18:48:35Z",
+      "side": 1,
+      "message": "move to Android.common.mk art_cflags?",
+      "range": {
+        "startLine": 303,
+        "startChar": 16,
+        "endLine": 303,
+        "endChar": 54
+      },
+      "revId": "9a4b10df6db79c88e283d7f89e79d73e7b612075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
