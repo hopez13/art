@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f8b8d70_13300ece",
+        "filename": "runtime/arch/arm64/asm_support_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:10:50Z",
+      "side": 1,
+      "message": "Let\u0027s not repeat this for 64bit, assume we\u0027re going to do a load+compare+branch for now, I\u0027d like to move this to a load+dependent load where the dependent load can be forced to cause a SEGV. For 32bit there\u0027s an argument we can\u0027t use signal handlers due to native apps.",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_f7e45aff",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:10:50Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 54,
+        "startChar": 74,
+        "endLine": 54,
+        "endChar": 81
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_97e966d6",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:10:50Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 64,
+        "startChar": 74,
+        "endLine": 64,
+        "endChar": 81
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f8b8d70_332d1273",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:10:50Z",
+      "side": 1,
+      "message": "seems like this signature needs updating",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 61
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_96340ac0",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:10:50Z",
+      "side": 1,
+      "message": "TODO: 100 char line wrap",
+      "range": {
+        "startLine": 108,
+        "startChar": 5,
+        "endLine": 108,
+        "endChar": 9
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f8b8d70_d33a86ac",
+        "filename": "runtime/arch/arm64/context_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:10:50Z",
+      "side": 1,
+      "message": "no need for virtual unless you expect these to be overridden",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
