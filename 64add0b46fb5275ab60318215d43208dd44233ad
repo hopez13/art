@@ -22,6 +22,30 @@
       "revId": "64add0b46fb5275ab60318215d43208dd44233ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_030e7801",
+        "filename": "runtime/ELF.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-18T19:42:09Z",
+      "side": 1,
+      "message": "I\u0027d rather move to using the bionic/glibc elf.h for the runtime/elf_file.* and then just add local definitions for anything we are using from LLVM for the runtime part.\n\nFor the elf_writer, similarly I\u0027d like to use elf.h for the quick part. If the mclinker version need\u0027s LLVM\u0027s elf.h, that is fine as a local dependency.\n\nbut yes, it can be a separate CL.",
+      "parentUuid": "af81054e_7876191e",
+      "range": {
+        "startLine": 1,
+        "startChar": 20,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "64add0b46fb5275ab60318215d43208dd44233ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
