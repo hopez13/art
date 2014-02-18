@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "6f8b8d70_79e4dbc1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:51:14Z",
+      "side": 1,
+      "message": "Some explanation, DecodedInstruction isn\u0027t fast and its use is often error prone, for example reading the wrong variant of a decoded register. It exists to make the quick compiler\u0027s life easy but we\u0027ve successfully removed it elsewhere.",
+      "parentUuid": "cf26394f_7cbd8de5",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf26394f_3cc71582",
         "filename": "compiler/optimizing/builder.h",
         "patchSetId": 2
