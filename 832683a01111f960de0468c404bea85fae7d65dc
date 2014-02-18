@@ -183,6 +183,29 @@
       "revId": "832683a01111f960de0468c404bea85fae7d65dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef577db2_c43cfef9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T22:30:38Z",
+      "side": 1,
+      "message": "The compiler driver shouldn\u0027t be including parts of compilers.",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "832683a01111f960de0468c404bea85fae7d65dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
