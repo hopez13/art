@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af81054e_7876191e",
+        "filename": "runtime/ELF.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-18T18:46:41Z",
+      "side": 1,
+      "message": "This may be controversial and not fully needed for this CL. It is a copy of the LLVM file so that the master-art-host manifest file does not have llvm and friends and dependencies. Makes its checkout and compilation of art much faster.\n\nIf you\u0027re unsure about this, I can move it to a different CL where we can discuss about it.",
+      "range": {
+        "startLine": 1,
+        "startChar": 20,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "64add0b46fb5275ab60318215d43208dd44233ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
