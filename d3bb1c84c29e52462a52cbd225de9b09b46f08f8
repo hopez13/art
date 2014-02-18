@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "ef7e9d24_ac6be372",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T18:37:56Z",
+      "side": 1,
+      "message": "Using Instruction is preferred and there\u0027s also an \"easy to use\" API for that where you can go VRegA() rather than say VRegA_10t() where you must know the instruction conforms to form 10t (something asserted on debug builds).",
+      "parentUuid": "6f8b8d70_79e4dbc1",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf26394f_3cc71582",
         "filename": "compiler/optimizing/builder.h",
         "patchSetId": 2
