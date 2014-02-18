@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef293d20_1d3017ce",
+        "filename": "compiler/optimizing/allocation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "It seems this should be moved to compiler/utils as its more general purpose.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_9cae69ab",
+        "filename": "compiler/optimizing/allocation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "use logging.h instead, LOG(FATAL) \u003c\u003c \"UNREACHABLE\" I think is the pattern that\u0027s in use. Try to avoid the use of macros.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 45
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_7cbd8de5",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "We\u0027ve been gradually trying to remove DecodeInstruction from the code base.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_3cc71582",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "Comment on what the result signifies.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 68
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef577db2_e4ba5ac3",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 43,
+        "startChar": 17,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afdf457e_82d4daff",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 47,
+        "startChar": 9,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afdf457e_a2a3de95",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "It\u0027d be useful to add an explanation ahead of each class as to what purpose it serves. Some are more meaningful than others,  say HBasicBlock, but the distinction between HExit and HReturnVoid could confuse. Having a style of a comment ahead of each class declaration would abate this.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 35
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f8b8d70_99989f67",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "We should at least comment where seemingly arbitrary constants come from.",
+      "range": {
+        "startLine": 33,
+        "startChar": 23,
+        "endLine": 33,
+        "endChar": 24
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afdf457e_c29ee253",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afdf457e_62d1d60d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:39:45Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "d3bb1c84c29e52462a52cbd225de9b09b46f08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
