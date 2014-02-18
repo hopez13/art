@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6f646d9a_4e4827a2",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-18T23:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afdf457e_e20686af",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 2
+      },
+      "revId": "9a4b10df6db79c88e283d7f89e79d73e7b612075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afdf457e_22e98e91",
         "filename": "compiler/compiler_backend.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6f646d9a_6e45eb88",
+        "filename": "compiler/compiler_backend.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-18T23:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afdf457e_22e98e91",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 2
+      },
+      "revId": "9a4b10df6db79c88e283d7f89e79d73e7b612075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef577db2_24de32f6",
         "filename": "runtime/Android.mk",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-02-18T18:48:35Z",
       "side": 1,
       "message": "move to Android.common.mk art_cflags?",
+      "range": {
+        "startLine": 303,
+        "startChar": 16,
+        "endLine": 303,
+        "endChar": 54
+      },
+      "revId": "9a4b10df6db79c88e283d7f89e79d73e7b612075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af81054e_5848f5a1",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-18T23:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef577db2_24de32f6",
       "range": {
         "startLine": 303,
         "startChar": 16,
