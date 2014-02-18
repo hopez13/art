@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f8b8d70_33a0b2b3",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:03:57Z",
+      "side": 1,
+      "message": "if (kIsDebugBuild) {",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 14
+      },
+      "revId": "fb3789ccdf209e690cf19ed326a7cb8a5a608a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_b73902b7",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:03:57Z",
+      "side": 1,
+      "message": "no need for virtual unless you expect the member function to be overridden",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 9
+      },
+      "revId": "fb3789ccdf209e690cf19ed326a7cb8a5a608a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_5626729c",
+        "filename": "compiler/utils/arm64/managed_register_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T02:03:57Z",
+      "side": 1,
+      "message": "full-stops on the end of comments.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 28
+      },
+      "revId": "fb3789ccdf209e690cf19ed326a7cb8a5a608a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
