@@ -161,6 +161,30 @@
       "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af81054e_18ad8d7b",
+        "filename": "runtime/arch/arm64/context_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-02-18T16:47:50Z",
+      "side": 1,
+      "message": "Agreed. This change could be applied to all subclasses of Context. I\u0027ll do it for aarch64.",
+      "parentUuid": "6f8b8d70_d33a86ac",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "ba6666d9fb364e3ff924d2456e4d308d752d62f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
