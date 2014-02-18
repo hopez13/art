@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f860164_5148d4a1",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-18T11:24:49Z",
+      "side": 1,
+      "message": "Is it needed for the debugger ? If not, would be worth checking only the compiler access this part.",
+      "range": {
+        "startLine": 276,
+        "startChar": 20,
+        "endLine": 276,
+        "endChar": 35
+      },
+      "revId": "62700e5d7b206098959ed59754117dc43ccc982e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f646d9a_28fdab1c",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-18T11:24:49Z",
+      "side": 1,
+      "message": "I suppose this is the method the debugger should use, right ?",
+      "range": {
+        "startLine": 279,
+        "startChar": 27,
+        "endLine": 279,
+        "endChar": 44
+      },
+      "revId": "62700e5d7b206098959ed59754117dc43ccc982e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f646d9a_e8e6b395",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-18T11:24:49Z",
+      "side": 1,
+      "message": "stale comment.",
+      "range": {
+        "startLine": 153,
+        "startChar": 14,
+        "endLine": 153,
+        "endChar": 24
+      },
+      "revId": "62700e5d7b206098959ed59754117dc43ccc982e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af81054e_52f69446",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-18T11:24:49Z",
+      "side": 1,
+      "message": "and here.",
+      "range": {
+        "startLine": 154,
+        "startChar": 14,
+        "endLine": 154,
+        "endChar": 23
+      },
+      "revId": "62700e5d7b206098959ed59754117dc43ccc982e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f646d9a_88eb775c",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-18T11:24:49Z",
+      "side": 1,
+      "message": "and here.",
+      "range": {
+        "startLine": 163,
+        "startChar": 14,
+        "endLine": 163,
+        "endChar": 24
+      },
+      "revId": "62700e5d7b206098959ed59754117dc43ccc982e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f860164_f158e878",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-18T11:24:49Z",
+      "side": 1,
+      "message": "and here.",
+      "range": {
+        "startLine": 164,
+        "startChar": 14,
+        "endLine": 164,
+        "endChar": 23
+      },
+      "revId": "62700e5d7b206098959ed59754117dc43ccc982e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
