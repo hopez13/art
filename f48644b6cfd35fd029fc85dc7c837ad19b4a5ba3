@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f8b8d70_397f3337",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T17:46:28Z",
+      "side": 1,
+      "message": "ugh, mental note to change the interface of jvalue\u0027s SetZ to take a bool rather than a uint8_t. JNI_TRUE and JNI_FALSE should only have a meaning in the \"jni\" space, whereas true and false in the runtime may differ (which of course would be broken elsewhere and mad).",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 27
+      },
+      "revId": "f48644b6cfd35fd029fc85dc7c837ad19b4a5ba3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
