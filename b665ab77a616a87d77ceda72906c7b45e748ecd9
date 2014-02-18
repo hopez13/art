@@ -46,6 +46,30 @@
       "revId": "b665ab77a616a87d77ceda72906c7b45e748ecd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf26394f_16a31ac3",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T01:51:30Z",
+      "side": 1,
+      "message": "ART doesn\u0027t support none SSE2 x86 processors, we set sse3 in the host/target linux x86 combos, sounds like this should be hoisted to x86.mk.",
+      "parentUuid": "2fd9956f_37751a9f",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 31
+      },
+      "revId": "b665ab77a616a87d77ceda72906c7b45e748ecd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
