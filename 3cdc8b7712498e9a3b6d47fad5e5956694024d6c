@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cf26394f_7645ae88",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T05:33:13Z",
+      "side": 1,
+      "message": "I think the main places are the FillInCalleeSaves routine in Context and the quick argument visitor. I think for the sake of my sanity I\u0027ll handle the irregular layout in the argument visitor and the FillInCalleeSaves will just scan numerically.",
+      "parentUuid": "8f9e016b_90210d86",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 81
+      },
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef13fd9e_90a6515c",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -60,6 +84,24 @@
       "writtenOn": "2014-02-14T13:55:31Z",
       "side": 1,
       "message": "Wasn\u0027t Method* being passed in RAX (arg0)?",
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f8b8d70_96314c09",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T05:33:13Z",
+      "side": 1,
+      "message": "So this is a bridge, the incoming method is in RDI (unless you want to add RAX as another argument register?) this code is placing the callee save method (to describe the spilt arguments and callee saves) on to the stack. The same code is performed in FinishCalleeSaveFrameSetup, but I\u0027d like to remove that code as it will cut down on the number of arguments being passed and some messy argument stomping problems.",
+      "parentUuid": "ef13fd9e_90a6515c",
       "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -169,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "cf26394f_d63cc2f9",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T05:33:13Z",
+      "side": 1,
+      "message": "Yep, this was a first cut and the arguments are not yet getting passed correctly.",
+      "parentUuid": "8f9e016b_303b01b2",
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f9e016b_703589ba",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -180,6 +240,24 @@
       "writtenOn": "2014-02-14T13:55:31Z",
       "side": 1,
       "message": "Seems like this could be optimized to choosing 0 or 8, and not bothering with the popcount.",
+      "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef293d20_172b16aa",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-18T05:33:13Z",
+      "side": 1,
+      "message": "Its more about the readability, we should only ever create these methods when we create the boot image.",
+      "parentUuid": "8f9e016b_703589ba",
       "revId": "3cdc8b7712498e9a3b6d47fad5e5956694024d6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
