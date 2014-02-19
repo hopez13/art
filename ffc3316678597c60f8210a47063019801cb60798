@@ -68,6 +68,30 @@
       "revId": "ffc3316678597c60f8210a47063019801cb60798",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af81054e_86fa7a8e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-19T20:00:35Z",
+      "side": 1,
+      "message": "First, you tell me that \u0027Mirror classes don\u0027t belong in the compiler but in the compiler driver \"interface\" to the compilers.\u0027 And now you\u0027re telling me that I shouldn\u0027t include this here? Where should I put the code that bridges the two then?",
+      "parentUuid": "0ff0510e_d120742d",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
