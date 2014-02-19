@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ff0510e_11a65c5d",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T19:59:55Z",
+      "side": 1,
+      "message": "Annotation feels like the wrong term as this information effectively becomes part of the instruction.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_3148b8e8",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T19:59:55Z",
+      "side": 1,
+      "message": "uint32_t and use DexFile::kDexNoIndex.",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 5
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff0510e_d120742d",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 8
