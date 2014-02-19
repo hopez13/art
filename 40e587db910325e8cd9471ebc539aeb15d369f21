@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "0fd6913f_b61a2efd",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-19T20:39:59Z",
+      "side": 1,
+      "message": "The place where thread suspension can occur is FindClass. Since those variables are null there, it is not needed.",
+      "parentUuid": "8f21a133_3c695d4f",
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fd6913f_d6713a69",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 2469,
         "endChar": 22
       },
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2fd9956f_d7ddb6af",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2469,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-19T20:39:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fd6913f_d6713a69",
       "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "0fd6913f_56e9ca8f",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2473,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-19T20:39:59Z",
+      "side": 1,
+      "message": "Not always a real bug, for example, see ObjectLock in object_utils.h",
+      "parentUuid": "8f21a133_bc06cdae",
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff0510e_4cee872b",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 2509,
         "endChar": 69
       },
+      "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_0c88ff5a",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2509,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-19T20:39:59Z",
+      "side": 1,
+      "message": "I used find and replace to replace all the NULL",
+      "parentUuid": "0ff0510e_4cee872b",
       "revId": "40e587db910325e8cd9471ebc539aeb15d369f21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
