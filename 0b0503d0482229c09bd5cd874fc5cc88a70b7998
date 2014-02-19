@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "effcddee_cb4d6107",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T20:56:50Z",
+      "side": 1,
+      "message": "nit: \u003c\u003e system includes are supposed to be above the local ones.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "0b0503d0482229c09bd5cd874fc5cc88a70b7998",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_ab5295a6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T20:56:50Z",
+      "side": 1,
+      "message": "of course, we are already violating this here.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 21
+      },
+      "revId": "0b0503d0482229c09bd5cd874fc5cc88a70b7998",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_0c1c7f50",
+        "filename": "compiler/elf_fixup.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T20:56:50Z",
+      "side": 1,
+      "message": "same nit",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "0b0503d0482229c09bd5cd874fc5cc88a70b7998",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
