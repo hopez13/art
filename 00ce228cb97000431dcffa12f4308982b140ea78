@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ff0510e_e6ee94da",
+        "filename": "compiler/elf_fixup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T18:56:53Z",
+      "side": 1,
+      "message": "nit: I think the system ones are supposed to come after the elf_fixup.h but below the local project includes.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "00ce228cb97000431dcffa12f4308982b140ea78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_254874e8",
+        "filename": "compiler/elf_stripper.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T18:56:53Z",
+      "side": 1,
+      "message": "the .h for the corresponding .cc really is supposed to be on its on ahead of the others. See:\n\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Names_and_Order_of_Includes",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "00ce228cb97000431dcffa12f4308982b140ea78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_c69ef853",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T18:56:53Z",
+      "side": 1,
+      "message": "move to header?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "00ce228cb97000431dcffa12f4308982b140ea78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_26e99c91",
+        "filename": "compiler/utils/elf_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T18:56:53Z",
+      "side": 1,
+      "message": "I think I\u0027d say \"... with llvm/Support/ELF.h\" just to be clear",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 60
+      },
+      "revId": "00ce228cb97000431dcffa12f4308982b140ea78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_669724eb",
+        "filename": "compiler/utils/elf_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T18:56:53Z",
+      "side": 1,
+      "message": "I think you can just \n\n\u003cbionic/libc/kernel/uapi/linux/elf.h\u003e since top of tree is on the include path? but I could be wrong.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "00ce228cb97000431dcffa12f4308982b140ea78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_e6aa141f",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-19T18:56:53Z",
+      "side": 1,
+      "message": "I\u0027d just include utils/elf_util.h to hide the ../../bionic hack here.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 52
+      },
+      "revId": "00ce228cb97000431dcffa12f4308982b140ea78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
