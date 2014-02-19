@@ -92,6 +92,30 @@
       "revId": "ffc3316678597c60f8210a47063019801cb60798",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff9d9ff_44a4a432",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T20:04:33Z",
+      "side": 1,
+      "message": "In the dex directory, if you need fast access to compiler interface queries then place the relevant code in an -inl.h. The point is to separate things out. In particular things that we\u0027d like to deprecate like the quick compiler.",
+      "parentUuid": "af81054e_86fa7a8e",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
