@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cff9d9ff_dec40152",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "comment adds nothing to the declaration.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_c053805c",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "The index in ???",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 21
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_1ff30756",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "what am I?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_a058f477",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "what am I?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff9d9ff_9eba79c2",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "we should comment that we can\u0027t possibly know this in the case of an unresolved field",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 27
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_005e0862",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "MemberOffset should be a POD type. What the value here when unresolved?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff9d9ff_5ef471a1",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "The dex file that defines the class containing the field and the field. For unresolved fields nullptr.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 69
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_807df8c7",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "The type index of the class declaring the field or 0 if the field is unresolved.",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_3ff6c345",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "// The field index in the dex file that defines field, or 0 is the field is unresolved.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_e062fc1f",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "why is there no \"bool IsUnresolved()\" method? Why are the barely documented guts of this laid bare for use/misuse?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff9d9ff_3eca455b",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:24:39Z",
+      "side": 1,
+      "message": "repeat as above",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
