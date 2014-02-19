@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ff0510e_71d1a00d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-19T19:51:32Z",
+      "side": 1,
+      "message": "Nice",
+      "range": {
+        "startLine": 15,
+        "startChar": 30,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "c5315245fe40f78a87fb143ec164db79ce86cc0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cff9d9ff_84822ce8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-19T19:51:32Z",
+      "side": 1,
+      "message": "The higher, the better?",
+      "range": {
+        "startLine": 16,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 34
+      },
+      "revId": "c5315245fe40f78a87fb143ec164db79ce86cc0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_10ec9472",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-19T19:51:32Z",
+      "side": 1,
+      "message": "Add an empty line before this function? Also, how about placing this next to MarkObjectCallback?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 2
+      },
+      "revId": "c5315245fe40f78a87fb143ec164db79ce86cc0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_f0092888",
+        "filename": "runtime/gc/collector/semi_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-19T19:51:32Z",
+      "side": 1,
+      "message": "Same as in mark_sweep.h.",
+      "range": {
+        "startLine": 235,
+        "startChar": 14,
+        "endLine": 235,
+        "endChar": 38
+      },
+      "revId": "c5315245fe40f78a87fb143ec164db79ce86cc0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "effcddee_f0be4844",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-19T19:51:32Z",
+      "side": 1,
+      "message": "This should probably be renamed to mark_callback_ as it\u0027s no longer recursive?",
+      "range": {
+        "startLine": 633,
+        "startChar": 24,
+        "endLine": 633,
+        "endChar": 48
+      },
+      "revId": "c5315245fe40f78a87fb143ec164db79ce86cc0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
