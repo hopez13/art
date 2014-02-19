@@ -45,6 +45,30 @@
       "revId": "202e9ca7933c73f6fa3601a00ab0f77f54c46463",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f860164_5a4f8952",
+        "filename": "compiler/utils/allocation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-19T08:59:34Z",
+      "side": 1,
+      "message": "g++ complains about returning nullptr for operator new.",
+      "parentUuid": "ef7e9d24_2f7fe536",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 12
+      },
+      "revId": "202e9ca7933c73f6fa3601a00ab0f77f54c46463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
