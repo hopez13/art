@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "0ff0510e_a073d4ff",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:13:53Z",
+      "side": 1,
+      "message": "I didn\u0027t but there\u0027s no comments in this code. It\u0027d be worth adding the comments as its not obvious where all the various indices are into. My specific concern is that we use an index in a place that its not intended to be used, which is more likely when this code is used with the inlining of accessors.",
+      "parentUuid": "6f646d9a_714cea5c",
+      "range": {
+        "startLine": 44,
+        "startChar": 11,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "832683a01111f960de0468c404bea85fae7d65dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef577db2_845da667",
         "filename": "compiler/dex/mir_annotations.h",
         "patchSetId": 6
@@ -378,6 +402,53 @@
     },
     {
       "key": {
+        "uuid": "0ff0510e_e06ddc17",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:13:53Z",
+      "side": 1,
+      "message": "Add a comment that we expect to only use 2^16 indices as otherwise it makes the code hard to follow.",
+      "parentUuid": "6f646d9a_11dece2e",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 12
+      },
+      "revId": "832683a01111f960de0468c404bea85fae7d65dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_4083f077",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:13:53Z",
+      "side": 1,
+      "message": "likewise.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 31
+      },
+      "revId": "832683a01111f960de0468c404bea85fae7d65dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef577db2_c43cfef9",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 6
@@ -413,6 +484,30 @@
       "side": 1,
       "message": "Why not?\n\nWe\u0027re already including some compiler parts above since the refactoring that moved some parts from verifier (where they didn\u0027t belong) to the compiler.",
       "parentUuid": "ef577db2_c43cfef9",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "832683a01111f960de0468c404bea85fae7d65dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ff0510e_20806469",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T15:13:53Z",
+      "side": 1,
+      "message": "The verifier is part of the runtime. The reason not to include this file is that when we delete the quick compiler we shouldn\u0027t be removing bits of its interface that has leaked into the more general compiler interface. The compiler interface should also be better encapsulated and not just dumped into the compiler driver, but that\u0027s another story.",
+      "parentUuid": "8f860164_da361969",
       "range": {
         "startLine": 37,
         "startChar": 9,
