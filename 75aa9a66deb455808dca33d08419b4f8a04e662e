@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef15bdf4_34c0b06a",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "ugh. Note we\u0027d generally use \"std::string methodname(PrettyMethod ..\" rather than assignment due to bugs in the STL implementation.",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 41
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f193130_b5dfa02f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "const char*",
+      "range": {
+        "startLine": 307,
+        "startChar": 31,
+        "endLine": 307,
+        "endChar": 42
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1c351e_f68da01c",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "const char*",
+      "range": {
+        "startLine": 105,
+        "startChar": 26,
+        "endLine": 105,
+        "endChar": 37
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef15bdf4_54c72c80",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "const on all these fields?",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 22
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1c351e_f6cc8051",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "FdFile?",
+      "range": {
+        "startLine": 203,
+        "startChar": 11,
+        "endLine": 203,
+        "endChar": 15
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1c351e_3678b84f",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "ws",
+      "range": {
+        "startLine": 233,
+        "startChar": 89,
+        "endLine": 233,
+        "endChar": 90
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1c351e_16e49cc0",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T23:07:20Z",
+      "side": 1,
+      "message": "FdFile?",
+      "range": {
+        "startLine": 238,
+        "startChar": 11,
+        "endLine": 238,
+        "endChar": 15
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
