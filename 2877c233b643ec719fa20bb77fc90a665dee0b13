@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af81054e_fb41a37a",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-19T16:07:05Z",
+      "side": 1,
+      "message": "I have moved the macros to compiler/utils/elf_utils.h.\n\nx86 does not require flags for the elf header.",
+      "parentUuid": "cff9d9ff_5eaab164",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 51
+      },
+      "revId": "2877c233b643ec719fa20bb77fc90a665dee0b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff0510e_00372814",
         "filename": "runtime/elf_file.h",
         "patchSetId": 1
