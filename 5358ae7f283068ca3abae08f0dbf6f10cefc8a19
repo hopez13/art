@@ -472,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "cff9d9ff_e45cd0ba",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T19:52:26Z",
+      "side": 1,
+      "message": "Please don\u0027t follow MIR or LIR for examples of our coding style. This code is the worst example and fixing it up is an ongoing process. The origin of the code was Dalvik and you\u0027ll find vestiges of 80 character column wraps as well as just poor OO style, take the ongoing SlowPath clean-up as an example. The reason for adding accessors is it encapsulates meaning in a single place rather than distributing it over the implementation.",
+      "parentUuid": "8f860164_65266e9d",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "5358ae7f283068ca3abae08f0dbf6f10cefc8a19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cff9d9ff_3eca455b",
         "filename": "compiler/dex/mir_annotations.h",
         "patchSetId": 7
