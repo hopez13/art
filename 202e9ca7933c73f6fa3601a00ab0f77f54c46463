@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef577db2_67c74c53",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T02:33:37Z",
+      "side": 1,
+      "message": "move growable_array.h to utils as dex should just be quick/portable related code",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "202e9ca7933c73f6fa3601a00ab0f77f54c46463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef7e9d24_2f7fe536",
+        "filename": "compiler/utils/allocation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-19T02:33:37Z",
+      "side": 1,
+      "message": "presumably only necessary for the \"this won\u0027t return\". Prefer return nullptr?",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 12
+      },
+      "revId": "202e9ca7933c73f6fa3601a00ab0f77f54c46463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
