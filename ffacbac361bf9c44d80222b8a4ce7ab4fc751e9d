@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f860164_65d42e11",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-19T16:55:29Z",
+      "side": 1,
+      "message": "\"base\" - noun, name of the argument; \"set\" - verb. English is difficult to parse. I can replace the \"set to\" with \"\u003d\" if that makes it more readable.",
+      "parentUuid": "effcddee_5ffd8f1b",
+      "range": {
+        "startLine": 65,
+        "startChar": 53,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "effcddee_bf0ad37c",
         "filename": "compiler/dex/local_value_numbering.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "af81054e_26262eca",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-19T16:55:29Z",
+      "side": 1,
+      "message": "As I understand it, the local value numbering is about finding identical values and assigning unique \"names\" to them. Repeating the premise here is unnecessary.",
+      "parentUuid": "effcddee_bf0ad37c",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 98
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cff9d9ff_fe98dd67",
         "filename": "compiler/dex/local_value_numbering.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-02-19T15:31:04Z",
       "side": 1,
       "message": "please re-use FieldReference.",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f646d9a_5c453d61",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-19T16:55:29Z",
+      "side": 1,
+      "message": "Unlike MethodReference, I don\u0027t see any FieldReference defined anywhere in ART. Do you just want me to rename this here or create a field_reference.h?",
+      "parentUuid": "cff9d9ff_fe98dd67",
       "range": {
         "startLine": 38,
         "startChar": 9,
