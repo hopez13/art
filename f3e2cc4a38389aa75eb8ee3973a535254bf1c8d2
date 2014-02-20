@@ -16,6 +16,24 @@
       "revId": "f3e2cc4a38389aa75eb8ee3973a535254bf1c8d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f75b176_582bc1a8",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-20T22:34:50Z",
+      "side": 1,
+      "message": "right, we might have used to link against these for mclinker which as buried inside? but now we link directly below.",
+      "parentUuid": "0f75b176_384c455c",
+      "revId": "f3e2cc4a38389aa75eb8ee3973a535254bf1c8d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
