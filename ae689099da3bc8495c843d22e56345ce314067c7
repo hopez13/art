@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f8a499e_5f3f2bc6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-20T09:50:12Z",
+      "side": 1,
+      "message": "We limit (as much as possible) line to 100 characters max. I\u0027ll make the change to fix that.",
+      "range": {
+        "startLine": 683,
+        "startChar": 100,
+        "endLine": 683,
+        "endChar": 114
+      },
+      "revId": "ae689099da3bc8495c843d22e56345ce314067c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
