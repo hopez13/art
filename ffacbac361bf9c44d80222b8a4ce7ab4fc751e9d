@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "efaa1deb_2cd4f30f",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T12:14:34Z",
+      "side": 1,
+      "message": "Rewritten. If that still isn\u0027t good enough, I can replace it with \"// TODO(irogers): Write description.\"",
+      "parentUuid": "effcddee_42177665",
+      "range": {
+        "startLine": 65,
+        "startChar": 53,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "effcddee_bf0ad37c",
         "filename": "compiler/dex/local_value_numbering.cc",
         "patchSetId": 3
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "There\u0027s clearly a distinction between memory and regular uses. My point is when can I assume from a memory version number two things alias or not?",
       "parentUuid": "af81054e_26262eca",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 98
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f8a499e_7fd14f0d",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T12:14:34Z",
+      "side": 1,
+      "message": "If there\u0027s a _chance_ that the value was overwritten, you\u0027ll get a different value name for the next read.",
+      "parentUuid": "cff9d9ff_de1fe1eb",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -215,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "efaa1deb_4cdb3f3e",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T12:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "effcddee_02fd6ed9",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 17
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff0510e_2045048a",
         "filename": "compiler/dex/local_value_numbering_test.cc",
         "patchSetId": 3
@@ -249,6 +321,30 @@
       "writtenOn": "2014-02-19T16:59:20Z",
       "side": 1,
       "message": "in particular why is a uint16_t a dex file?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "ffacbac361bf9c44d80222b8a4ce7ab4fc751e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efaa1deb_cc072fe3",
+        "filename": "compiler/dex/local_value_numbering_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T12:14:34Z",
+      "side": 1,
+      "message": "Changed to uintptr_t.",
+      "parentUuid": "cff9d9ff_3e1525cd",
       "range": {
         "startLine": 29,
         "startChar": 0,
