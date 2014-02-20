@@ -16,6 +16,57 @@
       "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f193130_6faa4d65",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-20T17:55:40Z",
+      "side": 1,
+      "message": "typo: instruction",
+      "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f193130_efb81dab",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-20T17:55:40Z",
+      "side": 1,
+      "message": "OFFSET(String) -\u003e 2 * OFFSET(String)",
+      "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1c351e_101c9c50",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-20T17:55:40Z",
+      "side": 1,
+      "message": "LEA gives 3 operand add :-)",
+      "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
