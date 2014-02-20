@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f8a499e_3fa6e7d2",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T11:34:05Z",
+      "side": 1,
+      "message": "I consider \"annotation\" appropriate. No code is forced to use the annotation, it can go to the source. If you have a better name, say it.",
+      "parentUuid": "0ff0510e_11a65c5d",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff0510e_3148b8e8",
         "filename": "compiler/dex/mir_annotations.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-02-19T19:59:55Z",
       "side": 1,
       "message": "uint32_t and use DexFile::kDexNoIndex.",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 5
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f8a499e_1fa923a2",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T11:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff0510e_3148b8e8",
       "range": {
         "startLine": 86,
         "startChar": 2,
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "In the dex directory, if you need fast access to compiler interface queries then place the relevant code in an -inl.h. The point is to separate things out. In particular things that we\u0027d like to deprecate like the quick compiler.",
       "parentUuid": "af81054e_86fa7a8e",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f8a499e_5fa3abc1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-20T11:34:05Z",
+      "side": 1,
+      "message": "Moved to compiler/dex/mir_annotations.cc .",
+      "parentUuid": "cff9d9ff_44a4a432",
       "range": {
         "startLine": 31,
         "startChar": 0,
