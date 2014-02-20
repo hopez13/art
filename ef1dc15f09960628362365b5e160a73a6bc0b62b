@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "ef15bdf4_eeb823ab",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-20T18:05:29Z",
+      "side": 1,
+      "message": "could you remove 1 ws character to keep the strings lined up",
+      "range": {
+        "startLine": 359,
+        "startChar": 132,
+        "endLine": 359,
+        "endChar": 134
+      },
+      "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef15bdf4_2ebb3ba5",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-20T18:05:29Z",
+      "side": 1,
+      "message": "comment after semi-colon",
+      "range": {
+        "startLine": 1165,
+        "startChar": 29,
+        "endLine": 1165,
+        "endChar": 30
+      },
+      "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f193130_8f0fe9b7",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
