@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f193130_8f0fe9b7",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-02-20T17:55:30Z",
+      "side": 1,
+      "message": "isn\u0027t this wrong? if it\u0027s not a constant, you have to assume you might need the real String.indexOf.",
+      "revId": "ef1dc15f09960628362365b5e160a73a6bc0b62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
