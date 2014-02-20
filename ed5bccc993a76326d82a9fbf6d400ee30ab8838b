@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f8a499e_5f11eb6d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-20T08:49:56Z",
+      "side": 1,
+      "message": "Saying \"all\" classes could be misunderstood here as we set this flag only on classes but not on interfaces. \n\nI would rephrase to \"Set ACC_SUPER. Dex files don\u0027t contain this flag but only classes are supposed to have it set, not interfaces.\". What do you think ?",
+      "range": {
+        "startLine": 684,
+        "startChar": 44,
+        "endLine": 684,
+        "endChar": 55
+      },
+      "revId": "ed5bccc993a76326d82a9fbf6d400ee30ab8838b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
