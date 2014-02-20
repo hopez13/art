@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2f1c351e_19420f5b",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "Surely those are both initializations, not assignments.  I\u0027ll change it but I don\u0027t think that \"std::string x \u003d y\" is an assignment.",
+      "parentUuid": "ef15bdf4_34c0b06a",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 41
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f193130_b5dfa02f",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-02-19T23:07:20Z",
       "side": 1,
       "message": "const char*",
+      "range": {
+        "startLine": 307,
+        "startChar": 31,
+        "endLine": 307,
+        "endChar": 42
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f1c351e_990d7f07",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "const std::string\u0026.  The caller holds the result of an option parse in a std::string.  To use const char* I\u0027d have to use .c_str() and then I\u0027d have to use strcmp() to check if it is empty.",
+      "parentUuid": "0f193130_b5dfa02f",
       "range": {
         "startLine": 307,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2f1c351e_79f7c3a7",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "parentUuid": "2f1c351e_f68da01c",
+      "range": {
+        "startLine": 105,
+        "startChar": 26,
+        "endLine": 105,
+        "endChar": 37
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef15bdf4_54c72c80",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-02-19T23:07:20Z",
       "side": 1,
       "message": "const on all these fields?",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 22
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f193130_5528ccaa",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "No, can\u0027t.  I mentioned this before.  The insertion into a map requires an assignment operator and therefore these can\u0027t be const.  They are all private and not pointers.\n\nIf I make the map use a pointer instead of an object then it would use more heap space unnecessarily.",
+      "parentUuid": "ef15bdf4_54c72c80",
       "range": {
         "startLine": 507,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0f193130_78117d6e",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "Couple of issues with that:\n\n1. It\u0027s not thread safe (according to the source code)\n2. It doesn\u0027t have a simple \u0027read\u0027 call that reads from current position into a buffer and tells you how many bytes were read.  The closest is Read() and that takes an offset which means it needs to be tracked.\n3. ReadFully() doesn\u0027t tell you how many bytes were actually read so there is no way to know how many bytes were inserted into the buffer.\n\nTo do what I need, I\u0027d have to add a CopyFrom() or CopyTo() function and this would the only place it\u0027s used.\n\nI don\u0027t think it\u0027s worth rewriting this code to use FdFile when I\u0027d have to make changes to it.",
+      "parentUuid": "2f1c351e_f6cc8051",
+      "range": {
+        "startLine": 203,
+        "startChar": 11,
+        "endLine": 203,
+        "endChar": 15
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f1c351e_3678b84f",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 2
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "0f193130_98ba99c2",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "Wonder how that happened?",
+      "parentUuid": "2f1c351e_3678b84f",
+      "range": {
+        "startLine": 233,
+        "startChar": 89,
+        "endLine": 233,
+        "endChar": 90
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f1c351e_16e49cc0",
         "filename": "runtime/profiler.cc",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2014-02-19T23:07:20Z",
       "side": 1,
       "message": "FdFile?",
+      "range": {
+        "startLine": 238,
+        "startChar": 11,
+        "endLine": 238,
+        "endChar": 15
+      },
+      "revId": "75aa9a66deb455808dca33d08419b4f8a04e662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef15bdf4_544f2ca7",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-20T00:44:33Z",
+      "side": 1,
+      "message": "No, I\u0027d rather not mix the layers.  I need to use flock and that needs an fd.  Abstracting the fd out into a higher level object is just confusing.",
+      "parentUuid": "2f1c351e_16e49cc0",
       "range": {
         "startLine": 238,
         "startChar": 11,
