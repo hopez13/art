@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef985df7_7c5879e9",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "Can\u0027t we assume super calls are on a non-null this?",
+      "range": {
+        "startLine": 192,
+        "startChar": 42,
+        "endLine": 192,
+        "endChar": 46
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef985df7_9ca9c560",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "I know that\u0027s from the old code, but I don\u0027t understand this comment.",
+      "range": {
+        "startLine": 206,
+        "startChar": 50,
+        "endLine": 206,
+        "endChar": 56
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af64a5c8_da8d051d",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "Please explain why volatile fields always get a new memory version.",
+      "range": {
+        "startLine": 546,
+        "startChar": 13,
+        "endLine": 546,
+        "endChar": 23
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af64a5c8_fa92c93d",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "In case of volatile, why do you need to do the following?",
+      "range": {
+        "startLine": 555,
+        "startChar": 8,
+        "endLine": 555,
+        "endChar": 9
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af64a5c8_7ad1590d",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "FieldKey -\u003e FieldReference",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef985df7_3c751158",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "Pointer comparison? Can\u0027t you use something else?",
+      "range": {
+        "startLine": 48,
+        "startChar": 28,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef985df7_3c5ef1d7",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T12:26:57Z",
+      "side": 1,
+      "message": "My understanding of unique after reviewing the code is objects that don\u0027t alias. Is that correct?\n\nIn any case, please add a comment of what a unique object is.",
+      "range": {
+        "startLine": 186,
+        "startChar": 21,
+        "endLine": 186,
+        "endChar": 36
+      },
+      "revId": "e75a14ebb662e9d11779f3c5b6b40c9a58e14702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
