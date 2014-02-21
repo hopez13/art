@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f75b176_e9575d95",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T01:28:10Z",
+      "side": 1,
+      "message": "Is this required even though we do FinishCalleeSaveFrameSetup?",
+      "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
