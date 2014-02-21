@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f75b176_eafcabdf",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T07:13:40Z",
+      "side": 1,
+      "message": "Latent bug, this should be a stack reference. While arguments from registers are 64bit the arguments passed on the stack are 32bit.",
+      "range": {
+        "startLine": 450,
+        "startChar": 60,
+        "endLine": 450,
+        "endChar": 75
+      },
+      "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f75b176_e9575d95",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -13,6 +36,24 @@
       "writtenOn": "2014-02-21T01:28:10Z",
       "side": 1,
       "message": "Is this required even though we do FinishCalleeSaveFrameSetup?",
+      "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f5e2dff_2d7b2596",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T07:13:40Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be required as the interpreter will finish the execution of the method and so the arguments won\u0027t be restored.",
+      "parentUuid": "0f75b176_e9575d95",
       "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
