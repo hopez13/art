@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf9559be_db60b3e3",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-21T10:30:40Z",
+      "side": 1,
+      "message": "I suggest moving this logic elsewhere, from a Dex method\u0027s standpoint, it\u0027s reasonable to have two different virtual/static stubs.",
+      "range": {
+        "startLine": 283,
+        "startChar": 7,
+        "endLine": 283,
+        "endChar": 17
+      },
+      "revId": "936b37f3a7f224d990a36b2ec66782a4462180d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
