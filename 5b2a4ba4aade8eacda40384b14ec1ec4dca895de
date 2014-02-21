@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f3a11a9_3cbd1de7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T23:12:05Z",
+      "side": 1,
+      "message": "bitmap",
+      "range": {
+        "startLine": 922,
+        "startChar": 74,
+        "endLine": 922,
+        "endChar": 80
+      },
+      "revId": "5b2a4ba4aade8eacda40384b14ec1ec4dca895de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef469d41_923c3cf9",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T23:12:05Z",
+      "side": 1,
+      "message": "usual, TODO: NO_THREAD_SAFETY analysis because ..",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 100
+      },
+      "revId": "5b2a4ba4aade8eacda40384b14ec1ec4dca895de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef469d41_95026626",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T23:12:05Z",
+      "side": 1,
+      "message": "add a comment as to why not checking this is necessary",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 79
+      },
+      "revId": "5b2a4ba4aade8eacda40384b14ec1ec4dca895de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
