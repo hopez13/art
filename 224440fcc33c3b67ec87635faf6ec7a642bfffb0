@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "6f5e2dff_22b96fad",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T18:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f75b176_eafcabdf",
+      "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f75b176_e9575d95",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -54,6 +72,24 @@
       "side": 1,
       "message": "This shouldn\u0027t be required as the interpreter will finish the execution of the method and so the arguments won\u0027t be restored.",
       "parentUuid": "0f75b176_e9575d95",
+      "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_703c2ed1",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T18:03:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f5e2dff_2d7b2596",
       "revId": "224440fcc33c3b67ec87635faf6ec7a642bfffb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
