@@ -49,6 +49,53 @@
     },
     {
       "key": {
+        "uuid": "ef713d8d_7af5d1f4",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T00:38:45Z",
+      "side": 1,
+      "message": "I think its unfortunate it collides with Java\u0027s notion of annotation. This information is the lowering information for field accesses, call it FieldAccessLoweringInformation?",
+      "parentUuid": "4f8a499e_3fa6e7d2",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af49054f_b5ddaab0",
+        "filename": "compiler/dex/mir_annotations.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-21T00:38:45Z",
+      "side": 1,
+      "message": "its a concern to me that this is related to the compiling method as how does it relate to inlining?",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 35,
+        "endChar": 20
+      },
+      "revId": "ffc3316678597c60f8210a47063019801cb60798",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff0510e_3148b8e8",
         "filename": "compiler/dex/mir_annotations.h",
         "patchSetId": 8
