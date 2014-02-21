@@ -25,6 +25,57 @@
     },
     {
       "key": {
+        "uuid": "2f78b56e_2a178766",
+        "filename": "compiler/utils/debug_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T00:48:41Z",
+      "side": 1,
+      "message": "kIsDebug?",
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f75b176_c9de2183",
+        "filename": "compiler/utils/debug_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T00:48:41Z",
+      "side": 1,
+      "message": "kIsDebug?",
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f75b176_7e2865ab",
+        "filename": "compiler/utils/scoped_arena_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T00:48:41Z",
+      "side": 1,
+      "message": "Maybe there is a way to reduce the amount of code duplication between here and arena_allocator.cc?",
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cf6e39b0_36ca96e2",
         "filename": "compiler/utils/scoped_arena_allocator.h",
         "patchSetId": 3
@@ -42,6 +93,24 @@
         "endLine": 165,
         "endChar": 20
       },
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f5e2dff_4c8f7f61",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-21T00:48:41Z",
+      "side": 1,
+      "message": "I think its for STL.",
+      "parentUuid": "cf6e39b0_36ca96e2",
       "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
