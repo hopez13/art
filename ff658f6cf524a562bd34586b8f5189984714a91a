@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f78b56e_a2fd731e",
+        "filename": "runtime/gc/space/los_space_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-22T00:37:29Z",
+      "side": 1,
+      "message": "Since los stands for large object space, \"large_object_space_test.cc\" may be a better name?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "ff658f6cf524a562bd34586b8f5189984714a91a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_87423ac7",
+        "filename": "runtime/gc/space/los_space_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-22T00:37:29Z",
+      "side": 1,
+      "message": "This isn\u0027t a strong point, but in terms of the test output we see as the tests run, using a different name (instead of \"SpaceTest\", something like \"LargeObjectSpaceTest\") here may be a good idea (same for rosalloc_space and dlmalloc_space) because using a different name would give the (correct) impression that they are in different test files and hence parallelized. Otherwise, it could lead to a wrong impression that they aren\u0027t parallelized.\n\nWe could do this easily by having an (almost) empty subclass of SpaceTest here and let LargeObjecTest() belong to it. It\u0027s a good idea to move the body of LargeObjectTest() here as well.",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "ff658f6cf524a562bd34586b8f5189984714a91a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
