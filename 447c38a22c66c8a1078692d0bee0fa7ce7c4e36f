@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f3a11a9_efe910d5",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "It would be nice to turn this into something more like, \"IsSmallMethod(GetNumDalvikInsns())\" and bury things like small_method_threshold_. I don\u0027t mind this change as a step in that direction.",
+      "range": {
+        "startLine": 961,
+        "startChar": 0,
+        "endLine": 962,
+        "endChar": 34
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_ef02f0d4",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "Its this kind of thing in the current code that upsets me. We are we dividing a number of instructions by 2 and then comparing to a count of basic blocks? Its an approximate thing but we should be detailing why 2 (do we expect just 2 instructions per basic block), etc. and I\u0027d prefer if this was done in a vain like above where we go \"IsTooManyBasicBlocks(num_blocks_)\" although that would have no purpose being more global than to quick.\nGiven this code isn\u0027t being used in anger I see that the point of being in this code was just to clean-up the options from Runtime to CompilerOptions. I\u0027m just commenting for the sake of future clean-up, but may be the best thing to do then is just to get rid of this code.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 44,
+        "endLine": 1041,
+        "endChar": 87
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_84afa611",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "this class is missing a comment describing its purpose :-(",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 27
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_a4b4a268",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "missing GUARDED_BY(verified_methods_lock_) :-(",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_4f75c456",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "Can this be moved into a system property?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_8ff40ca3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "threshold",
+      "range": {
+        "startLine": 172,
+        "startChar": 62,
+        "endLine": 172,
+        "endChar": 72
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef469d41_d3588379",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "used by compiler-filters ...",
+      "range": {
+        "startLine": 173,
+        "startChar": 23,
+        "endLine": 173,
+        "endChar": 27
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_efbf50b0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 27
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_ef983068",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 182,
+        "startChar": 16,
+        "endLine": 183,
+        "endChar": 24
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_84d886c1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 187,
+        "startChar": 16,
+        "endLine": 188,
+        "endChar": 24
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_0f9e5c51",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "ditto\nWe should also explain what the difference is between small and tiny.",
+      "range": {
+        "startLine": 192,
+        "startChar": 16,
+        "endLine": 193,
+        "endChar": 24
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_4fb064d8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "ditto, also explain connection to options above",
+      "range": {
+        "startLine": 197,
+        "startChar": 16,
+        "endLine": 197,
+        "endChar": 87
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef469d41_133ccbf3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 217,
+        "startChar": 21,
+        "endLine": 217,
+        "endChar": 38
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_8485e688",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "I\u0027m kind of put off by reference fields like this. I like that they capture non-nullness, but they seem to more poorly capture the notion of ownership than a pointer - which is say hey somebody else owns this don\u0027t worry. CompilerOptions could well be stack allocated, so I find this a little scary. Perhaps make it a pointer or add a comment to who the expected owner is. Perhaps there\u0027s another way to allay my concerns.",
+      "range": {
+        "startLine": 506,
+        "startChar": 8,
+        "endLine": 506,
+        "endChar": 24
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef469d41_96f509f8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "see comment above :-)",
+      "range": {
+        "startLine": 1030,
+        "startChar": 2,
+        "endLine": 1030,
+        "endChar": 17
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3a11a9_af6c688e",
+        "filename": "runtime/common_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-24T17:49:20Z",
+      "side": 1,
+      "message": "just making the argument a pointer feels simpler to me when we start getting code like this",
+      "range": {
+        "startLine": 516,
+        "startChar": 48,
+        "endLine": 516,
+        "endChar": 72
+      },
+      "revId": "447c38a22c66c8a1078692d0bee0fa7ce7c4e36f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
