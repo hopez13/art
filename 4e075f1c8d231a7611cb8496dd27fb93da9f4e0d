@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cf9559be_3bd19720",
+        "filename": "compiler/utils/debug_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-24T15:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf6e39b0_d6d2429f",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 10
+      },
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f78b56e_2a178766",
         "filename": "compiler/utils/debug_stack.h",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2014-02-21T00:48:41Z",
       "side": 1,
       "message": "kIsDebug?",
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef985df7_dc8d0d1d",
+        "filename": "compiler/utils/debug_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-24T15:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f78b56e_2a178766",
       "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "cf9559be_7bdb1f3e",
+        "filename": "compiler/utils/debug_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-24T15:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f75b176_c9de2183",
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f75b176_7e2865ab",
         "filename": "compiler/utils/scoped_arena_allocator.cc",
         "patchSetId": 3
@@ -70,6 +130,24 @@
       "writtenOn": "2014-02-21T00:48:41Z",
       "side": 1,
       "message": "Maybe there is a way to reduce the amount of code duplication between here and arena_allocator.cc?",
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af64a5c8_3ab0c1d7",
+        "filename": "compiler/utils/scoped_arena_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-24T15:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f75b176_7e2865ab",
       "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -128,6 +206,30 @@
       "writtenOn": "2014-02-21T00:34:55Z",
       "side": 1,
       "message": "* const",
+      "range": {
+        "startLine": 191,
+        "startChar": 12,
+        "endLine": 191,
+        "endChar": 13
+      },
+      "revId": "4e075f1c8d231a7611cb8496dd27fb93da9f4e0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af64a5c8_7aaa3965",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-24T15:00:21Z",
+      "side": 1,
+      "message": "I\u0027m using \"operator\u003d(...) \u003d default\" and it requires this to be non-const.",
+      "parentUuid": "cf6e39b0_16cd9af9",
       "range": {
         "startLine": 191,
         "startChar": 12,
