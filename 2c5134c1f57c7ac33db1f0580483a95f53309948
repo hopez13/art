@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cf89137_11c3bc79",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-24T23:57:33Z",
+      "side": 1,
+      "message": "Should we lock thread_list_lock_ around here?",
+      "range": {
+        "startLine": 819,
+        "startChar": 0,
+        "endLine": 819,
+        "endChar": 8
+      },
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cfb9535_92b34c7e",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-24T23:57:33Z",
+      "side": 1,
+      "message": "nit: Is it any better if we pass self from the call site below?",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 16
+      },
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf6894a_ee218f83",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-24T23:57:33Z",
+      "side": 1,
+      "message": "What is the thread safety annotations issue here?",
+      "range": {
+        "startLine": 333,
+        "startChar": 46,
+        "endLine": 333,
+        "endChar": 71
+      },
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cfb9535_12a73c3a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-24T23:57:33Z",
+      "side": 1,
+      "message": "Is this a bug fix for another issue?",
+      "range": {
+        "startLine": 210,
+        "startChar": 55,
+        "endLine": 210,
+        "endChar": 77
+      },
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
