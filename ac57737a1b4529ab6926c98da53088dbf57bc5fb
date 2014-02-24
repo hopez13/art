@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f3a11a9_0ff1fc4d",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f5e2dff_cdd0e942",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f3a11a9_2c26c69b",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -59,6 +83,54 @@
       "writtenOn": "2014-02-24T06:16:24Z",
       "side": 1,
       "message": "This needs an argument of MemberOffset for the offset of the field or array offset being accessed. If the field happens to lie out reserved low memory we still need an explicit check, and also in the case of a random array index - although we are saved from this in the general case by the load of the array length (which should be in low memory) for the bound check. This assumption should be asserted, ie no implicit null check when there isn\u0027t a bounds check.",
+      "range": {
+        "startLine": 71,
+        "startChar": 14,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_c7d52030",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "This was already present.  I\u0027m not sure why it is there, perhaps older code used it.  This isn\u0027t a virtual function so there is no way it can be overridden.  I\u0027ll remove the unused parameter unless there are objection (Bill?)",
+      "parentUuid": "0f3a11a9_2c26c69b",
+      "range": {
+        "startLine": 71,
+        "startChar": 27,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_077bb895",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "A better way would be to always generate a load from offset 0 in the object unless we can be sure it\u0027s already done (range check or other).  Is it even possible to generate an object over 8MB in size?  I don\u0027t know what the size of the unmapped region at the start of memory is, but it is at least 8M.",
+      "parentUuid": "0f3a11a9_6c30cecf",
       "range": {
         "startLine": 71,
         "startChar": 14,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "ef469d41_d6aeb164",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "Yeah, missed that one.",
+      "parentUuid": "0f75b176_4a14bf5f",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 16
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f5e2dff_2dc0856a",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2014-02-21T07:23:44Z",
       "side": 1,
       "message": "This change is self-contained, move to a separate CL.",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 16
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_67c70c81",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "6f5e2dff_2dc0856a",
       "range": {
         "startLine": 86,
         "startChar": 10,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "ef469d41_f68d6d1c",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "Can do",
+      "parentUuid": "af64a5c8_3aa601d3",
+      "range": {
+        "startLine": 88,
+        "startChar": 5,
+        "endLine": 88,
+        "endChar": 17
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f78b56e_eb6031e3",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 1
@@ -174,6 +318,30 @@
       "writtenOn": "2014-02-21T07:23:44Z",
       "side": 1,
       "message": "we\u0027re considering potential method as a viable method if its value is non-zero, it could just be random junk on the stack which would make the read from that address below very unsound. I\u0027d prefer if here we used something like the live heap bitmap to say whether this looked like a viable object.",
+      "range": {
+        "startLine": 130,
+        "startChar": 25,
+        "endLine": 130,
+        "endChar": 26
+      },
+      "revId": "ac57737a1b4529ab6926c98da53088dbf57bc5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1f7d43_0726589b",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-24T18:20:25Z",
+      "side": 1,
+      "message": "The 0 is also used to detect non-ARM processors (that was the intention).  But you are correct, we need a way to make sure that the load doesn\u0027t fault.  Is there a quick way to look up the live bitmap?  It will probably involve grabbing a lock or two.  \n\nMaybe we could use the fact that the load will cause another SEGV if it is wrong?  Have to experiment that that.",
+      "parentUuid": "2f78b56e_eb6031e3",
       "range": {
         "startLine": 130,
         "startChar": 25,
