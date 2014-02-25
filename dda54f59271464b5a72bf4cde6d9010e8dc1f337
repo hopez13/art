@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc35c5d3_32025067",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-25T20:06:03Z",
+      "side": 1,
+      "message": "Nice speedup.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 6
+      },
+      "revId": "dda54f59271464b5a72bf4cde6d9010e8dc1f337",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cf18d4f_26f0c245",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-25T20:06:03Z",
+      "side": 1,
+      "message": "nit: Could these constants be static?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "dda54f59271464b5a72bf4cde6d9010e8dc1f337",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_7f164233",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-25T20:06:03Z",
+      "side": 1,
+      "message": "As we discussed in an in-person discussion, without a checkpoint, there\u0027s a chance that GC may miss a write if the order of actions is:\n\n1. mutator dirties the card (write barrier)\n2. GC ages the card (the above ProcessCards call)\n3. GC scans the object (the RecursiveMarkDirtyObjects call below)\n4. mutator writes the value (corresponding to the write barrier in 1.)\n\n(GC in 3. may miss the write in 4.)\n\nBut by having a checkpoint we can force GC (3.) to see 1. and 4. as we will have\n\n1. mutator dirties the card (write barrier)\n2. GC ages the card (the above ProcessCards call)\n3. mutator writes the value (corresponding to the write barrier in 1.)\n4. Checkpoint (the MarkThreadRoots call)\n5. GC scans the object (the RecursiveMarkDirtyObjects call below)\n\nwhere 5. won\u0027t miss the write in 3. This is because a checkpoint can\u0027t happen between 1. and 3.\n\nAlso, Mathieu says that, independent of the above issue, rescanning roots here will help reduce the pause time (which indicates there are some white/new objects reachable from the roots.)\n\nHow about leaving a bit longer comment about this?",
+      "range": {
+        "startLine": 243,
+        "startChar": 7,
+        "endLine": 243,
+        "endChar": 77
+      },
+      "revId": "dda54f59271464b5a72bf4cde6d9010e8dc1f337",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
