@@ -45,6 +45,30 @@
       "revId": "4fe99718d2b3207e466320c1bbfbd38c4b9fcdd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_411bb659",
+        "filename": "compiler/elf_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-25T23:20:37Z",
+      "side": 1,
+      "message": "Yes, please don\u0027t bring back this dependency. ART depends on libunwind, which already has its own dwarf.h that could fit your needs. Alternatively, you could create in a file in the art repo with what you actually use from dwarf.",
+      "parentUuid": "3cfb9535_cf0c82c8",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 31
+      },
+      "revId": "4fe99718d2b3207e466320c1bbfbd38c4b9fcdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
