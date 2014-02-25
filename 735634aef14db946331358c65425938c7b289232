@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cf89137_6c0fc301",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-25T01:23:18Z",
+      "side": 1,
+      "message": "seems like it is worth mentioning the motivation (reduce allocations for create descriptors unnecessarily)",
+      "range": {
+        "startLine": 630,
+        "startChar": 2,
+        "endLine": 630,
+        "endChar": 47
+      },
+      "revId": "735634aef14db946331358c65425938c7b289232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
