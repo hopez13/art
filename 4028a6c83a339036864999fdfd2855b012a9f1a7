@@ -22,6 +22,30 @@
       "revId": "4028a6c83a339036864999fdfd2855b012a9f1a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_4c388700",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-25T02:08:07Z",
+      "side": 1,
+      "message": "Agreed, if we define constants there needs to be asserts in unit tests and the likes. My preference here would be to use mirror::String::CountOffset(), etc. Originally these constants were in the x86 assembler constants and had asserts in the x86 thread code (iirc).",
+      "parentUuid": "5cf6894a_39c21fd6",
+      "range": {
+        "startLine": 948,
+        "startChar": 0,
+        "endLine": 948,
+        "endChar": 1
+      },
+      "revId": "4028a6c83a339036864999fdfd2855b012a9f1a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
