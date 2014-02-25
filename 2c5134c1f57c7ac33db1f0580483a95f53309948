@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "5cf6894a_59384300",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-25T01:43:58Z",
+      "side": 1,
+      "message": "Not necessary since we aren\u0027t directly accessing the threads here. SuspendAll and ResumeAll use the thread list lock internally.",
+      "parentUuid": "1cf89137_11c3bc79",
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_92b34c7e",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 237,
         "endChar": 16
       },
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf6894a_6ea1ff8d",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-25T01:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cfb9535_92b34c7e",
       "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "3cfb9535_b8c3c924",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-25T01:43:58Z",
+      "side": 1,
+      "message": "Called from MarkingPhase guarded by IsExclusiveHeld, added comment.",
+      "parentUuid": "5cf6894a_ee218f83",
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_12a73c3a",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 210,
         "endChar": 77
       },
+      "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_acf5cb64",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-25T01:43:58Z",
+      "side": 1,
+      "message": "Just cleanup.",
+      "parentUuid": "3cfb9535_12a73c3a",
       "revId": "2c5134c1f57c7ac33db1f0580483a95f53309948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
