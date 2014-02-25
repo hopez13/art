@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cf6894a_39c21fd6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-25T01:40:32Z",
+      "side": 1,
+      "message": "This isn\u0027t good :) I just spent hours to track this down after a rebase. Let\u0027s minimize/centralize the places where we put hard-coded offsets like these. I think including asm_support.h would suffice.",
+      "range": {
+        "startLine": 948,
+        "startChar": 0,
+        "endLine": 948,
+        "endChar": 1
+      },
+      "revId": "4028a6c83a339036864999fdfd2855b012a9f1a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
