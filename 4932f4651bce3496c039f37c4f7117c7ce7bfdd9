@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cf18d4f_46d98667",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-25T14:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cf6894a_cee00be8",
+      "range": {
+        "startLine": 333,
+        "startChar": 52,
+        "endLine": 333,
+        "endChar": 53
+      },
+      "revId": "4932f4651bce3496c039f37c4f7117c7ce7bfdd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cf6894a_ee44efd8",
         "filename": "compiler/dex/reg_storage.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-02-25T00:19:59Z",
       "side": 1,
       "message": "1 char indent.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 9
+      },
+      "revId": "4932f4651bce3496c039f37c4f7117c7ce7bfdd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc35c5d3_12374cc1",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-25T14:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cf6894a_ee44efd8",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bc35c5d3_f24ba847",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-25T14:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cf6894a_ce412bc7",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 25
+      },
+      "revId": "4932f4651bce3496c039f37c4f7117c7ce7bfdd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_f1ebb08a",
         "filename": "compiler/dex/reg_storage.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bce78593_255c38b7",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-25T14:23:00Z",
+      "side": 1,
+      "message": "Sounds good.  It\u0027s only used right now in the RegLocation dumping, which needs to be rewritten \u0026 moved (too Quick backend specific).  I\u0027ll redo this as part of that in a later CL.",
+      "parentUuid": "1cf89137_f1ebb08a",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "4932f4651bce3496c039f37c4f7117c7ce7bfdd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_6d3d81a1",
         "filename": "compiler/dex/reg_storage.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2014-02-25T00:19:59Z",
       "side": 1,
       "message": "unused?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "4932f4651bce3496c039f37c4f7117c7ce7bfdd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc35c5d3_323250d1",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-25T14:23:00Z",
+      "side": 1,
+      "message": "Yes, removed.",
+      "parentUuid": "3cfb9535_6d3d81a1",
       "range": {
         "startLine": 152,
         "startChar": 0,
