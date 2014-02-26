@@ -733,6 +733,30 @@
     },
     {
       "key": {
+        "uuid": "7c0a6d15_1e6d0d8a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-02-26T11:07:17Z",
+      "side": 1,
+      "message": "This isn\u0027t true. Art code is much closer to google3 style than android style.",
+      "parentUuid": "9c156131_5fd5c3d3",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_0e2f0971",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
