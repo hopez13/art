@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "1cf89137_2ebac59e",
+        "filename": "compiler/output_stream_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-26T07:50:31Z",
+      "side": 1,
+      "message": "I don\u0027t think a test should use more than it needs from the test infrastructure, it just slows it down.\n\nso my question is, if we are going to create new include files for test only code like classes like ScratchFile in some new location? art/test/include/scratch_file.h?",
+      "parentUuid": "1cf89137_ce6ec189",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c44c956_6f0a31f3",
         "filename": "compiler/utils/scoped_hashtable_test.cc",
         "patchSetId": 1
@@ -333,6 +357,30 @@
     },
     {
       "key": {
+        "uuid": "3cfb9535_554800ec",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-26T07:50:31Z",
+      "side": 1,
+      "message": "I\u0027d rather not add a TODO. If we want it moved, I\u0027ll move it now. I just didn\u0027t because the code was general purpose. I\u0027ll move it out, we can always move it back.",
+      "parentUuid": "5c44c956_8f7675e6",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 18
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_6e632dee",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 1
@@ -439,6 +487,30 @@
       "side": 1,
       "message": "its probably better we just stuff the encoder into leb128.h then.",
       "parentUuid": "3cfb9535_950448e3",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_ae001597",
+        "filename": "runtime/leb128_encoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-26T07:50:31Z",
+      "side": 1,
+      "message": "oops, yeah, that makes sense. also moved leb128_encoder_test to runtime/leb128_test",
+      "parentUuid": "3cfb9535_d5fbf05d",
       "range": {
         "startLine": 17,
         "startChar": 0,
