@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "dc0199f4_3e61e51d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "Passing the parent block as parameter is error prone (and redundant). Could it be set by the parent itself in HBasicBlock::AddInstruction ? At least AddInstruction should check parent is correctly set. Sorry, I didn\u0027t catch this before.",
+      "range": {
+        "startLine": 29,
+        "startChar": 44,
+        "endLine": 29,
+        "endChar": 63
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_fe4a5d9c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "It\u0027s an offset: prefer uint32_t or size_t which is the return type of Instruction::SizeInCodeUnits",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_7e852d87",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "Prefer using size_t",
+      "range": {
+        "startLine": 52,
+        "startChar": 44,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_75b53cf6",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -25,6 +94,75 @@
     },
     {
       "key": {
+        "uuid": "9c156131_df21d383",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "Maybe add a TODO to support switch later",
+      "range": {
+        "startLine": 69,
+        "startChar": 20,
+        "endLine": 69,
+        "endChar": 40
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_3e1b315b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "same than above: should be uint32_t or size_t.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_61ba32c4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "Index represents an absolute DEX pc so must not be negative. Add CHECK_GE(index, 0).",
+      "range": {
+        "startLine": 102,
+        "startChar": 56,
+        "endLine": 102,
+        "endChar": 61
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_f5a02cb6",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -41,6 +179,75 @@
         "startChar": 13,
         "endLine": 116,
         "endChar": 24
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_fe249995",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "Block \u0027target\u0027 must exist at this point: CHECK(target !\u003d nullptr).",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c156131_5f3dc3a0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "And there too.",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 12
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_de21d583",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T09:40:28Z",
+      "side": 1,
+      "message": "Same than above: CHECK(target !\u003d nullptr).",
+      "range": {
+        "startLine": 128,
+        "startChar": 19,
+        "endLine": 128,
+        "endChar": 25
       },
       "revId": "78600bde9fc463517a5160e01df723911b1da55b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
