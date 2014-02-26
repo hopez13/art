@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c44c956_3e021567",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-02-26T21:55:04Z",
+      "side": 1,
+      "message": "Good catch.  The previous lack of these lines of code also means that the following block hasn\u0027t been exercised nearly as much as it should  have been.  I\u0027ll want to run extra tests before giving the verification +1 in case this fix uncovers a pre-existing bug.",
+      "revId": "c17ebe866beb50eb6da1e6a47555cb4731467f3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
