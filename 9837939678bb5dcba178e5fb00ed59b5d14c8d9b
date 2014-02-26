@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "5c44c956_15ff34d2",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T16:44:54Z",
+      "side": 1,
+      "message": "We should have one but don\u0027t. Usually the places we assert are already in a stack allocated item that takes on the role. I\u0027d be happy for a stack allocated class to be created, its tough to come up with a good name, and see it used in places like line 1691 below.",
+      "parentUuid": "dc0199f4_e1c5224c",
+      "range": {
+        "startLine": 304,
+        "startChar": 2,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "9837939678bb5dcba178e5fb00ed59b5d14c8d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0a6d15_b8f759a4",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
