@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cf89137_8e32f9ce",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T06:12:26Z",
+      "side": 1,
+      "message": "Yes, in general the meta-data needs to be on a diet - unfortunately its been getting fat on 64bit :-(",
+      "parentUuid": "dc0199f4_9b424b28",
+      "range": {
+        "startLine": 41,
+        "startChar": 79,
+        "endLine": 41,
+        "endChar": 92
+      },
+      "revId": "9837939678bb5dcba178e5fb00ed59b5d14c8d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c156131_391b4f5b",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1cf89137_6e37adc0",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T06:12:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c156131_391b4f5b",
+      "range": {
+        "startLine": 43,
+        "startChar": 16,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "9837939678bb5dcba178e5fb00ed59b5d14c8d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c156131_b92e3f72",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-02-25T09:11:53Z",
       "side": 1,
       "message": "Why the new block?",
+      "range": {
+        "startLine": 304,
+        "startChar": 2,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "9837939678bb5dcba178e5fb00ed59b5d14c8d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_2e49a54f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T06:12:26Z",
+      "side": 1,
+      "message": "thread_class is a reference into the Java heap, I don\u0027t want its lifetime to persist as it will go stale if we take a safepoint. The scoping makes this explicit. Other tools are the Start/End no thread suspension, Sirts, etc. While the scoping is ugly, not being able to eye-ball moving collector bugs is uglier.",
+      "parentUuid": "9c156131_b92e3f72",
       "range": {
         "startLine": 304,
         "startChar": 2,
@@ -128,6 +200,30 @@
       "writtenOn": "2014-02-25T09:11:53Z",
       "side": 1,
       "message": "This seems new. Were we not having the correct behavior before? Do we have a test for this?",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 21
+      },
+      "revId": "9837939678bb5dcba178e5fb00ed59b5d14c8d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c44c956_0f0a85b6",
+        "filename": "runtime/mirror/array.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T06:12:26Z",
+      "side": 1,
+      "message": "Its buried in the std::string constructor details. The old code would create an initial descriptor string of num_dimensions * \"[\".\nThere are multi-dimensional array unit tests.",
+      "parentUuid": "dc0199f4_5be843d3",
       "range": {
         "startLine": 97,
         "startChar": 20,
