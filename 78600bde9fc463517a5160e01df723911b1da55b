@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dc0199f4_c1f8e65e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T10:50:28Z",
+      "side": 1,
+      "message": "You don\u0027t seem to store the block in the instruction (to keep the parent info) so I don\u0027t understand why you need to pass it. Prefer passing the arena if it\u0027s really what you need.",
+      "parentUuid": "dc0199f4_c15b46e4",
+      "range": {
+        "startLine": 29,
+        "startChar": 44,
+        "endLine": 29,
+        "endChar": 63
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc0199f4_fe4a5d9c",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -601,6 +625,30 @@
       "side": 1,
       "message": "This is the style I\u0027m following:\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Access_Control\n\nShould I follow another one?",
       "parentUuid": "3cfb9535_d53890b4",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_1e9bcd61",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T10:50:28Z",
+      "side": 1,
+      "message": "We mostly use \"GetFoo\" and \"SetFoo\" to control \"foo_\" class member.",
+      "parentUuid": "9c156131_1f9bcb61",
       "range": {
         "startLine": 124,
         "startChar": 10,
