@@ -34,6 +34,24 @@
       "revId": "12d67ee4495ec63b5ff288e925393a8dc77afef9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c3ac1c3_7a5c286a",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-26T01:20:21Z",
+      "side": 1,
+      "message": "Yes, it will do nothing if the sections are not present.",
+      "parentUuid": "1cf89137_ebf730a3",
+      "revId": "12d67ee4495ec63b5ff288e925393a8dc77afef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
