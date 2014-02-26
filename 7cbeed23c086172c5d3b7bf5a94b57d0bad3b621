@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "1cf89137_6e6d6d89",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T07:23:13Z",
+      "side": 1,
+      "message": "ok, thanks. I didn\u0027t re-test since that CL.",
+      "parentUuid": "1cf89137_4e4cf160",
+      "range": {
+        "startLine": 288,
+        "startChar": 6,
+        "endLine": 288,
+        "endChar": 59
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_4e463172",
         "filename": "compiler/common_compiler_test.h",
         "patchSetId": 1
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "what is your \"?\" supposed to mean? why was this ever CommonTest? dunno.\n\nchanged to be a testing::Test (gtest superclass)\n\nit still needs common_runtime_test.h for ScratchFile. I could make that its own include, but it\u0027s test only so far, moving it out might encourage its use outside tests which doesn\u0027t seem good without further consideration.",
       "parentUuid": "3cfb9535_1529589a",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_ce6ec189",
+        "filename": "compiler/output_stream_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T07:23:13Z",
+      "side": 1,
+      "message": "Yes, my \"?\" is why have we got \"runtime\" tests in compiler. I don\u0027t this will be revisited for a while so splitting out ScratchFile sounds like the cleanest way to go.",
+      "parentUuid": "3cfb9535_b5e864d4",
       "range": {
         "startLine": 26,
         "startChar": 32,
@@ -261,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "5c44c956_8f7675e6",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T07:23:13Z",
+      "side": 1,
+      "message": "another thing for the TODO pile :-)",
+      "parentUuid": "1cf89137_2ed4050c",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 18
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_6e632dee",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 1
@@ -343,6 +415,30 @@
       "side": 1,
       "message": "use by exeception_test which is a runtime test.",
       "parentUuid": "1cf89137_2ec08569",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cfb9535_d5fbf05d",
+        "filename": "runtime/leb128_encoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T07:23:13Z",
+      "side": 1,
+      "message": "its probably better we just stuff the encoder into leb128.h then.",
+      "parentUuid": "3cfb9535_950448e3",
       "range": {
         "startLine": 17,
         "startChar": 0,
