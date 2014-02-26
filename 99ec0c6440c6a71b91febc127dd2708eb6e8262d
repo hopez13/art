@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cf89137_05f7e4fd",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-26T22:14:50Z",
+      "side": 1,
+      "message": "You can use GetClass\u003ckVerifyNone\u003e to not have heap verification, it is cleaner than using ClassOffset().",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_a5def080",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-26T22:14:50Z",
+      "side": 1,
+      "message": "Stuff like\n*reinterpret_cast\u003cmirror::Class* const *\u003e\nis not 64 bit safe due to compressed pointers.",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_a505d030",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-26T22:14:50Z",
+      "side": 1,
+      "message": "There is a routine called Heap::IsValidObjectAddress which returns true if the heap things an object is valid.",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c44c956_9e28e1ae",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-26T22:14:50Z",
+      "side": 1,
+      "message": "I recently added something called VerifyClassClass which basically does this check. (verify_object.h).",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
