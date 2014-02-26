@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc0199f4_c15b46e4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Currently passing the block is only needed for fetching the arena. I could imagine it will also be used to store it in the instruction, if one of the optimization has such a need.\n\nWould you prefer that I pass the arena instead?",
+      "parentUuid": "dc0199f4_3e61e51d",
+      "range": {
+        "startLine": 29,
+        "startChar": 44,
+        "endLine": 29,
+        "endChar": 63
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc0199f4_fe4a5d9c",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-02-26T09:40:28Z",
       "side": 1,
       "message": "It\u0027s an offset: prefer uint32_t or size_t which is the return type of Instruction::SizeInCodeUnits",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_5e0f0501",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0199f4_fe4a5d9c",
       "range": {
         "startLine": 37,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9c156131_1fc4eb4f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0199f4_7e852d87",
+      "range": {
+        "startLine": 52,
+        "startChar": 44,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_75b53cf6",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-02-26T06:03:05Z",
       "side": 1,
       "message": "Comments like this belong at the declaration rather than definition.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 28
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_81a9be62",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cfb9535_75b53cf6",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dc0199f4_a1583ae8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c156131_df21d383",
+      "range": {
+        "startLine": 69,
+        "startChar": 20,
+        "endLine": 69,
+        "endChar": 40
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0a6d15_3e1b315b",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-02-26T09:40:28Z",
       "side": 1,
       "message": "same than above: should be uint32_t or size_t.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c156131_ffc81766",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0a6d15_3e1b315b",
       "range": {
         "startLine": 79,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9c156131_dfc5534c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0199f4_61ba32c4",
+      "range": {
+        "startLine": 102,
+        "startChar": 56,
+        "endLine": 102,
+        "endChar": 61
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_f5a02cb6",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-02-26T06:03:05Z",
       "side": 1,
       "message": "Android style is not to put author names in the code.",
+      "range": {
+        "startLine": 116,
+        "startChar": 13,
+        "endLine": 116,
+        "endChar": 24
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_fefdb987",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cfb9535_f5a02cb6",
       "range": {
         "startLine": 116,
         "startChar": 13,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "9c156131_bfd29f0e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0a6d15_fe249995",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c156131_5f3dc3a0",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2014-02-26T09:40:28Z",
       "side": 1,
       "message": "And there too.",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 12
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_defaf58d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c156131_5f3dc3a0",
       "range": {
         "startLine": 120,
         "startChar": 6,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "7c0a6d15_bef741a4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0a6d15_de21d583",
+      "range": {
+        "startLine": 128,
+        "startChar": 19,
+        "endLine": 128,
+        "endChar": 25
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_4e25118f",
         "filename": "compiler/optimizing/dominator_test.cc",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2014-02-26T06:03:05Z",
       "side": 1,
       "message": "ws",
+      "range": {
+        "startLine": 261,
+        "startChar": 19,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c156131_7f9c075b",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf89137_4e25118f",
       "range": {
         "startLine": 261,
         "startChar": 19,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "9c156131_1f9bcb61",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "This is the style I\u0027m following:\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Access_Control\n\nShould I follow another one?",
+      "parentUuid": "3cfb9535_d53890b4",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_0e2f0971",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2014-02-26T06:03:05Z",
       "side": 1,
       "message": "as before",
+      "range": {
+        "startLine": 319,
+        "startChar": 8,
+        "endLine": 319,
+        "endChar": 17
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_41b3b6cc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-26T10:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf89137_0e2f0971",
       "range": {
         "startLine": 319,
         "startChar": 8,
