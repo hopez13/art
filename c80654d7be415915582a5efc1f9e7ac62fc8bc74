@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cf89137_f1f4c2a0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T16:47:06Z",
+      "side": 1,
+      "message": "jecxz .Lkeep_length ?",
+      "range": {
+        "startLine": 1310,
+        "startChar": 16,
+        "endLine": 1310,
+        "endChar": 19
+      },
+      "revId": "c80654d7be415915582a5efc1f9e7ac62fc8bc74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
