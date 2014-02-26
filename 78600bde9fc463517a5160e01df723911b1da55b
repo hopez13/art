@@ -709,6 +709,30 @@
     },
     {
       "key": {
+        "uuid": "9c156131_5fd5c3d3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T11:05:32Z",
+      "side": 1,
+      "message": "I think we follow kind of Android style guide in Art but I don\u0027t know if it\u0027s written somewhere. It\u0027s much inherited from the conventions you mention though. We try to be consistent as much as possible with the rest of the code.",
+      "parentUuid": "9c156131_5faee369",
+      "range": {
+        "startLine": 124,
+        "startChar": 10,
+        "endLine": 124,
+        "endChar": 15
+      },
+      "revId": "78600bde9fc463517a5160e01df723911b1da55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_0e2f0971",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
