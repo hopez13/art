@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cf89137_abe368f7",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-26T01:14:56Z",
+      "side": 1,
+      "message": "I am open to any better way to do this.",
+      "parentUuid": "3cfb9535_cfc36224",
+      "range": {
+        "startLine": 1161,
+        "startChar": 0,
+        "endLine": 1163,
+        "endChar": 1
+      },
+      "revId": "4fe99718d2b3207e466320c1bbfbd38c4b9fcdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cfb9535_cf0c82c8",
         "filename": "compiler/elf_writer.h",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Yes, please don\u0027t bring back this dependency. ART depends on libunwind, which already has its own dwarf.h that could fit your needs. Alternatively, you could create in a file in the art repo with what you actually use from dwarf.",
       "parentUuid": "3cfb9535_cf0c82c8",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 31
+      },
+      "revId": "4fe99718d2b3207e466320c1bbfbd38c4b9fcdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c3ac1c3_faa37829",
+        "filename": "compiler/elf_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-02-26T01:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc0199f4_411bb659",
       "range": {
         "startLine": 22,
         "startChar": 0,
