@@ -119,6 +119,121 @@
     },
     {
       "key": {
+        "uuid": "6f646d9a_e80f938b",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T14:12:09Z",
+      "side": 1,
+      "message": "Would be nice to use dedicated methods to test such flags. In my opinion, it\u0027s easier to read (and understand) something like \"mir-\u003eIsInlinedPred()\".",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 55
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_a425e8be",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T14:12:09Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this test ?",
+      "range": {
+        "startLine": 899,
+        "startChar": 8,
+        "endLine": 899,
+        "endChar": 37
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_84642cf9",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T14:12:09Z",
+      "side": 1,
+      "message": "Not sure this is correct as you use ReaderMutexLock inside this method.",
+      "range": {
+        "startLine": 165,
+        "startChar": 44,
+        "endLine": 165,
+        "endChar": 65
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0a6d15_21ff94d2",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T14:12:09Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 170,
+        "startChar": 56,
+        "endLine": 170,
+        "endChar": 77
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c156131_a2f3a40e",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T14:12:09Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 175,
+        "startChar": 42,
+        "endLine": 175,
+        "endChar": 63
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef13fd9e_306cbddc",
         "filename": "compiler/dex/quick/dex_file_method_inliner.h",
         "patchSetId": 6
