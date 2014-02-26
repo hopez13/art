@@ -16,6 +16,24 @@
       "revId": "12d67ee4495ec63b5ff288e925393a8dc77afef9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_ebf730a3",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-26T01:17:38Z",
+      "side": 1,
+      "message": "this is in the runtime, so it has no idea about the compiler really. \n\nwe could always enable this right? it looks like it will do nothing if the needed sections are missing.",
+      "parentUuid": "1cf89137_0b493c4f",
+      "revId": "12d67ee4495ec63b5ff288e925393a8dc77afef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
