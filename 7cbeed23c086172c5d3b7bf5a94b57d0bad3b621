@@ -22,6 +22,168 @@
       "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_8e4c3994",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "We don\u0027t have an x86-64 compiler, without setting this jni_internal_test will try to compile code and die.",
+      "parentUuid": "3cfb9535_acd4a131",
+      "range": {
+        "startLine": 288,
+        "startChar": 6,
+        "endLine": 288,
+        "endChar": 59
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_4e463172",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "seems like a lot of parens",
+      "range": {
+        "startLine": 300,
+        "startChar": 47,
+        "endLine": 300,
+        "endChar": 49
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cfb9535_1529589a",
+        "filename": "compiler/output_stream_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c44c956_6f0a31f3",
+        "filename": "compiler/utils/scoped_hashtable_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "? Does this need to depend on the runtime?",
+      "range": {
+        "startLine": 31,
+        "startChar": 35,
+        "endLine": 31,
+        "endChar": 52
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_4e919184",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "unused? static inline at least",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 18
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_6e632dee",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "For the up-call testing we could just assume that we\u0027re entering the interpreter. I feel we should separate those tests out anyway.",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_2ec08569",
+        "filename": "runtime/leb128_encoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-26T05:51:52Z",
+      "side": 1,
+      "message": "why the rename? This header file is only ever used by the compiler. It also has no common_test.h dependencies.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "7cbeed23c086172c5d3b7bf5a94b57d0bad3b621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
