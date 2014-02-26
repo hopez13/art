@@ -236,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "dc0199f4_84b66c05",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-02-26T14:26:06Z",
+      "side": 1,
+      "message": "Not sure. And other methods using ReaderMutexLock are not annotated the same way. Ian, any idea on what is the most appropriate annotation here ?",
+      "parentUuid": "7c0a6d15_414cc892",
+      "range": {
+        "startLine": 165,
+        "startChar": 44,
+        "endLine": 165,
+        "endChar": 65
+      },
+      "revId": "6ac83f3d4be918eee185764c52ebcecb99fdc87a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0a6d15_21ff94d2",
         "filename": "compiler/dex/quick/dex_file_method_inliner.h",
         "patchSetId": 6
