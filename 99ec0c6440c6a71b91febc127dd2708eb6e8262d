@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fc32ddef_4c0d3f97",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-27T20:46:14Z",
+      "side": 1,
+      "message": "Yup, nice catch",
+      "parentUuid": "7c0a6d15_cc6a4f47",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc0199f4_8fb3257e",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "bce78593_3c20d17f",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-27T20:46:14Z",
+      "side": 1,
+      "message": "Indeed.  Removing it",
+      "parentUuid": "dc0199f4_8fb3257e",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_05f7e4fd",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2014-02-26T22:14:50Z",
       "side": 1,
       "message": "You can use GetClass\u003ckVerifyNone\u003e to not have heap verification, it is cleaner than using ClassOffset().",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc32ddef_8cfb2728",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-02-27T20:46:14Z",
+      "side": 1,
+      "message": "I talked with Ian.  I\u0027m going to check that the mutator lock is held in this function.  That way we can be sure that the top of the stack is a method pointer and not need to check that it\u0027s in the heap.  This will also fix to TODO below because we don\u0027t need to grab the mutator lock again.",
+      "parentUuid": "1cf89137_05f7e4fd",
       "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
