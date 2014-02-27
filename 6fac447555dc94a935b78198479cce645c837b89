@@ -305,6 +305,30 @@
       "revId": "6fac447555dc94a935b78198479cce645c837b89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c26d1b5_c2dd70fa",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-27T18:39:24Z",
+      "side": 1,
+      "message": "Probably true. In this sort of situation, I\u0027d personally prefer a template parameter as it enforces the compile-time const-ness. My understanding is that the compiler may not fully inline per-call site basis, based on some internal heuristics unless ALWAYS_INLINE is used.",
+      "parentUuid": "1c26d1b5_3ca9fd2e",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 18
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
