@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "1c26d1b5_61aebe6a",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-27T04:20:50Z",
+      "side": 1,
+      "message": "I think rosalloc only zeroes out memory for the requested portion only, not the whole usable size. So, as is, one may get non-zero, garbage initial values near the end of the array. This code assumes the whole usable size is zero, right?",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 20
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_374215cb",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 3
