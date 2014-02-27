@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c29d585_42bd0248",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T00:52:13Z",
+      "side": 1,
+      "message": "non-C++ style casts aren\u0027t allowed.",
+      "range": {
+        "startLine": 387,
+        "startChar": 55,
+        "endLine": 387,
+        "endChar": 61
+      },
+      "revId": "f8c7b2b94718c5eb881243b9144afcbc3912fd07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf89137_b4574394",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T00:52:13Z",
+      "side": 1,
+      "message": "We have a macro called UNUSED, this should be \"UNUSED(objref);\" however the fact this is unused is a bug, we should just remove the objref local variable.",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 65
+      },
+      "revId": "f8c7b2b94718c5eb881243b9144afcbc3912fd07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
