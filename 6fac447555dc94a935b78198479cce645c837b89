@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c26d1b5_7c34255e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T08:37:09Z",
+      "side": 1,
+      "message": "Before 64bit, size_t and uint32_t were effectively the same. In 64bit not and we have 32bit of storage in Class. I wanted the type here to reflect that.",
+      "parentUuid": "1c26d1b5_9370e41b",
+      "range": {
+        "startLine": 1228,
+        "startChar": 53,
+        "endLine": 1228,
+        "endChar": 61
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c26d1b5_b39c000e",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1cf89137_8db8b6a8",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T08:37:09Z",
+      "side": 1,
+      "message": "It was a unit test thing but IsStarted subsumes it so removed.",
+      "parentUuid": "1c26d1b5_b39c000e",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_77bd3d96",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-02-27T02:12:34Z",
       "side": 1,
       "message": "Is the indentation off in lines 76 and 77?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c26d1b5_fc47f5da",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T08:37:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf89137_77bd3d96",
       "range": {
         "startLine": 76,
         "startChar": 0,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "3c29d585_4302a467",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T08:37:09Z",
+      "side": 1,
+      "message": "thanks, we switched from calloc to memset to reduce the period we held the lock. Done.",
+      "parentUuid": "1cf89137_8a077c75",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 20
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_374215cb",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 3
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "3c29d585_23079877",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T08:37:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf89137_374215cb",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 8
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c29d585_7d4d4308",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 3
@@ -152,6 +272,30 @@
       "writtenOn": "2014-02-27T02:12:34Z",
       "side": 1,
       "message": "1. Could fill_usable be a template parameter? If so, this if statement could be compiled away.\n2. Surround with an UNLIKELY?",
+      "range": {
+        "startLine": 125,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 18
+      },
+      "revId": "6fac447555dc94a935b78198479cce645c837b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c26d1b5_3ca9fd2e",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-02-27T08:37:09Z",
+      "side": 1,
+      "message": "All the relevant code should be inlined so I\u0027d rather not use template parameters.",
+      "parentUuid": "3c29d585_7d4d4308",
       "range": {
         "startLine": 125,
         "startChar": 6,
