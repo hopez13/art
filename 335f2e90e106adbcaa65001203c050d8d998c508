@@ -22,6 +22,23 @@
       "revId": "335f2e90e106adbcaa65001203c050d8d998c508",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c26d1b5_d0cae2e3",
+        "filename": "runtime/gc/space/rosalloc_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-27T00:55:31Z",
+      "side": 1,
+      "message": "Might slow down allocation if its not inlined, can we just always pass in dummy parameters if we keep usable_size?",
+      "revId": "335f2e90e106adbcaa65001203c050d8d998c508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
