@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "7c0a6d15_cc6a4f47",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-27T13:33:51Z",
+      "side": 1,
+      "message": "MarkPossibleNullPointerException(opt_flags);",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_8fb3257e",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-02-27T13:33:51Z",
+      "side": 1,
+      "message": "This seems unnecessary. We should never get NPE here, it would be caught on the the previous insn.",
+      "revId": "99ec0c6440c6a71b91febc127dd2708eb6e8262d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cf89137_05f7e4fd",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 2
