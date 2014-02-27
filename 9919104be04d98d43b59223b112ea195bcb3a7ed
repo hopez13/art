@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c26d1b5_ef48504d",
+        "filename": "runtime/gc/space/rosalloc_space_base_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-02-27T22:34:02Z",
+      "side": 1,
+      "message": "minor point: How about \"RosAllocSpaceBase\" instead of \"RosAllocSpace\" so that we see a different test name for each test file in the test output? Same for the static (RosAllocSpaceStatic) and the random (RosAllocSpaceRandom) versions. Similar ly for DlmallocSpace.",
+      "range": {
+        "startLine": 29,
+        "startChar": 26,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "9919104be04d98d43b59223b112ea195bcb3a7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
