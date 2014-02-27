@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0a6d15_acf4bb9f",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-27T10:38:07Z",
+      "side": 1,
+      "message": "Revive check?",
+      "range": {
+        "startLine": 102,
+        "startChar": 21,
+        "endLine": 102,
+        "endChar": 36
+      },
+      "revId": "a55cf41c9d1da7ee8b2f63974dedfb484042dd03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_cfa92d74",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-27T10:38:07Z",
+      "side": 1,
+      "message": "Why do you need to do this? I\u0027m curious what situation/test would fail if we were not to do it.",
+      "range": {
+        "startLine": 107,
+        "startChar": 20,
+        "endLine": 107,
+        "endChar": 26
+      },
+      "revId": "a55cf41c9d1da7ee8b2f63974dedfb484042dd03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
