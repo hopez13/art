@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc35c5d3_e1e070b0",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-28T21:05:14Z",
+      "side": 1,
+      "message": "add a comment maybe to explain when you\u0027d want to use this vs the above?",
+      "revId": "da38506a6f2ce8344eb49a49971a002e4010c19b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce78593_09e14ab2",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-28T21:05:14Z",
+      "side": 1,
+      "message": "hmm...\n\nI\u0027d rather just get rid of the field entirely.",
+      "range": {
+        "startLine": 427,
+        "startChar": 2,
+        "endLine": 427,
+        "endChar": 51
+      },
+      "revId": "da38506a6f2ce8344eb49a49971a002e4010c19b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc32ddef_d212e4e0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-02-28T21:05:14Z",
+      "side": 1,
+      "message": "yeah, i\u0027m really think we should just always to this.",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 17
+      },
+      "revId": "da38506a6f2ce8344eb49a49971a002e4010c19b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
