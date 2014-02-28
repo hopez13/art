@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0a6d15_121f3c75",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-02-28T08:41:31Z",
+      "side": 1,
+      "message": "Why not putting the Sirt at the beginning of the function?",
+      "range": {
+        "startLine": 762,
+        "startChar": 18,
+        "endLine": 762,
+        "endChar": 20
+      },
+      "revId": "55871bf5277f8e8041f1303a416be2cd9215aa07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
