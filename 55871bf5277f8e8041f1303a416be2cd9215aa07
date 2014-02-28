@@ -22,6 +22,24 @@
       "revId": "55871bf5277f8e8041f1303a416be2cd9215aa07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_c9e0f5b0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-02-28T17:41:45Z",
+      "side": 1,
+      "message": "That would work too since this is not a performance critical method, I\u0027ll consider changing it later.",
+      "parentUuid": "7c0a6d15_121f3c75",
+      "revId": "55871bf5277f8e8041f1303a416be2cd9215aa07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
