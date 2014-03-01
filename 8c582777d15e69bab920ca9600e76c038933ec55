@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc2fd98a_dacaf9e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-01T01:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c52b523_2dff8ed2",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "8c582777d15e69bab920ca9600e76c038933ec55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c52b523_cd28fa98",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2014-03-01T01:30:46Z",
       "side": 1,
       "message": "Add a comment describing difference between IsInterpretOnly vs IsForcedInterpretOnly?",
+      "revId": "8c582777d15e69bab920ca9600e76c038933ec55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c8801e4_35bfa8b3",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-01T01:34:44Z",
+      "side": 1,
+      "message": "I delegate that to the comments of the corresponding fields interpret_only_ and forced_interpret_only_.",
+      "parentUuid": "3c52b523_cd28fa98",
       "revId": "8c582777d15e69bab920ca9600e76c038933ec55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "bc5ea529_b30d2a55",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-01T01:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c52b523_6ddea684",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 76
+      },
+      "revId": "8c582777d15e69bab920ca9600e76c038933ec55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_889f8c07",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2014-03-01T01:27:31Z",
       "side": 1,
       "message": "Attempt",
+      "range": {
+        "startLine": 161,
+        "startChar": 21,
+        "endLine": 161,
+        "endChar": 27
+      },
+      "revId": "8c582777d15e69bab920ca9600e76c038933ec55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc2fd98a_facdb5fd",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-01T01:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c58ad41_889f8c07",
       "range": {
         "startLine": 161,
         "startChar": 21,
