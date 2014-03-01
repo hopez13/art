@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c58ad41_e3150999",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-01T03:17:46Z",
+      "side": 1,
+      "message": "Note for the uninitiated,  we can\u0027t just use LOCAL_CLANG as the result of the define are eval-ed meaning the eval time version of LOCAL_CLANG rather than the version where the other definitions occur is used.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 37
+      },
+      "revId": "b48b9eb6d181a1f52e2e605cf26a21505f1d46ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
