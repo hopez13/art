@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "3c52b523_cd28fa98",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-01T01:30:46Z",
+      "side": 1,
+      "message": "Add a comment describing difference between IsInterpretOnly vs IsForcedInterpretOnly?",
+      "revId": "8c582777d15e69bab920ca9600e76c038933ec55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c52b523_6ddea684",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
