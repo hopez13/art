@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "7c58ad41_5ebf0ab2",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1010121
+      },
+      "writtenOn": "2014-03-01T10:22:51Z",
+      "side": 1,
+      "message": "We can fix this properly. Clang does have access to libgcc, which provides __clear_cache (without the __builtin_ prefix, but with the same functionality otherwise).\n\nIMO this should be\n#if GCC_VERSION \u003e\u003d 40303\n__builtin___clear_cache....\n#elif defined(__clang__)\n__clear_cache(reinterpret_cast.....\n#else\nLOG(FATAL) \u003c\u003c \"UNIMPLEMENTED...\n#endif",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 49
+      },
+      "revId": "b48b9eb6d181a1f52e2e605cf26a21505f1d46ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_e3150999",
         "filename": "runtime/Android.mk",
         "patchSetId": 1
