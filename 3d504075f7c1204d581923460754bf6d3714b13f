@@ -22,6 +22,76 @@
       "revId": "3d504075f7c1204d581923460754bf6d3714b13f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c58ad41_19fe4c84",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-02T18:17:39Z",
+      "side": 1,
+      "message": "Changed for consistency with compiler driver, I\u0027ve put review comments to explain this there.",
+      "parentUuid": "7c58ad41_b96e20d1",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 25
+      },
+      "revId": "3d504075f7c1204d581923460754bf6d3714b13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_0316e1d6",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-02T18:17:39Z",
+      "side": 1,
+      "message": "InstructionSet is an enum, so returning const \u0026 is unusual.",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 16
+      },
+      "revId": "3d504075f7c1204d581923460754bf6d3714b13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c920913_3f8c6771",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-02T18:17:39Z",
+      "side": 1,
+      "message": "This is a value type, made a non-reference result as its unusual to pass a value type around by reference.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 24
+      },
+      "revId": "3d504075f7c1204d581923460754bf6d3714b13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
