@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c58ad41_b96e20d1",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-02T05:29:22Z",
+      "side": 1,
+      "message": "non-const reference arguments I understand changing, but why change a const reference return value? confusing lifetime? I realize these are currently tiny values to be returning",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 25
+      },
+      "revId": "3d504075f7c1204d581923460754bf6d3714b13f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
