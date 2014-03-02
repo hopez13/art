@@ -22,6 +22,30 @@
       "revId": "2c80c731078171881f877e1071f4bd8d1ae726dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_a33eed36",
+        "filename": "compiler/compiler_backend.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-02T19:34:43Z",
+      "side": 1,
+      "message": "I think the whole CompileBackend is turning into an unnecessary distraction. But this change falls into its general bad design. Let\u0027s do a clean-up later.",
+      "parentUuid": "fc32ddef_72a9f05f",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 3
+      },
+      "revId": "2c80c731078171881f877e1071f4bd8d1ae726dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
