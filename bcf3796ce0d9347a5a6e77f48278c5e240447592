@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c58ad41_19c9ac68",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-02T19:25:31Z",
+      "side": 1,
+      "message": "Can we change the users of this to use the new API? Or make the implementation of this use the new API?",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 43
+      },
+      "revId": "bcf3796ce0d9347a5a6e77f48278c5e240447592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_a3670d7d",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-02T19:25:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 43
+      },
+      "revId": "bcf3796ce0d9347a5a6e77f48278c5e240447592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
