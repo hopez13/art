@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8d0df2_40962e31",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T05:52:06Z",
+      "side": 1,
+      "message": "perhaps move to entypoint_utils.h. Please comment on why the runtime shutdown lock is necessary and not other heavier weight locks, like the exclusive mutator lock.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 60
+      },
+      "revId": "d53326dbca13bfd76def0741c35fdd6a73bdfa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8d0df2_e07ae246",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T05:52:06Z",
+      "side": 1,
+      "message": "or perhaps move the declaration here :-)",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 48
+      },
+      "revId": "d53326dbca13bfd76def0741c35fdd6a73bdfa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8d0df2_2091aa37",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T05:52:06Z",
+      "side": 1,
+      "message": "+ , Locks::runtime_shutdown_lock_",
+      "range": {
+        "startLine": 170,
+        "startChar": 41,
+        "endLine": 170,
+        "endChar": 81
+      },
+      "revId": "d53326dbca13bfd76def0741c35fdd6a73bdfa68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
