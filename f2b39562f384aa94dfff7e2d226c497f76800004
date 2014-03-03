@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c920913_c50a4e3a",
+        "filename": "compiler/elf_writer_mclinker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T16:18:22Z",
+      "side": 1,
+      "message": "cool, Brian and I were talking about moving this out into its own .cc file to avoid mixing the LLVM ELF and elf.h definitions.",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "f2b39562f384aa94dfff7e2d226c497f76800004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
