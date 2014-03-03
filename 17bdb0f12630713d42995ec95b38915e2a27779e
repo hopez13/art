@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc0199f4_247b134d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-03T18:29:06Z",
+      "side": 1,
+      "message": "It\u0027s actually ANDROID_ROOT that I should put. Is that self explanatory?",
+      "parentUuid": "3c52b523_3c633eef",
+      "range": {
+        "startLine": 136,
+        "startChar": 29,
+        "endLine": 136,
+        "endChar": 49
+      },
+      "revId": "17bdb0f12630713d42995ec95b38915e2a27779e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c52b523_5cd95a67",
         "filename": "runtime/image.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "dc0199f4_a4872300",
+        "filename": "runtime/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-03T18:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c52b523_5cd95a67",
+      "range": {
+        "startLine": 94,
+        "startChar": 35,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "17bdb0f12630713d42995ec95b38915e2a27779e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c52b523_bcc96e97",
         "filename": "test/etc/host-run-test-jar",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-03-03T18:16:07Z",
       "side": 1,
       "message": "is this still needed at all?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 69
+      },
+      "revId": "17bdb0f12630713d42995ec95b38915e2a27779e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_0478174c",
+        "filename": "test/etc/host-run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-03T18:29:06Z",
+      "side": 1,
+      "message": "Just checked. No.",
+      "parentUuid": "3c52b523_bcc96e97",
       "range": {
         "startLine": 96,
         "startChar": 0,
