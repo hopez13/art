@@ -52,6 +52,24 @@
       "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c920913_593703c0",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T21:34:38Z",
+      "side": 1,
+      "message": "Its possibly a nice comment. I don\u0027t know what we\u0027d assert on to detect big-endian, and Android doesn\u0027t support big-endian architectures.",
+      "parentUuid": "7c58ad41_a0438082",
+      "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
