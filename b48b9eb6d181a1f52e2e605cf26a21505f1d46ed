@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "3c52b523_0616efd6",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1010121
+      },
+      "writtenOn": "2014-03-03T06:55:20Z",
+      "side": 1,
+      "message": "In compiler-rt 3.4, __clear_cache is implemented only for apple systems.\nIn trunk, it is implemented for aarch64. Not for aarch32 yet, but that should be fairly easy to do.",
+      "range": {
+        "startLine": 243,
+        "startChar": 47,
+        "endLine": 243,
+        "endChar": 49
+      },
+      "revId": "b48b9eb6d181a1f52e2e605cf26a21505f1d46ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_e3150999",
         "filename": "runtime/Android.mk",
         "patchSetId": 1
