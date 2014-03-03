@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5c920913_39bf9fb3",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-03T21:50:06Z",
+      "side": 1,
+      "message": "gerrit\u0027s marker doesn\u0027t seem to be at 100. in the left side, the \"a\" in class is at position 100.",
+      "parentUuid": "3c52b523_f4f6daff",
+      "range": {
+        "startLine": 301,
+        "startChar": 35,
+        "endLine": 301,
+        "endChar": 36
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_b467457d",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Looking to the left I see this as about 97 characters long in the line, is your \"nag\" set too low? There\u0027s no need to revert the change, it\u0027d just be nice to avoid this in future CLs.",
       "parentUuid": "3c52b523_17997bee",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 70
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_54512e25",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-03T21:50:06Z",
+      "side": 1,
+      "message": "looking locally, the line before was 102. I think gerrit is showing a 105 marker.",
+      "parentUuid": "7c58ad41_8361a61f",
       "range": {
         "startLine": 320,
         "startChar": 0,
