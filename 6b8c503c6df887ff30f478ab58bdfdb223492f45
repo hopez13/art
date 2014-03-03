@@ -16,6 +16,24 @@
       "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8d0df2_a3c62435",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-03T19:33:08Z",
+      "side": 1,
+      "message": "It assumed little endian before as well.",
+      "parentUuid": "9c63a1f1_32b376ce",
+      "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
