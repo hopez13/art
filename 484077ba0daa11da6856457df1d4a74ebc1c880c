@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c52b523_c6e0d7e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T05:24:02Z",
+      "side": 1,
+      "message": "nice",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "484077ba0daa11da6856457df1d4a74ebc1c880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c58ad41_74d42d31",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T05:24:02Z",
+      "side": 1,
+      "message": "please move the assignment out of the condition",
+      "range": {
+        "startLine": 169,
+        "startChar": 21,
+        "endLine": 169,
+        "endChar": 36
+      },
+      "revId": "484077ba0daa11da6856457df1d4a74ebc1c880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
