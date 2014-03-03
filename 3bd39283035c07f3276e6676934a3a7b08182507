@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c920913_a2d2a00e",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T08:13:55Z",
+      "side": 1,
+      "message": "ws?",
+      "range": {
+        "startLine": 120,
+        "startChar": 14,
+        "endLine": 120,
+        "endChar": 16
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_c6b0d76d",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T08:13:55Z",
+      "side": 1,
+      "message": "not clear why this was re-indented?",
+      "range": {
+        "startLine": 301,
+        "startChar": 35,
+        "endLine": 301,
+        "endChar": 36
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c58ad41_b467457d",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T08:13:55Z",
+      "side": 1,
+      "message": "not related to this change, seems odd these aren\u0027t GC options",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 41
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c52b523_a6addb17",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T08:13:55Z",
+      "side": 1,
+      "message": "Another spurious re-indent.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 70
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
