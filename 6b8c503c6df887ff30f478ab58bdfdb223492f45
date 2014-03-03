@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c63a1f1_32b376ce",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-03T19:24:27Z",
+      "side": 1,
+      "message": "Does the code assume little endian? If so, is it okay?",
+      "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
