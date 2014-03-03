@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "3c52b523_f4f6daff",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T21:39:19Z",
+      "side": 1,
+      "message": "Looking to the left on gerrit it looks fine.",
+      "parentUuid": "5c920913_8edea381",
+      "range": {
+        "startLine": 301,
+        "startChar": 35,
+        "endLine": 301,
+        "endChar": 36
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_b467457d",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "fixes to not be a long line. All the files I touched if there were only a few, I fixed them so my editor would stop nagging me",
       "parentUuid": "3c52b523_a6addb17",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 70
+      },
+      "revId": "3bd39283035c07f3276e6676934a3a7b08182507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c58ad41_8361a61f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-03T21:39:19Z",
+      "side": 1,
+      "message": "Looking to the left I see this as about 97 characters long in the line, is your \"nag\" set too low? There\u0027s no need to revert the change, it\u0027d just be nice to avoid this in future CLs.",
+      "parentUuid": "3c52b523_17997bee",
       "range": {
         "startLine": 320,
         "startChar": 0,
