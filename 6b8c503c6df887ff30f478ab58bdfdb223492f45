@@ -34,6 +34,24 @@
       "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c58ad41_a0438082",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-03T20:22:17Z",
+      "side": 1,
+      "message": "True. Do we want to leave a trap using a macro something like #define ... #error \"Assumes little endian\" ... #endif? Or, we are already so hard-coded with little endian, that no need for that?",
+      "parentUuid": "7c8d0df2_a3c62435",
+      "revId": "6b8c503c6df887ff30f478ab58bdfdb223492f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
