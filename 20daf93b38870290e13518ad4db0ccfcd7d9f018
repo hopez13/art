@@ -22,6 +22,30 @@
       "revId": "20daf93b38870290e13518ad4db0ccfcd7d9f018",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc0199f4_840f8700",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-03T17:47:46Z",
+      "side": 1,
+      "message": "No, Offset::val_ is size_t, so we won\u0027t have any padding after that. And I chose the field order to avoid any padding in the middle.",
+      "parentUuid": "3c52b523_2132f51e",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "20daf93b38870290e13518ad4db0ccfcd7d9f018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
