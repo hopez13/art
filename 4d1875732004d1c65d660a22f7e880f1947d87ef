@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "7c66ed13_f54b6f47",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-04T22:16:52Z",
+      "side": 1,
+      "message": "The other thing on x86 is that we could always on entry do:\n\npush fs:[last_frame_pointer_offset]\nmov esp, fs:[last_frame_pointer_offset]\n...\npop fs:[last_frame_pointer_offset]\n\nif we were to want frame pointers and not blow a register. The primary concern being we have very few registers.",
+      "parentUuid": "fcce5d4a_0cbdd748",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_3996b030",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 3
