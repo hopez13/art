@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcce5d4a_ec188bd3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-04T16:20:17Z",
+      "side": 1,
+      "message": "What do you mean by consistent? I\u0027ll always end up switching here too, as I need to pick the right CodeGenerator.",
+      "parentUuid": "5c920913_7fbbcfee",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 34
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c920913_5fb60b08",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-02T20:23:20Z",
       "side": 1,
       "message": "* const",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 12
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc2511e_adad9d17",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-04T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c920913_5fb60b08",
       "range": {
         "startLine": 72,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dccb593b_eb763119",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-04T16:20:17Z",
+      "side": 1,
+      "message": "Can do :). Done.",
+      "parentUuid": "3c52b523_e38f45d3",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_59916436",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fcce5d4a_0cbdd748",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-04T16:20:17Z",
+      "side": 1,
+      "message": "Better experience with debugging tools. I can see ART currently does not push frame pointers, but I guess the stack walker could work with both versions.",
+      "parentUuid": "7c58ad41_59916436",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_3996b030",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2014-03-02T20:23:20Z",
       "side": 1,
       "message": "we have MakeExecutable which is a similar to this, can we just have 1 code path.",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 54
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc2511e_6d433584",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-04T16:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c58ad41_3996b030",
       "range": {
         "startLine": 30,
         "startChar": 6,
