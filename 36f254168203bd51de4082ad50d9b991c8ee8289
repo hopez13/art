@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "7c66ed13_1549434f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-04T22:22:13Z",
+      "side": 1,
+      "message": "Done + others.",
+      "parentUuid": "dc76f9c4_9fa1f690",
+      "revId": "36f254168203bd51de4082ad50d9b991c8ee8289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c66ed13_b53f37c5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -272,6 +290,24 @@
         "endLine": 71,
         "endChar": 28
       },
+      "revId": "36f254168203bd51de4082ad50d9b991c8ee8289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc76f9c4_7fd09ae5",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-04T22:22:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c7df19f_fe1b50cd",
       "revId": "36f254168203bd51de4082ad50d9b991c8ee8289",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
