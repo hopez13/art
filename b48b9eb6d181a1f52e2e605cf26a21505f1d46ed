@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dccb593b_8b28cd97",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-03-04T09:32:44Z",
+      "side": 1,
+      "message": "I\u0027ve submitted a patch to llvm-commits to implement it for arm32 and mips. Nobody seems to be interested in looking at it.\n\nBernhard: If you\u0027re an llvm maintainer, can you please help ?",
+      "parentUuid": "3c52b523_0616efd6",
+      "range": {
+        "startLine": 243,
+        "startChar": 47,
+        "endLine": 243,
+        "endChar": 49
+      },
+      "revId": "b48b9eb6d181a1f52e2e605cf26a21505f1d46ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_e3150999",
         "filename": "runtime/Android.mk",
         "patchSetId": 1
