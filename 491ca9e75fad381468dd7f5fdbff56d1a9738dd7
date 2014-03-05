@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcce5d4a_cf7fc1be",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-03-05T13:52:12Z",
+      "side": 1,
+      "message": "parallel_gc_threads_ and others are size_t values.\nThese don\u0027t compile on 64bit platforms, as ParseUnsignedInteger and friends read 32bit \"int\" types, and \"size_t\" is 64bit on 64bit types.",
+      "revId": "491ca9e75fad381468dd7f5fdbff56d1a9738dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
