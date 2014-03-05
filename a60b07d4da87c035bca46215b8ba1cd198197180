@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc76f9c4_65eb2860",
+        "filename": "runtime/utils_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-05T20:07:26Z",
+      "side": 1,
+      "message": "I think RUNNING_ON_VALGRIND is an integer (see external/valgrind/main/include/valgrind.h). So, \"RUNNING_ON_VALGRIND \u003e 0\" may be better.",
+      "range": {
+        "startLine": 363,
+        "startChar": 7,
+        "endLine": 363,
+        "endChar": 26
+      },
+      "revId": "a60b07d4da87c035bca46215b8ba1cd198197180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cae3566_556cb620",
+        "filename": "runtime/utils_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-05T20:07:26Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 374,
+        "startChar": 7,
+        "endLine": 374,
+        "endChar": 26
+      },
+      "revId": "a60b07d4da87c035bca46215b8ba1cd198197180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
