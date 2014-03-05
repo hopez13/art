@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "1c7df19f_03c34d79",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T19:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cae3566_6927a144",
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cae3566_c91575cb",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 67,
         "endChar": 39
       },
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c7df19f_43b06507",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T19:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cae3566_c91575cb",
       "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "3cae3566_da13f574",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T19:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc76f9c4_6bf21cc1",
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cae3566_09570d96",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 1
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "3cae3566_fa10316a",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T19:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cae3566_09570d96",
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c7df19f_0d913c85",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 1
@@ -111,6 +183,24 @@
         "endLine": 463,
         "endChar": 29
       },
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cae3566_fa1b5184",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T19:41:08Z",
+      "side": 1,
+      "message": "That would change the behavior though, we still want to set the entrypoints for an unstarted runtime.",
+      "parentUuid": "1c7df19f_0d913c85",
       "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
