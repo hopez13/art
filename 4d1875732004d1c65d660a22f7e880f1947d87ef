@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "1cc2511e_d3a9aca5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-05T15:10:55Z",
+      "side": 1,
+      "message": "Yes, we could. I\u0027m still worried about the use of fs:.. though, I\u0027ll investigate the size/performance cost at some point.",
+      "parentUuid": "7c66ed13_f54b6f47",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_3996b030",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 3
