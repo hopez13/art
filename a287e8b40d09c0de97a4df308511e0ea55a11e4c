@@ -207,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "1c7df19f_03aeec12",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-05T19:58:47Z",
+      "side": 1,
+      "message": "Do:\n\nif (!runtime-\u003eIsStarted()) {\n    MutexLock mu(Thread::Current(), *Locks::runtime_shutdown_lock_);\n    SetQuickAllocEntryPointsInstrumented(instrumented);\n    ResetQuickAllocEntryPoints();\n  return;\n}\n\nthen? Presumably the annotalysis breakage is because you take a lock on some paths and not on others. If you duplicate the code in the middle then you are consistently taking/releasing a lock on one path and not on the other.",
+      "parentUuid": "3cae3566_fa1b5184",
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cae3566_09a94d2e",
         "filename": "runtime/zip_archive.cc",
         "patchSetId": 1
