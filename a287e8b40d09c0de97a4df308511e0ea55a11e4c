@@ -225,6 +225,24 @@
     },
     {
       "key": {
+        "uuid": "fc79fdb5_fd1b5b84",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T20:41:57Z",
+      "side": 1,
+      "message": "Actually, the reason is that SetQuickAllocEntryPointsInstrumented requires exclusive mutator lock access which you can\u0027t get if the runtime isn\u0027t started. This is described in the header file.",
+      "parentUuid": "1c7df19f_03aeec12",
+      "revId": "a287e8b40d09c0de97a4df308511e0ea55a11e4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cae3566_09a94d2e",
         "filename": "runtime/zip_archive.cc",
         "patchSetId": 1
