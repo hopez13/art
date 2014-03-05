@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "3c80f5c3_3f0a2bb7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T20:40:21Z",
+      "side": 1,
+      "message": "Added a comment describing this in runtime.h.",
+      "parentUuid": "3cae3566_95c6ae35",
+      "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cae3566_f5212283",
         "filename": "runtime/intern_table.h",
         "patchSetId": 2
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "5c6be9dc_2bebd160",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T20:40:21Z",
+      "side": 1,
+      "message": "Doable if we move VisitRootsFlags to be in it\u0027s own header file. Ill consider doing it in another CL.",
+      "parentUuid": "3cae3566_f5212283",
+      "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc76f9c4_e1c40dd7",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
@@ -65,6 +101,24 @@
         "endLine": 71,
         "endChar": 4
       },
+      "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c6be9dc_ebf4f93b",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-05T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc76f9c4_e1c40dd7",
       "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
