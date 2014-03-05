@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb929a9_8d2b05ab",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-05T22:59:55Z",
+      "side": 1,
+      "message": "It\u0027s a WARNING at most, since this is expected if the boot classpath changes I believe.",
+      "range": {
+        "startLine": 119,
+        "startChar": 10,
+        "endLine": 119,
+        "endChar": 15
+      },
+      "revId": "ce22216f2e9ef6827cb330cb3bd48f83e0b27095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb929a9_ad2849ae",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-05T22:59:55Z",
+      "side": 1,
+      "message": "0x, not 0 (2x)",
+      "range": {
+        "startLine": 251,
+        "startChar": 55,
+        "endLine": 251,
+        "endChar": 56
+      },
+      "revId": "ce22216f2e9ef6827cb330cb3bd48f83e0b27095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
