@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cae3566_95c6ae35",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-05T19:40:23Z",
+      "side": 1,
+      "message": "Should we somehow defend (eg with a DCHECK) against the possibility that this callback may move an object, as that would make the Class* pointers in new_class_roots_ (if not empty) invalid, if that happens? I assume this does not happen as of now, but it\u0027d be nice to be able to defend it if it happens in a future change.",
+      "range": {
+        "startLine": 1089,
+        "startChar": 8,
+        "endLine": 1089,
+        "endChar": 16
+      },
+      "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cae3566_f5212283",
+        "filename": "runtime/intern_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-05T19:40:23Z",
+      "side": 1,
+      "message": "Is it more consistent if this param has a default value of kVisitRootFlagAllRoots?",
+      "range": {
+        "startLine": 69,
+        "startChar": 68,
+        "endLine": 69,
+        "endChar": 73
+      },
+      "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc76f9c4_e1c40dd7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-05T19:40:23Z",
+      "side": 1,
+      "message": "So, about the usage of VisitRootFlags,\n\nOne of AllRoots and NewRoots is allowed (or effective).\nOne of StartLoggingNewRoots and StopLoggingNewRoots is allowed (or effective).\nClearRootLog can be combined with any other flag, but it clears the logs after a root scan (if effective).\n\nRight?\n\nIs it worth leaving a brief comment on this convention?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "893263b7d5bc2ca43a91ecb8071867f5134fc60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
