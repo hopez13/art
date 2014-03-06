@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "1c7df19f_174866eb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T00:48:51Z",
+      "side": 1,
+      "message": "Quick isn\u0027t smart about its use of fs: and consequently whenever it needs the thread it uses fs:. You can reduce need for the thread by unrolling loops, avoiding suspend checks that dominate others, etc. Comparing this naive use of fs: to using a register, in some cases you can see a 1% performance win from not using fs in a micro benchmark that attempts to reproduce the conditions from quick. This doesn\u0027t measure the cost of losing the register across all compiled code. I think what I prefer in the case that using fs: is an impediment is to allocate a temporary to hold the thread and then have the codegen use the temporary if there or fs: otherwise.\nI expect in a reasonable \"optimizing\" compiler the extra register will be of more performance advantage than the smaller instruction encoding. This has been my past experience.",
+      "parentUuid": "1cc2511e_d3a9aca5",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "4d1875732004d1c65d660a22f7e880f1947d87ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c58ad41_3996b030",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 3
