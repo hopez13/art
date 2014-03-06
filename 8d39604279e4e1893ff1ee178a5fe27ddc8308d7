@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c7df19f_1225d48f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2014-03-06T01:21:59Z",
+      "side": 1,
+      "message": "This seems a bit confusing to pass in the current_method this way. Is the GetCurrentMethod() function expensive? Otherwise, it might be easier to understand what this code is doing if you just make the call DumpNativeStack(..., GetCurrentMethod(nullptr), \" native: \", false); and remove the passing of the variable around.\n\nBut this is a nit, so feel free to ignore.",
+      "range": {
+        "startLine": 869,
+        "startChar": 54,
+        "endLine": 869,
+        "endChar": 69
+      },
+      "revId": "8d39604279e4e1893ff1ee178a5fe27ddc8308d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb929a9_7016a633",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
