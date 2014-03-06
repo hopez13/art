@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fca73d88_c128e5af",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "Could you comment on what the id means? ie do we expect ids within a block to be ascending? what do negative ids mean?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca43989_acf602ff",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 204,
+        "startChar": 14,
+        "endLine": 204,
+        "endChar": 16
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fca73d88_64d9ff99",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 205,
+        "startChar": 14,
+        "endLine": 205,
+        "endChar": 15
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fca73d88_e4ec0f37",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "Avoid inline when possible due to its overloaded meaning and that we expect compilers to be smart. The overloaded meaning is its both a linker directive (ie something inline in two .cc files won\u0027t conflict) and a hint that this code should be inlined. If the compiler is doing the wrong thing and performance matters we use HOT and ALWAYS_INLINE.",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 9
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c348108_e4a614a1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "could you remove these inlines too. Sorry, should have caught this in an earlier review.",
+      "range": {
+        "startLine": 296,
+        "startChar": 2,
+        "endLine": 296,
+        "endChar": 9
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca43989_0c1cf67c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "const uint16_t. Iirc we only support 64k of registers.",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 449,
+        "endChar": 10
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca43989_2c3532f0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T19:33:55Z",
+      "side": 1,
+      "message": "const int32_t\nI\u0027d prefer int32_t here as this is something specified in the dex file and int is a little ambiguous.",
+      "range": {
+        "startLine": 491,
+        "startChar": 2,
+        "endLine": 491,
+        "endChar": 5
+      },
+      "revId": "774a96e65290a65550276b80ab7e3582fa1db250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
