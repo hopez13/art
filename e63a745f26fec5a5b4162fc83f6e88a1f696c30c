@@ -46,6 +46,30 @@
       "revId": "e63a745f26fec5a5b4162fc83f6e88a1f696c30c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc79fdb5_28967339",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-06T18:32:52Z",
+      "side": 1,
+      "message": "To add a bit more, without this, ART would crash at the first static JNI call during startup.",
+      "parentUuid": "fc79fdb5_08fb7793",
+      "range": {
+        "startLine": 1553,
+        "startChar": 0,
+        "endLine": 1553,
+        "endChar": 30
+      },
+      "revId": "e63a745f26fec5a5b4162fc83f6e88a1f696c30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
