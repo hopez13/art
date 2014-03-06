@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb929a9_7016a633",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-06T00:29:44Z",
+      "side": 1,
+      "message": "It would be nice if the prefix were \"bridge:\" rather than \"native:\" for the down call frame. But anyway.",
+      "range": {
+        "startLine": 1070,
+        "startChar": 10,
+        "endLine": 1070,
+        "endChar": 16
+      },
+      "revId": "8d39604279e4e1893ff1ee178a5fe27ddc8308d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
