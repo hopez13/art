@@ -16,6 +16,24 @@
       "revId": "c0502bcd9c949e71afcf1fcc200cf950b549c0d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc4c9db4_56d054e5",
+        "filename": "compiler/dex/pass_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-03-07T19:19:41Z",
+      "side": 1,
+      "message": "Yes.  This may explain why I see three times of disabling passes, while testing hello.dex.  Thanks!",
+      "parentUuid": "dccb593b_df31ab1a",
+      "revId": "c0502bcd9c949e71afcf1fcc200cf950b549c0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
