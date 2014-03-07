@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "bc586570_a0c51e4d",
+        "filename": "runtime/sirt_ref-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-07T18:50:07Z",
+      "side": 1,
+      "message": "I\u0027ll move these back to the .h file since they are are 1 liners.",
+      "parentUuid": "fc4c9db4_4be1d17e",
+      "revId": "80f936d11b93f4626b2282215c11fbdfa9708115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc586570_e0c9d696",
         "filename": "runtime/sirt_ref.h",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 31,
         "endChar": 8
       },
+      "revId": "80f936d11b93f4626b2282215c11fbdfa9708115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c526d52_1b739f6e",
+        "filename": "runtime/sirt_ref.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-07T18:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc586570_e0c9d696",
       "revId": "80f936d11b93f4626b2282215c11fbdfa9708115",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
