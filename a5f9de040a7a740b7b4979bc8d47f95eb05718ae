@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c348108_6ae1267f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-07T05:31:30Z",
+      "side": 1,
+      "message": "typo: not",
+      "range": {
+        "startLine": 880,
+        "startChar": 58,
+        "endLine": 880,
+        "endChar": 61
+      },
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc4c9db4_62ff92d1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-07T05:31:30Z",
+      "side": 1,
+      "message": "Do we want to re-signal the trim daemon thread if the trim daemon thread comes here too soon (within 5 seconds)? If this happens always, trimming may not happen for a long time?",
+      "range": {
+        "startLine": 890,
+        "startChar": 39,
+        "endLine": 890,
+        "endChar": 74
+      },
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca43989_112f27ba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-07T05:31:30Z",
+      "side": 1,
+      "message": "Is RequestCollectorTransition a better name, as in TransitionCollector()?",
+      "range": {
+        "startLine": 2543,
+        "startChar": 11,
+        "endLine": 2543,
+        "endChar": 32
+      },
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca43989_318fc3a9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-07T05:31:30Z",
+      "side": 1,
+      "message": "In case the trim thread calls Trim() too soon and returns without actually trimming (the above comment), how about not updating the target time if there\u0027s already a request pending (heap_trim_request_pending_ is true)?",
+      "range": {
+        "startLine": 2583,
+        "startChar": 31,
+        "endLine": 2583,
+        "endChar": 88
+      },
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
