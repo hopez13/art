@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dccb593b_df31ab1a",
+        "filename": "compiler/dex/pass_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-07T19:14:09Z",
+      "side": 1,
+      "message": "This still checks once per pass per method. I meant a bit more invasive change. For example, we could have a default passes variable (say, static member of PassDriver) and initialize it with gPasses. Then there would be a function to change the default passes (say, DisablePasses(const std::string\u0026 list) ).",
+      "revId": "c0502bcd9c949e71afcf1fcc200cf950b549c0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
