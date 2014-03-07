@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc586570_5d3a2fe1",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-07T16:37:13Z",
+      "side": 1,
+      "message": "here we call it optimizing compiler",
+      "range": {
+        "startLine": 91,
+        "startChar": 17,
+        "endLine": 91,
+        "endChar": 36
+      },
+      "revId": "d16c312ed0f7764aa45602eb9d220d714afa6b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc4c9db4_10cd34a3",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-07T16:37:13Z",
+      "side": 1,
+      "message": "and here backend",
+      "range": {
+        "startLine": 77,
+        "startChar": 12,
+        "endLine": 77,
+        "endChar": 30
+      },
+      "revId": "d16c312ed0f7764aa45602eb9d220d714afa6b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc586570_9d1b2786",
+        "filename": "compiler/backends.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-07T16:37:13Z",
+      "side": 1,
+      "message": "driver, and elsewhere..",
+      "range": {
+        "startLine": 51,
+        "startChar": 54,
+        "endLine": 51,
+        "endChar": 62
+      },
+      "revId": "d16c312ed0f7764aa45602eb9d220d714afa6b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
