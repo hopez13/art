@@ -16,6 +16,24 @@
       "revId": "e2f3233286bc206e33e4f46fc5b67c97fa39192c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c526d52_6c078376",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-07T22:49:07Z",
+      "side": 1,
+      "message": "How did you generated this crash?  It passed all the checks for being in compiled code, otherwise it wouldn\u0027t get here.",
+      "parentUuid": "9c8801e4_27b3fecd",
+      "revId": "e2f3233286bc206e33e4f46fc5b67c97fa39192c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
