@@ -22,6 +22,40 @@
       "revId": "ea7e43c7f9bdba6880491aba2093b5bf23044707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcce5d4a_3bdec351",
+        "filename": "compiler/dex/pass_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-07T17:59:00Z",
+      "side": 1,
+      "message": "For performance reasons, we should have a list of enabled passes that we use in CreatePasses() instead of this check for every single pass.",
+      "revId": "ea7e43c7f9bdba6880491aba2093b5bf23044707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc2511e_dcfd3988",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-07T17:59:00Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "revId": "ea7e43c7f9bdba6880491aba2093b5bf23044707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
