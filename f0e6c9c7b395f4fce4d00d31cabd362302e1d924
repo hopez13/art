@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf7d997_c5901e84",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T18:46:05Z",
+      "side": 1,
+      "message": "Somewhat surprised that this is long-\u003edouble-\u003efloat rather than long-\u003efloat. Is there an issue with VcvtF32[SU]32 and a lack of precision?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 25
+      },
+      "revId": "f0e6c9c7b395f4fce4d00d31cabd362302e1d924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
