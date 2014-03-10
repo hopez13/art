@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c1ab5b4_a661a695",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-10T11:38:54Z",
+      "side": 1,
+      "message": "Remove second include.",
+      "range": {
+        "startLine": 29,
+        "startChar": 17,
+        "endLine": 29,
+        "endChar": 33
+      },
+      "revId": "39c3bfbd03d85c63cfbe69f17ce5800ccc7d6c13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c25a9ed_c7dadeff",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-10T11:38:54Z",
+      "side": 1,
+      "message": "true -\u003e false ?",
+      "range": {
+        "startLine": 2142,
+        "startChar": 11,
+        "endLine": 2142,
+        "endChar": 15
+      },
+      "revId": "39c3bfbd03d85c63cfbe69f17ce5800ccc7d6c13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cd00111_c1acc286",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-10T11:38:54Z",
+      "side": 1,
+      "message": "Indentation seems off.",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 14
+      },
+      "revId": "39c3bfbd03d85c63cfbe69f17ce5800ccc7d6c13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c25a9ed_470a6eb7",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-10T11:38:54Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem needed.",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 22
+      },
+      "revId": "39c3bfbd03d85c63cfbe69f17ce5800ccc7d6c13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1ab5b4_46b8b2a7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-10T11:38:54Z",
+      "side": 1,
+      "message": "Bagrouud -\u003e Background",
+      "range": {
+        "startLine": 426,
+        "startChar": 23,
+        "endLine": 426,
+        "endChar": 41
+      },
+      "revId": "39c3bfbd03d85c63cfbe69f17ce5800ccc7d6c13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
