@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "9c2ba1c2_b2f1e14a",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T22:12:20Z",
+      "side": 1,
+      "message": "Add a stubbed out implementation for arm64.",
+      "parentUuid": "9c2ba1c2_dec90197",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cf1d5a2_88962b37",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
@@ -496,6 +520,30 @@
     },
     {
       "key": {
+        "uuid": "9c2ba1c2_d2f4553c",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T22:12:20Z",
+      "side": 1,
+      "message": "For NO_THREAD_SAFETY_ANALYSIS you can get away with base/macros.h",
+      "parentUuid": "9c2ba1c2_5eaeb137",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c2ba1c2_63631eee",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
@@ -531,6 +579,30 @@
       "side": 1,
       "message": "I hate const.",
       "parentUuid": "9c2ba1c2_63631eee",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_52e1857e",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T22:12:20Z",
+      "side": 1,
+      "message": "I agree, immutable fields should be the default.",
+      "parentUuid": "9c2ba1c2_7eb0d507",
       "range": {
         "startLine": 59,
         "startChar": 14,
