@@ -1,0 +1,602 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cf1d5a2_884c6b94",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "SuspendCheckUsingLoads? I know what you mean but I\u0027m not sure the name is intention revealing. Perhaps a comment as to what this is.",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 27
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_65f20ac1",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "UNUSED(load1), move your comment to a CHECK?",
+      "range": {
+        "startLine": 734,
+        "startChar": 2,
+        "endLine": 734,
+        "endChar": 9
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_d899191d",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 13
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_486443f8",
+        "filename": "compiler/dex/quick/mips/codegen_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "() OVERRIDE;",
+      "range": {
+        "startLine": 33,
+        "startChar": 27,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_6863ffed",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "() OVERRIDE;",
+      "range": {
+        "startLine": 33,
+        "startChar": 27,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_05f86693",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "Implemented for MIPS but not for x86?\ns/NULL/nullptr/",
+      "range": {
+        "startLine": 556,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 14
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_c8fdd388",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "Pass self in? I\u0027m concerned that Thread::Current() is null depending on the context. I believe the caller has already proved self to be \"!\u003d null\" so it can pass the value through to establish that we can\u0027t expect this to be null here.",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 21
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_a55eb2d4",
+        "filename": "runtime/arch/mips/fault_handler_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "unimplemented yet somewhat implemented? Add a LOG(FATAL) to the codegen path.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 15
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_25ae4269",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "similar for arm64",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_88962b37",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "Move #includes into the .cc when possible. I don\u0027t see a use of mutex here, and so it shouldn\u0027t be in the header file.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_63631eee",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_45fb8e5f",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "FINAL :",
+      "range": {
+        "startLine": 62,
+        "startChar": 24,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_05dea6f5",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": ") OVERRIDE;",
+      "range": {
+        "startLine": 68,
+        "startChar": 56,
+        "endLine": 68,
+        "endChar": 58
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_a8c5e74c",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "FINAL :",
+      "range": {
+        "startLine": 71,
+        "startChar": 23,
+        "endLine": 71,
+        "endChar": 27
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_03cd02a3",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": ") OVERRIDE;",
+      "range": {
+        "startLine": 77,
+        "startChar": 56,
+        "endLine": 77,
+        "endChar": 58
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_05f98660",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "s/abort/abort_on_failure/g",
+      "range": {
+        "startLine": 160,
+        "startChar": 53,
+        "endLine": 160,
+        "endChar": 58
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_c515becb",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "s/abort/abort_on_failure/",
+      "range": {
+        "startLine": 406,
+        "startChar": 44,
+        "endLine": 406,
+        "endChar": 49
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_48872301",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "Would be nice to see this enabled for host testing, but we lack x86 support.",
+      "range": {
+        "startLine": 220,
+        "startChar": 2,
+        "endLine": 220,
+        "endChar": 64
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_c5601e6a",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "move to enum?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 54
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_45342e5e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "valgrind memory leak, move to UniquePtr?",
+      "range": {
+        "startLine": 529,
+        "startChar": 6,
+        "endLine": 529,
+        "endChar": 30
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_08851bf2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "similarly",
+      "range": {
+        "startLine": 533,
+        "startChar": 6,
+        "endLine": 533,
+        "endChar": 34
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_a8b967ab",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "Add a comment to say what this boolean means. False in the case of supporting implicit checks? Seems the logic should be more of a test for implicit support from the runtime\u0027s pov rather than explicit.",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 31
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_a544f2d7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "s/abort/abort_on_failure/",
+      "range": {
+        "startLine": 95,
+        "startChar": 37,
+        "endLine": 95,
+        "endChar": 42
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_e8c36f23",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "s/abort/abort_on_failure/",
+      "range": {
+        "startLine": 523,
+        "startChar": 25,
+        "endLine": 523,
+        "endChar": 30
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf1d5a2_c8e313bb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "Move to header, at the least comments describing member functions belong on declarations not definitions.\nOther than Init where is this called?",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 37
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_c592def9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-10T19:18:48Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 31
+      },
+      "revId": "b7590700145d745bde0e5d032793d4dc99263198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
