@@ -22,6 +22,30 @@
       "revId": "f0e6c9c7b395f4fce4d00d31cabd362302e1d924",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c25a9ed_0a007b95",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-03-11T09:03:16Z",
+      "side": 1,
+      "message": "Single float has only 23 significand and 1 sign bit. It is not enough for a 32-bit int. It will lost precision if use single float as intermediate variable in this logic.",
+      "parentUuid": "dcf7d997_c5901e84",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 25
+      },
+      "revId": "f0e6c9c7b395f4fce4d00d31cabd362302e1d924",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
