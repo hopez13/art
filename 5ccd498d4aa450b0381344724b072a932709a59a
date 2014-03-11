@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1c17b18c_4b3d59ef",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-11T21:36:26Z",
+      "side": 1,
+      "message": "I think this \u0027usable\u0027 is non-null as it points to a local variable in Heap::AllocObjectWithAllocator.",
+      "parentUuid": "9c2ba1c2_c00472e4",
+      "revId": "5ccd498d4aa450b0381344724b072a932709a59a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf7d997_311036d7",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-11T21:16:54Z",
       "side": 1,
       "message": "What is the point of the remap instead of just doing another MemMap::MapAnonymous at a fixed address?",
+      "revId": "5ccd498d4aa450b0381344724b072a932709a59a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc10b997_498565ac",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-11T21:36:26Z",
+      "side": 1,
+      "message": "Because MayAnonymous() does not guarantee the fixed address.",
+      "parentUuid": "dcf7d997_311036d7",
       "revId": "5ccd498d4aa450b0381344724b072a932709a59a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
