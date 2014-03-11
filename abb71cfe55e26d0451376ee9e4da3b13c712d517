@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fce81dcd_5fca4f38",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-11T01:26:23Z",
+      "side": 1,
+      "message": "I copied this code from elsewhere.  Maybe that is not 64-bit safe as well.  But, why is this not 64 bit safe?  They are all pointers.",
+      "parentUuid": "9c2ba1c2_c8af8278",
+      "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cf1d5a2_0bcd12a3",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-10T23:24:13Z",
       "side": 1,
       "message": "Use VerifyClassClass? The current method you are doing is not 64 bit safe due to the class being a compressed pointer.",
+      "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf7d997_28ff3217",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-11T01:26:23Z",
+      "side": 1,
+      "message": "I will look into the compressed pointers stuff.  Wasn\u0027t aware of it.",
+      "parentUuid": "3cf1d5a2_0bcd12a3",
       "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
