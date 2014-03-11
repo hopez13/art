@@ -22,6 +22,30 @@
       "revId": "79a6e5f4ca8e9a33454698e0b568fac12de32ebb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_4630a300",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T01:01:51Z",
+      "side": 1,
+      "message": "Good catch, done.",
+      "parentUuid": "dcf7d997_ed67fc7b",
+      "range": {
+        "startLine": 143,
+        "startChar": 85,
+        "endLine": 143,
+        "endChar": 92
+      },
+      "revId": "79a6e5f4ca8e9a33454698e0b568fac12de32ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
