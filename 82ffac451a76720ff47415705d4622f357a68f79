@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cda0934_a5a6ea3a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "std::cerr \u003c\u003c ?",
+      "range": {
+        "startLine": 136,
+        "startChar": 16,
+        "endLine": 136,
+        "endChar": 17
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc10b997_ac1ea775",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "Can we put curlies and new lines, I\u0027m finding this style difficult to parse. ie\n\nif (constant0_ !\u003d nullptr) {\n  return contant0_;\n}\n...",
+      "range": {
+        "startLine": 196,
+        "startChar": 28,
+        "endLine": 196,
+        "endChar": 29
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cda0934_c5a3ee29",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "dalvik or target?",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cda0934_e5b0f26d",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "Every instruction has a LocationSummary that describes the input, outputs and temporaries used by an instruction. The intent is to allow ...?\nWould RegisterLocationSummary be a more intention revealing name?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 3
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cda0934_05aeb612",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "Pass around Locations directly rather than handing out the lower-level register bits?",
+      "range": {
+        "startLine": 89,
+        "startChar": 28,
+        "endLine": 89,
+        "endChar": 34
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c17b18c_eea373c0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "Address(ESP, frame_size_ - GetStackSlot(load-\u003eGetLocal()))\n:-)",
+      "range": {
+        "startLine": 118,
+        "startChar": 10,
+        "endLine": 118,
+        "endChar": 55
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc10b997_ac906782",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T23:28:20Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 504,
+        "startChar": 2,
+        "endLine": 504,
+        "endChar": 10
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
