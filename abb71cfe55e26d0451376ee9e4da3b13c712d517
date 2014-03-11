@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9c2ba1c2_06db4b05",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-11T01:35:39Z",
+      "side": 1,
+      "message": "As a hard rule you shouldn\u0027t touch raw pointers in the Java heap without going through the mirror accessors. Doing so works around our ability to assert the sanity of the heap (which this code was originally a part of). Whilst Mathieu is correct that this isn\u0027t 64 bit correct, you shouldn\u0027t ever be using naked pointers into the heap without using mirror. The only exception being the GC (of which heap is part). This is also why we assert that you are holding the mutator lock.",
+      "parentUuid": "fce81dcd_5fca4f38",
+      "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cf1d5a2_0bcd12a3",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 5
