@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c25a9ed_eaf8875e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Yes, thanks for spotting that. Will fix and test in another CL.",
+      "parentUuid": "dce519f4_bb10c769",
+      "range": {
+        "startLine": 31,
+        "startChar": 16,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce519f4_9b130b76",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-11T09:02:47Z",
       "side": 1,
       "message": "Why not using VRegB ?",
+      "range": {
+        "startLine": 139,
+        "startChar": 55,
+        "endLine": 139,
+        "endChar": 64
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c25a9ed_caf5c364",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Because VRegB only works for registers. Here the value is a constant.",
+      "parentUuid": "dce519f4_9b130b76",
       "range": {
         "startLine": 139,
         "startChar": 55,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5c25a9ed_2a229f34",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Setting it was indeed missing. Thanks.",
+      "parentUuid": "dce519f4_db0d9354",
+      "range": {
+        "startLine": 181,
+        "startChar": 36,
+        "endLine": 181,
+        "endChar": 46
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1ab5b4_895e3dd5",
         "filename": "compiler/optimizing/dominator_test.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2014-03-11T09:02:47Z",
       "side": 1,
       "message": "Remove ws",
+      "range": {
+        "startLine": 160,
+        "startChar": 33,
+        "endLine": 160,
+        "endChar": 35
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c25a9ed_0a27db44",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c1ab5b4_895e3dd5",
       "range": {
         "startLine": 160,
         "startChar": 33,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dce519f4_3b57571f",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce519f4_5b3503ef",
+      "range": {
+        "startLine": 178,
+        "startChar": 33,
+        "endLine": 178,
+        "endChar": 35
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce519f4_7b3abfe1",
         "filename": "compiler/optimizing/dominator_test.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2014-03-11T09:02:47Z",
       "side": 1,
       "message": "Remove ws",
+      "range": {
+        "startLine": 196,
+        "startChar": 33,
+        "endLine": 196,
+        "endChar": 35
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c25a9ed_6a1c97f9",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce519f4_7b3abfe1",
       "range": {
         "startLine": 196,
         "startChar": 33,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "dce519f4_5b4c2393",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c25a9ed_eadd27fa",
+      "range": {
+        "startLine": 216,
+        "startChar": 33,
+        "endLine": 216,
+        "endChar": 35
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c25a9ed_cadae3ff",
         "filename": "compiler/optimizing/dominator_test.cc",
         "patchSetId": 6
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "dce519f4_7b51df25",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c25a9ed_cadae3ff",
+      "range": {
+        "startLine": 235,
+        "startChar": 49,
+        "endLine": 235,
+        "endChar": 51
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1ab5b4_e95b71e3",
         "filename": "compiler/optimizing/dominator_test.cc",
         "patchSetId": 6
@@ -197,6 +389,30 @@
       "writtenOn": "2014-03-11T09:02:47Z",
       "side": 1,
       "message": "Remove ws",
+      "range": {
+        "startLine": 236,
+        "startChar": 33,
+        "endLine": 236,
+        "endChar": 35
+      },
+      "revId": "3ff386aafefd5282bb76c8a50506a70a4321e698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce519f4_9b45cb66",
+        "filename": "compiler/optimizing/dominator_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-11T09:21:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c1ab5b4_e95b71e3",
       "range": {
         "startLine": 236,
         "startChar": 33,
