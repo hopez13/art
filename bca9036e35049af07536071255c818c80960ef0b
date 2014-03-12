@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fce81dcd_b12e180e",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_method_idx?",
+      "range": {
+        "startLine": 412,
+        "startChar": 13,
+        "endLine": 412,
+        "endChar": 19
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_944d970b",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_dex_file (since there are two?)",
+      "range": {
+        "startLine": 413,
+        "startChar": 19,
+        "endLine": 413,
+        "endChar": 27
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce81dcd_314208cb",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_method_id",
+      "range": {
+        "startLine": 422,
+        "startChar": 29,
+        "endLine": 422,
+        "endChar": 31
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb9e1da_30aa1068",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 430,
+        "startChar": 19,
+        "endLine": 430,
+        "endChar": 28
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce81dcd_91a4bc58",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_method",
+      "range": {
+        "startLine": 1204,
+        "startChar": 53,
+        "endLine": 1204,
+        "endChar": 59
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb9e1da_90ae7c67",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_method_index",
+      "range": {
+        "startLine": 1206,
+        "startChar": 6,
+        "endLine": 1206,
+        "endChar": 22
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_34682b4d",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_method?",
+      "range": {
+        "startLine": 1218,
+        "startChar": 54,
+        "endLine": 1218,
+        "endChar": 61
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_d42eef0e",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "target_method_idx",
+      "range": {
+        "startLine": 1220,
+        "startChar": 6,
+        "endLine": 1220,
+        "endChar": 22
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_74a46357",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-12T18:33:32Z",
+      "side": 1,
+      "message": "same comments here",
+      "range": {
+        "startLine": 842,
+        "startChar": 2,
+        "endLine": 842,
+        "endChar": 49
+      },
+      "revId": "bca9036e35049af07536071255c818c80960ef0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
