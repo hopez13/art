@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c1ab5b4_2f2bc99a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "Debugging code, removed.",
+      "parentUuid": "5cda0934_a5a6ea3a",
+      "range": {
+        "startLine": 136,
+        "startChar": 16,
+        "endLine": 136,
+        "endChar": 17
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc10b997_ac1ea775",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-11T23:28:20Z",
       "side": 1,
       "message": "Can we put curlies and new lines, I\u0027m finding this style difficult to parse. ie\n\nif (constant0_ !\u003d nullptr) {\n  return contant0_;\n}\n...",
+      "range": {
+        "startLine": 196,
+        "startChar": 28,
+        "endLine": 196,
+        "endChar": 29
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce519f4_5e66d13f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc10b997_ac1ea775",
       "range": {
         "startLine": 196,
         "startChar": 28,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "3c1ab5b4_0f308dff",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c2ba1c2_71859a87",
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cda0934_c5a3ee29",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2014-03-11T23:28:20Z",
       "side": 1,
       "message": "dalvik or target?",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb4e5de_1a3e1df0",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "target. Added a comment.",
+      "parentUuid": "5cda0934_c5a3ee29",
       "range": {
         "startLine": 65,
         "startChar": 9,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "3c1ab5b4_6f35c1ef",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "But it will also contains stack locations. RegisterLocationSummary seems register-only.",
+      "parentUuid": "5cda0934_e5b0f26d",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 3
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cda0934_05aeb612",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2014-03-11T23:28:20Z",
       "side": 1,
       "message": "Pass around Locations directly rather than handing out the lower-level register bits?",
+      "range": {
+        "startLine": 89,
+        "startChar": 28,
+        "endLine": 89,
+        "endChar": 34
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce519f4_7e6b8d06",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cda0934_05aeb612",
       "range": {
         "startLine": 89,
         "startChar": 28,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "dce519f4_9e7f79bf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "Because I do push/pop on ESP for temporaries, I need to address EBP for locals. Push/pop for temporaries is just for the sake of bootstrapping the compiler though, I don\u0027t think we\u0027ll keep it.",
+      "parentUuid": "1c17b18c_eea373c0",
+      "range": {
+        "startLine": 118,
+        "startChar": 10,
+        "endLine": 118,
+        "endChar": 55
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc10b997_ac906782",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -168,6 +330,30 @@
       "writtenOn": "2014-03-11T23:28:20Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 504,
+        "startChar": 2,
+        "endLine": 504,
+        "endChar": 10
+      },
+      "revId": "82ffac451a76720ff47415705d4622f357a68f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce519f4_be7c35cb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-12T11:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc10b997_ac906782",
       "range": {
         "startLine": 504,
         "startChar": 2,
