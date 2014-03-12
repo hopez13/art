@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c1ab5b4_c95835ea",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-12T13:21:17Z",
+      "side": 1,
+      "message": "I still find this naming convention weird. It\u0027s not consistent with the \"AddInstruction\" or \"AddBlock\" method names above. Why not renaming to \"SetEntryBlock\" ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce519f4_fb25efbd",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-12T13:21:17Z",
+      "side": 1,
+      "message": "nit: put first parameters after the parenthesis as they fit and wrap the others on the next line ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 77
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb4e5de_dde01fe8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-12T13:21:17Z",
+      "side": 1,
+      "message": "It could be interesting to check the instruction does not already have a block. This would be a sign of something going wrong.",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 31
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
