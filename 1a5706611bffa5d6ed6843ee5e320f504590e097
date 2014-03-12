@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c2ba1c2_76b8eb59",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-12T14:51:18Z",
+      "side": 1,
+      "message": "This is unnecessary after the change to GetQuickOatCodeFor()",
+      "range": {
+        "startLine": 822,
+        "startChar": 6,
+        "endLine": 829,
+        "endChar": 7
+      },
+      "revId": "1a5706611bffa5d6ed6843ee5e320f504590e097",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
