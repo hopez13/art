@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "9cb9e1da_56385cb2",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:30:46Z",
+      "side": 1,
+      "message": "I am looking at description of getStackTrace at http://docs.oracle.com/javase/6/docs/api/java/lang/Throwable.html#getStackTrace%28%29\n\nThere it says \"Some virtual machines may, under some circumstances, omit one or more stack frames from the stack trace.\"",
+      "parentUuid": "fce81dcd_74871e01",
+      "range": {
+        "startLine": 833,
+        "startChar": 65,
+        "endLine": 833,
+        "endChar": 98
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce81dcd_34f83694",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 7
