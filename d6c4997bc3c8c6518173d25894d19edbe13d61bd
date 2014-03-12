@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c2ba1c2_c53597f1",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-12T21:42:10Z",
+      "side": 1,
+      "message": "In the method helper code, the number of references includes this if the method is non-static. Could we make this:\nGetNumberOfReferenceArgsWithoutReceiver()\njust to make the difference in usage clear?",
+      "range": {
+        "startLine": 225,
+        "startChar": 32,
+        "endLine": 225,
+        "endChar": 56
+      },
+      "revId": "d6c4997bc3c8c6518173d25894d19edbe13d61bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_65578b1e",
+        "filename": "runtime/stack_indirect_reference_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-12T21:42:10Z",
+      "side": 1,
+      "message": "SIRT\nfor consistency?",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "d6c4997bc3c8c6518173d25894d19edbe13d61bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
