@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c2ba1c2_4f2f0670",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:26:28Z",
+      "side": 1,
+      "message": "Why tag the inlined MIR with this flag? What would be more useful is to know its source method.",
+      "range": {
+        "startLine": 52,
+        "startChar": 29,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb9e1da_9687544e",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:26:28Z",
+      "side": 1,
+      "message": "Should you check whether move-result is consistent with return?",
+      "range": {
+        "startLine": 443,
+        "startChar": 6,
+        "endLine": 443,
+        "endChar": 17
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_4f7266b5",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:26:28Z",
+      "side": 1,
+      "message": "How come you are tagging with this flag? To me this makes it seem that this must have been a prediction. However, I don\u0027t see any prediction mechanism here. Namely, even direct invokes seem to get this flag.",
+      "range": {
+        "startLine": 461,
+        "startChar": 34,
+        "endLine": 461,
+        "endChar": 50
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce81dcd_f4c88e66",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:26:28Z",
+      "side": 1,
+      "message": "Any plans for how to do this? In Dalvik it was done by setting the offset to the one of the invoke so that when punting to interpreter for exception, it would reexecute invoke and thus have the right stack trace.",
+      "range": {
+        "startLine": 833,
+        "startChar": 7,
+        "endLine": 833,
+        "endChar": 11
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce81dcd_74871e01",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:26:28Z",
+      "side": 1,
+      "message": "Although I tend to agree with your statement that correct stack trace is useful, why is it actually needed? Are there requirements somewhere that ART must be able to produce correct stack traces?",
+      "range": {
+        "startLine": 833,
+        "startChar": 65,
+        "endLine": 833,
+        "endChar": 98
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce81dcd_34f83694",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-03-12T19:26:28Z",
+      "side": 1,
+      "message": "Although this may be true, it seems that what you are doing here is adhering to the bytecode format. Namely, vC should be holding the idx.",
+      "range": {
+        "startLine": 868,
+        "startChar": 41,
+        "endLine": 868,
+        "endChar": 76
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
