@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dce519f4_a1c89a65",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-12T13:41:29Z",
+      "side": 1,
+      "message": "It\u0027s just I don\u0027t see much code in Art following this rule. See ArtField::GetAccessFlags or ArtField::SetDeclaringClass. Maybe something we should talk about with the team.",
+      "parentUuid": "3c1ab5b4_8f5e3dd5",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce519f4_fb25efbd",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 5
