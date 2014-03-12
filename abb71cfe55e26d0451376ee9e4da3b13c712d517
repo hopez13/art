@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "fce81dcd_d421d22d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-12T19:34:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c2ba1c2_06db4b05",
+      "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cf1d5a2_0bcd12a3",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 5
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I will look into the compressed pointers stuff.  Wasn\u0027t aware of it.",
       "parentUuid": "3cf1d5a2_0bcd12a3",
+      "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_afc4c251",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-12T19:34:55Z",
+      "side": 1,
+      "message": "I\u0027m going to try VerifyClassClass(mirror::Class* c).  That looks like it might work",
+      "parentUuid": "dcf7d997_28ff3217",
       "revId": "abb71cfe55e26d0451376ee9e4da3b13c712d517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
