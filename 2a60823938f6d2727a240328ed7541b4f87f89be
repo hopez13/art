@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cc8f574_90376cbf",
+        "filename": "runtime/mirror/reference-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 1,
+      "message": "true for volatile? Or add an accessor for queue and use it here?",
+      "range": {
+        "startLine": 26,
+        "startChar": 70,
+        "endLine": 26,
+        "endChar": 75
+      },
+      "revId": "2a60823938f6d2727a240328ed7541b4f87f89be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc5f15c_9b79530d",
+        "filename": "runtime/mirror/reference-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 1,
+      "message": "true for volatile? Or add an accessor for queue_next_ and use it here?",
+      "range": {
+        "startLine": 27,
+        "startChar": 79,
+        "endLine": 27,
+        "endChar": 84
+      },
+      "revId": "2a60823938f6d2727a240328ed7541b4f87f89be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc5f15c_dbfe6b19",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 1,
+      "message": "I don\u0027t see a good way around, but \"Reference\" might be confused with Heap/StackReference?",
+      "range": {
+        "startLine": 30,
+        "startChar": 14,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "2a60823938f6d2727a240328ed7541b4f87f89be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc5f15c_db410bc7",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 1,
+      "message": "Should this be true as it\u0027s volatile?",
+      "range": {
+        "startLine": 58,
+        "startChar": 58,
+        "endLine": 58,
+        "endChar": 63
+      },
+      "revId": "2a60823938f6d2727a240328ed7541b4f87f89be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc8f574_d021e483",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 62,
+        "startChar": 74,
+        "endLine": 62,
+        "endChar": 79
+      },
+      "revId": "2a60823938f6d2727a240328ed7541b4f87f89be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc8f574_10a19cb8",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 1,
+      "message": "Should this be of type ReferenceQueue instead of Reference? ReferenceQueue does not seem to exist, so use Object?",
+      "range": {
+        "startLine": 76,
+        "startChar": 16,
+        "endLine": 76,
+        "endChar": 25
+      },
+      "revId": "2a60823938f6d2727a240328ed7541b4f87f89be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

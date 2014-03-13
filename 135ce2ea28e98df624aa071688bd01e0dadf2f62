@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb3e9f9_d19564b2",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 0,
+      "message": "Is removing this DCHECK as intended?",
+      "range": {
+        "startLine": 1193,
+        "startChar": 2,
+        "endLine": 1193,
+        "endChar": 22
+      },
+      "revId": "135ce2ea28e98df624aa071688bd01e0dadf2f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc5f15c_dbc74bd9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-13T23:37:55Z",
+      "side": 0,
+      "message": "Is removing this as intended?",
+      "range": {
+        "startLine": 815,
+        "startChar": 2,
+        "endLine": 815,
+        "endChar": 25
+      },
+      "revId": "135ce2ea28e98df624aa071688bd01e0dadf2f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
