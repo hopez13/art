@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9cb9e1da_55c0486a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-13T18:58:54Z",
+      "side": 1,
+      "message": "I wanted to program defensively and accept \"malformed\" input, but the change is trivial.",
+      "parentUuid": "3cc8f574_fc3c01d2",
+      "range": {
+        "startLine": 1502,
+        "startChar": 47,
+        "endLine": 1502,
+        "endChar": 68
+      },
+      "revId": "c823ebd13be6160787e565c3d707f864ed7979f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cc8f574_3c57591f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3cc8f574_1c11bd39",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-13T18:58:54Z",
+      "side": 1,
+      "message": "This would duplicate the exact same check in artFindNativeMethod().",
+      "parentUuid": "3cc8f574_3c57591f",
+      "range": {
+        "startLine": 1506,
+        "startChar": 0,
+        "endLine": 1506,
+        "endChar": 57
+      },
+      "revId": "c823ebd13be6160787e565c3d707f864ed7979f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb3e9f9_00ca2c8a",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-03-13T18:49:02Z",
       "side": 1,
       "message": "I think a \\n here would make things more readable and be more in keeping with code elsewhere",
+      "range": {
+        "startLine": 328,
+        "startChar": 40,
+        "endLine": 328,
+        "endChar": 42
+      },
+      "revId": "c823ebd13be6160787e565c3d707f864ed7979f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc8f574_1c38ddb1",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-13T18:58:54Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5cb3e9f9_00ca2c8a",
       "range": {
         "startLine": 328,
         "startChar": 40,
