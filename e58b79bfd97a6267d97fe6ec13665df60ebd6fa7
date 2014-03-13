@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cb3e9f9_3a8afd98",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:57:39Z",
+      "side": 1,
+      "message": "I\u0027m not sure this and the code in mod union table is correct. A moved object is still the same object as before, if we undo the write and restore the pointer to the non moved object it seems broken since the transactions can\u0027t undo a GC.",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb3e9f9_3a5cbd69",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:57:39Z",
+      "side": 1,
+      "message": "Might be cleaner to have a pointer passed in the constructor\n(bool* const contains_reference_to_target_space_) so that you don\u0027t need a const cast here.",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc8f574_b618e8d2",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:57:39Z",
+      "side": 1,
+      "message": "* const",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb9e1da_b5fa85df",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:57:39Z",
+      "side": 1,
+      "message": "Line \u003e 100 columns",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb3e9f9_fa2885af",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:57:39Z",
+      "side": 1,
+      "message": "I wonder if we could use logic like this to improve the mod union tables.",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb3e9f9_9d1ea376",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:57:39Z",
+      "side": 1,
+      "message": "I wonder if there is a way to make this logic more flexible, either way, that will have to do for now.",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
