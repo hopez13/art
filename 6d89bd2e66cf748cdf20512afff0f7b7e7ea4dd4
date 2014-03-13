@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c1ab5b4_1a528da5",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-13T10:53:56Z",
+      "side": 1,
+      "message": "The method can be looked up via the INVOKE with the same offset if needed.",
+      "parentUuid": "9c2ba1c2_4f2f0670",
+      "range": {
+        "startLine": 52,
+        "startChar": 29,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb9e1da_9687544e",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bcb4e5de_806d5a8c",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-13T10:53:56Z",
+      "side": 1,
+      "message": "I would expect the MethodVerifier to reject the method if it\u0027s inconsistent.",
+      "parentUuid": "9cb9e1da_9687544e",
+      "range": {
+        "startLine": 443,
+        "startChar": 6,
+        "endLine": 443,
+        "endChar": 17
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c2ba1c2_4f7266b5",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2014-03-12T19:26:28Z",
       "side": 1,
       "message": "How come you are tagging with this flag? To me this makes it seem that this must have been a prediction. However, I don\u0027t see any prediction mechanism here. Namely, even direct invokes seem to get this flag.",
+      "range": {
+        "startLine": 461,
+        "startChar": 34,
+        "endLine": 461,
+        "endChar": 50
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1ab5b4_9a12fddf",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-13T10:53:56Z",
+      "side": 1,
+      "message": "I want to use MIR_INLINED but it\u0027s already used for some obscure purpose and that needs to be cleaned up. I used the MIR_INLINED_PRED which was available (work in progress).",
+      "parentUuid": "9c2ba1c2_4f7266b5",
       "range": {
         "startLine": 461,
         "startChar": 34,
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "bcb4e5de_00594aeb",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-13T10:53:56Z",
+      "side": 1,
+      "message": "Thanks! That means I can experiment with inlining these despite dropping a frame.",
+      "parentUuid": "9cb9e1da_56385cb2",
+      "range": {
+        "startLine": 833,
+        "startChar": 65,
+        "endLine": 833,
+        "endChar": 98
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce81dcd_34f83694",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 7
@@ -152,6 +248,30 @@
       "writtenOn": "2014-03-12T19:26:28Z",
       "side": 1,
       "message": "Although this may be true, it seems that what you are doing here is adhering to the bytecode format. Namely, vC should be holding the idx.",
+      "range": {
+        "startLine": 868,
+        "startChar": 41,
+        "endLine": 868,
+        "endChar": 76
+      },
+      "revId": "6d89bd2e66cf748cdf20512afff0f7b7e7ea4dd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb4e5de_20a9ee60",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-13T10:53:56Z",
+      "side": 1,
+      "message": "This is obsolete, LVN has been rewritten and doesn\u0027t use vC anymore.",
+      "parentUuid": "fce81dcd_34f83694",
       "range": {
         "startLine": 868,
         "startChar": 41,
