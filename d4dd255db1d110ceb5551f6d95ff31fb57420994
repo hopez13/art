@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "dce519f4_c477745c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-13T08:56:47Z",
+      "side": 1,
+      "message": "2 rights make 1 wrong :-) Will move accessors to capital case for consistency.",
+      "parentUuid": "fce81dcd_78f62c71",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce519f4_fb25efbd",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 5
@@ -178,6 +202,54 @@
       "writtenOn": "2014-03-13T02:20:06Z",
       "side": 1,
       "message": "private and virtual?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 9
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce519f4_84964c2e",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-13T08:56:47Z",
+      "side": 1,
+      "message": "Done in: https://android-review.googlesource.com/#/c/87674/.",
+      "parentUuid": "9c2ba1c2_4e626399",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb4e5de_200acef1",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-13T08:56:47Z",
+      "side": 1,
+      "message": "It\u0027s c++ so it works. Though I know it\u0027s confusing, so moving methods to a protected region.",
+      "parentUuid": "fce81dcd_b827d442",
       "range": {
         "startLine": 44,
         "startChar": 2,
