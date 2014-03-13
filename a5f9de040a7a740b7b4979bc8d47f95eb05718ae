@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "1cc5f15c_38e845d3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T21:51:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c348108_6ae1267f",
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc4c9db4_62ff92d1",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 890,
         "endChar": 74
       },
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb3e9f9_46827c40",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T21:51:32Z",
+      "side": 1,
+      "message": "Fixed the logic.",
+      "parentUuid": "fc4c9db4_62ff92d1",
       "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "1cc5f15c_f8dded30",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T21:51:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dca43989_112f27ba",
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca43989_318fc3a9",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 2583,
         "endChar": 88
       },
+      "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb3e9f9_c674cca3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T21:51:32Z",
+      "side": 1,
+      "message": "Fixed in another way.",
+      "parentUuid": "dca43989_318fc3a9",
       "revId": "a5f9de040a7a740b7b4979bc8d47f95eb05718ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
