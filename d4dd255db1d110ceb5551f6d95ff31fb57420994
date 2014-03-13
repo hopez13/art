@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "fce81dcd_78f62c71",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-13T02:20:06Z",
+      "side": 1,
+      "message": "I agree with Seb\u0027s comments. The overriding style consideration is consistency, and I think we\u0027ve only gone the lowercase route when fitting in with STL naming.",
+      "parentUuid": "dce519f4_a1c89a65",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce519f4_fb25efbd",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 5
@@ -113,6 +137,52 @@
         "startChar": 27,
         "endLine": 43,
         "endChar": 77
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2ba1c2_4e626399",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-13T02:20:06Z",
+      "side": 1,
+      "message": "() OVERRIDE;",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce81dcd_b827d442",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-13T02:20:06Z",
+      "side": 1,
+      "message": "private and virtual?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 9
       },
       "revId": "d4dd255db1d110ceb5551f6d95ff31fb57420994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
