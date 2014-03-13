@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "7c20adde_f22515be",
+        "filename": "runtime/gc/collector/immune_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:06:33Z",
+      "side": 1,
+      "message": "Currently it would return false for those cases. Call sites already check that the return value is true.",
+      "parentUuid": "7c20adde_8fb0f608",
+      "revId": "b431098c9a86131d934d4bf443616808dc2b56c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcfadd80_53b3537e",
         "filename": "runtime/gc/collector/immune_region.cc",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "fcfadd80_d698d1ec",
+        "filename": "runtime/gc/collector/immune_region.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:06:33Z",
+      "side": 1,
+      "message": "Not worth it IMO, would require adding a immune region inl file to include the space-inl.h. This function should not be hot.",
+      "parentUuid": "fcfadd80_53b3537e",
+      "revId": "b431098c9a86131d934d4bf443616808dc2b56c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c2ba1c2_0ee4eb4c",
         "filename": "runtime/gc/collector/immune_region.h",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 35,
         "endChar": 20
       },
+      "revId": "b431098c9a86131d934d4bf443616808dc2b56c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c20adde_3257ad1f",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-13T17:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c2ba1c2_0ee4eb4c",
       "revId": "b431098c9a86131d934d4bf443616808dc2b56c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
