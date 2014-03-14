@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ca891a1_7d16d7d7",
+        "filename": "runtime/verifier/method_verifier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-14T15:10:41Z",
+      "side": 1,
+      "message": "I had to disable this test because calling DescribeVRegs here causes a crash. There is no register line at this dex pc. WAI ?\nNote I didn\u0027t disable such calls in the \"long\" test.",
+      "range": {
+        "startLine": 134,
+        "startChar": 46,
+        "endLine": 134,
+        "endChar": 58
+      },
+      "revId": "7e2ea1d209a8ffb232a2f6e203ab3cfc50200b4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca891a1_bd1b3f01",
+        "filename": "runtime/verifier/method_verifier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-14T15:10:41Z",
+      "side": 1,
+      "message": "My first version used kConstant (which is handled by the CatchBlockVisitor when deoptimizing). In the context of the test, we\u0027re supposed to be in compilation mode (Runtime::IsCompiler \u003d\u003d true) so the method verifier use imprecise constants only.\n\nWe should have control on that by passing a boolean to the MethodVerifier upon construction so the behavior is the same than during deoptimization at runtime.",
+      "range": {
+        "startLine": 135,
+        "startChar": 14,
+        "endLine": 135,
+        "endChar": 32
+      },
+      "revId": "7e2ea1d209a8ffb232a2f6e203ab3cfc50200b4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
