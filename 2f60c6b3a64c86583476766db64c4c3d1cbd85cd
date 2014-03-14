@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "dcb1990e_cf01ad63",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T21:18:07Z",
+      "side": 1,
+      "message": "Never mind. I see this is your way of matching the else block to the beginning of the if statement.",
+      "parentUuid": "dcb1990e_cf4bed7a",
+      "range": {
+        "startLine": 129,
+        "startChar": 24,
+        "endLine": 129,
+        "endChar": 26
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cbf69de_4074440f",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2014-03-14T20:54:29Z",
       "side": 1,
       "message": "Do you mean \"!(low_4gb \u0026\u0026 addr \u003d\u003d nullptr)\" or something like that?",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 22
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_109c5459",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T21:18:07Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "5cbf69de_4074440f",
       "range": {
         "startLine": 134,
         "startChar": 15,
