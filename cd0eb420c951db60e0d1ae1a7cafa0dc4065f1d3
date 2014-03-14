@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cbf69de_405c44dc",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T20:16:13Z",
+      "side": 1,
+      "message": "Also, is it the case that since CheckMapRequest() is called after the mmap call in MapAnonymous(),  \u0027actual\u0027 will be part of this BacktraceMap and will conflict with itself?",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "cd0eb420c951db60e0d1ae1a7cafa0dc4065f1d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
