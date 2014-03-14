@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcb1990e_4f291d9a",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T20:54:29Z",
+      "side": 1,
+      "message": "This could be redundant, but would it make sense to also check errno \u003d\u003d ENOMEM in the \u0027else\u0027 block of this if statement to be conservative? I noticed this in \u0027man msync\u0027.",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 17
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_cf4bed7a",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T20:54:29Z",
+      "side": 1,
+      "message": "Do you mean \u0027!\u003d\u0027 ?",
+      "range": {
+        "startLine": 129,
+        "startChar": 24,
+        "endLine": 129,
+        "endChar": 26
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cbf69de_4074440f",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T20:54:29Z",
+      "side": 1,
+      "message": "Do you mean \"!(low_4gb \u0026\u0026 addr \u003d\u003d nullptr)\" or something like that?",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 22
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_457a20cf",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T20:54:29Z",
+      "side": 1,
+      "message": "What happens if we have a non-x86-64 non-arm64 64-bit architecture? In other words, should we use the non-MAP32BIT code for the case where ifdef _LP64 \u0026\u0026 !(__x86_64) case, not just for arm64?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 6
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_8532681d",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-14T20:54:29Z",
+      "side": 1,
+      "message": "I see no problem here. Since we\u0027re discussing use of MAP_FIXED in MapAnonymous() in CL 87743, I\u0027d like to hear what Brian thinks.",
+      "range": {
+        "startLine": 258,
+        "startChar": 28,
+        "endLine": 258,
+        "endChar": 37
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
