@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcb49dfd_3cc73134",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-14T14:53:31Z",
+      "side": 1,
+      "message": "No. There are two cases: static and non-static native methods. In the case of static methods, we must set the resolution trampoline, which deals with initialization. That is the first branch above. In the case of non-static methods, we can already set the JNI trampoline, and that\u0027s the inner branch.\n\nSo it\u0027s easier to do the fixup, which needs to happen for both these cases, afterwards.",
+      "parentUuid": "bc97855d_2226eec9",
+      "range": {
+        "startLine": 1795,
+        "startChar": 38,
+        "endLine": 1795,
+        "endChar": 45
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc97855d_4229f299",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-14T08:40:47Z",
       "side": 1,
       "message": "Nit: I\u0027d put the || on the next line, or if it doesn\u0027t fit at the end of the previous line.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 10,
+        "endLine": 1799,
+        "endChar": 12
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_3bc73734",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-14T14:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc97855d_4229f299",
       "range": {
         "startLine": 1799,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5cbf69de_57e1acb1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1804,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-14T14:53:31Z",
+      "side": 1,
+      "message": "Native methods not in the core image aren\u0027t linked. Anything loaded from an app is linked at runtime.",
+      "parentUuid": "9c872129_e90a7539",
+      "range": {
+        "startLine": 1804,
+        "startChar": 34,
+        "endLine": 1804,
+        "endChar": 35
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc822517_ca0da354",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dcb1990e_bbc90745",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-14T14:53:31Z",
+      "side": 1,
+      "message": "Thanks, missed that in refactoring.",
+      "parentUuid": "bc822517_ca0da354",
+      "range": {
+        "startLine": 1805,
+        "startChar": 38,
+        "endLine": 1805,
+        "endChar": 43
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c872129_092b499a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2014-03-14T08:40:47Z",
       "side": 1,
       "message": "I don\u0027t understand this comment.",
+      "range": {
+        "startLine": 1501,
+        "startChar": 45,
+        "endLine": 1501,
+        "endChar": 48
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cbf69de_f7fa005b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-14T14:53:31Z",
+      "side": 1,
+      "message": "Changed. This is meant to say that GetNativeMethod() either returns (1) a trampoline to the code to actually find/bind the native method (the trampoline is GetJniDlsymLookupStub, the actual implementation is artFindNativeMethod()), or (2) the code that was bound earlier. In case of (2) we\u0027re good. For (1) we actually need to execute that first before we can continue.",
+      "parentUuid": "9c872129_092b499a",
       "range": {
         "startLine": 1501,
         "startChar": 45,
