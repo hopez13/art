@@ -22,6 +22,53 @@
       "revId": "cd0eb420c951db60e0d1ae1a7cafa0dc4065f1d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_2f5931ec",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-14T21:34:02Z",
+      "side": 1,
+      "message": "good catch. I fixed to unmap above after the return true cases are done, otherwise we leak.",
+      "parentUuid": "5cbf69de_405c44dc",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "cd0eb420c951db60e0d1ae1a7cafa0dc4065f1d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_306f50d0",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-14T21:34:02Z",
+      "side": 1,
+      "message": "I fixed this to return false, fixed to report a message",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 14
+      },
+      "revId": "cd0eb420c951db60e0d1ae1a7cafa0dc4065f1d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
