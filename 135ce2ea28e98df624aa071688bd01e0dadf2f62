@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "5cb3e9f9_2c7d6793",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-14T00:29:52Z",
+      "side": 0,
+      "message": "AsReference has an internal DCHECK that checks that it is a reference object. I\u0027ll add another DCHECK to heap.cc to make sure the class matches though.",
+      "parentUuid": "5cb3e9f9_d19564b2",
+      "revId": "135ce2ea28e98df624aa071688bd01e0dadf2f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cc5f15c_dbc74bd9",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 815,
         "endChar": 25
       },
+      "revId": "135ce2ea28e98df624aa071688bd01e0dadf2f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc5f15c_9e45c166",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-14T00:29:52Z",
+      "side": 0,
+      "message": "Yes, those DCHECKS don\u0027t really do anything other than slow debug builds.",
+      "parentUuid": "1cc5f15c_dbc74bd9",
       "revId": "135ce2ea28e98df624aa071688bd01e0dadf2f62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
