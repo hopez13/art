@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc97855d_2226eec9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-14T08:40:47Z",
+      "side": 1,
+      "message": "Should we put the trampoline as code? So you don\u0027t need to do this setup here?",
+      "range": {
+        "startLine": 1795,
+        "startChar": 38,
+        "endLine": 1795,
+        "endChar": 45
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc97855d_4229f299",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-14T08:40:47Z",
+      "side": 1,
+      "message": "Nit: I\u0027d put the || on the next line, or if it doesn\u0027t fit at the end of the previous line.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 10,
+        "endLine": 1799,
+        "endChar": 12
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c872129_e90a7539",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1804,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-14T08:40:47Z",
+      "side": 1,
+      "message": "Why hasn\u0027t dex2oat done that?",
+      "range": {
+        "startLine": 1804,
+        "startChar": 34,
+        "endLine": 1804,
+        "endChar": 35
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc822517_ca0da354",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-14T08:40:47Z",
+      "side": 1,
+      "message": "You\u0027ve just checked that in the DCHECK_EQ above.",
+      "range": {
+        "startLine": 1805,
+        "startChar": 38,
+        "endLine": 1805,
+        "endChar": 43
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c872129_092b499a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-14T08:40:47Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment.",
+      "range": {
+        "startLine": 1501,
+        "startChar": 45,
+        "endLine": 1501,
+        "endChar": 48
+      },
+      "revId": "90546836312adda54f28b700f25ff29ec8becdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
