@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fccd7da7_37f87294",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-14T20:20:00Z",
+      "side": 1,
+      "message": "so this is a bug that our host clang prebuilt is using /usr/bin/ld instead of a prebuilt one. we just noticed this internally when someone had a box using ld.gold instead of ld.bfd. We are trying to fix this in the toolchain, so we\u0027d rather not fix this here.",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 29
+      },
+      "revId": "685789ed133b7cb2c660631cbfef8c7dd8f1d745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
