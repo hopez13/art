@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1cd6d13f_70996eee",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-15T00:45:44Z",
+      "side": 1,
+      "message": "Sounds right. I\u0027ll hardcode this to the non-transaction case.",
+      "parentUuid": "5cb3e9f9_3a8afd98",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb3e9f9_3a5cbd69",
         "filename": "runtime/gc/accounting/remembered_set.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-13T17:57:39Z",
       "side": 1,
       "message": "Might be cleaner to have a pointer passed in the constructor\n(bool* const contains_reference_to_target_space_) so that you don\u0027t need a const cast here.",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_b03c7ef4",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-15T00:45:44Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "5cb3e9f9_3a5cbd69",
       "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fccd7da7_daff2549",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-15T00:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cc8f574_b618e8d2",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb9e1da_b5fa85df",
         "filename": "runtime/gc/accounting/remembered_set.cc",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "fccd7da7_ba0469aa",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-15T00:45:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb9e1da_b5fa85df",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb3e9f9_fa2885af",
         "filename": "runtime/gc/accounting/remembered_set.cc",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2014-03-13T17:57:39Z",
       "side": 1,
       "message": "I wonder if we could use logic like this to improve the mod union tables.",
+      "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_c4e74f50",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-15T00:45:44Z",
+      "side": 1,
+      "message": "I think we could.",
+      "parentUuid": "5cb3e9f9_fa2885af",
       "revId": "e58b79bfd97a6267d97fe6ec13665df60ebd6fa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
