@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "dcb1990e_c4206f2b",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-15T00:43:17Z",
+      "side": 1,
+      "message": "can we remember where we left off for the next call?",
+      "range": {
+        "startLine": 111,
+        "startChar": 9,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cbf69de_8c7bb34b",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-15T00:43:17Z",
+      "side": 1,
+      "message": "I find the ptr/ptr2 to be a bit confusing.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 21
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcb1990e_4f291d9a",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
@@ -13,6 +59,30 @@
       "writtenOn": "2014-03-14T20:54:29Z",
       "side": 1,
       "message": "This could be redundant, but would it make sense to also check errno \u003d\u003d ENOMEM in the \u0027else\u0027 block of this if statement to be conservative? I noticed this in \u0027man msync\u0027.",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 17
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_c4ce2f4a",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-15T00:43:17Z",
+      "side": 1,
+      "message": "Yes, I\u0027d prefer assert that when you fall through that you got the thing you were expecting.",
+      "parentUuid": "dcb1990e_4f291d9a",
       "range": {
         "startLine": 117,
         "startChar": 12,
@@ -60,6 +130,30 @@
       "side": 1,
       "message": "Never mind. I see this is your way of matching the else block to the beginning of the if statement.",
       "parentUuid": "dcb1990e_cf4bed7a",
+      "range": {
+        "startLine": 129,
+        "startChar": 24,
+        "endLine": 129,
+        "endChar": 26
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_71adda7e",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-15T00:43:17Z",
+      "side": 1,
+      "message": "yeah, I also found this more confusing than helpful. When I write a comment after the else, its typically to describe what holds true within the else.",
+      "parentUuid": "dcb1990e_cf01ad63",
       "range": {
         "startLine": 129,
         "startChar": 24,
