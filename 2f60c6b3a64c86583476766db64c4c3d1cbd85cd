@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcb1990e_135c5768",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcb1990e_c4206f2b",
+      "range": {
+        "startLine": 111,
+        "startChar": 9,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cbf69de_8c7bb34b",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-15T00:43:17Z",
       "side": 1,
       "message": "I find the ptr/ptr2 to be a bit confusing.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 21
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_d7093bc3",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "tail_ptr better?",
+      "parentUuid": "5cbf69de_8c7bb34b",
       "range": {
         "startLine": 111,
         "startChar": 0,
@@ -83,6 +131,54 @@
       "side": 1,
       "message": "Yes, I\u0027d prefer assert that when you fall through that you got the thing you were expecting.",
       "parentUuid": "dcb1990e_4f291d9a",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 17
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb49dfd_b7efcf98",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcb1990e_4f291d9a",
+      "range": {
+        "startLine": 117,
+        "startChar": 12,
+        "endLine": 117,
+        "endChar": 17
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_934867a5",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcb1990e_c4ce2f4a",
       "range": {
         "startLine": 117,
         "startChar": 12,
@@ -213,6 +309,54 @@
     },
     {
       "key": {
+        "uuid": "fcb49dfd_97ecd3a4",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcb49dfd_109c5459",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 22
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_7355db36",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cbf69de_4074440f",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 22
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcb49dfd_457a20cf",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 2
@@ -224,6 +368,30 @@
       "writtenOn": "2014-03-14T20:54:29Z",
       "side": 1,
       "message": "What happens if we have a non-x86-64 non-arm64 64-bit architecture? In other words, should we use the non-MAP32BIT code for the case where ifdef _LP64 \u0026\u0026 !(__x86_64) case, not just for arm64?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 6
+      },
+      "revId": "2f60c6b3a64c86583476766db64c4c3d1cbd85cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_333e33f0",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-17T18:05:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcb49dfd_457a20cf",
       "range": {
         "startLine": 143,
         "startChar": 0,
