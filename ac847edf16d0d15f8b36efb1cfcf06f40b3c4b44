@@ -22,6 +22,30 @@
       "revId": "ac847edf16d0d15f8b36efb1cfcf06f40b3c4b44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca891a1_43469a3f",
+        "filename": "runtime/arch/arm64/registers_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-03-17T19:55:59Z",
+      "side": 1,
+      "message": "That is correct - Serban is currently examining this issue.",
+      "parentUuid": "dcb1990e_c93640c3",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 2
+      },
+      "revId": "ac847edf16d0d15f8b36efb1cfcf06f40b3c4b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
