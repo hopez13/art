@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "dcb1990e_1830f4ff",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-17T14:31:19Z",
+      "side": 1,
+      "message": "Comments to say when this is used. Final?\n\nCode like this makes me wish for greater use of namespaces. Having something called art::MemoryAllocator could clearly have a meaning in the runtime. The runtime\u0027s allocators are buried in art::gc:allocator::... so as a random person you may well come across this code first and think its to do with the garbage collector.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "a62e8d817233790e4ae536c3798cb412289d9805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cd4752d_f9e0b37d",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -36,6 +59,30 @@
       "writtenOn": "2014-03-17T13:39:55Z",
       "side": 1,
       "message": "Maybe add a TODO to support spill masks ?",
+      "range": {
+        "startLine": 86,
+        "startChar": 28,
+        "endLine": 87,
+        "endChar": 29
+      },
+      "revId": "a62e8d817233790e4ae536c3798cb412289d9805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_f83428f5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-17T14:31:19Z",
+      "side": 1,
+      "message": "Longer-term the spill masks should be taken out of here, they are only relevant for the quick compiler and imply a register allocation that is fixed for the life-time of a method. A comment to explain what the values of magic constants means is always useful.",
+      "parentUuid": "3cd4752d_f9e0b37d",
       "range": {
         "startLine": 86,
         "startChar": 28,
