@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cba6def_61c62c59",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-18T16:06:09Z",
+      "side": 1,
+      "message": "I think ALWAYS_INLINE is a bit aggressive, \"inline\" leaves the decision to the compiler.\n\nI\u0027ll leave it as is for now, trying to use ALWAYS_INLINE yields \"error: always_inline function might not be inlinable [-Werror\u003dattributes]\".",
+      "parentUuid": "7c08adab_28a4abc8",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "86699c7aa7cc2d5041827c1400c442daf9000591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c08adab_881f1744",
         "filename": "compiler/dex/quick/dex_file_method_inliner.h",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-18T15:37:15Z",
       "side": 1,
       "message": "LOCKS_EXCLUDED(lock_)",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 0
+      },
+      "revId": "86699c7aa7cc2d5041827c1400c442daf9000591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cd4752d_7fbda395",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-18T16:06:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c08adab_881f1744",
       "range": {
         "startLine": 91,
         "startChar": 0,
