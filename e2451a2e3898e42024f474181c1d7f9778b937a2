@@ -46,6 +46,75 @@
       "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c08adab_e837b3c0",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T15:39:34Z",
+      "side": 1,
+      "message": "reinterpret_cast",
+      "range": {
+        "startLine": 400,
+        "startChar": 12,
+        "endLine": 400,
+        "endChar": 22
+      },
+      "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0ea5b3_b4c34d49",
+        "filename": "runtime/jdwp/jdwp_priv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T15:39:34Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(socket_lock_)",
+      "range": {
+        "startLine": 72,
+        "startChar": 22,
+        "endLine": 72,
+        "endChar": 31
+      },
+      "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc0ea5b3_94c9696b",
+        "filename": "runtime/jdwp/jdwp_priv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T15:39:34Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(socket_lock_)",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 61
+      },
+      "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
