@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c02b58d_c9b995cf",
+        "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:55:18Z",
+      "side": 1,
+      "message": "What instruction be I?",
+      "range": {
+        "startLine": 22,
+        "startChar": 27,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "420c121f3bad674c87c335f0acbebd5f6176637e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c02b58d_e99b3162",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:55:18Z",
+      "side": 1,
+      "message": "an enum and kRelCall ?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 41
+      },
+      "revId": "420c121f3bad674c87c335f0acbebd5f6176637e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c02b58d_49ada57e",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:55:18Z",
+      "side": 1,
+      "message": "use UniquePtr to make it clear the CompiledCode is owning the relocations",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 30
+      },
+      "revId": "420c121f3bad674c87c335f0acbebd5f6176637e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_dfc81fed",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:55:18Z",
+      "side": 1,
+      "message": "final oat file addresses",
+      "range": {
+        "startLine": 170,
+        "startChar": 28,
+        "endLine": 170,
+        "endChar": 29
+      },
+      "revId": "420c121f3bad674c87c335f0acbebd5f6176637e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c08adab_5d11d76b",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:55:18Z",
+      "side": 1,
+      "message": "this looks questionable, is L signifying link?",
+      "range": {
+        "startLine": 1169,
+        "startChar": 0,
+        "endLine": 1169,
+        "endChar": 29
+      },
+      "revId": "420c121f3bad674c87c335f0acbebd5f6176637e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
