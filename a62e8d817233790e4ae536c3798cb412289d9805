@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7c08adab_c8e74f02",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T15:43:03Z",
+      "side": 1,
+      "message": "Some times the resolution error is an indication you aren\u0027t doing what you thought. As with mirror its a tool to stop people from hitting their fingers - or to make it clear when they intend to. Kind of a mute point here as the class doesn\u0027t have scope beyond the .cc file, but from the Doxygen view of the code perhaps its relevant.",
+      "parentUuid": "7cba6def_bebc614d",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "a62e8d817233790e4ae536c3798cb412289d9805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cd4752d_f9e0b37d",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
