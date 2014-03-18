@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7cba6def_010ad0f1",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-18T15:44:04Z",
+      "side": 1,
+      "message": "Well, you\u0027re right. Looking at other comments, it\u0027s better to keep \"write\" here.",
+      "parentUuid": "3cd4752d_7f1fe373",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 125,
+        "endChar": 9
+      },
+      "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c08adab_e837b3c0",
         "filename": "runtime/jdwp/jdwp_main.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1ca891a1_46cd88a1",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-18T15:44:04Z",
+      "side": 1,
+      "message": "You mean static_cast ?",
+      "parentUuid": "7c08adab_e837b3c0",
+      "range": {
+        "startLine": 400,
+        "startChar": 12,
+        "endLine": 400,
+        "endChar": 22
+      },
+      "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc0ea5b3_b4c34d49",
         "filename": "runtime/jdwp/jdwp_priv.h",
         "patchSetId": 1
@@ -83,6 +131,30 @@
       "writtenOn": "2014-03-18T15:39:34Z",
       "side": 1,
       "message": "LOCKS_EXCLUDED(socket_lock_)",
+      "range": {
+        "startLine": 72,
+        "startChar": 22,
+        "endLine": 72,
+        "endChar": 31
+      },
+      "revId": "e2451a2e3898e42024f474181c1d7f9778b937a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca891a1_86c39078",
+        "filename": "runtime/jdwp/jdwp_priv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-18T15:44:04Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "bc0ea5b3_b4c34d49",
       "range": {
         "startLine": 72,
         "startChar": 22,
