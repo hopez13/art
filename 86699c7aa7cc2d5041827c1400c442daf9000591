@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dcb1990e_b946983c",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T16:14:52Z",
+      "side": 1,
+      "message": "To leave the decision to the compiler you should just not specify inline :-) That\u0027s been the rule elsewhere unless we\u0027re really trying to get performance in something like a tight loop of the GC.",
+      "parentUuid": "7cba6def_61c62c59",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "86699c7aa7cc2d5041827c1400c442daf9000591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c08adab_881f1744",
         "filename": "compiler/dex/quick/dex_file_method_inliner.h",
         "patchSetId": 12
