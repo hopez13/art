@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c08adab_28a4abc8",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T15:37:15Z",
+      "side": 1,
+      "message": "prefer HOT and ALWAYS_INLINE over inline which has ambiguity with its use to avoid multiple symbols at link time",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "86699c7aa7cc2d5041827c1400c442daf9000591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c08adab_881f1744",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T15:37:15Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(lock_)",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 0
+      },
+      "revId": "86699c7aa7cc2d5041827c1400c442daf9000591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
