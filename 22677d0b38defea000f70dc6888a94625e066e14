@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcb1990e_3f3703c1",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:28:07Z",
+      "side": 1,
+      "message": "IsInReg, given you are passing pMir2Lir just make it a member function?\n// Returns true if the given reg location is being held in the given machine register.",
+      "range": {
+        "startLine": 737,
+        "startChar": 12,
+        "endLine": 737,
+        "endChar": 19
+      },
+      "revId": "22677d0b38defea000f70dc6888a94625e066e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_fffbdb90",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:28:07Z",
+      "side": 1,
+      "message": "in this case could we move rSI into rDI?",
+      "range": {
+        "startLine": 764,
+        "startChar": 18,
+        "endLine": 764,
+        "endChar": 53
+      },
+      "revId": "22677d0b38defea000f70dc6888a94625e066e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcb1990e_5fbf6fb1",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:28:07Z",
+      "side": 1,
+      "message": "is this case a nop?",
+      "range": {
+        "startLine": 765,
+        "startChar": 18,
+        "endLine": 765,
+        "endChar": 53
+      },
+      "revId": "22677d0b38defea000f70dc6888a94625e066e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c02b58d_a9865950",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-18T23:28:07Z",
+      "side": 1,
+      "message": "is this case a nop?",
+      "range": {
+        "startLine": 768,
+        "startChar": 21,
+        "endLine": 768,
+        "endChar": 56
+      },
+      "revId": "22677d0b38defea000f70dc6888a94625e066e14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
