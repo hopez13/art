@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7cba6def_bebc614d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-18T11:18:06Z",
+      "side": 1,
+      "message": "Added a comment + FINAL. Also renamed the class to be less generic.\n\nI like keeping things under the same namespace, avoiding annoying resolution errors. So for cases that are purely about avoiding polluting the same namespace (unlike mirror::), I prefer making sure things have different names.",
+      "parentUuid": "dcb1990e_1830f4ff",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "a62e8d817233790e4ae536c3798cb412289d9805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cd4752d_f9e0b37d",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "side": 1,
       "message": "Longer-term the spill masks should be taken out of here, they are only relevant for the quick compiler and imply a register allocation that is fixed for the life-time of a method. A comment to explain what the values of magic constants means is always useful.",
       "parentUuid": "3cd4752d_f9e0b37d",
+      "range": {
+        "startLine": 86,
+        "startChar": 28,
+        "endLine": 87,
+        "endChar": 29
+      },
+      "revId": "a62e8d817233790e4ae536c3798cb412289d9805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca891a1_439d7a07",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-18T11:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcb1990e_f83428f5",
       "range": {
         "startLine": 86,
         "startChar": 28,
