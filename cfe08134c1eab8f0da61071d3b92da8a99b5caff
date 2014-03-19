@@ -87,6 +87,24 @@
       "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcca7990_397aa7ce",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-19T17:41:44Z",
+      "side": 1,
+      "message": "It is in fact not alignment issues, but wrong API use. I\u0027ll upload a new patch set soon.",
+      "parentUuid": "9c13a1db_724baea2",
+      "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
