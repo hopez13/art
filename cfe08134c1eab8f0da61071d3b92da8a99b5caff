@@ -69,6 +69,24 @@
       "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c13a1db_724baea2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-03-19T15:52:04Z",
+      "side": 1,
+      "message": "The quick_invoke_stub loads registers x1-x7 and d0-d7. The generic JNI code loads x0 to x7, d0-x7. Yet, the number of registers it uses for its calculations are kNumNativeFprArgs\u003d8 and kNumNativeGprArgs\u003d7. My guess was that disparity was causing alignment issues.",
+      "parentUuid": "9c13a1db_527d4ac4",
+      "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
