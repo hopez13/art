@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c02b58d_6c162fd8",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-19T02:23:47Z",
+      "side": 1,
+      "message": "Use rs_r0?",
+      "revId": "4a3871078596f8953b52e1c4b37002fd75b75229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c02b58d_0c3fbb35",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-19T02:23:47Z",
+      "side": 1,
+      "message": "Use const RegStorage rs_rAX \u003d rs_r0; instead?",
+      "revId": "4a3871078596f8953b52e1c4b37002fd75b75229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
