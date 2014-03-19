@@ -16,6 +16,23 @@
       "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_0752f84f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-03-19T14:43:13Z",
+      "side": 1,
+      "message": "This is set to 7, yet art_quick_generic_jni_trampoline loads x0-x7.\nCould this be the source of the error?",
+      "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
