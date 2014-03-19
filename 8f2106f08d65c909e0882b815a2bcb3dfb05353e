@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "7cefcdff_7f781b97",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:34:26Z",
+      "side": 1,
+      "message": "Its the case that codegen and entrypoints are thumb2. Native code is currently our only ARM32 holdout.",
+      "parentUuid": "dcf8b9d4_0668bc4c",
+      "range": {
+        "startLine": 381,
+        "startChar": 86,
+        "endLine": 381,
+        "endChar": 87
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cefcdff_9ffe1fd3",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 1
