@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9c13a1db_72804e6c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-19T15:17:03Z",
+      "side": 1,
+      "message": "Thanks, will fix this to use x9 earlier. Overall, the C++ code makes sure that the region with the register values is 16B aligned, so the arithmetic will work out in the end.",
+      "parentUuid": "1cffb1b9_2e426bcb",
+      "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcfbbdcb_0752f84f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-19T14:43:13Z",
       "side": 1,
       "message": "This is set to 7, yet art_quick_generic_jni_trampoline loads x0-x7.\nCould this be the source of the error?",
+      "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c13a1db_527d4ac4",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-19T15:17:03Z",
+      "side": 1,
+      "message": "This defines how many arguments are used in the Quick ABI. As the first argument is always the method, we only have 7 parameters passed in GPRs. The assembly code also \"only\" pushes x1-x7 in the SETUP_REF_AND_ARGS_CALLEE_SAVE_FRAME_INTERNAL.\n\nFor me, the error occurs not in the generic JNI code, but in the quick_invoke_stub, where the arg array is pushed into the registers. The generic JNI code picks up those wrong numbers correctly, itself.",
+      "parentUuid": "fcfbbdcb_0752f84f",
       "revId": "cfe08134c1eab8f0da61071d3b92da8a99b5caff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
