@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1cffb1b9_7f4c8f60",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T18:41:39Z",
+      "side": 1,
+      "message": "Actually, these can\u0027t be const.  An instance of the object is added to a std::vector, so needs an operator\u003d().  We don\u0027t have the new emplace_back function in stlport so we can\u0027t use that.\n\nUnless you know of a way to do this?",
+      "parentUuid": "fcfbbdcb_2d6b954d",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 29
+      },
+      "revId": "395b6f394b7f2aa16036ddf17a5deec216d9a79d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c13a1db_3dd3c716",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 2
