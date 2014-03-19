@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_84502624",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-19T02:59:43Z",
+      "side": 1,
+      "message": "Probably best not to spend too much time reviewing this yet - it\u0027s just a snapshot of work in progress and includes a lot of scaffolding code that will go away before it\u0027s ready for review.  I did want to give you all the flavor of what I\u0027m up too - but expect things to look worse before they look better.  I\u0027ve still got some int -\u003e RegStorage conversion to go, and then I\u0027ll finally begin the actual pair operation cleanup.",
+      "parentUuid": "3c02b58d_6c162fd8",
+      "revId": "4a3871078596f8953b52e1c4b37002fd75b75229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c02b58d_0c3fbb35",
         "filename": "compiler/dex/quick/x86/x86_lir.h",
         "patchSetId": 2
