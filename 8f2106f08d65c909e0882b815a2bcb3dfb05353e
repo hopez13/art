@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_0668bc4c",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:05:33Z",
+      "side": 1,
+      "message": "Is that always the case Ian?  If we can\u0027t guarantee that, then this optimization will not work.",
+      "parentUuid": "7cefcdff_dfddc786",
+      "range": {
+        "startLine": 381,
+        "startChar": 86,
+        "endLine": 381,
+        "endChar": 87
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cefcdff_9ffe1fd3",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 1
