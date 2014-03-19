@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cffb1b9_9f506b24",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T18:25:15Z",
+      "side": 1,
+      "message": "I\u0027ll remove this function.  It was added to try to debug during development.  It\u0027s never called.",
+      "parentUuid": "dcca7990_392ce7c1",
+      "range": {
+        "startLine": 207,
+        "startChar": 19,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "395b6f394b7f2aa16036ddf17a5deec216d9a79d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cefcdff_592fb7b8",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_2d6b954d",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T18:25:15Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "7cefcdff_592fb7b8",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 29
+      },
+      "revId": "395b6f394b7f2aa16036ddf17a5deec216d9a79d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c13a1db_3dd3c716",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-03-19T18:20:56Z",
       "side": 1,
       "message": "why is the instruction field called L if it means X? Rename L to be X?",
+      "range": {
+        "startLine": 1169,
+        "startChar": 0,
+        "endLine": 1169,
+        "endChar": 29
+      },
+      "revId": "395b6f394b7f2aa16036ddf17a5deec216d9a79d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_ada8a52b",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T18:25:15Z",
+      "side": 1,
+      "message": "It actually means \u0027not X\u0027.  I\u0027ll pick another letter.",
+      "parentUuid": "9c13a1db_3dd3c716",
       "range": {
         "startLine": 1169,
         "startChar": 0,
