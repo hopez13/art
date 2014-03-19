@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_1e0b5d40",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "I talked to Ian about it and we want to move towards having the CompiledMethod apply patches.  This is at the top level so it seemed appropriate to put the architecture specific stuff there too.",
+      "parentUuid": "fcfbbdcb_387ab1ce",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8b9d4_c3b976cf",
         "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "do we want to reuse the assembler like the trampoline_compiler? in fact, isn\u0027t this CreateTrampoline(kQuickAbi, offset)?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 69
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8b9d4_66c3f079",
+        "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "That was my first attempt at this.  Unfortunately it only generated ARM code, not thumb, and it generates two instructions per trampoline (LDR followed by BKPT).  The two instructions I could work around, but the lack of thumb was an issue.  Because we call the compiler through a function pointer and the assembler is part of the compiler (ArmMir2Lir) there is no way to call it directly.",
+      "parentUuid": "dcf8b9d4_c3b976cf",
       "range": {
         "startLine": 24,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_26cdf8a2",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "bc33057e_0273ca6e",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8b9d4_839a5e5b",
         "filename": "compiler/arch/arm/final_relocations_arm.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "const bool, and we usually say kDebugPrint in case its later promoted to be global to the file.",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_de56e520",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "dcf8b9d4_839a5e5b",
       "range": {
         "startLine": 27,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_06cafc8a",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "sure",
+      "parentUuid": "fcfbbdcb_93506624",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcfbbdcb_339bf2a7",
         "filename": "compiler/arch/arm/final_relocations_arm.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "I think its cleaner to use the trick Ian showed me with\n\n__attribute__ ((aligned (2)));\n\nsee disassembler_arm.cc which does this.",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 75
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_be868950",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "I\u0027ll look into it, however the order of the words is not little endian for a 4 byte entity.",
+      "parentUuid": "fcfbbdcb_339bf2a7",
       "range": {
         "startLine": 32,
         "startChar": 6,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_e637e0c0",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Same issue with not having an accessible Thumb assembler.",
+      "parentUuid": "bc33057e_62bdf695",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c13a1db_3d550738",
         "filename": "compiler/arch/arm/final_relocations_arm.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "Is there a standard name for this relocation in \n\nhttp://infocenter.arm.com/help/topic/com.arm.doc.ihi0044e/IHI0044E_aaelf.pdf\n\nfor reference? or are we doing something novel",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 88
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8b9d4_c60e2404",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Don\u0027t follow.  Are you referring to the constant used for the relocation type (kRelocationCall).   If so, that is architecture independent so we can\u0027t use an ARM specific name.  If you mean something else, please elaborate.",
+      "parentUuid": "9c13a1db_3d550738",
       "range": {
         "startLine": 41,
         "startChar": 9,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_664c1061",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "OK, did\u0027t know about that macro.",
+      "parentUuid": "9c13a1db_1d524350",
+      "range": {
+        "startLine": 55,
+        "startChar": 27,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc33057e_c295e223",
         "filename": "compiler/arch/arm/final_relocations_arm.h",
         "patchSetId": 4
@@ -220,6 +436,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "where is this defined? I don\u0027t see a new final_entrypoint_relocation_set.h?",
+      "range": {
+        "startLine": 29,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_5ec0b56a",
+        "filename": "compiler/arch/arm/final_relocations_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "It\u0027s in compiled_method.h.  Do you want a separate header file for it?",
+      "parentUuid": "bc33057e_c295e223",
       "range": {
         "startLine": 29,
         "startChar": 47,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "bc33057e_4568fc4d",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Probably was at some time in the development.  I\u0027ll remove it",
+      "parentUuid": "fccd7da7_34dbc506",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fccd7da7_d40491ab",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 4
@@ -266,6 +530,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "shouldn\u0027t this be a final_entrypoint_relocation_set.cc?",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 1
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_feb521fa",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Sure.  I\u0027ll add a .h and .cc for the class",
+      "parentUuid": "fccd7da7_d40491ab",
       "range": {
         "startLine": 207,
         "startChar": 0,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_c6b984cf",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "I\u0027ll remove the comment.",
+      "parentUuid": "9c13a1db_9d3cf3f4",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 48
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fccd7da7_144d6908",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 4
@@ -312,6 +624,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "would there ever be a None? I\u0027m fine having a one element enum.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc33057e_453f9c34",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "This is added to a std::vector so there needs to be a default constructor for Relocation.  The None is to allow for a default value for this.",
+      "parentUuid": "fccd7da7_144d6908",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "bc33057e_e59ef00a",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "That\u0027s the intention.  I\u0027ll add a comment",
+      "parentUuid": "5c0da9ba_1bdecb2c",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_db0ef303",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 4
@@ -358,6 +718,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "do we need this constructor? should we use a DISALLOW macro here?",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 72
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_fe108137",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Yes, used in a std::vector",
+      "parentUuid": "5c0da9ba_db0ef303",
       "range": {
         "startLine": 57,
         "startChar": 4,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_de15c525",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "yeah.",
+      "parentUuid": "5c0da9ba_9b087bf7",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 46
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c13a1db_b8f905ef",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 4
@@ -404,6 +812,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "should we have a DISALLOW_ macro here for FinalRelocationSet?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 2
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_be1a0954",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Dunno, need to work out what it does, and why we need it.",
+      "parentUuid": "9c13a1db_b8f905ef",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_9e1f4d44",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "5c0da9ba_5bd4430c",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 2
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_7bfee784",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 4
@@ -450,6 +906,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "why optional? unless there are a lot of callers, seems clear at the call site to show there is something missing",
+      "range": {
+        "startLine": 89,
+        "startChar": 15,
+        "endLine": 89,
+        "endChar": 60
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_5e22f588",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Can\u0027t remember.  Probably left over from development.  I\u0027ll remove it and see what the compiler complains about",
+      "parentUuid": "5c0da9ba_7bfee784",
       "range": {
         "startLine": 89,
         "startChar": 15,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_c6a0648d",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Yeah, probably being lazy",
+      "parentUuid": "fccd7da7_f438ad53",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 1
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_3bf86f94",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 4
@@ -496,6 +1000,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "again, not sure I\u0027d make optional. if a caller is passing nullptr, i\u0027d comment it with a TODO",
+      "range": {
+        "startLine": 178,
+        "startChar": 17,
+        "endLine": 178,
+        "endChar": 62
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_fe3761c0",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "5c0da9ba_3bf86f94",
       "range": {
         "startLine": 178,
         "startChar": 17,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "bc33057e_c5ef2c69",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "5c0da9ba_1bf5ab9a",
+      "range": {
+        "startLine": 1014,
+        "startChar": 2,
+        "endLine": 1014,
+        "endChar": 18
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fccd7da7_d42db113",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 4
@@ -542,6 +1094,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "alpha order (perhaps elsewhere too)",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8b9d4_667bf04c",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "sure (whatever)",
+      "parentUuid": "fccd7da7_d42db113",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -577,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_fee2c1f3",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "I should probably use a struct instead of an encoded uint64_t.  I\u0027ll do that.",
+      "parentUuid": "fccd7da7_944859ee",
+      "range": {
+        "startLine": 1246,
+        "startChar": 4,
+        "endLine": 1246,
+        "endChar": 44
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c13a1db_581c497d",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -600,6 +1200,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_9ef18dbd",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "9c13a1db_581c497d",
+      "range": {
+        "startLine": 1246,
+        "startChar": 4,
+        "endLine": 1246,
+        "endChar": 38
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_fbb417d7",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -611,6 +1235,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "nit: UNIMPLEMENTED(FATAL)",
+      "range": {
+        "startLine": 1249,
+        "startChar": 8,
+        "endLine": 1249,
+        "endChar": 11
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc33057e_251618a5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "5c0da9ba_fbb417d7",
       "range": {
         "startLine": 1249,
         "startChar": 8,
@@ -669,6 +1317,30 @@
     },
     {
       "key": {
+        "uuid": "fcfbbdcb_5efb1593",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "The comment is wrong.  It\u0027s 16MB on thumb.  We dump a table every 15MB so we do need two of them inside boot.oat.  That is taken care of by the oat dumper",
+      "parentUuid": "5c0da9ba_5bc68358",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 2
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_fb9bf761",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 4
@@ -692,6 +1364,30 @@
     },
     {
       "key": {
+        "uuid": "bc33057e_e5d910c4",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "It\u0027s old code I used in development.  I\u0027ll remove it.",
+      "parentUuid": "5c0da9ba_fb9bf761",
+      "range": {
+        "startLine": 436,
+        "startChar": 8,
+        "endLine": 445,
+        "endChar": 11
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fccd7da7_947a99fe",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 4
@@ -703,6 +1399,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "kIsDebug at least? seems overkill to keep especially since arm specific?",
+      "range": {
+        "startLine": 911,
+        "startChar": 2,
+        "endLine": 919,
+        "endChar": 9
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcfbbdcb_7ec93168",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "same as above",
+      "parentUuid": "fccd7da7_947a99fe",
       "range": {
         "startLine": 911,
         "startChar": 2,
@@ -761,6 +1481,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_26c73834",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "Yes, it is ARM specific.  I\u0027ll find a better place for it (I guess I\u0027ll do the TODO).\n\nThe max range is 16MB for a thumb2 BL.  I just used 15MB because it\u0027s close enough without getting out of range.  It doesn\u0027t make any difference to the number of islands.",
+      "parentUuid": "fccd7da7_74f25d4f",
+      "range": {
+        "startLine": 1191,
+        "startChar": 2,
+        "endLine": 1191,
+        "endChar": 37
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_db8b930b",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 4
@@ -778,6 +1522,24 @@
     },
     {
       "key": {
+        "uuid": "dcf8b9d4_e6cfe047",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "sure",
+      "parentUuid": "5c0da9ba_db8b930b",
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_9b951b25",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 4
@@ -789,6 +1551,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "offset_",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 298,
+        "endChar": 38
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8b9d4_c6d4e4da",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "5c0da9ba_9b951b25",
       "range": {
         "startLine": 298,
         "startChar": 2,
@@ -824,6 +1610,30 @@
     },
     {
       "key": {
+        "uuid": "bc33057e_45a0fc0c",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "as above",
+      "parentUuid": "9c13a1db_98508124",
+      "range": {
+        "startLine": 299,
+        "startChar": 24,
+        "endLine": 299,
+        "endChar": 43
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fccd7da7_34fce51e",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 4
@@ -835,6 +1645,30 @@
       "writtenOn": "2014-03-19T21:27:48Z",
       "side": 1,
       "message": "Instead of comment, perhaps a LOG(WARNING) then?",
+      "range": {
+        "startLine": 1183,
+        "startChar": 15,
+        "endLine": 1183,
+        "endChar": 57
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc33057e_854844a5",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-19T22:01:35Z",
+      "side": 1,
+      "message": "The problem with that is if we ever generate code that does it, we will spam the log.  Since it\u0027s only the disassembler output I\u0027d prefer it just didn\u0027t crash.  I\u0027ll add a log if you insist though",
+      "parentUuid": "fccd7da7_34fce51e",
       "range": {
         "startLine": 1183,
         "startChar": 15,
