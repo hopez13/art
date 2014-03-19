@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcca7990_dcd4c1da",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "64 bit will be different code\ns/frame_sub/frame_size_without_spills/",
+      "range": {
+        "startLine": 362,
+        "startChar": 56,
+        "endLine": 362,
+        "endChar": 71
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cefcdff_dfddc786",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": ". Assumes codegen and target are in thumb2 mode.",
+      "range": {
+        "startLine": 381,
+        "startChar": 86,
+        "endLine": 381,
+        "endChar": 87
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cefcdff_9ffe1fd3",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 386,
+        "startChar": 8,
+        "endLine": 386,
+        "endChar": 12
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf4c9d0_98b759b7",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 14
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf4c9d0_b8b21dc7",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 341,
+        "startChar": 6,
+        "endLine": 341,
+        "endChar": 12
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcca7990_bcc90545",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "// TODO: avoid copy for small frame sizes.",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 55
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcca7990_9c09a9c4",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 232,
+        "startChar": 6,
+        "endLine": 232,
+        "endChar": 12
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcca7990_bc0465aa",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "// TODO: for large frames we should do something like:\n// spill ebp\n// lea ebp, [esp + frame_size]\n// cmp ebp, fs:[stack_end_]\n// jcc stack_overflow_exception\n// mov esp, ebp\n// in case a signal comes in that\u0027s not using an alternate signal stack and the large frame may have moved us outside of the reserved area at the end of the stack.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 0
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcca7990_7cefed99",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-19T22:00:36Z",
+      "side": 1,
+      "message": "describe these two constants",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 69
+      },
+      "revId": "8f2106f08d65c909e0882b815a2bcb3dfb05353e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
