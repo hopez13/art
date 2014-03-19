@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "9c21e133_d9863304",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-19T23:54:45Z",
+      "side": 1,
+      "message": "you look like you are reading an a specific ARM instruction, applying some update, then writing it back. I wonder if we are doing one of ARM ELF ABI specific patterns.",
+      "parentUuid": "9c13a1db_3d550738",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 88
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c13a1db_1d524350",
         "filename": "compiler/arch/arm/final_relocations_arm.cc",
         "patchSetId": 4
@@ -754,6 +778,30 @@
     },
     {
       "key": {
+        "uuid": "9c21e133_195cabdb",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-19T23:54:45Z",
+      "side": 1,
+      "message": "really? is it used even if you never have a usage pattern than needs it? If it really is required, I\u0027d almost put a LOG(FATAL) in the constructor body since I can\u0027t see why this would ever be used.",
+      "parentUuid": "fcfbbdcb_fe108137",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 72
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c0da9ba_9b087bf7",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 4
@@ -836,6 +884,30 @@
       "side": 1,
       "message": "Dunno, need to work out what it does, and why we need it.",
       "parentUuid": "9c13a1db_b8f905ef",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 2
+      },
+      "revId": "ded875a630f9cbacdebda4cba89be5890c7f79ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc4d1911_1b425bcb",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-19T23:54:45Z",
+      "side": 1,
+      "message": "the DISALLOW_* macros are the google3 macros for disabling implicit constructors. most of our classes should be using them.",
+      "parentUuid": "fcfbbdcb_be1a0954",
       "range": {
         "startLine": 69,
         "startChar": 0,
