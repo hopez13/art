@@ -94,6 +94,30 @@
       "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c904999_af067977",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-20T14:56:11Z",
+      "side": 1,
+      "message": "Sorry, I missed that. That should make the fix really trivial.",
+      "parentUuid": "3c30f57d_6ac37f79",
+      "range": {
+        "startLine": 397,
+        "startChar": 56,
+        "endLine": 397,
+        "endChar": 78
+      },
+      "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
