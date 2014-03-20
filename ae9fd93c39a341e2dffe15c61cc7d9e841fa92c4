@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c864164_112fac70",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-20T11:37:46Z",
+      "side": 1,
+      "message": "The class_def_method_index is wrong here. We didn\u0027t record the actual method_idx in OatWriter::InitOatClasses(), so we don\u0027t have the information we need.",
+      "range": {
+        "startLine": 397,
+        "startChar": 56,
+        "endLine": 397,
+        "endChar": 78
+      },
+      "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
