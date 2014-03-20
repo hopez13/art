@@ -116,6 +116,30 @@
       "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c21e133_ad01b563",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-20T12:49:44Z",
+      "side": 1,
+      "message": "Because signal handlers are user-defined and thus could use an arbitrary amount of stack, we can\u0027t guarantee that sigcontext + handler\u0027s memory use will fit in 2K.  However, in that event the error would be in the user\u0027s signal handler (who probably ought to be using an altstack).  The runtime system, however, does have a responsibility to ensure that there is sufficient space for the OS to drop a sigcontext and at least begin execution of the user\u0027s handler.  If the user\u0027s handler blows through the stack once it starts running - not our problem.  The choice of 2K is somewhat arbitrary, but is plenty of room for sigcontext plus a simple handler.  It\u0027s also large enough that the vast majority of methods will fit in the fast pass case.",
+      "parentUuid": "5c904999_8f67f5a9",
+      "range": {
+        "startLine": 400,
+        "startChar": 32,
+        "endLine": 400,
+        "endChar": 33
+      },
+      "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
