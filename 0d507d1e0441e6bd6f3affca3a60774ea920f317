@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "7c16eddd_bbad733b",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-20T17:58:21Z",
+      "side": 1,
+      "message": "If a frame is small then we needn\u0027t worry about going over the reserved region when it is created, so we manipulate SP directly and check for stack overflows there. This avoids a move in the common path, and a load in the slow path.\nNote this optimization isn\u0027t done for MIPS, for Intel we only create frames this way. There are TODOs in this change to capture that we need to optimize MIPS and make x86 robust to the signal issue in the same way that ARM is.\nThat said, signals from outside the runtime shouldn\u0027t be delivered on Java stacks. The behavior will always be unpredictable - stack sizes vary between ART and Dalvik, and across Android releases. Robust signal handlers are best written to use an alternate signal stack.",
+      "parentUuid": "dc26f94e_369896a7",
+      "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c904999_af62f9e7",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
