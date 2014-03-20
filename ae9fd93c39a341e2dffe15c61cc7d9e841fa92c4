@@ -70,6 +70,30 @@
       "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c30f57d_6ac37f79",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-20T14:53:16Z",
+      "side": 1,
+      "message": "The method index for the current oat method is given as a parameter already, no need for additional vector.",
+      "parentUuid": "9c864164_b19a605b",
+      "range": {
+        "startLine": 397,
+        "startChar": 56,
+        "endLine": 397,
+        "endChar": 78
+      },
+      "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
