@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "dc4d1911_951394e5",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-20T18:11:53Z",
+      "side": 1,
+      "message": "After the optimization, it still does the overflow check, we just have a SP which temporarily may be in the reserved region during the overflow check. We make sure to still have a small amount of space in the reserved region however since a signal could theoretically come in (though very unlikely). Recursive calls are handled since as soon as the SP goes into the reserved region since we get a stack overflow exception.",
+      "parentUuid": "dc26f94e_b6dd8655",
+      "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c904999_af62f9e7",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
