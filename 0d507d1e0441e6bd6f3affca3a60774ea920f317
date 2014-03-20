@@ -92,6 +92,30 @@
       "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c904999_8f67f5a9",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-20T12:31:43Z",
+      "side": 1,
+      "message": "OK, thanks Bill for the explanation. What guarantees that the signal processing just requires 2 KB?",
+      "parentUuid": "dc4d1911_af01a163",
+      "range": {
+        "startLine": 400,
+        "startChar": 32,
+        "endLine": 400,
+        "endChar": 33
+      },
+      "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
