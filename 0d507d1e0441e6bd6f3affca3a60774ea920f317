@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "dc26f94e_b6dd8655",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-20T18:03:13Z",
+      "side": 1,
+      "message": "But doesn\u0027t that just kill the purposes of this optimization? By doing recursive calls on a method that fits that scheme, we\u0027ll end up not having the space we thought would be needed for the signal handling.",
+      "parentUuid": "7c16eddd_bbad733b",
+      "revId": "0d507d1e0441e6bd6f3affca3a60774ea920f317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c904999_af62f9e7",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
