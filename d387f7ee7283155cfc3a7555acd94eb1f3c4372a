@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc4d1911_a448e3a4",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-20T21:45:57Z",
+      "side": 1,
+      "message": "You could rewrite this with:\nDCHECK_LE(space_-\u003eBegin(), start);\nDCHECK_LE(end, space_-\u003eLimit());\nthis would make errors more intelligible. I know you were following the existing style with this change.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 63
+      },
+      "revId": "d387f7ee7283155cfc3a7555acd94eb1f3c4372a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
