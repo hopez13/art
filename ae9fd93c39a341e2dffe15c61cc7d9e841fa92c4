@@ -46,6 +46,30 @@
       "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c864164_b19a605b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-20T12:30:38Z",
+      "side": 1,
+      "message": "Just keep the method_idx (full MethodReference seems unnecessary) in a vector next to OatWriter::OatClass::compiled_methods_.",
+      "parentUuid": "9c21e133_6df5dd34",
+      "range": {
+        "startLine": 397,
+        "startChar": 56,
+        "endLine": 397,
+        "endChar": 78
+      },
+      "revId": "ae9fd93c39a341e2dffe15c61cc7d9e841fa92c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
