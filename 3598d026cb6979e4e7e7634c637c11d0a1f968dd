@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc4d1911_fb89afa4",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-20T00:18:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c16eddd_1829059b",
+      "range": {
+        "startLine": 160,
+        "startChar": 16,
+        "endLine": 160,
+        "endChar": 78
+      },
+      "revId": "3598d026cb6979e4e7e7634c637c11d0a1f968dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc1ce5fb_dace25a5",
         "filename": "compiler/jni/quick/arm64/calling_convention_arm64.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-20T00:01:37Z",
       "side": 1,
       "message": "We should come back here with FINAL and OVERRIDE",
+      "range": {
+        "startLine": 25,
+        "startChar": 42,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "3598d026cb6979e4e7e7634c637c11d0a1f968dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c30f57d_56fe7484",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-20T00:18:55Z",
+      "side": 1,
+      "message": "As none of the calling conventions are this way now, I think it makes sense to put this into a separate CL and change all of them.",
+      "parentUuid": "bc1ce5fb_dace25a5",
       "range": {
         "startLine": 25,
         "startChar": 42,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dc4d1911_bb9327cf",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-20T00:18:55Z",
+      "side": 1,
+      "message": "I don\u0027t think so.",
+      "parentUuid": "1c2df129_352650ca",
+      "range": {
+        "startLine": 433,
+        "startChar": 29,
+        "endLine": 433,
+        "endChar": 30
+      },
+      "revId": "3598d026cb6979e4e7e7634c637c11d0a1f968dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc81454e_f2dd4886",
         "filename": "runtime/arch/arm64/registers_arm64.h",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-03-20T00:01:37Z",
       "side": 1,
       "message": "It would be nice to make names like XRZ human readable somewhere.",
+      "range": {
+        "startLine": 64,
+        "startChar": 47,
+        "endLine": 64,
+        "endChar": 50
+      },
+      "revId": "3598d026cb6979e4e7e7634c637c11d0a1f968dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c30f57d_b6c34849",
+        "filename": "runtime/arch/arm64/registers_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-20T00:18:55Z",
+      "side": 1,
+      "message": "I think this is pretty much work in progress @ARM, so I defer that to a later CL.",
+      "parentUuid": "bc81454e_f2dd4886",
       "range": {
         "startLine": 64,
         "startChar": 47,
