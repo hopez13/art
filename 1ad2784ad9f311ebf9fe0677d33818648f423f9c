@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8b4d70_507a0c01",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-20T18:01:10Z",
+      "side": 1,
+      "message": "nit: Like, PreCleanCards(), it might be more consistent if we move this if statement into PreProcessReferences() or move the PreCleanCards() into the if statement?",
+      "range": {
+        "startLine": 264,
+        "startChar": 6,
+        "endLine": 264,
+        "endChar": 18
+      },
+      "revId": "1ad2784ad9f311ebf9fe0677d33818648f423f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc29fd1f_747da8c4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-20T18:01:10Z",
+      "side": 1,
+      "message": "Maybe, move this above the ProcessSoftReferences() call above so the time for ProcessSoftReferences() is accounted as part of \"(Paused)ProcessReferences\" or add another time split just for ProcessSoftReferences?",
+      "range": {
+        "startLine": 779,
+        "startChar": 2,
+        "endLine": 779,
+        "endChar": 50
+      },
+      "revId": "1ad2784ad9f311ebf9fe0677d33818648f423f9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
