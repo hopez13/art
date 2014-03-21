@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc573db2_44c32e79",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-03-21T10:57:38Z",
+      "side": 1,
+      "message": "Maybe also DCHECK_EQ(method !\u003d nullptr, verifier-\u003eCanLoadClasses()) ?",
+      "revId": "f7a151ba207f387e10b5853c1856399a10d62845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
