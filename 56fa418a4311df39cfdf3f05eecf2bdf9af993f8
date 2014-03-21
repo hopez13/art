@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcdf857e_c856034a",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-21T12:24:47Z",
+      "side": 1,
+      "message": "Why the \u0027if\u0027, since they both take the same action?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5e35d0_8f905d35",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-21T12:24:47Z",
+      "side": 1,
+      "message": "replace switch by calculation?  Can we assume XMM7 \u003d\u003d XMM0 + 7?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5e35d0_6f78814e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-21T12:24:47Z",
+      "side": 1,
+      "message": "remove comment?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcdf857e_e865c729",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-21T12:24:47Z",
+      "side": 1,
+      "message": "Would it have made sense to derive from the X86 version?  Is there any code reuse?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5e35d0_0f854df1",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-21T12:24:47Z",
+      "side": 1,
+      "message": "fix date?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcdf857e_484b13a2",
+        "filename": "compiler/utils/x86_64/managed_register_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-21T12:24:47Z",
+      "side": 1,
+      "message": "fix filename?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
