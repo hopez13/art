@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cb2c15a_e5f15ebc",
+        "filename": "runtime/gc/accounting/heap_bitmap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-24T06:34:02Z",
+      "side": 1,
+      "message": "is the space still necessary here?",
+      "range": {
+        "startLine": 110,
+        "startChar": 53,
+        "endLine": 110,
+        "endChar": 54
+      },
+      "revId": "6e08c631d3a310733f3b62d4d8a7def17eb11cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcdf857e_98ae0211",
+        "filename": "runtime/gc/collector/semi_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-24T06:34:02Z",
+      "side": 1,
+      "message": "OVERRIDEs?",
+      "range": {
+        "startLine": 75,
+        "startChar": 45,
+        "endLine": 75,
+        "endChar": 47
+      },
+      "revId": "6e08c631d3a310733f3b62d4d8a7def17eb11cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cb7cd4c_50a74c9d",
+        "filename": "runtime/gc/collector/semi_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-24T06:34:02Z",
+      "side": 1,
+      "message": "errant inline",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 8
+      },
+      "revId": "6e08c631d3a310733f3b62d4d8a7def17eb11cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
