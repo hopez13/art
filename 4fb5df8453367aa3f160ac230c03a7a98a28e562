@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cb7cd4c_70aa5069",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-24T06:29:46Z",
+      "side": 1,
+      "message": "as below",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 38
+      },
+      "revId": "4fb5df8453367aa3f160ac230c03a7a98a28e562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcdf857e_78a7be38",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-24T06:29:46Z",
+      "side": 1,
+      "message": "This code unconditionally creates std::strings, which will malloc/free and memcpy as a result. I\u0027d prefer if this code could be moved into the MAP_FAILED path.",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 20
+      },
+      "revId": "4fb5df8453367aa3f160ac230c03a7a98a28e562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
