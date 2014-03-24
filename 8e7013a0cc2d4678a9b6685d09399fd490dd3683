@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cb2c15a_7a2cedc2",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-24T04:45:30Z",
+      "side": 1,
+      "message": "looking at dalvik/vm/Init.cpp, it seemed to take anything that started with -ea, so should we just change the above 4 lines (ea,da, enableassertsions,disableassertions) to not include the :?",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 35
+      },
+      "revId": "8e7013a0cc2d4678a9b6685d09399fd490dd3683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
