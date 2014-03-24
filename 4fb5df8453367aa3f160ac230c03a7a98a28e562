@@ -45,6 +45,30 @@
       "revId": "4fb5df8453367aa3f160ac230c03a7a98a28e562",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb2c15a_65d0ce07",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-24T06:53:10Z",
+      "side": 1,
+      "message": "addressed in https://android-review.googlesource.com/88841",
+      "parentUuid": "bcdf857e_78a7be38",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 20
+      },
+      "revId": "4fb5df8453367aa3f160ac230c03a7a98a28e562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
