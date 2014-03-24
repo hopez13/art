@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcfc9dee_427bf64b",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-24T17:23:38Z",
+      "side": 1,
+      "message": "same comment as dalvik script\n\nalso, don\u0027t hide the rm at the EOL, just push it down to its own line\n\nso \n\nstatus\u003d$?\nrm -rf $ANDROID_DATA\nexit $status\n\nI believe",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 31
+      },
+      "revId": "212f0dbb42b8dc0a91165cbc37740dbdeba28d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
