@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cf3951c_a4a3e64e",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-24T16:47:41Z",
+      "side": 1,
+      "message": "it was unclear to me from reading strerror that this was safe. what if ReadFileToString uses strerror? the doc stays the string may be modified by a subsequent call to strerror.",
+      "range": {
+        "startLine": 200,
+        "startChar": 4,
+        "endLine": 200,
+        "endChar": 41
+      },
+      "revId": "f44e86a2d190d4ae94d7d833abe0365671c86646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
