@@ -22,6 +22,30 @@
       "revId": "8e7013a0cc2d4678a9b6685d09399fd490dd3683",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc5439b3_86be0cb4",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-03-24T04:49:21Z",
+      "side": 1,
+      "message": "This would not be correct cause it could ignore invalid options like -eagle or -dalvik",
+      "parentUuid": "9cb2c15a_7a2cedc2",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 35
+      },
+      "revId": "8e7013a0cc2d4678a9b6685d09399fd490dd3683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
