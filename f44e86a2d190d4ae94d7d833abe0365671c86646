@@ -46,6 +46,30 @@
       "revId": "f44e86a2d190d4ae94d7d833abe0365671c86646",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf0910e_43613a6b",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-24T17:14:31Z",
+      "side": 1,
+      "message": "we can\u0027t move the strerror down, we want to preserve the value from the mmmap syscall.\n\nmy point is, we shouldn\u0027t assume what ReadFileToString does. it could change later and no one would think to come back here.\n\nhe wanted to remove the std::string in the common case. its only in the error case now. I tried to change to const char* too, but felt it was not safe given the significant code that runs between the mmap and the error logging.",
+      "parentUuid": "bcdf857e_2e1b2c5b",
+      "range": {
+        "startLine": 200,
+        "startChar": 4,
+        "endLine": 200,
+        "endChar": 41
+      },
+      "revId": "f44e86a2d190d4ae94d7d833abe0365671c86646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
