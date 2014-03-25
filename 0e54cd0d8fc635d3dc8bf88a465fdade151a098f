@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc435932_0bb01dd5",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T20:17:08Z",
+      "side": 1,
+      "message": "Is ShouldAddReference a better name?\n\nIs this equivalent to \"return !space_-\u003eHasAddress(ref)\" without needing to loop over the spaces?",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c3721c3_69de052e",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T20:17:08Z",
+      "side": 1,
+      "message": "This is fine. Future note: if end_ is dropped (and just size_ is used), then there\u0027s no need for UpdateSize()?",
+      "range": {
+        "startLine": 70,
+        "startChar": 18,
+        "endLine": 70,
+        "endChar": 22
+      },
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc1c3954_231c2a7d",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T20:17:08Z",
+      "side": 0,
+      "message": "I guess these are initialized before use, so no need to initialize here?",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 114,
+        "endChar": 33
+      },
+      "revId": "6a3fe330227f2192f6ce97915d62f46247f89378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
