@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c78f56e_d6a8842d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T17:39:40Z",
+      "side": 1,
+      "message": "Is there any concurrency issue in this call?",
+      "range": {
+        "startLine": 863,
+        "startChar": 7,
+        "endLine": 863,
+        "endChar": 17
+      },
+      "revId": "14119b0a54f00f0b293c1d6e36503d5bd960c0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c3d559f_4eaa3369",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T17:39:40Z",
+      "side": 1,
+      "message": "Is there any concurrency issue in this call?",
+      "range": {
+        "startLine": 900,
+        "startChar": 19,
+        "endLine": 900,
+        "endChar": 29
+      },
+      "revId": "14119b0a54f00f0b293c1d6e36503d5bd960c0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
