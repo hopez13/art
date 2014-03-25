@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "dc6ef9af_d32df413",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-25T19:58:48Z",
+      "side": 1,
+      "message": "Dbg::VisitRoots uses locks internally so it should be safe.",
+      "parentUuid": "3c78f56e_d6a8842d",
+      "revId": "14119b0a54f00f0b293c1d6e36503d5bd960c0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c3d559f_4eaa3369",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 900,
         "endChar": 29
       },
+      "revId": "14119b0a54f00f0b293c1d6e36503d5bd960c0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c78f56e_56ff1415",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-25T19:58:48Z",
+      "side": 1,
+      "message": "There might be since IsDeoptimized doesn\u0027t require exclusive mutator access, I\u0027ll just add a lock which guards deoptimized_methods_.",
+      "parentUuid": "3c3d559f_4eaa3369",
       "revId": "14119b0a54f00f0b293c1d6e36503d5bd960c0da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
