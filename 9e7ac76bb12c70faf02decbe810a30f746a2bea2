@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc1c3954_43aa0669",
+        "filename": "runtime/gc/collector/semi_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T20:36:53Z",
+      "side": 1,
+      "message": "Thanks.",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 27
+      },
+      "revId": "9e7ac76bb12c70faf02decbe810a30f746a2bea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc1c3954_83b5defb",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-25T20:36:53Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused. We lock it here, but no locks required? Do you mean we lock it even though it\u0027s not required?",
+      "range": {
+        "startLine": 869,
+        "startChar": 5,
+        "endLine": 869,
+        "endChar": 22
+      },
+      "revId": "9e7ac76bb12c70faf02decbe810a30f746a2bea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
