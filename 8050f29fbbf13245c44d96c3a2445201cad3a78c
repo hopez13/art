@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c23318f_ce89b2a5",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T17:13:28Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "8050f29fbbf13245c44d96c3a2445201cad3a78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590f7b24_7709d08a",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T17:13:28Z",
+      "side": 1,
+      "message": "and just unconditionally do\n\nEXIT_STATUS\u003d$?\n\non its own line?",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 27
+      },
+      "revId": "8050f29fbbf13245c44d96c3a2445201cad3a78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
