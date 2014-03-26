@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19f8a337_dd11eb6e",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-26T08:19:08Z",
+      "side": 1,
+      "message": "nit: missing 2 spaces.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "3b05e9ba874449dbff65b01b8781001f7d93eea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_9d0b633d",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-26T08:19:08Z",
+      "side": 1,
+      "message": "Missing deoptimized_methods_lock_",
+      "range": {
+        "startLine": 145,
+        "startChar": 6,
+        "endLine": 145,
+        "endChar": 46
+      },
+      "revId": "3b05e9ba874449dbff65b01b8781001f7d93eea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
