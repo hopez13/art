@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "392487a3_a5f4c868",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T23:14:31Z",
+      "side": 1,
+      "message": "Should this be LargeObjectMapSpace::Free() or would it be an infinite recursion?",
+      "range": {
+        "startLine": 57,
+        "startChar": 11,
+        "endLine": 57,
+        "endChar": 15
+      },
+      "revId": "99434775602fbf58a6d5b2cd5c86789d0e2721c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c23318f_b3ff7bd2",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T23:14:31Z",
+      "side": 1,
+      "message": "Should AllocationSize() and Walk() be also overridden?",
+      "revId": "99434775602fbf58a6d5b2cd5c86789d0e2721c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
