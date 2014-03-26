@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99157331_993ffb33",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "you define this, but then just use TARGET_2ND_ARCH below. seems like it is fine to just use the original variable",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 37
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b910773f_ba1071d9",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "MK reads as .mk related to me, what does it mean? is there a better term? it seems to be 64 vs 32",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 16
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99157331_59a3a350",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "i thought we didn\u0027t indent the target definitions themselves, I thought there were issues with it. I guess the commands are not indent more than with the usual tab.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b910773f_9a0dadc3",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "I\u0027d probably just define the versions with the suffixes in .common.mk as ART_MODULE_PATH_32 and ART_MODULE_PATH_64?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 1
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99157331_39a8ef28",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "ah, here is the use. I think I might call it ART_PHONY_TEST_TARGET_SUFFIX or something equally verbose but clearer?",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 66
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b910773f_7a4c190c",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 0
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99157331_19ad2b39",
+        "filename": "build/Android.libarttest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "and use them here too.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 50
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b910773f_5a5155a0",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "the convention is to use - not _ in these names for whatever reason.",
+      "range": {
+        "startLine": 56,
+        "startChar": 7,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b910773f_3a56a19a",
+        "filename": "test/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-26T05:06:50Z",
+      "side": 1,
+      "message": "add a TODO?\n\nwangying had a better idea that all this define stuff which is hard to debug. he suggests just using .mk files that are included. not necessarily for this change, but it might life easier.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
