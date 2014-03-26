@@ -79,6 +79,24 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_73cd03a2",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T23:24:24Z",
+      "side": 1,
+      "message": "I see that the Put call overwrites the existing vector of cards. Thanks.",
+      "parentUuid": "590f7b24_dd49db4f",
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc435932_0bb01dd5",
         "filename": "runtime/gc/accounting/mod_union_table-inl.h",
         "patchSetId": 3
