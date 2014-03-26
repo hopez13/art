@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "590f7b24_ba72adb3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T17:46:17Z",
+      "side": 1,
+      "message": "An alternative would be to have a bool flag that enables/disables this.",
+      "range": {
+        "startLine": 488,
+        "startChar": 9,
+        "endLine": 488,
+        "endChar": 14
+      },
+      "revId": "91e3063d97b4dba239682d00ecfb3ea8c0a96539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
