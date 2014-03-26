@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "590f7b24_cbafd50d",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2014-03-26T22:13:33Z",
+      "side": 1,
+      "message": "this got renamed to LOCAL_MULTILIB :\u003d both",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c23318f_9dc52ed3",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2014-03-26T22:13:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand most of what these makefiles do, but why do you need to call build-art-test-make-target twice?  Are LOCAL_MODULE_PATH_32/64 and LOCAL_MODULE_STEM_32/64 not enough?",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "392487a3_6aa31f51",
+        "filename": "build/Android.libarttest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2014-03-26T22:13:33Z",
+      "side": 1,
+      "message": "renamed to LOCAL_MULTILIB",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590f7b24_4b8e25ac",
+        "filename": "dalvikvm/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2014-03-26T22:13:33Z",
+      "side": 1,
+      "message": "LOCAL_MULTILIB",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
