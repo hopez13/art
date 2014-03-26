@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_4478434e",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-26T18:35:18Z",
+      "side": 1,
+      "message": "The references associated with a card are recomputed each time the card is dirtied.",
+      "parentUuid": "1c23318f_a4e2d7f2",
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc435932_0bb01dd5",
         "filename": "runtime/gc/accounting/mod_union_table-inl.h",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "590f7b24_3abc5d4b",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-26T18:35:18Z",
+      "side": 1,
+      "message": "Nice catch, it is equivalent to !GetHeap()-\u003eGetImageSpace()-\u003eHasAddress(). This won\u0027t work with multiple image spaces however.",
+      "parentUuid": "dc435932_0bb01dd5",
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c3721c3_69de052e",
         "filename": "runtime/gc/collector/immune_region.h",
         "patchSetId": 3
@@ -65,6 +101,24 @@
         "endLine": 70,
         "endChar": 22
       },
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "392487a3_39bc6b4b",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-26T18:35:18Z",
+      "side": 1,
+      "message": "I considered doing that, but decided against it since it would have complicated the AddContinuousSpace code.",
+      "parentUuid": "9c3721c3_69de052e",
       "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
