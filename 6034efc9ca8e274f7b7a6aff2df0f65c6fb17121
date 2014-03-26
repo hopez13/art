@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "59f69b4a_c24224cb",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-26T17:30:59Z",
+      "side": 1,
+      "message": "Agree that \"IsInvalid()\" is awkward.  Will change to \"Valid()\".",
+      "parentUuid": "590f7b24_f71de07a",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "392487a3_d6be64e1",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-26T16:37:43Z",
       "side": 1,
       "message": "Are these used?",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9e79793_c87243b5",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-26T17:30:59Z",
+      "side": 1,
+      "message": "Oops - this was some debugging cruft that I neglected to remove.  Will delete.",
+      "parentUuid": "392487a3_d6be64e1",
       "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b9e79793_a86fffcc",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-26T17:30:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1c23318f_4ec6a258",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c23318f_6e851ef1",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 7
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "b9e79793_88ce7ba3",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-26T17:30:59Z",
+      "side": 1,
+      "message": "Agreed. Will Change.",
+      "parentUuid": "1c23318f_6e851ef1",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "392487a3_96f58c9e",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 7
@@ -81,6 +153,24 @@
       "writtenOn": "2014-03-26T16:37:43Z",
       "side": 1,
       "message": "typo: to allocate -\u003e so allocate",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79f19f4f_037b7003",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-26T17:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "392487a3_96f58c9e",
       "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
