@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f904af03_9c96c57b",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-26T11:20:31Z",
+      "side": 1,
+      "message": "You are right, it is redundant code.",
+      "parentUuid": "bcdf857e_c856034a",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5e35d0_8f905d35",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-21T12:24:47Z",
       "side": 1,
       "message": "replace switch by calculation?  Can we assume XMM7 \u003d\u003d XMM0 + 7?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ec937b_01c24a75",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-26T11:20:31Z",
+      "side": 1,
+      "message": "Will change this switch to XMM0+itr_float_and_doubles_",
+      "parentUuid": "3c5e35d0_8f905d35",
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_dda7abcf",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-26T11:20:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5e35d0_6f78814e",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcdf857e_e865c729",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2014-03-21T12:24:47Z",
       "side": 1,
       "message": "Would it have made sense to derive from the X86 version?  Is there any code reuse?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f904af03_3c3331d7",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-26T11:20:31Z",
+      "side": 1,
+      "message": "The X86_64 assembler is based on X86 assembler code + REX support and x86_64 calling convention fixes.\n\nX86 version belongs to x86 namespace, it operates on x86:ManagedRegister and does not have access to x86_64 register constants (e.g. R8..R15).\n\nThus deriving from X86 assembler looks not reasonable.",
+      "parentUuid": "bcdf857e_e865c729",
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -98,6 +170,24 @@
       "writtenOn": "2014-03-21T12:24:47Z",
       "side": 1,
       "message": "fix filename?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_7d39b7b4",
+        "filename": "compiler/utils/x86_64/managed_register_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-26T11:20:31Z",
+      "side": 1,
+      "message": "There is no x86.cc in art project now and it is not clear what should be synced. It seems the comment is obsolete in this file, as well as in managed_register_x86.h",
+      "parentUuid": "bcdf857e_484b13a2",
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
