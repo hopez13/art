@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c23318f_a4e2d7f2",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T18:26:27Z",
+      "side": 1,
+      "message": "Related question: Does this class ever remove references from the reference cache? If not, I wonder if the cache gets very large over time as different references are written to the image space, in particular with a moving collector?",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 37
+      },
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc435932_0bb01dd5",
         "filename": "runtime/gc/accounting/mod_union_table-inl.h",
         "patchSetId": 3
