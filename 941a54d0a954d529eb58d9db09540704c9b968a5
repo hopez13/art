@@ -16,6 +16,23 @@
       "revId": "941a54d0a954d529eb58d9db09540704c9b968a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590f7b24_1ab759ba",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-03-26T18:36:16Z",
+      "side": 1,
+      "message": "Consider doing the same for Arm64.",
+      "revId": "941a54d0a954d529eb58d9db09540704c9b968a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
