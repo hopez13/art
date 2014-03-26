@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_80ce58a3",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-26T17:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c23318f_ce89b2a5",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "8050f29fbbf13245c44d96c3a2445201cad3a78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "590f7b24_7709d08a",
         "filename": "tools/art",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-26T17:13:28Z",
       "side": 1,
       "message": "and just unconditionally do\n\nEXIT_STATUS\u003d$?\n\non its own line?",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 27
+      },
+      "revId": "8050f29fbbf13245c44d96c3a2445201cad3a78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_c07220b5",
+        "filename": "tools/art",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-26T17:15:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "590f7b24_7709d08a",
       "range": {
         "startLine": 58,
         "startChar": 9,
