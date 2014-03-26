@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_3a1365e7",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "It is used later, and just here to make it more conforming with other standards of forming the name of the secondary target.",
+      "parentUuid": "99157331_993ffb33",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 37
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910773f_ba1071d9",
         "filename": "build/Android.common.mk",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_5a1021d8",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "Will be fixed.",
+      "parentUuid": "99157331_59a3a350",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910773f_9a0dadc3",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2014-03-26T05:06:50Z",
       "side": 1,
       "message": "I\u0027d probably just define the versions with the suffixes in .common.mk as ART_MODULE_PATH_32 and ART_MODULE_PATH_64?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 1
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc1f3d43_59e10fe9",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "They have different values depending on what we build. It\u0027s either the nativetest or the art-test directory. So this was to not have too many ART_ variables.\n\nI also need to ask Colin for the exact semantics of LOCAL_MODULE_PATH_{32,64}, and talk to you and Anwar about what our goal is.",
+      "parentUuid": "b910773f_9a0dadc3",
       "range": {
         "startLine": 182,
         "startChar": 0,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "dc1c3954_78c4052d",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "Yes, it\u0027s there to make the rules unique for the different targets. I was opting for something short because the lines become awfully long.",
+      "parentUuid": "99157331_39a8ef28",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 66
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910773f_7a4c190c",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2014-03-26T05:06:50Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 0
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc1f3d43_59f82f95",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "b910773f_7a4c190c",
       "range": {
         "startLine": 225,
         "startChar": 0,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "dc1c3954_d8c97944",
+        "filename": "build/Android.libarttest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "Different paths.",
+      "parentUuid": "99157331_19ad2b39",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 50
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910773f_5a5155a0",
         "filename": "build/Android.oat.mk",
         "patchSetId": 1
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_ba383553",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "Will fix that.",
+      "parentUuid": "b910773f_5a5155a0",
+      "range": {
+        "startLine": 56,
+        "startChar": 7,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910773f_3a56a19a",
         "filename": "test/Android.mk",
         "patchSetId": 1
@@ -197,6 +365,30 @@
       "writtenOn": "2014-03-26T05:06:50Z",
       "side": 1,
       "message": "add a TODO?\n\nwangying had a better idea that all this define stuff which is hard to debug. he suggests just using .mk files that are included. not necessarily for this change, but it might life easier.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "620e864e9ad35bc75ded216a39bce4136c334e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc1f3d43_99b467d7",
+        "filename": "test/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T14:47:27Z",
+      "side": 1,
+      "message": "The reason that this is commented out is that the BUILD_JAVA_LIBRARY mk files is not like the SHARED_LIBRARY mk file, as building Java libraries is principally target-independent. So using the same code, no matter inline or included, will give warnings that targets are being overwritten.\n\nI elected to copy the jars to have two complete \"test trees.\" Another solution could be to have just one copy in the system and make the different targets refer to the single copy.",
+      "parentUuid": "b910773f_3a56a19a",
       "range": {
         "startLine": 85,
         "startChar": 0,
