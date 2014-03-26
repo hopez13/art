@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c23318f_2266d735",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-26T21:19:03Z",
+      "side": 1,
+      "message": "for a class the convention is the member variable is followed by an underscore. So this becomes id_.",
+      "range": {
+        "startLine": 318,
+        "startChar": 15,
+        "endLine": 318,
+        "endChar": 17
+      },
+      "revId": "f342f6d25052b60a3ea81871c90cb35d5f3ad473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
