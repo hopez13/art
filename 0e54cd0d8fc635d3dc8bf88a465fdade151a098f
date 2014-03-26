@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "392487a3_dce8c520",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T18:56:34Z",
+      "side": 1,
+      "message": "Are you sure? :) Does ModUnionTableReferenceCache::references_ get elements *removed* from it ever (I see only references_-\u003epush_back() or -\u003ePut())? And, it looks like we don\u0027t recreate the mod union table object or the references_ map at each gc. No?",
+      "parentUuid": "1c23318f_4478434e",
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc435932_0bb01dd5",
         "filename": "runtime/gc/accounting/mod_union_table-inl.h",
         "patchSetId": 3
@@ -78,6 +96,24 @@
       "side": 1,
       "message": "Nice catch, it is equivalent to !GetHeap()-\u003eGetImageSpace()-\u003eHasAddress(). This won\u0027t work with multiple image spaces however.",
       "parentUuid": "dc435932_0bb01dd5",
+      "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c23318f_44cbe3e8",
+        "filename": "runtime/gc/accounting/mod_union_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-26T18:56:34Z",
+      "side": 1,
+      "message": "As the mod union table object has a reference to its space (ModUnionTable::space_), it\u0027s self-contained, that is, we don\u0027t need to refer back to Heap or assume there\u0027s only one image space.",
+      "parentUuid": "590f7b24_3abc5d4b",
       "revId": "0e54cd0d8fc635d3dc8bf88a465fdade151a098f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
