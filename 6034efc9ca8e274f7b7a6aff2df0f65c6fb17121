@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "590f7b24_f71de07a",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-26T16:37:43Z",
+      "side": 1,
+      "message": "Add Valid() too?",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "392487a3_d6be64e1",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-26T16:37:43Z",
+      "side": 1,
+      "message": "Are these used?",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c23318f_4ec6a258",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-26T16:37:43Z",
+      "side": 1,
+      "message": "remove comment?",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c23318f_6e851ef1",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-26T16:37:43Z",
+      "side": 1,
+      "message": "I definitely think xx.IsValid() is better than !xx.IsInvalid()",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "392487a3_96f58c9e",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-03-26T16:37:43Z",
+      "side": 1,
+      "message": "typo: to allocate -\u003e so allocate",
+      "revId": "6034efc9ca8e274f7b7a6aff2df0f65c6fb17121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
