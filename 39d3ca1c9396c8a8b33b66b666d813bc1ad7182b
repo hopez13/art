@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_98261cc8",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T22:53:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "590f7b24_cbafd50d",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c23318f_9dc52ed3",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-03-26T22:13:33Z",
       "side": 1,
       "message": "I don\u0027t understand most of what these makefiles do, but why do you need to call build-art-test-make-target twice?  Are LOCAL_MODULE_PATH_32/64 and LOCAL_MODULE_STEM_32/64 not enough?",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c23318f_7829609a",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T22:53:26Z",
+      "side": 1,
+      "message": "This defines make targets to push the binary to the device and run the tests. So this is necessary, as it is not about building the binaries.",
+      "parentUuid": "1c23318f_9dc52ed3",
       "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1c23318f_38460871",
+        "filename": "build/Android.libarttest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T22:53:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "392487a3_6aa31f51",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "590f7b24_4b8e25ac",
         "filename": "dalvikvm/Android.mk",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2014-03-26T22:13:33Z",
       "side": 1,
       "message": "LOCAL_MULTILIB",
+      "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "392487a3_4a398302",
+        "filename": "dalvikvm/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-26T22:53:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "590f7b24_4b8e25ac",
       "revId": "39d3ca1c9396c8a8b33b66b666d813bc1ad7182b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
