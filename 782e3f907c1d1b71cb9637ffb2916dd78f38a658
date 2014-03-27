@@ -22,6 +22,30 @@
       "revId": "782e3f907c1d1b71cb9637ffb2916dd78f38a658",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ec937b_047a5846",
+        "filename": "runtime/native/org_apache_harmony_dalvik_ddmc_DdmVmInternal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-27T07:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91d8f5d_77878aba",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "782e3f907c1d1b71cb9637ffb2916dd78f38a658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
