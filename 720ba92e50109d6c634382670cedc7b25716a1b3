@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f91d8f5d_ba74e911",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T07:00:10Z",
+      "side": 1,
+      "message": "Yes, its the tearing effect that must be avoided.",
+      "parentUuid": "19f8a337_2009c4c0",
+      "range": {
+        "startLine": 205,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 63
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ec937b_64a24496",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-27T06:28:29Z",
       "side": 1,
       "message": "you can extend this check by \" || std::abs(dst_pos - src_pos) \u003e\u003d count",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590f7b24_20330b25",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T07:00:10Z",
+      "side": 1,
+      "message": "I prefer to leave this covered by the copy forward logic below otherwise the code has to re-test it.",
+      "parentUuid": "99ec937b_64a24496",
       "range": {
         "startLine": 207,
         "startChar": 2,
