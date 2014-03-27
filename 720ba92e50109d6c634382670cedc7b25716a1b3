@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "19f8a337_00600867",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-27T09:08:51Z",
+      "side": 1,
+      "message": "// ... for T.\n// count in in T sized units.\n// copies are ... .",
+      "range": {
+        "startLine": 167,
+        "startChar": 25,
+        "endLine": 167,
+        "endChar": 28
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f904af03_dfb8bfa6",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-27T09:08:51Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 180,
+        "startChar": 14,
+        "endLine": 180,
+        "endChar": 24
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f8a337_2009c4c0",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 1
