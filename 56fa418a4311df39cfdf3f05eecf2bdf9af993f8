@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "590f7b24_af7ca496",
+        "filename": "compiler/jni/quick/calling_convention.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "This one should be sizeof(uint32_t), the size of number_of_references_, to decouple it from the size of StackReference. Maybe introduce another method SirtReferencesOffset() to abstract and have all the SIRT offset logic close together?",
+      "range": {
+        "startLine": 196,
+        "startChar": 50,
+        "endLine": 196,
+        "endChar": 66
+      },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91d8f5d_ae502b48",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "Size of StackReference as an expression, maybe?",
+      "range": {
+        "startLine": 70,
+        "startChar": 43,
+        "endLine": 70,
+        "endChar": 44
+      },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91d8f5d_4e399702",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "\"else if\" or a switch, maybe?",
+      "range": {
+        "startLine": 82,
+        "startChar": 7,
+        "endLine": 83,
+        "endChar": 8
+      },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcdf857e_c856034a",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 2
@@ -66,6 +135,75 @@
       "side": 1,
       "message": "Will change this switch to XMM0+itr_float_and_doubles_",
       "parentUuid": "3c5e35d0_8f905d35",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91d8f5d_6958cd4c",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "Cruft?",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 2
+      },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590f7b24_0ffcb087",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "Use kSirtPointerSize (add to JniCallingConvention)? Will change the expression structure...",
+      "range": {
+        "startLine": 158,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 58
+      },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91d8f5d_a96f05cd",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "Cruft?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 2
+      },
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -153,6 +291,29 @@
       "writtenOn": "2014-03-21T12:24:47Z",
       "side": 1,
       "message": "fix date?",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91d8f5d_09bcb998",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-27T21:30:33Z",
+      "side": 1,
+      "message": "The REX prefixes make the assembler quite a bit more complicated. I think we should have more/better tests here that actually compare against some hand-encoded sequences. But it would be OK with me to merge without the tests for now.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
