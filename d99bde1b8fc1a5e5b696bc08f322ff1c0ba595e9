@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99ec937b_a4c28c20",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-27T08:42:53Z",
+      "side": 1,
+      "message": "How about SafePointDescriptor?",
+      "parentUuid": "590f7b24_00c5a74b",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "d99bde1b8fc1a5e5b696bc08f322ff1c0ba595e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ec937b_c42d9077",
         "filename": "compiler/utils/assembler.h",
         "patchSetId": 3
