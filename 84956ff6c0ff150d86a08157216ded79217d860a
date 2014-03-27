@@ -22,6 +22,30 @@
       "revId": "84956ff6c0ff150d86a08157216ded79217d860a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_60a34c51",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-03-27T10:20:44Z",
+      "side": 1,
+      "message": "JValue is a packed 4 byte union. \n\nIf I understand correctly, the conversions from float -\u003e int here are actually being done by the C++ compiler. for eg, dst-\u003eSetF(src.GetI()) there\u0027s an implicit static_cast\u003cfloat\u003e(int32_t).",
+      "parentUuid": "19f8a337_4056109b",
+      "range": {
+        "startLine": 549,
+        "startChar": 18,
+        "endLine": 549,
+        "endChar": 22
+      },
+      "revId": "84956ff6c0ff150d86a08157216ded79217d860a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
