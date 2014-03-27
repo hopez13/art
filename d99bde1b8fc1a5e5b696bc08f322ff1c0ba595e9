@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "590f7b24_00c5a74b",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T04:36:00Z",
+      "side": 1,
+      "message": "It\u0027d be nice to use a different term than descriptor, cleaning up dalvik\u0027s mixed up usage of signature and descriptor has been ongoing work for ART.",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "d99bde1b8fc1a5e5b696bc08f322ff1c0ba595e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ec937b_c42d9077",
         "filename": "compiler/utils/assembler.h",
         "patchSetId": 3
