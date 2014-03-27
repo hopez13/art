@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19f8a337_63159625",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-27T16:04:24Z",
+      "side": 1,
+      "message": "Should be uint32_t for DEX pc",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 11
+      },
+      "revId": "562b934df4a3ce4a5ca615dee093fc0fa32d7776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f904af03_e2d2c221",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-27T16:04:24Z",
+      "side": 1,
+      "message": "uint32_t ?",
+      "range": {
+        "startLine": 154,
+        "startChar": 26,
+        "endLine": 154,
+        "endChar": 33
+      },
+      "revId": "562b934df4a3ce4a5ca615dee093fc0fa32d7776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_c32d8a77",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-27T16:04:24Z",
+      "side": 1,
+      "message": "Why using exit ? I\u0027d recommend LOG(FATAL) which can log a message and abort.",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "562b934df4a3ce4a5ca615dee093fc0fa32d7776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f904af03_02ffee7f",
+        "filename": "test/401-optimizing-compiler/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-27T16:04:24Z",
+      "side": 1,
+      "message": "incrementally",
+      "range": {
+        "startLine": 1,
+        "startChar": 54,
+        "endLine": 1,
+        "endChar": 67
+      },
+      "revId": "562b934df4a3ce4a5ca615dee093fc0fa32d7776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
