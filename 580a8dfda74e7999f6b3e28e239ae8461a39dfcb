@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "f91d8f5d_4e69977c",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-27T19:51:15Z",
+      "side": 1,
+      "message": "Currently, Class::VisitReferences and ObjectArray::VisitReferences aren\u0027t called anywhere other than this function. I do not believe they currently verify anything, it may be worth adding the verification flags in the future if they end up being called other places than this function.",
+      "parentUuid": "59f69b4a_b343f02d",
+      "revId": "580a8dfda74e7999f6b3e28e239ae8461a39dfcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79f19f4f_54900c34",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 619,
         "endChar": 67
       },
+      "revId": "580a8dfda74e7999f6b3e28e239ae8461a39dfcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91d8f5d_6e745356",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-27T19:51:15Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "79f19f4f_54900c34",
       "revId": "580a8dfda74e7999f6b3e28e239ae8461a39dfcb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
