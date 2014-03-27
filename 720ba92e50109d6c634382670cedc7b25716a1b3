@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "590f7b24_0395b1b1",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T15:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19f8a337_00600867",
+      "range": {
+        "startLine": 167,
+        "startChar": 25,
+        "endLine": 167,
+        "endChar": 28
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f904af03_dfb8bfa6",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-27T09:08:51Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 180,
+        "startChar": 14,
+        "endLine": 180,
+        "endChar": 24
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590f7b24_e3a19d13",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T15:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f904af03_dfb8bfa6",
       "range": {
         "startLine": 180,
         "startChar": 14,
@@ -166,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "19218395_69b7ad6b",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T15:04:05Z",
+      "side": 1,
+      "message": "We still do forward copies for the possible cases below, for the byte copy case I expect memmove to do a faster overlap check and copy.",
+      "parentUuid": "f904af03_df767f62",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ec937b_c4deb0f4",
         "filename": "runtime/mirror/array-inl.h",
         "patchSetId": 1
@@ -177,6 +249,24 @@
       "writtenOn": "2014-03-27T09:10:39Z",
       "side": 1,
       "message": "const bool",
+      "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19218395_89b2097a",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-27T15:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ec937b_c4deb0f4",
       "revId": "720ba92e50109d6c634382670cedc7b25716a1b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
