@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ec937b_8aa8af5c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-28T15:45:52Z",
+      "side": 1,
+      "message": "I wonder if we should do the same here. We probably need to test and see what the RI does.",
+      "range": {
+        "startLine": 2492,
+        "startChar": 26,
+        "endLine": 2492,
+        "endChar": 80
+      },
+      "revId": "c21214c04f448bcd80cc8c5d737fbac111ff2275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
