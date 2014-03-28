@@ -16,6 +16,29 @@
       "revId": "b28fc64c5a76fdd4540d82e59c433ac608ffdd73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "194fc37f_a50efe4c",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T17:21:51Z",
+      "side": 1,
+      "message": "we could disable the optimization here",
+      "range": {
+        "startLine": 1646,
+        "startChar": 6,
+        "endLine": 1646,
+        "endChar": 38
+      },
+      "revId": "b28fc64c5a76fdd4540d82e59c433ac608ffdd73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
