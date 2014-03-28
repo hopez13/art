@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f904af03_a5dba402",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-28T16:15:10Z",
+      "side": 1,
+      "message": "Just a detail: thinking about future optimizations, it may be easier to get the vreg first and the constant next. IIRC, this is done so in LLVM IR but I\u0027m not saying we should do the same. Anyway, the order must be consistent for all arithmetic operations.",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 65
+      },
+      "revId": "3693af1eff27ca5b0b9ccad5749283a2653674b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_864c300d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-28T16:15:10Z",
+      "side": 1,
+      "message": "const Primitive::Type.",
+      "range": {
+        "startLine": 572,
+        "startChar": 2,
+        "endLine": 572,
+        "endChar": 17
+      },
+      "revId": "3693af1eff27ca5b0b9ccad5749283a2653674b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
