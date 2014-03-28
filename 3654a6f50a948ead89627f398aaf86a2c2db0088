@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b935d7d3_4656329b",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T00:26:50Z",
+      "side": 1,
+      "message": "I suspect this was the cause of the modulus 3 regression.",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 3
+      },
+      "revId": "3654a6f50a948ead89627f398aaf86a2c2db0088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
