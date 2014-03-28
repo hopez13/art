@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1926e3b5_d0cb02e6",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:24:49Z",
+      "side": 1,
+      "message": "We should switch this to be the slow path, the gain from being inline is marginal and the code expansion imo not worth it. The slow path handles both recursion and quick path locking without going into C code.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_b0c876ea",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:24:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 243,
+        "startChar": 17,
+        "endLine": 243,
+        "endChar": 31
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_90c57ad4",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:24:49Z",
+      "side": 1,
+      "message": "why not \u0027ldr.w r12,[sp, #-16384]\u0027 ?\nNote r12 is used for a hidden argument during imt resolution. This is ok as stack overflow checks occur post dispatch.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 21
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_508952a1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:24:49Z",
+      "side": 1,
+      "message": "can you follow the pattern from runtime to actually allocate a proper object? See the resolution method allocation...",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_10daaab3",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:24:49Z",
+      "side": 1,
+      "message": "Can you make this not a mirror type as its breaking heap invariants.",
+      "range": {
+        "startLine": 109,
+        "startChar": 22,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_f0cefef7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:24:49Z",
+      "side": 1,
+      "message": "this will add to footprint :-/",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 53
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
