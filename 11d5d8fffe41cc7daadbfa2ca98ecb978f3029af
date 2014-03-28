@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1926e3b5_30bc864b",
+        "filename": "runtime/native/java_lang_reflect_Constructor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "implied jboolean (uint8_t) to bool conversion, prefer \u0027accessible \u003d\u003d JNI_TRUE\u0027 ?",
+      "range": {
+        "startLine": 71,
+        "startChar": 56,
+        "endLine": 71,
+        "endChar": 66
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_70b20e7d",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "prefer \u0027accessible \u003d\u003d JNI_FALSE\u0027 ?",
+      "range": {
+        "startLine": 127,
+        "startChar": 7,
+        "endLine": 127,
+        "endChar": 17
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3929e785_94fa0c22",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "prefer \u0027accessible \u003d\u003d JNI_FALSE\u0027 ?",
+      "range": {
+        "startLine": 154,
+        "startChar": 7,
+        "endLine": 154,
+        "endChar": 17
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5944db56_55281c12",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "accessible \u003d\u003d JNI_FALSE",
+      "range": {
+        "startLine": 295,
+        "startChar": 7,
+        "endLine": 295,
+        "endChar": 17
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3929e785_7409e08a",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "accessible \u003d\u003d JNI_FALSE",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 326,
+        "endChar": 17
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_90133ab4",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "implied jboolean (uint8_t) to bool conversion, prefer \u0027accessible \u003d\u003d JNI_TRUE\u0027 ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 63,
+        "endLine": 35,
+        "endChar": 73
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3929e785_d419b4d5",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "useful comment?",
+      "range": {
+        "startLine": 503,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 21
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3929e785_f41cb0c7",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "(access_flags \u0026 kAccPublic) !\u003d 0",
+      "range": {
+        "startLine": 802,
+        "startChar": 7,
+        "endLine": 802,
+        "endChar": 33
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5944db56_b51068d9",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 806,
+        "startChar": 5,
+        "endLine": 806,
+        "endChar": 33
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_d0a2e227",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 809,
+        "startChar": 5,
+        "endLine": 809,
+        "endChar": 36
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e3b5_b0af560e",
+        "filename": "runtime/reflection.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T22:05:50Z",
+      "side": 1,
+      "message": "Verify? We don\u0027t really use the term validate elsewhere.",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 13
+      },
+      "revId": "11d5d8fffe41cc7daadbfa2ca98ecb978f3029af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
