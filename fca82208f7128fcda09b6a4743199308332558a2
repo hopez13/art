@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b935d7d3_7910b81d",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-28T17:44:46Z",
+      "side": 1,
+      "message": "I\u0027ll accept for now. But please change StackIndirectReferenceTable to have an Offset method similar to the ones before. If we change the layout of the SIRT class once again, this code will break and people won\u0027t notice immediately.",
+      "range": {
+        "startLine": 302,
+        "startChar": 23,
+        "endLine": 303,
+        "endChar": 39
+      },
+      "revId": "fca82208f7128fcda09b6a4743199308332558a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7958bf41_ab27f5c6",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-28T17:44:46Z",
+      "side": 1,
+      "message": "I\u0027ll accept for now, but you should investigate: There is actually SizeOf in the SIRT class. But there are issues when cross-compiling (though those issues also exist for this code).",
+      "range": {
+        "startLine": 143,
+        "startChar": 21,
+        "endLine": 143,
+        "endChar": 88
+      },
+      "revId": "fca82208f7128fcda09b6a4743199308332558a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
