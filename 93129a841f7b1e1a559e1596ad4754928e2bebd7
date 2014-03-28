@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b910773f_eefbc78f",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "Should this be is_static?",
+      "range": {
+        "startLine": 79,
+        "startChar": 59,
+        "endLine": 79,
+        "endChar": 65
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39fba735_4d864555",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "many?",
+      "range": {
+        "startLine": 151,
+        "startChar": 43,
+        "endLine": 151,
+        "endChar": 47
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d948cb7a_a3cb9a8d",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "This comment should go with the CHECK now in line 1360.",
+      "range": {
+        "startLine": 1339,
+        "startChar": 2,
+        "endLine": 1339,
+        "endChar": 41
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b910773f_ee5f47d0",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "It looks like a lack of this locking in the previous code. Does that indicate a lack of proper locking (a potential race condition) before?",
+      "range": {
+        "startLine": 1362,
+        "startChar": 2,
+        "endLine": 1362,
+        "endChar": 17
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "194fc37f_e51cf6c7",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "Same comment as the one in mark_sweep.cc.",
+      "range": {
+        "startLine": 778,
+        "startChar": 2,
+        "endLine": 778,
+        "endChar": 17
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94bcf71_c4ea1e87",
+        "filename": "runtime/gc/collector/semi_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "Not sure, but should this be in the \"namespace gc { ... }\" instead of here?",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94bcf71_240452aa",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 1,
+      "message": "At this point, bound bit maps are already unbound, except for the image space which has permanently bound bit maps (or that it only has one bit map shared as live and mark bit map). So, this condition is equivalent to \n\n   space-\u003eGetGcRetentionPolicy() !\u003d space::kGcRetentionPolicyNeverCollect\n\nin the old version of this code. Correct?",
+      "range": {
+        "startLine": 2828,
+        "startChar": 8,
+        "endLine": 2828,
+        "endChar": 45
+      },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

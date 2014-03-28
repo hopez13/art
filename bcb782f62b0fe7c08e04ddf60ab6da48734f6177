@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f94bcf71_84a1c6bb",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 0,
+      "message": "Same comment as the one in semi_space.cc.",
+      "range": {
+        "startLine": 1379,
+        "startChar": 22,
+        "endLine": 1379,
+        "endChar": 27
+      },
+      "revId": "bcb782f62b0fe7c08e04ddf60ab6da48734f6177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "194fc37f_659da655",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 0,
+      "message": "The pair of Start/End() calls are removed when this code is moved to garbage_collector.cc. Is this as intended?",
+      "range": {
+        "startLine": 768,
+        "startChar": 22,
+        "endLine": 768,
+        "endChar": 27
+      },
+      "revId": "bcb782f62b0fe7c08e04ddf60ab6da48734f6177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "194fc37f_85fae221",
+        "filename": "runtime/gc/collector/semi_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 0,
+      "message": "This was dead code, right?",
+      "range": {
+        "startLine": 192,
+        "startChar": 7,
+        "endLine": 192,
+        "endChar": 24
+      },
+      "revId": "bcb782f62b0fe7c08e04ddf60ab6da48734f6177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99157331_e81a9b80",
+        "filename": "runtime/gc/collector/sticky_mark_sweep.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-28T18:15:54Z",
+      "side": 0,
+      "message": "To confirm, this empty overriding UpdateAndMarkModUnion() was here because the sticky collection didn\u0027t need to call the parent\u0027s UpdateAndMarkModUnion(). But now, as he call site was moved from MarkingPhase() to MarkReachableObjects() which this class already overrides with a function that does not call UpdateAndMarkModUnion() (and hence no longer needs to empty-override it), correct?",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "bcb782f62b0fe7c08e04ddf60ab6da48734f6177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
