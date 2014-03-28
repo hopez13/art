@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_265b1cc1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-28T16:19:53Z",
+      "side": 1,
+      "message": "Yeah, to help GVN we should make it consistent for commutative operations. How about just ensuring first.id \u003c\u003d second.id ?",
+      "parentUuid": "f904af03_a5dba402",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 65
+      },
+      "revId": "3693af1eff27ca5b0b9ccad5749283a2653674b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f8a337_864c300d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
