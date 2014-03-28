@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_a39efed1",
+        "filename": "compiler/jni/quick/calling_convention.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "The  number_of_references_ is private member of StackIndirectReferenceTable, so the sizeof(uint32_t) the only choice. Created SirtReferencesOffset(), it looks logical as an addition to SirtLinkOffset/SirtNumRefsOffset, reordered last two in calling_convention.h in order to match offset sequence.",
+      "parentUuid": "590f7b24_af7ca496",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91d8f5d_ae502b48",
         "filename": "compiler/jni/quick/calling_convention.h",
         "patchSetId": 2
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_c3a10a14",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91d8f5d_ae502b48",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91d8f5d_4e399702",
         "filename": "compiler/jni/quick/calling_convention.h",
         "patchSetId": 2
@@ -65,6 +101,24 @@
         "endLine": 83,
         "endChar": 8
       },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_438e1aac",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "The (ch \u003d\u003d \u0027D\u0027) is present in previouscondition \"else if\", thus this logic could not be \"else if\", it should be separate \"if\".\n\nTransformed this logic into switch to improve readability.",
+      "parentUuid": "f91d8f5d_4e399702",
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -164,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_039812e8",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "The EntrySpills refactored in patchset 3, there will be no commented code here.",
+      "parentUuid": "f91d8f5d_6958cd4c",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "590f7b24_0ffcb087",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 2
@@ -187,6 +259,24 @@
     },
     {
       "key": {
+        "uuid": "99ec937b_478182a1",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "Fixed, now expression is:\nkPointerSize + sizeof(uint32_t) + ReferenceCount()*kSirtPointerSize",
+      "parentUuid": "590f7b24_0ffcb087",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91d8f5d_a96f05cd",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 2
@@ -204,6 +294,24 @@
         "endLine": 181,
         "endChar": 2
       },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_e39406b8",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "Comment removed",
+      "parentUuid": "f91d8f5d_a96f05cd",
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -297,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "99ec937b_678c86db",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5e35d0_0f854df1",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91d8f5d_09bcb998",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 2
@@ -314,6 +440,24 @@
         "endLine": 30,
         "endChar": 1
       },
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_23930ed2",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-28T07:07:11Z",
+      "side": 1,
+      "message": "I would prefer to do not extend test cases in bounds of this patch. Only if we will decide to move to another assembler extending assembler tests will bring the value. The opcodes with extended rex support already works fine in jni compiler.",
+      "parentUuid": "f91d8f5d_09bcb998",
       "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
