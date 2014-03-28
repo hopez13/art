@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f94bcf71_58d3ad4a",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-28T23:20:08Z",
+      "side": 1,
+      "message": "Separate CL.",
+      "parentUuid": "1926e3b5_d0cb02e6",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1926e3b5_b0c876ea",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-28T22:24:49Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 243,
+        "startChar": 17,
+        "endLine": 243,
+        "endChar": 31
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94bcf71_18dd3553",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-28T23:20:08Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "1926e3b5_b0c876ea",
       "range": {
         "startLine": 243,
         "startChar": 17,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d948cb7a_972a145c",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-28T23:20:08Z",
+      "side": 1,
+      "message": "Because thumb2 has no instruction for an ldr with a negative immediate offset.  You have to use an mvn instruction, or a movw/movt pair to put the offset into a register.\n\nR12 is safe to use here.",
+      "parentUuid": "1926e3b5_90c57ad4",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 21
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1926e3b5_508952a1",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-03-28T22:24:49Z",
       "side": 1,
       "message": "can you follow the pattern from runtime to actually allocate a proper object? See the resolution method allocation...",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d948cb7a_573edc9e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-28T23:20:08Z",
+      "side": 1,
+      "message": "I\u0027ll look into it.",
+      "parentUuid": "1926e3b5_508952a1",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "194fc37f_54101a1d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-28T23:20:08Z",
+      "side": 1,
+      "message": "Does this not conflict with your desire to allocate a proper object for it?  I started out with a hardcoded constant address but thought it would be safer to use a static address.",
+      "parentUuid": "1926e3b5_10daaab3",
+      "range": {
+        "startLine": 109,
+        "startChar": 22,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1926e3b5_f0cefef7",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-03-28T22:24:49Z",
       "side": 1,
       "message": "this will add to footprint :-/",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 53
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d948cb7a_77e2f8f6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-28T23:20:08Z",
+      "side": 1,
+      "message": "Yeah, but no choice.  You have to get the kernel to map the pages before you can mprotect them.  It only affects the main stack, so an overall footprint increase of 32K per process.  Not too bad.",
+      "parentUuid": "1926e3b5_f0cefef7",
       "range": {
         "startLine": 257,
         "startChar": 0,
