@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "99ec937b_8a6d4f1e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-03-28T18:51:22Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ll add a verifier once the SSA transformation is implemented. Let\u0027s think about the canonical/preserving consistency once the need arises.",
+      "parentUuid": "f91d8f5d_e52cf9c3",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 65
+      },
+      "revId": "3693af1eff27ca5b0b9ccad5749283a2653674b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f8a337_864c300d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
