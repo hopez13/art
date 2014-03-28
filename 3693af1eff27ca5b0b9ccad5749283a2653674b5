@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "19f8a337_a6660c81",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-03-28T16:25:50Z",
+      "side": 1,
+      "message": "Would it be always true? I mean, if you want to merge multiple operations into one (constant propagation for instance), you may end up with the reverse order. Unless we ensure this is always the case when doing such optimization.",
+      "parentUuid": "19f8a337_265b1cc1",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 65
+      },
+      "revId": "3693af1eff27ca5b0b9ccad5749283a2653674b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f8a337_864c300d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
