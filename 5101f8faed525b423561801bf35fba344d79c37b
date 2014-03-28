@@ -281,6 +281,30 @@
       "revId": "5101f8faed525b423561801bf35fba344d79c37b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3929e785_d7e89620",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T23:25:25Z",
+      "side": 1,
+      "message": "Could we madvise the memory away?",
+      "parentUuid": "d948cb7a_77e2f8f6",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 53
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
