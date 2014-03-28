@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "f91d8f5d_e52cf9c3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-28T17:24:27Z",
+      "side": 1,
+      "message": "Perhaps have an IsCanonical method on HInstruction and a verification pass that everything is in its canonical form.",
+      "parentUuid": "f904af03_85230839",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 65
+      },
+      "revId": "3693af1eff27ca5b0b9ccad5749283a2653674b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f8a337_864c300d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
