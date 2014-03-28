@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b935d7d3_59a85429",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-03-28T16:39:22Z",
+      "side": 1,
+      "message": "This logic is not correct, if dest and src are the same register.",
+      "revId": "b28fc64c5a76fdd4540d82e59c433ac608ffdd73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
