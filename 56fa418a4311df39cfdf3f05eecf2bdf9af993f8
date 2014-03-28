@@ -464,6 +464,24 @@
     },
     {
       "key": {
+        "uuid": "f91d8f5d_2579d199",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-28T16:11:15Z",
+      "side": 1,
+      "message": "As mentioned, I am OK with the patch as is.\n\nBut \"It works for the JNI compiler, so it must be fine\" is horrible logic. We do not need to move to another assembler to gain benefits of actual real testing. Just testing the buffer size for two examples is ridiculous. To anyone who has no deep understanding of an assembler and studies the source, there is basically no trust as there are no functional tests.",
+      "parentUuid": "19f8a337_23930ed2",
+      "revId": "56fa418a4311df39cfdf3f05eecf2bdf9af993f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcdf857e_484b13a2",
         "filename": "compiler/utils/x86_64/managed_register_x86_64.h",
         "patchSetId": 2
