@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f94bcf71_0486f6ba",
+        "filename": "runtime/base/timing_logger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "Adding the ++iterations_ here makes it that you no longer need to do Start / End around AddLogger.",
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910773f_eefbc78f",
         "filename": "runtime/gc/accounting/mod_union_table.cc",
         "patchSetId": 4
@@ -19,6 +36,24 @@
         "endLine": 79,
         "endChar": 65
       },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d948cb7a_43ad066a",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b910773f_eefbc78f",
       "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -48,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "d948cb7a_03b70eba",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "Grammar is hard, done.",
+      "parentUuid": "39fba735_4d864555",
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d948cb7a_a3cb9a8d",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 4
@@ -65,6 +118,24 @@
         "endLine": 1339,
         "endChar": 41
       },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94bcf71_a4696253",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d948cb7a_a3cb9a8d",
       "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +165,24 @@
     },
     {
       "key": {
+        "uuid": "d948cb7a_a3defaf2",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "I don\u0027t think it mattered since we cleared the mark bits, and the only the live bits are typically read from the heap code.",
+      "parentUuid": "b910773f_ee5f47d0",
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "194fc37f_e51cf6c7",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 4
@@ -111,6 +200,24 @@
         "endLine": 778,
         "endChar": 17
       },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d948cb7a_83f41e69",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "Same comment as mark_sweep.cc",
+      "parentUuid": "194fc37f_e51cf6c7",
       "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +247,24 @@
     },
     {
       "key": {
+        "uuid": "194fc37f_e580766e",
+        "filename": "runtime/gc/collector/semi_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "You are right, moved.",
+      "parentUuid": "f94bcf71_c4ea1e87",
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f94bcf71_240452aa",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -157,6 +282,24 @@
         "endLine": 2828,
         "endChar": 45
       },
+      "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94bcf71_6487eaba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-03-28T18:35:13Z",
+      "side": 1,
+      "message": "It is currently functionally equivalent, it may be worth revisiting this logic later when we add more space types.",
+      "parentUuid": "f94bcf71_240452aa",
       "revId": "93129a841f7b1e1a559e1596ad4754928e2bebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
