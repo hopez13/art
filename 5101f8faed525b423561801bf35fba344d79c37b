@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d948cb7a_575b7c71",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-29T00:30:14Z",
+      "side": 1,
+      "message": "Ian, if I remember correctly, when you proposed doing this last year the tests showed measurable/significant performance degradation on at least some popular devices - which is why we didn\u0027t do it then.  Has something changed?  (or perhaps my memory isn\u0027t correct).  In any event, I agree with Dave that this should be taken up in a separate CL with new measurements to judge the cost/benefit.  I\u0027d be thrilled if we could push this code out-of-line, provided there was no significant performance loss.",
+      "parentUuid": "f94bcf71_58d3ad4a",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1926e3b5_b0c876ea",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
@@ -90,6 +114,40 @@
         "endLine": 243,
         "endChar": 31
       },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d948cb7a_12e75254",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-29T00:30:14Z",
+      "side": 1,
+      "message": "What\u0027s the size of the overflow reserve?  In the previous code, we used a 2 operand sub form, which allows for a large immediate.  I don\u0027t have an ARM manual in front of me, but reg/reg/imm doesn\u0027t allow nearly as large an immediate - which could mean OpRegRegImm would try to allocate a temp register at this point.  Thinking about it though, I vaguely recall a special sub reg immediate form if the reg is SP.   Anyway, worth reviewing temp register requirements at this point in the code if you can\u0027t afford another temp register to be allocated behind your back.",
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "194fc37f_1f0abbed",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-03-29T00:30:14Z",
+      "side": 1,
+      "message": "leftover debug code?",
       "revId": "5101f8faed525b423561801bf35fba344d79c37b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
