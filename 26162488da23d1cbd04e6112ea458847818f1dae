@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5944db56_7e2add95",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-31T18:31:13Z",
+      "side": 0,
+      "message": "Is it as intended to remove this call?",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 14
+      },
+      "revId": "26162488da23d1cbd04e6112ea458847818f1dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "199423fe_a09934ad",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-31T18:31:13Z",
+      "side": 0,
+      "message": "To confirm, now that we delayed the stack swap from the thread checkpoint at the beginning of the mark phase to the pause, we don\u0027t need this code/technique, correct?",
+      "range": {
+        "startLine": 307,
+        "startChar": 37,
+        "endLine": 307,
+        "endChar": 53
+      },
+      "revId": "26162488da23d1cbd04e6112ea458847818f1dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5944db56_9ef2210b",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-03-31T18:31:13Z",
+      "side": 0,
+      "message": "To confirm: now that we revoke thread-local allocation stacks during the pause, doing it here would be unnecessary and hence removed.",
+      "range": {
+        "startLine": 1056,
+        "startChar": 14,
+        "endLine": 1056,
+        "endChar": 46
+      },
+      "revId": "26162488da23d1cbd04e6112ea458847818f1dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
