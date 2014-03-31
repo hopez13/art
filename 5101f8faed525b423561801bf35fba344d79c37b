@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "39ae4766_867a0acb",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T21:58:28Z",
+      "side": 1,
+      "message": "Not optimizing it, just making it work.  We can move it to a slow path later but I wanted to get it into a good state first.",
+      "parentUuid": "f9a02f5c_3fe78354",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1926e3b5_b0c876ea",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
@@ -296,6 +320,30 @@
       "side": 1,
       "message": "I\u0027ll look into it.",
       "parentUuid": "1926e3b5_508952a1",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9d157e4_b53f2a33",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T21:58:28Z",
+      "side": 1,
+      "message": "On second thoughts, I think it\u0027s better just make this into a void* and not worry about allocating a real object.  It removes any future difficulties with moving objects, and whatever else we come up with.  Best not to have a fake object in the heap I think.",
+      "parentUuid": "d948cb7a_573edc9e",
       "range": {
         "startLine": 37,
         "startChar": 0,
