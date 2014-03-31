@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "99ec937b_b5f2b80a",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-31T02:42:53Z",
+      "side": 1,
+      "message": "I\u0027ll upload this enhancement as a separate patch set this week.",
+      "parentUuid": "b935d7d3_7910b81d",
+      "revId": "fca82208f7128fcda09b6a4743199308332558a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7958bf41_ab27f5c6",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 143,
         "endChar": 88
       },
+      "revId": "fca82208f7128fcda09b6a4743199308332558a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f8a337_b196487b",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-03-31T02:42:53Z",
+      "side": 1,
+      "message": "Do you think the following expression acceptable?\n\nsize_t sirt_size \u003d sizeof(StackIndirectReferenceTable) + (ReferenceCount() - 1) * kSirtPointerSize;",
+      "parentUuid": "7958bf41_ab27f5c6",
       "revId": "fca82208f7128fcda09b6a4743199308332558a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
