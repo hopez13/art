@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "79db5f06_f3d2aa21",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T21:35:18Z",
+      "side": 1,
+      "message": "It\u0027s 16K.  The ARM instruction sequence is:\nsub r12,sp,#16384\nldr.w r12,[r12,#0]\n\nThose are both 4 byte instructions due to the use of r12.  Thumb doesn\u0027t have a ldr.w r12,[sp,#-16384] or anything negative so this seems to be the best sequence I could find.\n\nThe offset is constant so there will never be a register allocated unless someone goes and changes it.  I\u0027ll add a comment to that effect in the code as a warning.",
+      "parentUuid": "d948cb7a_12e75254",
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "194fc37f_1f0abbed",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 2
@@ -172,6 +190,24 @@
       "writtenOn": "2014-03-29T00:30:14Z",
       "side": 1,
       "message": "leftover debug code?",
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9d157e4_f5761262",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T21:35:18Z",
+      "side": 1,
+      "message": "Indeed, I\u0027ll remove",
+      "parentUuid": "194fc37f_1f0abbed",
       "revId": "5101f8faed525b423561801bf35fba344d79c37b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -378,6 +414,30 @@
       "side": 1,
       "message": "Could we madvise the memory away?",
       "parentUuid": "d948cb7a_77e2f8f6",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 53
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ae4766_c6bb22a1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T21:35:18Z",
+      "side": 1,
+      "message": "It\u0027s on the main stack only.  There\u0027s no point in doing that because the process will exit.\n\nHowever, I just though of something.  We don\u0027t really need to touch the memory for non-main-stack threads.  I know in the caller if the stack is the main stack so I can only do the memset if it is the main.",
+      "parentUuid": "3929e785_d7e89620",
       "range": {
         "startLine": 257,
         "startChar": 0,
