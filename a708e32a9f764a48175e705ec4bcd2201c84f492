@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f94bcf71_246447f5",
+        "filename": "runtime/arch/arm64/asm_support_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-31T18:48:23Z",
+      "side": 0,
+      "message": "thread_arm64.cc still references that for me.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "a708e32a9f764a48175e705ec4bcd2201c84f492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
