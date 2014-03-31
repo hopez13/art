@@ -81,6 +81,24 @@
       "revId": "fca82208f7128fcda09b6a4743199308332558a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94bcf71_4e4d248d",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-03-31T15:08:55Z",
+      "side": 1,
+      "message": "That does not improve the current expression.\n\nThe issue is with cross-compiling, that is, compiling for 64b on 32b or the reverse. Then sizeof and OFFSETOF_MEMBER compute offsets for the \"host\" layout, while they should compute for the target.\n\nWe do not have a good story yet on how to solve this issue without too much code duplication or flags. Ideas are welcome.\n\nWhat I meant with the comment: Sirt::SizeOf(num_entries) is supposed to compute the Sirt size for the given number of entries, so you don\u0027t need this compound expression at all. However, that function has the same limitation as outlined above.",
+      "parentUuid": "19f8a337_b196487b",
+      "revId": "fca82208f7128fcda09b6a4743199308332558a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
