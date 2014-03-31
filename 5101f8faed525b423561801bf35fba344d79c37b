@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f9a02f5c_3fe78354",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-03-31T18:05:45Z",
+      "side": 1,
+      "message": "measurable, yes, significant it was around the noise margin on a single benchmark. The issue that\u0027s relevant here is that Dave is optimizing a code path we should probably have just deleted for code expansion reasons. Note we don\u0027t have this code path on anything other than ARM.",
+      "parentUuid": "d948cb7a_575b7c71",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "5101f8faed525b423561801bf35fba344d79c37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1926e3b5_b0c876ea",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 2
