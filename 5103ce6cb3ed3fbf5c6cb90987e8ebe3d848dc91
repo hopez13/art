@@ -16,6 +16,24 @@
       "revId": "5103ce6cb3ed3fbf5c6cb90987e8ebe3d848dc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "197d03a0_f5f05847",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-03-31T20:20:59Z",
+      "side": 1,
+      "message": "the problem was with 1.5, it wanted us to set the bootclasspath to 1.5. I originally just changed to 1.7, but figured this would just be an ongoing churn issue for something that doesn\u0027t really matter too much for our tests scripts.",
+      "parentUuid": "19f8a337_515f0425",
+      "revId": "5103ce6cb3ed3fbf5c6cb90987e8ebe3d848dc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
