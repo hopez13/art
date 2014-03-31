@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99157331_2eb65b05",
+        "filename": "compiler/final_relocations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T19:13:20Z",
+      "side": 1,
+      "message": ":-)",
+      "parentUuid": "199423fe_5d093b8a",
+      "range": {
+        "startLine": 66,
+        "startChar": 22,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "4a9e5e86a990fcc7141f77d994a569a568c952ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "199423fe_9dfd831e",
         "filename": "compiler/final_relocations.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2014-03-31T18:02:31Z",
       "side": 1,
       "message": "why do we need the compilation unit here? The compilation unit is something tied to quick compilation and shouldn\u0027t have a lifetime beyond a single method compile (note were we using namespaces this would be clearer).",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "4a9e5e86a990fcc7141f77d994a569a568c952ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99157331_eea743cf",
+        "filename": "compiler/final_relocations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-03-31T19:13:20Z",
+      "side": 1,
+      "message": "It was to enable access to some debug information during development.  I\u0027ll remove it.",
+      "parentUuid": "199423fe_9dfd831e",
       "range": {
         "startLine": 67,
         "startChar": 0,
