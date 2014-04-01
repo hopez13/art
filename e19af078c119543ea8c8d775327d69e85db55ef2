@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59b93ba9_2a52ff2c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-01T15:25:30Z",
+      "side": 1,
+      "message": "Good point. I think it works in my case because the debugger is the only listener so it will point to end(). I guess that\u0027s not working if it points to an element that gonna be removed. Making a copy of the list and loop over this copy may be safer in the end.",
+      "parentUuid": "79b43fb0_8b99b1ad",
+      "range": {
+        "startLine": 741,
+        "startChar": 6,
+        "endLine": 741,
+        "endChar": 8
+      },
+      "revId": "e19af078c119543ea8c8d775327d69e85db55ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59b93ba9_ea11476e",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 1
