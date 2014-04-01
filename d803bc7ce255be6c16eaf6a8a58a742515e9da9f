@@ -22,6 +22,30 @@
       "revId": "d803bc7ce255be6c16eaf6a8a58a742515e9da9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_990ee74d",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T22:46:08Z",
+      "side": 1,
+      "message": "the behavior is consistent with before where there was an early return. The behavior is to print a line or no line. Moving this outside the \u0027}\u0027 would lead to always having a line.",
+      "parentUuid": "99349308_4a10a736",
+      "range": {
+        "startLine": 916,
+        "startChar": 4,
+        "endLine": 916,
+        "endChar": 15
+      },
+      "revId": "d803bc7ce255be6c16eaf6a8a58a742515e9da9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
