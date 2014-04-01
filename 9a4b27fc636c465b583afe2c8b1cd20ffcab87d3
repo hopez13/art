@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9d157e4_e678a697",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-01T00:31:03Z",
+      "side": 1,
+      "message": "This code is always reachable. Do you mean returning in the above if statements?",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 71
+      },
+      "revId": "9a4b27fc636c465b583afe2c8b1cd20ffcab87d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9d157e4_a6a4decb",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-01T00:31:03Z",
+      "side": 1,
+      "message": "We have already crashed here and might not want a nested DCHECK failure, but would it be any valuable if we do DCHECK(frame-\u003eIsArtMethod()) here?",
+      "range": {
+        "startLine": 206,
+        "startChar": 24,
+        "endLine": 206,
+        "endChar": 29
+      },
+      "revId": "9a4b27fc636c465b583afe2c8b1cd20ffcab87d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19ab4358_c51d5a7b",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-01T00:31:03Z",
+      "side": 1,
+      "message": "Would \"JavaStackTraceHandler\" be a better name to disambiguate it from the native stack?",
+      "range": {
+        "startLine": 99,
+        "startChar": 6,
+        "endLine": 99,
+        "endChar": 23
+      },
+      "revId": "9a4b27fc636c465b583afe2c8b1cd20ffcab87d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ae4766_2fad2939",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-01T00:31:03Z",
+      "side": 1,
+      "message": "This comment says that the null check handler must be the last. But it looks like the new handler comes last now. Reorder the list or update this comment?",
+      "range": {
+        "startLine": 530,
+        "startChar": 46,
+        "endLine": 531,
+        "endChar": 28
+      },
+      "revId": "9a4b27fc636c465b583afe2c8b1cd20ffcab87d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
