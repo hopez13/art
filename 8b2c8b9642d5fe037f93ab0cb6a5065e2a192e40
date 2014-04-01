@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99349308_24a2bc94",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-04-01T20:44:36Z",
+      "side": 1,
+      "message": "yeah, this is all old code.",
+      "parentUuid": "b92f97b4_6552002e",
+      "revId": "8b2c8b9642d5fe037f93ab0cb6a5065e2a192e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99349308_04a5f8c6",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "99349308_649cc457",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-04-01T20:44:36Z",
+      "side": 1,
+      "message": "d\u0027oh!",
+      "parentUuid": "99349308_04a5f8c6",
+      "revId": "8b2c8b9642d5fe037f93ab0cb6a5065e2a192e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_855f4424",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2014-04-01T20:37:56Z",
       "side": 1,
       "message": "Do we need to check for success here?  Or do we assume all failures inside will end up aborting?",
+      "revId": "8b2c8b9642d5fe037f93ab0cb6a5065e2a192e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_e52a905c",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-04-01T20:44:36Z",
+      "side": 1,
+      "message": "yeah, everything here is fatal, which is why InitAfterFork returns void.",
+      "parentUuid": "b92f97b4_855f4424",
       "revId": "8b2c8b9642d5fe037f93ab0cb6a5065e2a192e40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
