@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59b93ba9_ea11476e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-01T14:52:44Z",
+      "side": 1,
+      "message": "We should use a SIRT parameter for the exception_object so we ensure exception is still reachable while we clear it from thread. Am I correct ?",
+      "range": {
+        "startLine": 753,
+        "startChar": 4,
+        "endLine": 753,
+        "endChar": 29
+      },
+      "revId": "e19af078c119543ea8c8d775327d69e85db55ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
