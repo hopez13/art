@@ -45,6 +45,30 @@
       "revId": "33287bc04bdecdeae0a11ed5f805c15e2d55392c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99bf338c_697245fc",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2014-04-01T13:34:41Z",
+      "side": 1,
+      "message": "That got it. Reversed the order in string.h and in the test and it all works. \nDoesn\u0027t appear to make any significant difference to performance, as suspected, but I\u0027m slightly less ignorant than I was. Appreciate the help!",
+      "parentUuid": "19ab4358_2e0a0bee",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 17
+      },
+      "revId": "33287bc04bdecdeae0a11ed5f805c15e2d55392c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
