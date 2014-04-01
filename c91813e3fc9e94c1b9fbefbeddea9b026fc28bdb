@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f9a74f88_9974a712",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:31:01Z",
+      "side": 1,
+      "message": "an \nto make it clear there are \u003e1 interpret-only modes now",
+      "range": {
+        "startLine": 1220,
+        "startChar": 20,
+        "endLine": 1220,
+        "endChar": 21
+      },
+      "revId": "c91813e3fc9e94c1b9fbefbeddea9b026fc28bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99349308_67c166d1",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -18,6 +41,53 @@
         "startChar": 0,
         "endLine": 1224,
         "endChar": 77
+      },
+      "revId": "c91813e3fc9e94c1b9fbefbeddea9b026fc28bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_0aa21f17",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:31:01Z",
+      "side": 1,
+      "message": "!compiler_options.IsInterpretOnly() ?",
+      "parentUuid": "99349308_67c166d1",
+      "range": {
+        "startLine": 1223,
+        "startChar": 0,
+        "endLine": 1224,
+        "endChar": 77
+      },
+      "revId": "c91813e3fc9e94c1b9fbefbeddea9b026fc28bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_d991bff7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:31:01Z",
+      "side": 1,
+      "message": "this member variable looks lonely, give it a descriptive comment",
+      "range": {
+        "startLine": 556,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 15
       },
       "revId": "c91813e3fc9e94c1b9fbefbeddea9b026fc28bdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
