@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39ae4766_005d9ab0",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T06:40:42Z",
+      "side": 1,
+      "message": "typo, fixed.",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "1f0535061a120eaa3a44c1c2fec6b29a90822218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ae4766_60e00e7d",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T06:40:42Z",
+      "side": 1,
+      "message": "this should go in favor of x86_64",
+      "range": {
+        "startLine": 209,
+        "startChar": 39,
+        "endLine": 209,
+        "endChar": 46
+      },
+      "revId": "1f0535061a120eaa3a44c1c2fec6b29a90822218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19ab4358_ae3d9bcc",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T06:40:42Z",
+      "side": 1,
+      "message": "white space fixed",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 2
+      },
+      "revId": "1f0535061a120eaa3a44c1c2fec6b29a90822218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ae4766_a0fda61d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T06:40:42Z",
+      "side": 1,
+      "message": "TODO",
+      "range": {
+        "startLine": 1777,
+        "startChar": 0,
+        "endLine": 1777,
+        "endChar": 5
+      },
+      "revId": "1f0535061a120eaa3a44c1c2fec6b29a90822218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
