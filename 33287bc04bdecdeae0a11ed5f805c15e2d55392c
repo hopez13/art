@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19ab4358_eed2b321",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T07:31:13Z",
+      "side": 1,
+      "message": "no padding now implies Class is a multiple of 8 bytes in size",
+      "range": {
+        "startLine": 1021,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 17
+      },
+      "revId": "33287bc04bdecdeae0a11ed5f805c15e2d55392c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19ab4358_2e0a0bee",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T07:31:13Z",
+      "side": 1,
+      "message": "From class_linker.cc:\n\nline 3921:\n    // First come reference fields, then 64-bit, and finally 32-bit\n\nline 3997:\n  // Now we want to pack all of the double-wide fields together.  If\n  // we\u0027re not aligned, though, we want to shuffle one 32-bit field\n  // into place.  If we can\u0027t find one, we\u0027ll have to pad it.\n\nSo I believe the layout here is:\n\nASCII_ then CASE_INSENSITIVE_ORDER_ then serialVersionUID_ then REPLACEMENT_CHAR_",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 17
+      },
+      "revId": "33287bc04bdecdeae0a11ed5f805c15e2d55392c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
