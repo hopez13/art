@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a74f88_b9ce436c",
+        "filename": "runtime/gc/space/space_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:09:51Z",
+      "side": 1,
+      "message": "comment as to why the code does this here",
+      "range": {
+        "startLine": 89,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 30
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_19be77b5",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:09:51Z",
+      "side": 1,
+      "message": "prefer if(kUseBakerOrBrooksReadBarrier) as #ifs will tend to bitrot unless you build with them enabled",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 39
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_caedd7a1",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:09:51Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 39
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_d9c77f54",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-01T23:09:51Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 35
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
