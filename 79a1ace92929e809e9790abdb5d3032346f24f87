@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79b43fb0_686a43c5",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-01T08:27:47Z",
+      "side": 1,
+      "message": "why not mirror::ArtMethod** for out_method?",
+      "range": {
+        "startLine": 36,
+        "startChar": 60,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "79a1ace92929e809e9790abdb5d3032346f24f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
