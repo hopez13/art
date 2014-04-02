@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79399f00_0654de3b",
+        "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99349308_bb7547a0",
+      "range": {
+        "startLine": 20,
+        "startChar": 56,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_572a0e95",
         "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "// TODO: we don\u0027t currently have a Thumb2 assembler, when we do use that in preference to the hand generated code below.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_da244ac4",
+        "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92f97b4_572a0e95",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "99349308_c075b39f",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Yeah, copy paste.  Will remove",
+      "parentUuid": "99349308_fb3d0fcc",
+      "range": {
+        "startLine": 955,
+        "startChar": 66,
+        "endLine": 955,
+        "endChar": 72
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99349308_db8f6b63",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "time to move to a virtual method",
+      "range": {
+        "startLine": 74,
+        "startChar": 26,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_e0c1d771",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "The ThreadOffset\u003c4\u003e will be a problem for that surely.",
+      "parentUuid": "99349308_db8f6b63",
       "range": {
         "startLine": 74,
         "startChar": 26,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "99349308_a0d86f64",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92f97b4_1c7b8dd1",
+      "range": {
+        "startLine": 76,
+        "startChar": 25,
+        "endLine": 76,
+        "endChar": 28
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9a74f88_6e09e08a",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "use_link? virtual again?",
+      "range": {
+        "startLine": 90,
+        "startChar": 13,
+        "endLine": 90,
+        "endChar": 26
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79399f00_a943455f",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "I\u0027ll move this to a virtual function and redo the logic.  It will be much simpler",
+      "parentUuid": "f9a74f88_6e09e08a",
       "range": {
         "startLine": 90,
         "startChar": 13,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f9a74f88_3acb1e3c",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "b92f97b4_dc4925a9",
+      "range": {
+        "startLine": 339,
+        "startChar": 48,
+        "endLine": 339,
+        "endChar": 64
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99349308_3b6ad7c3",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 8
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "f9a74f88_1ae2e2b8",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Would have to use ThreadOffset\u003c4\u003e because this isn\u0027t a template.",
+      "parentUuid": "99349308_3b6ad7c3",
+      "range": {
+        "startLine": 340,
+        "startChar": 6,
+        "endLine": 340,
+        "endChar": 14
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9a74f88_8eb77c6a",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 8
@@ -197,6 +389,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "GetTrampolineTable? There\u0027s a jumble of naming going on here, vector, table and trampolines are being used pretty interchangeably, it makes the notion of Size less than obvious.",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 680,
+        "endChar": 57
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79399f00_c97a09fe",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "I\u0027ll tidy it up",
+      "parentUuid": "f9a74f88_8eb77c6a",
       "range": {
         "startLine": 680,
         "startChar": 0,
@@ -255,6 +471,54 @@
     },
     {
       "key": {
+        "uuid": "79399f00_89976135",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "I originally has ThreadOffset for all these offsets but since it was templatized, it became not usable unless I explicitly use ThreadOffset\u003c4\u003e, which seems wrong to me.",
+      "parentUuid": "b92f97b4_97e2d641",
+      "range": {
+        "startLine": 691,
+        "startChar": 21,
+        "endLine": 691,
+        "endChar": 29
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79399f00_496f1985",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "But the ThreadOffset has an Int32Value() function which returns a 32 bit number.  Agreed that there will never be that many entrypoints though.  I\u0027ll change to uint16_t to save memory",
+      "parentUuid": "b92f97b4_d7ebbe1a",
+      "range": {
+        "startLine": 691,
+        "startChar": 31,
+        "endLine": 691,
+        "endChar": 39
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_9c395d06",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 8
@@ -266,6 +530,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "GUARDED_BY(lock_)",
+      "range": {
+        "startLine": 692,
+        "startChar": 16,
+        "endLine": 692,
+        "endChar": 28
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79399f00_094351d0",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92f97b4_9c395d06",
       "range": {
         "startLine": 692,
         "startChar": 16,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "79399f00_a9ad0581",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Will rename for consistency",
+      "parentUuid": "99349308_9bd84365",
+      "range": {
+        "startLine": 694,
+        "startChar": 26,
+        "endLine": 694,
+        "endChar": 44
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_5c3fd5ea",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 8
@@ -312,6 +624,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "DEFAULT_MUTEX_ACQUIRED_AFTER",
+      "range": {
+        "startLine": 695,
+        "startChar": 10,
+        "endLine": 695,
+        "endChar": 15
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_5a5b7abf",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92f97b4_5c3fd5ea",
       "range": {
         "startLine": 695,
         "startChar": 10,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "f9a74f88_15e95322",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9a74f88_2ebc484b",
+      "range": {
+        "startLine": 714,
+        "startChar": 16,
+        "endLine": 714,
+        "endChar": 18
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_37066a3d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 8
@@ -358,6 +718,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "fs",
+      "range": {
+        "startLine": 401,
+        "startChar": 31,
+        "endLine": 401,
+        "endChar": 38
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79399f00_a95fc5d0",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Eh?  Not my change.",
+      "parentUuid": "b92f97b4_37066a3d",
       "range": {
         "startLine": 401,
         "startChar": 31,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "99349308_00f5db63",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99349308_5b107b36",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 45
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_f70b623b",
         "filename": "runtime/arch/arm/fault_handler_arm.cc",
         "patchSetId": 8
@@ -404,6 +812,30 @@
       "writtenOn": "2014-04-02T02:52:14Z",
       "side": 1,
       "message": "DCHECK_EQ(thread, Thread::Current());",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 59
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_7a56764d",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-02T18:10:23Z",
+      "side": 1,
+      "message": "Different CL, but I\u0027ll do it here since you mentioned it.",
+      "parentUuid": "b92f97b4_f70b623b",
       "range": {
         "startLine": 158,
         "startChar": 0,
