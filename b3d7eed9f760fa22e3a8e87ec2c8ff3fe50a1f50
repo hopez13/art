@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9a74f88_2ed52885",
+        "filename": "compiler/trampolines/trampoline_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 0,
+      "message": "unnecessary whitespace change, makes Arm CreateTrampoline dissimilar to those of other archs below. Prefer to not change.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 0
+      },
+      "revId": "b3d7eed9f760fa22e3a8e87ec2c8ff3fe50a1f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

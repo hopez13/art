@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99349308_bb7547a0",
+        "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "prefer ThreadOffset\u003c4\u003e",
+      "range": {
+        "startLine": 20,
+        "startChar": 56,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_572a0e95",
+        "filename": "compiler/arch/arm/entrypoint_trampoline.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "// TODO: we don\u0027t currently have a Thumb2 assembler, when we do use that in preference to the hand generated code below.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_fb3d0fcc",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "is this comment and the one below bogus?",
+      "range": {
+        "startLine": 955,
+        "startChar": 66,
+        "endLine": 955,
+        "endChar": 72
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_db8f6b63",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "time to move to a virtual method",
+      "range": {
+        "startLine": 74,
+        "startChar": 26,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_1c7b8dd1",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "The Get here makes this member function wordy.. generally calls are Is... are for predicates. Perhaps just .GenerateHelperTrampolines()",
+      "range": {
+        "startLine": 76,
+        "startChar": 25,
+        "endLine": 76,
+        "endChar": 28
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_6e09e08a",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "use_link? virtual again?",
+      "range": {
+        "startLine": 90,
+        "startChar": 13,
+        "endLine": 90,
+        "endChar": 26
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_dc4925a9",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "of instruction within generated code for this method.",
+      "range": {
+        "startLine": 339,
+        "startChar": 48,
+        "endLine": 339,
+        "endChar": 64
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_3b6ad7c3",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "Prefer ThreadOffset type?",
+      "range": {
+        "startLine": 340,
+        "startChar": 6,
+        "endLine": 340,
+        "endChar": 14
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_8eb77c6a",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "GetTrampolineTable? There\u0027s a jumble of naming going on here, vector, table and trampolines are being used pretty interchangeably, it makes the notion of Size less than obvious.",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 680,
+        "endChar": 57
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_97e2d641",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "ThreadOffset\u003c4\u003e",
+      "range": {
+        "startLine": 691,
+        "startChar": 21,
+        "endLine": 691,
+        "endChar": 29
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_d7ebbe1a",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "prefer a smaller index type on the assumption the 2^32 entrypoints is unlikely.",
+      "range": {
+        "startLine": 691,
+        "startChar": 31,
+        "endLine": 691,
+        "endChar": 39
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_9c395d06",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "GUARDED_BY(lock_)",
+      "range": {
+        "startLine": 692,
+        "startChar": 16,
+        "endLine": 692,
+        "endChar": 28
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_9bd84365",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "is this the table in the comment above, if so there\u0027s a lack of consistency in the naming and the comments",
+      "range": {
+        "startLine": 694,
+        "startChar": 26,
+        "endLine": 694,
+        "endChar": 44
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_5c3fd5ea",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "DEFAULT_MUTEX_ACQUIRED_AFTER",
+      "range": {
+        "startLine": 695,
+        "startChar": 10,
+        "endLine": 695,
+        "endChar": 15
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a74f88_2ebc484b",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "Describe seemingly arbitrary constants.",
+      "range": {
+        "startLine": 714,
+        "startChar": 16,
+        "endLine": 714,
+        "endChar": 18
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_37066a3d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 401,
+        "startChar": 31,
+        "endLine": 401,
+        "endChar": 38
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99349308_5b107b36",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "missing descriptions",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 45
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f97b4_f70b623b",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-02T02:52:14Z",
+      "side": 1,
+      "message": "DCHECK_EQ(thread, Thread::Current());",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 59
+      },
+      "revId": "f805574b560e32c012ae10b2b0fca5f8e84b6607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
