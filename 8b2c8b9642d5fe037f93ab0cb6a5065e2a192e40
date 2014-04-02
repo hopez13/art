@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "59b93ba9_4a84138d",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-04-02T09:28:57Z",
+      "side": 1,
+      "message": "I\u0027m going to leave this as is for now. I will send out a follow up patch that makes runtime-\u003ePreZygoteFork return void (we can get rid of this code). It already aborts on error and returns true unconditionally.\n\nPS. If we had left this in, I would\u0027ve replaced this with a CHECK(runtime-\u003ePreZygoteFork());",
+      "parentUuid": "99349308_649cc457",
+      "revId": "8b2c8b9642d5fe037f93ab0cb6a5065e2a192e40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92f97b4_855f4424",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 3
