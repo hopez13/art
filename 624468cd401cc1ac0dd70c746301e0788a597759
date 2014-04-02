@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "99349308_55a84c5b",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-02T00:07:16Z",
+      "side": 1,
+      "message": "but for these, I don\u0027t think the x_rb_ptr_ will exist. confirmed in object.h. they are commented out by default in libcore.",
+      "parentUuid": "f9a74f88_19be77b5",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 39
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99349308_caedd7a1",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
