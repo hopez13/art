@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9cb6b3b_b4c2c620",
+        "filename": "runtime/gc/space/space_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-02T18:30:31Z",
+      "side": 1,
+      "message": "Will do in a future CL.",
+      "parentUuid": "f9a74f88_b9ce436c",
+      "range": {
+        "startLine": 89,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 30
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9a74f88_19be77b5",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f9ce6f4a_e0c16a71",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-02T18:30:31Z",
+      "side": 1,
+      "message": "Thanks guys for extra attention. It\u0027s right that the fields won\u0027t exist without the #ifdef.",
+      "parentUuid": "f9a74f88_6e87a0ba",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 39
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99349308_caedd7a1",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 2
@@ -130,6 +178,30 @@
       "writtenOn": "2014-04-01T23:09:51Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 35
+      },
+      "revId": "624468cd401cc1ac0dd70c746301e0788a597759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ba379a_9ef56df7",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-02T18:30:31Z",
+      "side": 1,
+      "message": "I think this one can use if (kUseBakerReadBarrier) {...} else if (kUseBrooksReadBarrier) { ... } else {...}. Will do.",
+      "parentUuid": "f9a74f88_d9c77f54",
       "range": {
         "startLine": 119,
         "startChar": 0,
