@@ -22,6 +22,24 @@
       "revId": "da44d773dedf8aae6153e3423012f236cba3bfcd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79399f00_d491fcf7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-02T19:00:21Z",
+      "side": 1,
+      "message": "Dlmalloc was using Runtime::Current()-\u003eGetHeap()-\u003eRunningOnValgrind(). But GetHeap is null until after we finish initialization. So I changed it to use Runtime::RunningOnValgrind(). The code worked for RosAlloc since RosAlloc doesn\u0027t support valgrind currently.",
+      "parentUuid": "d9cb6b3b_d4e432c7",
+      "revId": "da44d773dedf8aae6153e3423012f236cba3bfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
