@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79b43fb0_4b8739ba",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "2011 -\u003e 2014",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99bf338c_cc7a5ffe",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "Return T*",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b93ba9_caf32352",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "assembler_.get()",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 34,
+        "endChar": 22
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b43fb0_8b9bf113",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "Why do you need a UniquePtr here?",
+      "range": {
+        "startLine": 52,
+        "startChar": 14,
+        "endLine": 52,
+        "endChar": 17
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99bf338c_ec772315",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "Does this really need to be a UniquePtr, or can it just be a value?",
+      "range": {
+        "startLine": 77,
+        "startChar": 14,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b43fb0_ab983517",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "const std::string\u0026 file",
+      "range": {
+        "startLine": 95,
+        "startChar": 25,
+        "endLine": 95,
+        "endChar": 27
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b93ba9_eaf06747",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-02T08:39:38Z",
+      "side": 1,
+      "message": "const NativeAssemblerResult\u0026 res",
+      "range": {
+        "startLine": 198,
+        "startChar": 19,
+        "endLine": 198,
+        "endChar": 40
+      },
+      "revId": "e740322dcde58ddf451b5c7b8366cfdba5712f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
