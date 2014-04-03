@@ -16,6 +16,47 @@
       "revId": "0b83e4ab39642130709bb685b476e838f126db1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1917c38c_0844078b",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-03T19:28:24Z",
+      "side": 1,
+      "message": "there\u0027s also:\nUNUSED(obj); ...",
+      "parentUuid": "391ac7b4_86eaaa85",
+      "revId": "0b83e4ab39642130709bb685b476e838f126db1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5925bbed_cd667d82",
+        "filename": "runtime/read_barrier_c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-03T19:28:24Z",
+      "side": 1,
+      "message": "I\u0027m not sure this separate header buys much, just move to asm_support.h?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "0b83e4ab39642130709bb685b476e838f126db1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
