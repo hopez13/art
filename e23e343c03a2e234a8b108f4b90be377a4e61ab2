@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9628b23_f3aa5065",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "I suggest UpdateMaximumNumberOfVRegs since CodeItem.outs_size_ is a number of Dalvik out vregs. IIRC, it counts 2 vregs for a long/double argument.",
+      "range": {
+        "startLine": 63,
+        "startChar": 10,
+        "endLine": 63,
+        "endChar": 40
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9902d340_915f7cd1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "Do LoadLocal and HPushArgument handle long/double arguments as register pair ? If you don\u0027t handle them for now, it\u0027d be worth adding check of the method signature to avoid compiling if there are long or double arguments (and let the Quick compiler do the job).",
+      "range": {
+        "startLine": 214,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 39
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9628b23_336fa886",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 5
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9902d340_51b7d4b8",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "It\u0027d be worth to add a DCHECK to verify index is valid. It helps when this case happens :)",
+      "range": {
+        "startLine": 201,
+        "startChar": 37,
+        "endLine": 201,
+        "endChar": 62
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9902d340_11ad4c6b",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 201,
+        "startChar": 18,
+        "endLine": 201,
+        "endChar": 21
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19698306_55096cbf",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "Use a constant? We could then sync GenerateFrameEntry and GenerateFrameExit and avoid error.",
+      "range": {
+        "startLine": 41,
+        "startChar": 40,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9902d340_b1e440c6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "uint8_t",
+      "range": {
+        "startLine": 211,
+        "startChar": 2,
+        "endLine": 211,
+        "endChar": 5
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9628b23_b3629897",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "Same comment than InstructionCodeGeneratorARM.",
+      "range": {
+        "startLine": 42,
+        "startChar": 42,
+        "endLine": 42,
+        "endChar": 43
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9902d340_91e13cb6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "uint8_t",
+      "range": {
+        "startLine": 214,
+        "startChar": 2,
+        "endLine": 214,
+        "endChar": 5
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9902d340_d1dbc401",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-03T13:30:33Z",
+      "side": 1,
+      "message": "There is already a macro arraysize in runtime/base/macros.h. You can probably use this one.",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "e23e343c03a2e234a8b108f4b90be377a4e61ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
