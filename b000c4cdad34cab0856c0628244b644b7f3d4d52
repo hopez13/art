@@ -22,6 +22,24 @@
       "revId": "b000c4cdad34cab0856c0628244b644b7f3d4d52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "391ac7b4_06519aa1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-03T17:29:54Z",
+      "side": 1,
+      "message": "I guess kRootNativeStack would be a better fit. It doesn\u0027t really matter that much though. I don\u0027t see anything else in tlsPtr_ that needs to be a root.",
+      "parentUuid": "5925bbed_475b8ebf",
+      "revId": "b000c4cdad34cab0856c0628244b644b7f3d4d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
