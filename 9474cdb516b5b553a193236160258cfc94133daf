@@ -16,6 +16,24 @@
       "revId": "9474cdb516b5b553a193236160258cfc94133daf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d910cb97_835f3ed1",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-03T20:07:51Z",
+      "side": 1,
+      "message": "I\u0027ll make this void - seems easier.  I had a comment about using this for other checks but deleted it :-)  I\u0027ll add it back",
+      "parentUuid": "79527f52_a1cb64e6",
+      "revId": "9474cdb516b5b553a193236160258cfc94133daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
