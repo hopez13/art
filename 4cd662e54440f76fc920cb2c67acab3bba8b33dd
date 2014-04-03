@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59b3fbf9_1a09b98b",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-03T23:44:26Z",
+      "side": 1,
+      "message": "Nice catch.",
+      "revId": "4cd662e54440f76fc920cb2c67acab3bba8b33dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c5035d_5897c135",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-03T23:44:26Z",
+      "side": 1,
+      "message": "You can use /*usable_size*/ instead of the UNUSED macro if you wish.",
+      "revId": "4cd662e54440f76fc920cb2c67acab3bba8b33dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
