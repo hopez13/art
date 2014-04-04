@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "19c5035d_5e69697c",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-04T03:27:06Z",
+      "side": 1,
+      "message": "It\u0027s probably still broken. Added UNUSED. Done.",
+      "parentUuid": "1917c38c_0844078b",
+      "revId": "0b83e4ab39642130709bb685b476e838f126db1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5925bbed_cd667d82",
         "filename": "runtime/read_barrier_c.h",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2014-04-03T19:28:24Z",
       "side": 1,
       "message": "I\u0027m not sure this separate header buys much, just move to asm_support.h?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "0b83e4ab39642130709bb685b476e838f126db1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c5035d_3ed66de3",
+        "filename": "runtime/read_barrier_c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-04T03:27:06Z",
+      "side": 1,
+      "message": "True it does not buy much. I prefer it this way though as these macros don\u0027t seem to be directly related to asm support.",
+      "parentUuid": "5925bbed_cd667d82",
       "range": {
         "startLine": 18,
         "startChar": 0,
