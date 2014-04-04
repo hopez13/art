@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39764713_4cd55384",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-04T21:44:08Z",
+      "side": 1,
+      "message": "I believe we can go up to d31 following this change. There will need to be changes to:\nRuntime::CreateCalleeSaveMethod - change the fp spill mask there to be doubles rather than singles\nArmContext::FillCalleeSaves - fprs_ should be 64bit and the loop over kNumberOfDRegisters rather than SRegisters\nSETUP_SAVE_ALL_CALLEE_SAVE_FRAME - should vpush double rather than single registers for callee saves for the exception throw long jump\nart_quick_do_long_jump - the vldm should load double rather than single registers",
+      "range": {
+        "startLine": 275,
+        "startChar": 53,
+        "endLine": 275,
+        "endChar": 55
+      },
+      "revId": "e3e7a44322bcb43f09b22eb4a1786e99c97a4643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
