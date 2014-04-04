@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19c5035d_8a5bb7be",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-04T18:14:34Z",
+      "side": 1,
+      "message": "shouldn\u0027t attributes be appearing on the RHS?\nhttp://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "18a7365357927242c7b0e4164690a39e49789213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c80775_9d5b04bf",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-04T18:14:34Z",
+      "side": 1,
+      "message": "Log2? Move to utils.h",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "18a7365357927242c7b0e4164690a39e49789213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
