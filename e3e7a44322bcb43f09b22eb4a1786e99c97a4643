@@ -22,6 +22,30 @@
       "revId": "e3e7a44322bcb43f09b22eb4a1786e99c97a4643",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c80775_b100e71e",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-04T22:24:42Z",
+      "side": 1,
+      "message": "Yes - I\u0027ll probably wait until the next CL for that (this one has once again gotten way too big).  There\u0027s another thing that will also need to change: the width of the def/use LIR flags.  There isn\u0027t space for 16 new resources (which is also why we currently only use half of MIPS floating point registers).\n\nAnother benefit of this move is that we\u0027ll be able to promote overlapping doubles.  With the old rule that every double consisted of a pair of singles, we could not promote pairs v7/v8 *and* v8/v9 within the same method because the single v8 could not appear in two distinct promoted register pairs.  Once we start treating paired Dalvik virtual register uses as distinct from single uses, we can do this (with the special tag bit in the register map that we discussed a few weeks (months?) ago).\n\nBut, for this CL I\u0027ll likely try to just keep everything working with doubles allocated as doubles.",
+      "parentUuid": "39764713_4cd55384",
+      "range": {
+        "startLine": 275,
+        "startChar": 53,
+        "endLine": 275,
+        "endChar": 55
+      },
+      "revId": "e3e7a44322bcb43f09b22eb4a1786e99c97a4643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
