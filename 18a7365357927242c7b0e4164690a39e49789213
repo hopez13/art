@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "39c80775_1d0e14be",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-04T18:19:54Z",
+      "side": 1,
+      "message": "It\u0027s good to have these checks here after the allocation (and potentially GC) happens.\n\nHow about also having the same checks at the entry of this function?",
+      "range": {
+        "startLine": 140,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 69
+      },
+      "revId": "18a7365357927242c7b0e4164690a39e49789213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19c5035d_8a5bb7be",
         "filename": "runtime/mirror/array.h",
         "patchSetId": 2
@@ -36,6 +59,29 @@
       "writtenOn": "2014-04-04T18:14:34Z",
       "side": 1,
       "message": "Log2? Move to utils.h",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "18a7365357927242c7b0e4164690a39e49789213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c5035d_2a23833a",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-04T18:19:54Z",
+      "side": 1,
+      "message": "Is this equivalent to \"log base 2\"?\n\nMove this to utils.h and add a comment?",
       "range": {
         "startLine": 28,
         "startChar": 24,
