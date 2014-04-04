@@ -22,6 +22,30 @@
       "revId": "bf079fe015e3b2d966e111efc61728b6e6892ec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_2851eba1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-04T12:40:12Z",
+      "side": 1,
+      "message": "This is the same issue and workaround than DexPcMovedImpl above. Actually, all listeners lists share this issue since the debugger can detach during these events. We should probably move the TODO so it concerns them all.\n\nIan and Jeff, what do you think ? Ian wrote the TODO in DexPcMovedImpl according to \"git blame\". Jeff worked around differently for MethodEntered and MethodExited IIRC.",
+      "parentUuid": "797c3ff1_0810a735",
+      "range": {
+        "startLine": 753,
+        "startChar": 13,
+        "endLine": 753,
+        "endChar": 16
+      },
+      "revId": "bf079fe015e3b2d966e111efc61728b6e6892ec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
