@@ -22,6 +22,30 @@
       "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99873329_6f0925c0",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-04-07T16:07:52Z",
+      "side": 1,
+      "message": "it can\u0027t be, see L330 check.",
+      "parentUuid": "f96f4f39_78f1e9ba",
+      "range": {
+        "startLine": 340,
+        "startChar": 87,
+        "endLine": 340,
+        "endChar": 94
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
