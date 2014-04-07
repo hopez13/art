@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99873329_affb1d90",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:51:01Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of HNot? Why not having a HNotEqual node instead of HNot(HEqual) node?",
+      "range": {
+        "startLine": 96,
+        "startChar": 48,
+        "endLine": 96,
+        "endChar": 52
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9823717_90d59c0d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:51:01Z",
+      "side": 1,
+      "message": "I think it\u0027s worth to use CHECK here, especially when using dex2oat, not dex2oatd.",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 8
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_4e3387d5",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:51:01Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 8
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9823717_3010701d",
+        "filename": "test/402-optimizing-control-flow/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:51:01Z",
+      "side": 1,
+      "message": "Is there a risk this is simplified by a Java compiler so we do not test what we expect we do ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
