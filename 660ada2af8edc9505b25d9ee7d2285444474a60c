@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f96f4f39_386a11c4",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-07T15:25:25Z",
+      "side": 1,
+      "message": "I agree this is a bug, nice catch!\nCreating std::strings could be a significant performance regression (looking forward to libc++), check with libcore\u0027s ReflectionBench. With a std::string the StringPiece is unnecessary, so switch to just using \u0027const std::string src_descriptor\u0027.",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 55
+      },
+      "revId": "660ada2af8edc9505b25d9ee7d2285444474a60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59a69bd4_5f4aeb44",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-07T15:25:25Z",
+      "side": 1,
+      "message": "similarly, avoid the StringPiece",
+      "range": {
+        "startLine": 746,
+        "startChar": 19,
+        "endLine": 746,
+        "endChar": 20
+      },
+      "revId": "660ada2af8edc9505b25d9ee7d2285444474a60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
