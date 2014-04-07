@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9823717_90aafc96",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "Binop_32x",
+      "range": {
+        "startLine": 191,
+        "startChar": 20,
+        "endLine": 191,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9823717_b0a700d0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "Binop_12x",
+      "range": {
+        "startLine": 199,
+        "startChar": 20,
+        "endLine": 199,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_4ed8e763",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "Binop_22s",
+      "range": {
+        "startLine": 207,
+        "startChar": 20,
+        "endLine": 207,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_2ed3b34b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "I suggest deduplicating the code and std::swap(first, second) only when reverse is true. But I\u0027m fine with that version too.",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 3
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_6eddab52",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "Binop_22b",
+      "range": {
+        "startLine": 222,
+        "startChar": 20,
+        "endLine": 222,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_8ec1ff72",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "You probably mean \"Location location(calling_convention.GetRegisterAt(argument_index))\" ?",
+      "range": {
+        "startLine": 370,
+        "startChar": 4,
+        "endLine": 370,
+        "endChar": 32
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_aebec3df",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-07T14:12:58Z",
+      "side": 1,
+      "message": "Same than in code_generator_ARM.cc",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 365,
+        "endChar": 31
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
