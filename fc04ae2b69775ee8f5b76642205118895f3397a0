@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9823717_3015d026",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9823717_90aafc96",
+      "range": {
+        "startLine": 191,
+        "startChar": 20,
+        "endLine": 191,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9823717_b0a700d0",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-07T14:12:58Z",
       "side": 1,
       "message": "Binop_12x",
+      "range": {
+        "startLine": 199,
+        "startChar": 20,
+        "endLine": 199,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99873329_af495d50",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9823717_b0a700d0",
       "range": {
         "startLine": 199,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "797c3ff1_4eb1c70b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797c3ff1_4ed8e763",
+      "range": {
+        "startLine": 207,
+        "startChar": 20,
+        "endLine": 207,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "797c3ff1_2ed3b34b",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-04-07T14:12:58Z",
       "side": 1,
       "message": "I suggest deduplicating the code and std::swap(first, second) only when reverse is true. But I\u0027m fine with that version too.",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 3
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9823717_9023dc8c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797c3ff1_2ed3b34b",
       "range": {
         "startLine": 210,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "797c3ff1_6eb68b06",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797c3ff1_6eddab52",
+      "range": {
+        "startLine": 222,
+        "startChar": 20,
+        "endLine": 222,
+        "endChar": 29
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "797c3ff1_8ec1ff72",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "b9823717_b020e080",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797c3ff1_8ec1ff72",
+      "range": {
+        "startLine": 370,
+        "startChar": 4,
+        "endLine": 370,
+        "endChar": 32
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "797c3ff1_aebec3df",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2014-04-07T14:12:58Z",
       "side": 1,
       "message": "Same than in code_generator_ARM.cc",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 365,
+        "endChar": 31
+      },
+      "revId": "fc04ae2b69775ee8f5b76642205118895f3397a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "797c3ff1_8eaadf96",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T14:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797c3ff1_aebec3df",
       "range": {
         "startLine": 365,
         "startChar": 4,
