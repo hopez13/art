@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f9966f57_92783c97",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-07T21:45:01Z",
+      "side": 1,
+      "message": "Ah yes, I see.  The r_tgt register is not used by X86 at all and not used by ARM when we are generating helper trampolines.  However MIPS is using it.  Thanks.  I\u0027ll deal with it in the MIPS case.  We will eventually want to handle these trampolines in MIPS anyway so having a CallHelper in there is good.",
+      "parentUuid": "59a69bd4_b9e6af54",
+      "revId": "754ddad084ccb610d0cf486f6131bdc69bae5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f96f4f39_1eb7fd04",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 10
