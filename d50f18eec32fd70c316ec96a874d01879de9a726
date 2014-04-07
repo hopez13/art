@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f9b4affd_e214822b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2009,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-07T23:06:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59a69bd4_b9922fcb",
+      "revId": "d50f18eec32fd70c316ec96a874d01879de9a726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59a69bd4_5917a3a1",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f9966f57_120b6cf5",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2015,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-07T23:06:54Z",
+      "side": 1,
+      "message": "Yes, that could starve the normal threads allocating memory when the existing buffers get full (and when a new buffer needs to be allocated).",
+      "parentUuid": "59a69bd4_5917a3a1",
+      "revId": "d50f18eec32fd70c316ec96a874d01879de9a726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59a69bd4_797ee7c2",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2014-04-07T22:26:30Z",
       "side": 1,
       "message": "LOCKS_EXCLUDED(lock_);",
+      "revId": "d50f18eec32fd70c316ec96a874d01879de9a726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9966f57_5205f4dd",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-07T23:06:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59a69bd4_797ee7c2",
       "revId": "d50f18eec32fd70c316ec96a874d01879de9a726",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
