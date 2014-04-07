@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "59a69bd4_b9e6af54",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-07T21:34:22Z",
+      "side": 1,
+      "message": "Dave, I believe the MIPS assert is caused passing an InvalidReg() to CallHelper. It looks like both Arm and X86 have specialized versions of CallHelper() which can handle an InvalidReg() as a base, but MIPS will get the default one - which will always try to do an OpReg() using the incoming register.",
+      "revId": "754ddad084ccb610d0cf486f6131bdc69bae5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f96f4f39_1eb7fd04",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 10
