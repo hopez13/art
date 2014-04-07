@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "797c3ff1_2e10131d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T15:00:17Z",
+      "side": 1,
+      "message": "Dex has \"not\" as a proper instruction (not-int, not-long, ...), so at first sight, it makes sense to think about sharing it with the if-ne instruction.\n\nBut this will really be dependent on how we write optimization/code generator for HNot like instructions. If it turns out it\u0027s easier to have a HNotEqual instruction, I wouldn\u0027t mind adding a new node.",
+      "parentUuid": "99873329_affb1d90",
+      "range": {
+        "startLine": 96,
+        "startChar": 48,
+        "endLine": 96,
+        "endChar": 52
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9823717_90d59c0d",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-07T14:51:01Z",
       "side": 1,
       "message": "I think it\u0027s worth to use CHECK here, especially when using dex2oat, not dex2oatd.",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 8
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9823717_50bec4b5",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T15:00:17Z",
+      "side": 1,
+      "message": "At this point, I expect the verifier to have checked that already. For such cases, I prefer using DCHECK and not pollute the \"production\" runtime with CHECK.",
+      "parentUuid": "b9823717_90d59c0d",
       "range": {
         "startLine": 100,
         "startChar": 2,
@@ -82,6 +130,30 @@
       "writtenOn": "2014-04-07T14:51:01Z",
       "side": 1,
       "message": "Is there a risk this is simplified by a Java compiler so we do not test what we expect we do ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "8fd9c58460694a452c277890b859511fe0d6ecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9823717_30a23095",
+        "filename": "test/402-optimizing-control-flow/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-07T15:00:17Z",
+      "side": 1,
+      "message": "Good point, I was too naive in thinking the Java compiler does not do any kind of optimization. It actually does some constant folding. I\u0027ll rewrite the test.",
+      "parentUuid": "b9823717_3010701d",
       "range": {
         "startLine": 46,
         "startChar": 8,
