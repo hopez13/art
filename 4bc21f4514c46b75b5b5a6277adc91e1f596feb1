@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9e5d71d_5877b55e",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-04-08T23:17:24Z",
+      "side": 1,
+      "message": "Good point. I deleted both c_code and imm_val since it\u0027s always testing \u003d\u003d 0.",
+      "parentUuid": "99ead3ed_b45fce5b",
+      "range": {
+        "startLine": 94,
+        "startChar": 77,
+        "endLine": 94,
+        "endChar": 84
+      },
+      "revId": "4bc21f4514c46b75b5b5a6277adc91e1f596feb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ead3ed_d45a526d",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-08T22:59:25Z",
       "side": 1,
       "message": "add OVERRIDE",
+      "range": {
+        "startLine": 101,
+        "startChar": 18,
+        "endLine": 101,
+        "endChar": 19
+      },
+      "revId": "4bc21f4514c46b75b5b5a6277adc91e1f596feb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ca8b90_7917ffd3",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-04-08T23:17:24Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "99ead3ed_d45a526d",
       "range": {
         "startLine": 101,
         "startChar": 18,
