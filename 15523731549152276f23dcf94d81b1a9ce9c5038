@@ -22,6 +22,24 @@
       "revId": "15523731549152276f23dcf94d81b1a9ce9c5038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9e5d71d_d23dc4a1",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-04-08T08:31:09Z",
+      "side": 1,
+      "message": "I plan to move this functionality to Arm64MangedRegister class. Thanks.",
+      "parentUuid": "59a69bd4_13b21c7c",
+      "revId": "15523731549152276f23dcf94d81b1a9ce9c5038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
