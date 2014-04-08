@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ead3ed_b45fce5b",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-08T22:59:25Z",
+      "side": 1,
+      "message": "Is this not always 0?  Why bother passing it?",
+      "range": {
+        "startLine": 94,
+        "startChar": 77,
+        "endLine": 94,
+        "endChar": 84
+      },
+      "revId": "4bc21f4514c46b75b5b5a6277adc91e1f596feb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ead3ed_d45a526d",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-08T22:59:25Z",
+      "side": 1,
+      "message": "add OVERRIDE",
+      "range": {
+        "startLine": 101,
+        "startChar": 18,
+        "endLine": 101,
+        "endChar": 19
+      },
+      "revId": "4bc21f4514c46b75b5b5a6277adc91e1f596feb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
