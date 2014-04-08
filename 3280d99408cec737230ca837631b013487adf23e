@@ -45,6 +45,30 @@
       "revId": "3280d99408cec737230ca837631b013487adf23e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99873329_72e74e53",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-04-08T01:02:09Z",
+      "side": 1,
+      "message": "Here we unlock so I thought it makes sense to let other know as soon as possible... Would you like me to return this back?",
+      "parentUuid": "19734325_5f0413ab",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 571,
+        "endChar": 37
+      },
+      "revId": "3280d99408cec737230ca837631b013487adf23e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
