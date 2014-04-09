@@ -34,6 +34,24 @@
       "revId": "a3763283a564fc2b09fceb9af6a0c743ea75b1dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9938135e_018bca0c",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-09T18:02:22Z",
+      "side": 1,
+      "message": "No, as kNumberOfDRegisters \u003d 32. There is no dual-meaning FPU register, luckily...",
+      "parentUuid": "39d4872d_c7dce158",
+      "revId": "a3763283a564fc2b09fceb9af6a0c743ea75b1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
