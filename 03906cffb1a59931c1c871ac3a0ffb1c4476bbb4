@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39d4872d_d3fa6be0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2014-04-09T02:11:24Z",
+      "side": 1,
+      "message": "I was stairing at this and I believe you can rewrite all of this code to avoid the double branch, but it\u0027s probably not worth doing. I\u0027m not sure if it\u0027s faster though.\n\nFor example, you could do something like:\n\n\nsub x17, x15, #\u0027D\u0027\ncbz x17, .LhandleDouble\nsub x17, x15, #\u0027F\u0027\ncbz x17, .LhandleFloat\nsub x17, x15, #\u0027J\u0027\ncbz x17 .LhandleLong\n\n.LhandleOther:\n\nIf you had more registers available for scratch, you could store them as different targets and the code might allow for better pipelining.\n\nI think you can remove the double jump by doing something like:\n\n.LhandleDouble:\n    sub x17, x15, # 8*12         // Skip this load if all registers full.\n    cbnz x17, .LbranchDoubleTarget\n    add x9, x9, #8\n    b .LfillRegisters\n\n.LbranchDoubleTarget\n    add x17, x14, 15\n    br x17\n\nI don\u0027t know if this would be faster though, it might be worse.",
+      "range": {
+        "startLine": 585,
+        "startChar": 9,
+        "endLine": 585,
+        "endChar": 18
+      },
+      "revId": "03906cffb1a59931c1c871ac3a0ffb1c4476bbb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
