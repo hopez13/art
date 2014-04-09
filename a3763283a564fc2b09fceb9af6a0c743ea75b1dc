@@ -16,6 +16,24 @@
       "revId": "a3763283a564fc2b09fceb9af6a0c743ea75b1dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9938135e_41cf9269",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-04-09T18:02:20Z",
+      "side": 1,
+      "message": "There are 32 floating point registers.\nThe issue here is with the problem of x31 being either XZR or XSP, depending on the context, and each use being uniquely identified.",
+      "parentUuid": "39d4872d_c7dce158",
+      "revId": "a3763283a564fc2b09fceb9af6a0c743ea75b1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
