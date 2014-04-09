@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "591bfb06_b7e6e854",
+        "filename": "compiler/arch/arm/final_relocations_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "This was added to remove the entrypoint offset that was blitted in by the assembler to prevent improper deduplication",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7916ffdd_38f3a912",
+        "filename": "compiler/dex/quick/arm/assemble_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "This change was made to blit in the entrypoint offset to prevent improper deduplication",
+      "range": {
+        "startLine": 1039,
+        "startChar": 17,
+        "endLine": 1039,
+        "endChar": 27
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "591bfb06_77e93022",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "Needed to check for kArm",
+      "range": {
+        "startLine": 682,
+        "startChar": 11,
+        "endLine": 682,
+        "endChar": 15
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "591bfb06_17f6b401",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "Here too",
+      "range": {
+        "startLine": 696,
+        "startChar": 11,
+        "endLine": 696,
+        "endChar": 15
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7916ffdd_f8053130",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "This was added to prevent MIPS failure.  We should not be trying to use these trampolines on mips yet",
+      "range": {
+        "startLine": 1053,
+        "startChar": 4,
+        "endLine": 1053,
+        "endChar": 5
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3930077e_d6d7e465",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "Here too",
+      "range": {
+        "startLine": 1073,
+        "startChar": 66,
+        "endLine": 1073,
+        "endChar": 94
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "591bfb06_37f3b812",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-09T20:28:10Z",
+      "side": 1,
+      "message": "upped version",
+      "range": {
+        "startLine": 25,
+        "startChar": 53,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "f9487c039efb4112616d438593a2ab02792e0304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
