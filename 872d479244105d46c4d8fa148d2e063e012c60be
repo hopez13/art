@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b9add7fe_92bb7ced",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T22:51:32Z",
+      "side": 1,
+      "message": "That should work as long as we don\u0027t delete the WriteBarrier calls in CopyObject. Otherwise it could cause heap corruption.",
+      "parentUuid": "f97e6f24_89d36e26",
+      "revId": "872d479244105d46c4d8fa148d2e063e012c60be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f97e6f24_96c5c94d",
         "filename": "runtime/mirror/object.cc",
         "patchSetId": 1
