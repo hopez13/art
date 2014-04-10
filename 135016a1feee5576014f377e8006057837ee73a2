@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "996f3376_187351bb",
+        "filename": "runtime/stack_indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-10T16:59:46Z",
+      "side": 1,
+      "message": "I don\u0027t know for sure, but I think it is. The problem is that I don\u0027t see another way for cross-compiling but to assume the layout the compiler uses.\n\nBut that\u0027s why there is a host and target test now. Check stack_indirect_reference_table_test.cc. It creates a SIRT with some constants, and then tries to access with the offsets. It succeeds for ARM, x86, and x86-64, so I think it\u0027s correct.",
+      "parentUuid": "996f3376_5847896d",
+      "revId": "135016a1feee5576014f377e8006057837ee73a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79027fbc_fb2e2b0d",
         "filename": "runtime/stack_indirect_reference_table.h",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-04-10T16:49:11Z",
       "side": 1,
       "message": "Any alignment issues?",
+      "revId": "135016a1feee5576014f377e8006057837ee73a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996f3376_78a84d9f",
+        "filename": "runtime/stack_indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-10T16:59:46Z",
+      "side": 1,
+      "message": "Same answer as above. The test can read the value out of references[0] correctly. Now if gcc/clang makes this an unaligned load, then I guess there are alignment issues. But it shows the offset is correct and we would have problems in the JNI compiler.",
+      "parentUuid": "79027fbc_fb2e2b0d",
       "revId": "135016a1feee5576014f377e8006057837ee73a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
