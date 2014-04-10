@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9502fa6_8544c868",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "\"Clean up\" as \"Refactor\" would imply no behavior changes? Or, making \"CMS as the pre-fork collector\" as the main CL description, with other cleanup?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9921f333_bfcf9f44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Nice.",
+      "range": {
+        "startLine": 11,
+        "startChar": 49,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9fbcfcb_99dc0758",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "This seems to point to a wrong bug.",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9fbcfcb_59d32f27",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "background_collector_type_ defaults to post_zygote_collector_type_ (at the bottom of ParsedOptions::Parse()) if -XX:BackgroundGC is not specified.\n\nNot that background GC means anything right now for the command line case, maybe it\u0027s a tiny bit more general if we don\u0027t overwrite background_collector_type_ here? Or, if we want to overwrite it, would it be cleaner if we complain/exit at the flag/option parsing time if background_collector_type_ !\u003d post_zygote_collector_type_ and a command line case (!is_zygote)?\n\nThis is a subtle point.",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 30
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9502fa6_05a2f894",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be always CMS if the zygote case (is_zygote \u003d true) as, I assume, we hardcode CMS as the pre-fork collector, correct?\n\nFor the command line case (is_zygote \u003d false), this looks fine as desired_collector_type_ \u003d\u003d post_zygote_collector_type_.",
+      "range": {
+        "startLine": 171,
+        "startChar": 18,
+        "endLine": 171,
+        "endChar": 41
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9502fa6_a596a437",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be always CMS if zygote case (is_zygote \u003d\u003d true)? I assume this change hardcodes CMS as the pre-fork collector, correct?\n\nFor the command line case (is_zygote \u003d\u003d false), this is correct as desired_collector_type_ \u003d\u003d post_zygote_collector_type_.",
+      "range": {
+        "startLine": 171,
+        "startChar": 18,
+        "endLine": 171,
+        "endChar": 41
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39d4872d_42143f9b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "I think this should specify the base address (pass non_moving_space_-\u003eLimit() instead of nullptr as the second argument) so that this comes right after the non-moving space with no gap. Otherwise, the immune region thing may subtly break (eg a LOS object could be allocated between the gap).",
+      "range": {
+        "startLine": 196,
+        "startChar": 32,
+        "endLine": 196,
+        "endChar": 44
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39d4872d_2284a38b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "This could be more precise, I think. The background compaction is not the only reason/case. What if post_zygote_collector_type_ is a compacting one? The code looks fine.",
+      "range": {
+        "startLine": 213,
+        "startChar": 46,
+        "endLine": 213,
+        "endChar": 96
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "793d1f4c_a0853a48",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Could we combine the two if statement so that we need to check IsCompactingGC(post_zygote_collector_type) once?\n\nThis seems to imply that we hardcode CMS as pre-fork collector (that is, no SS as pre-fork) as otherwise we would need two bump pointer spaces. Correct?",
+      "range": {
+        "startLine": 221,
+        "startChar": 49,
+        "endLine": 221,
+        "endChar": 51
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9921f333_1ff9eb97",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Which space does temp_space point to at this point?",
+      "range": {
+        "startLine": 1416,
+        "startChar": 8,
+        "endLine": 1416,
+        "endChar": 19
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39d4872d_c264cf2f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Is the reason to do so that we can save some address space?\n\nI think there could be some downsides though:\n\nFirst the three mem maps (bump pointer space 1 \u0026 2 and the main space) need to be of the same size (which was the case before and after this change, however.)\n\nThe ashmem names would probably sometimes look wrong as they are not updatable.\n\nAlso, not that a transition currently works for GSS, but GSS uses the three spaces at the same time. This change would make it harder to add support for that.",
+      "range": {
+        "startLine": 1419,
+        "startChar": 41,
+        "endLine": 1419,
+        "endChar": 61
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9502fa6_25f61402",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Is this guaranteed to be the mem map that used to be the main space when we transitioned from CMS -\u003e SS last time? Otherwise, as we don\u0027t specify where the bump pointer spaces are in the address space, the main space could be the \"wrong\" one that\u0027s not adjacent to the image/zygote/non-moving spaces, and the immune regions break with regard to the LOS objects which could be in the gaps anywhere?\n\nAt the minimum, if we do this, as the enforcing gapless immune region is error-prone, do you mind adding an assert that checks that whatever is put into the immune region is actually contiguous (gapless)?",
+      "range": {
+        "startLine": 1437,
+        "startChar": 16,
+        "endLine": 1437,
+        "endChar": 23
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "793d1f4c_402b0e62",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Is there a reason that kDefaultInitialSize doesn\u0027t work?",
+      "range": {
+        "startLine": 1438,
+        "startChar": 43,
+        "endLine": 1438,
+        "endChar": 56
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39d4872d_a41b2085",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Also, shouldn\u0027t temp_space be updated to point to the the mem map that bump_pointer_space_ points to here? Otherwise, I\u0027m not sure what temp_space_ points to  in the CMS-\u003eSS transition (line 1416) above?",
+      "range": {
+        "startLine": 1447,
+        "startChar": 8,
+        "endLine": 1447,
+        "endChar": 37
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d94d2b11_644d005b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Is this call necessary?",
+      "range": {
+        "startLine": 1642,
+        "startChar": 34,
+        "endLine": 1642,
+        "endChar": 41
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9921f333_390c0f54",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Is this meant to refer to the collector type used pre-fork?\n\nIf so, isn\u0027t the pre-fork collector always CMS (is the true block of this if statement reachable?)\n\nCan you remind where desired_collector_type_ is set? Isn\u0027t desired_collector_type_ set to the post_zygote_collector_type_ in Heap::Heap()?",
+      "range": {
+        "startLine": 1656,
+        "startChar": 23,
+        "endLine": 1656,
+        "endChar": 46
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9921f333_99b0bb0a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "Use kDefaultInitialSize?",
+      "range": {
+        "startLine": 1673,
+        "startChar": 37,
+        "endLine": 1673,
+        "endChar": 43
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9921f333_dc08618a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T00:02:18Z",
+      "side": 1,
+      "message": "What if background_collector_type_ \u003d\u003d SS and post_zygote_collector_type_ \u003d\u003d SS?\n\nWhat if background_collector_type_ \u003d\u003d GSS and post_zygote_collector_type_ \u003d\u003d GSS? Note GSS uses the main space.",
+      "range": {
+        "startLine": 2469,
+        "startChar": 9,
+        "endLine": 2470,
+        "endChar": 55
+      },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
