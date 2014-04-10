@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "996f3376_634ade9e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T18:38:45Z",
+      "side": 1,
+      "message": "Not very sure, but is there a chance that we would need to do this check after SuspendAll()? Otherwise, there\u0027s still a small window of time (from here to SuspendAll() in line 1424) where multiple threads could potentially be racing?",
+      "range": {
+        "startLine": 1412,
+        "startChar": 6,
+        "endLine": 1412,
+        "endChar": 8
+      },
+      "revId": "2be0d2119c565dbfae35508a35a9c6d023e8433c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
