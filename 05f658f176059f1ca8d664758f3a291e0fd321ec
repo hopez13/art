@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "996f3376_a9ac3d3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9502fa6_8544c868",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9921f333_bfcf9f44",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "195b43e2_45c24a77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Copy paste error.",
+      "parentUuid": "f9fbcfcb_99dc0758",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9fbcfcb_59d32f27",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -88,6 +124,24 @@
         "endLine": 169,
         "endChar": 30
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996f3376_c394ea29",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "The main problem I was getting is that one of the run tests was failing if background compaction was enabled due to incorrectly putting non movable objects in the non-moving space. This was caused by only having 1 free list space (non moving rosalloc).",
+      "parentUuid": "f9fbcfcb_59d32f27",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +194,42 @@
     },
     {
       "key": {
+        "uuid": "d9544bb3_437b2603",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Currently we just use the post zygote collector pre zygote. Maybe I\u0027ll rename this to be foreground_collector_ since its used both pre and post zygote.",
+      "parentUuid": "f9502fa6_05a2f894",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996f3376_52444535",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "No, this change just uses the post zygote collector pre zygote. I renamed it to foreground_collector_type_.",
+      "parentUuid": "f9502fa6_a596a437",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d4872d_42143f9b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -157,6 +247,24 @@
         "endLine": 196,
         "endChar": 44
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79027fbc_ac8abb05",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Can we be sure that there wont be something else at that memory address? I can try I guess. The space bitmaps could be there.",
+      "parentUuid": "39d4872d_42143f9b",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -186,6 +294,24 @@
     },
     {
       "key": {
+        "uuid": "f97e6f24_f34bfff2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Updated comment.",
+      "parentUuid": "39d4872d_2284a38b",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "793d1f4c_a0853a48",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -203,6 +329,24 @@
         "endLine": 221,
         "endChar": 51
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996f3376_52cf6569",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Pre fork now uses the foreground collector as well as post fork. This should be handled by creating both the spaces.",
+      "parentUuid": "793d1f4c_a0853a48",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -232,6 +376,24 @@
     },
     {
       "key": {
+        "uuid": "79027fbc_2ce22bb9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "It should contain the old bump pointer space. Added comment.",
+      "parentUuid": "9921f333_1ff9eb97",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d4872d_c264cf2f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -249,6 +411,24 @@
         "endLine": 1419,
         "endChar": 61
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79027fbc_0c564799",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Agreed about the ashmem names, GSS still works since the non moving space is still there.",
+      "parentUuid": "39d4872d_c264cf2f",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -278,6 +458,24 @@
     },
     {
       "key": {
+        "uuid": "f97e6f24_b6eb25ce",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Good point, this would break if we were to ever make the main space immune. Fortunately, this doesn\u0027t currently happen. Do you think its worth changing to logic to have all 3 spaces live at the same time?",
+      "parentUuid": "f9502fa6_25f61402",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "793d1f4c_402b0e62",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -295,6 +493,24 @@
         "endLine": 1438,
         "endChar": 56
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79027fbc_aca2bb4a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "793d1f4c_402b0e62",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -324,6 +540,24 @@
     },
     {
       "key": {
+        "uuid": "79027fbc_0ca80729",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "The SS collector swaps the spaces, I plan on refactoring this out of the collector soon.",
+      "parentUuid": "39d4872d_a41b2085",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d94d2b11_644d005b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -341,6 +575,24 @@
         "endLine": 1642,
         "endChar": 41
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97e6f24_93a39b2c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "In DlMalloc the space is set to PROT_NONE at the start. If we start writing past the end, we will get a segfault.",
+      "parentUuid": "d94d2b11_644d005b",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -370,6 +622,24 @@
     },
     {
       "key": {
+        "uuid": "f97e6f24_13e00b63",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "I just use the foreground collector pre-fork now. It could be SS or CMS based on what the foreground_collector_type_ is. Nice catch, I changed it to be collector_type_.",
+      "parentUuid": "9921f333_390c0f54",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9921f333_99b0bb0a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -393,6 +663,24 @@
     },
     {
       "key": {
+        "uuid": "996f3376_b2a7c15a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9921f333_99b0bb0a",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9921f333_dc08618a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -410,6 +698,24 @@
         "endLine": 2470,
         "endChar": 55
       },
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97e6f24_5670c1ab",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 1,
+      "message": "Copying into a non moving space is OK just not copying out of. Currently the main space is only ever copied out of during background compaction, which only occurs iff there is a transition from MS/CMS -\u003e SS/GSS or visa versa.",
+      "parentUuid": "9921f333_dc08618a",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

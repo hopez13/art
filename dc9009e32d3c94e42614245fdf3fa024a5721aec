@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "996f3376_b5e1eb40",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 0,
+      "message": "Called by create main malloc space.",
+      "parentUuid": "f9fbcfcb_f9341b60",
+      "revId": "dc9009e32d3c94e42614245fdf3fa024a5721aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "793d1f4c_80211686",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "79027fbc_ec3dd3ef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 0,
+      "message": "Called by CreateMainMallocSpace.",
+      "parentUuid": "793d1f4c_80211686",
+      "revId": "dc9009e32d3c94e42614245fdf3fa024a5721aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9502fa6_bc332174",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -65,6 +101,24 @@
         "endLine": 1778,
         "endChar": 28
       },
+      "revId": "dc9009e32d3c94e42614245fdf3fa024a5721aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996f3376_927e3dc0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1778,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T21:04:04Z",
+      "side": 0,
+      "message": "During the heap transitions, we don\u0027t have a bump pointer space after the transition. This caused null pointer dereferences.",
+      "parentUuid": "f9502fa6_bc332174",
       "revId": "dc9009e32d3c94e42614245fdf3fa024a5721aec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
