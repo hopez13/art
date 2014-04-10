@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39f3a71c_be001922",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-10T07:11:52Z",
+      "side": 1,
+      "message": "How about DCHECK_ALIGNED(offset, GetAlignment(compiled_method-\u003eGetInstructionSet());\n\nI wouldn\u0027t be surprised to see something like GetAlignment used elsewhere.",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 25
+      },
+      "revId": "08f068cfd0b21a016bbd693d12fe0becb5e483f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
