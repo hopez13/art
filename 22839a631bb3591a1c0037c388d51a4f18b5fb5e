@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f97e6f24_c6b5e6f8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1884,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-10T17:41:18Z",
+      "side": 0,
+      "message": "I prefer to keep Generic JNI as the current option in AOSP until we have all tests (incl. runtime) confirmed running.",
+      "range": {
+        "startLine": 1884,
+        "startChar": 35,
+        "endLine": 1884,
+        "endChar": 66
+      },
+      "revId": "22839a631bb3591a1c0037c388d51a4f18b5fb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
