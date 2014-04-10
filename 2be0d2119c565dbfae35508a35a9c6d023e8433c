@@ -22,6 +22,24 @@
       "revId": "2be0d2119c565dbfae35508a35a9c6d023e8433c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e49352_2177ce5f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-10T19:48:42Z",
+      "side": 1,
+      "message": "The race is not possible since we set the collector_type_running_ before we exit the loop. Other transitions would need to wait for the GC to complete. I\u0027ll add a comment.",
+      "parentUuid": "996f3376_634ade9e",
+      "revId": "2be0d2119c565dbfae35508a35a9c6d023e8433c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
