@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f97e6f24_89d36e26",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T22:47:53Z",
+      "side": 1,
+      "message": "Sounds right. Will use SetFieldObjectWithoutWriteBarrier instead.",
+      "parentUuid": "79027fbc_2721a484",
+      "revId": "872d479244105d46c4d8fa148d2e063e012c60be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f97e6f24_96c5c94d",
         "filename": "runtime/mirror/object.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-04-10T21:10:11Z",
       "side": 1,
       "message": "Nice use of VisitReferences :) I think you need to pass in a java lang ref reference visitor. You can use the same visitor if you overload operator() again.",
+      "revId": "872d479244105d46c4d8fa148d2e063e012c60be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97e6f24_89eb6e8b",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-10T22:47:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97e6f24_96c5c94d",
       "revId": "872d479244105d46c4d8fa148d2e063e012c60be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
