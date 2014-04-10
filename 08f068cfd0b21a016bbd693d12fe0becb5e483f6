@@ -70,6 +70,30 @@
       "revId": "08f068cfd0b21a016bbd693d12fe0becb5e483f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97e6f24_bb331374",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-10T17:08:38Z",
+      "side": 1,
+      "message": "That\u0027s in globals.h, though, where we do not have InstructionSet. Our constants are stretched across the code base...",
+      "parentUuid": "39f3a71c_61f39011",
+      "range": {
+        "startLine": 409,
+        "startChar": 6,
+        "endLine": 409,
+        "endChar": 25
+      },
+      "revId": "08f068cfd0b21a016bbd693d12fe0becb5e483f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
