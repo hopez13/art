@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "996f3376_5847896d",
+        "filename": "runtime/stack_indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-10T16:49:11Z",
+      "side": 1,
+      "message": "Is this guaranteed to be at offset 0?",
+      "revId": "135016a1feee5576014f377e8006057837ee73a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79027fbc_fb2e2b0d",
+        "filename": "runtime/stack_indirect_reference_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-10T16:49:11Z",
+      "side": 1,
+      "message": "Any alignment issues?",
+      "revId": "135016a1feee5576014f377e8006057837ee73a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
