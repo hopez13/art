@@ -307,6 +307,24 @@
     },
     {
       "key": {
+        "uuid": "d9a7eb21_eee13f40",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-11T18:21:58Z",
+      "side": 1,
+      "message": "Regarding 3), the \"one mem map and split\" approach is what the original code (the Base PS) did. Just FYI.",
+      "parentUuid": "99b2d35a_3733a025",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d4872d_2284a38b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
