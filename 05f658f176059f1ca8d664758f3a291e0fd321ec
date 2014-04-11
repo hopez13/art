@@ -230,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "996f3376_fccd08a8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-11T18:09:19Z",
+      "side": 1,
+      "message": "OK. My misunderstanding. Instead of hardcoding CMS as the pre-zygote-fork collector, we are hardcoding to use the same collector both pre-zygote-fork and post-zygote-fork (and calling it the foreground collector) while we use the SS collector to do the one-time compaction at the zygote fork time.\n\nThis implies we could still use SS or GSS as the foreground collector as well, correct?",
+      "parentUuid": "d9544bb3_437b2603",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d4872d_42143f9b",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -265,6 +283,24 @@
       "side": 1,
       "message": "Can we be sure that there wont be something else at that memory address? I can try I guess. The space bitmaps could be there.",
       "parentUuid": "39d4872d_42143f9b",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99b2d35a_3733a025",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-11T18:09:19Z",
+      "side": 1,
+      "message": "Based on our in-person discussions, the plan is \n\n1) keep the non-moving space 64 mb instead of size \u0027capacity\u0027 like before.\n\n2) have the non-moving space at the lower address and the main space at the higher address, like it\u0027s coded in this CL.\n\n3) allocate a single mem-map for the non-moving space (future zygote) and the main space in one call at base address \u0027requested_alloc_space_begin\u0027 and split them so that all non-moving image, zygote, non-moving, and main spaces are all gapless (eg GSS makes the main and the non-moving spaces immune and immune region would work if we keep them gapless/adjacent).",
+      "parentUuid": "79027fbc_ac8abb05",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -435,6 +471,24 @@
     },
     {
       "key": {
+        "uuid": "d9a7eb21_cbeef56c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-11T18:09:19Z",
+      "side": 1,
+      "message": "GSS needs the main space for the transition to work (or else movable/non-movable objects would be mixed up and a transition wouldn\u0027t work.)",
+      "parentUuid": "79027fbc_0c564799",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9502fa6_25f61402",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -470,6 +524,24 @@
       "side": 1,
       "message": "Good point, this would break if we were to ever make the main space immune. Fortunately, this doesn\u0027t currently happen. Do you think its worth changing to logic to have all 3 spaces live at the same time?",
       "parentUuid": "f9502fa6_25f61402",
+      "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99b2d35a_ba6495f9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-11T18:09:19Z",
+      "side": 1,
+      "message": "Based on our discussion, let\u0027s keep them.",
+      "parentUuid": "f97e6f24_b6eb25ce",
       "revId": "05f658f176059f1ca8d664758f3a291e0fd321ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
