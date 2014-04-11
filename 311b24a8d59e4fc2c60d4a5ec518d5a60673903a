@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39f3a71c_e45a0ebb",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-11T18:03:31Z",
+      "side": 1,
+      "message": "Should we change the CompilerDriver::arena_pool_ to \"mutable\" and CompilerDriver::GetArenaPool() to \"const\"? The arena_pool_ is a kind of cache and doesn\u0027t really add to the state of the CompilerDriver.",
+      "revId": "311b24a8d59e4fc2c60d4a5ec518d5a60673903a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
