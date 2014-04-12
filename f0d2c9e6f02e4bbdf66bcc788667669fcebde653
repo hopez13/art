@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d9a7eb21_65144a9c",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1996,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-12T00:55:39Z",
+      "side": 1,
+      "message": "Let\u0027s not use the suffix \"Pair\" here.  If you need to distinguish this from a 32-bit div zero check, use \"Wide\" instead.  On 32-bit systems, we use a pair of registers to hold a long - but on a 64-bit system it will be a single register.   With very little change, I believe this routine can be used for both 32 \u0026 64 bit systems, so let\u0027s try to avoid using 32-bit specific names.",
+      "revId": "f0d2c9e6f02e4bbdf66bcc788667669fcebde653",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d0bf88_ab229533",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 3
