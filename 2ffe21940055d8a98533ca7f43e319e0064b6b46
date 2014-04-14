@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "9980137b_c10fe2fd",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T15:01:40Z",
+      "side": 1,
+      "message": "this may be evidence that instruction set should be a class and GetInstructionSetAlignment a method",
+      "range": {
+        "startLine": 85,
+        "startChar": 25,
+        "endLine": 85,
+        "endChar": 69
+      },
+      "revId": "2ffe21940055d8a98533ca7f43e319e0064b6b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9c0cbc1_a66c8820",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T15:01:40Z",
+      "side": 1,
+      "message": "similarly",
+      "range": {
+        "startLine": 161,
+        "startChar": 16,
+        "endLine": 161,
+        "endChar": 35
+      },
+      "revId": "2ffe21940055d8a98533ca7f43e319e0064b6b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39f3a71c_07e29c43",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 1
@@ -36,6 +82,30 @@
       "writtenOn": "2014-04-14T14:59:35Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "39f3a71c_07e29c43",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 26
+      },
+      "revId": "2ffe21940055d8a98533ca7f43e319e0064b6b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9c0cbc1_467834d3",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T15:01:40Z",
+      "side": 1,
+      "message": "I\u0027m fine with 64b, if you change then s/bits/bit/",
       "parentUuid": "39f3a71c_07e29c43",
       "range": {
         "startLine": 67,
@@ -84,6 +154,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f9c3cfc8_44c94e94",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 24
+      },
+      "revId": "2ffe21940055d8a98533ca7f43e319e0064b6b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9980137b_61f9b697",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T15:01:40Z",
+      "side": 1,
+      "message": "Would this be more self documenting as:\nreturn GetInstructionSetPointerSize(isa) \u003d\u003d sizeof(uint64_t);",
+      "parentUuid": "19c7c3d6_eb02c566",
       "range": {
         "startLine": 70,
         "startChar": 5,
