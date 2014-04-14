@@ -45,6 +45,42 @@
       "revId": "c707de5fa4161192c667f800a120305f71071f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9982ff7_5fc64f38",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-14T23:49:35Z",
+      "side": 1,
+      "message": "No, the visitor requires\nEXCLUSIVE_LOCKS_REQUIRED(Locks::heap_bitmap_lock_) SHARED_LOCKS_REQUIRED(Locks::mutator_lock_);\nwhich we have when we do that. But somehow the compiler thinks that we don\u0027t have the locks held inside of VisitMarkedRange.",
+      "parentUuid": "f9982ff7_df8fbf14",
+      "revId": "c707de5fa4161192c667f800a120305f71071f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9982ff7_3f60a38f",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-14T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9982ff7_bfa11392",
+      "revId": "c707de5fa4161192c667f800a120305f71071f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
