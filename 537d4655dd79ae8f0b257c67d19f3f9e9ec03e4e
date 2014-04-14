@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59ee9b35_887b5bd0",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-14T19:19:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19c7c3d6_4ea8476d",
+      "range": {
+        "startLine": 160,
+        "startChar": 2,
+        "endLine": 160,
+        "endChar": 15
+      },
+      "revId": "537d4655dd79ae8f0b257c67d19f3f9e9ec03e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9c0cbc1_89a23d4b",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-14T16:45:23Z",
       "side": 1,
       "message": "Could you document what these classes are (what\u0027s a binder vs a processor?), and why are they member classes.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 21
+      },
+      "revId": "537d4655dd79ae8f0b257c67d19f3f9e9ec03e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39f3a71c_b205e831",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-14T19:19:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9c0cbc1_89a23d4b",
       "range": {
         "startLine": 113,
         "startChar": 0,
