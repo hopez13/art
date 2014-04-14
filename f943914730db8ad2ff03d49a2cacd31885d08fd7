@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9982ff7_5f5d6fd6",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T23:53:48Z",
+      "side": 1,
+      "message": "I wonder if we shouldn\u0027t just create a new VLOG category of signals?",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 12
+      },
+      "revId": "f943914730db8ad2ff03d49a2cacd31885d08fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9980137b_3bc27776",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T23:53:48Z",
+      "side": 1,
+      "message": "There was a review comment to specifically not do this. Can you make this a runtime method as requested.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 88
+      },
+      "revId": "f943914730db8ad2ff03d49a2cacd31885d08fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9982ff7_bf275343",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T23:53:48Z",
+      "side": 1,
+      "message": "Don\u0027t do this.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "f943914730db8ad2ff03d49a2cacd31885d08fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
