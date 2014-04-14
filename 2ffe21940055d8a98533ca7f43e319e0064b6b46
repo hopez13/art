@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9c0cbc1_667bb0d1",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-14T14:59:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39f3a71c_07e29c43",
+      "range": {
+        "startLine": 67,
+        "startChar": 13,
+        "endLine": 67,
+        "endChar": 26
+      },
+      "revId": "2ffe21940055d8a98533ca7f43e319e0064b6b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9c3cfc8_44c94e94",
         "filename": "runtime/instruction_set.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-14T08:29:49Z",
       "side": 1,
       "message": "Is64BitsInstructionSet",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 24
+      },
+      "revId": "2ffe21940055d8a98533ca7f43e319e0064b6b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c7c3d6_eb02c566",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-14T14:59:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9c3cfc8_44c94e94",
       "range": {
         "startLine": 70,
         "startChar": 5,
