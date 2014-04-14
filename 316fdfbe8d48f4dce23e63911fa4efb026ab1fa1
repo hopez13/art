@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9c0cbc1_69d26113",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T16:37:03Z",
+      "side": 1,
+      "message": "Is the move to the -inl.h to get around template issues? Creation isn\u0027t expected to be hot/",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 57
+      },
+      "revId": "316fdfbe8d48f4dce23e63911fa4efb026ab1fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9980137b_01ef0a6a",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-14T16:37:03Z",
+      "side": 1,
+      "message": "Given this could have confusion with ObjectSet a little more explanation would be useful. Something like we\u0027re moving from that to this...",
+      "range": {
+        "startLine": 300,
+        "startChar": 63,
+        "endLine": 300,
+        "endChar": 76
+      },
+      "revId": "316fdfbe8d48f4dce23e63911fa4efb026ab1fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
