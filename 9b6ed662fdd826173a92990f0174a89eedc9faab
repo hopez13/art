@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9980137b_15c3c44b",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-14T21:46:10Z",
+      "side": 1,
+      "message": "doesn\u0027t this complicate plans to make this multi-threaded?",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 43
+      },
+      "revId": "9b6ed662fdd826173a92990f0174a89eedc9faab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
