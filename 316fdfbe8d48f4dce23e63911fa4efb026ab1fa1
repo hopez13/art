@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "d9c0cbc1_294a299d",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-14T17:17:27Z",
+      "side": 1,
+      "message": "Moved to cc file and used template class declarations to prevent linker errors.",
+      "parentUuid": "d9c0cbc1_69d26113",
+      "revId": "316fdfbe8d48f4dce23e63911fa4efb026ab1fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9980137b_01ef0a6a",
         "filename": "runtime/gc/accounting/space_bitmap.h",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 300,
         "endChar": 76
       },
+      "revId": "316fdfbe8d48f4dce23e63911fa4efb026ab1fa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c7c3d6_ae4bbbf3",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-14T17:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9980137b_01ef0a6a",
       "revId": "316fdfbe8d48f4dce23e63911fa4efb026ab1fa1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
