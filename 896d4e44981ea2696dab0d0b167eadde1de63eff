@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9980137b_4dbcdc99",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-15T07:29:19Z",
+      "side": 1,
+      "message": "we used to have stuff like this and I ripped it out in favor of passing via the compiler-option below. I really believe that the running process should know what it is from its own context and dex2oat should be getting it via its own command line options",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 7
+      },
+      "revId": "896d4e44981ea2696dab0d0b167eadde1de63eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
