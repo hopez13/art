@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "198c23b9_23632e9f",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-15T00:03:42Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "f9982ff7_5f5d6fd6",
+      "range": {
+        "startLine": 219,
+        "startChar": 2,
+        "endLine": 219,
+        "endChar": 12
+      },
+      "revId": "f943914730db8ad2ff03d49a2cacd31885d08fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9980137b_3bc27776",
         "filename": "runtime/stack.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f9982ff7_df809fa1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-15T00:03:42Z",
+      "side": 1,
+      "message": "Not to do what?  The stack gap?  Or the cast?  Or what?  I don\u0027t see a review comment for this line in a previous CL",
+      "parentUuid": "9980137b_3bc27776",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 88
+      },
+      "revId": "f943914730db8ad2ff03d49a2cacd31885d08fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9982ff7_bf275343",
         "filename": "runtime/stack.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-04-14T23:53:48Z",
       "side": 1,
       "message": "Don\u0027t do this.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "f943914730db8ad2ff03d49a2cacd31885d08fd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "198c23b9_036e3285",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-15T00:03:42Z",
+      "side": 1,
+      "message": "Don\u0027t do what?  The void*?  Are you concerned about the comment?  It\u0027s actually out of date and I can rewrite it.\n\nAre you saying that you don\u0027t want to do that stack gap?",
+      "parentUuid": "f9982ff7_bf275343",
       "range": {
         "startLine": 103,
         "startChar": 0,
