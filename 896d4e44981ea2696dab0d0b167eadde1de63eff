@@ -22,6 +22,29 @@
       "revId": "896d4e44981ea2696dab0d0b167eadde1de63eff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b964f7c8_b4a7808c",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-15T21:03:55Z",
+      "side": 1,
+      "message": "fwiw, its useful when adding member variables like this to have a description of what the meaning is. Here instruction_set_ is holding the desired instruction set for forked dex2oat processes - that\u0027s not implied by the variable\u0027s name. As Andreas mentioned, explaining why this isn\u0027t just a constant would also be useful.",
+      "range": {
+        "startLine": 575,
+        "startChar": 30,
+        "endLine": 575,
+        "endChar": 31
+      },
+      "revId": "896d4e44981ea2696dab0d0b167eadde1de63eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
