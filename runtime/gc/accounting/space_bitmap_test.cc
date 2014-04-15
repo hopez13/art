@@ -19,6 +19,7 @@
 #include <stdint.h>
 #include <memory>
 
+#include "base/mutex.h"
 #include "common_runtime_test.h"
 #include "globals.h"
 #include "space_bitmap-inl.h"
@@ -145,7 +146,7 @@ class RandGen {
   explicit RandGen(uint32_t seed) : val_(seed) {}
 
   uint32_t next() {
-    val_ = val_ * 48271 % 2147483647;
+    val_ = val_ * 48271 % 2147483647 + 13;
     return val_;
   }
 
@@ -195,6 +196,27 @@ void RunTest() NO_THREAD_SAFETY_ANALYSIS {
       }
 
       EXPECT_EQ(count, manual);
+
+      mirror::Object* last_ptr = nullptr;
+      auto order_check = [&last_ptr](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+        EXPECT_LT(last_ptr, obj);
+        last_ptr = obj;
+      };
+
+      // Test complete walk.
+      space_bitmap->Walk(order_check);
+      if (manual > 0) {
+        EXPECT_NE(nullptr, last_ptr);
+      }
+
+      // Test range.
+      last_ptr = nullptr;
+      space_bitmap->VisitMarkedRange(reinterpret_cast<uintptr_t>(heap_begin) + offset,
+                                     reinterpret_cast<uintptr_t>(heap_begin) + end,
+                                     order_check);
+      if (manual > 0) {
+        EXPECT_NE(nullptr, last_ptr);
+      }
     }
   }
 }
