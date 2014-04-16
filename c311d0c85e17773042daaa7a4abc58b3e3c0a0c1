@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65ec937a_a1f15e06",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T18:59:45Z",
+      "side": 0,
+      "message": "I don\u0027t think RosAllocSpace/RosAlloc::SetFootprintLimit() modifies the memory inside the mem map. But DlMalloc might. Since we now use the part of the dlmalloc-based non-moving space, rather than the rosalloc-based main space, as the zygote space, this wasn\u0027t a problem before CL 90463. Is this right?",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 19
+      },
+      "revId": "c311d0c85e17773042daaa7a4abc58b3e3c0a0c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
