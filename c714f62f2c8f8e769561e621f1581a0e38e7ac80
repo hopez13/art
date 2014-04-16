@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3978076f_2a1dc7c1",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-16T15:16:36Z",
+      "side": 1,
+      "message": "should we just fix this instead? The only remaining call is for \"call\" and it appears to have the same bug.",
+      "range": {
+        "startLine": 1496,
+        "startChar": 0,
+        "endLine": 1496,
+        "endChar": 62
+      },
+      "revId": "c714f62f2c8f8e769561e621f1581a0e38e7ac80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
