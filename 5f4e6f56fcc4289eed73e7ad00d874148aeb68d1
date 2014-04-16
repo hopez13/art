@@ -16,6 +16,24 @@
       "revId": "5f4e6f56fcc4289eed73e7ad00d874148aeb68d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "393d679f_ae57171d",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-16T08:08:01Z",
+      "side": 1,
+      "message": "I did nothing about canRequestVMDeathEvent but I guess we can support that. We\u0027d need to look for such request when posting VM_DEATH event. There is a test only running if it\u0027s enabled: Events.VMDeath002Test#testVMDeathRequest. I\u0027ll file a bug to track that.",
+      "parentUuid": "9980137b_c3dfddbc",
+      "revId": "5f4e6f56fcc4289eed73e7ad00d874148aeb68d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
