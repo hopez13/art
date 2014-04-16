@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "d91c4b54_e95af1ba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-16T20:16:24Z",
+      "side": 1,
+      "message": "Added a runtime option, 2.0 is just the default.",
+      "parentUuid": "d9436b32_ce8d43af",
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "993733c3_6f9fe5cf",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 2530,
         "endChar": 28
       },
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85e7c793_68ad77bd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-16T20:16:24Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "993733c3_6f9fe5cf",
       "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "85e7c793_48a2b3cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2548,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-16T20:16:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91c4b54_09ecad32",
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "993733c3_d2331a0c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 2550,
         "endChar": 54
       },
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993733c3_72fb4e28",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2550,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-16T20:16:24Z",
+      "side": 1,
+      "message": "Delta is never \u003c 0, there is a check preventing that. I\u0027ll change target_size to be type uint64_t.",
+      "parentUuid": "993733c3_d2331a0c",
       "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
