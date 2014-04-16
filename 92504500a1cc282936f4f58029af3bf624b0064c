@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "993733c3_6f9fe5cf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T18:11:18Z",
+      "side": 1,
+      "message": "I assume this means \"in the background\".",
+      "range": {
+        "startLine": 2530,
+        "startChar": 6,
+        "endLine": 2530,
+        "endChar": 28
+      },
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91c4b54_09ecad32",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2548,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T18:11:18Z",
+      "side": 1,
+      "message": "Maybe should \u0027delta\u0027 be of type intptr_t to support potentially large heap cases (eg, what if we grow the heap by 3 GB under 64-bit)?",
+      "range": {
+        "startLine": 2548,
+        "startChar": 4,
+        "endLine": 2548,
+        "endChar": 7
+      },
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993733c3_d2331a0c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2550,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T18:11:18Z",
+      "side": 1,
+      "message": "In this addition, since bytes_allocated is of type size_t (unsigned), is this safe for a shrink case where delta \u003c 0 with regard to implicit type conversions?\n\nAlso, is it possible that the 2.0x multiplier causes we shrink too aggressively and end up with a negative target_size (which would unintentionally be a very large positive number as it\u0027s unsigned)?",
+      "range": {
+        "startLine": 2550,
+        "startChar": 18,
+        "endLine": 2550,
+        "endChar": 54
+      },
+      "revId": "92504500a1cc282936f4f58029af3bf624b0064c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
