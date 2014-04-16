@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "193a63a9_d385ec47",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-16T18:21:14Z",
+      "side": 1,
+      "message": "Sign or zero extension isn\u0027t chosen because we have a 64-bit target but because its necessary for x86 or x86-64. This one line needs reverting.",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 25
+      },
+      "revId": "af13ad9fd18b6f75fe82e7995224c55654594f93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
