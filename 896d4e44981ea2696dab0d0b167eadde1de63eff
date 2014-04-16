@@ -45,6 +45,30 @@
       "revId": "896d4e44981ea2696dab0d0b167eadde1de63eff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59585b1a_af14792a",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-04-16T09:43:17Z",
+      "side": 1,
+      "message": "Sure. Brian \u0026 I decided to rework this design somewhat, so this change isn\u0027t needed any more. I\u0027ll keep this in mind for the future though.",
+      "parentUuid": "b964f7c8_b4a7808c",
+      "range": {
+        "startLine": 575,
+        "startChar": 30,
+        "endLine": 575,
+        "endChar": 31
+      },
+      "revId": "896d4e44981ea2696dab0d0b167eadde1de63eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
