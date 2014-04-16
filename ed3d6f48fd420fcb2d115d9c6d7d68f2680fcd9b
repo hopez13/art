@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25f61b4a_08126b78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T22:24:28Z",
+      "side": 1,
+      "message": "Any mem alloc test performance degradation?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5f7a345_c3a8ea02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T22:24:28Z",
+      "side": 1,
+      "message": "Is this a crash and/or a class unloading already happening or is this about being future proof?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5f7a345_e60e5452",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T22:24:28Z",
+      "side": 1,
+      "message": "I think this should be changed so that this function returns the return value from RosAlloc::Free() as well.",
+      "range": {
+        "startLine": 175,
+        "startChar": 29,
+        "endLine": 175,
+        "endChar": 53
+      },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f61b4a_45161ee0",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T22:24:28Z",
+      "side": 1,
+      "message": "Would it make sense to move these constexpr\u0027s to the beginning of the file, or outside of this function?",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 49
+      },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f61b4a_85f5466a",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T22:24:28Z",
+      "side": 1,
+      "message": "Insert \"kPrefetchDuringRosAllocFreeList \u0026\u0026\" here to execute the prefetch code only if kPrefetchDuringRosAllocFreeList?",
+      "range": {
+        "startLine": 195,
+        "startChar": 10,
+        "endLine": 195,
+        "endChar": 11
+      },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
