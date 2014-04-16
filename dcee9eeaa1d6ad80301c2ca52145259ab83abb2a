@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d91c4b54_e98591ae",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T18:36:44Z",
+      "side": 1,
+      "message": "Would intptr_t be more future-proof?",
+      "range": {
+        "startLine": 1484,
+        "startChar": 2,
+        "endLine": 1484,
+        "endChar": 9
+      },
+      "revId": "dcee9eeaa1d6ad80301c2ca52145259ab83abb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91c4b54_097bcd03",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1485,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T18:36:44Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1485,
+        "startChar": 2,
+        "endLine": 1485,
+        "endChar": 9
+      },
+      "revId": "dcee9eeaa1d6ad80301c2ca52145259ab83abb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
