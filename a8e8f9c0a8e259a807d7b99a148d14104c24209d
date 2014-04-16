@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25f61b4a_85d7865c",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T21:43:03Z",
+      "side": 1,
+      "message": "This isn\u0027t about this change, but put \u0027inline\u0027 here?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "a8e8f9c0a8e259a807d7b99a148d14104c24209d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25f61b4a_a253a048",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T21:43:03Z",
+      "side": 1,
+      "message": "Should this be moved to space_bitmap-inl.cc? Or, remove the inline keyword?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 6
+      },
+      "revId": "a8e8f9c0a8e259a807d7b99a148d14104c24209d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5f7a345_e3e76648",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-16T21:43:03Z",
+      "side": 1,
+      "message": "Should this be moved to space_bitmap-inl.cc? Or, remove the inline keyword?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 6
+      },
+      "revId": "a8e8f9c0a8e259a807d7b99a148d14104c24209d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
