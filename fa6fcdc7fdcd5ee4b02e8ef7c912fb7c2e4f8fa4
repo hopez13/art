@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45586f41_421616e0",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "could be false, but its a test so who cares",
+      "range": {
+        "startLine": 167,
+        "startChar": 60,
+        "endLine": 167,
+        "endChar": 64
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_721b2dd9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "image writing is single threaded so this could be false (and below)",
+      "range": {
+        "startLine": 182,
+        "startChar": 34,
+        "endLine": 182,
+        "endChar": 38
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_7e199e4e",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "can be false, ultimately we\u0027ll either succeed or CAS using this and so the CAS should provide sufficient memory barriers",
+      "range": {
+        "startLine": 153,
+        "startChar": 44,
+        "endLine": 153,
+        "endChar": 48
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_92e45173",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "I would have thought volatility was a property of the field, perhaps rename this to be with_barriers, or as_volatile rather than is_volatile. A comment explaining usage both here and below would be good.",
+      "range": {
+        "startLine": 103,
+        "startChar": 28,
+        "endLine": 103,
+        "endChar": 39
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_82ef6e67",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "can be false again as the CAS should be robust",
+      "range": {
+        "startLine": 114,
+        "startChar": 32,
+        "endLine": 114,
+        "endChar": 36
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_12d861af",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "You can assert this with:\nLocks::mutator_lock_-\u003eAssertExclusiveHeld(self);",
+      "range": {
+        "startLine": 577,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 71
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_b2a51529",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "read can be racy here as the dump is best effort.. we rarely take this case",
+      "range": {
+        "startLine": 879,
+        "startChar": 26,
+        "endLine": 879,
+        "endChar": 30
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_deaf9280",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-17T22:30:03Z",
+      "side": 1,
+      "message": "can be false as test is single threaded..",
+      "range": {
+        "startLine": 58,
+        "startChar": 49,
+        "endLine": 58,
+        "endChar": 53
+      },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
