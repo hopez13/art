@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "853507d4_5cf842e6",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-04-17T20:02:34Z",
+      "side": 1,
+      "message": "though it isn\u0027t as bad on the device. maybe we still want to strip on the host?",
+      "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_4ede37a1",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-04-17T20:02:34Z",
+      "side": 1,
+      "message": "and the relative address must not have a leading 0x? (otherwise i\u0027d rather keep that. implicit hex must die!)",
+      "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_eed4e37c",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-04-17T20:02:34Z",
+      "side": 1,
+      "message": "so the count restarts when we go from kernel to native?",
+      "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
