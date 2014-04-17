@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c51d3f5e_dde55fb2",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-17T14:58:19Z",
+      "side": 1,
+      "message": "rax for future safety?",
+      "range": {
+        "startLine": 517,
+        "startChar": 4,
+        "endLine": 517,
+        "endChar": 20
+      },
+      "revId": "2a35ad1b429591268878f7f5390dbf9801899bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
