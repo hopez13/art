@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_e2d4ea7c",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_421616e0",
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "853507d4_721b2dd9",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 182,
         "endChar": 38
       },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_828bee9e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853507d4_721b2dd9",
       "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "c51d3f5e_fe792e50",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c51d3f5e_7e199e4e",
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "853507d4_92e45173",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 103,
         "endChar": 39
       },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_1e64ea9c",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853507d4_92e45173",
       "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_4263b620",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_82ef6e67",
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "853507d4_12d861af",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -134,6 +224,24 @@
         "endLine": 577,
         "endChar": 71
       },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_8d2af29c",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Doesn\u0027t work apparently, the image writer just has shared access to the mutator lock. I guess this is sound since there is only one thread.",
+      "parentUuid": "853507d4_12d861af",
       "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "853507d4_6d2fceae",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853507d4_b2a51529",
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c51d3f5e_deaf9280",
         "filename": "runtime/transaction_test.cc",
         "patchSetId": 1
@@ -180,6 +306,24 @@
         "endLine": 58,
         "endChar": 53
       },
+      "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_7ef4fe3a",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-17T22:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c51d3f5e_deaf9280",
       "revId": "fa6fcdc7fdcd5ee4b02e8ef7c912fb7c2e4f8fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
