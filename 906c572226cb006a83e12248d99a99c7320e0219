@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_e32d09ca",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-18T13:37:44Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "0552f722_ecb5ffd4",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0552f722_ccb243eb",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 3
@@ -59,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_7e03ee2d",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-18T13:37:44Z",
+      "side": 1,
+      "message": "The LoadWord/StoreWord code needs some thought.  These originated as wrappers to avoid constantly typing out all of the arguments for LoadBaseDisp, and likely are used frequently with the assumption that the size is 32 bits regardless of natural machine word size.  It might make sense to replace existing uses of LoadWord/StoreWord with Load32/Store32 (the typical case) and then have LoadWord/StoreWorld target-dependent for those (much rarer, I assume) cases that you really do want the natural machine word size.",
+      "parentUuid": "0552f722_acaf0781",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0552f722_8cac4b8d",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 3
@@ -70,6 +106,58 @@
       "writtenOn": "2014-04-18T12:35:52Z",
       "side": 1,
       "message": "Are we doing compile time code selection, or runtime?",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0552f722_0c6f3b7e",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-18T13:37:44Z",
+      "side": 1,
+      "message": "Should be run-time code selection (at the moment we assume a host build can generate code for any target).  It\u0027s on our TODO list to support target builds that only build for one target.",
+      "parentUuid": "0552f722_8cac4b8d",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0552f722_8c5a0bd5",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-18T13:37:44Z",
+      "side": 1,
+      "message": "Better to have a target-specific function that returns a RegStorage of the  target\u0027s natural width.",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_def41af8",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-18T13:37:44Z",
+      "side": 1,
+      "message": "This code has changed in my outstanding CL - LoadBaseIndexedDisp no longer assumes a register pair.",
       "revId": "906c572226cb006a83e12248d99a99c7320e0219",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
