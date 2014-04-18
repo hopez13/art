@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0552f722_8692ea73",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2014-04-18T02:18:47Z",
+      "side": 1,
+      "message": "That would require some conditional compilation, and it would mean that the format would be different for host.\n\nI could add the stripped map name to the end of the line if you think that would be useful.",
+      "parentUuid": "853507d4_5cf842e6",
+      "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c51d3f5e_4ede37a1",
         "filename": "runtime/utils.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_6519214f",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2014-04-18T02:18:47Z",
+      "side": 1,
+      "message": "Yep, I\u0027ll add that to the comment.",
+      "parentUuid": "c51d3f5e_4ede37a1",
+      "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c51d3f5e_eed4e37c",
         "filename": "runtime/utils.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2014-04-17T20:02:34Z",
       "side": 1,
       "message": "so the count restarts when we go from kernel to native?",
+      "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0552f722_a695e65f",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2014-04-18T02:18:47Z",
+      "side": 1,
+      "message": "Yeah, I had an earlier version that carried the frame number across the kernel frames too. I can revive that if you think it\u0027s useful.\n\nI was reluctant to do it because I couldn\u0027t find a way to test that the kernel dump worked.",
+      "parentUuid": "c51d3f5e_eed4e37c",
       "revId": "e4a3ee15d123fbaeca88b61585eda0d1af8da914",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
