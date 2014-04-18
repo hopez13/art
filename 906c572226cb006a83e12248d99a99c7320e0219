@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0552f722_ecb5ffd4",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-18T12:35:52Z",
+      "side": 1,
+      "message": "Perhaps TargetReg(kArg0) should return a Solo64 for x86_64?  Then you wouldn\u0027t need the \u0027if\u0027",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0552f722_ccb243eb",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-18T12:35:52Z",
+      "side": 1,
+      "message": "This looks like an excellent place for a virtual function :-)",
+      "range": {
+        "startLine": 1408,
+        "startChar": 2,
+        "endLine": 1414,
+        "endChar": 1
+      },
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0552f722_acaf0781",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-18T12:35:52Z",
+      "side": 1,
+      "message": "Could LoadBaseDisp look at Is64Bit and automatically change to kLong?  Does that make sense?",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0552f722_8cac4b8d",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-18T12:35:52Z",
+      "side": 1,
+      "message": "Are we doing compile time code selection, or runtime?",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
