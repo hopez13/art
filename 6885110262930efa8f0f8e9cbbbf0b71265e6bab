@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "453f8fb5_e4d4027d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "GetData?",
+      "range": {
+        "startLine": 130,
+        "startChar": 37,
+        "endLine": 130,
+        "endChar": 43
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "453f8fb5_c4d1fe8a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "Name?",
+      "range": {
+        "startLine": 148,
+        "startChar": 21,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_d195435f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "should EndClass bother to clear dex_file_ and class_def_index_?",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 27
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_9da58f29",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "GetOffset?",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 224,
+        "endChar": 3
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_c836a8fd",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "It was unclear that this was intended to be mutable, I\u0027d document this is expected to be set/advanced as needed by processors",
+      "range": {
+        "startLine": 230,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 17
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_91ed8be1",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "i\u0027d visually separate these from the above too since they change with each StartClass/EndClass.",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 26
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_5146d365",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "perhaps add \" including the size of the MethodCode.\"",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 60
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_9d20efff",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "can we now move these above the \"padding\", that is before the executable offset? This would mean less executable pages which the security team would like. I thought I said this previously (a few days ago) but apparently lost those comments.",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05291785_3dc57b40",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "I\u0027m not sure the template struct vs a little abstract class with subclasses is the clearest way to do this.\n\nthat said, the name is definitely unclear. Can we do something like MapBinder -\u003e DeDuper?\n\n(looking at the other file, I think part of the confusion for me in the \"Map\" part of the name is that its just a coincidence to me that these are are \"map\" like data.)",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653ad3c6_e0cbcc50",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "Processor -\u003e Visitor?",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 26
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05291785_7d1f834e",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T00:45:08Z",
+      "side": 1,
+      "message": "VisitDexMethods?",
+      "range": {
+        "startLine": 138,
+        "startChar": 7,
+        "endLine": 138,
+        "endChar": 24
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
