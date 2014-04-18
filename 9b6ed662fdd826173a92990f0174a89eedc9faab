@@ -46,6 +46,30 @@
       "revId": "9b6ed662fdd826173a92990f0174a89eedc9faab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e54ec381_48219f37",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-18T17:21:54Z",
+      "side": 1,
+      "message": "But I think the point was to make both main passes (setup of structures and writing) multi-threaded, with just a small single threaded pass if needed produce global offsets.",
+      "parentUuid": "f9c3cfc8_a73804b3",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 43
+      },
+      "revId": "9b6ed662fdd826173a92990f0174a89eedc9faab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
