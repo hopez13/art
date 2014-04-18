@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "453f8fb5_6aad7bbd",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-18T22:45:58Z",
+      "side": 1,
+      "message": "That won\u0027t work as intended. Originally it had 2ND_TARGET_ARCH here (see the call below). For Multi-target builds that should stay the original way, but I\u0027m not sure what to do for the current situation.",
+      "range": {
+        "startLine": 64,
+        "startChar": 23,
+        "endLine": 64,
+        "endChar": 46
+      },
+      "revId": "716ccb6f55a7e36cd29c12f53080f909b6599590",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
