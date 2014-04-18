@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "853507d4_a84364cd",
+        "filename": "runtime/gc/accounting/heap_bitmap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 0,
+      "message": "Why not keep this as GetLargeSpaceBitmap()? It seems symmetric to have it.",
+      "range": {
+        "startLine": 38,
+        "startChar": 13,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "425640d6fac3432a44e236a002e8401a7cd59c5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_b2d87dfe",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 0,
+      "message": "Why get rid of this?",
+      "range": {
+        "startLine": 1134,
+        "startChar": 29,
+        "endLine": 1134,
+        "endChar": 34
+      },
+      "revId": "425640d6fac3432a44e236a002e8401a7cd59c5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

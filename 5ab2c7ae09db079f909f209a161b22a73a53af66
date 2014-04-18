@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "853507d4_e88e0cd9",
+        "filename": "runtime/gc/accounting/heap_bitmap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "If we have LIKELY here, which probably makes sense as there\u0027s one large object space typically, how about putting it in Test() and Clear() as well?",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 14
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653ad3c6_e0798c50",
+        "filename": "runtime/gc/accounting/heap_bitmap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "How about calling this LargeObjectSetVisitor or something like that to make the meaning of the \u0027slow path\u0027 more specific?",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 36,
+        "endChar": 35
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05291785_dd2f9779",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "Not about this change, but how about calling AsLargeObjectSpace() instead of a down_cast?",
+      "range": {
+        "startLine": 188,
+        "startChar": 37,
+        "endLine": 188,
+        "endChar": 84
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_af093a91",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "Not about this change, but this down_cast is redundant.",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 13
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "453f8fb5_e49be2ea",
+        "filename": "runtime/gc/collector/semi_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "I don\u0027t think the meaning of this code fragment is preserved from the Base PS. The old code said if we mark an object in a continuous space and the collector is in generational mode, then it must be a whole heap collection (\u003d\u003d not a bump pointer space collection.) To do that, we probably need a fast-path visitor instead of a slow path visitor as the current code in PS4 won\u0027t detect an execution of a fast path.\n\nOne idea is to add a fast path visitor and put the original code fragment in it.\n\nAnother is to pass the address of a bool local variable to the slow path visitor and make it set if it\u0027s executed. If the local variable isn\u0027t set, then run the fast-path check.\n\nAnother is to add a bool output parameter in HeapBitmap::Set() (and AtomicTestAndSet()) (eg. is_slow_path or is_large_object or something like that) and perform checks accordingly. Something like:\n\nbool is_large_object;\nbool was_already_marked \u003d mark_bit_map_-\u003eSet(obj, \u0026is_large_object);\nif (!is_large_object) {\n  // If a bump pointer space only collection, we should not\n  // reach here as we don\u0027t/won\u0027t mark the objects in the\n  // non-moving space (except for the promoted objects.)  Note\n  // the non-moving space is added to the immune space.\n  DCHECK(whole_heap_collection_);\n} else {\n  CHECK(!to_space_-\u003eHasAddress(obj)) \u003c\u003c \"Marking \" \u003c\u003c obj \u003c\u003c \" in to_space_\";\n  CHECK(IsAligned\u003ckPageSize\u003e(obj));\n}\nif (!was_already_marked) {\n  MarkStackPush(obj);\n}",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 79
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_0fb1667f",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "Rename to large_live_bitmap?",
+      "range": {
+        "startLine": 370,
+        "startChar": 35,
+        "endLine": 370,
+        "endChar": 53
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_efd4d27c",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "Would using large_live_space-\u003eBegin()/End() instead of the HeapBegin()/Limit() be faster as the former is likely to be a smaller/more specific range?",
+      "range": {
+        "startLine": 372,
+        "startChar": 41,
+        "endLine": 372,
+        "endChar": 72
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "853507d4_68f7bcaf",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "Note to self: Why wasn\u0027t this done before with ObjectSet?",
+      "range": {
+        "startLine": 400,
+        "startChar": 5,
+        "endLine": 400,
+        "endChar": 60
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_7def7b68",
+        "filename": "runtime/gc/space/large_object_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "How about saying \"which may vary as the space is filled\" like End() to stress that it may not be a fixed address?",
+      "range": {
+        "startLine": 82,
+        "startChar": 38,
+        "endLine": 82,
+        "endChar": 39
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_bd561339",
+        "filename": "runtime/gc/space/space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "I wonder if there\u0027s a way to assert this so it will fail if we have objects not in the low 32 bit.",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 9
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_3d6c6318",
+        "filename": "runtime/gc/space/space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "Why subtract this?",
+      "range": {
+        "startLine": 76,
+        "startChar": 46,
+        "endLine": 76,
+        "endChar": 70
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_d1be63ef",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T01:05:50Z",
+      "side": 1,
+      "message": "As we start referring to \"LargeObject\" stuff in DiscontinuousSpace, DiscontinuousSpace becomes less abstract and more specific to LargeObjectSpace, it seems. Would we want to get rid of DiscontinuousSpace (I think there\u0027s no other derived class of DiscontinuousSpace) or move the \"LargeObject\" stuff down to LargeObjectSpace?",
+      "range": {
+        "startLine": 334,
+        "startChar": 24,
+        "endLine": 334,
+        "endChar": 41
+      },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
