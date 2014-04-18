@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "255d3b32_019c9e8b",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-18T18:05:01Z",
+      "side": 1,
+      "message": "optional: Factor out the code (lines 28-30 and 48-50) into a function to share it here and in Create()?",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 37
+      },
+      "revId": "bbd695c71e0bf518f582e84524e1cdeb3de3896c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
