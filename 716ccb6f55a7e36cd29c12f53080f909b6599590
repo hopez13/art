@@ -22,6 +22,30 @@
       "revId": "716ccb6f55a7e36cd29c12f53080f909b6599590",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c54b7f72_2d10b5b0",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-18T22:53:37Z",
+      "side": 1,
+      "message": "Yes, there\u0027s another bug here that the TARGET_INSTRUCTION_FEATURES isn\u0027t correct for the 2nd architecture case. We should make sure variables local to ART\u0027s build system have ART_ prefixes. For functions its useful to document the meaning of arguments - $(1).",
+      "parentUuid": "453f8fb5_6aad7bbd",
+      "range": {
+        "startLine": 64,
+        "startChar": 23,
+        "endLine": 64,
+        "endChar": 46
+      },
+      "revId": "716ccb6f55a7e36cd29c12f53080f909b6599590",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
