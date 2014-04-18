@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "c51d3f5e_9489f918",
+        "filename": "runtime/gc/accounting/heap_bitmap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 0,
+      "message": "It wasn\u0027t used, is it really worth keeping it?",
+      "parentUuid": "853507d4_a84364cd",
+      "revId": "425640d6fac3432a44e236a002e8401a7cd59c5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_b2d87dfe",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 4
@@ -42,6 +60,24 @@
         "endLine": 1134,
         "endChar": 34
       },
+      "revId": "425640d6fac3432a44e236a002e8401a7cd59c5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45586f41_f2683533",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 0,
+      "message": "It was broken since it didn\u0027t have a variable name, since we prefix all the sweep phases with Sweep* it should be OK to not have them as subsplits of a sweep phase.",
+      "parentUuid": "45586f41_b2d87dfe",
       "revId": "425640d6fac3432a44e236a002e8401a7cd59c5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

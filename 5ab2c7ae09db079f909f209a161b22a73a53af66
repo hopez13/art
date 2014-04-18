@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "c51d3f5e_b4fe357d",
+        "filename": "runtime/gc/accounting/heap_bitmap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853507d4_e88e0cd9",
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "653ad3c6_e0798c50",
         "filename": "runtime/gc/accounting/heap_bitmap.h",
         "patchSetId": 4
@@ -42,6 +60,24 @@
         "endLine": 36,
         "endChar": 35
       },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_f4b26dea",
+        "filename": "runtime/gc/accounting/heap_bitmap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "653ad3c6_e0798c50",
       "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "853507d4_c3a56928",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05291785_dd2f9779",
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_af093a91",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 4
@@ -88,6 +142,24 @@
         "endLine": 193,
         "endChar": 13
       },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_1464c99c",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_af093a91",
       "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "853507d4_3e344e00",
+        "filename": "runtime/gc/collector/semi_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Since its a DCHECK, making it slower should be OK. I\u0027ll use GetContinuousSpaceBitmap in MarkObject.",
+      "parentUuid": "453f8fb5_e49be2ea",
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_0fb1667f",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 4
@@ -134,6 +224,24 @@
         "endLine": 370,
         "endChar": 53
       },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_941c5902",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_0fb1667f",
       "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_f226f51c",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_efd4d27c",
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "853507d4_68f7bcaf",
         "filename": "runtime/gc/space/large_object_space.cc",
         "patchSetId": 4
@@ -180,6 +306,24 @@
         "endLine": 400,
         "endChar": 60
       },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_944339ce",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Forgot to do the optimization before.",
+      "parentUuid": "853507d4_68f7bcaf",
       "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "45586f41_d2bad15a",
+        "filename": "runtime/gc/space/large_object_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_7def7b68",
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_bd561339",
         "filename": "runtime/gc/space/space.cc",
         "patchSetId": 4
@@ -226,6 +388,24 @@
         "endLine": 74,
         "endChar": 9
       },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_d4609161",
+        "filename": "runtime/gc/space/space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "We could add asserts in the allocators I suppose.",
+      "parentUuid": "45586f41_bd561339",
       "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -255,6 +435,24 @@
     },
     {
       "key": {
+        "uuid": "c51d3f5e_544da1f7",
+        "filename": "runtime/gc/space/space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "I forgot to delete this code, there was an integer overflow error when I was using HeapLimit() instead of End().",
+      "parentUuid": "45586f41_3d6c6318",
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c51d3f5e_d1be63ef",
         "filename": "runtime/gc/space/space.h",
         "patchSetId": 4
@@ -272,6 +470,24 @@
         "endLine": 334,
         "endChar": 41
       },
+      "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c51d3f5e_f43a6d53",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-18T02:02:43Z",
+      "side": 1,
+      "message": "Might be worth doing in another CL. I don\u0027t really see other uses for DiscontinuousSpaces now.",
+      "parentUuid": "c51d3f5e_d1be63ef",
       "revId": "5ab2c7ae09db079f909f209a161b22a73a53af66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
