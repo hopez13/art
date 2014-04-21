@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85d187e4_f515b257",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-21T23:23:20Z",
+      "side": 1,
+      "message": "fwiw, kInterpretOnly using the generic JNI when available. We should make it available for all ISAs",
+      "parentUuid": "995d7362_7990e734",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 67
+      },
+      "revId": "83ea313c3cc02b973040c8ece8bb3e7228394560",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79527f52_d80dadc2",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 2
