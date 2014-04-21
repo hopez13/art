@@ -95,6 +95,24 @@
     },
     {
       "key": {
+        "uuid": "6571f3c6_99903b87",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-21T10:39:24Z",
+      "side": 1,
+      "message": "Is it correct that 91569 \"Update load/store utilities for 64-bit backends\" adresses this issue?",
+      "parentUuid": "45586f41_7e03ee2d",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0552f722_8cac4b8d",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 3
