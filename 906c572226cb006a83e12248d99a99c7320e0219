@@ -130,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "6571f3c6_99391bf1",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-21T07:41:19Z",
+      "side": 1,
+      "message": "While this patch is a WIP, the #ifdef is safest way to do not break x86 functionality. Making thise selection run-time require refactoring of common QCG code, which still have ThreadOffset\u003c4\u003e issue (all functions assumes that thread offset contains 32-bit pointers).",
+      "parentUuid": "0552f722_0c6f3b7e",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0552f722_8c5a0bd5",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 3
@@ -147,6 +165,24 @@
     },
     {
       "key": {
+        "uuid": "058037c3_d611a474",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-21T07:41:19Z",
+      "side": 1,
+      "message": "Is it correct that 91569 adds such function?",
+      "parentUuid": "0552f722_8c5a0bd5",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_def41af8",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 3
@@ -158,6 +194,24 @@
       "writtenOn": "2014-04-18T13:37:44Z",
       "side": 1,
       "message": "This code has changed in my outstanding CL - LoadBaseIndexedDisp no longer assumes a register pair.",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6571f3c6_f93cd7e1",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-21T07:41:19Z",
+      "side": 1,
+      "message": "Bill, I\u0027ll rebase this patch on top of your patch 91569 soon.",
+      "parentUuid": "45586f41_def41af8",
       "revId": "906c572226cb006a83e12248d99a99c7320e0219",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
