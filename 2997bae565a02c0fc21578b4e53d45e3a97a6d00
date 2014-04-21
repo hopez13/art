@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85d187e4_b5f16a06",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-21T23:19:02Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 102,
+        "startChar": 33,
+        "endLine": 102,
+        "endChar": 37
+      },
+      "revId": "2997bae565a02c0fc21578b4e53d45e3a97a6d00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5768bc3_d663e294",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1897,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-21T23:19:02Z",
+      "side": 1,
+      "message": "covering a bug?",
+      "range": {
+        "startLine": 1897,
+        "startChar": 4,
+        "endLine": 1897,
+        "endChar": 15
+      },
+      "revId": "2997bae565a02c0fc21578b4e53d45e3a97a6d00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
