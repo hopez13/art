@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "658813e3_302fb6af",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-21T12:05:11Z",
+      "side": 1,
+      "message": "This will need changes for 64 bit, but possibly only the push_offset.  Can you change this to a FIXME64 or something similar?",
+      "revId": "81350a074aa6d4b8b4f45fa73eaf7abc5e7881ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e57c03a6_b5f18006",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 2
@@ -13,6 +30,24 @@
       "writtenOn": "2014-04-21T04:26:21Z",
       "side": 1,
       "message": "I think we should spill/unspill natural word size, especially when long argument is passed via single 64-bit register.\n\nSee patches on the review:\nhttps://android-review.googlesource.com/#/c/91383/2 \"64bit changes to the stack walker for the Quick ABI.\"\nhttps://android-review.googlesource.com/#/c/91375/ \"[WIP] Add x86_64 code generation support\"",
+      "revId": "81350a074aa6d4b8b4f45fa73eaf7abc5e7881ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "658813e3_f0186e92",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-04-21T12:05:11Z",
+      "side": 1,
+      "message": "Definitely Word, not 32.  This whole routine needs work for 64 bit",
+      "parentUuid": "e57c03a6_b5f18006",
       "revId": "81350a074aa6d4b8b4f45fa73eaf7abc5e7881ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
