@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5a7ff88_44e40e72",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "453f8fb5_e4d4027d",
+      "range": {
+        "startLine": 130,
+        "startChar": 37,
+        "endLine": 130,
+        "endChar": 43
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "453f8fb5_c4d1fe8a",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-18T00:45:08Z",
       "side": 1,
       "message": "Name?",
+      "range": {
+        "startLine": 148,
+        "startChar": 21,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5a7ff88_a4b70271",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "453f8fb5_c4d1fe8a",
       "range": {
         "startLine": 148,
         "startChar": 21,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c5a7ff88_84ba065a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done for kIsDebugBuild.",
+      "parentUuid": "c51d3f5e_d195435f",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 27
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_9da58f29",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-04-18T00:45:08Z",
       "side": 1,
       "message": "GetOffset?",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 224,
+        "endChar": 3
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5a7ff88_e4adfa22",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45586f41_9da58f29",
       "range": {
         "startLine": 222,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e53fa3e6_1d90b3c9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853507d4_c836a8fd",
+      "range": {
+        "startLine": 230,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 17
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c51d3f5e_91ed8be1",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2014-04-18T00:45:08Z",
       "side": 1,
       "message": "i\u0027d visually separate these from the above too since they change with each StartClass/EndClass.",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 26
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e53fa3e6_7d9577b9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c51d3f5e_91ed8be1",
       "range": {
         "startLine": 231,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e53fa3e6_5dd07b30",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c51d3f5e_5146d365",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 60
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45586f41_9d20efff",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2014-04-18T00:45:08Z",
       "side": 1,
       "message": "can we now move these above the \"padding\", that is before the executable offset? This would mean less executable pages which the security team would like. I thought I said this previously (a few days ago) but apparently lost those comments.",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e53fa3e6_fd650759",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done.\n\nBut where do we use the OatHeader::executable_offset_ to actually make the code executable? Or do we make it all executable anyway?",
+      "parentUuid": "45586f41_9d20efff",
       "range": {
         "startLine": 62,
         "startChar": 1,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "c5a7ff88_6477cae8",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Renamed to DataAccess.\n\nUsing inheritance we\u0027d have 6 additional derived classes. Using templates we have only 3 additional helper classes.",
+      "parentUuid": "05291785_3dc57b40",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "653ad3c6_e0cbcc50",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 5
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "25b9bbaa_27d0fa2f",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "653ad3c6_e0cbcc50",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 26
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05291785_7d1f834e",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 5
@@ -243,6 +483,30 @@
       "writtenOn": "2014-04-18T00:45:08Z",
       "side": 1,
       "message": "VisitDexMethods?",
+      "range": {
+        "startLine": 138,
+        "startChar": 7,
+        "endLine": 138,
+        "endChar": 24
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e53fa3e6_fd95075f",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-22T17:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05291785_7d1f834e",
       "range": {
         "startLine": 138,
         "startChar": 7,
