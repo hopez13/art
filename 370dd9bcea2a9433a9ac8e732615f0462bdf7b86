@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5620b22_13242ca0",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-22T21:23:17Z",
+      "side": 1,
+      "message": "curious that this can be nullptr, maybe we don\u0027t care about resolving in those cases?",
+      "range": {
+        "startLine": 270,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 35
+      },
+      "revId": "370dd9bcea2a9433a9ac8e732615f0462bdf7b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
