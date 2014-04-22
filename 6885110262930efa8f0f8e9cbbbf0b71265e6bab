@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "253e1beb_a20400e2",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-22T17:44:18Z",
+      "side": 1,
+      "message": "The ElfWriter uses it\n\n./elf_writer_quick.cc:201:  uint32_t oat_data_size \u003d oat_header.GetExecutableOffset();\n\nthe oat data will span two elf segments, one read only, one read execute.",
+      "parentUuid": "e53fa3e6_fd650759",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "6885110262930efa8f0f8e9cbbbf0b71265e6bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05291785_3dc57b40",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 5
