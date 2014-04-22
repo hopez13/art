@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a5a4cb87_f7ffe812",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T12:45:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5a7ff88_84f446f7",
+      "revId": "c0ee343ca9160ae636bb79f172c4615e42047f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25b9bbaa_e75662e3",
         "filename": "compiler/dex/quick/gen_loadstore.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-04-22T11:00:26Z",
       "side": 1,
       "message": "The LoadValueDirect sometimes used with FP registersm but it seems that LoadWordDisp is not applicable to FP registers.\n\nCan we say here that loads always 32 bit and replace this by Load32Disp?",
+      "revId": "c0ee343ca9160ae636bb79f172c4615e42047f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45b4efaf_7cfa015a",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T12:45:34Z",
+      "side": 1,
+      "message": "Yes - thanks, missed this one.  Fixed.",
+      "parentUuid": "25b9bbaa_e75662e3",
       "revId": "c0ee343ca9160ae636bb79f172c4615e42047f7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
