@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5a7ff88_84f446f7",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-22T11:00:26Z",
+      "side": 1,
+      "message": "My evaluation of 64-bit HW shows that LoadRefDisp should be here (access by  method_idx * 4)",
+      "revId": "c0ee343ca9160ae636bb79f172c4615e42047f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25b9bbaa_e75662e3",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-22T11:00:26Z",
+      "side": 1,
+      "message": "The LoadValueDirect sometimes used with FP registersm but it seems that LoadWordDisp is not applicable to FP registers.\n\nCan we say here that loads always 32 bit and replace this by Load32Disp?",
+      "revId": "c0ee343ca9160ae636bb79f172c4615e42047f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25b9bbaa_47edeedd",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-04-22T11:00:26Z",
+      "side": 1,
+      "message": "Spill/Unspill core reg uses offset +\u003d 4, for 64-bit \"offset +\u003d kPointerSize\" (will upload the change to 91375).",
+      "revId": "c0ee343ca9160ae636bb79f172c4615e42047f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
