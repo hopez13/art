@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e53fa3e6_e0fefc7d",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-04-22T19:24:28Z",
+      "side": 1,
+      "message": "I am not sure. I took it for granted when adding the extra stuff. I will investigate and add annotations.",
+      "parentUuid": "a59dab27_9e56d939",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 8
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5a0df5c_bf2073ff",
         "filename": "runtime/profiler.h",
         "patchSetId": 4
@@ -107,6 +131,30 @@
       "writtenOn": "2014-04-21T19:40:18Z",
       "side": 1,
       "message": "TODO: stop using strings, they are poor identifiers - see MethodReference",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 46
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e53fa3e6_40bb70d5",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-04-22T19:24:28Z",
+      "side": 1,
+      "message": "ack. Will update.",
+      "parentUuid": "c5a0df5c_bf2073ff",
       "range": {
         "startLine": 213,
         "startChar": 0,
@@ -142,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "25b9bbaa_aa502fe5",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-04-22T19:24:28Z",
+      "side": 1,
+      "message": "I was not sure about the style for helpers/utilities: i.e. static classes vs global functions. I will look into merging this with ProfileMap maybe and update.",
+      "parentUuid": "a59dab27_3e3f85f8",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a59dab27_3e68e5fa",
         "filename": "runtime/profiler.h",
         "patchSetId": 4
@@ -153,6 +225,30 @@
       "writtenOn": "2014-04-21T19:40:18Z",
       "side": 1,
       "message": "what kind of percentage?",
+      "range": {
+        "startLine": 229,
+        "startChar": 64,
+        "endLine": 229,
+        "endChar": 74
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5a7ff88_67c02c31",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-04-22T19:24:28Z",
+      "side": 1,
+      "message": "both, i.e. usedPercent_ and topKUsedPecentage_.",
+      "parentUuid": "a59dab27_3e68e5fa",
       "range": {
         "startLine": 229,
         "startChar": 64,
