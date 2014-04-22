@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "85fd0775_98ff9d14",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T23:35:36Z",
+      "side": 1,
+      "message": "this is a mirror::Object too. Why not mh.GetClassFromTypeIndex(iter_type_idx) ?",
+      "range": {
+        "startLine": 254,
+        "startChar": 74,
+        "endLine": 254,
+        "endChar": 78
+      },
+      "revId": "370dd9bcea2a9433a9ac8e732615f0462bdf7b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5620b22_13242ca0",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 1
