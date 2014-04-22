@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "658813e3_d6d8c2ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-22T00:49:29Z",
+      "side": 1,
+      "message": "There was a small one, but then I optimized RosAlloc to avoid this.",
+      "parentUuid": "25f61b4a_08126b78",
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5f7a345_c3a8ea02",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 11,
         "endChar": 15
       },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "856c27f2_6e8b17a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-22T00:49:29Z",
+      "side": 1,
+      "message": "Theoretical crash which I managed to reproduce when I tried to move the from_space_ clear before the sweep in the semi space collector.",
+      "parentUuid": "e5f7a345_c3a8ea02",
       "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "856c27f2_2e951fba",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-22T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5f7a345_e60e5452",
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25f61b4a_45161ee0",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 2
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "856c27f2_8e454b7b",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-22T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25f61b4a_45161ee0",
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25f61b4a_85f5466a",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 2
@@ -111,6 +183,24 @@
         "endLine": 195,
         "endChar": 11
       },
+      "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "658813e3_761c5601",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-22T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25f61b4a_85f5466a",
       "revId": "ed3d6f48fd420fcb2d115d9c6d7d68f2680fcd9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
