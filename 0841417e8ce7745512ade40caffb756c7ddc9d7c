@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2557fb42_9d304324",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T23:50:19Z",
+      "side": 1,
+      "message": "we need to make sure method_ in MethodHelper is in a Sirt over GetClassFromTypeIdx..",
+      "range": {
+        "startLine": 253,
+        "startChar": 36,
+        "endLine": 253,
+        "endChar": 55
+      },
+      "revId": "0841417e8ce7745512ade40caffb756c7ddc9d7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
