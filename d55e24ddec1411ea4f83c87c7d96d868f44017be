@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a5a4cb87_b2341e66",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T17:01:15Z",
+      "side": 1,
+      "message": "Done.  I\u0027ll update others as I come across them.",
+      "parentUuid": "45b4efaf_b7bbb2fd",
+      "range": {
+        "startLine": 796,
+        "startChar": 9,
+        "endLine": 796,
+        "endChar": 12
+      },
+      "revId": "d55e24ddec1411ea4f83c87c7d96d868f44017be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5a4cb87_124df2f8",
         "filename": "compiler/dex/quick/gen_loadstore.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "45b4efaf_d70746e5",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T17:01:15Z",
+      "side": 1,
+      "message": "Done, and added a TODO in mir_to_lir.h to clean up the #include file orders.  They need reworking.",
+      "parentUuid": "a5a4cb87_124df2f8",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 82
+      },
+      "revId": "d55e24ddec1411ea4f83c87c7d96d868f44017be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45b4efaf_d79bc693",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2014-04-22T16:06:40Z",
       "side": 1,
       "message": "will this fail an assert if wrong currently?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 96
+      },
+      "revId": "d55e24ddec1411ea4f83c87c7d96d868f44017be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5aa4352_19243b37",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T17:01:15Z",
+      "side": 1,
+      "message": "The infrastructure for describing a 32-bit value in a 64-bit container is still evolving, though as it stands now we probably won\u0027t need any code changes here (other than to remove the FIXME).  Would prefer to keep the FIXME until it\u0027s all firmed up.",
+      "parentUuid": "45b4efaf_d79bc693",
       "range": {
         "startLine": 372,
         "startChar": 0,
