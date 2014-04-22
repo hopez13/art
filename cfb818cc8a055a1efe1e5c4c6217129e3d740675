@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "852fc7b4_258e381f",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-04-22T17:02:13Z",
+      "side": 1,
+      "message": "Why \"Q\" and not \"m\"?",
+      "revId": "cfb818cc8a055a1efe1e5c4c6217129e3d740675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65349307_84a2a8ca",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-04-22T17:02:13Z",
+      "side": 1,
+      "message": "\"\u003dm\" ? It isn\u0027t read under these circumstances. \u003dm should do.",
+      "revId": "cfb818cc8a055a1efe1e5c4c6217129e3d740675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
