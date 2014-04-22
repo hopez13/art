@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45b4efaf_b7bbb2fd",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T16:06:40Z",
+      "side": 1,
+      "message": "style nit: just add a comment of \"// Fall-through.\" so that it\u0027s clear that falling through is expected. Although this change is just following an existing style of not doing this..",
+      "range": {
+        "startLine": 796,
+        "startChar": 9,
+        "endLine": 796,
+        "endChar": 12
+      },
+      "revId": "d55e24ddec1411ea4f83c87c7d96d868f44017be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5a4cb87_124df2f8",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T16:06:40Z",
+      "side": 1,
+      "message": "style nit: comments describing functions at declaration site rather than definition.\nstyle nit: put 1 liner functions can in the header file.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 82
+      },
+      "revId": "d55e24ddec1411ea4f83c87c7d96d868f44017be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45b4efaf_d79bc693",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T16:06:40Z",
+      "side": 1,
+      "message": "will this fail an assert if wrong currently?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 96
+      },
+      "revId": "d55e24ddec1411ea4f83c87c7d96d868f44017be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
