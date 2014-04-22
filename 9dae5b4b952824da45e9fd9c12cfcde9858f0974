@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "2557fb42_5ae6b150",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T21:46:19Z",
+      "side": 1,
+      "message": "thanks, we use the term Helper with the object utilities. It was a least worst name there. Here it feels like there\u0027s intention hoping to be revealed.",
+      "parentUuid": "25b9bbaa_aa502fe5",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a59dab27_3e68e5fa",
         "filename": "runtime/profiler.h",
         "patchSetId": 4
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "both, i.e. usedPercent_ and topKUsedPecentage_.",
       "parentUuid": "a59dab27_3e68e5fa",
+      "range": {
+        "startLine": 229,
+        "startChar": 64,
+        "endLine": 229,
+        "endChar": 74
+      },
+      "revId": "9dae5b4b952824da45e9fd9c12cfcde9858f0974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2557fb42_b733a82f",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-22T21:46:19Z",
+      "side": 1,
+      "message": "uhuh, could you move this detail to the comment.",
+      "parentUuid": "c5a7ff88_67c02c31",
       "range": {
         "startLine": 229,
         "startChar": 64,
