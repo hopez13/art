@@ -113,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "a5a4cb87_171084b0",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T12:56:04Z",
+      "side": 1,
+      "message": "yes.",
+      "parentUuid": "6571f3c6_99903b87",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0552f722_8cac4b8d",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 3
@@ -195,6 +213,24 @@
       "side": 1,
       "message": "Is it correct that 91569 adds such function?",
       "parentUuid": "0552f722_8c5a0bd5",
+      "revId": "906c572226cb006a83e12248d99a99c7320e0219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5a4cb87_371580a1",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-22T12:56:04Z",
+      "side": 1,
+      "message": "No, but it fits naturally into my WIP 89500.  I will address it there.",
+      "parentUuid": "058037c3_d611a474",
       "revId": "906c572226cb006a83e12248d99a99c7320e0219",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
