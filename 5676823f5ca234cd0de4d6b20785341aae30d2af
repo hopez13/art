@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25b37bfb_9a3f89d5",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-24T14:46:50Z",
+      "side": 1,
+      "message": "Do we expect frequent rebuilds of the chains? Is the reuse worth the additional space taken by this pointer?",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45aeaf94_5be17736",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-24T14:46:50Z",
+      "side": 1,
+      "message": "Is this necessary? This can be retrieved from the SSAWalkData::definitions_ (which I\u0027d like to see moved to MIRGraph).",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25b37bfb_7752d09a",
+        "filename": "compiler/dex/ssa_walkdata.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-24T14:46:50Z",
+      "side": 1,
+      "message": "This is unnecessary.",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45aeaf94_b8e539b3",
+        "filename": "compiler/dex/ssa_walkdata.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-24T14:46:50Z",
+      "side": 1,
+      "message": "C++11: for (const WalkDataNoDefine\u0026 info : no_define_) {",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05c83774_56ff9447",
+        "filename": "compiler/dex/ssa_walkdata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-24T14:46:50Z",
+      "side": 1,
+      "message": "std::vector or GrowableArray resized to MIRGraph::NumSSARegs() would be better.\n\nThis could be part of the MIRGraph, initialized from HandleSSADef() where we\u0027d need to pass the MIR. That would remove the need to HandleNoDefinitions() after the pass.",
+      "range": {
+        "startLine": 89,
+        "startChar": 13,
+        "endLine": 89,
+        "endChar": 16
+      },
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
