@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a5e5abf4_241658b1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-24T19:01:57Z",
+      "side": 1,
+      "message": "I\u0027d thought of doing the one byte per page thing and even starting writing the code as I wanted to avoid a write to memory (to avoid dirty pages).  We just want the OS to map it in but we don\u0027t need the page.  The problem with just reading one byte per page is the compiler is apt to optimize the read out if the value read not being used.  Without going into assembly it\u0027s difficult to guarantee that the read will be in the code.\n\nHowever, I realize that the memcpy will create a bunch of dirty pages in the .data section of the libart.so (the static buffer), so I don\u0027t think the read is gaining us much.\n\nI think I\u0027ll change this to do a memset of 0 as you suggest.  Will that dirty the pages?  Dunno.",
+      "parentUuid": "45db0f06_93223ebf",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 58
+      },
+      "revId": "667581daa9b0327733872e5e0bf0c061b67011fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45db0f06_732a3aa0",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-21T23:32:03Z",
       "side": 1,
       "message": "MADV_DONTNEED ?",
+      "range": {
+        "startLine": 264,
+        "startChar": 50,
+        "endLine": 264,
+        "endChar": 63
+      },
+      "revId": "667581daa9b0327733872e5e0bf0c061b67011fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b427df_aeb5efd5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-24T19:01:57Z",
+      "side": 1,
+      "message": "duh!  of course.  That\u0027s what I meant to type...",
+      "parentUuid": "45db0f06_732a3aa0",
       "range": {
         "startLine": 264,
         "startChar": 50,
