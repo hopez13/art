@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a5e5abf4_2f4c7186",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-04-24T21:46:53Z",
+      "side": 1,
+      "message": "yes, because as soon as we change something in the graph, we might need to recalculate it. Right now we do little changes but that may not always be true. I have another patch that changes all the SSA and utility infrastructure into a recallable system so that we can add changes to the ME CFG and have it update itself by recalling itself (because right now, it supposes it is only called once...)",
+      "parentUuid": "25b37bfb_9a3f89d5",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45aeaf94_5be17736",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-04-24T14:46:50Z",
       "side": 1,
       "message": "Is this necessary? This can be retrieved from the SSAWalkData::definitions_ (which I\u0027d like to see moved to MIRGraph).",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b427df_0e217b02",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-04-24T21:46:53Z",
+      "side": 1,
+      "message": "SSAWalkData disappears once the calculation is done, it was never supposed to stay. If we do moved something that from a SSA number gave the def_where from MIRGraph then that could be a solution but in my uses, this never is an obligation. You have the MIR, you get the SSA rep., you find the def. No need to short-circuit it.",
+      "parentUuid": "45aeaf94_5be17736",
       "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c5e8dfcd_f060a861",
+        "filename": "compiler/dex/ssa_walkdata.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-04-24T21:46:53Z",
+      "side": 1,
+      "message": "I\u0027ve seen random cases of memory leaks in the past without this kind of thing (not particularly here though). If you feel strongly about it I can remove it.",
+      "parentUuid": "25b37bfb_7752d09a",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45aeaf94_b8e539b3",
         "filename": "compiler/dex/ssa_walkdata.cc",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a5e5abf4_8f82e53d",
+        "filename": "compiler/dex/ssa_walkdata.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-04-24T21:46:53Z",
+      "side": 1,
+      "message": "bad habit ;-)",
+      "parentUuid": "45aeaf94_b8e539b3",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05c83774_56ff9447",
         "filename": "compiler/dex/ssa_walkdata.h",
         "patchSetId": 1
@@ -81,6 +153,30 @@
       "writtenOn": "2014-04-24T14:46:50Z",
       "side": 1,
       "message": "std::vector or GrowableArray resized to MIRGraph::NumSSARegs() would be better.\n\nThis could be part of the MIRGraph, initialized from HandleSSADef() where we\u0027d need to pass the MIR. That would remove the need to HandleNoDefinitions() after the pass.",
+      "range": {
+        "startLine": 89,
+        "startChar": 13,
+        "endLine": 89,
+        "endChar": 16
+      },
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5e8dfcd_4bdc5180",
+        "filename": "compiler/dex/ssa_walkdata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-04-24T21:46:53Z",
+      "side": 1,
+      "message": "Agreed for the vector instead\n\nMy issue with changing this is that I don\u0027t like having this MIRGraph having to be all over the place because that is where the information is. If we put things there, then every time I need to get that information from a MIR, I need the MIRGraph as well. That means constantly piggy-backing the MIRGraph when doing an optimization...\n\nThus if I want the def_where in the MIR, I still need the HandleNoDefinitions after the pass. If we totally remove it, then yes, we do not need it but then I have the same problem as above",
+      "parentUuid": "05c83774_56ff9447",
       "range": {
         "startLine": 89,
         "startChar": 13,
