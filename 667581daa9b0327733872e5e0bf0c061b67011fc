@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c5e8dfcd_8b59f937",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-24T20:33:22Z",
+      "side": 1,
+      "message": "romlem is the expert on dirtying pages with memset. I\u0027m pretty sure it will from previous conversations.",
+      "parentUuid": "a5e5abf4_241658b1",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 58
+      },
+      "revId": "667581daa9b0327733872e5e0bf0c061b67011fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45db0f06_732a3aa0",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
