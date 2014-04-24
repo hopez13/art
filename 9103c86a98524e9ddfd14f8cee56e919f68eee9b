@@ -16,6 +16,24 @@
       "revId": "9103c86a98524e9ddfd14f8cee56e919f68eee9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "659e536e_d1372469",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-24T18:21:39Z",
+      "side": 1,
+      "message": "Good point. Could go otherwise.\n\nMy feeling was that that depends on the implementation of GetJavaLangReflectArtMethod(). It currently has a field that\u0027s a root. So, it does not currently use kDoReadBarrier. But, if you look at how java_lang_reflect_ArtField is obtained in class-inl.h, it uses kDoReadBarrier there. So, we could remove kDoReadBarrier from this function knowing how GetJavaLangReflectArtMethod() is implemented, but at the interface level, we may as well pass it in just in case the implementation needs it, and for consistency.",
+      "parentUuid": "a5104b96_6cf78faf",
+      "revId": "9103c86a98524e9ddfd14f8cee56e919f68eee9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
