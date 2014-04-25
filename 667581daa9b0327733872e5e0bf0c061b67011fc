@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "a593eb68_6bfe811c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-25T00:05:11Z",
+      "side": 1,
+      "message": "memset will dirty the pages but the madvise below will zero them and advise them back to the kernel. My point was more that we don\u0027t need to memcpy or memset to full pages to achieve the effect of the page being mapped in.",
+      "parentUuid": "85b427df_745488fe",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 58
+      },
+      "revId": "667581daa9b0327733872e5e0bf0c061b67011fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45db0f06_732a3aa0",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
