@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65c57378_f945572a",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-25T09:40:35Z",
+      "side": 0,
+      "message": "PREAMBLE seems more like a debugging tool: why would you duplicate this code for each case?\n\nAlso, removing it from RETURN instruction seems like deviating from its original purpose.",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "ec83aacf669165eeeb1c30aee402001394982fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

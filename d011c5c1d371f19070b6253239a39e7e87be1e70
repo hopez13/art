@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65c57378_393d0fb3",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-25T09:40:35Z",
+      "side": 1,
+      "message": "Could you just check that a is kReturn?",
+      "range": {
+        "startLine": 2390,
+        "startChar": 29,
+        "endLine": 2390,
+        "endChar": 40
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65c57378_99441b2c",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-25T09:40:35Z",
+      "side": 1,
+      "message": "Could you get rid of that check with some refactoring? Move the switch to its own method, only do the check for the first instruction, and loop over the remaining instructions?",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
