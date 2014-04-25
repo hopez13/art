@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a593eb68_ce2223c0",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2293,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-25T00:24:30Z",
+      "side": 1,
+      "message": "Here __FUNCTION__ won\u0027t be RegisterNatives",
+      "range": {
+        "startLine": 2293,
+        "startChar": 4,
+        "endLine": 2293,
+        "endChar": 27
+      },
+      "revId": "ebcfbbcbe33572a218d41a05aaec7a99a0a4b9cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
