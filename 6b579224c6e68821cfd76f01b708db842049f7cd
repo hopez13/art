@@ -16,6 +16,24 @@
       "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a56ccb48_830f1ebf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-25T14:30:43Z",
+      "side": 1,
+      "message": "Where in runtime.cc?\n\nThe filler is due to dex considerations, and dex registers are currently 4 bytes.",
+      "parentUuid": "65c57378_f9ee776a",
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
