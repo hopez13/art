@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2581bb17_504de2f7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2067,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-25T05:31:53Z",
+      "side": 1,
+      "message": "add a check here that exception isn\u0027t deoptimization exception",
+      "range": {
+        "startLine": 2067,
+        "startChar": 0,
+        "endLine": 2067,
+        "endChar": 37
+      },
+      "revId": "09f04a32eb67a78e997c11db6d9f625b3bf17b73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
