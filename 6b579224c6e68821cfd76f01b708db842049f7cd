@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e52c0330_15d2348f",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-28T16:48:35Z",
+      "side": 1,
+      "message": "This is a copy paste of what was in quick_trampoline_entrypoints.cc. I guess the assumption is that we\u0027ll use D registers in quick/aarch64.",
+      "parentUuid": "0530377d_7fe8231a",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4516afdd_2157f437",
         "filename": "runtime/stack.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-28T16:32:11Z",
       "side": 1,
       "message": "spill_size would be a better name to be consistent",
+      "range": {
+        "startLine": 640,
+        "startChar": 8,
+        "endLine": 640,
+        "endChar": 14
+      },
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e52c0330_959404bf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-28T16:48:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4516afdd_2157f437",
       "range": {
         "startLine": 640,
         "startChar": 8,
@@ -131,6 +179,24 @@
       "side": 1,
       "message": "What dex considerations?  What else is saved in the stack?",
       "parentUuid": "a56ccb48_830f1ebf",
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c529bf20_744a8890",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-28T16:48:35Z",
+      "side": 1,
+      "message": "Dex considerations \u003d all virtual registers are 4 bytes. Not sure about you\u0027re other question. Files x86_lir.h and arm_lir.h describe what\u0027s in the stack.",
+      "parentUuid": "4516afdd_e13fbcf7",
       "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
