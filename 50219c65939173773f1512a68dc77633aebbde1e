@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0575973d_ae519796",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-28T12:12:37Z",
+      "side": 1,
+      "message": "Except the different instruction list, the code is redundant with RemoveInstruction. I suggest moving this code to a common method and pass the list to update as argument.",
+      "range": {
+        "startLine": 199,
+        "startChar": 18,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "50219c65939173773f1512a68dc77633aebbde1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0575973d_6e540f83",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-28T12:12:37Z",
+      "side": 1,
+      "message": "Code is redundant with AddInstruction. Move to a helper and pass the instructions list as argument.",
+      "range": {
+        "startLine": 256,
+        "startChar": 18,
+        "endLine": 256,
+        "endChar": 24
+      },
+      "revId": "50219c65939173773f1512a68dc77633aebbde1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
