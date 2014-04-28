@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e52c0330_556c2c46",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-28T15:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0575973d_ae519796",
+      "range": {
+        "startLine": 199,
+        "startChar": 18,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "50219c65939173773f1512a68dc77633aebbde1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0575973d_6e540f83",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-28T12:12:37Z",
       "side": 1,
       "message": "Code is redundant with AddInstruction. Move to a helper and pass the instructions list as argument.",
+      "range": {
+        "startLine": 256,
+        "startChar": 18,
+        "endLine": 256,
+        "endChar": 24
+      },
+      "revId": "50219c65939173773f1512a68dc77633aebbde1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c529bf20_54b18c7e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-28T15:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0575973d_6e540f83",
       "range": {
         "startLine": 256,
         "startChar": 18,
