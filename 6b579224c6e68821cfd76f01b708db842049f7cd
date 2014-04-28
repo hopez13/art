@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "0530377d_7fe8231a",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-28T16:32:11Z",
+      "side": 1,
+      "message": "Is this correct?  We push S registers currently, but do we push 64 bit registers on ARM64?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4516afdd_2157f437",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-28T16:32:11Z",
+      "side": 1,
+      "message": "spill_size would be a better name to be consistent",
+      "range": {
+        "startLine": 640,
+        "startChar": 8,
+        "endLine": 640,
+        "endChar": 14
+      },
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c57378_f9ee776a",
         "filename": "runtime/stack.h",
         "patchSetId": 2
@@ -67,6 +113,24 @@
       "side": 1,
       "message": "Code over there in runtime.cc:1054 is for computing the frame for callee save registers. It does not take care of virtual registers, contrary to here.",
       "parentUuid": "e5fec3bb_a5455e59",
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4516afdd_e13fbcf7",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-28T16:32:11Z",
+      "side": 1,
+      "message": "What dex considerations?  What else is saved in the stack?",
+      "parentUuid": "a56ccb48_830f1ebf",
       "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
