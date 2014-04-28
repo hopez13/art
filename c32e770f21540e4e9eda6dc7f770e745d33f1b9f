@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e55a43dc_e529f6aa",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-28T16:44:47Z",
+      "side": 1,
+      "message": "UNIMPLEMENTED(FATAL)",
+      "range": {
+        "startLine": 691,
+        "startChar": 2,
+        "endLine": 691,
+        "endChar": 12
+      },
+      "revId": "c32e770f21540e4e9eda6dc7f770e745d33f1b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5268b4d_27f5c2f1",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-04-28T16:44:47Z",
+      "side": 1,
+      "message": "Coding rules suggests using ++i, not i++.  Likewise throughout this file.",
+      "range": {
+        "startLine": 26,
+        "startChar": 66,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "c32e770f21540e4e9eda6dc7f770e745d33f1b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
