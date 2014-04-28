@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5fc5fef_e2120229",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-28T23:22:34Z",
+      "side": 1,
+      "message": "Might be worth adding a variant of GenerateTargetLabel that takes a label kind.  Probably other places in the code that could use it as well.",
+      "revId": "bd65448dbbe5772d0c2c090901954918f4b72603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
