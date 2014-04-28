@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5268b4d_5c6c5146",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4218,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-28T16:07:50Z",
+      "side": 1,
+      "message": "reference arguments should be const",
+      "range": {
+        "startLine": 4218,
+        "startChar": 39,
+        "endLine": 4218,
+        "endChar": 52
+      },
+      "revId": "b826ed12371cdccd1bb278a8e7ffcdfcb74dc156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
