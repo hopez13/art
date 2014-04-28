@@ -52,6 +52,24 @@
       "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e52c0330_7557e8df",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-28T11:03:53Z",
+      "side": 1,
+      "message": "Code over there in runtime.cc:1054 is for computing the frame for callee save registers. It does not take care of virtual registers, contrary to here.",
+      "parentUuid": "e5fec3bb_a5455e59",
+      "revId": "6b579224c6e68821cfd76f01b708db842049f7cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
