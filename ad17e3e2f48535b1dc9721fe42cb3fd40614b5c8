@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "05caf7dd_067aba44",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-29T14:44:08Z",
+      "side": 1,
+      "message": "The thing is: we don\u0027t run any of the assembled code here. So I don\u0027t see why we should restrict ourselves to the target architecture. Instead I\u0027d prefer to test *all* assemblers *all* the time, so things have *no* chance of bit-rotting. :-)",
+      "parentUuid": "a5c04bc0_433786f9",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 64
+      },
+      "revId": "ad17e3e2f48535b1dc9721fe42cb3fd40614b5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c529bf20_d4135c2f",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 3
