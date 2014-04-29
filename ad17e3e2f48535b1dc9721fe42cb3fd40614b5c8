@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "45d06f88_0b6be1bf",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-29T16:14:24Z",
+      "side": 1,
+      "message": "in other code like this, we have sorted and taken the newest toolchain to make things less brittle (example I am thinking of is the stack tool)",
+      "parentUuid": "e58b23a1_c0028029",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 64
+      },
+      "revId": "ad17e3e2f48535b1dc9721fe42cb3fd40614b5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c529bf20_d4135c2f",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 3
