@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05caf7dd_107dc98e",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-04-29T23:09:39Z",
+      "side": 0,
+      "message": "I deleted this GenBarrier since there is another one at line 971. Please let me know if this is an issue.",
+      "revId": "6ffcfa04ebb2660e238742a6000f5ccebdd5df15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
