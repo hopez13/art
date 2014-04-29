@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5c37fc9_fedd61a3",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-29T23:41:44Z",
+      "side": 1,
+      "message": "Under which circumstances do you believe this condition would ever hold? This looks like an overflow check, which seems very weird given that expected should be inside 4GB.",
+      "range": {
+        "startLine": 196,
+        "startChar": 18,
+        "endLine": 196,
+        "endChar": 79
+      },
+      "revId": "22d94bc56bb5e988ca942e1dab9169477e672741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45d06f88_a51ab9d2",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-29T23:41:44Z",
+      "side": 1,
+      "message": "Do not use C-style casts.",
+      "range": {
+        "startLine": 197,
+        "startChar": 18,
+        "endLine": 197,
+        "endChar": 26
+      },
+      "revId": "22d94bc56bb5e988ca942e1dab9169477e672741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
