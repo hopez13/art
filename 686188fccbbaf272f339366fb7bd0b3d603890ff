@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c5c37fc9_938f06aa",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-29T22:45:46Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "0575973d_113a4ee4",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 5
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e52c0330_f55d385c",
         "filename": "compiler/dex/quick/arm/arm_lir.h",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-29T14:09:33Z",
       "side": 1,
       "message": "INVALID_SREG, INVALID_SREG",
+      "range": {
+        "startLine": 301,
+        "startChar": 49,
+        "endLine": 301,
+        "endChar": 55
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05caf7dd_4fc20515",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-29T22:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e52c0330_f55d385c",
       "range": {
         "startLine": 301,
         "startChar": 49,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "05caf7dd_efc7711e",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-29T22:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e52c0330_554d0ca5",
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e58b23a1_fd7007ef",
         "filename": "compiler/dex/quick/arm/target_arm.cc",
         "patchSetId": 13
@@ -76,6 +142,30 @@
       "writtenOn": "2014-04-29T14:09:33Z",
       "side": 1,
       "message": "When shall we switch to a c++ library with proper c++11 support? This should be \"constexpr std::array\u003cRegStorage,16\u003e\" directly initialized with the list above and the RegisterPool ctor should take arbitrary containers of RegStorage. (I really don\u0027t like dynamically initialized namespace-scope objects.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 36
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05caf7dd_4d084af7",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-29T22:45:46Z",
+      "side": 1,
+      "message": "Added a TODO for when we have support.",
+      "parentUuid": "e58b23a1_fd7007ef",
       "range": {
         "startLine": 48,
         "startChar": 7,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "c5c37fc9_ea9ac31a",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-29T22:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0575973d_713072db",
+      "range": {
+        "startLine": 415,
+        "startChar": 88,
+        "endLine": 415,
+        "endChar": 92
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e58b23a1_1d0853f6",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 13
@@ -122,6 +236,30 @@
       "writtenOn": "2014-04-29T14:09:33Z",
       "side": 1,
       "message": "C++11: I\u0027d prefer \"auto\" or a range based loop.",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 46
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05caf7dd_ed03f6a1",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-04-29T22:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e58b23a1_1d0853f6",
       "range": {
         "startLine": 74,
         "startChar": 7,
