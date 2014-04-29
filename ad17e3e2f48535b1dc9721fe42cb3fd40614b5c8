@@ -286,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "05caf7dd_8cf36b53",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-04-29T17:51:47Z",
+      "side": 1,
+      "message": "It\u0027s doing something similar to that now. As it\u0027s too inconvenient to do this in C++, I rely on \"find.\"",
+      "parentUuid": "45d06f88_0b6be1bf",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 64
+      },
+      "revId": "ad17e3e2f48535b1dc9721fe42cb3fd40614b5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c529bf20_d4135c2f",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 3
