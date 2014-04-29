@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0575973d_113a4ee4",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-29T14:09:33Z",
+      "side": 1,
+      "message": "constexpr? (Needs a constexpr RegStorage ctor.)",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 5
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e52c0330_f55d385c",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-29T14:09:33Z",
+      "side": 1,
+      "message": "INVALID_SREG, INVALID_SREG",
+      "range": {
+        "startLine": 301,
+        "startChar": 49,
+        "endLine": 301,
+        "endChar": 55
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e52c0330_554d0ca5",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-29T14:09:33Z",
+      "side": 1,
+      "message": "Indentation: add 2 spaces.",
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e58b23a1_fd7007ef",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-29T14:09:33Z",
+      "side": 1,
+      "message": "When shall we switch to a c++ library with proper c++11 support? This should be \"constexpr std::array\u003cRegStorage,16\u003e\" directly initialized with the list above and the RegisterPool ctor should take arbitrary containers of RegStorage. (I really don\u0027t like dynamically initialized namespace-scope objects.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 36
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0575973d_713072db",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-29T14:09:33Z",
+      "side": 1,
+      "message": "Remove the shift.",
+      "range": {
+        "startLine": 415,
+        "startChar": 88,
+        "endLine": 415,
+        "endChar": 92
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e58b23a1_1d0853f6",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-04-29T14:09:33Z",
+      "side": 1,
+      "message": "C++11: I\u0027d prefer \"auto\" or a range based loop.",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 46
+      },
+      "revId": "686188fccbbaf272f339366fb7bd0b3d603890ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
