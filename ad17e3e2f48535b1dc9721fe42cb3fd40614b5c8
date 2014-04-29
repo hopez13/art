@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "e58b23a1_c0028029",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-29T14:47:21Z",
+      "side": 1,
+      "message": "I see. Thing is if you hardcode it here, you want to make sure this test will fail if it can\u0027t find the binary. So this pushes the burden on the person doing the update of the cross compilers.",
+      "parentUuid": "05caf7dd_067aba44",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 64
+      },
+      "revId": "ad17e3e2f48535b1dc9721fe42cb3fd40614b5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c529bf20_d4135c2f",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 3
