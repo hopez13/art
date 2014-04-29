@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "a5c04bc0_433786f9",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-04-29T07:55:13Z",
+      "side": 1,
+      "message": "the android makefiles define TARGET_TOOLCHAIN_ROOT, I guess you can pass it to the compilation of this file.",
+      "parentUuid": "c5aa9feb_8cdb6788",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 64
+      },
+      "revId": "ad17e3e2f48535b1dc9721fe42cb3fd40614b5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c529bf20_d4135c2f",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 3
