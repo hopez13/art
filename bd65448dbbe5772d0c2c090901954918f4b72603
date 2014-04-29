@@ -16,6 +16,24 @@
       "revId": "bd65448dbbe5772d0c2c090901954918f4b72603",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45d06f88_dd3ea7f9",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-04-29T21:44:03Z",
+      "side": 1,
+      "message": "Done. Added a default parameter for GenerateTargetLabel.",
+      "parentUuid": "c5fc5fef_e2120229",
+      "revId": "bd65448dbbe5772d0c2c090901954918f4b72603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
