@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "857b475f_82f23a08",
+        "filename": "runtime/deoptimize_stack_visitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-29T07:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c557ffb2_272074b6",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "d76ee0aae0a5d9681073c67080379383072229c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c557ffb2_073a18e4",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-04-28T17:43:08Z",
       "side": 1,
       "message": "For consistency, pull out into VisitQuickFrame?",
+      "range": {
+        "startLine": 1940,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 7
+      },
+      "revId": "d76ee0aae0a5d9681073c67080379383072229c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5c04bc0_a3247ad2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-29T07:37:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c557ffb2_073a18e4",
       "range": {
         "startLine": 1940,
         "startChar": 0,
