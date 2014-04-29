@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5c04bc0_c3337618",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-29T10:14:33Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 7
+      },
+      "revId": "cdb94990764a5a1718bf2d415d72cb775b405dd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5c04bc0_e32e72b0",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-29T10:14:33Z",
+      "side": 1,
+      "message": "This is not necessary as quickened instructions only concern non volatile instance fields. And this would impact performance of iget-XXX-quick.",
+      "range": {
+        "startLine": 241,
+        "startChar": 6,
+        "endLine": 241,
+        "endChar": 14
+      },
+      "revId": "cdb94990764a5a1718bf2d415d72cb775b405dd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
