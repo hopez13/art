@@ -22,6 +22,30 @@
       "revId": "b826ed12371cdccd1bb278a8e7ffcdfcb74dc156",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e58b23a1_bd02ff27",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4218,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-29T07:37:17Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ll fix this one using a pointer. We also use non-const references in interpreter, maybe we should fix these soon.",
+      "parentUuid": "a5268b4d_5c6c5146",
+      "range": {
+        "startLine": 4218,
+        "startChar": 39,
+        "endLine": 4218,
+        "endChar": 52
+      },
+      "revId": "b826ed12371cdccd1bb278a8e7ffcdfcb74dc156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
