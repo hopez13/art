@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaf77045_e6dc142d",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T23:22:52Z",
+      "side": 1,
+      "message": "why not just char* and then..",
+      "range": {
+        "startLine": 246,
+        "startChar": 16,
+        "endLine": 246,
+        "endChar": 27
+      },
+      "revId": "43baaef6d036d6e0be66fdbc2d80fd53bdf0ffcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf77045_a6e60cfb",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T23:22:52Z",
+      "side": 1,
+      "message": "arg !\u003d nullptr \u0026\u0026 strcmp(src_descriptor, match_descriptor) \u003d\u003d 0",
+      "range": {
+        "startLine": 247,
+        "startChar": 21,
+        "endLine": 247,
+        "endChar": 55
+      },
+      "revId": "43baaef6d036d6e0be66fdbc2d80fd53bdf0ffcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0afbe434_d22e74c4",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T23:22:52Z",
+      "side": 1,
+      "message": "but if arg were allowed to be nullptr we\u0027d die here?",
+      "range": {
+        "startLine": 258,
+        "startChar": 16,
+        "endLine": 258,
+        "endChar": 19
+      },
+      "revId": "43baaef6d036d6e0be66fdbc2d80fd53bdf0ffcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
