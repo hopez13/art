@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaf77045_832b020a",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:41:09Z",
+      "side": 1,
+      "message": "Nice change to get the range check, separate change?",
+      "range": {
+        "startLine": 746,
+        "startChar": 0,
+        "endLine": 746,
+        "endChar": 68
+      },
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_059ed8dc",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:41:09Z",
+      "side": 1,
+      "message": "DCHECK_LT",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 8
+      },
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf77045_e352c697",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:41:09Z",
+      "side": 1,
+      "message": "separate issue? prefer nullptr to NULL since move to C++11",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_8558a86c",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:41:09Z",
+      "side": 1,
+      "message": "reference arguments need to be const. ie const int\u0026 lowConst. However, as these are out arguments they should be pointers, ie int* lowConst. Convention on arguments and locals is to not use camel or upper case, ie low_const.",
+      "range": {
+        "startLine": 651,
+        "startChar": 37,
+        "endLine": 651,
+        "endChar": 42
+      },
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
