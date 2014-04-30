@@ -1,0 +1,481 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6aec607a_a7c04e0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "Nice.\n\nThe larger speedup for SS than for GSS is probably because SS copies more objects in general and the impact of copy/allocation speed is higher. Thoughts?",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_eab3bbee",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "How about naming it \"AllocFromCurrentRunUnlocked\" to emphasize that it won\u0027t take the size bracket lock internally?",
+      "range": {
+        "startLine": 587,
+        "startChar": 16,
+        "endLine": 587,
+        "endChar": 35
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af15c4f_349fc80b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "I see that this now avoids a null check for the current runs by using dedicated full runs just like the thread-local runs.",
+      "range": {
+        "startLine": 589,
+        "startChar": 9,
+        "endLine": 589,
+        "endChar": 20
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_aa37f3f9",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "This part of the comment is obsolete. Just delete that part?",
+      "range": {
+        "startLine": 595,
+        "startChar": 38,
+        "endLine": 595,
+        "endChar": 66
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_0a413f4a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "Nice.",
+      "range": {
+        "startLine": 598,
+        "startChar": 21,
+        "endLine": 598,
+        "endChar": 33
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_8a1e6f4f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "It used to be the case that lower-size-bracket-index range of \u0027current_runs\u0027 were not in use (all were null). But now we are using them for the thread-unsafe case and that\u0027s the only case, right?",
+      "range": {
+        "startLine": 623,
+        "startChar": 16,
+        "endLine": 623,
+        "endChar": 40
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_0a5b7f0d",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "This looks right, which we overlooked in the last CL, I assume.",
+      "range": {
+        "startLine": 704,
+        "startChar": 16,
+        "endLine": 704,
+        "endChar": 30
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_36b590be",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "How about \"RevokeRun\"? AllocRun() always allocates a run from fresh memory, but this one isn\u0027t a reverse of what it does. And, sometimes it just puts a run into full_runs_ or non_full_runs_, not \u0027freeing\u0027 it. And, this is called only from RevokeThreadLocalRuns() and RevokeCurrentRuns().",
+      "range": {
+        "startLine": 1665,
+        "startChar": 15,
+        "endLine": 1665,
+        "endChar": 22
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0afbe434_de0565df",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "This function revokes the lower-size-bracket-index-range current runs, not all the current runs. I wonder if there\u0027s a better name to indicate that. Do you like something like \"RevokeThreadUnsafeCurrentRuns()\"?",
+      "range": {
+        "startLine": 1693,
+        "startChar": 15,
+        "endLine": 1693,
+        "endChar": 32
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af15c4f_4f9ab91b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "If we call RevokeCurrentRuns() in RevokeAllThreadLocalRuns(), should we assert the lower-size-bracket-index-range current runs are revoked here as well?",
+      "range": {
+        "startLine": 1727,
+        "startChar": 2,
+        "endLine": 1727,
+        "endChar": 3
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_1cfbd59a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "Do you mind adding code to verify the thread_local_runs and current_runs here now that we use the dedicated full run technique and such?\n\nSomething like:\n\nstd::list\u003cThread*\u003e thread_list \u003d Runtime::Current()-\u003eGetThreadList()-\u003eGetList();\nfor (Thread* thread : thread_list) {\n  for (size_t i \u003d 0; i \u003c kNumThreadLocalSizeBracketIdx; ++i) {\n    MutexLock mu(self, *size_bracket_locks_[i]);\n    Run* thread_local_run \u003d reinterpret_cast\u003cRun*\u003e(thread-\u003eGetRosAllocRun(i));\n    CHECK(thread_local_run !\u003d nullptr);\n    CHECK(thread_local_run-\u003eIsThreadLocal());\n    CHECK(thread_local_run \u003d\u003d dedicated_full_run_ ||\n               thread_local_run-\u003esize_bracket_idx_ \u003d\u003d i);\n  }\n}\n\nfor (size_t i \u003d 0; i \u003c kNumOfSizeBrackets; i++) {\n  Run* current_run \u003d current_runs_[i];\n  CHECK(current_run !\u003d nullptr);\n  CHECK(!current_run-\u003eIsThreadLocal());\n  CHECK(current_run \u003d\u003d dedicated_full_run_ ||\n             current_run-\u003esize_bracket_idx_ \u003d\u003d i);\n}\n\nIf this is too much, I would do this.",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_4bc62ddf",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "\"use use\" -\u003e \"use\"\n\"Brackets\" -\u003e \"brackets\"\n(these are existing comment bugs)?",
+      "range": {
+        "startLine": 440,
+        "startChar": 8,
+        "endLine": 440,
+        "endChar": 15
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_cba7dd30",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "Not sure what\u0027s the best way. But If it\u0027s kNum..., it may be natural for it to be plural, but it\u0027s an index in this case.\n\nSome ideas:\n\n\"kEndThreadLocalSizeBracketIdx\" which refers to the one index past the last valid thread-local size bracket, using the analogy to the \u0027end\u0027 C++ iterator, or\n\n\"kNumThreadLocalSizeBrackets\" which refers to the (plural) number of thread-local size brackets, which is always the lowest range of the size bracket indices?\n\nOr, this may be fine as is. Thoughts?",
+      "range": {
+        "startLine": 442,
+        "startChar": 22,
+        "endLine": 442,
+        "endChar": 51
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af15c4f_c98da9dd",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "What do you think about flipping the meaning of this param, as in turning it into \"kThreadSafe\"? When I was looking at the call sites in RosAllocSpace with \"\u003ctrue\u003e\" or \"\u003cfalse\u003e\", I had to think a little bit what true and false meant there because of the double negation (unsafe false). This might be subjective.\n\nHow about giving it a default param value that corresponds to thread-safe to make it a conscious decision to use thread-unsafe calls?",
+      "range": {
+        "startLine": 564,
+        "startChar": 16,
+        "endLine": 564,
+        "endChar": 29
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0afbe434_3ef9e9e9",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "I assume this is where the lower-range-index current runs used by the thread-unsafe allocations get revoked.",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 29
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_c7247217",
+        "filename": "runtime/gc/space/bump_pointer_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "\"++objects_allocated_;\n bytes_allocated_ +\u003d num_bytes;\"\n\nfor shorter code?",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 46
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_0be82588",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "Unsafe -\u003e Thread-unsafe?",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 11
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf77045_9d8243eb",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "Can you add the comment here that Alloc() must be thread-safe, which is a more explicit requirement now that we have AllocThreadUnsafe().",
+      "range": {
+        "startLine": 206,
+        "startChar": 26,
+        "endLine": 206,
+        "endChar": 31
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_0b3265e5",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "\"Unsafe\" -\u003e \"Thread-unsafe\"?",
+      "range": {
+        "startLine": 209,
+        "startChar": 5,
+        "endLine": 209,
+        "endChar": 11
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af15c4f_a9638553",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "I guess this default implementation covers the DlMallocSpace and the LargeObjectSpace cases where it is always thread-safe.",
+      "range": {
+        "startLine": 213,
+        "startChar": 11,
+        "endLine": 213,
+        "endChar": 16
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_0b0945f9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:19:06Z",
+      "side": 1,
+      "message": "I think we could simplify it by saying that something like\n\n\"There are RosAlloc::kNumThreadLocalSizeBracketIdx thread-local size brackets per thread.\"\n\n(the current one is clearer about what changed for this code review though)?",
+      "range": {
+        "startLine": 1064,
+        "startChar": 35,
+        "endLine": 1065,
+        "endChar": 97
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
