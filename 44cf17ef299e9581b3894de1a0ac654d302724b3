@@ -48,6 +48,24 @@
     },
     {
       "key": {
+        "uuid": "ca046c04_ff55bb81",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6aec607a_eab3bbee",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4af15c4f_349fc80b",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eaf77045_20a8a4a9",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Yes, I had missed doing this before.",
+      "parentUuid": "4af15c4f_349fc80b",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aec607a_aa37f3f9",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -88,6 +124,24 @@
         "endLine": 595,
         "endChar": 66
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf77045_e0b07c1d",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Deleted entire comment.",
+      "parentUuid": "6aec607a_aa37f3f9",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "ca046c04_1f518795",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Yes, I added revoke logic there too so that the memory isn\u0027t stuck as used. Alternatively we could maybe use the thread local runs for the lower size bracket index range, but this would add more code.",
+      "parentUuid": "6aec607a_8a1e6f4f",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aec607a_0a5b7f0d",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -157,6 +229,24 @@
         "endLine": 704,
         "endChar": 30
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_7f908bfc",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "This is just to simplify the logic since we always set the thread local run later if we don\u0027t return here.",
+      "parentUuid": "6aec607a_0a5b7f0d",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -186,6 +276,24 @@
     },
     {
       "key": {
+        "uuid": "ca046c04_5f95cfea",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae7d493_36b590be",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0afbe434_de0565df",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -203,6 +311,24 @@
         "endLine": 1693,
         "endChar": 32
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf77045_c096a06b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0afbe434_de0565df",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -232,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "eaf77045_c0e900cd",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4af15c4f_4f9ab91b",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca046c04_1cfbd59a",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -243,6 +387,24 @@
       "writtenOn": "2014-04-30T20:19:06Z",
       "side": 1,
       "message": "Do you mind adding code to verify the thread_local_runs and current_runs here now that we use the dedicated full run technique and such?\n\nSomething like:\n\nstd::list\u003cThread*\u003e thread_list \u003d Runtime::Current()-\u003eGetThreadList()-\u003eGetList();\nfor (Thread* thread : thread_list) {\n  for (size_t i \u003d 0; i \u003c kNumThreadLocalSizeBracketIdx; ++i) {\n    MutexLock mu(self, *size_bracket_locks_[i]);\n    Run* thread_local_run \u003d reinterpret_cast\u003cRun*\u003e(thread-\u003eGetRosAllocRun(i));\n    CHECK(thread_local_run !\u003d nullptr);\n    CHECK(thread_local_run-\u003eIsThreadLocal());\n    CHECK(thread_local_run \u003d\u003d dedicated_full_run_ ||\n               thread_local_run-\u003esize_bracket_idx_ \u003d\u003d i);\n  }\n}\n\nfor (size_t i \u003d 0; i \u003c kNumOfSizeBrackets; i++) {\n  Run* current_run \u003d current_runs_[i];\n  CHECK(current_run !\u003d nullptr);\n  CHECK(!current_run-\u003eIsThreadLocal());\n  CHECK(current_run \u003d\u003d dedicated_full_run_ ||\n             current_run-\u003esize_bracket_idx_ \u003d\u003d i);\n}\n\nIf this is too much, I would do this.",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_9f2b57b3",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Thanks for the code! Added.",
+      "parentUuid": "ca046c04_1cfbd59a",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -272,6 +434,24 @@
     },
     {
       "key": {
+        "uuid": "eaf77045_20ce643c",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Apparently its an existing bug, fixed.",
+      "parentUuid": "8ae7d493_4bc62ddf",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae7d493_cba7dd30",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 3
@@ -289,6 +469,24 @@
         "endLine": 442,
         "endChar": 51
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_026feecb",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "I prefer kNumThreadLocalSizeBrackets.",
+      "parentUuid": "8ae7d493_cba7dd30",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -318,6 +516,24 @@
     },
     {
       "key": {
+        "uuid": "ca046c04_029dae87",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4af15c4f_c98da9dd",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0afbe434_3ef9e9e9",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 3
@@ -335,6 +551,24 @@
         "endLine": 263,
         "endChar": 29
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_62d472d0",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "0afbe434_3ef9e9e9",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -364,6 +598,24 @@
     },
     {
       "key": {
+        "uuid": "eaf77045_00d928b3",
+        "filename": "runtime/gc/space/bump_pointer_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Those operators aren\u0027t implemented in atomic.h and I don\u0027t think its worth doing considering we will be switching from stlport to libcxx soon.",
+      "parentUuid": "6aec607a_c7247217",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae7d493_0be82588",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 3
@@ -381,6 +633,24 @@
         "endLine": 51,
         "endChar": 11
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0afbe434_64ea3e3f",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae7d493_0be82588",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -410,6 +680,24 @@
     },
     {
       "key": {
+        "uuid": "ca046c04_621c72cf",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaf77045_9d8243eb",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae7d493_0b3265e5",
         "filename": "runtime/gc/space/space.h",
         "patchSetId": 3
@@ -427,6 +715,24 @@
         "endLine": 209,
         "endChar": 11
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0afbe434_0487fa88",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae7d493_0b3265e5",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -456,6 +762,24 @@
     },
     {
       "key": {
+        "uuid": "ca046c04_82177ead",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Yes the default is a bit slower since you do an extra interface dispatch but this shouldn\u0027t be a huge issue.",
+      "parentUuid": "4af15c4f_a9638553",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae7d493_0b0945f9",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -473,6 +797,24 @@
         "endLine": 1065,
         "endChar": 97
       },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0afbe434_c4559230",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-04-30T21:55:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae7d493_0b0945f9",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
