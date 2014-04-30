@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "8ae7d493_a57de8c2",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-04-30T20:29:22Z",
+      "side": 1,
+      "message": "I like both of the ideas. On one hand, we might want to keep rosalloc as modular as possible. On the other hand, we would like to avoid accidental racy alloc calls.\n\nI think I\u0027m in favor of inserting the AssertExclusiveHeld() call here. Because 1) it\u0027s not a hairy dependency, and 2) I am in general in favor of avoiding error-proneness and silently undetected bugs.",
+      "parentUuid": "4af15c4f_4094cebe",
+      "revId": "70606ed5b8e26f479830ee2d530afc869d32df67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aec607a_4141721b",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 2
