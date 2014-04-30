@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e58b23a1_c09520ec",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-30T06:48:02Z",
+      "side": 1,
+      "message": "Please use \"transaction_active\" template argument.",
+      "range": {
+        "startLine": 521,
+        "startChar": 10,
+        "endLine": 521,
+        "endChar": 40
+      },
+      "revId": "03185caa4aab532b5048e83441b08d61febc7394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5c04bc0_46f03471",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-30T06:48:02Z",
+      "side": 1,
+      "message": "This is now used in both interpreters and in UnstartedRuntimeJni. I think we should move this to a common function and give the exception message as parameter.",
+      "range": {
+        "startLine": 524,
+        "startChar": 8,
+        "endLine": 527,
+        "endChar": 60
+      },
+      "revId": "03185caa4aab532b5048e83441b08d61febc7394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e58b23a1_e09a1c1b",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-04-30T06:48:02Z",
+      "side": 1,
+      "message": "Please use \"transaction_active\" template argument.",
+      "range": {
+        "startLine": 434,
+        "startChar": 14,
+        "endLine": 434,
+        "endChar": 44
+      },
+      "revId": "03185caa4aab532b5048e83441b08d61febc7394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
