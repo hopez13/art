@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ae7d493_628d9620",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T15:50:31Z",
+      "side": 1,
+      "message": "Locks::mutator_lock_-\u003eAssertExclusiveHeld();",
+      "range": {
+        "startLine": 631,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 49
+      },
+      "revId": "70606ed5b8e26f479830ee2d530afc869d32df67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_4141721b",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T15:50:31Z",
+      "side": 1,
+      "message": "TODO: EXCLUSIVE_LOCKS_REQUIRED(Locks::mutator_lock_)",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 54
+      },
+      "revId": "70606ed5b8e26f479830ee2d530afc869d32df67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af15c4f_80a3f6a2",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T15:50:31Z",
+      "side": 1,
+      "message": "describe kThreadUnsafe",
+      "range": {
+        "startLine": 561,
+        "startChar": 0,
+        "endLine": 561,
+        "endChar": 30
+      },
+      "revId": "70606ed5b8e26f479830ee2d530afc869d32df67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aec607a_a1383ec1",
+        "filename": "runtime/gc/space/bump_pointer_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T15:50:31Z",
+      "side": 1,
+      "message": "Locks::mutator_lock_-\u003eAssertExclusiveHeld();\nthis would make me feel happier :-)",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "70606ed5b8e26f479830ee2d530afc869d32df67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4af15c4f_c0b0dee4",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T15:50:31Z",
+      "side": 1,
+      "message": "nice!",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 62
+      },
+      "revId": "70606ed5b8e26f479830ee2d530afc869d32df67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
