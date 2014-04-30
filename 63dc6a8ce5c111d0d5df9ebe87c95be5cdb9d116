@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0afbe434_a7b60875",
+        "filename": "runtime/monitor_pool.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:34:27Z",
+      "side": 1,
+      "message": "evidence we should be overloading new and delete?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 22
+      },
+      "revId": "63dc6a8ce5c111d0d5df9ebe87c95be5cdb9d116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf77045_a3071ea4",
+        "filename": "runtime/monitor_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:34:27Z",
+      "side": 1,
+      "message": "GUARDED_BY(allocated_ids_lock_) ?",
+      "range": {
+        "startLine": 159,
+        "startChar": 40,
+        "endLine": 159,
+        "endChar": 41
+      },
+      "revId": "63dc6a8ce5c111d0d5df9ebe87c95be5cdb9d116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_c50b5087",
+        "filename": "runtime/monitor_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:34:27Z",
+      "side": 1,
+      "message": "similar",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 35
+      },
+      "revId": "63dc6a8ce5c111d0d5df9ebe87c95be5cdb9d116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
