@@ -33,6 +33,29 @@
       "revId": "fdce486bfd3f64cd92ec42cb2edc8ab6fb108844",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_bfb97367",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T21:12:58Z",
+      "side": 1,
+      "message": "the comment and code don\u0027t agree. We should have -Wthread-safety for all host builds.",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 18
+      },
+      "revId": "fdce486bfd3f64cd92ec42cb2edc8ab6fb108844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
