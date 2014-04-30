@@ -91,6 +91,23 @@
       "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca046c04_3097d034",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-04-30T22:51:09Z",
+      "side": 1,
+      "message": "Can you please update highConst to contain the sign extension of lowConst?",
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
