@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaf77045_63ab5662",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-04-30T22:24:53Z",
+      "side": 0,
+      "message": "if you are failing this check then the verifier is generating fewer GC map entries than the compiler has generated mapping table entries. That\u0027s expected behavior with your change but unexpected behavior in the general case. Please re-instate the check.",
+      "range": {
+        "startLine": 706,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 85
+      },
+      "revId": "011005100214eb40c2aaad3f8fe9c3dc9465bcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
