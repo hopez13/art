@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6aec607a_8442e8c9",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-30T17:43:38Z",
+      "side": 1,
+      "message": "so I assume this is when generate_dex_map is true?\n\ncan we add an \n\nelse {\n  CHECK(generate_dex_map);\n}\n\nto still problems with missing refs in the common case?",
+      "range": {
+        "startLine": 708,
+        "startChar": 4,
+        "endLine": 708,
+        "endChar": 29
+      },
+      "revId": "081a22324cb4733f0cbef491445ccc56b347a750",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae7d493_2881af3b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-04-30T17:43:38Z",
+      "side": 1,
+      "message": "we usually try document the default if possible, which apparently is kIsDebugBuild, so we can do\n\n UsageError(\"        Default: %s\", kIsDebugBuild ? \"enabled\" : \"disabled\");",
+      "range": {
+        "startLine": 215,
+        "startChar": 2,
+        "endLine": 215,
+        "endChar": 17
+      },
+      "revId": "081a22324cb4733f0cbef491445ccc56b347a750",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
