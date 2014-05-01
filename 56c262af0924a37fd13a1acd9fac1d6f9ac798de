@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "ea205093_b88515f7",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T00:43:21Z",
+      "side": 1,
+      "message": "Sorry, I had tried for a bit. I think I messed up the interplay of preprocessor and macro, so it always told me \"unknown instruction.\" It\u0027s fixed now.",
+      "parentUuid": "eaf77045_e3dc062d",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 7
+      },
+      "revId": "56c262af0924a37fd13a1acd9fac1d6f9ac798de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca046c04_c5e910cd",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2014-04-30T22:19:52Z",
       "side": 1,
       "message": "dead code.\nI think this is part of the 32 (edi) vs 64 (rdi) bit confusion. Its going to be more future proof if we just make this rdi. Its a bit more compact to use edi. Elsewhere we\u0027re already making the assumption that references can be 64-bit (see treatment of the ArtMethod on line 41) , so I\u0027d go with rdi, testq (rather than testl), movq (rather than movl), etc.",
+      "range": {
+        "startLine": 708,
+        "startChar": 0,
+        "endLine": 708,
+        "endChar": 20
+      },
+      "revId": "56c262af0924a37fd13a1acd9fac1d6f9ac798de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea205093_1567342e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T00:43:21Z",
+      "side": 1,
+      "message": "Was not meant to be dead code, somehow uncommented to rdi line. As described above, the comment lines are the ones for \"real\" 64b.\n\nCurrently I somehow prefer to do it this way. The 32b code uses HeapReference and pointer interchangeably, so I see this as a line of defense for someone *not* \"uncompressing\" correctly.",
+      "parentUuid": "ca046c04_c5e910cd",
       "range": {
         "startLine": 708,
         "startChar": 0,
