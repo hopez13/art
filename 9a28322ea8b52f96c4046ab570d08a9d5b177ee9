@@ -69,6 +69,30 @@
       "revId": "9a28322ea8b52f96c4046ab570d08a9d5b177ee9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea205093_c9a7e130",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T15:31:07Z",
+      "side": 1,
+      "message": "This is for cross-compiling from 32b host to 64b target.\n\nstatic inline bool IsInt(int N, word value) {\n  CHECK_LT(0, N);\n  CHECK_LT(N, kBitsPerWord);\n  word limit \u003d static_cast\u003cword\u003e(1) \u003c\u003c (N - 1);\n  return (-limit \u003c\u003d value) \u0026\u0026 (value \u003c limit);\n}\n\nThe second check fails, and correctly so. If N\u003d32, then limit is -2........\n\nNote: no other code in ART drives with N\u003d32. So I think the local fix here is OK.",
+      "parentUuid": "aa1ad864_734d6081",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "9a28322ea8b52f96c4046ab570d08a9d5b177ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
