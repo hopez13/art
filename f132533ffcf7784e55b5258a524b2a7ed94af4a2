@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa481879_03726ef6",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T22:37:50Z",
+      "side": 1,
+      "message": "What about 64b host builds? For the target run tests we just create all ISA directories. So maybe make it .../{x86,x86_64}?",
+      "range": {
+        "startLine": 51,
+        "startChar": 36,
+        "endLine": 51,
+        "endChar": 39
+      },
+      "revId": "f132533ffcf7784e55b5258a524b2a7ed94af4a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
