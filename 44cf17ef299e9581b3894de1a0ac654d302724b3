@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea205093_1899a9f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-01T01:20:32Z",
+      "side": 1,
+      "message": "Any comment on the SS/GSS speedup diff?",
+      "parentUuid": "6aec607a_a7c04e0c",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aec607a_eab3bbee",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -253,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "ea205093_b8663564",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-01T01:20:32Z",
+      "side": 1,
+      "message": "OK. I somehow thought there was a bug when RefillRun returns null. But no bug.",
+      "parentUuid": "ca046c04_7f908bfc",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae7d493_36b590be",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -411,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "4a3f9cb5_d3dc262d",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1955,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-01T01:20:32Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "ca046c04_9f2b57b3",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ae7d493_4bc62ddf",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 3
@@ -534,6 +594,24 @@
     },
     {
       "key": {
+        "uuid": "0a292485_f41030e2",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-01T01:20:32Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "ca046c04_029dae87",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0afbe434_3ef9e9e9",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 3
@@ -610,6 +688,24 @@
       "side": 1,
       "message": "Those operators aren\u0027t implemented in atomic.h and I don\u0027t think its worth doing considering we will be switching from stlport to libcxx soon.",
       "parentUuid": "6aec607a_c7247217",
+      "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a3f9cb5_13a2ae9c",
+        "filename": "runtime/gc/space/bump_pointer_space-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-01T01:20:32Z",
+      "side": 1,
+      "message": "Ah. I thought these are plain integers. Never mind.",
+      "parentUuid": "eaf77045_00d928b3",
       "revId": "44cf17ef299e9581b3894de1a0ac654d302724b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
