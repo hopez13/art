@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a5d0832_6a8a179c",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T21:00:05Z",
+      "side": 1,
+      "message": "Does this need -rf because of isa directories?",
+      "range": {
+        "startLine": 82,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "bed29c0787f62fd20cb116eee2faa1c05cca42fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a587c41_f1103ae2",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T21:00:05Z",
+      "side": 1,
+      "message": "Sorry, that\u0027s something I missed when making multitarget changes: this sections actually needs an update for a possible second architecture. So ifdef TARGET_2ND_ARCH ... 2ND_ART_NATIVETEST_DIR ...",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 52
+      },
+      "revId": "bed29c0787f62fd20cb116eee2faa1c05cca42fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
