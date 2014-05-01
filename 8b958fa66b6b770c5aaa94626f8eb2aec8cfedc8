@@ -22,6 +22,30 @@
       "revId": "8b958fa66b6b770c5aaa94626f8eb2aec8cfedc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1ad864_9337dcfa",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-01T08:14:36Z",
+      "side": 1,
+      "message": "I would prefer turning them into \"xorq reg, TMP\", but that means we need a TMP register for the assembler. For now I\u0027m fine just having the caller know it cannot call this method with 64bits immediate.\n\nAndreas\u0027s CL (that got submitted) does a CHECK on the immediate which is fine by me.",
+      "parentUuid": "0a292485_ceb363ef",
+      "range": {
+        "startLine": 970,
+        "startChar": 0,
+        "endLine": 970,
+        "endChar": 25
+      },
+      "revId": "8b958fa66b6b770c5aaa94626f8eb2aec8cfedc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
