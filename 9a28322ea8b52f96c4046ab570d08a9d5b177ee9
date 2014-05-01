@@ -46,6 +46,29 @@
       "revId": "9a28322ea8b52f96c4046ab570d08a9d5b177ee9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1ad864_734d6081",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-01T07:47:32Z",
+      "side": 1,
+      "message": "Explain why, and should it be fixed then?",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "9a28322ea8b52f96c4046ab570d08a9d5b177ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
