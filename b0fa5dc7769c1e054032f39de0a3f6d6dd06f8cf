@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa2f388b_6e410f6e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-01T21:46:16Z",
+      "side": 1,
+      "message": "I think this should go \"true, false\" (kDoReadBarrier, kIsVolatile) instead of \"false\" (kDoReadBarrier) where the intention is kIsVolatile\u003dfalse. Or just \"\" as kDoReadBarrier is true and kIsVolatile is false by default.\n\nI\u0027m turning the read barrier param into an enum. Will fix this as part of that.",
+      "range": {
+        "startLine": 590,
+        "startChar": 59,
+        "endLine": 590,
+        "endChar": 64
+      },
+      "revId": "b0fa5dc7769c1e054032f39de0a3f6d6dd06f8cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
