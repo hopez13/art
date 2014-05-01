@@ -22,6 +22,30 @@
       "revId": "b0fa5dc7769c1e054032f39de0a3f6d6dd06f8cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa481879_e35ab207",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-01T21:59:40Z",
+      "side": 1,
+      "message": "Good catch, thanks!",
+      "parentUuid": "aa2f388b_6e410f6e",
+      "range": {
+        "startLine": 590,
+        "startChar": 59,
+        "endLine": 590,
+        "endChar": 64
+      },
+      "revId": "b0fa5dc7769c1e054032f39de0a3f6d6dd06f8cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
