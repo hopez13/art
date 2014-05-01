@@ -128,6 +128,30 @@
       "revId": "56c262af0924a37fd13a1acd9fac1d6f9ac798de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea205093_f8102de2",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-01T00:56:43Z",
+      "side": 1,
+      "message": "Maybe let me put it this way: Anything that accesses heap references right now cannot be future-proof without macro-ing.\n\nEven with \"real\" pointers being 64b, we still need to load only 32b. So with that it becomes a weird mix of \"movl %rXX, %eYY,\" which IMHO is just as bad.\n\nShould I upload a patch with a macro attempt for review?",
+      "parentUuid": "ea205093_1567342e",
+      "range": {
+        "startLine": 708,
+        "startChar": 0,
+        "endLine": 708,
+        "endChar": 20
+      },
+      "revId": "56c262af0924a37fd13a1acd9fac1d6f9ac798de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
