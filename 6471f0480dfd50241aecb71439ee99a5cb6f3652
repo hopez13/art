@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea7cd0a5_f86b6dbb",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-02T22:57:57Z",
+      "side": 1,
+      "message": "move to MIR::DecodedInstruction",
+      "range": {
+        "startLine": 652,
+        "startChar": 0,
+        "endLine": 652,
+        "endChar": 89
+      },
+      "revId": "6471f0480dfd50241aecb71439ee99a5cb6f3652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a66bc13_a2293faa",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-02T22:57:57Z",
+      "side": 1,
+      "message": "cruft?",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "6471f0480dfd50241aecb71439ee99a5cb6f3652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a66bc13_82243bd4",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-02T22:57:57Z",
+      "side": 1,
+      "message": "the intent here is that white space lines up constants. Could you make the formatting consistent.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 38
+      },
+      "revId": "6471f0480dfd50241aecb71439ee99a5cb6f3652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
