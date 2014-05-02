@@ -45,6 +45,30 @@
       "revId": "f06759c4f58c604cb0569814605ba076212af135",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caa0ec5c_ff14bb5d",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-05-02T18:15:06Z",
+      "side": 1,
+      "message": "Used twice.",
+      "parentUuid": "0a520423_503b810a",
+      "range": {
+        "startLine": 380,
+        "startChar": 2,
+        "endLine": 380,
+        "endChar": 93
+      },
+      "revId": "f06759c4f58c604cb0569814605ba076212af135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
