@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a520423_90bc595d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-02T17:41:56Z",
+      "side": 1,
+      "message": "i know this loop came from the other code, but this is what\n\nconst ImageHeader\u0026 image_header \u003d runtime-\u003eGetHeap()-\u003eGetImageSpace()\n\ndid and it makes it much more readable to use that. we don\u0027t have any short term plans for multiple image spaces and even if we do, we\u0027ll have a special case for the bootclasspath image space which is what is needed here.",
+      "range": {
+        "startLine": 813,
+        "startChar": 2,
+        "endLine": 816,
+        "endChar": 71
+      },
+      "revId": "f06759c4f58c604cb0569814605ba076212af135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a520423_503b810a",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-02T17:41:56Z",
+      "side": 1,
+      "message": "only used in one place? move definition or just use in at call site?",
+      "range": {
+        "startLine": 380,
+        "startChar": 2,
+        "endLine": 380,
+        "endChar": 93
+      },
+      "revId": "f06759c4f58c604cb0569814605ba076212af135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
