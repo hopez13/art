@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0a520423_30e4856f",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-02T17:34:06Z",
+      "side": 1,
+      "message": "Done, here:\nhttps://android-review.googlesource.com/#/c/93239/\n\nadded more stuff there at the same time",
+      "parentUuid": "ca046c04_8558a86c",
+      "range": {
+        "startLine": 651,
+        "startChar": 37,
+        "endLine": 651,
+        "endChar": 42
+      },
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca046c04_3097d034",
         "filename": "runtime/dex_instruction.cc",
         "patchSetId": 2
@@ -177,6 +201,24 @@
       "writtenOn": "2014-04-30T22:51:09Z",
       "side": 1,
       "message": "Can you please update highConst to contain the sign extension of lowConst?",
+      "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a66bc13_018110a9",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-02T17:34:06Z",
+      "side": 1,
+      "message": "Done, here:\nhttps://android-review.googlesource.com/#/c/93239/\n\nadded more stuff there at the same time",
+      "parentUuid": "ca046c04_3097d034",
       "revId": "e19973b114e379b1fbb77e6a1a00fc7266bd8f52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
