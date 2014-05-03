@@ -40,6 +40,24 @@
       "revId": "2ba8d4b4bb3f53c953ebc6cb426d0b0a2fa33615",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aacbb83b_aeba77f7",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-03T01:04:45Z",
+      "side": 1,
+      "message": "Once the string change is ready for commit, simply take out the whole \"upper half\" of the test, which is meaningless then.",
+      "parentUuid": "aacbb83b_0e470b63",
+      "revId": "2ba8d4b4bb3f53c953ebc6cb426d0b0a2fa33615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
