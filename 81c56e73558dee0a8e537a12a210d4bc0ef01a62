@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aba749a_0a4cdbfa",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-03T00:30:02Z",
+      "side": 1,
+      "message": "fixed to keep in sync with new path in run-test",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 42
+      },
+      "revId": "81c56e73558dee0a8e537a12a210d4bc0ef01a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aacbb83b_4bee656c",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-03T00:30:02Z",
+      "side": 1,
+      "message": "fix warning for test 000",
+      "range": {
+        "startLine": 360,
+        "startChar": 22,
+        "endLine": 360,
+        "endChar": 24
+      },
+      "revId": "81c56e73558dee0a8e537a12a210d4bc0ef01a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
