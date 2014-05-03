@@ -22,6 +22,24 @@
       "revId": "2ba8d4b4bb3f53c953ebc6cb426d0b0a2fa33615",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aacbb83b_0e470b63",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-05-03T00:55:54Z",
+      "side": 1,
+      "message": "Yea, with the string change there won\u0027t be an offset field in string anymore.",
+      "parentUuid": "8aba749a_8aa76b31",
+      "revId": "2ba8d4b4bb3f53c953ebc6cb426d0b0a2fa33615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
