@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aba749a_f399429b",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-04T22:03:45Z",
+      "side": 1,
+      "message": "we should have a TODO to explain why these are disabled.",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 4
+      },
+      "revId": "a2b407b22c549fe6d95ebf6dc3dfe9524b43632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6abf008d_1d3bc30b",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-04T22:03:45Z",
+      "side": 1,
+      "message": "somewhat impenetrable, move to accessor on PromotionMap?",
+      "range": {
+        "startLine": 257,
+        "startChar": 52,
+        "endLine": 257,
+        "endChar": 76
+      },
+      "revId": "a2b407b22c549fe6d95ebf6dc3dfe9524b43632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aacbb83b_ff14a75d",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-04T22:03:45Z",
+      "side": 1,
+      "message": "Make this a more globally used utility?",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 41
+      },
+      "revId": "a2b407b22c549fe6d95ebf6dc3dfe9524b43632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
