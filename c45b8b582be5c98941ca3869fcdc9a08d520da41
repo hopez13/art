@@ -46,6 +46,30 @@
       "revId": "c45b8b582be5c98941ca3869fcdc9a08d520da41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_64468436",
+        "filename": "runtime/mirror/throwable.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-05T19:17:22Z",
+      "side": 1,
+      "message": "my point is, from the comment I was thinking you meant they maintained an invariant that cause !\u003d null. however looking at initCuase, it uses cause\u003d\u003dthis to tell if it has already been set, but allows null.",
+      "parentUuid": "aacbb83b_85ae76b8",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 90
+      },
+      "revId": "c45b8b582be5c98941ca3869fcdc9a08d520da41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
