@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8aba749a_64d6e663",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-05T16:56:16Z",
+      "side": 1,
+      "message": "It looks like there is a minor issue with liveness tracking.  Because this CL is blocking other work, I\u0027m going to check it in disabled.  TODO added, and I expect to have a fix in a new CL shortly.",
+      "parentUuid": "aacbb83b_7f7757b1",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 4
+      },
+      "revId": "a2b407b22c549fe6d95ebf6dc3dfe9524b43632d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6abf008d_1d3bc30b",
         "filename": "compiler/dex/quick/codegen_util.cc",
         "patchSetId": 19
