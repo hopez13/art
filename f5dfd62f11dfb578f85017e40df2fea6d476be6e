@@ -45,6 +45,30 @@
       "revId": "f5dfd62f11dfb578f85017e40df2fea6d476be6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4adb1c06_b0217805",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1039893
+      },
+      "writtenOn": "2014-05-05T17:06:26Z",
+      "side": 1,
+      "message": "I also used this macro in the field stubs https://android-review.googlesource.com/#/c/93391/",
+      "parentUuid": "8a2fd4b4_652de082",
+      "range": {
+        "startLine": 536,
+        "startChar": 4,
+        "endLine": 536,
+        "endChar": 48
+      },
+      "revId": "f5dfd62f11dfb578f85017e40df2fea6d476be6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
