@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa49887_634ca255",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-05T17:09:32Z",
+      "side": 1,
+      "message": "Could use arraysize macro, rather than doing sizeof(...)/sizeof(...[0]).",
+      "revId": "091cc408e9dc87e60fb64c61e186bea568fc3d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ae0a8ae_2fa2099d",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-05T17:09:32Z",
+      "side": 1,
+      "message": "\"change to user\" -\u003e \"use\"?",
+      "revId": "091cc408e9dc87e60fb64c61e186bea568fc3d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaa49887_03412e1c",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-05T17:09:32Z",
+      "side": 1,
+      "message": "It is not clear to me how special registers (such as rzr in the A64 instruction set) would be represented. It would be good to clarify this here, but this can be done in later commits (to avoid delaying merging this one).\n\nIn the arm64 quick compiler patch I did as follows:\n\n  rwzr \u003d RegStorage::kCoreRegister | 0,\n  rxzr \u003d RegStorage::kCoreRegister | 1,\n  constexpr RegStorage rs_wzr(RegStorage::kValid | rwzr);\n  constexpr RegStorage rs_xzr(RegStorage::kValid | rxzr);\n\n(the register views use kInvalid as their shape). This works, but is somewhat ugly, as two views (wzr, xzr) of the same architectural pseudo-register (rzr) are represented using two register numbers (0 and 1, respectively). Also methods like RegStorage.Is64Bit() don\u0027t work for rs_wzr and rs_xzr.",
+      "revId": "091cc408e9dc87e60fb64c61e186bea568fc3d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
