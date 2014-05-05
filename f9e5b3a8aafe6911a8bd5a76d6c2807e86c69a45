@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "8a2fd4b4_29ba8e5a",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-05T22:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a346007_c7b672e1",
+      "revId": "f9e5b3a8aafe6911a8bd5a76d6c2807e86c69a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_5446f135",
         "filename": "runtime/jni_internal.h",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "8a2fd4b4_a96dfe15",
+        "filename": "runtime/jni_internal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-05T22:49:28Z",
+      "side": 1,
+      "message": "Currently we don\u0027t have a lock for when we add local references. We could add methods for Add/AddWithoutLocks I suppose. What do you think?",
+      "parentUuid": "8aba749a_5446f135",
+      "revId": "f9e5b3a8aafe6911a8bd5a76d6c2807e86c69a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a346007_07ddfaed",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 1242,
         "endChar": 79
       },
+      "revId": "f9e5b3a8aafe6911a8bd5a76d6c2807e86c69a45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_30c5d672",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-05T22:49:28Z",
+      "side": 1,
+      "message": "You\u0027re right, I\u0027ll just revert this file (except for the SynchronizedGet).",
+      "parentUuid": "6a346007_07ddfaed",
       "revId": "f9e5b3a8aafe6911a8bd5a76d6c2807e86c69a45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
