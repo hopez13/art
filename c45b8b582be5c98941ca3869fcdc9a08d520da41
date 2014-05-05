@@ -22,6 +22,30 @@
       "revId": "c45b8b582be5c98941ca3869fcdc9a08d520da41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aacbb83b_85ae76b8",
+        "filename": "runtime/mirror/throwable.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-05T15:08:30Z",
+      "side": 1,
+      "message": "the 1st test is to ensure we don\u0027t dereference a nullptr, the second is the test you mention. I think we\u0027re as concise as we can be :-)",
+      "parentUuid": "aacbb83b_9a0c9159",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 90
+      },
+      "revId": "c45b8b582be5c98941ca3869fcdc9a08d520da41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
