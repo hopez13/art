@@ -22,6 +22,24 @@
       "revId": "95bae2b170990a06cfbd06e360ed040dd4106b5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_c50a29ac",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-05T23:31:34Z",
+      "side": 1,
+      "message": "I changed the GarbageCollector::RecordFree to take 64 bit ints as parameters.",
+      "parentUuid": "6a346007_21ae2eba",
+      "revId": "95bae2b170990a06cfbd06e360ed040dd4106b5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
