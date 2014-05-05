@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4adb1c06_101164b6",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1039893
+      },
+      "writtenOn": "2014-05-05T17:01:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we rename it to RETURN_IF_RAX_ZERO?",
+      "range": {
+        "startLine": 535,
+        "startChar": 7,
+        "endLine": 535,
+        "endChar": 25
+      },
+      "revId": "f5dfd62f11dfb578f85017e40df2fea6d476be6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
