@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a346007_21ae2eba",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-05T18:24:31Z",
+      "side": 1,
+      "message": "Here we cast size_t (bytes_moved_, etc.) to uint64_t (to_bytes, etc.) to int64_t (this cast) to ssize_t (RecordFree\u0027s parameter type) to int32_t (the Atomic\u003cint32_t\u003e GarbageCollector::freed_bytes_). This works as long as we don\u0027t free a \u003e 2 GB object in 32-bit mode.\n\nThis may be a chance to clean this up?\n\nHere\u0027s one idea: How about adding another variant of RecordFree() that takes the before/after values, instead of diffs, and handles the \u0027negative\u0027 case internally, something like:\n\nvoid RecordFree(size_t before_objects, size_t after_objects,\n                  size_t before_bytes, size_t after_bytes) {\n  freed_objects.FetchAndSub(before_objects);\n  freed_objects.FetchAndAdd(after_objects);\n  freed_bytes.FetchAndSub(before_bytes);\n  freed_bytes.FetchAndAdd(after_bytes);\n}\n\nwhich allows us to use size_t consistently without casts or signed types?",
+      "range": {
+        "startLine": 272,
+        "startChar": 52,
+        "endLine": 272,
+        "endChar": 59
+      },
+      "revId": "95bae2b170990a06cfbd06e360ed040dd4106b5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
