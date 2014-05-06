@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a346007_7442a9cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:02:24Z",
+      "side": 1,
+      "message": "Although you did say it - let\u0027s be a little more clear.  This largely a copy of the 32-bit Arm target-specific files, which will serve as the starting point for the 64-bit backend.\n\nAlso, once this CL is submitted, I think we don\u0027t need the script anymore.",
+      "revId": "2c49519faf419730908b66e12649be67fc8d41ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_949ad218",
+        "filename": "compiler/dex/quick/arm64/create.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:02:24Z",
+      "side": 1,
+      "message": "Let\u0027s delete this file - no longer needed.",
+      "range": {
+        "startLine": 1,
+        "startChar": 9,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "2c49519faf419730908b66e12649be67fc8d41ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
