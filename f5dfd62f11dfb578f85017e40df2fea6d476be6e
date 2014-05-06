@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6a346007_20973f69",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-06T03:46:13Z",
+      "side": 1,
+      "message": "What things did you test that make this commenting out valid?",
+      "range": {
+        "startLine": 479,
+        "startChar": 4,
+        "endLine": 479,
+        "endChar": 15
+      },
+      "revId": "f5dfd62f11dfb578f85017e40df2fea6d476be6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4adb1c06_101164b6",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -84,6 +107,24 @@
       "side": 1,
       "message": "Should I change anything here?",
       "parentUuid": "4adb1c06_b0217805",
+      "revId": "f5dfd62f11dfb578f85017e40df2fea6d476be6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_a0a34fd0",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-06T03:46:13Z",
+      "side": 1,
+      "message": "Please leave it with eax for the time being.",
+      "parentUuid": "4adb1c06_b3f0a202",
       "revId": "f5dfd62f11dfb578f85017e40df2fea6d476be6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
