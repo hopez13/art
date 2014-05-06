@@ -16,6 +16,24 @@
       "revId": "e07f9a3e498ea116673ba917d5696f37cd7dde57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_279b02ed",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-06T20:16:19Z",
+      "side": 1,
+      "message": "yeah, I realized that checking for root won\u0027t work for all the tests we run typically have a root shell. I couldn\u0027t check for StartsWith(\"/data\") because we often are using /data/local/tmp or some such.",
+      "parentUuid": "8aba749a_0cb4e50f",
+      "revId": "e07f9a3e498ea116673ba917d5696f37cd7dde57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
