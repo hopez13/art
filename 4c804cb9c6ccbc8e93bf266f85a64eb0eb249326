@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a58b470_bd08abf6",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-06T23:29:30Z",
+      "side": 1,
+      "message": "SPUT doesn\u0027t have a VC register, why VCConst? Is the flag you want already present with kVerifyRegBField/kVerifyRegCField?",
+      "range": {
+        "startLine": 124,
+        "startChar": 15,
+        "endLine": 124,
+        "endChar": 16
+      },
+      "revId": "4c804cb9c6ccbc8e93bf266f85a64eb0eb249326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
