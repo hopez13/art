@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4adb1c06_d65af407",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-06T18:01:28Z",
+      "side": 1,
+      "message": "If the used chains are recalculated frequently, maybe they should be allocated using a ScopedArenaAllocator and returned to the ArenaStack after use. (But I can\u0027t tell if that\u0027s a good idea without seeing the actual usage patterns.)",
+      "parentUuid": "a5e5abf4_2f4c7186",
+      "revId": "5676823f5ca234cd0de4d6b20785341aae30d2af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45aeaf94_5be17736",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
