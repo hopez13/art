@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa49887_832e7ec3",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-06T12:01:13Z",
+      "side": 1,
+      "message": "Unnecessary. We\u0027re setting the opcode below and no other field from the dalvikInsn is used.",
+      "revId": "8548b1dbadba7e174ae4523784f15af15ef09567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaa49887_e6e6604e",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-06T12:01:13Z",
+      "side": 1,
+      "message": "Move this deeper - check the last_insn variable below.",
+      "revId": "8548b1dbadba7e174ae4523784f15af15ef09567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
