@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a346007_6fabef61",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T19:16:01Z",
+      "side": 1,
+      "message": "currently not really but when we want to recreate the SSA with it, we need to remember what were the original vA,vB, and vC.\n\nOtherwise, it becomes tricky to allow a recreation of SSA post this pass.",
+      "parentUuid": "aaa49887_832e7ec3",
+      "revId": "8548b1dbadba7e174ae4523784f15af15ef09567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaa49887_e6e6604e",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-06T12:01:13Z",
       "side": 1,
       "message": "Move this deeper - check the last_insn variable below.",
+      "revId": "8548b1dbadba7e174ae4523784f15af15ef09567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_e793aa78",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T19:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaa49887_e6e6604e",
       "revId": "8548b1dbadba7e174ae4523784f15af15ef09567",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
