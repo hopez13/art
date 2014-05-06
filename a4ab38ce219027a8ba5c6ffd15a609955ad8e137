@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a346007_6fae4fbb",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T19:04:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaa49887_26feb8d2",
+      "revId": "a4ab38ce219027a8ba5c6ffd15a609955ad8e137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ae0a8ae_f20f064c",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2014-05-06T12:11:54Z",
       "side": 1,
       "message": "This comment is misleading, please update.",
+      "range": {
+        "startLine": 345,
+        "startChar": 35,
+        "endLine": 345,
+        "endChar": 71
+      },
+      "revId": "a4ab38ce219027a8ba5c6ffd15a609955ad8e137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_4f970b68",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T19:04:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ae0a8ae_f20f064c",
       "range": {
         "startLine": 345,
         "startChar": 35,
