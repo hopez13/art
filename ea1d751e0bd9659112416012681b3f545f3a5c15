@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a3ee8ea_f4cfdee1",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Add a TODO here, noting that the comments about the calling convention are incorrect and need to be updated.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_94fdad1f",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Note that the def/use encoding mechanism is currently broken for arm64: the def/use masks are only 64 bits wide, and we now have more than 64 resources.  So long as all optimizations are switched off, this won\u0027t bite us - and I expect to fix this within the next few days.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_48db8e87",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Per our recent conversation, I think we can do this without too much trouble.  Because other targets may have similar needs, I\u0027m going to shoot for a general solution via increasing the number of possible registers, rather than trying to use an unused bit elsewhere.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_4860aedd",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Incidentally, I\u0027m not happy with my naming convention.  I used the \"rs_\" prefix to distinguish between RegStorage elements and the previous use of raw ints to describe registers during the register utility rewrite.  Once I complete the eradication of raw ints for registers, I may want to get rid of \"rs_\".  Also, the capitalized \"_SELF\", \"_SP\", \"_LR\" etc. are holdovers from the trace JIT days when those were #define\u0027d register numbers.  Similarly, the target prefix \"ARM_SP\", \"A64_SP\", \"X86_SP\" are holdovers from a time in which all of those things lived in the same namespace.  If you have any naming preferences, let me know.  I\u0027m mostly just tired of seeing all caps.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_01a58e27",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "use:\nif (kIsDebugBuild) {\n}",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_a86b3a6f",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Note that it\u0027s also perfectly acceptable to abort the compilation and force interpretation for pathological cases (though we would want to be pretty sure such occurrences were rare and unlikely to be important).",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_08da26f5",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Delete - as a general rule, let\u0027s avoid commenting out code.  It\u0027s too easy for such code to live around long enough that no one remembers what it was for.   Also, we\u0027ll largely be using:\n\nUNIMPLEMENTED(WARNING);\nand\nUNIMPLEMENTED(FATAL);\n\nthe way you have been using the breakpoint.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_881c76fe",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "as above.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_4f8d4c20",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Comment still needed?  If so, I\u0027d additionally add an UNIMPLEMENTED(FATAL) below.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_487eeef4",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Comment to explain?",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_6fa6509d",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Yea, just delete it now.  If for some reason an error elsewhere results in a pair getting through, it will trip up on a GetReg() during a debug run.  Those happen frequently enough that we don\u0027t need to explicitly DCHECK(!IsPair());",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_6ca801ab",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "I\u0027ll add the wide view in a later CL - lets just go with this for now.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_6cc9e159",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "Bad merge here?  looks like pieces of the register pool initialization got collapsed into AllocTypedTempWide().",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_aca8397d",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "TODO: Don\u0027t think we\u0027ll need this, but if we do simplify to ignore the pair handling and just free if rl_keep.reg !\u003d rl_free.reg.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_0f222408",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-06T18:36:26Z",
+      "side": 1,
+      "message": "UNIMPLEMENTED(WARNING)",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
