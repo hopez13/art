@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8aba749a_a11da2fd",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done (Actually rewrote it to use 64-bit value)",
+      "parentUuid": "6a346007_e3128178",
+      "range": {
+        "startLine": 1274,
+        "startChar": 9,
+        "endLine": 1274,
+        "endChar": 18
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_982b370a",
         "filename": "compiler/dex/mir_graph.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6a346007_14223d08",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aba749a_982b370a",
+      "range": {
+        "startLine": 1275,
+        "startChar": 9,
+        "endLine": 1275,
+        "endChar": 18
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_f3fff877",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-05-06T06:09:41Z",
       "side": 1,
       "message": "prefer int32_t to be explicit on the size, but given you define low and high, why not int64_t and just 2 outs?",
+      "range": {
+        "startLine": 272,
+        "startChar": 21,
+        "endLine": 272,
+        "endChar": 24
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_81fdfe1e",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a3ee8ea_f3fff877",
       "range": {
         "startLine": 272,
         "startChar": 21,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "2a3ee8ea_08e7c6f9",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a346007_43524d25",
+      "range": {
+        "startLine": 276,
+        "startChar": 9,
+        "endLine": 276,
+        "endChar": 19
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_782a0305",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 3
@@ -151,6 +247,30 @@
       "writtenOn": "2014-05-06T06:09:41Z",
       "side": 1,
       "message": "document",
+      "range": {
+        "startLine": 277,
+        "startChar": 9,
+        "endLine": 277,
+        "endChar": 19
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_6f5bf030",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aba749a_789f630a",
       "range": {
         "startLine": 277,
         "startChar": 9,
@@ -209,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "2a3ee8ea_488d4e20",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a346007_4329ada7",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 27
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a346007_2322a9c1",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 3
@@ -220,6 +364,30 @@
       "writtenOn": "2014-05-06T06:09:41Z",
       "side": 1,
       "message": "can we lose Expression, we don\u0027t have it in other cases and expression to me implies multiple instructions (well terms really).",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 49
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aba749a_ccf32d0e",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a346007_2322a9c1",
       "range": {
         "startLine": 128,
         "startChar": 0,
@@ -255,6 +423,30 @@
     },
     {
       "key": {
+        "uuid": "8aba749a_81409e68",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aba749a_f8359362",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 54
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_989017fe",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 3
@@ -266,6 +458,30 @@
       "writtenOn": "2014-05-06T06:09:41Z",
       "side": 1,
       "message": "similarly, load",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 11
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3ee8ea_8870f65e",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aba749a_989017fe",
       "range": {
         "startLine": 141,
         "startChar": 4,
@@ -301,6 +517,30 @@
     },
     {
       "key": {
+        "uuid": "6a346007_ef854048",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "it isn\u0027t really a memory barrier is it? It is more a question of non-punctual memory change making any assumption on memory consumption impossible when crossing such an instruction.\n\nIt is more a question of instructions that are changing the layout by doing either some allocation, or doing a memory barrier so who knows what happens in between. Basically, it is important to know that these instructions exist when doing some kind of memory related optimizations: ie if I know that an object might be reallocated, removed, or there is a barrier somewhere, I can\u0027t automatically assume that from one read to another, it provides the same result.\n\nClobber is the best name I can come up with. Barrier works for the monitor opcodes but not for the array allocation ones.",
+      "parentUuid": "8aba749a_b895dbed",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 88
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_930f8c00",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 3
@@ -312,6 +552,30 @@
       "writtenOn": "2014-05-06T06:09:41Z",
       "side": 1,
       "message": "Not clear what this means, on the face of it would be that vC holds a constant. Improve name/comment.",
+      "range": {
+        "startLine": 143,
+        "startChar": 41,
+        "endLine": 143,
+        "endChar": 60
+      },
+      "revId": "3c3ba880db4b3213afd16d69aa7721e826842687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_4f8f0caa",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-06T18:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a3ee8ea_930f8c00",
       "range": {
         "startLine": 143,
         "startChar": 41,
