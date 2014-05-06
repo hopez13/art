@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aba749a_edc06b0d",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-06T21:56:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. For iget and sget vC is an index, which is a constant, but you set this on aget also where vC is the register holding the index - so the register index is a constant but the value in the register isn\u0027t.",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 86
+      },
+      "revId": "ba03042e97b5a041a57e646b393897b7cd236fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
