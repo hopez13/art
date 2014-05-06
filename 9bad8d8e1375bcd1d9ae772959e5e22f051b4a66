@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a346007_b846df32",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-06T21:47:17Z",
+      "side": 1,
+      "message": "prefer \"if (false)\" to avoid bit rot",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 900,
+        "endChar": 5
+      },
+      "revId": "9bad8d8e1375bcd1d9ae772959e5e22f051b4a66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
