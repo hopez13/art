@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8a58b470_9492dc41",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a3ee8ea_f4cfdee1",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a346007_94fdad1f",
         "filename": "compiler/dex/quick/arm64/arm64_lir.h",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-06T18:36:26Z",
       "side": 1,
       "message": "Note that the def/use encoding mechanism is currently broken for arm64: the def/use masks are only 64 bits wide, and we now have more than 64 resources.  So long as all optimizations are switched off, this won\u0027t bite us - and I expect to fix this within the next few days.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a43e481_c186648b",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Yes. 64 bit are enough just to take into account def/use of all registers except zr (which is not to be considered anyway). All the remaining (abstract) resources will need to be placed in separate masks, I guess.",
+      "parentUuid": "6a346007_94fdad1f",
       "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8a58b470_d47bb446",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Great. This makes sense.",
+      "parentUuid": "2a3ee8ea_48db8e87",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_4860aedd",
         "filename": "compiler/dex/quick/arm64/arm64_lir.h",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2014-05-06T18:36:26Z",
       "side": 1,
       "message": "Incidentally, I\u0027m not happy with my naming convention.  I used the \"rs_\" prefix to distinguish between RegStorage elements and the previous use of raw ints to describe registers during the register utility rewrite.  Once I complete the eradication of raw ints for registers, I may want to get rid of \"rs_\".  Also, the capitalized \"_SELF\", \"_SP\", \"_LR\" etc. are holdovers from the trace JIT days when those were #define\u0027d register numbers.  Similarly, the target prefix \"ARM_SP\", \"A64_SP\", \"X86_SP\" are holdovers from a time in which all of those things lived in the same namespace.  If you have any naming preferences, let me know.  I\u0027m mostly just tired of seeing all caps.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaaa1052_bf35c763",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "No preferences from my side. I suspect w0, x1, s2, d3, wzr, xzr, sp, wsp, xself, lr are good. But a common prefix can be used in case we end up hitting a massive number of already existing variables.\n\nI guess this also means that the Arm, A64 prefixes can also be removed from things like A64NativeRegisterPool, A64ShiftEncodings, ArmOpcode?\n\nIf not, what is the best prefix to use? I used A64 mainly for convenience (as it is as wide as Arm, ARM), but you may want Arm64 to be used instead, I guess...",
+      "parentUuid": "2a3ee8ea_4860aedd",
       "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,41 @@
     },
     {
       "key": {
+        "uuid": "6a346007_d1973931",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aba749a_01a58e27",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a523c52_3ea6519c",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Note that - at the moment - this line causes plenty of warnings to be emitted. This is caused by the fact that rxN is currently defined identically to rwN and also by rwzr \u003d\u003d rwsp, rxzr \u003d\u003d rsp.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_a86b3a6f",
         "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
         "patchSetId": 4
@@ -104,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "6a346007_51ae8984",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "My feeling is that it could be indeed worth to abort compilation for methods above 1 MB in size. I suspect, however, it is best to wait until the Arm64 backend is complete before making decisions on this: I cannot yet exclude that we will have to add an instruction which requires multiple-instructions fixups (thus making the retry logic useful again).",
+      "parentUuid": "2a3ee8ea_a86b3a6f",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_08da26f5",
         "filename": "compiler/dex/quick/arm64/call_arm64.cc",
         "patchSetId": 4
@@ -115,6 +240,24 @@
       "writtenOn": "2014-05-06T18:36:26Z",
       "side": 1,
       "message": "Delete - as a general rule, let\u0027s avoid commenting out code.  It\u0027s too easy for such code to live around long enough that no one remembers what it was for.   Also, we\u0027ll largely be using:\n\nUNIMPLEMENTED(WARNING);\nand\nUNIMPLEMENTED(FATAL);\n\nthe way you have been using the breakpoint.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_71862d03",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "I use to uncomment this line to debug via gdb (it works as a breakpoint).\nI found it useful to have it here so I could quickly find it, uncomment it and re-run a failing test. I could then use gdb to step through the generated code. A similar comment was added below, as you noticed. I will remove both of these in the next patch set. Thanks also for the guideline about the UNIMPLEMENTED macros. I added some of these, as you will see in next patch set.",
+      "parentUuid": "2a3ee8ea_08da26f5",
       "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +298,24 @@
     },
     {
       "key": {
+        "uuid": "6a346007_9176515b",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Yes, quite some functionality in this file and in int_arm64.cc will need to be implemented, probably touching the gen_*.cc files. I will add an UNIMPLEMENTED(FATAL), as suggested.",
+      "parentUuid": "6a346007_4f8d4c20",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_487eeef4",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 4
@@ -166,6 +327,24 @@
       "writtenOn": "2014-05-06T18:36:26Z",
       "side": 1,
       "message": "Comment to explain?",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_d1ce193b",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "This needs to be reimplemented. I will add an UNIMPLEMENTED() entry plus a TODO.",
+      "parentUuid": "2a3ee8ea_487eeef4",
       "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -189,6 +368,24 @@
     },
     {
       "key": {
+        "uuid": "4a523c52_fe5fb99c",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a346007_6fa6509d",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_6ca801ab",
         "filename": "compiler/dex/quick/arm64/target_arm64.cc",
         "patchSetId": 4
@@ -200,6 +397,24 @@
       "writtenOn": "2014-05-06T18:36:26Z",
       "side": 1,
       "message": "I\u0027ll add the wide view in a later CL - lets just go with this for now.",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a43e481_218f48ab",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "8aba749a_6ca801ab",
       "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -223,6 +438,24 @@
     },
     {
       "key": {
+        "uuid": "4a523c52_beaf011a",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Not sure I follow... I suspect this may be an artifact of Gerrit which is collapsing some of the common lines and representing them as \"... skipped 23 common lines ...\"",
+      "parentUuid": "8aba749a_6cc9e159",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_aca8397d",
         "filename": "compiler/dex/quick/arm64/target_arm64.cc",
         "patchSetId": 4
@@ -240,6 +473,24 @@
     },
     {
       "key": {
+        "uuid": "8a58b470_f4ad1888",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "You are right. I will replace the body of the function with a fatal log. Otherwise, let me know and I will get rid of it entirely. I guess it would be good to create a 64-bit version of Mir2Lir::GenArithOpLong in gen_common.cc.",
+      "parentUuid": "8aba749a_aca8397d",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a346007_0f222408",
         "filename": "compiler/dex/quick/arm64/target_arm64.cc",
         "patchSetId": 4
@@ -251,6 +502,24 @@
       "writtenOn": "2014-05-06T18:36:26Z",
       "side": 1,
       "message": "UNIMPLEMENTED(WARNING)",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_718e2dda",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-07T14:19:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a346007_0f222408",
       "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
