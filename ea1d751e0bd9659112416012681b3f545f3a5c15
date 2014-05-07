@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "2a57c842_77cab081",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-07T15:28:26Z",
+      "side": 1,
+      "message": "On the principle of least-surprise, we should use \"arm64\" as the namespace. The runtime uses art::arm64::",
+      "parentUuid": "eaaa1052_bf35c763",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aba749a_01a58e27",
         "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
         "patchSetId": 4
