@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "4a523c52_c1cdb867",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-07T15:30:15Z",
+      "side": 1,
+      "message": "Currently, the abstract resources are allocated to bit positions 58 through 63 (see ResourceEncodingPos in compiler_enums.h) - so we do have a clash here.",
+      "parentUuid": "0a43e481_c186648b",
+      "revId": "ea1d751e0bd9659112416012681b3f545f3a5c15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a3ee8ea_48db8e87",
         "filename": "compiler/dex/quick/arm64/arm64_lir.h",
         "patchSetId": 4
