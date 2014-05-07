@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "aa62d821_7341201c",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-07T22:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a6cc413_9c616d90",
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a6cc413_fc66a164",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "aa62d821_f35410dd",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-07T22:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a6cc413_fc66a164",
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8afd1475_f23a48e1",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 3
@@ -65,6 +101,24 @@
         "endLine": 59,
         "endChar": 51
       },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a02a043_f1e9a8cc",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-07T22:28:28Z",
+      "side": 1,
+      "message": "Yes, that is why we must call StopPreservingReferences after we process the mark stack. It ensures that all objects reachable from the referent are already marked before we return the referent.",
+      "parentUuid": "8afd1475_f23a48e1",
       "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -135,6 +189,24 @@
         "endLine": 141,
         "endChar": 78
       },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a02a043_111a6c43",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-07T22:28:28Z",
+      "side": 1,
+      "message": "I\u0027ll rename it.",
+      "parentUuid": "8afd1475_d238e4c2",
       "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
