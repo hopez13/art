@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a58b470_5d67cf2c",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-07T00:02:12Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 601,
+        "startChar": 32,
+        "endLine": 601,
+        "endChar": 40
+      },
+      "revId": "6c330c6c76e15c66d9bd8c279467ee2e638b4715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a58b470_dd52bf45",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-07T00:02:12Z",
+      "side": 1,
+      "message": "int32_t to make the size explicit",
+      "range": {
+        "startLine": 708,
+        "startChar": 47,
+        "endLine": 708,
+        "endChar": 50
+      },
+      "revId": "6c330c6c76e15c66d9bd8c279467ee2e638b4715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a58b470_5d406f67",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-07T00:02:12Z",
+      "side": 1,
+      "message": "fs",
+      "range": {
+        "startLine": 1133,
+        "startChar": 24,
+        "endLine": 1133,
+        "endChar": 31
+      },
+      "revId": "6c330c6c76e15c66d9bd8c279467ee2e638b4715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa49f8a5_84558cfd",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-07T00:02:12Z",
+      "side": 1,
+      "message": "s/Move/move/\nfor consistency",
+      "range": {
+        "startLine": 430,
+        "startChar": 35,
+        "endLine": 430,
+        "endChar": 39
+      },
+      "revId": "6c330c6c76e15c66d9bd8c279467ee2e638b4715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
