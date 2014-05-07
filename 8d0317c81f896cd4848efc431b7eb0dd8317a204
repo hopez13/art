@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a6cc413_9c616d90",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T22:18:01Z",
+      "side": 1,
+      "message": "Insert \"Locks::mutator_lock_-\u003eAssertExclusiveHeld(self_);\" in case a caller (a collector) uses NO_THREAD_SAFETY_ANALYSIS?",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6cc413_fc66a164",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T22:18:01Z",
+      "side": 1,
+      "message": "\u0027there\u0027 -\u003e \u0027there is\u0027?",
+      "range": {
+        "startLine": 52,
+        "startChar": 79,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8afd1475_f23a48e1",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T22:18:01Z",
+      "side": 1,
+      "message": "Just to clarify, it has to be the case that not just the referent is marked, but any objects reachable from it must be already marked (recursively marked) for us to be able to return the referent in this case. Since we call process_mark_stack_callback at the end of the \u0027preserving references\u0027 operations in ProcessReferences(), just checking is_marked_callback(referent) is sufficient to check if the referent is recursively marked. Correct?",
+      "range": {
+        "startLine": 59,
+        "startChar": 37,
+        "endLine": 59,
+        "endChar": 51
+      },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6cc413_3f5beb31",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T22:18:01Z",
+      "side": 1,
+      "message": "Since we could use process_references_args_ here even when concurrent is false, do we need to fill process_references_args_ in the else block of the if statement above (line 104) as well, otherwise we could be passing in null process_references_args_ to PreserveSomeSoftReferences()?",
+      "range": {
+        "startLine": 123,
+        "startChar": 54,
+        "endLine": 123,
+        "endChar": 78
+      },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8afd1475_d238e4c2",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T22:18:01Z",
+      "side": 1,
+      "message": "Side question: ReferenceQueue::EnqueueFinalizerReferences\u0027s 3rd parameter is named recursive_mark_callback, but it\u0027s meant to be a non-recursive-mark callback and a better name would be mark_object_callback. Is this correct? As we call process_mark_stack_callback() in the next line (142), there\u0027s no problem here in either case, however.",
+      "range": {
+        "startLine": 141,
+        "startChar": 58,
+        "endLine": 141,
+        "endChar": 78
+      },
+      "revId": "8d0317c81f896cd4848efc431b7eb0dd8317a204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
