@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a58b470_9d83277a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T00:24:39Z",
+      "side": 1,
+      "message": "typo: without",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "4b4b7f676c9621a94873d1409b5cac91ca2a0ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa49f8a5_415b7630",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T00:24:39Z",
+      "side": 1,
+      "message": "nit: It\u0027s probably equivalent, but it looks like we could simply have ReferenceProcessor embedded in Heap, as in:\n\n  ReferenceProcessor reference_processor_;\n\nwithout using a UniquePtr.",
+      "range": {
+        "startLine": 787,
+        "startChar": 2,
+        "endLine": 787,
+        "endChar": 52
+      },
+      "revId": "4b4b7f676c9621a94873d1409b5cac91ca2a0ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a58b470_20dbce88",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T00:24:39Z",
+      "side": 1,
+      "message": "nit: How about something like StartBlockingGetReferent() and StopBlockingGetReferent() which to me conveys what they do more clearly as fast/slow paths are internal implementation details?",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "4b4b7f676c9621a94873d1409b5cac91ca2a0ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa49f8a5_44d6e462",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T00:24:39Z",
+      "side": 1,
+      "message": "nit: Since DisableSlowPath() is called by ProcessReferences(), make it private and make it clear that ProcessReferences() internally calls DisableSlowPath(), or alternatively keep it public and change the convention so the collector calls DisableSlowPath() rather than ProcessReferences() as the collector calls EnableSlowPath()?",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "4b4b7f676c9621a94873d1409b5cac91ca2a0ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a58b470_7d473362",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T00:24:39Z",
+      "side": 1,
+      "message": "Stale comment? This function returns void.",
+      "range": {
+        "startLine": 59,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 17
+      },
+      "revId": "4b4b7f676c9621a94873d1409b5cac91ca2a0ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a346007_fe404f48",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-07T00:24:39Z",
+      "side": 1,
+      "message": "This is probably to be removed?",
+      "range": {
+        "startLine": 659,
+        "startChar": 2,
+        "endLine": 659,
+        "endChar": 5
+      },
+      "revId": "4b4b7f676c9621a94873d1409b5cac91ca2a0ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
