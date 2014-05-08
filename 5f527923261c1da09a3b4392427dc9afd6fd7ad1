@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca138c9f_47cf1090",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T17:26:28Z",
+      "side": 1,
+      "message": "I think the meaning of ALWAYS_INLINE is getting confused. It doesn\u0027t \u003d\u003d inline, its a function attribute for ALWAYS_INLINE. I\u0027m surprised lacking the inline keyword here isn\u0027t leading to function/symbol redefinition failures.",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 13
+      },
+      "revId": "5f527923261c1da09a3b4392427dc9afd6fd7ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
