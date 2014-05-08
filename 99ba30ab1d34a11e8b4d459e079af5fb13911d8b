@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea16908e_0829a7a8",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T17:38:12Z",
+      "side": 1,
+      "message": "I think there should be a TODO: that we should use double registers when possible. I feel there\u0027s a missing instruction-set feature.",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 41
+      },
+      "revId": "99ba30ab1d34a11e8b4d459e079af5fb13911d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca138c9f_a7b6c4df",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T17:38:12Z",
+      "side": 1,
+      "message": "unnecessary, commented in last PS",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 967,
+        "endChar": 56
+      },
+      "revId": "99ba30ab1d34a11e8b4d459e079af5fb13911d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca138c9f_87b3c8ef",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T17:38:12Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1125,
+        "startChar": 0,
+        "endLine": 1125,
+        "endChar": 56
+      },
+      "revId": "99ba30ab1d34a11e8b4d459e079af5fb13911d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
