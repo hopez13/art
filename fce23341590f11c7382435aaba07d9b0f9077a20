@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa62d821_2752c224",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-08T13:45:21Z",
+      "side": 1,
+      "message": "My memory could be a bit faulty here, but I think that the clrex is not necessary.  I recall discussing with Ian a while back.  Ian, do you recall?",
+      "revId": "fce23341590f11c7382435aaba07d9b0f9077a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
