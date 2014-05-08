@@ -46,6 +46,30 @@
       "revId": "ca4b27804a5447a85cfd96a138cfea6d702c6821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa62d821_fc7df8c1",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T20:53:54Z",
+      "side": 1,
+      "message": "I think the inline is necessary. I can imagine things like -O0 compilation failing without it if not. I can imagine its not currently failing, but I\u0027d rather not surprise the person who discovered it did.",
+      "parentUuid": "2ae0a8ae_a35ff29d",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 58
+      },
+      "revId": "ca4b27804a5447a85cfd96a138cfea6d702c6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
