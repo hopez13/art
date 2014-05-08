@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ae0a8ae_a35e12c9",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T17:43:05Z",
+      "side": 1,
+      "message": "Since https://android-review.googlesource.com/#/c/93523/1/compiler/dex/quick/arm/utility_arm.cc it will always be LDRD/STRD, possibly preceded by an ADD. (The ADD itself could be more than a single instruction for displacements over 256KiB.)",
+      "parentUuid": "aa62d821_cd6e8dce",
+      "range": {
+        "startLine": 961,
+        "startChar": 0,
+        "endLine": 961,
+        "endChar": 71
+      },
+      "revId": "fce23341590f11c7382435aaba07d9b0f9077a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa62d821_2752c224",
         "filename": "compiler/dex/quick/arm/utility_arm.cc",
         "patchSetId": 1
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "The clrex shouldn\u0027t be used. clrex was added for the problem of a context switch possibly getting the exclusive flag of the previous context. clrex clears that flag and was run of part of the code starting the freshly swapped in context (ie its really an instruction meant for kernel privileges).",
       "parentUuid": "aaa49887_f7e6084e",
+      "revId": "fce23341590f11c7382435aaba07d9b0f9077a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaa49887_176ba471",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T17:43:05Z",
+      "side": 1,
+      "message": "Shall do.",
+      "parentUuid": "aa62d821_4d4d5d81",
       "revId": "fce23341590f11c7382435aaba07d9b0f9077a20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
