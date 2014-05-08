@@ -22,6 +22,30 @@
       "revId": "a7ab50a1822dcbb7a57356d55f36bfc471157ae9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca138c9f_67b04ccf",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T18:33:44Z",
+      "side": 1,
+      "message": "I\u0027ve expanded the comment to say that this code will lead to text relocations and we should find a better clang 3.3 solution. I expect that to all be deleted when clang 3.3 support is removed.",
+      "parentUuid": "8afd1475_6633361b",
+      "range": {
+        "startLine": 90,
+        "startChar": 50,
+        "endLine": 90,
+        "endChar": 85
+      },
+      "revId": "a7ab50a1822dcbb7a57356d55f36bfc471157ae9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
