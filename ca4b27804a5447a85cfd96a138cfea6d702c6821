@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca138c9f_2aee1b6b",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T19:02:42Z",
+      "side": 1,
+      "message": "if this is in a header should it not have inline?",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 58
+      },
+      "revId": "ca4b27804a5447a85cfd96a138cfea6d702c6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
