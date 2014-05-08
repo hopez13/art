@@ -16,6 +16,24 @@
       "revId": "fce23341590f11c7382435aaba07d9b0f9077a20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaa49887_f7e6084e",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T13:56:14Z",
+      "side": 1,
+      "message": "I also think it\u0027s not strictly necessary. The question is whether the performance is better with or without it. I\u0027m not a CPU engineer to know how much work the CPU has to do when another core tries to use LDREX/STREX while this one holds an exclusive lock.",
+      "parentUuid": "aa62d821_2752c224",
+      "revId": "fce23341590f11c7382435aaba07d9b0f9077a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
