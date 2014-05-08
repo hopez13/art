@@ -22,6 +22,30 @@
       "revId": "5f527923261c1da09a3b4392427dc9afd6fd7ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ae0a8ae_236b0272",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T18:44:26Z",
+      "side": 1,
+      "message": "It\u0027s a template so it may have multiple definitions.\n\nI\u0027ll remove the ALWAYS_INLINE attribute.",
+      "parentUuid": "ca138c9f_47cf1090",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 13
+      },
+      "revId": "5f527923261c1da09a3b4392427dc9afd6fd7ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
