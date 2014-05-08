@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8afd1475_dbbabff8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3130,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T05:07:52Z",
+      "side": 1,
+      "message": "there are some interfaces that override methods in Object, so the vtable would at least look odd. e.g.\nhttp://developer.android.com/reference/java/lang/CharSequence.html",
+      "parentUuid": "6a02a043_9a3b1157",
+      "range": {
+        "startLine": 3130,
+        "startChar": 0,
+        "endLine": 3130,
+        "endChar": 29
+      },
+      "revId": "44dbfa7db8faab8de2eb89aab178ac090347c5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8afd1475_9b3dd7dd",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6a02a043_9afe7116",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3138,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T05:07:52Z",
+      "side": 1,
+      "message": "its a vtable rather than method index, so we can\u0027t know the method without the vtable",
+      "parentUuid": "8afd1475_9b3dd7dd",
+      "range": {
+        "startLine": 3138,
+        "startChar": 3,
+        "endLine": 3138,
+        "endChar": 75
+      },
+      "revId": "44dbfa7db8faab8de2eb89aab178ac090347c5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8afd1475_1b528724",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-05-08T04:52:55Z",
       "side": 1,
       "message": "change this to klass too, perhaps it will fit up a line?",
+      "range": {
+        "startLine": 3140,
+        "startChar": 26,
+        "endLine": 3140,
+        "endChar": 52
+      },
+      "revId": "44dbfa7db8faab8de2eb89aab178ac090347c5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8afd1475_1bae07ba",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3140,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-08T05:07:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8afd1475_1b528724",
       "range": {
         "startLine": 3140,
         "startChar": 26,
