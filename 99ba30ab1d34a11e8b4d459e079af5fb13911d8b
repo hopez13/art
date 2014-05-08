@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aaa49887_f761288e",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T17:54:59Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you mean by \"double registers\" here. The best interpretation is the 64-bit fp registers (d0-d31) but then a TODO about using them doesn\u0027t make sense in this context where we\u0027re explicitly trying to force core register usage.",
+      "parentUuid": "ea16908e_0829a7a8",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 41
+      },
+      "revId": "99ba30ab1d34a11e8b4d459e079af5fb13911d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca138c9f_a7b6c4df",
         "filename": "compiler/dex/quick/arm/utility_arm.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "aaa49887_d7642ca1",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T17:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca138c9f_a7b6c4df",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 967,
+        "endChar": 56
+      },
+      "revId": "99ba30ab1d34a11e8b4d459e079af5fb13911d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca138c9f_87b3c8ef",
         "filename": "compiler/dex/quick/arm/utility_arm.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-05-08T17:38:12Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1125,
+        "startChar": 0,
+        "endLine": 1125,
+        "endChar": 56
+      },
+      "revId": "99ba30ab1d34a11e8b4d459e079af5fb13911d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ae0a8ae_a3c37218",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-08T17:54:59Z",
+      "side": 1,
+      "message": "Done. Well spotted. (This one was an unintended copy-paste error.)",
+      "parentUuid": "ca138c9f_87b3c8ef",
       "range": {
         "startLine": 1125,
         "startChar": 0,
