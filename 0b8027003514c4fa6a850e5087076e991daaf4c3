@@ -22,6 +22,24 @@
       "revId": "0b8027003514c4fa6a850e5087076e991daaf4c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aabe49e_d24b94e3",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-09T23:46:59Z",
+      "side": 0,
+      "message": "I deleted ContainsDirectPointer since it is unused after you deleted jni workarounds.",
+      "parentUuid": "cab46cfe_2509548f",
+      "revId": "0b8027003514c4fa6a850e5087076e991daaf4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
