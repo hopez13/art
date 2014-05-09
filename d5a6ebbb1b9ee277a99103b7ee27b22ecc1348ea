@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2aa8a88f_789f350a",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "style nit, comments belong on declarations not definitions.",
+      "range": {
+        "startLine": 1940,
+        "startChar": 15,
+        "endLine": 1940,
+        "endChar": 16
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aa8a88f_f88a45c2",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "non-final to allow sub-classing, 64-bit?",
+      "range": {
+        "startLine": 25,
+        "startChar": 16,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aa8a88f_1879c90b",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "whilst we\u0027re here, add OVERRIDE?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 73
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a999485_a6125e77",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "const ?",
+      "range": {
+        "startLine": 255,
+        "startChar": 42,
+        "endLine": 255,
+        "endChar": 43
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a999485_060a4a3b",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "document what this means: address vs operand? aren\u0027t Intel instructions usually 2 operand? why the member function? AVX?",
+      "range": {
+        "startLine": 255,
+        "startChar": 17,
+        "endLine": 255,
+        "endChar": 40
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a999485_26ff4ed2",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "fwiw, if we fused instance-of with the always to be there subsequent branch then we could lose the SETcc altogether.\nfwiw2, x86-64 has an empty REX prefix that allows byte operations to work on all registers, not just the low 4 \"byte\" registers",
+      "range": {
+        "startLine": 1837,
+        "startChar": 0,
+        "endLine": 1837,
+        "endChar": 40
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eac4d062_fecf95e1",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-09T06:19:41Z",
+      "side": 1,
+      "message": "comment:\n// On x86 the temp registers are ax, bx, cx and dx. These are also all byte registers.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 41
+      },
+      "revId": "d5a6ebbb1b9ee277a99103b7ee27b22ecc1348ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
