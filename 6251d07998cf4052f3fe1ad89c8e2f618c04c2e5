@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2aa8a88f_2941e16e",
+        "filename": "compiler/dex/expression.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-09T18:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aa8a88f_d80ae1ab",
+      "range": {
+        "startLine": 179,
+        "startChar": 12,
+        "endLine": 179,
+        "endChar": 39
+      },
+      "revId": "6251d07998cf4052f3fe1ad89c8e2f618c04c2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eac4d062_feeeb592",
         "filename": "compiler/dex/expression.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-09T05:45:37Z",
       "side": 1,
       "message": "1 declaration per line (this is why the * on the left is ok)",
+      "range": {
+        "startLine": 279,
+        "startChar": 28,
+        "endLine": 279,
+        "endChar": 29
+      },
+      "revId": "6251d07998cf4052f3fe1ad89c8e2f618c04c2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a999485_eca7e72f",
+        "filename": "compiler/dex/expression.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-09T18:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac4d062_feeeb592",
       "range": {
         "startLine": 279,
         "startChar": 28,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8a999485_073884e7",
+        "filename": "compiler/dex/expression.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-09T18:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aa8a88f_d85f419d",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 35
+      },
+      "revId": "6251d07998cf4052f3fe1ad89c8e2f618c04c2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a999485_bbac3b26",
         "filename": "compiler/dex/expression.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-05-09T05:45:37Z",
       "side": 1,
       "message": "general nit, make member variables const when possible",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 19
+      },
+      "revId": "6251d07998cf4052f3fe1ad89c8e2f618c04c2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eac4d062_4a043f36",
+        "filename": "compiler/dex/expression.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-09T18:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a999485_bbac3b26",
       "range": {
         "startLine": 212,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8a999485_e702a0d4",
+        "filename": "compiler/dex/expression.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-09T18:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac4d062_3e474ddc",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 6
+      },
+      "revId": "6251d07998cf4052f3fe1ad89c8e2f618c04c2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eac4d062_de0ad9ab",
         "filename": "compiler/dex/expression.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2014-05-09T05:45:37Z",
       "side": 1,
       "message": "perhaps the jvalue union type to avoid the casts?",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 17
+      },
+      "revId": "6251d07998cf4052f3fe1ad89c8e2f618c04c2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a999485_27710865",
+        "filename": "compiler/dex/expression.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-09T18:06:07Z",
+      "side": 1,
+      "message": "I left the GetValue one though because otherwise it adds a lot of unnecessary complexity in my mind, no?",
+      "parentUuid": "eac4d062_de0ad9ab",
       "range": {
         "startLine": 557,
         "startChar": 0,
