@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "6a87002a_a92ebd7b",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-05-09T10:04:21Z",
+      "side": 1,
+      "message": "lgtm",
+      "parentUuid": "ca962c58_0cec37e1",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 79
+      },
+      "revId": "c372fdf9c45af5ed330df9401c98368c3d0fe4b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea89303b_2d4c8d54",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -128,6 +152,30 @@
       "writtenOn": "2014-05-09T02:18:47Z",
       "side": 1,
       "message": "dallison and calin?",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1304,
+        "endChar": 58
+      },
+      "revId": "c372fdf9c45af5ed330df9401c98368c3d0fe4b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa93b868_cb6855c2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-05-09T10:04:21Z",
+      "side": 1,
+      "message": "lgtm",
+      "parentUuid": "ea89303b_2d4c8d54",
       "range": {
         "startLine": 1304,
         "startChar": 0,
