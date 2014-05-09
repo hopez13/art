@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "eac4d062_ef38bd5b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-09T18:16:20Z",
+      "side": 1,
+      "message": "Agreed. The acquire ensures the following instructions happen after the load, and the stxr catches stores on other PEs.",
+      "parentUuid": "ca138c9f_d3829eeb",
+      "range": {
+        "startLine": 1019,
+        "startChar": 4,
+        "endLine": 1019,
+        "endChar": 8
+      },
+      "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa49f8a5_c49cb48e",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -112,6 +136,23 @@
         "endLine": 1021,
         "endChar": 94
       },
+      "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aa8a88f_2442e8cb",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-09T18:16:20Z",
+      "side": 1,
+      "message": "\"lock\" should be \"unlock\".",
       "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -153,6 +194,30 @@
       "side": 1,
       "message": "This needs to be a LoadStore and StoreStore barrier.  Andreas and I concluded form the table in the documentation that ish is probably the best we can do here.\n\nMuch more importantly, the barrier needs to go BEFORE the stores that effects the release of the lock.  Otherwise memory operations inside the critical sections can become visible after the lock release becomes effective, allowing other threads to acquire the lock before they see changes performed by this critical section.\n\nIf the same code is used for ARM32, it should be fixed there, too.\n\nI conjecture that just replacing the str with an strl, removing the dmb, will work as well and run faster.  The documentation is not as clear as I would personally like about the interaction of acquire/release operations and dmb.",
       "parentUuid": "8a58b470_40ffe2d0",
+      "range": {
+        "startLine": 1066,
+        "startChar": 11,
+        "endLine": 1066,
+        "endChar": 14
+      },
+      "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aa8a88f_241748af",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-09T18:16:20Z",
+      "side": 1,
+      "message": "From my reading, a \"strl\" would be sufficient.\nload/stores before strl will be visible before the strl itself is.\nI would leave this as it is, with the dmb moved before the str - I\u0027ll try and get a definitive answer.",
+      "parentUuid": "8a58b470_00a84afe",
       "range": {
         "startLine": 1066,
         "startChar": 11,
