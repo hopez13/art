@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2aa8a88f_75e4a070",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-09T03:08:01Z",
+      "side": 1,
+      "message": "i think we can probably lose these or make them verbose(jni). since art pretty much always dumps everything, it\u0027s not as useful as it was to scroll back in the log to try to work out whether checkjni was on.",
+      "revId": "c71ae07a0a3b592b841995ce0b72fd099ce30184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eac4d062_3b7e7ff4",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-09T03:08:01Z",
+      "side": 1,
+      "message": "sounds worth a WARNING to me.",
+      "revId": "c71ae07a0a3b592b841995ce0b72fd099ce30184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
