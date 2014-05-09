@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eac4d062_de5e59ca",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-09T05:17:25Z",
+      "side": 1,
+      "message": "Is it a good idea to combine this null check with the if statement in line 381 so we reuse the same error log and the VerifyRoots() call?",
+      "range": {
+        "startLine": 375,
+        "startChar": 4,
+        "endLine": 375,
+        "endChar": 9
+      },
+      "revId": "1982fa6ef8c0337666b00f1d457ed487b2400276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
