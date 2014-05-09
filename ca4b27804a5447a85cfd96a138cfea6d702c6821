@@ -118,6 +118,30 @@
       "revId": "ca4b27804a5447a85cfd96a138cfea6d702c6821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a827417_aa522f96",
+        "filename": "compiler/utils/scoped_arena_allocator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-09T14:30:07Z",
+      "side": 1,
+      "message": "If you phrase it as a style issue and it doesn\u0027t affect correctness or performance... yes, I\u0027ll add the \"inline\".",
+      "parentUuid": "8a999485_c1caec4c",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 58
+      },
+      "revId": "ca4b27804a5447a85cfd96a138cfea6d702c6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
