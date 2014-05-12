@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a6a7464_2d36196f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "Perform a similar rewrite for dex-to-dex, perhaps fold into devirtualization for dex-to-dex?",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1085,
+        "endChar": 3
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_4d9eeddd",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "/* Build pointers to the start of string data */",
+      "range": {
+        "startLine": 1312,
+        "startChar": 0,
+        "endLine": 1312,
+        "endChar": 39
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7bb835_05044634",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "c \u003d mh.GetClassFromTypeIdx(inst-\u003e...)",
+      "range": {
+        "startLine": 513,
+        "startChar": 14,
+        "endLine": 513,
+        "endChar": 15
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7bb835_c5e4fe49",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "c \u003d mh.GetClassFromTypeIdx(inst-\u003e...)",
+      "range": {
+        "startLine": 426,
+        "startChar": 18,
+        "endLine": 426,
+        "endChar": 19
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_0dba355b",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 427,
+        "startChar": 24,
+        "endLine": 427,
+        "endChar": 28
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7bb835_ba66ad2e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "we should consider replacing this with a modifier flag",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 76
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7bb835_bae30d68",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-12T23:10:02Z",
+      "side": 1,
+      "message": "this may evaluate to true for String.\u003cclinit\u003e, you can avoid this by placing in the \"if (!m-\u003eIsStatic())\" below.",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 63
+      },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
