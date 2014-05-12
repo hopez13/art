@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "aa7bb835_ba322d15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-12T22:21:44Z",
+      "side": 1,
+      "message": "still true?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_edf001ba",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-12T22:21:44Z",
+      "side": 1,
+      "message": "this reminds me we probably should put the thread entrypoint structs here too since we often forget to bump for that.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 47
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_adfa0994",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-12T22:21:44Z",
+      "side": 1,
+      "message": "I agree with Ian that this probably should be set at runtime creation time, but that can happen later.",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 447,
+        "endChar": 48
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa4d7811_f5a5388f",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 7
@@ -41,6 +110,29 @@
         "startChar": 0,
         "endLine": 321,
         "endChar": 78
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_2d3939c5",
+        "filename": "runtime/oat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-12T22:21:44Z",
+      "side": 1,
+      "message": "i wonder if this wants to moves somewhere quick specific eventually.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 2
       },
       "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
