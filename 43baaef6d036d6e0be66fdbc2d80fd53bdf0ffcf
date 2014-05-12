@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa26584d_96f88ae7",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-12T14:13:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaf77045_e6dc142d",
+      "range": {
+        "startLine": 246,
+        "startChar": 16,
+        "endLine": 246,
+        "endChar": 27
+      },
+      "revId": "43baaef6d036d6e0be66fdbc2d80fd53bdf0ffcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eaf77045_a6e60cfb",
         "filename": "runtime/reflection.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6a862067_91107cb4",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-12T14:13:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaf77045_a6e60cfb",
+      "range": {
+        "startLine": 247,
+        "startChar": 21,
+        "endLine": 247,
+        "endChar": 55
+      },
+      "revId": "43baaef6d036d6e0be66fdbc2d80fd53bdf0ffcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0afbe434_d22e74c4",
         "filename": "runtime/reflection.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-04-30T23:22:52Z",
       "side": 1,
       "message": "but if arg were allowed to be nullptr we\u0027d die here?",
+      "range": {
+        "startLine": 258,
+        "startChar": 16,
+        "endLine": 258,
+        "endChar": 19
+      },
+      "revId": "43baaef6d036d6e0be66fdbc2d80fd53bdf0ffcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a862067_f11b08d6",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-12T14:13:00Z",
+      "side": 1,
+      "message": "We only use these macros for primitive types. In the case of arg \u003d\u003d nullptr, we throw an exception when the expected type is primitive (see line 230 above for the test). So I think arg can\u0027t be nullptr in these macros and we can simplify the code. Adding a CHECK in DO_FIRST_ARG will do the assert job.",
+      "parentUuid": "0afbe434_d22e74c4",
       "range": {
         "startLine": 258,
         "startChar": 16,
