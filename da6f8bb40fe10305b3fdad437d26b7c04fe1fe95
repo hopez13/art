@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "4a64fc99_dd7287f9",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T17:45:33Z",
+      "side": 1,
+      "message": "Yes, the SIB byte is only needed in 64-bit mode - please update the comment. Comments in ART are sentences and so should be finished with a full-stop. See the sentence immediately above this one. The full-stop thing is a somewhat controversial house-style, but we\u0027ve not made the decision to go away from it yet. In some places we\u0027ve been slack, but with new code we\u0027re trying to not be. Thanks!",
+      "parentUuid": "8a81944e_7884d981",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_f95c4360",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 7
