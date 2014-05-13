@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a862067_9ac9718e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T18:42:21Z",
+      "side": 0,
+      "message": "I check these changes by running art tests in 64 -bit host mode.\n\nRemoving this int3 allows test 103 to pass.\n\nI am not sure about SETUP_REF_ONLY_CALLEE_SAVE_FRAME. It is equal to SETUP_SAVE_ALL, and takes Method* from runtime, not RDI as QCG64 ABI specifies. But it is another place in entrypoints.",
+      "revId": "cd6e04f738ee17b3e8ec51c1f14d636fa2a89a55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_7b6cd3d4",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T18:42:21Z",
+      "side": 0,
+      "message": "This int3 does not affect art tests but visually it looks correct and equal to NO_ARG/TWO_ARG cases",
+      "revId": "cd6e04f738ee17b3e8ec51c1f14d636fa2a89a55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a862067_daa859b0",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T18:42:21Z",
+      "side": 0,
+      "message": "This line caused failure of 084 088 art-tests.",
+      "revId": "cd6e04f738ee17b3e8ec51c1f14d636fa2a89a55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
