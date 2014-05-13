@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a862067_f44696dd",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a21c030_3f7e2fbe",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a21c030_1f81eb70",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-12T16:27:12Z",
       "side": 1,
       "message": "rs_rX86_SP.GetRegNum()",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa26584d_d67282f9",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a21c030_1f81eb70",
       "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,24 @@
     },
     {
       "key": {
+        "uuid": "6a862067_944b8ae4",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done. Created method EmitModrmThread.",
+      "parentUuid": "6a21c030_9f617b1b",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa4d7811_a4c9c88d",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 4
@@ -70,6 +124,24 @@
       "writtenOn": "2014-05-12T16:27:12Z",
       "side": 1,
       "message": "rs_rX86_SP.GetRegNum()",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa26584d_f6777ee6",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa4d7811_a4c9c88d",
       "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +165,24 @@
     },
     {
       "key": {
+        "uuid": "8a81944e_35641a5b",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done. Also removed declaration of unused rX86_LR rX86_SUSPEND, rX86_SELF, rX86_PC",
+      "parentUuid": "aa4d7811_c4ce5493",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a16bcdd_e1cedc3d",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 4
@@ -104,6 +194,24 @@
       "writtenOn": "2014-05-12T12:43:31Z",
       "side": 1,
       "message": "indentation",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_15679662",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a16bcdd_e1cedc3d",
       "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "6a862067_d44112c8",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a21c030_ff45177a",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a21c030_7f32672e",
         "filename": "compiler/dex/reg_storage.h",
         "patchSetId": 4
@@ -138,6 +264,24 @@
       "writtenOn": "2014-05-12T16:27:12Z",
       "side": 1,
       "message": "return ((reg_ \u0026 kShapeMark) \u003d\u003d k64BitSolo);",
+      "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_756aa22b",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T03:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a21c030_7f32672e",
       "revId": "849be1c2b2b8172491c8ff7a4cc948e88c812fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
