@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a698874_dc78490a",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-13T19:08:00Z",
+      "side": 0,
+      "message": "Same comment on AllocStringFromCode.",
+      "range": {
+        "startLine": 513,
+        "startChar": 18,
+        "endLine": 513,
+        "endChar": 37
+      },
+      "revId": "6393eb7043517c5744935c48e3fd45a482915c2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a698874_7c811da9",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-13T19:08:00Z",
+      "side": 0,
+      "message": "Following the example of arrays, we may want to add AllocStringFromCode and use it here. If we have a quick alloc entrypoint for strings, the point of following the same pattern may get more clearer.",
+      "range": {
+        "startLine": 426,
+        "startChar": 22,
+        "endLine": 426,
+        "endChar": 41
+      },
+      "revId": "6393eb7043517c5744935c48e3fd45a482915c2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
