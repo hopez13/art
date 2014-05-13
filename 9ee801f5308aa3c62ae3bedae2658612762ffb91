@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a698874_5cea1914",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-13T17:56:39Z",
+      "side": 1,
+      "message": "Why do you use Is64BitInstructionSet here, and Gen64Bit other places?",
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a64fc99_8f585610",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-13T17:56:39Z",
+      "side": 1,
+      "message": "Make a rs_rX86_SIB_NO_INDEX, and set it right for both?",
+      "range": {
+        "startLine": 477,
+        "startChar": 21,
+        "endLine": 477,
+        "endChar": 58
+      },
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
