@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a6a7464_9ede4d9d",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2491,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-13T03:17:49Z",
+      "side": 1,
+      "message": "lgtm, since we know the template parameter is always an array type, even though the object the caller gave us could be anything.",
+      "revId": "ab5fb0bb602f7e0cfb7b4ce89540225a5df5493e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a64fc99_0ed30f95",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-13T03:17:49Z",
+      "side": 1,
+      "message": "i\u0027d have added a test where\u0027s it\u0027s an invalid cast from jstring or something not even an array.",
+      "revId": "ab5fb0bb602f7e0cfb7b4ce89540225a5df5493e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a698874_8d7b859a",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-13T03:17:49Z",
+      "side": 1,
+      "message": "missing blank line.",
+      "revId": "ab5fb0bb602f7e0cfb7b4ce89540225a5df5493e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
