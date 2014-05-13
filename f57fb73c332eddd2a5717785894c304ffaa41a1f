@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "8a6a7464_13ba565b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-13T01:24:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa49f8a5_c49cb48e",
+      "range": {
+        "startLine": 1021,
+        "startChar": 0,
+        "endLine": 1021,
+        "endChar": 94
+      },
+      "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2aa8a88f_2442e8cb",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -230,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "8a6a7464_f3e9c249",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-13T01:24:41Z",
+      "side": 1,
+      "message": "Moved above str.",
+      "parentUuid": "2aa8a88f_241748af",
+      "range": {
+        "startLine": 1066,
+        "startChar": 11,
+        "endLine": 1066,
+        "endChar": 14
+      },
+      "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a346007_e9b0971d",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -241,6 +289,30 @@
       "writtenOn": "2014-05-07T00:06:04Z",
       "side": 1,
       "message": "was this a copy of old code brought over from x86? I remember there was a similar issue there.",
+      "range": {
+        "startLine": 700,
+        "startChar": 0,
+        "endLine": 700,
+        "endChar": 34
+      },
+      "revId": "f57fb73c332eddd2a5717785894c304ffaa41a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a43e481_c19ca48e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-13T01:24:41Z",
+      "side": 1,
+      "message": "This is a copy of the current x86 code that correctly tests the bitmask (as fat lock is given as mask\u003d01 of the top bits).",
+      "parentUuid": "6a346007_e9b0971d",
       "range": {
         "startLine": 700,
         "startChar": 0,
