@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a698874_d0eb52c9",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "this needs to handle REX prefixes, especially as R8 and R9 are part of the calling convention",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 103
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_7984d381",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "In 64-bit mode",
+      "range": {
+        "startLine": 411,
+        "startChar": 6,
+        "endLine": 411,
+        "endChar": 7
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a698874_d046f236",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 411,
+        "startChar": 60,
+        "endLine": 411,
+        "endChar": 61
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_f95c4360",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "this is somewhat defeating the point of having a skeleton, it\u0027d be nicer if the lookup table contained fs: for 32-bit and gs: for 64-bit and lose the condition",
+      "range": {
+        "startLine": 574,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 5
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a698874_505be20c",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "full-stop",
+      "range": {
+        "startLine": 635,
+        "startChar": 33,
+        "endLine": 635,
+        "endChar": 39
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a64fc99_7c9a8191",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "presumably kPointerSize here should be 4 or 8, use GetInstructionSetPointerSize(cu_-\u003einstruction_set) or else cross-compilation 32-bit to 64-bit or vice versa will do the wrong thing",
+      "range": {
+        "startLine": 214,
+        "startChar": 64,
+        "endLine": 214,
+        "endChar": 76
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_b93fabf4",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 298,
+        "startChar": 64,
+        "endLine": 298,
+        "endChar": 76
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_192fd7c1",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "s/inline /",
+      "range": {
+        "startLine": 583,
+        "startChar": 4,
+        "endLine": 583,
+        "endChar": 10
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_04dbea88",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 583,
+        "startChar": 26,
+        "endLine": 583,
+        "endChar": 27
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a64fc99_5c321de7",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 615,
+        "startChar": 4,
+        "endLine": 615,
+        "endChar": 8
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a698874_900e3a03",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "as before (and below) this needs to be the pointer size being compiled for not the pointer size of the current runtime.",
+      "range": {
+        "startLine": 589,
+        "startChar": 30,
+        "endLine": 589,
+        "endChar": 42
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_a4f8dee6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "TODO: r8 and r9. floating point args",
+      "range": {
+        "startLine": 658,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 20
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_84103a71",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "indent",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 3
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6a7464_240dce53",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "fall-through",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 26
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a698874_f0be96c2",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "fall-through",
+      "range": {
+        "startLine": 743,
+        "startChar": 17,
+        "endLine": 743,
+        "endChar": 26
+      },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a64fc99_5c5bfd0c",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-13T06:23:16Z",
+      "side": 1,
+      "message": "just REX 0x40 is useful for normalizing byte registers",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
