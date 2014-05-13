@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a862067_549e82dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "No, removed.",
+      "parentUuid": "aa7bb835_ba322d15",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_edf001ba",
         "filename": "compiler/oat_test.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-12T22:21:44Z",
       "side": 1,
       "message": "this reminds me we probably should put the thread entrypoint structs here too since we often forget to bump for that.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 47
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_78b1391f",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "You mean the QuickEntryPoints, right? Done",
+      "parentUuid": "8a6a7464_edf001ba",
       "range": {
         "startLine": 180,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "aa26584d_b996d734",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "Shall do in a separate CL.",
+      "parentUuid": "8a6a7464_adfa0994",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 447,
+        "endChar": 48
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa4d7811_f5a5388f",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2014-05-12T19:33:16Z",
       "side": 1,
       "message": "move to line 417 and change Runtime::Current() on lines 418 and 421 to runtime",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 424,
+        "endChar": 40
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a862067_d48912a7",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa4d7811_f5a5388f",
       "range": {
         "startLine": 424,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6a862067_94938ad7",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa7bb835_51021471",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 78
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_2d3939c5",
         "filename": "runtime/oat.h",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2014-05-12T22:21:44Z",
       "side": 1,
       "message": "i wonder if this wants to moves somewhere quick specific eventually.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 2
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_d8a865b0",
+        "filename": "runtime/oat.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "I\u0027ll keep it here for the moment.",
+      "parentUuid": "8a6a7464_2d3939c5",
       "range": {
         "startLine": 149,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "6a862067_b7fd70d6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa4d7811_5508acb2",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 90
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a21c030_53367c6f",
         "filename": "runtime/runtime.h",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2014-05-12T19:33:16Z",
       "side": 1,
       "message": "As a separate CL let\u0027s make instruction_set_ const and add a constructor argument. That change should also document it and contrast it with kRuntimeISA.",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 57
+      },
+      "revId": "8a557e1f554abe2d44994ee367f272e174b3476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a862067_d72354ca",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-13T10:47:30Z",
+      "side": 1,
+      "message": "Shall do in a separate CL.",
+      "parentUuid": "6a21c030_53367c6f",
       "range": {
         "startLine": 343,
         "startChar": 0,
