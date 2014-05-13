@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "aa26584d_fc5f5d19",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "The work on REX support, particularly for r8..r9 is in progress and it depends on this patch. I would prefer to submit r8..r9 as a separate patch. Both patches are quite big and consume a lot of resources on rebasing after each change in BE (Load/StoreWord, stack walker changes, doubles as doubles, ThreadOffset4 etc).\n\nThis version is functional, except \"hard float\" limitation, passing 3 regs as arguments limitation, register allocator limitation (it still allocates longs as pair for 64-bit, discussion with Bill initiated by Mark) - all of them are general art limitations.\n\nDoes it sounds reasonable to separate patches as follows?\n - Start with this patch (it can pass about a half of art tests in 64-bit host mode)\n - Extend it with REX after merge (with same pass rate)\n - Update LoadArgRegs/GenDalvikArgs with hard float and \u003e3 parameters support\n - Update long arithmetic when reg alloc will be ready\n\nDo you accept such sequence?",
+      "parentUuid": "2a698874_d0eb52c9",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_7984d381",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 7
@@ -71,6 +89,42 @@
     },
     {
       "key": {
+        "uuid": "6a862067_37d0a085",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "Do you mean I have to update comment?",
+      "parentUuid": "8a6a7464_7984d381",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_7884d981",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "What do you mean by \"full-stop\"?",
+      "parentUuid": "2a698874_d046f236",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_f95c4360",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 7
@@ -88,6 +142,24 @@
         "endLine": 579,
         "endChar": 5
       },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a862067_37a50028",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "That is the only solution to keep lookup table manageable. There is no difference between 32-bit operations in 32-bit and 64-bit mode. The 64-bit specific appears only in three places: EmitPrefix, CalculateSize, EmitModrmThread.\n\nIs it acceptable to avoid duplicating *Thread* instruction entries in lookup table for now?",
+      "parentUuid": "8a6a7464_f95c4360",
       "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "6a862067_976cec18",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "Please describe your point here.",
+      "parentUuid": "2a698874_505be20c",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a64fc99_7c9a8191",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 7
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "8a81944e_98617d1b",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "I didn\u0027t have chance to check cross compilation yet, ThreadOffset4 patch was merged yesterday.\n\nI\u0027ll update kPointerSize with GetInstructionSetPointerSize where applicable. Thank you.",
+      "parentUuid": "4a64fc99_7c9a8191",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_b93fabf4",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 7
@@ -157,6 +265,24 @@
         "endLine": 298,
         "endChar": 76
       },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa26584d_7c6cadd4",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "Will fix this",
+      "parentUuid": "8a6a7464_b93fabf4",
       "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "aa26584d_dcbf01ef",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "Is \"const bool Gen64Bit() { return gen64bit_; }\" will be better for this place?",
+      "parentUuid": "8a6a7464_192fd7c1",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a64fc99_5c321de7",
         "filename": "compiler/dex/quick/x86/codegen_x86.h",
         "patchSetId": 7
@@ -249,6 +393,24 @@
         "endLine": 589,
         "endChar": 42
       },
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa26584d_fcc43d77",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "Will fix this.",
+      "parentUuid": "2a698874_900e3a03",
       "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -358,6 +520,24 @@
       "writtenOn": "2014-05-13T06:23:16Z",
       "side": 1,
       "message": "just REX 0x40 is useful for normalizing byte registers",
+      "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_7832992e",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T17:08:38Z",
+      "side": 1,
+      "message": "The REX_W is used in lookup table for 64-bit entries. Do you prefer to remove REX_R/REX_X/REX_B from this patch?",
+      "parentUuid": "4a64fc99_5c5bfd0c",
       "revId": "da6f8bb40fe10305b3fdad437d26b7c04fe1fe95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
