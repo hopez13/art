@@ -324,6 +324,40 @@
     },
     {
       "key": {
+        "uuid": "0af3e41b_1e6aed29",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-13T22:49:19Z",
+      "side": 1,
+      "message": "As discussed over chat, if you don\u0027t pass down allocator from the entrypoint it uses Heap::GetCurrentAllocator() which won\u0027t result in constant propagation. This means that there is a lot of redundant switch statements in the allocation code path. Also, this calls Alloc\u003ctrue\u003e which is the instrumented (slow) entrypoint. Consider looking at the Class::Alloc to see an example of a fast entrypoint.",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaf9f8ff_dec88159",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-13T22:49:19Z",
+      "side": 1,
+      "message": "Another issue here, there is probably a race where other threads could miss the writes since there is no fence before the return. Maybe worth using a pre fence visitor to do the memcpy?",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1b4808_c02cf488",
         "filename": "runtime/mirror/string.h",
         "patchSetId": 16
