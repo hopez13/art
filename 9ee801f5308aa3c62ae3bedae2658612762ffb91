@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a862067_baa795db",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T18:55:11Z",
+      "side": 1,
+      "message": "The \"Is64BitInstructionSet(cu_-\u003einstruction_set)\" came from ThreadOffset4 rework by Andreas Gampe (https://android-review.googlesource.com/#/c/93785/). I fixed dex2oat compile time issues when rebased this patch on top of Andreas\u0027s patch.\n\nGen64Bit comes from our patch. Later we can replace all Is64BitInstructionSet by Gen64Bit. The Is64BitInstructionSet looks as overhead in compile time, Gen64Bit should be a bit faster.",
+      "parentUuid": "2a698874_5cea1914",
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a64fc99_8f585610",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 8
@@ -36,6 +54,24 @@
         "endLine": 477,
         "endChar": 58
       },
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a81944e_9bc9778e",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-13T18:55:11Z",
+      "side": 1,
+      "message": "r4sib_no_index was used only in this place. It was defined equal to SP. Thus I removed it and replaced by SP.\nI dont think it is reasonable to define also rs_rX86_*R4*_SIB_NO_INDEX, since it is equal to rs_rX86_SP",
+      "parentUuid": "4a64fc99_8f585610",
       "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
