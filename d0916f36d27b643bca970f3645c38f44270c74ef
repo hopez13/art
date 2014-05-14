@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ad50879_e79322d6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-05-14T17:58:44Z",
+      "side": 0,
+      "message": "Thanks for clarification.",
+      "parentUuid": "8ad6f480_0d83f543",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "d0916f36d27b643bca970f3645c38f44270c74ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ad50879_a7164aaf",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
