@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "0a1cc41d_364c38a9",
+        "filename": "compiler/optimizing/graph_tracer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-14T13:10:58Z",
+      "side": 1,
+      "message": "I could, but that would mean this field points to something on the stack, which I find error prone. Another option that I thought of was stacking up HGraphVisualizerPrinter objects with indented versions of the stream, but that felt over-engineering.",
+      "parentUuid": "0a1cc41d_169bfcec",
+      "range": {
+        "startLine": 164,
+        "startChar": 9,
+        "endLine": 164,
+        "endChar": 16
+      },
+      "revId": "60198fc214a3537e8674b5380180540562e0cc1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caaaaceb_f2f7603d",
         "filename": "compiler/optimizing/graph_tracer.h",
         "patchSetId": 2
