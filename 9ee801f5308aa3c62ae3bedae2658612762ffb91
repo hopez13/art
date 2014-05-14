@@ -37,6 +37,29 @@
     },
     {
       "key": {
+        "uuid": "0a78446e_36629893",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-14T23:10:31Z",
+      "side": 1,
+      "message": "If you want to keep the gen64bit optimization, please put at least an assertion that checks that it is the same as Is64BitInstructionSet for the given CompilationUnit.\n\nWe may also discuss whether it\u0027s worth it to put such a field into Mir2Lir.",
+      "range": {
+        "startLine": 648,
+        "startChar": 2,
+        "endLine": 648,
+        "endChar": 19
+      },
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a64fc99_8f585610",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 8
