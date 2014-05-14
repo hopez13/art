@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eac690d8_08ff6714",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "This function is private, so we can assume sanity from the caller.",
+      "parentUuid": "0af3e41b_618b90c8",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaf9f8ff_a1763ab2",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-14T15:00:33Z",
       "side": 1,
       "message": "can\u0027t you just use 0? JniAbortF is noreturn so we don\u0027t actually care, and 0 should convert to every return type in use. having all these pretend return values looks misleading. and makes this diff way larger than it needs to be.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eac690d8_881b57d7",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "that fails for return void",
+      "parentUuid": "aaf9f8ff_a1763ab2",
       "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eac690d8_a8bbb363",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "This is passing down the JniAbortF for unit testing\u0027s benefit. There\u0027s a pre-existing potential segv here (and throughout jni_internal) that decoding a weak global may result in a nullptr which leads to a segv. Fixing that is a separate CL.",
+      "parentUuid": "cafc6cef_5ff10f05",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cafc6cef_9f03972e",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2014-05-14T15:00:33Z",
       "side": 1,
       "message": "if you want to make a global s/NULL/nullptr/ change, it really ought to be in a stand-alone change. you just obfuscate your patches by mixing it in with other changes.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eac690d8_48d03f86",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "In adding new tests I was making the code inconsistent. This change does the s/NULL/nullptr/ but it also makes changes to make sure the code is consistency. This follows the overriding coding guideline of consistency.",
+      "parentUuid": "cafc6cef_9f03972e",
       "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "2ad50879_6ad37794",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "I think ExampleNativeMethod loses what the intended use of this function is, so I\u0027d want a comment. BogusMethod vs ExampleNativeMethod, I\u0027m not sold either way.",
+      "parentUuid": "cafc6cef_fff8dbe7",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaf9f8ff_41865654",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 4
@@ -98,6 +188,24 @@
       "writtenOn": "2014-05-14T15:00:33Z",
       "side": 1,
       "message": "looks like we\u0027re still missing the null test in all these new tests.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ad6f480_f0f598a7",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "see line 487",
+      "parentUuid": "aaf9f8ff_41865654",
       "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "2ad50879_8a77cbe7",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "Agreed. The ordering matches the original ordering before the change.",
+      "parentUuid": "cafc6cef_1f10276f",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0af3e41b_4102d470",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 4
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "8ad6f480_30e0d0e2",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0af3e41b_4102d470",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0af3e41b_21ffc814",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 4
@@ -149,6 +293,24 @@
       "writtenOn": "2014-05-14T15:00:33Z",
       "side": 1,
       "message": "either class",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eac690d8_e86c8b19",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T18:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0af3e41b_21ffc814",
       "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
