@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea9db0d4_01f61ab3",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T08:50:59Z",
+      "side": 1,
+      "message": "over 100 characters. These expressions are painfully long, perhaps:\n(reinterpret_cast\u003cuintptr_t\u003e(expected) \u003e\u003e 32) !\u003d 0 ||\n((reinterpret_cast\u003cuintptr_t\u003e(expected) + page_aligned_byte_count) \u003e\u003e 32) !\u003d 0",
+      "range": {
+        "startLine": 196,
+        "startChar": 98,
+        "endLine": 196,
+        "endChar": 104
+      },
+      "revId": "447f806a177823c692653dbf3886eb702f9edb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea9db0d4_8155ead8",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T08:50:59Z",
+      "side": 1,
+      "message": "prefer %p?",
+      "range": {
+        "startLine": 198,
+        "startChar": 61,
+        "endLine": 198,
+        "endChar": 63
+      },
+      "revId": "447f806a177823c692653dbf3886eb702f9edb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caaaaceb_b2f31885",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T08:50:59Z",
+      "side": 1,
+      "message": "If this is a general contract of this code, which it appears to be, then the error message should be generated for all 64-bit architectures not just x86-64.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 3
+      },
+      "revId": "447f806a177823c692653dbf3886eb702f9edb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaa73822_8b218d3c",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T08:50:59Z",
+      "side": 1,
+      "message": "__LP64__",
+      "range": {
+        "startLine": 166,
+        "startChar": 7,
+        "endLine": 166,
+        "endChar": 17
+      },
+      "revId": "447f806a177823c692653dbf3886eb702f9edb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea9db0d4_e1faee94",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-14T08:50:59Z",
+      "side": 1,
+      "message": "add test cases for failures... this is a very minimal test",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 75
+      },
+      "revId": "447f806a177823c692653dbf3886eb702f9edb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
