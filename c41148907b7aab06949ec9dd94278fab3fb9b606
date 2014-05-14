@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0af3e41b_618b90c8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "should this be replaced by a null check, a \u003d\u003d \u0027[\u0027 check, and a ThrowNoClassDefFoundError call?",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaf9f8ff_a1763ab2",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "can\u0027t you just use 0? JniAbortF is noreturn so we don\u0027t actually care, and 0 should convert to every return type in use. having all these pretend return values looks misleading. and makes this diff way larger than it needs to be.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cafc6cef_5ff10f05",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2532,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "won\u0027t we already have SEGVed in DecodeAndCheckArrayType? it looks like it unconditionally dereferences \u0027array\u0027.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cafc6cef_9f03972e",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "if you want to make a global s/NULL/nullptr/ change, it really ought to be in a stand-alone change. you just obfuscate your patches by mixing it in with other changes.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cafc6cef_fff8dbe7",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "i think ExampleNativeMethod and losing the comment would be clearer. this is the function pointer passed for the non-null case!",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaf9f8ff_41865654",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "looks like we\u0027re still missing the null test in all these new tests.",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cafc6cef_1f10276f",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "the arguments to all the ASSERT_TRUEs/EXPECT_TRUEs you\u0027ve turned into ASSERT_NEs and EXPECT_NEs are the wrong way round. (again, this is why you should pull cosmetic stuff out into a separate change.)",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af3e41b_4102d470",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "class",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af3e41b_21ffc814",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "either class",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaf9f8ff_c15a662c",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-14T15:00:33Z",
+      "side": 1,
+      "message": "i\u0027m going to stop here. this is just silly...",
+      "revId": "c41148907b7aab06949ec9dd94278fab3fb9b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
