@@ -22,6 +22,30 @@
       "revId": "ec83aacf669165eeeb1c30aee402001394982fd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a1cc41d_192faf7a",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-14T14:36:03Z",
+      "side": 0,
+      "message": "The RETURN instructions already deal with instrumentation by calling Instrumentation::MethodExitedEvent. Calling Instrumentation::DexPcMovedEvent before will report the event twice. \n\nIt\u0027s easier to report instrumentation event in the handler (the switch cases) directly because we know which is the current opcode. For the RETURN, we call Instrumentation::MethodExitedEvent, and for all the others we call Instrumentation::DexPcChanged (unless we just called MethodEnterEvent, to avoid reporting the event twice).\n\nI understand PREAMBLE had a different purpose so I\u0027ll move instrumentation do a separate macro.",
+      "parentUuid": "65c57378_f945572a",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "ec83aacf669165eeeb1c30aee402001394982fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

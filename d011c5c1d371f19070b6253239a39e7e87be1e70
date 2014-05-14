@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa26584d_b6c82658",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2390,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-14T14:36:03Z",
+      "side": 1,
+      "message": "I wrote it this way so the \"if\" is actually simplified by the compiler (after preprocessing). It does not seem to be the case if I use instruction flags: (Instruction::FlagsOf(Instruction::code) \u0026 kReturn) !\u003d 0\" does not seem to be simplified to a constant expression so the \"if\" remains.",
+      "parentUuid": "65c57378_393d0fb3",
+      "range": {
+        "startLine": 2390,
+        "startChar": 29,
+        "endLine": 2390,
+        "endChar": 40
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c57378_99441b2c",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "I agree. the original purpose was to play code layout games to see if we could trick GCC into actually doing -fthread-jumps. Wrt refactoring, should all of the instrumentation live in a different template specialization? For the threaded interpreter that\u0027s easier as it can be achieved by dorking the dispatch table.",
       "parentUuid": "65c57378_99441b2c",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a1cc41d_f9f593a7",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-14T14:36:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure moving the switch to its own method would be a good solution. It would make the code more complex, especially because of control flow (RETURN and exception). Note I\u0027m not happy with this flag either. Maybe we could deal with it in a differrent way. I\u0027m thinking about using function pointer but did not try that yet.\n\nWrt to template specialization, we could do this. However, a debugger can attach in the middle of the execution of a method so we\u0027d need to transition from a non-debug specialization to a debug specialization when that happens (and the contrary too). Indeed, we do that in the threaded interpreter by switching dispatch table when that happens.",
+      "parentUuid": "0a292485_4e8f73aa",
       "range": {
         "startLine": 54,
         "startChar": 17,
