@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "ca71cc8d_db77c4e6",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-05-15T18:24:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4e2058_7d25e20f",
+      "range": {
+        "startLine": 837,
+        "startChar": 84,
+        "endLine": 837,
+        "endChar": 85
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a78446e_a053b349",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-05-15T18:24:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca71cc8d_7bea30c2",
+      "range": {
+        "startLine": 837,
+        "startChar": 90,
+        "endLine": 837,
+        "endChar": 109
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a78446e_00470762",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6a4e2058_905c2dd2",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-05-15T18:24:46Z",
+      "side": 1,
+      "message": "The analysis for invoke_static bytecode here is before the actual code generation of the invoke-static bytecode. The purpose of the analysis here is to just be able to check the invoke to see if this invoke is a kIntrinsicAbsDouble. if it is an inlined abs double method, then the store_method_addr_ is set to true in the AnalyzeInvokeStatic. In the later code generation for this inlined invoke, a 64bit constant value is used and the store_method_addr_ setting to true will enable this value will be loaded from the constant literal area.",
+      "parentUuid": "0a78446e_00470762",
+      "range": {
+        "startLine": 883,
+        "startChar": 0,
+        "endLine": 883,
+        "endChar": 36
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca71cc8d_5b2f3479",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-05-15T17:37:34Z",
       "side": 1,
       "message": "break;",
+      "range": {
+        "startLine": 884,
+        "startChar": 0,
+        "endLine": 884,
+        "endChar": 43
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_b01db155",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-05-15T18:24:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca71cc8d_5b2f3479",
       "range": {
         "startLine": 884,
         "startChar": 0,
