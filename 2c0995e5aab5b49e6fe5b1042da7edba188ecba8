@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca71cc8d_7bea30c2",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-15T17:37:34Z",
+      "side": 1,
+      "message": "document this argument",
+      "range": {
+        "startLine": 837,
+        "startChar": 90,
+        "endLine": 837,
+        "endChar": 109
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_7d25e20f",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-15T17:37:34Z",
+      "side": 1,
+      "message": "\\n",
+      "range": {
+        "startLine": 837,
+        "startChar": 84,
+        "endLine": 837,
+        "endChar": 85
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a78446e_00470762",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-15T17:37:34Z",
+      "side": 1,
+      "message": "Why are we handling this intrinsic here rather than following the normal pattern of doing the work in gen_invoke.cc?",
+      "range": {
+        "startLine": 883,
+        "startChar": 0,
+        "endLine": 883,
+        "endChar": 36
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca71cc8d_5b2f3479",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-15T17:37:34Z",
+      "side": 1,
+      "message": "break;",
+      "range": {
+        "startLine": 884,
+        "startChar": 0,
+        "endLine": 884,
+        "endChar": 43
+      },
+      "revId": "2c0995e5aab5b49e6fe5b1042da7edba188ecba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
