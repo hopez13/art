@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca71cc8d_43103070",
+        "filename": "runtime/base/reference_counter.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-15T06:34:17Z",
+      "side": 1,
+      "message": "Add comment to explain why this is necessary. Why isn\u0027t it just a size_t? The name seems to imply ownership of a reference.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "3cf482070aa1e7e934c35d3ed22525902c17cee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
