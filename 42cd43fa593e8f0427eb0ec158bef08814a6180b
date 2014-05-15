@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a58a819_ef80413a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:02:36Z",
+      "side": 1,
+      "message": "personal preference, but I would change !\u003d to \u003e. Feels more readable.",
+      "range": {
+        "startLine": 718,
+        "startChar": 8,
+        "endLine": 718,
+        "endChar": 31
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_0f866553",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:02:36Z",
+      "side": 1,
+      "message": "Instead of a switch could we use an array of counters? And use bit operations to find the right entry.",
+      "range": {
+        "startLine": 2679,
+        "startChar": 10,
+        "endLine": 2679,
+        "endChar": 31
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_4f906d87",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:02:36Z",
+      "side": 1,
+      "message": "Why can\u0027t you do it in this CL?",
+      "range": {
+        "startLine": 132,
+        "startChar": 14,
+        "endLine": 132,
+        "endChar": 15
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_4e3b13e7",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:02:36Z",
+      "side": 1,
+      "message": "ditto?",
+      "range": {
+        "startLine": 150,
+        "startChar": 12,
+        "endLine": 150,
+        "endChar": 13
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_8e717bbf",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:02:36Z",
+      "side": 1,
+      "message": "Based on my previous comment, I think I\u0027d prefer that :)",
+      "range": {
+        "startLine": 614,
+        "startChar": 54,
+        "endLine": 614,
+        "endChar": 59
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
