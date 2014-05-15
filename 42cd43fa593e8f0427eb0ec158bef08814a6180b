@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_6e8d2f6a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-15T08:08:37Z",
+      "side": 1,
+      "message": "It\u0027s a bit mask here, not a count. So I prefer keeping !\u003d",
+      "parentUuid": "2a58a819_ef80413a",
+      "range": {
+        "startLine": 718,
+        "startChar": 8,
+        "endLine": 718,
+        "endChar": 31
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_0f866553",
         "filename": "runtime/debugger.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4a531cfd_109da487",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-15T08:08:37Z",
+      "side": 1,
+      "message": "Agreed. I added a TODO in the header file about that.",
+      "parentUuid": "2a58a819_0f866553",
+      "range": {
+        "startLine": 2679,
+        "startChar": 10,
+        "endLine": 2679,
+        "endChar": 31
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_4f906d87",
         "filename": "runtime/debugger.h",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2014-05-15T08:02:36Z",
       "side": 1,
       "message": "Why can\u0027t you do it in this CL?",
+      "range": {
+        "startLine": 132,
+        "startChar": 14,
+        "endLine": 132,
+        "endChar": 15
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_2e832744",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-15T08:08:37Z",
+      "side": 1,
+      "message": "This is to avoid polluting this CL with all the renaming, many lines would change just for that. So I prefer doing it in a separate CL.",
+      "parentUuid": "2a58a819_4f906d87",
       "range": {
         "startLine": 132,
         "startChar": 14,
