@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a58a819_6f1ff175",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-15T06:56:04Z",
+      "side": 1,
+      "message": "Wrt https://android-review.googlesource.com/94334, we may have listeners for DexPcChanged event without having ones for MethodExited event. This means we need to report the DexPcChanged event in this case. I will fix that in https://android-review.googlesource.com/94334.",
+      "range": {
+        "startLine": 183,
+        "startChar": 8,
+        "endLine": 187,
+        "endChar": 9
+      },
+      "revId": "8379b2256be5d2be4ad083a76e9f8ec403c4d405",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
