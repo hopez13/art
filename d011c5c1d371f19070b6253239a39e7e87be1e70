@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_4f55cdd5",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T09:24:52Z",
+      "side": 1,
+      "message": "Sorry the question wasn\u0027t clear. If a method only has a return, do we have code that will notify the method it entered. Answering my question, I can see the code line 73 handles it for all bytecode, so nevermind this question :)\n\nMaybe add as a comment what the code below is for.",
+      "parentUuid": "4a531cfd_90b994de",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c57378_99441b2c",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 2
@@ -251,6 +275,30 @@
       "side": 1,
       "message": "I\u0027m worried about splitting interpreter in two methods. Even with inlining, this could cause performance penalties. Maybe you have a more precise idea and I may not see your point.",
       "parentUuid": "2a58a819_afc47976",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_2fdde926",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T09:24:52Z",
+      "side": 1,
+      "message": "I was thinking of:\n\nvoid MainInterpreterEntry() {\n  // Do something for first instruction\n  // BigSwitch(firstInst);\n  // Move to second instruction\n  while (true) {\n    // DexPcMovedEvent\n    BigSwitch(inst);\n  }\n}\n\nvoid BigSwitch(inst) {\n  switch(inst-\u003eOpcode(inst_data)) {\n    /// NO CALL TO PREAMBLE\n  }\n}\n\nIt does indeed add a call for each instruction. Ideally, we would inline the second BigSwitch and not the first, but I doubt that\u0027s easily controllable. Nevermind :)",
+      "parentUuid": "2a58a819_cf40dd1b",
       "range": {
         "startLine": 54,
         "startChar": 17,
