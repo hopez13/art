@@ -22,6 +22,30 @@
       "revId": "f342f6d25052b60a3ea81871c90cb35d5f3ad473",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a78446e_ff2c7388",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-05-15T01:25:51Z",
+      "side": 1,
+      "message": "This will actually lead to a lot of changes that will also interfere with the patches from JC. However, I will oblige. If it seems it is too invasive, I can revert to original patch. :)",
+      "parentUuid": "1c23318f_2266d735",
+      "range": {
+        "startLine": 318,
+        "startChar": 15,
+        "endLine": 318,
+        "endChar": 17
+      },
+      "revId": "f342f6d25052b60a3ea81871c90cb35d5f3ad473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
