@@ -73,6 +73,29 @@
     },
     {
       "key": {
+        "uuid": "4a531cfd_d0279ca3",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:11:27Z",
+      "side": 1,
+      "message": "What happens if a method just has a return?",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c57378_99441b2c",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 2
@@ -132,6 +155,30 @@
       "side": 1,
       "message": "I\u0027m not sure moving the switch to its own method would be a good solution. It would make the code more complex, especially because of control flow (RETURN and exception). Note I\u0027m not happy with this flag either. Maybe we could deal with it in a differrent way. I\u0027m thinking about using function pointer but did not try that yet.\n\nWrt to template specialization, we could do this. However, a debugger can attach in the middle of the execution of a method so we\u0027d need to transition from a non-debug specialization to a debug specialization when that happens (and the contrary too). Indeed, we do that in the threaded interpreter by switching dispatch table when that happens.",
       "parentUuid": "0a292485_4e8f73aa",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "d011c5c1d371f19070b6253239a39e7e87be1e70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_afc47976",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-15T08:11:27Z",
+      "side": 1,
+      "message": "Maybe the switch can stay here, but the loop be in a caller method?",
+      "parentUuid": "0a1cc41d_f9f593a7",
       "range": {
         "startLine": 54,
         "startChar": 17,
