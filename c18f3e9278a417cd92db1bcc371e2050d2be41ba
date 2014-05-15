@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca71cc8d_7eb13ee6",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-15T18:45:02Z",
+      "side": 1,
+      "message": "Yes, this is awkward.  In a future CL I\u0027ll fix the constructor.  You should not have to add kValid here.",
+      "revId": "c18f3e9278a417cd92db1bcc371e2050d2be41ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca71cc8d_5e79e24d",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-15T18:45:02Z",
+      "side": 1,
+      "message": "Yes - this all needs to be updated.",
+      "revId": "c18f3e9278a417cd92db1bcc371e2050d2be41ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
