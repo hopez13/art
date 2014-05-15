@@ -22,6 +22,30 @@
       "revId": "f710304756307fb200e783835349b4fee6aba3b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_c627e4a3",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-15T21:46:17Z",
+      "side": 1,
+      "message": "right, i read the comment and not the code. i assumed default smp if unknown since safer",
+      "parentUuid": "6a4e2058_c91d2c55",
+      "range": {
+        "startLine": 259,
+        "startChar": 39,
+        "endLine": 259,
+        "endChar": 40
+      },
+      "revId": "f710304756307fb200e783835349b4fee6aba3b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
