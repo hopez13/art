@@ -96,6 +96,52 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_6fd531ed",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1021004
+      },
+      "writtenOn": "2014-05-15T10:04:18Z",
+      "side": 1,
+      "message": "This should be %zd (the argument is a size_t) - this broke 64-bit builds.",
+      "range": {
+        "startLine": 2781,
+        "startChar": 51,
+        "endLine": 2781,
+        "endChar": 53
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_8fa2559e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2795,
+      "author": {
+        "id": 1021004
+      },
+      "writtenOn": "2014-05-15T10:04:18Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 2795,
+        "startChar": 51,
+        "endLine": 2795,
+        "endChar": 53
+      },
+      "revId": "42cd43fa593e8f0427eb0ec158bef08814a6180b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_4f906d87",
         "filename": "runtime/debugger.h",
         "patchSetId": 4
