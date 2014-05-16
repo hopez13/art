@@ -45,6 +45,29 @@
       "revId": "50bdfec2b9c0c03625cd8774492bf5f683c066aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dff7d045_5deb9b44",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T16:25:11Z",
+      "side": 1,
+      "message": "For throw instructions before processing we:\n\u003cquote\u003e\nMake a copy of the previous register state. If the instruction can throw an exception, we will copy/merge this into the \"catch\" address rather than work_line, because we don\u0027t want the result from the \"successful\" code path (e.g. a check-cast that \"improves\" a type) to be visible to the exception handler.\n\u003c/quote\u003e\nas this instruction is now a throw the same is necessary. There\u0027s an assumption here that the work-line wasn\u0027t changed.",
+      "range": {
+        "startLine": 2630,
+        "startChar": 0,
+        "endLine": 2633,
+        "endChar": 53
+      },
+      "revId": "50bdfec2b9c0c03625cd8774492bf5f683c066aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
