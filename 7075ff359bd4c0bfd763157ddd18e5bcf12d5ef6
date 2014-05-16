@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a4e2058_28522825",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T18:07:08Z",
+      "side": 1,
+      "message": "owning basic block?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 17
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_e86660f3",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T18:07:08Z",
+      "side": 1,
+      "message": "doubly linked? I worry about maintaining this given the fields are public :-/",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 12
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fffad42e_c797d463",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T18:07:08Z",
+      "side": 1,
+      "message": "what am I?",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 19
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dff7d045_23e42e48",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T18:07:08Z",
+      "side": 1,
+      "message": "Could you document the API here. Its not clear what the result means, the rewrite and same_bb arguments mean that you need to read the code to understand.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 30
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
