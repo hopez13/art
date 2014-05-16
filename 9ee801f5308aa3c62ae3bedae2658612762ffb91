@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_1184ceb9",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-16T01:55:32Z",
+      "side": 1,
+      "message": "I am in progress with preparing for upstream the REX patch and our current state of loadargregs. The host_mode 64 is broken in AOSP, zygote64 still broken in AOSP,  so there are some additional difficulties\n\nIs this comment a blocker for merging the x86_64 patch?\n\nIt would be great to move the gen64bit_ to Mir2Lir but we can do it by another. small patch. It needs update of other archs I suppose.",
+      "parentUuid": "0a78446e_36629893",
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a64fc99_8f585610",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 8
