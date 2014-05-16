@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a531cfd_169d9c87",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-16T07:38:36Z",
+      "side": 1,
+      "message": "While you\u0027re at it, change dex_cache to a reference?",
+      "range": {
+        "startLine": 295,
+        "startChar": 77,
+        "endLine": 295,
+        "endChar": 85
+      },
+      "revId": "50bdfec2b9c0c03625cd8774492bf5f683c066aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_52bad25b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-16T07:38:36Z",
+      "side": 1,
+      "message": "Change class_loader to a reference?",
+      "range": {
+        "startLine": 296,
+        "startChar": 66,
+        "endLine": 296,
+        "endChar": 78
+      },
+      "revId": "50bdfec2b9c0c03625cd8774492bf5f683c066aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
