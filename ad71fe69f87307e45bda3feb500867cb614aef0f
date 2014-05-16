@@ -22,6 +22,98 @@
       "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_a921d93b",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:47:15Z",
+      "side": 1,
+      "message": "Would it not be better to use the accessor methods to get the values of start_ and end_ rather than directly accessing them from LiveInterval?  LiveInterval never seems to write to these.",
+      "range": {
+        "startLine": 64,
+        "startChar": 15,
+        "endLine": 64,
+        "endChar": 27
+      },
+      "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2cfc7a_d19316d6",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:47:15Z",
+      "side": 1,
+      "message": "GetStart()?",
+      "range": {
+        "startLine": 84,
+        "startChar": 30,
+        "endLine": 84,
+        "endChar": 36
+      },
+      "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2cfc7a_119e8edc",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:47:15Z",
+      "side": 1,
+      "message": "GetEnd()",
+      "range": {
+        "startLine": 86,
+        "startChar": 41,
+        "endLine": 86,
+        "endChar": 45
+      },
+      "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a3274d1_fea1c998",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:47:15Z",
+      "side": 1,
+      "message": "ditto, and throughout the file",
+      "range": {
+        "startLine": 90,
+        "startChar": 59,
+        "endLine": 90,
+        "endChar": 63
+      },
+      "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
