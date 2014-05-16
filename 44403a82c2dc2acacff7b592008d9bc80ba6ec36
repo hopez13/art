@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "dff7d045_f77ba044",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-16T23:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f15a02d_d938d35b",
+      "revId": "44403a82c2dc2acacff7b592008d9bc80ba6ec36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f15a02d_19508b8d",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 20,
         "endChar": 21
       },
+      "revId": "44403a82c2dc2acacff7b592008d9bc80ba6ec36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f15a02d_3ca45dd9",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-16T23:11:27Z",
+      "side": 1,
+      "message": "Maybe after converting to namespace.",
+      "parentUuid": "5f15a02d_19508b8d",
       "revId": "44403a82c2dc2acacff7b592008d9bc80ba6ec36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "5f15a02d_bc974d64",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-16T23:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f10a43e_c0c0d25f",
+      "revId": "44403a82c2dc2acacff7b592008d9bc80ba6ec36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dff7d045_97aa1ca8",
         "filename": "runtime/reflection.cc",
         "patchSetId": 1
@@ -111,6 +165,24 @@
         "endLine": 745,
         "endChar": 75
       },
+      "revId": "44403a82c2dc2acacff7b592008d9bc80ba6ec36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dff7d045_b75cf8d0",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-16T23:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dff7d045_97aa1ca8",
       "revId": "44403a82c2dc2acacff7b592008d9bc80ba6ec36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
