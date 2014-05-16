@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f10a43e_6377d056",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T23:24:39Z",
+      "side": 1,
+      "message": "for reflection this will be hot. Worth moving to class-inl.h",
+      "range": {
+        "startLine": 691,
+        "startChar": 0,
+        "endLine": 691,
+        "endChar": 49
+      },
+      "revId": "22f7be95ccd7533c7ee06480c43a6d2e08336134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_037ff434",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T23:24:39Z",
+      "side": 1,
+      "message": "\\n",
+      "range": {
+        "startLine": 250,
+        "startChar": 45,
+        "endLine": 250,
+        "endChar": 46
+      },
+      "revId": "22f7be95ccd7533c7ee06480c43a6d2e08336134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f15a02d_dc320129",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T23:24:39Z",
+      "side": 1,
+      "message": "\\n",
+      "range": {
+        "startLine": 257,
+        "startChar": 62,
+        "endLine": 257,
+        "endChar": 63
+      },
+      "revId": "22f7be95ccd7533c7ee06480c43a6d2e08336134",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
