@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca71cc8d_e9e4b374",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-16T06:54:19Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 64
+      },
+      "revId": "025621d78702b332ad865bd1b7930a46215669bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca71cc8d_c9b7f770",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-16T06:54:19Z",
+      "side": 1,
+      "message": "and change to this:\n\n# Used outside the art project to get a list of the current tests\n\n(the \"include this\") doesn\u0027t make sense to me. I really just want the warning for people to fix users if they need to change this)",
+      "range": {
+        "startLine": 254,
+        "startChar": 10,
+        "endLine": 254,
+        "endChar": 14
+      },
+      "revId": "025621d78702b332ad865bd1b7930a46215669bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
