@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a2cfc7a_91bb5e64",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_b2e93e4b",
+      "range": {
+        "startLine": 44,
+        "startChar": 45,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_31ff0a15",
         "filename": "runtime/sigchainlib/sigchain.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-16T07:51:16Z",
       "side": 1,
       "message": "performed.",
+      "range": {
+        "startLine": 92,
+        "startChar": 48,
+        "endLine": 92,
+        "endChar": 57
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_e9cd913f",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "oops, done",
+      "parentUuid": "0a3da49e_31ff0a15",
       "range": {
         "startLine": 92,
         "startChar": 48,
@@ -117,6 +165,78 @@
     },
     {
       "key": {
+        "uuid": "8a3274d1_9e144d1a",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "Duh, nice catch",
+      "parentUuid": "0a3da49e_7109928e",
+      "range": {
+        "startLine": 101,
+        "startChar": 18,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2cfc7a_51bac65b",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "I\u0027ll see if I can use __android_log_write.  Should be able to.",
+      "parentUuid": "0a3da49e_510c969f",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 12
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_e902f19f",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_1632fce5",
+      "range": {
+        "startLine": 101,
+        "startChar": 21,
+        "endLine": 101,
+        "endChar": 27
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_9116feaf",
         "filename": "runtime/sigchainlib/sigchain.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2014-05-16T07:51:16Z",
       "side": 1,
       "message": "indentation is off",
+      "range": {
+        "startLine": 153,
+        "startChar": 10,
+        "endLine": 153,
+        "endChar": 20
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2cfc7a_91e43e74",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_9116feaf",
       "range": {
         "startLine": 153,
         "startChar": 10,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8a3274d1_1e093dfa",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_362f007b",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 24
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_b11bfad6",
         "filename": "runtime/sigchainlib/sigchain.cc",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2014-05-16T07:51:16Z",
       "side": 1,
       "message": "Why do we do this for 64bits?",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "fa97e0ecd9439bc126562aab9cf839a9a9320947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a3274d1_fe13892c",
+        "filename": "runtime/sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-16T17:34:56Z",
+      "side": 1,
+      "message": "It\u0027s from the sigaction code in bionic.  Apparently the buffer we use for 32 bit isn\u0027t big enough for 64 bits.  See the comment at line 198",
+      "parentUuid": "0a3da49e_b11bfad6",
       "range": {
         "startLine": 164,
         "startChar": 4,
