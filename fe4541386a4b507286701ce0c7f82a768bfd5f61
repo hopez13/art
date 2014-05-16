@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a4e2058_d4413cc8",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:51:04Z",
+      "side": 1,
+      "message": "I don\u0027t think this is WAI, you want to resolve when there is no dex-cache hit. oh.. you\u0027re just abstracting the dex-cache lookup. Make this private. Similarly for GetResolvedField. Prefer LookupResolvedMethod, LookupResolvedField to make it more distinct from ResolveMethod.",
+      "range": {
+        "startLine": 117,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 19
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fffad42e_e4240e19",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:51:04Z",
+      "side": 1,
+      "message": "on the else side of this we should assert an exception is pending.",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 3
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_349fe80a",
+        "filename": "runtime/entrypoints/portable/portable_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:51:04Z",
+      "side": 1,
+      "message": "s/thread/self/",
+      "range": {
+        "startLine": 320,
+        "startChar": 63,
+        "endLine": 320,
+        "endChar": 69
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_b436786c",
+        "filename": "runtime/entrypoints/portable/portable_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:51:04Z",
+      "side": 1,
+      "message": "self",
+      "range": {
+        "startLine": 382,
+        "startChar": 35,
+        "endLine": 382,
+        "endChar": 52
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_141104b7",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:51:04Z",
+      "side": 1,
+      "message": "as with hiroshi\u0027s change, just lose the ifdef",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 10
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_b4091891",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:51:04Z",
+      "side": 1,
+      "message": "I\u0027m\n\nwhy are we hitting this?",
+      "range": {
+        "startLine": 1967,
+        "startChar": 15,
+        "endLine": 1967,
+        "endChar": 18
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
