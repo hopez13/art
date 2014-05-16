@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a4e2058_feb9badc",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_b6adb0be",
+      "range": {
+        "startLine": 397,
+        "startChar": 4,
+        "endLine": 397,
+        "endChar": 11
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dff7d045_5d471b84",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2014-05-16T16:45:42Z",
       "side": 1,
       "message": "DCHECK that m !\u003d nullptr?",
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_7eceaa63",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1966,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dff7d045_5d471b84",
       "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "dff7d045_f10cd05d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:38:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want to do that as we are visiting roots from GC when we run this code. It would be like adding a new root while visiting roots and seem a bit odd to me. Or did you mean something else?",
+      "parentUuid": "2a58a819_32ad4e21",
+      "range": {
+        "startLine": 1967,
+        "startChar": 21,
+        "endLine": 1967,
+        "endChar": 22
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_d6a234cd",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2014-05-16T07:35:19Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2010,
+        "startChar": 12,
+        "endLine": 2010,
+        "endChar": 21
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dff7d045_71532026",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:38:25Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "4a531cfd_d6a234cd",
       "range": {
         "startLine": 2010,
         "startChar": 12,
