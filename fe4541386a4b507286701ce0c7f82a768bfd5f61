@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "6a4e2058_c8a8bc02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "Any bug number?",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_8be06ee4",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "I think this should drop \u0027\u0026\u0027 as we pass it as a value.",
+      "range": {
+        "startLine": 424,
+        "startChar": 66,
+        "endLine": 424,
+        "endChar": 78
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_d4413cc8",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 2
@@ -48,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "6a4e2058_cbba765a",
+        "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "Does this assume that the method in shadow_frame gets updated when GC happens (along the line of my CL)? I guess the above TODO covers this.",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_349fe80a",
         "filename": "runtime/entrypoints/portable/portable_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -87,6 +150,98 @@
         "startChar": 35,
         "endLine": 382,
         "endChar": 52
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dff7d045_66c484d7",
+        "filename": "runtime/handle.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "There\u0027s a slight chance that someone could accidentally call Assign() with a non-null value on a NullHandle and call ToJObject() to get the internal NullHandle::null_ref_ pointer as a jobject. \n\nIs there a way to prevent this without extra performance cost?\n\nMaybe, if we get rid of Assign() and use operator\u003d or the copy constructor instead, would it work?",
+      "range": {
+        "startLine": 57,
+        "startChar": 17,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4e2058_ab6c52d5",
+        "filename": "runtime/handle_scope.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "Is this equivalent to just \"Get()\"?",
+      "range": {
+        "startLine": 154,
+        "startChar": 12,
+        "endLine": 154,
+        "endChar": 26
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dff7d045_26155c0f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "I think we\u0027d want to pass in shadow_frame.GetMethodAddress() (or call shadow_frame.SetMethod() later) if the reason to pass in ArtMethod** is that it may get moved (in the future when we move methods)?",
+      "range": {
+        "startLine": 109,
+        "startChar": 30,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fffad42e_b2e9a8cf",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-16T20:14:51Z",
+      "side": 1,
+      "message": "If we pass in \u0026receiver (a pointer to a local variable), we would want to update the one in shadow_frame by doing something like:\n\nshadow_frame.SetVRegReference(vregC, receiver)\n\nafter the FindMethodFromCode call?",
+      "range": {
+        "startLine": 109,
+        "startChar": 19,
+        "endLine": 109,
+        "endChar": 27
       },
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
