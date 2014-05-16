@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "aa1c9852_09182d8f",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-16T14:40:52Z",
+      "side": 1,
+      "message": "Can go into a follow-up CL. I am fine with the change as is. Bill?",
+      "parentUuid": "0a3da49e_1184ceb9",
+      "revId": "9ee801f5308aa3c62ae3bedae2658612762ffb91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a64fc99_8f585610",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 8
