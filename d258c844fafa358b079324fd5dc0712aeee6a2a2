@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fffad42e_a4328675",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-16T17:37:31Z",
+      "side": 1,
+      "message": "this list matches LIBART_HOST_SRC_FILES_32 below. We should just move to a LIBART_SRC_x86 and then derive the HOST and TARGET variants from that.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 27
+      },
+      "revId": "d258c844fafa358b079324fd5dc0712aeee6a2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
