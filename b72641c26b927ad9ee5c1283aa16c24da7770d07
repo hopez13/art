@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a531cfd_b6adb0be",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-16T07:35:19Z",
+      "side": 1,
+      "message": "Remove the ifdef?",
+      "range": {
+        "startLine": 397,
+        "startChar": 4,
+        "endLine": 397,
+        "endChar": 11
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_32ad4e21",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-16T07:35:19Z",
+      "side": 1,
+      "message": "Could you make this a handle?",
+      "range": {
+        "startLine": 1967,
+        "startChar": 21,
+        "endLine": 1967,
+        "endChar": 22
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_d6a234cd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-16T07:35:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2010,
+        "startChar": 12,
+        "endLine": 2010,
+        "endChar": 21
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
