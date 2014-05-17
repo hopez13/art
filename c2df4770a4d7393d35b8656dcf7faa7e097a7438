@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "8a3274d1_840a3a3a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-17T00:52:32Z",
+      "side": 1,
+      "message": "This operator is overloaded to perform string comparison, but in my view, it could be confusing as the lhs is a const char*. I don\u0027t know what the style guide is on this, and it\u0027s probably a matter of taste.\n\nHow about calling String::compare() explicitly, use GetDescriptorEquals() or put GetDescriptor() on the lhs at least?\n\nThis comment applies to many places in this CL.",
+      "range": {
+        "startLine": 1593,
+        "startChar": 39,
+        "endLine": 1593,
+        "endChar": 41
+      },
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f15a02d_023c904d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-17T00:52:32Z",
+      "side": 1,
+      "message": "I tend to get confused with this, there\u0027s no object lifetime issue between std::string and its c_str() (c_str() is still in use while std::string goes out of scope) here and in other places, correct?",
+      "range": {
+        "startLine": 120,
+        "startChar": 70,
+        "endLine": 120,
+        "endChar": 75
+      },
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f0aac14_5bda7783",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 4
@@ -17,6 +63,29 @@
         "startLine": 536,
         "startChar": 6,
         "endLine": 536,
+        "endChar": 8
+      },
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_8e7a0bfe",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-17T00:52:32Z",
+      "side": 1,
+      "message": "Are these turned into static functions because we don\u0027t want to do the \"h_this\" thing? Any other reason? Why does ComputeName() use the h_this thing and while these don\u0027t?",
+      "range": {
+        "startLine": 780,
+        "startChar": 2,
+        "endLine": 780,
         "endChar": 8
       },
       "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
