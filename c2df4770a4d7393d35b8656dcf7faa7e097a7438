@@ -91,6 +91,30 @@
       "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f0aac14_9b07ef7d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-17T01:12:34Z",
+      "side": 1,
+      "message": "Presumably ComputeName allocates a string and needs handle.",
+      "parentUuid": "7f10a43e_8e7a0bfe",
+      "range": {
+        "startLine": 780,
+        "startChar": 2,
+        "endLine": 780,
+        "endChar": 8
+      },
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
