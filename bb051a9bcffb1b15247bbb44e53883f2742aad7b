@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f0aac14_5ba5d7a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2014-05-17T00:39:52Z",
+      "side": 1,
+      "message": "\"protected by\" would be more accurate, SELinux is enforcing that nobody maps anything there so that dereferencing a NULL pointer crashes with a segfault.",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "bb051a9bcffb1b15247bbb44e53883f2742aad7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
