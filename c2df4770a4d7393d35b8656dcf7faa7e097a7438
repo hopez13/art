@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "5f15a02d_136ce4d7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-18T19:59:59Z",
+      "side": 1,
+      "message": "I\u0027ll use GetDescriptorEquals.",
+      "parentUuid": "8a3274d1_840a3a3a",
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f15a02d_023c904d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 4
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "7f10a43e_2f1d39f8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-18T19:59:59Z",
+      "side": 1,
+      "message": "The string goes out of scope after the statement is completed.",
+      "parentUuid": "5f15a02d_023c904d",
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f0aac14_5bda7783",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 4
@@ -65,6 +101,24 @@
         "endLine": 536,
         "endChar": 8
       },
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_0f1275e6",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-18T19:59:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f0aac14_5bda7783",
       "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -112,6 +166,42 @@
         "endLine": 780,
         "endChar": 8
       },
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f0aac14_c10a1887",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-18T19:59:59Z",
+      "side": 1,
+      "message": "Since its static, you pass in h_this as klass. I\u0027ll consider renaming in a future CL.",
+      "parentUuid": "7f10a43e_8e7a0bfe",
+      "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_cf0b5db2",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-18T19:59:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f0aac14_9b07ef7d",
       "revId": "c2df4770a4d7393d35b8656dcf7faa7e097a7438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
