@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_b72f6a14",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T09:16:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_b52f6814",
+      "range": {
+        "startLine": 537,
+        "startChar": 9,
+        "endLine": 537,
+        "endChar": 27
+      },
+      "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa1c9852_a921d93b",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-16T17:47:15Z",
       "side": 1,
       "message": "Would it not be better to use the accessor methods to get the values of start_ and end_ rather than directly accessing them from LiveInterval?  LiveInterval never seems to write to these.",
+      "range": {
+        "startLine": 64,
+        "startChar": 15,
+        "endLine": 64,
+        "endChar": 27
+      },
+      "revId": "ad71fe69f87307e45bda3feb500867cb614aef0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_44068eeb",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T09:16:23Z",
+      "side": 1,
+      "message": "Good point, initially I thought the LiveInterval class would change the fields, but we can do without it.",
+      "parentUuid": "aa1c9852_a921d93b",
       "range": {
         "startLine": 64,
         "startChar": 15,
