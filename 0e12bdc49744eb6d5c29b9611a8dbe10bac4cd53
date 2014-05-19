@@ -257,6 +257,30 @@
       "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_dac2fa15",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-19T17:25:16Z",
+      "side": 1,
+      "message": "I think ultimately InstructionSet is going to evolve into a class, at which point we\u0027ll likely pass around const references. For now I\u0027m not sure why we started adding consts, but it seems inconsistent to do things this way and not push it everywhere we use enums.",
+      "parentUuid": "bf1dbc5e_34523011",
+      "range": {
+        "startLine": 407,
+        "startChar": 57,
+        "endLine": 407,
+        "endChar": 63
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
