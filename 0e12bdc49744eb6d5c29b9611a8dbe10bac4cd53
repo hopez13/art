@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "df20b093_78141da6",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-19T16:10:42Z",
+      "side": 1,
+      "message": "use of 32 and 64 rather than ISA?",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 40
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_97a57b92",
+        "filename": "compiler/elf_writer_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-19T16:10:42Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be elf_location now?",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_b88e7dab",
         "filename": "runtime/class_linker.h",
         "patchSetId": 1
@@ -30,6 +76,52 @@
       "writtenOn": "2014-05-19T09:50:01Z",
       "side": 1,
       "message": "This could just be\n\nCHECK_EQ(0, unlink( )); ?",
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_17b96bb6",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-19T16:10:42Z",
+      "side": 1,
+      "message": "out arguments belong on the right",
+      "range": {
+        "startLine": 1209,
+        "startChar": 44,
+        "endLine": 1209,
+        "endChar": 52
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df20b093_58c4c1d6",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-19T16:10:42Z",
+      "side": 1,
+      "message": "its not clear to me why we\u0027re adding const to an enum argument.",
+      "range": {
+        "startLine": 407,
+        "startChar": 57,
+        "endLine": 407,
+        "endChar": 63
+      },
       "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
