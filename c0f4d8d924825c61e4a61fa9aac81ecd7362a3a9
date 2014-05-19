@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "df20b093_9b37f3cf",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T16:57:57Z",
+      "side": 1,
+      "message": "Up to the user to set it.",
+      "parentUuid": "0a3da49e_02971a33",
+      "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_c39436f2",
         "filename": "test/Android.mk",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "7f10a43e_3a4d7682",
+        "filename": "test/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T16:57:57Z",
+      "side": 1,
+      "message": "Not planning on it, do you want me to just add a new variable other than DALVIKVM_FLAGS? I want to be able to run tests with different GC types / options.",
+      "parentUuid": "2a58a819_c39436f2",
+      "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_e3993a27",
         "filename": "test/etc/push-and-run-test-jar",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 154,
         "endChar": 100
       },
+      "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_da3b1ae4",
+        "filename": "test/etc/push-and-run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T16:57:57Z",
+      "side": 1,
+      "message": "Not necessarily set.",
+      "parentUuid": "2a58a819_e3993a27",
       "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
