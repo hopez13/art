@@ -79,6 +79,24 @@
     },
     {
       "key": {
+        "uuid": "8a3274d1_aad54456",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T17:27:45Z",
+      "side": 1,
+      "message": "The HandleScope holds the StackReference.",
+      "parentUuid": "0a3da49e_e2af6e6a",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_44584e0f",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -132,6 +150,24 @@
       "side": 1,
       "message": "So making the passed argument as a reference should prevent that problem, right?",
       "parentUuid": "bf1dbc5e_b42400cf",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f0fa825_c0357461",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T17:27:45Z",
+      "side": 1,
+      "message": "Only if it is a const reference, I can always add a ConstHandle which doesn\u0027t have an Assign method to get around this.",
+      "parentUuid": "4a531cfd_1f320fe6",
       "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -291,6 +327,24 @@
       "side": 1,
       "message": "I see. It\u0027s a pity it\u0027s doing the same thing as GetDescriptor though, and this code is not trivial. Any way the code could be shared between the two?",
       "parentUuid": "df20b093_5bd15bdb",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_8cc18612",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T17:27:45Z",
+      "side": 1,
+      "message": "I don\u0027t see any easy ways to do this.",
+      "parentUuid": "2a58a819_83094e91",
       "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
