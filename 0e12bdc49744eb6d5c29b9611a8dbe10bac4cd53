@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf1dbc5e_34311010",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-19T17:05:29Z",
+      "side": 1,
+      "message": "right, this was the last thing to figure out that I had to work with Andreas on. the problem is it the build system wants \n\nLOCAL_MODULE_STEM_32\nLOCAL_MODULE_STEM_64\n\nso this seems to be a wart that the build system expects the two architectures to be 32 and 64 bit conceptually.",
+      "parentUuid": "df20b093_78141da6",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 40
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f10a43e_97a57b92",
         "filename": "compiler/elf_writer_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-19T16:10:42Z",
       "side": 1,
       "message": "shouldn\u0027t this be elf_location now?",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf1dbc5e_d4177c5c",
+        "filename": "compiler/elf_writer_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-19T17:05:29Z",
+      "side": 1,
+      "message": "done in followup",
+      "parentUuid": "7f10a43e_97a57b92",
       "range": {
         "startLine": 53,
         "startChar": 4,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "bf1dbc5e_34f6b0f9",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-19T17:05:29Z",
+      "side": 1,
+      "message": "Ian\u0027s asking me to take these out, not add more.",
+      "parentUuid": "2a58a819_b88e7dab",
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_e49ce25f",
         "filename": "runtime/common_runtime_test.h",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2014-05-19T09:50:01Z",
       "side": 1,
       "message": "This could just be\n\nCHECK_EQ(0, unlink( )); ?",
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_9a7122bc",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-19T17:05:29Z",
+      "side": 1,
+      "message": "I don\u0027t like doing side effects in CHECKS. I fear someone turning things into DCHECKS later.",
+      "parentUuid": "4a531cfd_e49ce25f",
       "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "df20b093_1bc88358",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-19T17:05:29Z",
+      "side": 1,
+      "message": "done, but to me that is more about when you are returning a new value, not simply a value you are side effecting.",
+      "parentUuid": "7f10a43e_17b96bb6",
+      "range": {
+        "startLine": 1209,
+        "startChar": 44,
+        "endLine": 1209,
+        "endChar": 52
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df20b093_58c4c1d6",
         "filename": "runtime/utils.h",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2014-05-19T16:10:42Z",
       "side": 1,
       "message": "its not clear to me why we\u0027re adding const to an enum argument.",
+      "range": {
+        "startLine": 407,
+        "startChar": 57,
+        "endLine": 407,
+        "endChar": 63
+      },
+      "revId": "0e12bdc49744eb6d5c29b9611a8dbe10bac4cd53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf1dbc5e_34523011",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-19T17:05:29Z",
+      "side": 1,
+      "message": "me neither, I was just following another example. in fact, the other reviewed asked me to add more. instead, I\u0027ll take them all out (because they had crept into a lot of places)",
+      "parentUuid": "df20b093_58c4c1d6",
       "range": {
         "startLine": 407,
         "startChar": 57,
