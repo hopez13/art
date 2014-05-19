@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a3da49e_02971a33",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T16:49:11Z",
+      "side": 1,
+      "message": "Where is that set otherwise?",
+      "range": {
+        "startLine": 106,
+        "startChar": 14,
+        "endLine": 106,
+        "endChar": 15
+      },
+      "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_c39436f2",
+        "filename": "test/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T16:49:11Z",
+      "side": 1,
+      "message": "This is for running tests with the interpreter, which is why I didn\u0027t add it. Will you follow up with a CL that adds more things to the DALVIKVM_FLAGS?",
+      "range": {
+        "startLine": 171,
+        "startChar": 18,
+        "endLine": 171,
+        "endChar": 29
+      },
+      "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_e3993a27",
+        "filename": "test/etc/push-and-run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T16:49:11Z",
+      "side": 1,
+      "message": "Where is that set? IIRC the Makefile\u0027s DALVIKVM_FLAGS is turned into -Xcompiler-option, and that is covered line 36.",
+      "range": {
+        "startLine": 154,
+        "startChar": 86,
+        "endLine": 154,
+        "endChar": 100
+      },
+      "revId": "c0f4d8d924825c61e4a61fa9aac81ecd7362a3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
