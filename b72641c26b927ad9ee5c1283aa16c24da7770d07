@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_f8fc8522",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T08:44:40Z",
+      "side": 1,
+      "message": "OK, I did not realize this was for GC processing.\n\nDo we have a NoGcScope kind of functionality that guarantees we\u0027re inside a GC or no GC will trigger?",
+      "parentUuid": "dff7d045_f10cd05d",
+      "range": {
+        "startLine": 1967,
+        "startChar": 21,
+        "endLine": 1967,
+        "endChar": 22
+      },
+      "revId": "b72641c26b927ad9ee5c1283aa16c24da7770d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_d6a234cd",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
