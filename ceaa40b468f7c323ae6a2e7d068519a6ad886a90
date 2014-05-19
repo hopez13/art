@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "7f10a43e_c8a0ed99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T22:20:12Z",
+      "side": 1,
+      "message": "Yes, there was a redundant read and check of the thread state as well as a couple of other comparisons.",
+      "parentUuid": "aa1c9852_62ea93c2",
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa1c9852_a21d6b55",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 176,
         "endChar": 26
       },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_399a2762",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T22:20:12Z",
+      "side": 1,
+      "message": "It was only cached to restore it in the destructor, so we no longer need to cache it.",
+      "parentUuid": "aa1c9852_a21d6b55",
       "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "9f1ab865_f9b38fec",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T22:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f0fa825_a6d3b806",
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f0fa825_86a0b498",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 2
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "9f1ab865_99aa5b71",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T22:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f0fa825_86a0b498",
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa1c9852_c2226796",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 2
@@ -111,6 +183,24 @@
         "endLine": 240,
         "endChar": 50
       },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f10a43e_e8aa9171",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T22:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa1c9852_c2226796",
       "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
