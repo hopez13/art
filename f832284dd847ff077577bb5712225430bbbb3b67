@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_e2af6e6a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T17:18:17Z",
+      "side": 1,
+      "message": "So this is relying on the fact another handle holds the StackReference right? For things passed as arguments, that\u0027s \nOK, but othewrwise that\u0027s not OK.\n\nI find that very error prone, how about a DISALLOW_COPY_AND_ASSIGN on Handle and always pass as reference?",
+      "parentUuid": "7f10a43e_3a57b601",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_44584e0f",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
@@ -78,6 +96,24 @@
       "side": 1,
       "message": "In this case it would be OK to do that but it would change the stack reference in the handle which was passed in.",
       "parentUuid": "4a531cfd_44584e0f",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_1f320fe6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T17:18:17Z",
+      "side": 1,
+      "message": "So making the passed argument as a reference should prevent that problem, right?",
+      "parentUuid": "bf1dbc5e_b42400cf",
       "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -166,6 +202,24 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_43ff6613",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T17:18:17Z",
+      "side": 1,
+      "message": "SGTM, thanks.",
+      "parentUuid": "df20b093_7ba5378f",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_7708a2b3",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 5
@@ -201,6 +255,24 @@
       "side": 1,
       "message": "Ian had some concerns that allocating a string would cause performance regressions in reflection, the current way avoids allocating a string in the else common case.",
       "parentUuid": "0a3da49e_7708a2b3",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_83094e91",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T17:18:17Z",
+      "side": 1,
+      "message": "I see. It\u0027s a pity it\u0027s doing the same thing as GetDescriptor though, and this code is not trivial. Any way the code could be shared between the two?",
+      "parentUuid": "df20b093_5bd15bdb",
       "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
