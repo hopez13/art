@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a58a819_b87d9df8",
+        "filename": "runtime/object_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-19T08:15:02Z",
+      "side": 1,
+      "message": "Since this is a copy of the given handle, how will the GC find it?\n\nShouldn\u0027t it be \"const Handle\u003cT\u003e\u0026 obj\" ?",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 10
+      },
+      "revId": "db2633ce0358c704f97130a94b582602cb01d14a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
