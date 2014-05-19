@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa1c9852_62ea93c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-19T21:46:27Z",
+      "side": 1,
+      "message": "Was the issue that ScopedFastNativeObjectAccess used to be a subclass of ScopedThreadStateChange and so it performed redundant checks, etc. which it no longer does as it isn\u0027t a subclass of ScopedThreadStateChange any more?",
+      "range": {
+        "startLine": 7,
+        "startChar": 39,
+        "endLine": 7,
+        "endChar": 67
+      },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_a21d6b55",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-19T21:46:27Z",
+      "side": 1,
+      "message": "The thread state was cached in thread_state_ before. Do we want to have it not cached now?",
+      "range": {
+        "startLine": 176,
+        "startChar": 18,
+        "endLine": 176,
+        "endChar": 26
+      },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f0fa825_a6d3b806",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-19T21:46:27Z",
+      "side": 1,
+      "message": "ALWAYS_INLINE?",
+      "range": {
+        "startLine": 186,
+        "startChar": 54,
+        "endLine": 186,
+        "endChar": 55
+      },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f0fa825_86a0b498",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-19T21:46:27Z",
+      "side": 1,
+      "message": "ALWAYS_INLINE?",
+      "range": {
+        "startLine": 193,
+        "startChar": 55,
+        "endLine": 193,
+        "endChar": 56
+      },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1c9852_c2226796",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-19T21:46:27Z",
+      "side": 1,
+      "message": "ALWAYS_INLINE?",
+      "range": {
+        "startLine": 240,
+        "startChar": 49,
+        "endLine": 240,
+        "endChar": 50
+      },
+      "revId": "ceaa40b468f7c323ae6a2e7d068519a6ad886a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
