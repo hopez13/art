@@ -210,6 +210,24 @@
     },
     {
       "key": {
+        "uuid": "9f1ab865_b651a6e9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-19T21:18:07Z",
+      "side": 1,
+      "message": "I guess that is possible by changing NewHandle to return a StackReference\u0026. Doing this would be an invasive change and I need to think about it more before knowing if it would be superior.",
+      "parentUuid": "4a531cfd_df40871b",
+      "revId": "f832284dd847ff077577bb5712225430bbbb3b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_245b4a0e",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 5
