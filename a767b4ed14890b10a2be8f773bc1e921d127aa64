@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f3a00c6_20fe7489",
+        "filename": "runtime/sigchainlib/Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-20T06:14:28Z",
+      "side": 1,
+      "message": "as a library this belongs under art/sigchainlib rather than under runtime (which is libart)",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 24
+      },
+      "revId": "a767b4ed14890b10a2be8f773bc1e921d127aa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
