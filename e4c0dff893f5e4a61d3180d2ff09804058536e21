@@ -69,6 +69,30 @@
       "revId": "e4c0dff893f5e4a61d3180d2ff09804058536e21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f3a00c6_6547ee84",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-20T05:42:06Z",
+      "side": 1,
+      "message": "you gottum some big pointers there, \"return sizeof(void*) \u003d\u003d sizeof(uint64_t)\" would likely work better :-)",
+      "parentUuid": "bf1dbc5e_1e1bca8c",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 1
+      },
+      "revId": "e4c0dff893f5e4a61d3180d2ff09804058536e21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
