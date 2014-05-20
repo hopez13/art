@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f3504d1_9b5b57b0",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-20T18:06:51Z",
+      "side": 1,
+      "message": "Changed to __BIONIC__, which is closer to the actual dependency.\n\nWould be nice to also allow glibc \u003e\u003d 2.16, but the expression becomes really ugly (other definitions necessary).",
+      "parentUuid": "2a58a819_7e66bdf5",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 17
+      },
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_3f28b3e8",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-20T08:08:16Z",
       "side": 1,
       "message": "Test for arm64?",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f3a00c6_7a5d4821",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-20T18:06:51Z",
+      "side": 1,
+      "message": "This is for anything 64b but x86-64.",
+      "parentUuid": "4a531cfd_3f28b3e8",
       "range": {
         "startLine": 53,
         "startChar": 26,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "7f3504d1_5b2def1e",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-20T18:06:51Z",
+      "side": 1,
+      "message": "Text added.",
+      "parentUuid": "9f1ab865_ed2d0985",
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_9ebfe1ef",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2014-05-20T08:08:16Z",
       "side": 1,
       "message": "Seems like everything below should be ifdefed by just one ART_TARGET.",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 17
+      },
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_9228ed11",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-20T18:06:51Z",
+      "side": 1,
+      "message": "Possible for the current set of architectures, yes. I\u0027d prefer to leave it that way as it won\u0027t break as easily.",
+      "parentUuid": "2a58a819_9ebfe1ef",
       "range": {
         "startLine": 76,
         "startChar": 7,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "7f3504d1_3b222b2f",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-20T18:06:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f3a00c6_5a772956",
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f3a00c6_7a72ed67",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 3
@@ -116,6 +224,24 @@
       "writtenOn": "2014-05-20T02:06:47Z",
       "side": 1,
       "message": "maybe move the comment from above to here?",
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3504d1_1b27673f",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-20T18:06:51Z",
+      "side": 1,
+      "message": "Reference to the comment above.",
+      "parentUuid": "5f3a00c6_7a72ed67",
       "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
