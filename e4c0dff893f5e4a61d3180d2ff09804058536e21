@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_3e499599",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-20T15:08:46Z",
+      "side": 1,
+      "message": "Using \"boolean VMRuntime.isCheckJniEnabled\" would require to make it native for libdvm and consequently adding its implementation in Dalvik. The advantage of using a String is we can return an empty String for libdvm (Dalvik) in Java (without the need to modify Dalvik itself). Should we update Dalvik then?",
+      "parentUuid": "5f3a00c6_ab07e57c",
+      "range": {
+        "startLine": 164,
+        "startChar": 15,
+        "endLine": 164,
+        "endChar": 32
+      },
+      "revId": "e4c0dff893f5e4a61d3180d2ff09804058536e21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf1dbc5e_1e1bca8c",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "yeah, yeah. :)",
       "parentUuid": "5f3a00c6_6547ee84",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 1
+      },
+      "revId": "e4c0dff893f5e4a61d3180d2ff09804058536e21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_fe3f0df3",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-20T15:08:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f3a00c6_c08e886b",
       "range": {
         "startLine": 171,
         "startChar": 0,
