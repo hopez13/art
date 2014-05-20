@@ -51,6 +51,24 @@
       "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f440856_a964915d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-20T22:05:27Z",
+      "side": 1,
+      "message": "What if the GC is moving the roots and another thread reading java_lang_reflect_ArtField_ without the mutator lock? Sounds racy to me.",
+      "parentUuid": "9f1ab865_21b30588",
+      "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
