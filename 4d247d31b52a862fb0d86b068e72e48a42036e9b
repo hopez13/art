@@ -33,6 +33,24 @@
       "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_21b30588",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-20T21:56:26Z",
+      "side": 1,
+      "message": "I think it was there for the GetInstanceField() call and GetClass() call in the old version of this function and the new version does not access the heap. And, it does not fail the thread safety analysis. So, looks fine to me.",
+      "parentUuid": "9f1ab865_a6896baa",
+      "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
