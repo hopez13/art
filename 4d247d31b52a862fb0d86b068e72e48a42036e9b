@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f1ab865_06d7ff7e",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-20T21:07:43Z",
+      "side": 1,
+      "message": "Nice, this looks much cleaner.",
+      "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_a6896baa",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-20T21:07:43Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these have a SHARED_LOCKS_REQUIRED(Locks::mutator_lock_) on them?",
+      "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
