@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f1ab865_106975c7",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-20T18:21:52Z",
+      "side": 1,
+      "message": "all you\u0027d need is something like\n\n  #if __BIONIC__ || __GLIBC_PREREQ(2, 16)\n  #define HAVE_GETAUXVAL 1\n  #include \u003csys/auxv.h\u003e\n  #endif\n\nand then just use HAVE_GETAUXVAL everywhere you currently have __BIONIC__...",
+      "revId": "06a31d831014d2131e3eb09d19aed9d34fb426ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
