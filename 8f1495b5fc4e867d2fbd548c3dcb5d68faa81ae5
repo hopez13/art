@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f1ab865_ed2d0985",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-20T02:06:47Z",
+      "side": 1,
+      "message": "The host doesn\u0027t have getauxval(3) until glibc 2.16.\n\n(so someone can fix this sometime around 2019 :-) )",
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f3a00c6_5a772956",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-20T02:06:47Z",
+      "side": 1,
+      "message": "uintptr_t",
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f3a00c6_7a72ed67",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-05-20T02:06:47Z",
+      "side": 1,
+      "message": "maybe move the comment from above to here?",
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
