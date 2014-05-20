@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff281483_a2f14674",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-20T21:53:02Z",
+      "side": 1,
+      "message": "Curious. Is this referring to speeding up the verification with multiple threads?",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "ca7c65b00fcd8beecce480be5f87fdf749be4239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f440856_c93a35b9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1872,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-20T21:53:02Z",
+      "side": 1,
+      "message": "Do we want to return the bool from the call to the caller?",
+      "range": {
+        "startLine": 1872,
+        "startChar": 2,
+        "endLine": 1872,
+        "endChar": 6
+      },
+      "revId": "ca7c65b00fcd8beecce480be5f87fdf749be4239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f440856_a937f1ce",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-20T21:53:02Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1879,
+        "startChar": 2,
+        "endLine": 1879,
+        "endChar": 6
+      },
+      "revId": "ca7c65b00fcd8beecce480be5f87fdf749be4239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_c1d691cf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-20T21:53:02Z",
+      "side": 1,
+      "message": "Do we not want to log anything about ref at all if obj \u003d\u003d nullptr? For example, when this function is called from the other operator()\u0027s, they do not (currently) check the return values, which would miss logging a failure?",
+      "range": {
+        "startLine": 1977,
+        "startChar": 4,
+        "endLine": 1977,
+        "endChar": 10
+      },
+      "revId": "ca7c65b00fcd8beecce480be5f87fdf749be4239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f440856_4910851f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2021,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-20T21:53:02Z",
+      "side": 1,
+      "message": "AtomicInteger is int32_t, as opposed to size_t. Do we care? Return int32_t or use Atomic\u003csize_t\u003e?",
+      "range": {
+        "startLine": 2021,
+        "startChar": 2,
+        "endLine": 2021,
+        "endChar": 8
+      },
+      "revId": "ca7c65b00fcd8beecce480be5f87fdf749be4239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
