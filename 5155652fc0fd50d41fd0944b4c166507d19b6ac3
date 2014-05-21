@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f1ab865_74c3f43e",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2f188c_74c31e71",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f2f188c_94bd6af2",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-21T01:38:33Z",
       "side": 1,
       "message": "Should be explicit about memory order, at least in a comment.  SequentiallyConsistent for now?  Relaxed is also quite common for dumb counters.  Those should probably use a more scalable data structure, but ...",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 3
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_3f932fd6",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2f188c_94bd6af2",
       "range": {
         "startLine": 75,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9f1ab865_34b45cd5",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Good catch. Done.",
+      "parentUuid": "9f2f188c_74443e30",
+      "range": {
+        "startLine": 350,
+        "startChar": 2,
+        "endLine": 350,
+        "endChar": 32
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f1ab865_6ec8c559",
         "filename": "runtime/base/mutex-inl.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-05-21T01:38:33Z",
       "side": 1,
       "message": "Very similar issue to the other code I\u0027m reviewing.  I think this has to be ordered with respect to the CAS.  A release_cas probably doesn\u0027t do that.  This change doesn\u0027t break things any more, but I don\u0027t think the code is quite right.  I\u0027m still trying to understand the right C++11 constraints.",
+      "range": {
+        "startLine": 224,
+        "startChar": 33,
+        "endLine": 224,
+        "endChar": 48
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_cb7d8ac2",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Agreed. I\u0027ll leave this as is, on the basis its no worse. I\u0027d like to switch num_pending_readers to also being Atomic.",
+      "parentUuid": "9f1ab865_6ec8c559",
       "range": {
         "startLine": 224,
         "startChar": 33,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9f2f188c_9f2c63cf",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f1ab865_aeeb7d43",
+      "range": {
+        "startLine": 74,
+        "startChar": 64,
+        "endLine": 74,
+        "endChar": 72
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f2f188c_547f02ef",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2014-05-21T01:38:33Z",
       "side": 1,
       "message": "Needs to be at least release",
+      "range": {
+        "startLine": 79,
+        "startChar": 64,
+        "endLine": 79,
+        "endChar": 72
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_7ad54551",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2f188c_547f02ef",
       "range": {
         "startLine": 79,
         "startChar": 64,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ff281483_eee5f443",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f1ab865_8e6a01fe",
+      "range": {
+        "startLine": 168,
+        "startChar": 14,
+        "endLine": 168,
+        "endChar": 78
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff281483_d8f44266",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2014-05-21T01:38:33Z",
       "side": 1,
       "message": "Does this need to be sequentially consistent?  Is someone else accessing it concurrently?",
+      "range": {
+        "startLine": 885,
+        "startChar": 25,
+        "endLine": 885,
+        "endChar": 51
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_baf28d06",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "It doesn\u0027t. The parallel tasks are created below. Done.",
+      "parentUuid": "ff281483_d8f44266",
       "range": {
         "startLine": 885,
         "startChar": 25,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "3f58ec40_88ef9722",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Agreed. The work created and removed is done concurrently so I\u0027d be concerned about races. I\u0027ll leave this as is for now.",
+      "parentUuid": "ff281483_98f7da6e",
+      "range": {
+        "startLine": 1218,
+        "startChar": 32,
+        "endLine": 1219,
+        "endChar": 61
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f1ab865_d921e1bd",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2014-05-21T01:38:33Z",
       "side": 1,
       "message": "The question again is whether you care about seeing all  memory accesses by other threads to other variables that preceded num_bytes_allocated getting its current value.  SequentiallyConsistent is clearly safe, but I\u0027m not sure I understand why it\u0027s being used here and not in other places.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 55,
+        "endLine": 1316,
+        "endChar": 76
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_4e31a80e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "The other relaxed uses are debug sanity checks and logging code. So a race is benign. A race here concerns me as its a GC ergonomics issue and may cause us to GC too much or little. Note the FetchAndAdd/Sub change makes the FetchAndSub on line 1058 also sequentially consistent.",
+      "parentUuid": "9f1ab865_d921e1bd",
       "range": {
         "startLine": 1316,
         "startChar": 55,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "ff281483_8e4e7080",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "The enable/disable use FetchAndAdd/Sub which are sequentially consistent. Its more consistent to leave this as is, and its a DCHECK and not a performance issue.",
+      "parentUuid": "9f1ab865_d98b2159",
+      "range": {
+        "startLine": 525,
+        "startChar": 63,
+        "endLine": 525,
+        "endChar": 85
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f1ab865_396c55d8",
         "filename": "runtime/mirror/object.cc",
         "patchSetId": 1
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "9f2f188c_fa1a5586",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f1ab865_396c55d8",
+      "range": {
+        "startLine": 142,
+        "startChar": 52,
+        "endLine": 142,
+        "endChar": 73
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f2f188c_3ff68ff9",
         "filename": "runtime/thread_pool_test.cc",
         "patchSetId": 1
@@ -289,6 +577,30 @@
       "writtenOn": "2014-05-21T01:38:33Z",
       "side": 1,
       "message": "Seems blatantly inconsistent with previous change.",
+      "range": {
+        "startLine": 85,
+        "startChar": 21,
+        "endLine": 85,
+        "endChar": 46
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_ae380ce8",
+        "filename": "runtime/thread_pool_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T03:53:03Z",
+      "side": 1,
+      "message": "Fixed previous test to also be seq_cst.",
+      "parentUuid": "9f2f188c_3ff68ff9",
       "range": {
         "startLine": 85,
         "startChar": 21,
