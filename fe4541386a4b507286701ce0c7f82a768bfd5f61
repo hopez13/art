@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f0aac14_f81151e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "I suppose I can add the moving fields / methods bug.\nThe compaction bug may not be related to any existing open bug reports.",
+      "parentUuid": "6a4e2058_c8a8bc02",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_8be06ee4",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
         "endLine": 424,
         "endChar": 78
       },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f0aac14_5846fde0",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Can I do it in another CL? This one is already fairly large.",
+      "parentUuid": "6a4e2058_8be06ee4",
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "5f8840e2_21c3ee3f",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "This is called from FindMethodFromCode to avoid needing to have a handle scope unless we go slow path, is it OK to leave it public?",
+      "parentUuid": "6a4e2058_d4413cc8",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fffad42e_e4240e19",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 2
@@ -82,6 +136,24 @@
         "endLine": 139,
         "endChar": 3
       },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f48f879_f841354c",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fffad42e_e4240e19",
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "5f8840e2_2101ae9d",
+        "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "A main goal is to use Handles inside of the method helpers in the near future.",
+      "parentUuid": "6a4e2058_cbba765a",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_349fe80a",
         "filename": "runtime/entrypoints/portable/portable_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -128,6 +218,24 @@
         "endLine": 320,
         "endChar": 69
       },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f5ee42c_3e74610f",
+        "filename": "runtime/entrypoints/portable/portable_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4e2058_349fe80a",
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -157,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "3f3f0cb7_ba384ee8",
+        "filename": "runtime/entrypoints/portable/portable_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4e2058_b436786c",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dff7d045_66c484d7",
         "filename": "runtime/handle.h",
         "patchSetId": 2
@@ -180,6 +306,24 @@
     },
     {
       "key": {
+        "uuid": "9f48f879_b8c29d14",
+        "filename": "runtime/handle.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "I am thinking of adding a super class to Handle called ConstHandle which doesn\u0027t have an Assign function. We can pass that one around to avoid these problems.",
+      "parentUuid": "dff7d045_66c484d7",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_ab6c52d5",
         "filename": "runtime/handle_scope.h",
         "patchSetId": 2
@@ -197,6 +341,24 @@
         "endLine": 154,
         "endChar": 26
       },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f48f879_d8e799ba",
+        "filename": "runtime/handle_scope.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Yes, but when I had tried to do just Get() it didn\u0027t compile.",
+      "parentUuid": "6a4e2058_ab6c52d5",
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -249,6 +411,42 @@
     },
     {
       "key": {
+        "uuid": "5f8840e2_419872ef",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "The shadow frame should already be pushed, so we don\u0027t need to update it.",
+      "parentUuid": "fffad42e_b2e9a8cf",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8840e2_019a6ae6",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Shadow frame should be pushed, so the roots will get updated.",
+      "parentUuid": "dff7d045_26155c0f",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_141104b7",
         "filename": "runtime/stack.h",
         "patchSetId": 2
@@ -272,6 +470,24 @@
     },
     {
       "key": {
+        "uuid": "9f48f879_1879b107",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4e2058_141104b7",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_b4091891",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -289,6 +505,24 @@
         "endLine": 1967,
         "endChar": 18
       },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8840e2_e1350613",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-21T23:50:02Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "6a4e2058_b4091891",
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
