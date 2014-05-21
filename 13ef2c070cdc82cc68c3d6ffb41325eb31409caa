@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f48f879_49d1a5db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-21T18:10:53Z",
+      "side": 1,
+      "message": "I assume this includes Object.\u003cinit\u003e. Nice.",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 59
+      },
+      "revId": "13ef2c070cdc82cc68c3d6ffb41325eb31409caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf4bfc72_aa900bf4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 6
