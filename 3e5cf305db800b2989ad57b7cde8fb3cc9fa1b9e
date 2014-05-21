@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf4bfc72_cdc9215d",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-21T18:47:44Z",
+      "side": 1,
+      "message": "A side question: do we currently build with clang for host and with gcc for target (that is, we use std::atomic for host only) by default?",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "3e5cf305db800b2989ad57b7cde8fb3cc9fa1b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
