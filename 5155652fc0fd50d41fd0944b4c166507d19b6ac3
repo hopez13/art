@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f2f188c_74c31e71",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Also check alignof?",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_94bd6af2",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Should be explicit about memory order, at least in a comment.  SequentiallyConsistent for now?  Relaxed is also quite common for dumb counters.  Those should probably use a more scalable data structure, but ...",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 3
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_74443e30",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Needs to follow the load, and should probably be LoadAny, with the proviso that ARMv8 ishld most probably doesn\u0027t work, in spite of the fact that it appears to.  Maybe leave as LoadLoad for now, and I\u0027ll fix.",
+      "range": {
+        "startLine": 350,
+        "startChar": 2,
+        "endLine": 350,
+        "endChar": 32
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_6ec8c559",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Very similar issue to the other code I\u0027m reviewing.  I think this has to be ordered with respect to the CAS.  A release_cas probably doesn\u0027t do that.  This change doesn\u0027t break things any more, but I don\u0027t think the code is quite right.  I\u0027m still trying to understand the right C++11 constraints.",
+      "range": {
+        "startLine": 224,
+        "startChar": 33,
+        "endLine": 224,
+        "endChar": 48
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_aeeb7d43",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Needs to be at least memory_order_acquire to keep accesses from moving out of the critical section.",
+      "range": {
+        "startLine": 74,
+        "startChar": 64,
+        "endLine": 74,
+        "endChar": 72
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_547f02ef",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Needs to be at least release",
+      "range": {
+        "startLine": 79,
+        "startChar": 64,
+        "endLine": 79,
+        "endChar": 72
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_8e6a01fe",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "spelling of contetion (was there already)\nI\u0027m not sure you need SequentiallyConsistent here any more than for any of the other relaxed uses.\nNeither problem matters much.",
+      "range": {
+        "startLine": 168,
+        "startChar": 14,
+        "endLine": 168,
+        "endChar": 78
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_d8f44266",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Does this need to be sequentially consistent?  Is someone else accessing it concurrently?",
+      "range": {
+        "startLine": 885,
+        "startChar": 25,
+        "endLine": 885,
+        "endChar": 51
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_98f7da6e",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Does this really need to be sequentially consistent?  Is anything else still changing these?  If there\u0027s no race, it doesn\u0027t matter.",
+      "range": {
+        "startLine": 1218,
+        "startChar": 32,
+        "endLine": 1219,
+        "endChar": 61
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_d921e1bd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "The question again is whether you care about seeing all  memory accesses by other threads to other variables that preceded num_bytes_allocated getting its current value.  SequentiallyConsistent is clearly safe, but I\u0027m not sure I understand why it\u0027s being used here and not in other places.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 55,
+        "endLine": 1316,
+        "endChar": 76
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_d98b2159",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "I don\u0027t think SequentiallyConsistent every helps in such a DCHECK.  We\u0027re not really looking at the result.",
+      "range": {
+        "startLine": 525,
+        "startChar": 63,
+        "endLine": 525,
+        "endChar": 85
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f1ab865_396c55d8",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Should be relaxed",
+      "range": {
+        "startLine": 142,
+        "startChar": 52,
+        "endLine": 142,
+        "endChar": 73
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_3ff68ff9",
+        "filename": "runtime/thread_pool_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-05-21T01:38:33Z",
+      "side": 1,
+      "message": "Seems blatantly inconsistent with previous change.",
+      "range": {
+        "startLine": 85,
+        "startChar": 21,
+        "endLine": 85,
+        "endChar": 46
+      },
+      "revId": "5155652fc0fd50d41fd0944b4c166507d19b6ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
