@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f58ec40_8e8b1f5a",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-21T12:16:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_c8be13c3",
+      "revId": "468e324958af1448fd473751bf75079298c6e476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f58ec40_2b3c2500",
         "filename": "compiler/dex/quick/arm64/arm64_lir.h",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-21T09:45:43Z",
       "side": 1,
       "message": "rA32_SUSPEND should be rw19, for consistency with rA64_SUSPEND.",
+      "revId": "468e324958af1448fd473751bf75079298c6e476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f58ec40_6e58eb32",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-21T12:16:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f58ec40_2b3c2500",
       "revId": "468e324958af1448fd473751bf75079298c6e476",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3f58ec40_2e52f310",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-21T12:16:07Z",
+      "side": 1,
+      "message": "Yea - let\u0027s do a renaming in another CL.  I\u0027d like to lose the capitalized names in general.",
+      "parentUuid": "ff281483_8422cf95",
+      "revId": "468e324958af1448fd473751bf75079298c6e476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f2f188c_e56aba2b",
         "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
         "patchSetId": 6
@@ -64,6 +118,24 @@
       "writtenOn": "2014-05-21T09:45:43Z",
       "side": 1,
       "message": "Sorry, I should have updated this in the commit where I changed rs_xzr.GetRegNum() to 63.\n\nConsidered that reg.GetRegNum() \u003d\u003d 31 implies is_zero \u003d\u003d false, the condition above can be rewritten as,\n\n  bool is_sp \u003d (reg.GetRegNum() \u003d\u003d 31);\n  if (want_zero \u0026\u0026 is_sp) /*error*/\n\nwhich is correct, but doesn\u0027t test the case,\n\n  !want_zero \u0026\u0026 is_zero\n\nI guess, a possible alternative is\n\n  bool is_either_sp_or_zr \u003d ((reg.GetRegNum() \u0026 0x1f) \u003d\u003d 0x1f);\n  else if (is_either_sp_or_zr \u0026\u0026 is_zero !\u003d want_zero) /*error*/\n\nI admit all this code - despite being compact - turned out to be easier to write than to read/maintain.\n\nI am happy for you to commit as is: it is more beneficial to have your change committed ASAP, rather than wasting time to get the logic above right (we can do this in later commits, anyway).",
+      "revId": "468e324958af1448fd473751bf75079298c6e476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_c45c57d2",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-21T12:16:07Z",
+      "side": 1,
+      "message": "OK - rework this in a future CL.",
+      "parentUuid": "9f2f188c_e56aba2b",
       "revId": "468e324958af1448fd473751bf75079298c6e476",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
