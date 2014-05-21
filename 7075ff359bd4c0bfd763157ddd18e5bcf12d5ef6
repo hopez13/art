@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1f440856_89c30d70",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-21T05:49:51Z",
+      "side": 1,
+      "message": "the problem with the dex_pc_to_block_map is that it will need to be kept up to date as the different passes move code around and/or add extended mirs that then have to use the same offset as other MIRs (if there is even one in the block... if there is not, I would not know how to do it, add a new offset?)\n\ncopied_from is when we peel an iteration to know where the original is in the non-peeled loop.\n\nSo if I remove this bb, then I cannot do this anymore",
+      "parentUuid": "6a4e2058_e8d02088",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 17
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_e86660f3",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "writtenOn": "2014-05-16T18:07:08Z",
       "side": 1,
       "message": "doubly linked? I worry about maintaining this given the fields are public :-/",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 12
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff281483_c92112be",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-21T05:49:51Z",
+      "side": 1,
+      "message": "it makes the insertion easier though. Otherwise insert before because more complex. If we really do not want this, then we must remove the insert before due to them being more tricky at that point, no?",
+      "parentUuid": "6a4e2058_e86660f3",
       "range": {
         "startLine": 276,
         "startChar": 0,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "9f2f188c_5a8e09b2",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-21T05:49:51Z",
+      "side": 1,
+      "message": "sorry used by the MIR when peeling, not yet used. I can remove this for now",
+      "parentUuid": "fffad42e_c797d463",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 19
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dff7d045_23e42e48",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 5
@@ -106,6 +178,30 @@
       "writtenOn": "2014-05-16T18:07:08Z",
       "side": 1,
       "message": "Could you document the API here. Its not clear what the result means, the rewrite and same_bb arguments mean that you need to read the code to understand.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 30
+      },
+      "revId": "7075ff359bd4c0bfd763157ddd18e5bcf12d5ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f58ec40_4b53d925",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-21T05:49:51Z",
+      "side": 1,
+      "message": "ok I will do this when I rework this patch",
+      "parentUuid": "dff7d045_23e42e48",
       "range": {
         "startLine": 302,
         "startChar": 0,
