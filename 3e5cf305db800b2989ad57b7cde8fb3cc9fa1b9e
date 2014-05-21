@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f8840e2_a1a61e35",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-21T23:19:15Z",
+      "side": 1,
+      "message": "That\u0027s correct. The version of std::atomic is the libstdc++ version there. This will soon change to libc++.",
+      "parentUuid": "bf4bfc72_cdc9215d",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "3e5cf305db800b2989ad57b7cde8fb3cc9fa1b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3504d1_324da582",
         "filename": "runtime/atomic.h",
         "patchSetId": 2
