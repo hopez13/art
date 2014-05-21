@@ -46,6 +46,30 @@
       "revId": "a7db550d54e83533e7634fbba630c36ec8ff503d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf4bfc72_44af4eb9",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-21T15:28:59Z",
+      "side": 1,
+      "message": "Please remove.  Should the Quick compiler (including MIR and what you\u0027ve been calling the middle end) still be found useful once the optimizing compiler is ready and thereby delay its impending journey to the knacker\u0027s yard, the natural evolution involves removing DecodedInstruction from MIR to make it tied less closely to Davik bytes codes.  Until then, DecodedInstruction should continue to exactly reflect its associated byte code.",
+      "parentUuid": "3f58ec40_0b804137",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 58
+      },
+      "revId": "a7db550d54e83533e7634fbba630c36ec8ff503d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
