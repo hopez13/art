@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "9f2f188c_346c768a",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-21T01:01:23Z",
+      "side": 1,
+      "message": "the first rule of gArch64 is that you don\u0027t talk about gArch64...\n\nseriously, the issue is that only x86_64 can use MAP_32, the rest will use this. blame the linux kernel for this asymmetry. or x86 for having this convenient wart.",
+      "parentUuid": "3f3f0cb7_d6e774ba",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "8f1495b5fc4e867d2fbd548c3dcb5d68faa81ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f1ab865_ed2d0985",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 3
