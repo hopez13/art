@@ -69,6 +69,24 @@
       "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f2f188c_d14b0493",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-21T00:36:44Z",
+      "side": 1,
+      "message": "Added the annotations back.\n\nSo, my original thinking was that since those fields aren\u0027t part of the heap and are roots, we don\u0027t need a mutator lock when accessing those fields.\n\nBut, it\u0027s right that even when GC has an exclusive lock on the mutator lock (and the heap), a mutator thread in the native mode could could call JNI routines, which in theory might accidentally lead to these functions. In that case, there\u0027s nothing that prevents accessing the fields while GC might be moving them.",
+      "parentUuid": "1f440856_a964915d",
+      "revId": "4d247d31b52a862fb0d86b068e72e48a42036e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
