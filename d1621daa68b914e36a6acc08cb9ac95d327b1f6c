@@ -163,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "1f6b28de_174b94e8",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "We talk here of SyntheticLocations and entries, could we use just one term? Can we make filename a location if its not really a file we can open?",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f6c24f1_fdafe31a",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -186,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "1f6b28de_b75bc8af",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "shouldn\u0027t be necessary",
+      "range": {
+        "startLine": 947,
+        "startChar": 22,
+        "endLine": 947,
+        "endChar": 46
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9d5828_8f01c528",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
@@ -202,6 +248,29 @@
         "startChar": 5,
         "endLine": 355,
         "endChar": 20
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9d5828_ea8637c4",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer the error_msg to remain the right most argument",
+      "range": {
+        "startLine": 356,
+        "startChar": 76,
+        "endLine": 356,
+        "endChar": 85
       },
       "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -370,6 +439,29 @@
     },
     {
       "key": {
+        "uuid": "9f9d5828_8ac453d8",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "to be intention revealing this should be DexFiles rather than DexFile. I find this API hard to follow and it seems like there should be more on the Java side. It\u0027d be nice to hide/deprecate most of it too.",
+      "range": {
+        "startLine": 95,
+        "startChar": 25,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfa05c5b_ab7d95c2",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 1
@@ -427,6 +519,30 @@
       "writtenOn": "2014-05-22T22:45:37Z",
       "side": 1,
       "message": "unique_ptr? the problem is with these, we don\u0027t want to just delete the vector, you would need to close the contents if something else went wrong. maybe we need a little holder class for cleanliness?",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 31
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff965405_c87d80c2",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "unique_ptr is better, but we should be moving these things to the Java side. I think the relationship in this code with the \"Dex\" referred to by the dex file code is also confused.",
+      "parentUuid": "bfa05c5b_8b477983",
       "range": {
         "startLine": 145,
         "startChar": 4,
@@ -501,6 +617,29 @@
         "startChar": 6,
         "endLine": 167,
         "endChar": 8
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9d5828_aaa6ef34",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "toDexFiles",
+      "range": {
+        "startLine": 187,
+        "startChar": 36,
+        "endLine": 187,
+        "endChar": 45
       },
       "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -611,6 +750,30 @@
       "writtenOn": "2014-05-22T22:45:37Z",
       "side": 1,
       "message": "is this the right thing here? the odex file is the .oat file, there should only be one",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1230,
+        "endChar": 0
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9d5828_4a6f2b0f",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:00:19Z",
+      "side": 1,
+      "message": "The terms synthetic, location and base filename should be clarified.",
+      "parentUuid": "3f3f0cb7_41805538",
       "range": {
         "startLine": 1227,
         "startChar": 0,
