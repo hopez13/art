@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfa05c5b_1fc3a73f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-22T17:24:54Z",
+      "side": 1,
+      "message": "You could have a helper function instead of using  #define:\nstatic void UpdateLockLevel(LockLevel* level, LockLevel new_level) which does the checks.",
+      "revId": "a353038596b0eb8b35d4870acec2f9fa9b8c9977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfa05c5b_5fa04f97",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-22T17:24:54Z",
+      "side": 1,
+      "message": "Why was this moved to the bottom? Performance optimization?",
+      "revId": "a353038596b0eb8b35d4870acec2f9fa9b8c9977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
