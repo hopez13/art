@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff965405_c8c02060",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-22T22:22:34Z",
+      "side": 1,
+      "message": "Doesn\u0027t this want to be\n\nVLOG(signals)\n\nnow?",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 12
+      },
+      "revId": "4a527aeb7bfb670b7c3a85455209c48af3ea56e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9d5828_aac02f5e",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-22T22:22:34Z",
+      "side": 1,
+      "message": "This should be removed. this should be if we were building for the host, which this is not.\n\nalso below",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 5
+      },
+      "revId": "4a527aeb7bfb670b7c3a85455209c48af3ea56e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f6b28de_d76bdcbf",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-22T22:22:34Z",
+      "side": 1,
+      "message": "it seems bad that there is a circularity here between libart and libsigchain",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "4a527aeb7bfb670b7c3a85455209c48af3ea56e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
