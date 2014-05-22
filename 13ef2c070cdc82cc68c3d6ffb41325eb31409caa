@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_b5fe7fd2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T09:14:02Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "9f48f879_49d1a5db",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 59
+      },
+      "revId": "13ef2c070cdc82cc68c3d6ffb41325eb31409caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf4bfc72_aa900bf4",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-21T18:10:51Z",
       "side": 1,
       "message": "For readability perhaps prefer:\n\nbool method_in_image \u003d compiling_boot || Runtime..... IsImageSpace...();\nif (method_in_image) {\n\nThis was the intent in the code before.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 0,
+        "endLine": 1156,
+        "endChar": 92
+      },
+      "revId": "13ef2c070cdc82cc68c3d6ffb41325eb31409caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_d875fc50",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T09:14:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf4bfc72_aa900bf4",
       "range": {
         "startLine": 1155,
         "startChar": 0,
