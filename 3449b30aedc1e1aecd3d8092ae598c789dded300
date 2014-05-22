@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a3da49e_d5f22b50",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "This should be pure virtual now; mips can return false, arm/arm64 will have the old implementation and x86 the new one.",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_cdad3ebe",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "Mark with the OVERRIDE macro.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_55ff1b13",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "argument",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 16
+      },
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_2d6faacb",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "Naming conventions: sign_mask.",
+      "range": {
+        "startLine": 483,
+        "startChar": 15,
+        "endLine": 483,
+        "endChar": 23
+      },
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_4d6ceed4",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "If rl_result.reg !\u003d rl_src.reg, you should avoid this copy by loading signMask directly into rl_result.reg.",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_7b55ead5",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "If you go into the trouble of working directly on memory in GenInlinedAbsFloat(), why not here?",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_15cbd3e4",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "You don\u0027t need a CallInfo, you can get the optimization flags and method index directly from the MIR. (Get rid of the NewMemCallInfo() modifications.)",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_b5e4bf73",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-22T16:11:06Z",
+      "side": 1,
+      "message": "I don\u0027t like the DoesIntrinsicUseDoubleArgument(). Can we instead modify IsIntrinsic() to take an additional InlineMethod* argument and fill it with the data if the method is indeed intrinsic? That would allow any other analysis we may need later without spilling x86 details into architecture-independent code.",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
