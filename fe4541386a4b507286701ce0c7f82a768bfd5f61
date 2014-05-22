@@ -178,6 +178,29 @@
     },
     {
       "key": {
+        "uuid": "4a531cfd_bace6e3c",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-22T10:01:21Z",
+      "side": 1,
+      "message": "It should be moved into the if above, after the call to ResolveMethod.",
+      "range": {
+        "startLine": 399,
+        "startChar": 2,
+        "endLine": 402,
+        "endChar": 3
+      },
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_cbba765a",
         "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
         "patchSetId": 2
