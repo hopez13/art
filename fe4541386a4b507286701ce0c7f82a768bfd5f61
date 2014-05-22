@@ -219,6 +219,24 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_bb2af204",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-22T18:45:34Z",
+      "side": 1,
+      "message": "In the case GetResolvedMethod returns !\u003d nullptr, we check nullptr twice. I think this test should be moved after the call to ResolveMethod.",
+      "parentUuid": "9f9d5828_be4e3549",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_cbba765a",
         "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
         "patchSetId": 2
