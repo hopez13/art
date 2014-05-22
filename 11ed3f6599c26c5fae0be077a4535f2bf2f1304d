@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df935016_7d7677b3",
+        "filename": "runtime/entrypoints/portable/portable_invoke_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T05:25:48Z",
+      "side": 1,
+      "message": "s/thread/self/",
+      "range": {
+        "startLine": 26,
+        "startChar": 78,
+        "endLine": 26,
+        "endChar": 84
+      },
+      "revId": "11ed3f6599c26c5fae0be077a4535f2bf2f1304d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df935016_fd81273b",
+        "filename": "runtime/entrypoints/portable/portable_invoke_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T05:25:48Z",
+      "side": 1,
+      "message": "self-\u003eAssertThreadSuspensionIsAllowable()",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "11ed3f6599c26c5fae0be077a4535f2bf2f1304d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff965405_21652826",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T05:25:48Z",
+      "side": 1,
+      "message": "restore",
+      "range": {
+        "startLine": 352,
+        "startChar": 85,
+        "endLine": 352,
+        "endChar": 92
+      },
+      "revId": "11ed3f6599c26c5fae0be077a4535f2bf2f1304d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
