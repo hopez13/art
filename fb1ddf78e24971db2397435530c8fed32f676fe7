@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f9d5828_559fcc50",
+        "filename": "runtime/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T23:34:01Z",
+      "side": 1,
+      "message": "it seems confusing to include this for TEMP_FAILURE_RETRY and then define TEMP_FAILURE_RETRY below. I don\u0027t know what our preference should be. Something more intention revealing may be:\n\n#if !defined(__APPLE__)\n#include \u003cunistd.h\u003e\n#else\n#define TEMP_FAILURE_RETRY...\n#endif",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 46
+      },
+      "revId": "fb1ddf78e24971db2397435530c8fed32f676fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
