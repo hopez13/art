@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6b28de_7701b025",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T22:12:57Z",
+      "side": 1,
+      "message": "This should be a ScopedThreadStateChange, its unsafe to do this kind of transition if the previous is Runnable. In general SetState shouldn\u0027t be being called.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 74
+      },
+      "revId": "774f7c4bd18f40692e485f4aba928615931973f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
