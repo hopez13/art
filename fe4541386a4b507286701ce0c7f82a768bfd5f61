@@ -201,6 +201,24 @@
     },
     {
       "key": {
+        "uuid": "9f9d5828_be4e3549",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-22T17:48:09Z",
+      "side": 1,
+      "message": "Clarify? Doesn\u0027t that change the behavior?",
+      "parentUuid": "4a531cfd_bace6e3c",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4e2058_cbba765a",
         "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
         "patchSetId": 2
@@ -500,6 +518,24 @@
       "side": 1,
       "message": "Leave a comment on this?",
       "parentUuid": "5f8840e2_419872ef",
+      "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfa05c5b_3fcea3f7",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-22T17:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f48f879_ef83acb1",
       "revId": "fe4541386a4b507286701ce0c7f82a768bfd5f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
