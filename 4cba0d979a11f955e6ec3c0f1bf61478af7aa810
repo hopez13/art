@@ -16,6 +16,24 @@
       "revId": "4cba0d979a11f955e6ec3c0f1bf61478af7aa810",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff965405_6d448130",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-22T17:38:25Z",
+      "side": 1,
+      "message": "We might want to do that, depending on the read barrier implementation. Passing in \u0026obj_ would be more flexible. I will change it in another CL.",
+      "parentUuid": "9f9d5828_dbdf93e6",
+      "revId": "4cba0d979a11f955e6ec3c0f1bf61478af7aa810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
