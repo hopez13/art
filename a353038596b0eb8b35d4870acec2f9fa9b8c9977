@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7f6c24f1_7adaf983",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T17:28:29Z",
+      "side": 1,
+      "message": "I wanted the local scope. Out arguments on the right.",
+      "parentUuid": "bfa05c5b_1fc3a73f",
+      "revId": "a353038596b0eb8b35d4870acec2f9fa9b8c9977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfa05c5b_5fa04f97",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2014-05-22T17:24:54Z",
       "side": 1,
       "message": "Why was this moved to the bottom? Performance optimization?",
+      "revId": "a353038596b0eb8b35d4870acec2f9fa9b8c9977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f5ee42c_1fa997b1",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-22T17:28:29Z",
+      "side": 1,
+      "message": "it was before the entrypoints and so new lock levels changed the entrypoint addresses meaning a new oat file version number was necessary. This is mentioned in the commit message.",
+      "parentUuid": "bfa05c5b_5fa04f97",
       "revId": "a353038596b0eb8b35d4870acec2f9fa9b8c9977",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
