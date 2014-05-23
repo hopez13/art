@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fb968aa_3bd24f38",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-23T23:52:28Z",
+      "side": 1,
+      "message": "If we care about this really, I could put the ID that contains the entrance map to this one, ie which BB has an exit that coincides with its entry. This would require to add a temporary in some form or another for the current algorithm\u0027s implementation but then would transform a int32_t * num_ssa_regs * num_blocks memory foot print to a BasicBlockId * num_blocks + BasicBlockId.",
+      "range": {
+        "startLine": 226,
+        "startChar": 31,
+        "endLine": 226,
+        "endChar": 32
+      },
+      "revId": "cb73fb35e5f7c575ed491c0c8e2d2b1a0a22ea2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f52ac51_5bfeb789",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-23T23:52:28Z",
+      "side": 1,
+      "message": "to reduce the memory footprint, we could put these to int8_t and the num_uses and num_defs too, that would make this part of the change not change the memory foot print",
+      "range": {
+        "startLine": 239,
+        "startChar": 25,
+        "endLine": 239,
+        "endChar": 26
+      },
+      "revId": "cb73fb35e5f7c575ed491c0c8e2d2b1a0a22ea2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f52ac51_1b1b9f47",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-23T23:52:28Z",
+      "side": 1,
+      "message": "I suppose this change is fine (as memory footprints go)",
+      "range": {
+        "startLine": 952,
+        "startChar": 36,
+        "endLine": 952,
+        "endChar": 37
+      },
+      "revId": "cb73fb35e5f7c575ed491c0c8e2d2b1a0a22ea2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
