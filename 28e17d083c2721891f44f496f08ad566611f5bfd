@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1fb968aa_ea32a728",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T21:20:21Z",
+      "side": 1,
+      "message": "Yeah this can go",
+      "parentUuid": "1fb968aa_27fb1ae2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "28e17d083c2721891f44f496f08ad566611f5bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fe088ae_b25bbeaf",
         "filename": "sigchainlib/Android.mk",
         "patchSetId": 12
@@ -83,6 +107,30 @@
       "writtenOn": "2014-05-23T18:53:20Z",
       "side": 1,
       "message": "We do need this.  If I take it out I get errors for nullptr.",
+      "parentUuid": "1fe088ae_b25bbeaf",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "28e17d083c2721891f44f496f08ad566611f5bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_2cfbf7e1",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T21:20:21Z",
+      "side": 1,
+      "message": "Actually, it\u0027s the CFLAGS that is needed.  I\u0027ll remove this",
       "parentUuid": "1fe088ae_b25bbeaf",
       "range": {
         "startLine": 25,
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Might a remnant of my attempt to use LOG().  I\u0027ll see if I can remove it.",
       "parentUuid": "5fd680dc_54bfe24f",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "28e17d083c2721891f44f496f08ad566611f5bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_8c09cb4c",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T21:20:21Z",
+      "side": 1,
+      "message": "Need this otherwise we get errors for nullptr.",
+      "parentUuid": "1fb968aa_a7062a38",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -201,6 +273,30 @@
       "writtenOn": "2014-05-23T20:44:39Z",
       "side": 1,
       "message": "one thing add add:\n\nLOCAL_ADDITIONAL_DEPENDENCIES +\u003d $(LOCAL_PATH)/Android.mk\n\nwhich will make testing the makefile changes easier.",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "28e17d083c2721891f44f496f08ad566611f5bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_4c2753d9",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T21:20:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fb968aa_8a0bebb2",
       "range": {
         "startLine": 30,
         "startChar": 8,
