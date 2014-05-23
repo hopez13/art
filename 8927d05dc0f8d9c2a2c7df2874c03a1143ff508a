@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_2e56c28d",
+        "filename": "compiler/optimizing/live_interval_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Because there is no GetEnd in the LiveInterval class (yet) :-)",
+      "parentUuid": "2a58a819_3887e888",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_dac092c4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "I preferred the previous version with the ending \u0027;\u0027. Could you modify DECLARE_INSTRUCTION so the \u0027;\u0027 is needed?",
+      "range": {
+        "startLine": 1016,
+        "startChar": 2,
+        "endLine": 1016,
+        "endChar": 26
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_cb51aa21",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "DECLARE_INSTRUCTION is a list of functions. An extra \u0027;\u0027 at the end is not needed.",
+      "parentUuid": "4a531cfd_dac092c4",
       "range": {
         "startLine": 1016,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_cb760ab4",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done here and the other places that I wrote with the same pattern.",
+      "parentUuid": "4a531cfd_ba72eef7",
+      "range": {
+        "startLine": 53,
+        "startChar": 18,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_bb4cb286",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "Start arguments here and wrap.",
+      "range": {
+        "startLine": 83,
+        "startChar": 26,
+        "endLine": 83,
+        "endChar": 27
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_0b81f23b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_bb4cb286",
       "range": {
         "startLine": 83,
         "startChar": 26,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_2b86ae53",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_5b83c642",
+      "range": {
+        "startLine": 158,
+        "startChar": 67,
+        "endLine": 158,
+        "endChar": 75
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_9b8d2e6d",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "I don\u0027t understand the comment: is a word missing? ... Ooh, sounds like \"covers\" is missing somewhere in the middle?",
+      "range": {
+        "startLine": 159,
+        "startChar": 11,
+        "endLine": 159,
+        "endChar": 81
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_ce9456f2",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Yeah, there was a missing verb: \"... have a lifetime hole ...\".",
+      "parentUuid": "2a58a819_9b8d2e6d",
       "range": {
         "startLine": 159,
         "startChar": 11,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_d327741b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_6d2292c3",
+      "range": {
+        "startLine": 173,
+        "startChar": 69,
+        "endLine": 173,
+        "endChar": 77
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7638c4_13f64cf9",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "Use an if-else and move comment (5) in the if and comment (6) in the else ?",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 19
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_53bfe44f",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "AllocateBlockedReg could allocate a reg, so I can\u0027t move (6) in the else.\n\nAbout (5), I prefer keeping it here, as it aligns nicely with the other steps.",
+      "parentUuid": "9f7638c4_13f64cf9",
       "range": {
         "startLine": 192,
         "startChar": 4,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_73c460d7",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_0e4c9e81",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 60
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7638c4_f36870c5",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "What happens for float registers? Should we add a CHECK reg is not a float register?",
+      "range": {
+        "startLine": 261,
+        "startChar": 11,
+        "endLine": 261,
+        "endChar": 45
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_8b8de26c",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "reg is in the range [0, number_of_{core,fp}registers], so to know whether we are processing fp registers, we need to check the processing_core_registers_ flag. Check added.",
+      "parentUuid": "9f7638c4_f36870c5",
       "range": {
         "startLine": 261,
         "startChar": 11,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_2e8402ba",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_4e2f8679",
+      "range": {
+        "startLine": 288,
+        "startChar": 4,
+        "endLine": 288,
+        "endChar": 37
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_b8783609",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "Same comment about continue.",
+      "range": {
+        "startLine": 300,
+        "startChar": 4,
+        "endLine": 300,
+        "endChar": 37
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_13c96cee",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_b8783609",
       "range": {
         "startLine": 300,
         "startChar": 4,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_d3b21482",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "For this unit test, the target only impacts the number of registers available. I could make a dummy target, but it would be going overboard.\n\nIn the future, if we want to adjust the number of available registers, we can just update the number of blocked registers.",
+      "parentUuid": "0a3da49e_d81b42d6",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_4e06a6eb",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "ValidateIntervals1 ?",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_4b6cdad4",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "I moved ValidateIntervals4 to here.",
+      "parentUuid": "2a58a819_4e06a6eb",
       "range": {
         "startLine": 55,
         "startChar": 28,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_6b6996c3",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Leftover, I moved this test in ValidateIntervals.",
+      "parentUuid": "0a3da49e_f810feb4",
+      "range": {
+        "startLine": 118,
+        "startChar": 28,
+        "endLine": 118,
+        "endChar": 46
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7638c4_93881c10",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 2
@@ -358,6 +718,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "int ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 6,
+        "endLine": 158,
+        "endChar": 9
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_8e8b2ec7",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7638c4_93881c10",
       "range": {
         "startLine": 158,
         "startChar": 6,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_8b66c2f2",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Added a comment:\n          // We need to union the incoming types, as the Dex format does not\n          // guarantee the inputs have the same type. In particular the 0 constant is\n          // used for all types, but the graph builder treats it as an int.",
+      "parentUuid": "9f7638c4_d365349d",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7638c4_53a5a48e",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 2
@@ -404,6 +812,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "than",
+      "range": {
+        "startLine": 132,
+        "startChar": 51,
+        "endLine": 132,
+        "endChar": 55
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_abbffeee",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7638c4_53a5a48e",
       "range": {
         "startLine": 132,
         "startChar": 51,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_b3b99865",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_98b7fa71",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 26
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_b8e4b673",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -450,6 +906,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "HInstruction* const",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 15
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_ebc9068d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_b8e4b673",
       "range": {
         "startLine": 107,
         "startChar": 2,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_4e6a262b",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_2ecec262",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7638c4_93c25c15",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -508,6 +1012,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_53e6047e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7638c4_93c25c15",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 14
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_d8e9824a",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -519,6 +1047,30 @@
       "writtenOn": "2014-05-23T11:09:09Z",
       "side": 1,
       "message": "Add a kNoRegister constant ? Be careful, I think one already exists for Quick compiler.",
+      "range": {
+        "startLine": 127,
+        "startChar": 18,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_13e08c5c",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T13:29:34Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0a3da49e_d8e9824a",
       "range": {
         "startLine": 127,
         "startChar": 18,
