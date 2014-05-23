@@ -22,6 +22,30 @@
       "revId": "10363a02874422c6b7cf3464fae09d60df00eac4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb46caf_68a563a6",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-23T19:15:00Z",
+      "side": 1,
+      "message": "I\u0027ll remove their restoration. The filling in code is here:\nhttps://android.googlesource.com/platform/art/+/master/runtime/arch/mips/context_mips.cc#43",
+      "parentUuid": "0a3da49e_0b51f295",
+      "range": {
+        "startLine": 329,
+        "startChar": 15,
+        "endLine": 329,
+        "endChar": 16
+      },
+      "revId": "10363a02874422c6b7cf3464fae09d60df00eac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
