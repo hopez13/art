@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2a58a819_8e224e07",
+        "filename": "compiler/optimizing/live_interval_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "OK, that\u0027s a good reason :)",
+      "parentUuid": "2a58a819_2e56c28d",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_dac092c4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_1393acd5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "I was thinking perhaps you could declare the Accept method at the end of the macro so the \u0027;\u0027 is needed. It just I find it more natural to keep the \u0027;\u0027.",
+      "parentUuid": "0a3da49e_cb51aa21",
+      "range": {
+        "startLine": 1016,
+        "startChar": 2,
+        "endLine": 1016,
+        "endChar": 26
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_ba72eef7",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Done here and the other places that I wrote with the same pattern.",
       "parentUuid": "4a531cfd_ba72eef7",
+      "range": {
+        "startLine": 53,
+        "startChar": 18,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_aebb9263",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "Thanks",
+      "parentUuid": "0a3da49e_cb760ab4",
       "range": {
         "startLine": 53,
         "startChar": 18,
@@ -366,6 +438,30 @@
       "side": 1,
       "message": "AllocateBlockedReg could allocate a reg, so I can\u0027t move (6) in the else.\n\nAbout (5), I prefer keeping it here, as it aligns nicely with the other steps.",
       "parentUuid": "9f7638c4_13f64cf9",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 19
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_4b585a0f",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "Yeah, sorry my fault: I missed the success assignment there.",
+      "parentUuid": "9f7638c4_53bfe44f",
       "range": {
         "startLine": 192,
         "startChar": 4,
@@ -660,6 +756,30 @@
     },
     {
       "key": {
+        "uuid": "0a3da49e_6b5516d6",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "0a3da49e_4b6cdad4",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_f810feb4",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 2
@@ -754,6 +874,29 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_b3a3d824",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "Sorry, I miseed this one. So \u0027int\u0027 here again.",
+      "range": {
+        "startLine": 197,
+        "startChar": 6,
+        "endLine": 197,
+        "endChar": 9
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7638c4_d365349d",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -789,6 +932,30 @@
       "side": 1,
       "message": "Added a comment:\n          // We need to union the incoming types, as the Dex format does not\n          // guarantee the inputs have the same type. In particular the 0 constant is\n          // used for all types, but the graph builder treats it as an int.",
       "parentUuid": "9f7638c4_d365349d",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_8b5242ed",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T13:53:31Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "0a3da49e_8b66c2f2",
       "range": {
         "startLine": 53,
         "startChar": 11,
