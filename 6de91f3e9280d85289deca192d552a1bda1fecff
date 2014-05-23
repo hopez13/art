@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a3da49e_2b130e7f",
+        "filename": "runtime/base/bit_vector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T12:42:18Z",
+      "side": 1,
+      "message": "I suggest having one if that does the printing in the existing way, and one other do the printing in the \u0027print_indices\u0027 way.",
+      "range": {
+        "startLine": 430,
+        "startChar": 7,
+        "endLine": 430,
+        "endChar": 20
+      },
+      "revId": "6de91f3e9280d85289deca192d552a1bda1fecff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
