@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "9f7638c4_7360e016",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T14:11:34Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "9f7638c4_1393acd5",
+      "range": {
+        "startLine": 1016,
+        "startChar": 2,
+        "endLine": 1016,
+        "endChar": 26
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_ba72eef7",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -885,6 +909,30 @@
       "writtenOn": "2014-05-23T13:53:31Z",
       "side": 1,
       "message": "Sorry, I miseed this one. So \u0027int\u0027 here again.",
+      "range": {
+        "startLine": 197,
+        "startChar": 6,
+        "endLine": 197,
+        "endChar": 9
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_f34b9092",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T14:11:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7638c4_b3a3d824",
       "range": {
         "startLine": 197,
         "startChar": 6,
