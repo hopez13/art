@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5fd680dc_544122c6",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-23T18:52:12Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem quite right to me.  In the Thumb2 code we force LoadValue and friends to ensure that the loaded value ends up in fp regs because all of our conversion instruction require floating point register operands.\n\nIf I\u0027m reading this correctly, these new aarch64 instructions take a core or fp register depending on context.  If that\u0027s true, you\u0027d want to determine which register class was needed for each instruction in the switch statement above and then do a LoadValue(xx, kCoreReg/kFPReg) as appropriate.  By doing kAnyReg, you are telling LoadValue that if the requested value happens to be live in any register to return it as-is regardless of register class.  Because of this, you could end up sending a floating point register to NewLIR2 for an instruction that expects a core register operand.\n\nThe kAnyReg behavior is mostly useful for store operations (at a higher level) - which can be done using either a core or fp source register. It was more important in the trace JIT days when we didn\u0027t have good type information and floating point values often found themselves in core registers.\n\nBy the time we get to emitting actual instructions, we need the operands in specific register classes - so I wouldn\u0027t expect to see kAnyReg used in the vicinity of LIRx() calls.",
+      "revId": "dd7811fee8270534020dd4b50b2104aae5df7a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fd680dc_f4e5b643",
         "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
         "patchSetId": 1
