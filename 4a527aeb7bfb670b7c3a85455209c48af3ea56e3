@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff7f3495_568914a7",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T01:32:51Z",
+      "side": 1,
+      "message": "yeah, got this on my local repo.  Haven\u0027t uploaded it yet.  Will do so",
+      "parentUuid": "ff965405_c8c02060",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 12
+      },
+      "revId": "4a527aeb7bfb670b7c3a85455209c48af3ea56e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9d5828_aac02f5e",
         "filename": "sigchainlib/Android.mk",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ff7f3495_f6806070",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T01:32:51Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "9f9d5828_aac02f5e",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 5
+      },
+      "revId": "4a527aeb7bfb670b7c3a85455209c48af3ea56e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f6b28de_d76bdcbf",
         "filename": "sigchainlib/Android.mk",
         "patchSetId": 10
@@ -59,6 +107,30 @@
       "writtenOn": "2014-05-22T22:22:34Z",
       "side": 1,
       "message": "it seems bad that there is a circularity here between libart and libsigchain",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "4a527aeb7bfb670b7c3a85455209c48af3ea56e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9d5828_848be710",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T01:32:51Z",
+      "side": 1,
+      "message": "might not need this now.  At one time I was trying to use the LOG() infrastructure but that didn\u0027t work.  I\u0027ll remove this",
+      "parentUuid": "1f6b28de_d76bdcbf",
       "range": {
         "startLine": 42,
         "startChar": 0,
