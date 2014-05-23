@@ -94,6 +94,30 @@
       "revId": "712084afd7e9fea26970ae3e4703d0f9eb292c74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb46caf_8b0bf1b2",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T20:40:29Z",
+      "side": 1,
+      "message": "avoiding framework dependencies mostly (more if HAVE_ANDROID_OS)\n\nalso, previously people would add ways to control things only via properties, then when we wanted to do things via command line for testing etc and had to go back and add them.",
+      "parentUuid": "0a3da49e_8b36c26c",
+      "range": {
+        "startLine": 1305,
+        "startChar": 7,
+        "endLine": 1305,
+        "endChar": 24
+      },
+      "revId": "712084afd7e9fea26970ae3e4703d0f9eb292c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
