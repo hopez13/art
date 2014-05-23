@@ -187,6 +187,29 @@
       "revId": "28e17d083c2721891f44f496f08ad566611f5bfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fb968aa_8a0bebb2",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T20:44:39Z",
+      "side": 1,
+      "message": "one thing add add:\n\nLOCAL_ADDITIONAL_DEPENDENCIES +\u003d $(LOCAL_PATH)/Android.mk\n\nwhich will make testing the makefile changes easier.",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "28e17d083c2721891f44f496f08ad566611f5bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
