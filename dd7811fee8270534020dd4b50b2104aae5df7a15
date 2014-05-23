@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fd680dc_f4e5b643",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-05-23T17:52:11Z",
+      "side": 1,
+      "message": "This should also be fixed for ARMv7.",
+      "revId": "dd7811fee8270534020dd4b50b2104aae5df7a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd680dc_d41af286",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-05-23T17:52:11Z",
+      "side": 1,
+      "message": "My understanding of the Math.sqrt() is that both ARMv8 - AArch64 and AArch32 (ARMv7) do not need the call to the external helper. Fix ARM or fix ARM64 :-) ?",
+      "revId": "dd7811fee8270534020dd4b50b2104aae5df7a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
