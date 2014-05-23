@@ -22,6 +22,30 @@
       "revId": "76716a69a0e51b3516227e8b7e365e4b9490618c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_73c8e08b",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-05-23T09:35:45Z",
+      "side": 1,
+      "message": "I guess not when it\u0027s the copy constructor.",
+      "parentUuid": "9f7638c4_537124b8",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "76716a69a0e51b3516227e8b7e365e4b9490618c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
