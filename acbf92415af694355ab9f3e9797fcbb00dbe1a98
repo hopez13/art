@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df7c30a6_d86b11c0",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T05:36:01Z",
+      "side": 1,
+      "message": "just remove SRC_FILES and inline in one place of use",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "acbf92415af694355ab9f3e9797fcbb00dbe1a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df7c30a6_f8684dc5",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T05:36:01Z",
+      "side": 1,
+      "message": "you can nuke all the whitespace lines between include $(CLEAR_VARS) and include $(BUILD...)",
+      "revId": "acbf92415af694355ab9f3e9797fcbb00dbe1a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff7f3495_9c210d08",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T05:36:01Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "acbf92415af694355ab9f3e9797fcbb00dbe1a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff7f3495_bc1e49bf",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T05:36:01Z",
+      "side": 1,
+      "message": "and this.\n\nwe only build for target right?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "acbf92415af694355ab9f3e9797fcbb00dbe1a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff965405_146621a9",
+        "filename": "sigchainlib/Android.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-05-23T05:36:01Z",
+      "side": 1,
+      "message": "...because this is just for target.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "acbf92415af694355ab9f3e9797fcbb00dbe1a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
