@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a58a819_3887e888",
+        "filename": "compiler/optimizing/live_interval_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Why not testing GetEnd too ?",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_dac092c4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "I preferred the previous version with the ending \u0027;\u0027. Could you modify DECLARE_INSTRUCTION so the \u0027;\u0027 is needed?",
+      "range": {
+        "startLine": 1016,
+        "startChar": 2,
+        "endLine": 1016,
+        "endChar": 26
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_ba72eef7",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Would be nice to have a utility function doing this for us. What about \u003ctypename T\u003e T* AllocArray(size_t number) ?",
+      "range": {
+        "startLine": 53,
+        "startChar": 18,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_bb4cb286",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Start arguments here and wrap.",
+      "range": {
+        "startLine": 83,
+        "startChar": 26,
+        "endLine": 83,
+        "endChar": 27
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_5b83c642",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Full stop here",
+      "range": {
+        "startLine": 158,
+        "startChar": 67,
+        "endLine": 158,
+        "endChar": 75
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_9b8d2e6d",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "I don\u0027t understand the comment: is a word missing? ... Ooh, sounds like \"covers\" is missing somewhere in the middle?",
+      "range": {
+        "startLine": 159,
+        "startChar": 11,
+        "endLine": 159,
+        "endChar": 81
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a531cfd_6d2292c3",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Full stop here",
+      "range": {
+        "startLine": 173,
+        "startChar": 69,
+        "endLine": 173,
+        "endChar": 77
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_13f64cf9",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Use an if-else and move comment (5) in the if and comment (6) in the else ?",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 19
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_0e4c9e81",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "IMO, it\u0027s easier to read without the continue: \"if (next_intersection !\u003d kNoLifetime) { free_until[inactive-\u003eGetRegister()] \u003d next_intersection; }\"",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 60
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_f36870c5",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "What happens for float registers? Should we add a CHECK reg is not a float register?",
+      "range": {
+        "startLine": 261,
+        "startChar": 11,
+        "endLine": 261,
+        "endChar": 45
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_4e2f8679",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Same comment about continue.",
+      "range": {
+        "startLine": 288,
+        "startChar": 4,
+        "endLine": 288,
+        "endChar": 37
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_b8783609",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Same comment about continue.",
+      "range": {
+        "startLine": 300,
+        "startChar": 4,
+        "endLine": 300,
+        "endChar": 37
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_d81b42d6",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "What about other targets? Are we only testing on the host for now?",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_4e06a6eb",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "ValidateIntervals1 ?",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_f810feb4",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "ValidateIntervals2 ?",
+      "range": {
+        "startLine": 118,
+        "startChar": 28,
+        "endLine": 118,
+        "endChar": 46
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_93881c10",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "int ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 6,
+        "endLine": 158,
+        "endChar": 9
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_d365349d",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "For my understanding, could please give an example of a case where union is required? I was thinking about boolean, byte, char and short implicit conversions to int.",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_53a5a48e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "than",
+      "range": {
+        "startLine": 132,
+        "startChar": 51,
+        "endLine": 132,
+        "endChar": 55
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_98b7fa71",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Maybe add in the comment above why \u00272\u0027 is the right value.",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 26
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_b8e4b673",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "HInstruction* const",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 15
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a58a819_2ecec262",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "const size_t",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7638c4_93c25c15",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "UsePosition* const",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 14
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3da49e_d8e9824a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-05-23T11:09:09Z",
+      "side": 1,
+      "message": "Add a kNoRegister constant ? Be careful, I think one already exists for Quick compiler.",
+      "range": {
+        "startLine": 127,
+        "startChar": 18,
+        "endLine": 127,
+        "endChar": 20
+      },
+      "revId": "8927d05dc0f8d9c2a2c7df2874c03a1143ff508a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
