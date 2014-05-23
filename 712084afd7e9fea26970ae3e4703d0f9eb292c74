@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fd680dc_d13be455",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-23T17:27:52Z",
+      "side": 1,
+      "message": "While we are tidying up, there is a ParseDouble function in parsed_options.cc that does the second half of this.  Perhaps we could move that into here and consolidate?",
+      "range": {
+        "startLine": 1305,
+        "startChar": 7,
+        "endLine": 1305,
+        "endChar": 24
+      },
+      "revId": "712084afd7e9fea26970ae3e4703d0f9eb292c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
