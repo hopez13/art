@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffad7469_b5b96a65",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-24T01:41:17Z",
+      "side": 1,
+      "message": "Check growth_limit \u003c\u003d capacity?",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 3
+      },
+      "revId": "c179016fe188bef09487e777aa0fd861f5cdf067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f52ac51_1e770d57",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-24T01:41:17Z",
+      "side": 1,
+      "message": "\"1 * KB\" to clarify the unit better?",
+      "range": {
+        "startLine": 92,
+        "startChar": 54,
+        "endLine": 92,
+        "endChar": 58
+      },
+      "revId": "c179016fe188bef09487e777aa0fd861f5cdf067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f52ac51_3e72d166",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-24T01:41:17Z",
+      "side": 1,
+      "message": "s/thread/self/",
+      "range": {
+        "startLine": 703,
+        "startChar": 62,
+        "endLine": 703,
+        "endChar": 68
+      },
+      "revId": "c179016fe188bef09487e777aa0fd861f5cdf067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
