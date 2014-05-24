@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "1fb968aa_e10f2a50",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "Is it gonna do move semantics correctly? I had to use std::move() when I wanted to assign it somewhere. I definitely don\u0027t want the unique_ptr objects to delete their payload when the local array is destroyed at the end of the scope...\n\nAlso, we push all of them into opened_dex_files_, which had been that way before.",
+      "parentUuid": "9f9d5828_044cbcaa",
+      "range": {
+        "startLine": 294,
+        "startChar": 32,
+        "endLine": 294,
+        "endChar": 35
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9d5828_84752cdf",
         "filename": "runtime/common_runtime_test.h",
         "patchSetId": 1
@@ -163,6 +187,30 @@
     },
     {
       "key": {
+        "uuid": "bf65bc2b_f424f8cf",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "Was to replace explicit calls to DexFile::Open when rewriting tests. So, yes, redundant.",
+      "parentUuid": "bfa05c5b_3074900f",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 42
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f6b28de_174b94e8",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -174,6 +222,30 @@
       "writtenOn": "2014-05-22T23:00:19Z",
       "side": 1,
       "message": "We talk here of SyntheticLocations and entries, could we use just one term? Can we make filename a location if its not really a file we can open?",
+      "range": {
+        "startLine": 96,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_8060aa17",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "I understand your comment. To clarify: Entries are specific to zip files and name a file inside of them. Synthetic locations are filenames or locations extended with an entry.\n\nThis seemed the cleanest way to keep old terminology and satisfy the constraints of having different locations for all dex files in an oat file.\n\nThe problem now is that functions are overloaded in meaning to make things a black box for the caller. For GetChecksum, the filename input can either be an actual file name for a physical file, or a synthetic one.",
+      "parentUuid": "1f6b28de_174b94e8",
       "range": {
         "startLine": 96,
         "startChar": 6,
@@ -209,6 +281,30 @@
     },
     {
       "key": {
+        "uuid": "ffad7469_206a1600",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "I had started doing some work with a char* to avoid the std::string allocations in StringPrintF and make the loop a bit faster (e.g., for 2-9, one only has to change one char), but it became too tedious.\n\nSo, yeah, that\u0027s certainly a cleaner way.",
+      "parentUuid": "7f6c24f1_fdafe31a",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 49
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f6b28de_b75bc8af",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -220,6 +316,30 @@
       "writtenOn": "2014-05-22T23:00:19Z",
       "side": 1,
       "message": "shouldn\u0027t be necessary",
+      "range": {
+        "startLine": 947,
+        "startChar": 22,
+        "endLine": 947,
+        "endChar": 46
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf65bc2b_940ca45d",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "Don\u0027t know. Didn\u0027t compile for me without it.",
+      "parentUuid": "1f6b28de_b75bc8af",
       "range": {
         "startLine": 947,
         "startChar": 22,
@@ -370,6 +490,30 @@
     },
     {
       "key": {
+        "uuid": "1fb968aa_c106a639",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "Technically I could clean this up, as I\u0027m not really using the different levels. The only thing important is whether the entry was found or not, so we can warn when extraction/.../ failed.",
+      "parentUuid": "ff965405_c5d6c9f8",
+      "range": {
+        "startLine": 839,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 37
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9d5828_ef41694c",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 1
@@ -381,6 +525,30 @@
       "writtenOn": "2014-05-22T22:45:37Z",
       "side": 1,
       "message": "dex_files... but why cant you use your common_runtime_test.h helpers?",
+      "range": {
+        "startLine": 149,
+        "startChar": 30,
+        "endLine": 149,
+        "endChar": 33
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_004cbaaa",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "I should...",
+      "parentUuid": "9f9d5828_ef41694c",
       "range": {
         "startLine": 149,
         "startChar": 30,
@@ -427,6 +595,30 @@
       "writtenOn": "2014-05-22T22:45:37Z",
       "side": 1,
       "message": "could this user a helper from the parent?",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_a0584665",
+        "filename": "runtime/dex_method_iterator_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "If we do not want to extend the test to multidex, yes.",
+      "parentUuid": "bfa05c5b_f04e28a5",
       "range": {
         "startLine": 28,
         "startChar": 5,
@@ -624,6 +816,30 @@
     },
     {
       "key": {
+        "uuid": "ffad7469_c055422c",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "Definitely.",
+      "parentUuid": "3f3f0cb7_41361509",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 8
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f9d5828_aaa6ef34",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 1
@@ -773,6 +989,30 @@
       "writtenOn": "2014-05-22T23:00:19Z",
       "side": 1,
       "message": "The terms synthetic, location and base filename should be clarified.",
+      "parentUuid": "3f3f0cb7_41805538",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1230,
+        "endChar": 0
+      },
+      "revId": "d1621daa68b914e36a6acc08cb9ac95d327b1f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf65bc2b_b441e04d",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-24T07:13:09Z",
+      "side": 1,
+      "message": "Probably currently cruft from me looking at the IsDexOptNeeded stuff in the system_dalvik_DexFile code.",
       "parentUuid": "3f3f0cb7_41805538",
       "range": {
         "startLine": 1227,
