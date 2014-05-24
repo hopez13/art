@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fb968aa_b67ad6c6",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-24T05:48:40Z",
+      "side": 1,
+      "message": "didn\u0027t we use to call this size? The growth limit makes naming such a mess in this API.",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "447a914ab28fe7b295403189d550c2759b2777e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
