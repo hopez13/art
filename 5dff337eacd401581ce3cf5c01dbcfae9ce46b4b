@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ffd0472_d2062439",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-26T18:05:47Z",
+      "side": 1,
+      "message": "Alas, this doesn\u0027t work.  Unless I\u0027ve forgotten somethings (which is quite possible), defs will never go past 2, and I believe we also continue the language practice of disallowing more than 255 words of arguments.  However, the number of uses for a Phi node has no such limit.  It should be easy to construct a failing case: just write a switch statement with 500 or so cases - all of which set the same variable.  The use_count of the Phi node at the join will blow through an int8_t here.\n\nThere are a number of tricks that could be played here to avoid increasing the size by taking the limited def size range into account, but I\u0027m inclined to let this go through with a smallish size bump.  Note that taking packing into account, using int16_t for all of these won\u0027t cause any size increase on 64-bit targets.\n\nSo, please reorder the fields here - move the pointers up front, go back to int16_t and add a \"TODO\" suggesting future enhancements that might reduce memory usage:\n\n1.  Add accessors for uses/defs \u0026 make data private.\n\n2.  Change fp_use/fp_def to a bit array (maybe: in practice, this one probably wouldn\u0027t help much).\n\n3.  Combine the storage - it\u0027s wasteful to maintain distinct pointers to 4 related arrays.  The storage could be combined and the unpacking messiness could be dealt with by the accessors using a shared storage base pointer.",
+      "revId": "5dff337eacd401581ce3cf5c01dbcfae9ce46b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
