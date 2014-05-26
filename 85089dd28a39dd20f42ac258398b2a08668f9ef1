@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fb968aa_f065b19c",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-26T12:53:25Z",
+      "side": 1,
+      "message": "How does this work if rl_arg is in an XMM register on x86?  There won\u0027t be a matching view.  You have to generate code to get the high word into the low word of an XMM register or a GPR.",
+      "revId": "85089dd28a39dd20f42ac258398b2a08668f9ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
