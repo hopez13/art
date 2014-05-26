@@ -16,6 +16,24 @@
       "revId": "85089dd28a39dd20f42ac258398b2a08668f9ef1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7469_63c33571",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-26T14:20:41Z",
+      "side": 1,
+      "message": "In the current soft-float convention, rl_arg will not be an xmm register at this point (all arguments are passed via core registers).  In the upcoming hard-float convention we will no longer split long and double arguments across registers and frame.  Any long/double argument that doesn\u0027t fit entirely in register will be passed entirely in the frame.  So, we won\u0027t need to try to pull out the high-order word.",
+      "parentUuid": "1fb968aa_f065b19c",
+      "revId": "85089dd28a39dd20f42ac258398b2a08668f9ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
