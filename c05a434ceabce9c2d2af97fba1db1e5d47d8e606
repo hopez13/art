@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f49d8a6_fe0b3db1",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-05-27T15:39:06Z",
+      "side": 1,
+      "message": "could you also add a CHECK(!shutting_down_) after acquiring the mutex?",
+      "range": {
+        "startLine": 337,
+        "startChar": 4,
+        "endLine": 337,
+        "endChar": 26
+      },
+      "revId": "c05a434ceabce9c2d2af97fba1db1e5d47d8e606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
