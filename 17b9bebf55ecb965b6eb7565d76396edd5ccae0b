@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f34c006_2722be97",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-27T16:56:45Z",
+      "side": 1,
+      "message": "You\u0027re using the operator delete for a chunk of memory allocated with malloc() in strdup(). This invites crashes at program exit. (Unfortunately, the bionic\u0027s operator delete lets you get away with it since it just calls through to free().)",
+      "range": {
+        "startLine": 205,
+        "startChar": 9,
+        "endLine": 205,
+        "endChar": 36
+      },
+      "revId": "17b9bebf55ecb965b6eb7565d76396edd5ccae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
