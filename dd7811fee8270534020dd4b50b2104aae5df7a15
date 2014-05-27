@@ -50,6 +50,24 @@
       "revId": "dd7811fee8270534020dd4b50b2104aae5df7a15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df68b004_f8f22d07",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-27T16:57:18Z",
+      "side": 1,
+      "message": "You\u0027re right about this.  Apparently we were doing this with the JIT as well, and I can\u0027t remember why.  The error got carried forward.  In another CL I\u0027ll remove this from the arm case.  Thanks.",
+      "parentUuid": "5fd680dc_d41af286",
+      "revId": "dd7811fee8270534020dd4b50b2104aae5df7a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
