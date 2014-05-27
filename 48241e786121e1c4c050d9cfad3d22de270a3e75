@@ -22,6 +22,30 @@
       "revId": "48241e786121e1c4c050d9cfad3d22de270a3e75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ffd0472_e638c6e9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-27T18:34:45Z",
+      "side": 1,
+      "message": "Is that possible in ARM64? I thought it\u0027s a three-register op...",
+      "parentUuid": "dfed10cb_8d9921f4",
+      "range": {
+        "startLine": 570,
+        "startChar": 4,
+        "endLine": 570,
+        "endChar": 12
+      },
+      "revId": "48241e786121e1c4c050d9cfad3d22de270a3e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
