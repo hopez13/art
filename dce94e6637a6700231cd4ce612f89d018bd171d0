@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f10f896_8962bd91",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-28T18:15:21Z",
+      "side": 1,
+      "message": "LGTM, but note as long as we have background compaction enabled, as we do by default in master, we still do create the bump pointer spaces. Right?",
+      "range": {
+        "startLine": 238,
+        "startChar": 60,
+        "endLine": 238,
+        "endChar": 86
+      },
+      "revId": "dce94e6637a6700231cd4ce612f89d018bd171d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
