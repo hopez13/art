@@ -22,6 +22,30 @@
       "revId": "447a914ab28fe7b295403189d550c2759b2777e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fd54c00_298b9512",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-28T18:18:09Z",
+      "side": 1,
+      "message": "Not sure we used to call it Size(), but the naming might be confusing.",
+      "parentUuid": "1fb968aa_b67ad6c6",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "447a914ab28fe7b295403189d550c2759b2777e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
