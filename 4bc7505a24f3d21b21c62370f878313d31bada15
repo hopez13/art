@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fb328fb_da358161",
+        "filename": "compiler/dex/pass_driver_me.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1033066
+      },
+      "writtenOn": "2014-05-28T22:54:59Z",
+      "side": 1,
+      "message": "It occurred to me that this is now just a declaration without definition. I guess I\u0027ll have to add \" \u003d std::string()\" or an empty brace-initializer (with NOLINT as lint still chokes on the C++11 brace-initializers).",
+      "revId": "4bc7505a24f3d21b21c62370f878313d31bada15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
