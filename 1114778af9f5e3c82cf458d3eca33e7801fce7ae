@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fd54c00_03f070fd",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-28T15:01:58Z",
+      "side": 1,
+      "message": "I would think so, but I am not certain.  Do you have to check that there is no overlap (in 32 bit mode)?",
+      "revId": "1114778af9f5e3c82cf458d3eca33e7801fce7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df16f08e_a80fb350",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1863,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-28T15:01:58Z",
+      "side": 1,
+      "message": "Remove this code, since we are in x86 code",
+      "revId": "1114778af9f5e3c82cf458d3eca33e7801fce7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df16f08e_e809ab4b",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1889,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-28T15:01:58Z",
+      "side": 1,
+      "message": "Use FloatSolo32 for FP",
+      "range": {
+        "startLine": 1889,
+        "startChar": 63,
+        "endLine": 1889,
+        "endChar": 81
+      },
+      "revId": "1114778af9f5e3c82cf458d3eca33e7801fce7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df16f08e_282743da",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-28T15:01:58Z",
+      "side": 1,
+      "message": "also remove",
+      "revId": "1114778af9f5e3c82cf458d3eca33e7801fce7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fd54c00_83fba0df",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-28T15:01:58Z",
+      "side": 1,
+      "message": "remove comment?",
+      "revId": "1114778af9f5e3c82cf458d3eca33e7801fce7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f10f896_8380de6f",
+        "filename": "test/700-LoadArgRegs/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-28T15:01:58Z",
+      "side": 1,
+      "message": "Add proper comment.  This is a parameter passing test",
+      "revId": "1114778af9f5e3c82cf458d3eca33e7801fce7ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
