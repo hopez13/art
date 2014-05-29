@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fbaacee_adfb1528",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-29T23:23:20Z",
+      "side": 1,
+      "message": "So, is the reason we need to use the execution time addresses, rather than the image creation time addresses, for the relative offset computation for the two special cases (is_quick_offset\u003dtrue) that the two don\u0027t have a normal code target address like a normal method and instead GetQuickToInterpreterBridge() and GetQuickGenericJniTrampoline() return special addresses?",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 7
+      },
+      "revId": "fc3b871ca37593561e3b67006771710bf4d174ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
