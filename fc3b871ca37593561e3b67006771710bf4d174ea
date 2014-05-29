@@ -40,6 +40,24 @@
       "revId": "fc3b871ca37593561e3b67006771710bf4d174ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_9014da13",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T23:52:12Z",
+      "side": 1,
+      "message": "Those two return the function pointers for the trampoline code in the running system. This is in libart, and obviously at some random location. We know where the trampolines will be in the image, at least. That\u0027s the GetOadAddress with the quick_XXX_offset_. Now the only problem is that the class linker also gives us a pointer to where the oat code (to patch) is in the running system (somewhere mapped in memory), not with the oat file layout. So we fix up the differences.",
+      "parentUuid": "7fc0a468_4fda2df7",
+      "revId": "fc3b871ca37593561e3b67006771710bf4d174ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
