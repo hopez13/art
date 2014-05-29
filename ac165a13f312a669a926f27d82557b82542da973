@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fc5a077_5f52e396",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-29T18:31:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is the behavior we want, currently we only use the prefetch FIFO iff kUseMarkStackPrefetch is true.",
+      "revId": "ac165a13f312a669a926f27d82557b82542da973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
