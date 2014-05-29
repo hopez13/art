@@ -1,0 +1,203 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fea00f0_d15ca427",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "Why are these tests commented out?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_316650f7",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "\"Increase\" (since you\u0027re touching the comment anyway)",
+      "range": {
+        "startLine": 659,
+        "startChar": 5,
+        "endLine": 659,
+        "endChar": 13
+      },
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_51b4340c",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "We don\u0027t really need a runtime test if we use COMPILE_ASSERT and #error as suggested below.",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe21c19_8c2ba772",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "This can be a COMPILE_ASSERT.",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 55
+      },
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_eea9ffb5",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "This should be an #error.",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_ceae43bc",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "line length \u003e 100",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_2e982794",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "line length \u003e 100",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe21c19_ec434b27",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "line length \u003e 100, here and 4 times below.",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_91a85caf",
+        "filename": "runtime/exception_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "line length \u003e 100",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_8e2b9b72",
+        "filename": "runtime/reflection_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "Why are these tests commented out?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe21c19_ac3d43ae",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T10:43:05Z",
+      "side": 1,
+      "message": "line length \u003e 100",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
