@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fea00f0_31f53060",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-29T15:02:41Z",
+      "side": 1,
+      "message": "In cases like this I break the line before the first parameter and I often put multiple parameters on the same line. (No strict rules though.)",
+      "range": {
+        "startLine": 50,
+        "startChar": 67,
+        "endLine": 50,
+        "endChar": 85
+      },
+      "revId": "e4a938bff246524b754a9cfe4e2be3ea9a520889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
