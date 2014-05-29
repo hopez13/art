@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fbfa8df_fa79c50b",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "Change \u0027w\u0027 to \u0027W\u0027 and add a full-stop (fs) aka period",
+      "range": {
+        "startLine": 290,
+        "startChar": 5,
+        "endLine": 290,
+        "endChar": 6
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfcdbca8_1795765a",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "W\nfs",
+      "range": {
+        "startLine": 427,
+        "startChar": 5,
+        "endLine": 427,
+        "endChar": 6
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbfa8df_1a8eb9da",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "W\nfs",
+      "range": {
+        "startLine": 440,
+        "startChar": 5,
+        "endLine": 440,
+        "endChar": 6
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbfa8df_5a6b1131",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "can we change state_ to be an art::Atomic and move the __sync_bool_compare_and_swap there. It should be clear from the Atomic API that the fence isn\u0027t necessary.",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 48
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fcab88f_16869a01",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "remove the const here to avoid the const_cast(s) below",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 7
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fcab88f_7666eea9",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "Add a LoadJavaDataVolatile for clarity?",
+      "range": {
+        "startLine": 408,
+        "startChar": 80,
+        "endLine": 408,
+        "endChar": 106
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fcab88f_d676e258",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "use StoreJavaData(new_value) (and volatile) to match the GetField32 implementation above.",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 27
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfcdbca8_f7ee7adc",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "use art::Atomic for consistency, here and below",
+      "range": {
+        "startLine": 473,
+        "startChar": 1,
+        "endLine": 478,
+        "endChar": 17
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbfa8df_3a0bbd8d",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-29T22:30:47Z",
+      "side": 1,
+      "message": "also define as weak?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 76
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
