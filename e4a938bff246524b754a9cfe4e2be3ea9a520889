@@ -39,6 +39,29 @@
       "revId": "e4a938bff246524b754a9cfe4e2be3ea9a520889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fbaacee_de1835dc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-29T17:51:21Z",
+      "side": 1,
+      "message": "This looks good, but it might be a little bit cleaner if we call GetCurrentQuickFrame() first and uses its StackReference return value, instead of accessing it twice in two ways via GetMethod() and GetCurrentQuickFrame(). As in,\n\nStackReference\u003cmirror::ArtMethod\u003e* cur_quick_frame \u003d GetCurrentQuickFrame();\nmirror::ArtMethod* m \u003d cur_quick_frame-\u003eAsMirrorPtr();\nmirror::ArtMethod* old_method \u003d m;\nvisitor_(...);\nif (m !\u003d old_method) {\n  cur_quick_frame-\u003eAssign(m);\n}\n...",
+      "range": {
+        "startLine": 2012,
+        "startChar": 0,
+        "endLine": 2017,
+        "endChar": 5
+      },
+      "revId": "e4a938bff246524b754a9cfe4e2be3ea9a520889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
