@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1ff408d0_afc5391b",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Testing purposes. Was set to the first one failing on ARM64. Shouldn\u0027t have been in the CL and will all be back before a commit.",
+      "parentUuid": "5fc5a077_99cd3bfc",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_316650f7",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2014-05-29T10:43:05Z",
       "side": 1,
       "message": "\"Increase\" (since you\u0027re touching the comment anyway)",
+      "range": {
+        "startLine": 659,
+        "startChar": 5,
+        "endLine": 659,
+        "endChar": 13
+      },
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff408d0_8fca7529",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_316650f7",
       "range": {
         "startLine": 659,
         "startChar": 5,
@@ -77,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "3fef0c01_d01a5c42",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Another CL may reformat the whole of arch_test to do that.",
+      "parentUuid": "5fea00f0_51b4340c",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_8c2ba772",
         "filename": "runtime/arch/arch_test.cc",
         "patchSetId": 1
@@ -88,6 +148,30 @@
       "writtenOn": "2014-05-29T10:43:05Z",
       "side": 1,
       "message": "This can be a COMPILE_ASSERT.",
+      "range": {
+        "startLine": 433,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 55
+      },
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_2d982d94",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "I haven\u0027t seen COMPILE_ASSERT used much in the code base, so that\u0027s why it\u0027s an actual runtime test (which I also trust a bit more to do what I want it to do).\n\nThe more glaring mistake is HeapReference...",
+      "parentUuid": "bfe21c19_8c2ba772",
       "range": {
         "startLine": 433,
         "startChar": 0,
@@ -117,6 +201,24 @@
     },
     {
       "key": {
+        "uuid": "dfd51034_4d9b7993",
+        "filename": "runtime/arch/arch_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "The 32b architectures haven\u0027t been furnished with the definitions, so this needs to be a soft fail.",
+      "parentUuid": "ffd8146d_eea9ffb5",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fc0a468_5ad7957d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -128,6 +230,30 @@
       "writtenOn": "2014-05-29T13:06:02Z",
       "side": 1,
       "message": "| ArtMethod* NULL      | \u003c- SP\n\nto something like:\n\n| StackReference NULL  | \u003c- SP (ArtMethod* NULL)",
+      "range": {
+        "startLine": 694,
+        "startChar": 4,
+        "endLine": 694,
+        "endChar": 34
+      },
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_90429420",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fc0a468_5ad7957d",
       "range": {
         "startLine": 694,
         "startChar": 4,
@@ -157,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "3fef0c01_7058500f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fef0c01_b0a358d2",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfd51034_2d66edf6",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -168,6 +312,24 @@
       "writtenOn": "2014-05-29T13:06:02Z",
       "side": 1,
       "message": "Ditto - ldr w2 ?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_50554cd3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd51034_2d66edf6",
       "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -191,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "dfd51034_cdae49bc",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ff408d0_6f3191dd",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ff408d0_0f38c5be",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -202,6 +382,24 @@
       "writtenOn": "2014-05-29T13:06:02Z",
       "side": 1,
       "message": "Again:\n  ldr w1, [sp...\n\nto avoid method* loading top 4 bytes of potentially bad values?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_3052c8ed",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ff408d0_0f38c5be",
       "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -225,6 +423,24 @@
     },
     {
       "key": {
+        "uuid": "dfd51034_ada3fdd1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ff408d0_cf487d46",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fef0c01_90a854af",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -236,6 +452,24 @@
       "writtenOn": "2014-05-29T13:06:02Z",
       "side": 1,
       "message": "ldr w0 ?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_8da841af",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fef0c01_90a854af",
       "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -259,6 +493,24 @@
     },
     {
       "key": {
+        "uuid": "dfd51034_6d9e3585",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fbaacee_b80d999c",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_ceae43bc",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 1
@@ -270,6 +522,24 @@
       "writtenOn": "2014-05-29T10:43:05Z",
       "side": 1,
       "message": "line length \u003e 100",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_0d95715a",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done, though I do not like the way it looks.",
+      "parentUuid": "ffd8146d_ceae43bc",
       "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -293,6 +563,24 @@
     },
     {
       "key": {
+        "uuid": "1ff408d0_6fe071ac",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffd8146d_2e982794",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_ec434b27",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -304,6 +592,24 @@
       "writtenOn": "2014-05-29T10:43:05Z",
       "side": 1,
       "message": "line length \u003e 100, here and 4 times below.",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff408d0_4fddadec",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done, though I do not like the way it looks.",
+      "parentUuid": "bfe21c19_ec434b27",
       "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -327,6 +633,24 @@
     },
     {
       "key": {
+        "uuid": "1ff408d0_2fda69f6",
+        "filename": "runtime/exception_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_91a85caf",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_8e2b9b72",
         "filename": "runtime/reflection_test.cc",
         "patchSetId": 1
@@ -344,6 +668,24 @@
     },
     {
       "key": {
+        "uuid": "3fef0c01_b0f8f89d",
+        "filename": "runtime/reflection_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Same as jni_compiler_test...",
+      "parentUuid": "ffd8146d_8e2b9b72",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_ac3d43ae",
         "filename": "runtime/stack.h",
         "patchSetId": 1
@@ -355,6 +697,24 @@
       "writtenOn": "2014-05-29T10:43:05Z",
       "side": 1,
       "message": "line length \u003e 100",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_cd21a994",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T14:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe21c19_ac3d43ae",
       "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
