@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fbaacee_ecf1134a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-29T20:29:27Z",
+      "side": 1,
+      "message": "A local variable should not have an underscore at the end of its name, or could be confused with a field/member?",
+      "range": {
+        "startLine": 748,
+        "startChar": 9,
+        "endLine": 748,
+        "endChar": 25
+      },
+      "revId": "1c9bb0ce97dac6bdf50b2524de9aad45d4e08c2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
