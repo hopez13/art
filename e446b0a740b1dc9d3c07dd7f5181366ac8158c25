@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "5fea00f0_91405c6a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-29T19:12:45Z",
+      "side": 1,
+      "message": "Aesthetics: \"(wSuspend)\" -\u003e \"(wSUSPEND).\"",
+      "revId": "e446b0a740b1dc9d3c07dd7f5181366ac8158c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_b13b6009",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-05-29T19:12:45Z",
+      "side": 1,
+      "message": ".cfi_restore x19 ?",
+      "revId": "e446b0a740b1dc9d3c07dd7f5181366ac8158c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_2f25c5c9",
         "filename": "runtime/stack.cc",
         "patchSetId": 3
