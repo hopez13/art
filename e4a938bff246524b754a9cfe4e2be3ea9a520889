@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3fef0c01_50842cba",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T18:26:10Z",
+      "side": 1,
+      "message": "Those pushes are in situations where we do not need a quick frame. The following calls are to artIsAssignableFromCode,\nwhich can neither throw exceptions nor allows a GC to run. So it is acceptable to store the complete pointer for simplicity.",
+      "parentUuid": "5fea00f0_91e4dc71",
+      "revId": "e4a938bff246524b754a9cfe4e2be3ea9a520889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_31f53060",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 2
@@ -53,6 +71,30 @@
       "writtenOn": "2014-05-29T17:51:21Z",
       "side": 1,
       "message": "This looks good, but it might be a little bit cleaner if we call GetCurrentQuickFrame() first and uses its StackReference return value, instead of accessing it twice in two ways via GetMethod() and GetCurrentQuickFrame(). As in,\n\nStackReference\u003cmirror::ArtMethod\u003e* cur_quick_frame \u003d GetCurrentQuickFrame();\nmirror::ArtMethod* m \u003d cur_quick_frame-\u003eAsMirrorPtr();\nmirror::ArtMethod* old_method \u003d m;\nvisitor_(...);\nif (m !\u003d old_method) {\n  cur_quick_frame-\u003eAssign(m);\n}\n...",
+      "range": {
+        "startLine": 2012,
+        "startChar": 0,
+        "endLine": 2017,
+        "endChar": 5
+      },
+      "revId": "e4a938bff246524b754a9cfe4e2be3ea9a520889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_3091a8f8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2017,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T18:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fbaacee_de1835dc",
       "range": {
         "startLine": 2012,
         "startChar": 0,
