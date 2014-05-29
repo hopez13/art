@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5fea00f0_91e4dc71",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-05-29T17:19:38Z",
+      "side": 1,
+      "message": "There are several places where RDI (Method*) is pushed to stack (push rdi). Could you please review them and update that logic if it is applicable to this change?\n\nI beleive push RDI should be replaced by something like \"mod edi , [rsp]\" if edi is method pointer. Is that correct?",
+      "revId": "e4a938bff246524b754a9cfe4e2be3ea9a520889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_31f53060",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 2
