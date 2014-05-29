@@ -117,6 +117,148 @@
     },
     {
       "key": {
+        "uuid": "7fc0a468_5ad7957d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "| ArtMethod* NULL      | \u003c- SP\n\nto something like:\n\n| StackReference NULL  | \u003c- SP (ArtMethod* NULL)",
+      "range": {
+        "startLine": 694,
+        "startChar": 4,
+        "endLine": 694,
+        "endChar": 34
+      },
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_b0a358d2",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \n  ldr w1, [sp...\n\nto avoid loading the 4 bytes above and corrupting the method parameter?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_2d66edf6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "Ditto - ldr w2 ?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff408d0_6f3191dd",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "ldr w3 ?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff408d0_0f38c5be",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "Again:\n  ldr w1, [sp...\n\nto avoid method* loading top 4 bytes of potentially bad values?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff408d0_cf487d46",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1427,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "ldr w0 ?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_90a854af",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "ldr w0 ?",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fbaacee_b80d999c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-05-29T13:06:02Z",
+      "side": 1,
+      "message": "While you\u0027re at it - RDI can be removed.",
+      "revId": "ddaf560b7d80309a7783c9df1e079e2d8ce7506d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_ceae43bc",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 1
