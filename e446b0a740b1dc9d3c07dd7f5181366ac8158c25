@@ -16,6 +16,24 @@
       "revId": "e446b0a740b1dc9d3c07dd7f5181366ac8158c25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_cd7e49f2",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-29T19:01:25Z",
+      "side": 1,
+      "message": "??? SanityCheckFrame uses GetMethod(), which is fixed. I _am_ testing 64b host builds, and without QCG all tests are succeeding.",
+      "parentUuid": "bfe21c19_2f25c5c9",
+      "revId": "e446b0a740b1dc9d3c07dd7f5181366ac8158c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
