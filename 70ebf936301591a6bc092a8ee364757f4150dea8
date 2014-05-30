@@ -51,6 +51,75 @@
       "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_c822af3f",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:38:23Z",
+      "side": 1,
+      "message": "if (!range_check) ...",
+      "range": {
+        "startLine": 1265,
+        "startChar": 0,
+        "endLine": 1265,
+        "endChar": 54
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_82183a8f",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:38:23Z",
+      "side": 1,
+      "message": "looks like REX_W prefixes above broke the indentation here, please help to fix",
+      "range": {
+        "startLine": 290,
+        "startChar": 87,
+        "endLine": 290,
+        "endChar": 90
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_480fdfc0",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:38:23Z",
+      "side": 1,
+      "message": "TODO: prefixes, multi-byte opcodes :-)",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
