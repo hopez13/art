@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fef0c01_769e0885",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-30T04:19:39Z",
+      "side": 1,
+      "message": "static constexpr bool kLeafOptimization \u003d true;",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 27
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_f61c3858",
+        "filename": "runtime/arch/arm/asm_support_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-05-30T04:19:39Z",
+      "side": 1,
+      "message": "We should make sure that this flag agrees with what\u0027s set in the compiler, but that\u0027s for another CL (we don\u0027t have a good place to put this right now).",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
