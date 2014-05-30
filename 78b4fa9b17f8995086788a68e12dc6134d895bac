@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "dfd51034_f3cb2830",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-30T20:58:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fbaacee_15a5638f",
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fc5a077_426323e6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 9,
         "endChar": 29
       },
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ff408d0_def389c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-30T20:58:58Z",
+      "side": 1,
+      "message": "This way is more efficient for code which doesn\u0027t always need a handle. FindArrayClass has a cache which is the fast path so we usually don\u0027t need to create a handle.",
+      "parentUuid": "5fc5a077_426323e6",
       "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "dfd51034_b3c5a01b",
+        "filename": "runtime/mirror/array.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-30T20:58:58Z",
+      "side": 1,
+      "message": "Explained in other comment, though it would be nice to have a way to pass in a handle as well.",
+      "parentUuid": "5fc5a077_e251170d",
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fbaacee_956613a7",
         "filename": "runtime/native/java_lang_reflect_Array.cc",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 53,
         "endChar": 37
       },
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fef0c01_99a87faf",
+        "filename": "runtime/native/java_lang_reflect_Array.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-05-30T20:58:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fbaacee_956613a7",
       "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
