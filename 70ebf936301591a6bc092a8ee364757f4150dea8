@@ -120,6 +120,30 @@
       "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_f7d46257",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-05-30T23:20:49Z",
+      "side": 1,
+      "message": "You would do better to check to see if it is one of the known opcodes",
+      "parentUuid": "dffef0bb_480fdfc0",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
