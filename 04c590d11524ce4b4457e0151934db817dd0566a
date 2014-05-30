@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5fea00f0_144fba47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-30T16:40:54Z",
+      "side": 1,
+      "message": "Trailing whitespace in commit message?",
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dffef0bb_085d67cb",
         "filename": "compiler/dex/mir_graph.cc",
         "patchSetId": 2
@@ -19,6 +36,23 @@
         "endLine": 1300,
         "endChar": 3
       },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_34ed1edb",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-30T16:40:54Z",
+      "side": 1,
+      "message": "For pointers, I prefer comparing to nullptr.",
       "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -226,6 +260,29 @@
         "startChar": 73,
         "endLine": 957,
         "endChar": 74
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_3404fee0",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-05-30T16:40:54Z",
+      "side": 1,
+      "message": "This relies on r0 being available at every suspend check. I think we should use a temp reg.",
+      "range": {
+        "startLine": 958,
+        "startChar": 4,
+        "endLine": 958,
+        "endChar": 9
       },
       "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
