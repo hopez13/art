@@ -290,6 +290,30 @@
     },
     {
       "key": {
+        "uuid": "bfcdbca8_ddbddfc6",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-30T21:42:31Z",
+      "side": 1,
+      "message": "yes - allocate a temp.\n\nRegStorage flags_reg \u003d AllocTemp();\n\nLoadBaseDisp(...., flags_reg, kUnsignedHalf);\n\nLIR* res \u003d OpCmpImmBranch(...)\n\nFreeTemp(flags_reg);\n\nreturn res;\n\n... or something like that.",
+      "parentUuid": "5fea00f0_3404fee0",
+      "range": {
+        "startLine": 958,
+        "startChar": 4,
+        "endLine": 958,
+        "endChar": 9
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fc5a077_e26b5772",
         "filename": "compiler/dex/quick/arm/target_arm.cc",
         "patchSetId": 2
@@ -347,6 +371,30 @@
       "writtenOn": "2014-05-30T04:19:39Z",
       "side": 1,
       "message": "We should make sure that this flag agrees with what\u0027s set in the compiler, but that\u0027s for another CL (we don\u0027t have a good place to put this right now).",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fcab88f_fc8add0c",
+        "filename": "runtime/arch/arm/asm_support_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-05-30T21:42:31Z",
+      "side": 1,
+      "message": "Yea, but my inclination here would be to not have this #define at all.  If this change proves to be performance neutral or better across more than just Caffienemark and we can convince ourselves that suspend coverage is complete, then I\u0027d just do it and remove the existing code.  If not, I\u0027d revert this patch.  Conditionally compiled modes are an invitation for destructive bit rot.",
+      "parentUuid": "3fef0c01_f61c3858",
       "range": {
         "startLine": 38,
         "startChar": 0,
