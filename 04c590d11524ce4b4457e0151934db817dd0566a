@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "dffef0bb_085d67cb",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "move description to declaration rather than definition",
+      "range": {
+        "startLine": 1297,
+        "startChar": 0,
+        "endLine": 1300,
+        "endChar": 3
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_228b8f13",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "s/before/before./",
+      "range": {
+        "startLine": 1311,
+        "startChar": 69,
+        "endLine": 1311,
+        "endChar": 75
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_e2fb46e2",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "s/the/The/",
+      "range": {
+        "startLine": 1311,
+        "startChar": 22,
+        "endLine": 1311,
+        "endChar": 25
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_42f0f2fe",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "white space",
+      "range": {
+        "startLine": 1313,
+        "startChar": 18,
+        "endLine": 1313,
+        "endChar": 19
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fef0c01_769e0885",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 2
@@ -18,6 +110,168 @@
         "startChar": 0,
         "endLine": 192,
         "endChar": 27
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_42868302",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "I agree with Andreas, #ifdefs are prone to bitrot while a constexpr will ensure both sides of an if-else will at least compile.",
+      "parentUuid": "3fef0c01_769e0885",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 27
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_e8a44b95",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "white space",
+      "range": {
+        "startLine": 912,
+        "startChar": 45,
+        "endLine": 912,
+        "endChar": 46
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_a8ae5371",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "if ARM_R4_SUSPEND_FLAG is set then reserved as a suspend check/debugger assist flag, otherwise a callee save promotion target",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 62
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_02018a26",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "white space",
+      "range": {
+        "startLine": 122,
+        "startChar": 26,
+        "endLine": 122,
+        "endChar": 28
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_88b397d7",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "white space",
+      "range": {
+        "startLine": 957,
+        "startChar": 73,
+        "endLine": 957,
+        "endChar": 74
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_e26b5772",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "this makes r4 a temp register rather than a promotion target",
+      "range": {
+        "startLine": 53,
+        "startChar": 72,
+        "endLine": 53,
+        "endChar": 79
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_e294772d",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-05-30T05:24:48Z",
+      "side": 1,
+      "message": "white space, and below",
+      "range": {
+        "startLine": 561,
+        "startChar": 48,
+        "endLine": 561,
+        "endChar": 49
       },
       "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
