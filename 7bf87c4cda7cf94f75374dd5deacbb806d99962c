@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "bfe21c19_af3d35ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-05-30T08:26:52Z",
+      "side": 1,
+      "message": "Note: Please follow the standard git commit message style.\n\nA short heading (60-80 chars) followed by a blank line, followed by a detailed description that\u0027s capped at 80 chars per line.",
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_b4a34ed2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-05-30T08:26:52Z",
+      "side": 1,
+      "message": "Change-Id: should be the last line of your commit message.",
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fbfa8df_fa79c50b",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
