@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fbaacee_15a5638f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-30T04:07:57Z",
+      "side": 1,
+      "message": "Did you mean FindArrayClass?",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_426323e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-30T04:07:57Z",
+      "side": 1,
+      "message": "This works, but this seems like a perfect use case for a handle. Is there a reason not use a handle?",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_e251170d",
+        "filename": "runtime/mirror/array.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-30T04:07:57Z",
+      "side": 1,
+      "message": "For example, why not pass the handle \u0027element_class\u0027 as is here?",
+      "range": {
+        "startLine": 99,
+        "startChar": 54,
+        "endLine": 99,
+        "endChar": 72
+      },
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fbaacee_956613a7",
+        "filename": "runtime/native/java_lang_reflect_Array.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-05-30T04:07:57Z",
+      "side": 1,
+      "message": "Is this handle scope unused? Remove it?",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "78b4fa9b17f8995086788a68e12dc6134d895bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
