@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffd3b444_9cc76d49",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-05-30T07:08:36Z",
+      "side": 1,
+      "message": "Are we still reserving 8 bytes for the ArtMethod in the callee-save-method frame? It looks like to be different between the frame create by invoke-stub.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 83
+      },
+      "revId": "cf4035a4c41ccfcc3e89a0cee25f5218a11b0705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd3b444_7ccdb167",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-05-30T07:08:36Z",
+      "side": 1,
+      "message": "Are we still reserving 8 bytes for the ArtMethod in the JNI frame? It looks like to be different between the frame create by invoke-stub.",
+      "range": {
+        "startLine": 1493,
+        "startChar": 0,
+        "endLine": 1493,
+        "endChar": 30
+      },
+      "revId": "cf4035a4c41ccfcc3e89a0cee25f5218a11b0705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
