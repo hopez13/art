@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3fbaacee_e20fd701",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-05-30T01:12:51Z",
+      "side": 1,
+      "message": "OK, no problem.  To do that I will add a function called GenImplicitNullPointerCheck() to the Mir2Lir class and override it in the arch specific derived classes.  It did seem wrong to do this in here but was quicker to get it running.",
+      "parentUuid": "5fc5a077_93b75412",
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fc5a077_33be48ed",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
