@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5fc5a077_0e7af7ff",
+        "filename": "compiler/dex/clean_up_passes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffd8146d_91a85eaf",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_b169200d",
         "filename": "compiler/dex/clean_up_passes.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "Rename to c_unit.",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_05f2f277",
+        "filename": "compiler/dex/clean_up_passes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_b169200d",
       "range": {
         "startLine": 42,
         "startChar": 19,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "3fbaacee_22e6ef7c",
+        "filename": "compiler/dex/clean_up_passes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe21c19_0f07a936",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_d1f386c0",
         "filename": "compiler/dex/clean_up_passes.h",
         "patchSetId": 8
@@ -76,6 +142,30 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "This is not a cleanup, the badly named PassDriverMECleanup is rebuilding the SSA form.",
+      "range": {
+        "startLine": 27,
+        "startChar": 65,
+        "endLine": 27,
+        "endChar": 89
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_cec87fed",
+        "filename": "compiler/dex/clean_up_passes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "I renamed it to PassDriverPostOpt but I could also do PassDriverBuildSSA but I feel it does more (or will do more than just build SSA)",
+      "parentUuid": "ffd8146d_d1f386c0",
       "range": {
         "startLine": 27,
         "startChar": 65,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "5fc5a077_8e01676e",
+        "filename": "compiler/dex/clean_up_passes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffd8146d_f1ee82dc",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 90
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_5181d471",
         "filename": "compiler/dex/pass_driver_me.h",
         "patchSetId": 8
@@ -122,6 +236,30 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "Style cleanup: add space before \u0027\u0026\u0027.",
+      "range": {
+        "startLine": 115,
+        "startChar": 33,
+        "endLine": 115,
+        "endChar": 34
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_45b0ea78",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_5181d471",
       "range": {
         "startLine": 115,
         "startChar": 33,
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "dffef0bb_e5e59670",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe21c19_afde5573",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_31988a94",
         "filename": "compiler/dex/pass_driver_me.h",
         "patchSetId": 8
@@ -162,6 +318,24 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "Style cleanup:\n  s/BasicBlock *bb/BasicBlock* bb/\n  s/bb !\u003d 0/bb !\u003d nullptr/",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_25360e6d",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done all over",
+      "parentUuid": "ffd8146d_31988a94",
       "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -185,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "dffef0bb_e5923602",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_916e1c11",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_ef4d7d85",
         "filename": "compiler/dex/pass_driver_me_cleanup.cc",
         "patchSetId": 8
@@ -196,6 +388,30 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "Update the name.",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 59
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_85a14253",
+        "filename": "compiler/dex/pass_driver_me_cleanup.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe21c19_ef4d7d85",
       "range": {
         "startLine": 31,
         "startChar": 48,
@@ -231,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "3fbaacee_a2367f1c",
+        "filename": "compiler/dex/pass_driver_me_cleanup.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "I renamed it to PassDriverPostOpt but I could also do PassDriverBuildSSA but I feel it does more (or will do more than just build SSA)",
+      "parentUuid": "5fea00f0_3159b069",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 25
+      },
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_117b4cce",
         "filename": "compiler/dex/pass_driver_me_opts.cc",
         "patchSetId": 8
@@ -242,6 +482,24 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "Odd indentation. It should be 4 spaces.",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dffef0bb_25916ef8",
+        "filename": "compiler/dex/pass_driver_me_opts.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_117b4cce",
       "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -265,6 +523,24 @@
     },
     {
       "key": {
+        "uuid": "dffef0bb_45846aba",
+        "filename": "compiler/dex/pass_driver_me_opts.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe21c19_effb3de2",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_f15a0863",
         "filename": "compiler/dex/pass_driver_me_opts.cc",
         "patchSetId": 8
@@ -276,6 +552,24 @@
       "writtenOn": "2014-05-29T19:15:55Z",
       "side": 1,
       "message": "Add a blank line.",
+      "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_4e222f0c",
+        "filename": "compiler/dex/pass_driver_me_opts.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-05-30T02:43:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fea00f0_f15a0863",
       "revId": "91f7c9d238f754ff6b003654286ae0d48e1b4cce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
