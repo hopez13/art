@@ -314,6 +314,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_5c38d5bf",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-05-30T21:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfcdbca8_ddbddfc6",
+      "range": {
+        "startLine": 958,
+        "startChar": 4,
+        "endLine": 958,
+        "endChar": 9
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fc5a077_e26b5772",
         "filename": "compiler/dex/quick/arm/target_arm.cc",
         "patchSetId": 2
@@ -325,6 +349,30 @@
       "writtenOn": "2014-05-30T05:24:48Z",
       "side": 1,
       "message": "this makes r4 a temp register rather than a promotion target",
+      "range": {
+        "startLine": 53,
+        "startChar": 72,
+        "endLine": 53,
+        "endChar": 79
+      },
+      "revId": "04c590d11524ce4b4457e0151934db817dd0566a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_71edd3d9",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-05-30T21:53:47Z",
+      "side": 1,
+      "message": "I initially thought that changing r4 into temp register would make it promotable. In the end, I found many callee save spills in ART were hard coded spread around different files (including assembly stubs). It may be error prone to change r4 into a promotion target as r5-r8, r10-r11. Could you give me some references to change r4 to a callee save register?",
+      "parentUuid": "5fc5a077_e26b5772",
       "range": {
         "startLine": 53,
         "startChar": 72,
