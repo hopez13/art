@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ffd8146d_62251e12",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-02T18:54:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fef0c01_e47ec2f1",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 661,
+        "endChar": 73
+      },
+      "revId": "5757afe957351b46356dc2c8ca0ccfe9bbae5f7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfd51034_0171bab9",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 1
@@ -41,6 +65,53 @@
         "startChar": 22,
         "endLine": 239,
         "endChar": 25
+      },
+      "revId": "5757afe957351b46356dc2c8ca0ccfe9bbae5f7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_221f16be",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-02T18:54:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd51034_0171bab9",
+      "range": {
+        "startLine": 239,
+        "startChar": 22,
+        "endLine": 239,
+        "endChar": 25
+      },
+      "revId": "5757afe957351b46356dc2c8ca0ccfe9bbae5f7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_c20df29b",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-02T18:54:53Z",
+      "side": 1,
+      "message": "Finally I don\u0027t think it\u0027s true. We must clear the flag if we\u0027re catching the exception, whatever the state of this flag is.",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 8
       },
       "revId": "5757afe957351b46356dc2c8ca0ccfe9bbae5f7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
