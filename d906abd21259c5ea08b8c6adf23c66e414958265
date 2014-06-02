@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dffef0bb_5136676d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-02T22:46:46Z",
+      "side": 1,
+      "message": "That would likely go with the style guide better.",
+      "parentUuid": "ffd8146d_5d3fa7d2",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 8
+      },
+      "revId": "d906abd21259c5ea08b8c6adf23c66e414958265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_60b4fa0c",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2014-06-02T20:58:00Z",
       "side": 1,
       "message": "Why are we sure the following accesses do not need a read barrier again?",
+      "range": {
+        "startLine": 248,
+        "startChar": 27,
+        "endLine": 248,
+        "endChar": 28
+      },
+      "revId": "d906abd21259c5ea08b8c6adf23c66e414958265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_87ca654f",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-02T22:46:46Z",
+      "side": 1,
+      "message": "If you mean the code after a call to ReadBarrierObjectPointersLocked() e.g., InternalGet(), we don\u0027t need the read barrier again because we rebuild the map (object_to_entry_) with the \u0027read-barriered\u0027 object pointers in ReadBarrierObjectPointersLocked(). As long as we don\u0027t have a situation where an ongoing GC ends and another GC invokes for the rest of the function after the ReadBarrierObjectPointersLocked() call, which, I believe, we do not, it\u0027s fine.\n\nIf you mean something else, which ones are you referring to?",
+      "parentUuid": "bfe21c19_40c1fe60",
       "range": {
         "startLine": 248,
         "startChar": 27,
