@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_4c3ca0dc",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-06-02T18:44:37Z",
+      "side": 1,
+      "message": "went too fast, done in PS3",
+      "parentUuid": "ffd8146d_fdfbf3e1",
+      "range": {
+        "startLine": 283,
+        "startChar": 9,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_e2c34ece",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
@@ -120,6 +144,24 @@
       "side": 1,
       "message": "You could have defined these inline functions after MIRGraph. It\u0027s not very nice but it works.\n\nThe real question is: Where does IsPseudoMirOp() conceptually belong?",
       "parentUuid": "dffef0bb_f1bd53c6",
+      "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_876945ca",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-06-02T18:44:37Z",
+      "side": 1,
+      "message": "True, I think it goes in DecodedInstruction as long as that is there. But I can go both ways and move the implementation lower if you prefer :)",
+      "parentUuid": "bfe21c19_400a1e41",
       "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
