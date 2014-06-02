@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fcab88f_fcf1b849",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-02T17:07:50Z",
+      "side": 1,
+      "message": "use mir_next",
+      "range": {
+        "startLine": 349,
+        "startChar": 35,
+        "endLine": 349,
+        "endChar": 44
+      },
+      "revId": "3d67b02186d639b0cf85f2643ade15399f2ce6a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbfa8df_19147ea4",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-02T17:07:50Z",
+      "side": 1,
+      "message": "This is changing the meaning of the operands to this opcode, I\u0027m surprised such a change is so isolated. For example, shouldn\u0027t dumping change?",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 59
+      },
+      "revId": "3d67b02186d639b0cf85f2643ade15399f2ce6a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
