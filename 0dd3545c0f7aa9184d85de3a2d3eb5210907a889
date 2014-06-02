@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffd8146d_7d6ca3d8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-02T23:45:48Z",
+      "side": 1,
+      "message": "This and the one above are duplicate from ParsedOptions and can be extracted in utils.cc. I prefer to do it in a follow up CL since this CL already contains a fair amount of small changes.",
+      "range": {
+        "startLine": 715,
+        "startChar": 5,
+        "endLine": 715,
+        "endChar": 16
+      },
+      "revId": "0dd3545c0f7aa9184d85de3a2d3eb5210907a889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
