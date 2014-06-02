@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ffd8146d_fdfbf3e1",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-02T18:40:03Z",
+      "side": 1,
+      "message": "Not done in PS2.",
+      "parentUuid": "7f33447f_8c10686f",
+      "range": {
+        "startLine": 283,
+        "startChar": 9,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_e2c34ece",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "The only way to fix these cleanly that I found was to move IsPseudoMirOp to DecodedInstruction and use it there",
       "parentUuid": "ffd8146d_e2c34ece",
+      "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe21c19_400a1e41",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-02T18:40:03Z",
+      "side": 1,
+      "message": "You could have defined these inline functions after MIRGraph. It\u0027s not very nice but it works.\n\nThe real question is: Where does IsPseudoMirOp() conceptually belong?",
+      "parentUuid": "dffef0bb_f1bd53c6",
       "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
