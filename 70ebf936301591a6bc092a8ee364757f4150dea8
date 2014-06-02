@@ -192,6 +192,30 @@
       "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_ffe51870",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-02T22:40:55Z",
+      "side": 1,
+      "message": "Probably.  I\u0027ve modified it to be more specific to the opcodes and prefixes but I don\u0027t know which actual instructions can generate the fault yet.  It may be only a couple of instructions (movs) that do it but I\u0027ll have to investigate floating point/vector etc.",
+      "parentUuid": "7f33447f_f7d46257",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
