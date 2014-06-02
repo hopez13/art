@@ -77,6 +77,30 @@
     },
     {
       "key": {
+        "uuid": "1fbfa8df_857ca13e",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-02T22:39:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dffef0bb_c822af3f",
+      "range": {
+        "startLine": 1265,
+        "startChar": 0,
+        "endLine": 1265,
+        "endChar": 54
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_82183a8f",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
@@ -88,6 +112,30 @@
       "writtenOn": "2014-05-30T05:38:23Z",
       "side": 1,
       "message": "looks like REX_W prefixes above broke the indentation here, please help to fix",
+      "range": {
+        "startLine": 290,
+        "startChar": 87,
+        "endLine": 290,
+        "endChar": 90
+      },
+      "revId": "70ebf936301591a6bc092a8ee364757f4150dea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_80e038e4",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-02T22:39:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f33447f_82183a8f",
       "range": {
         "startLine": 290,
         "startChar": 87,
