@@ -22,6 +22,23 @@
       "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_e2c34ece",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-02T17:03:36Z",
+      "side": 1,
+      "message": "Potential array overrun, see\nhttps://android-review.googlesource.com/#/c/96449/1/compiler/dex/mir_optimization.cc",
+      "revId": "6133b661a6f3f7cacda88390af6274ea2a00f8f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
