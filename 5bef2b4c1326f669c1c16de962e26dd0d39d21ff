@@ -22,6 +22,24 @@
       "revId": "5bef2b4c1326f669c1c16de962e26dd0d39d21ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_f0aea272",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-03T17:48:59Z",
+      "side": 1,
+      "message": "I think we want this here since the host ashmem_create_region just ignores the name you pass in anyways.",
+      "parentUuid": "bf505ca5_1f66c7f6",
+      "revId": "5bef2b4c1326f669c1c16de962e26dd0d39d21ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
