@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fc5a077_a79a08e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-03T00:38:52Z",
+      "side": 1,
+      "message": "I get a parse error when interpreting this sentence :-/",
+      "range": {
+        "startLine": 17,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "bba52355f94cba1cd3ed1e9739e36ee9c77f3cb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_ca01816d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-03T00:38:52Z",
+      "side": 1,
+      "message": "// When true this field indicates that the exception associated with this thread has already been reported to instrumentation. The exception remains associated with the thread until the handler is found.\n? Its an error to throw an exception while finding the handler. ?",
+      "range": {
+        "startLine": 953,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 50
+      },
+      "revId": "bba52355f94cba1cd3ed1e9739e36ee9c77f3cb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
