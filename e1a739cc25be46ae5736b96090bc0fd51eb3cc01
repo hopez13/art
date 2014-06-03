@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_d864ea2b",
+        "filename": "runtime/handle_scope.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-03T02:04:06Z",
+      "side": 1,
+      "message": "COMPILE_ASSERT(kNumReferences \u003e\u003d 1, handle_scopes_must_contain_handles); ?",
+      "range": {
+        "startLine": 175,
+        "startChar": 25,
+        "endLine": 175,
+        "endChar": 31
+      },
+      "revId": "e1a739cc25be46ae5736b96090bc0fd51eb3cc01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
