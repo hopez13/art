@@ -116,6 +116,30 @@
       "revId": "d906abd21259c5ea08b8c6adf23c66e414958265",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_002770d9",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-03T10:05:55Z",
+      "side": 1,
+      "message": "Thanks, that\u0027s what I meant.\n\nMaybe that leads to wanting a EnsureNoGcHappening kind of functionality again, but how do we know this situation cannot happen? What if someone adds new calls in a method like InternalAdd?",
+      "parentUuid": "5fc5a077_87ca654f",
+      "range": {
+        "startLine": 248,
+        "startChar": 27,
+        "endLine": 248,
+        "endChar": 28
+      },
+      "revId": "d906abd21259c5ea08b8c6adf23c66e414958265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
