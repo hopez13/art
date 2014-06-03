@@ -140,6 +140,30 @@
       "revId": "d906abd21259c5ea08b8c6adf23c66e414958265",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_5fda0fa9",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-03T18:35:09Z",
+      "side": 1,
+      "message": "I think we could use StartAssertNoThreadSuspension.",
+      "parentUuid": "5fea00f0_002770d9",
+      "range": {
+        "startLine": 248,
+        "startChar": 27,
+        "endLine": 248,
+        "endChar": 28
+      },
+      "revId": "d906abd21259c5ea08b8c6adf23c66e414958265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
