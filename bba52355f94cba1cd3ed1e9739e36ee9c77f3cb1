@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ffd8146d_fd9f7351",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-03T12:39:11Z",
+      "side": 1,
+      "message": "Here I talk about the cases where we need to temporarily clear the exception before restoring it. We must do the same for the new flag. I will rephrase.",
+      "parentUuid": "5fc5a077_a79a08e5",
+      "range": {
+        "startLine": 17,
+        "startChar": 67,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "bba52355f94cba1cd3ed1e9739e36ee9c77f3cb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fc5a077_ca01816d",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-03T00:38:52Z",
       "side": 1,
       "message": "// When true this field indicates that the exception associated with this thread has already been reported to instrumentation. The exception remains associated with the thread until the handler is found.\n? Its an error to throw an exception while finding the handler. ?",
+      "range": {
+        "startLine": 953,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 50
+      },
+      "revId": "bba52355f94cba1cd3ed1e9739e36ee9c77f3cb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe21c19_db5cbf27",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-03T12:39:11Z",
+      "side": 1,
+      "message": "Done\n\nWe can throw an exception while finding handler. In this case, I expect this flag to be cleared since the exception is different that the one we were looking a handler for.",
+      "parentUuid": "5fc5a077_ca01816d",
       "range": {
         "startLine": 953,
         "startChar": 0,
