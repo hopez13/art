@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_5830da1f",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1962,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-03T02:18:57Z",
+      "side": 1,
+      "message": "Instead of calling is movable object here, you could see if its a copy by checking if chars is not an address in the s_chars array? This would handle the case that something moves from movable space -\u003e non movable.",
+      "revId": "a9ed694faecdf1e324d71c87b45419d5fda577d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fc5a077_cd875bbf",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-03T02:18:57Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to decode java_string again here.",
+      "revId": "a9ed694faecdf1e324d71c87b45419d5fda577d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_b3e6e74d",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1983,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-03T02:18:57Z",
+      "side": 1,
+      "message": "s could have moved during IncrementDisableMovingGC since this may cause thread suspension, you can store the offset before doing the IncrementDisableMovingGC to get around this.",
+      "revId": "a9ed694faecdf1e324d71c87b45419d5fda577d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_d3304b0e",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1996,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-03T02:18:57Z",
+      "side": 1,
+      "message": "No need for this return statement.",
+      "revId": "a9ed694faecdf1e324d71c87b45419d5fda577d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
