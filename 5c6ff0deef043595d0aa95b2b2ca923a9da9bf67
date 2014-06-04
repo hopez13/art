@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "df2c3030_4f3811c0",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-04T22:16:29Z",
+      "side": 1,
+      "message": "I believe there the same issue here:\n    mtc1    $v0, $f0\n    mtc1    $v1, $f1\nartQuickProxyInvokeHandler returns a uint64_t.",
+      "range": {
+        "startLine": 988,
+        "startChar": 0,
+        "endLine": 988,
+        "endChar": 7
+      },
+      "revId": "5c6ff0deef043595d0aa95b2b2ca923a9da9bf67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd8146d_a81c07fc",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 1
