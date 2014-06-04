@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bfe21c19_0642ee74",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-04T15:28:26Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "5fea00f0_2bba5559",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 14
+      },
+      "revId": "ec587c910a89d8b13b0d9dbddfa8d6a22f9c44d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfe21c19_a670ba5b",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-04T12:38:02Z",
       "side": 1,
       "message": "nullptr ?",
+      "range": {
+        "startLine": 247,
+        "startChar": 37,
+        "endLine": 247,
+        "endChar": 38
+      },
+      "revId": "ec587c910a89d8b13b0d9dbddfa8d6a22f9c44d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_2333987d",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-04T15:28:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe21c19_a670ba5b",
       "range": {
         "startLine": 247,
         "startChar": 37,
