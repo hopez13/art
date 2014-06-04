@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe21c19_1bd12787",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1003284
+      },
+      "writtenOn": "2014-06-04T02:48:56Z",
+      "side": 1,
+      "message": "LGTM. Shifting by 4 maintains the correct stack alignment and size, and causes less overallocation than shifting by 3",
+      "range": {
+        "startLine": 498,
+        "startChar": 7,
+        "endLine": 498,
+        "endChar": 10
+      },
+      "revId": "5c6ff0deef043595d0aa95b2b2ca923a9da9bf67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_a81c07fc",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1003284
+      },
+      "writtenOn": "2014-06-04T02:48:56Z",
+      "side": 1,
+      "message": "Right",
+      "range": {
+        "startLine": 1038,
+        "startChar": 4,
+        "endLine": 1038,
+        "endChar": 8
+      },
+      "revId": "5c6ff0deef043595d0aa95b2b2ca923a9da9bf67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
