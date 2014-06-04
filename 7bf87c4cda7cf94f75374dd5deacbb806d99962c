@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "5fc5a077_4d1eabf8",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-04T00:59:38Z",
+      "side": 1,
+      "message": "All done.",
+      "parentUuid": "1fbfa8df_fa79c50b",
+      "range": {
+        "startLine": 290,
+        "startChar": 5,
+        "endLine": 290,
+        "endChar": 6
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfcdbca8_1795765a",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -128,6 +152,30 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_ffeafb3f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-04T00:59:38Z",
+      "side": 1,
+      "message": "Let\u0027s postpone that to a separate CL. There are more opportunities along those lines.",
+      "parentUuid": "1fbfa8df_5a6b1131",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 48
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fcab88f_16869a01",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -151,6 +199,30 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_052c38ba",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-04T00:59:38Z",
+      "side": 1,
+      "message": "Applied alternate fix to avoid them.",
+      "parentUuid": "9fcab88f_16869a01",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 7
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fcab88f_7666eea9",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -162,6 +234,30 @@
       "writtenOn": "2014-05-29T22:30:47Z",
       "side": 1,
       "message": "Add a LoadJavaDataVolatile for clarity?",
+      "range": {
+        "startLine": 408,
+        "startChar": 80,
+        "endLine": 408,
+        "endChar": 106
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfd51034_3c605d89",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-04T00:59:38Z",
+      "side": 1,
+      "message": "If we eventually want to move to using the C++11 primitives directly, it\u0027s probably better to leave it as is.  C++11 memory_order_seq_cst and Java volatile should match exactly.  We\u0027re not losing anything by identifying them.",
+      "parentUuid": "9fcab88f_7666eea9",
       "range": {
         "startLine": 408,
         "startChar": 80,
@@ -220,6 +316,30 @@
     },
     {
       "key": {
+        "uuid": "dffef0bb_3d5cdaa6",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-04T00:59:38Z",
+      "side": 1,
+      "message": "Did these.  Skipped GetFieldObject() for now, where some interface changes are needed. \n\nI also left the CAS operations alone for now, since there seems to be ambiguity about whether they are intended to be weak or strong.  In particular, the sun.misc.unsafe interface seems seriously underspecified.  The current code seems quite conservative, and I\u0027m hesitant to break things by guessing intent.  We could introduce the Strong operations and use them everywhere.",
+      "parentUuid": "bfcdbca8_f7ee7adc",
+      "range": {
+        "startLine": 473,
+        "startChar": 1,
+        "endLine": 478,
+        "endChar": 17
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fbfa8df_3a0bbd8d",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 1
@@ -231,6 +351,30 @@
       "writtenOn": "2014-05-29T22:30:47Z",
       "side": 1,
       "message": "also define as weak?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 76
+      },
+      "revId": "7bf87c4cda7cf94f75374dd5deacbb806d99962c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_b655727f",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-04T00:59:38Z",
+      "side": 1,
+      "message": "I ended up documenting them as strong for now, after convincing myself that there is at least one client (monitor Install/Inflate when the lock is owned) that assumed no spurious failures.  This probably needs revisiting in a future CL.",
+      "parentUuid": "1fbfa8df_3a0bbd8d",
       "range": {
         "startLine": 106,
         "startChar": 0,
