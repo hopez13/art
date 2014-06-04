@@ -34,6 +34,29 @@
       "revId": "e927fb0447e661c3c97d0aec8181fff446dc9546",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_56866502",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-04T22:20:06Z",
+      "side": 1,
+      "message": "Please can we place mem_maps_locks in Locks:: and give it a global order for annotalysis.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 30
+      },
+      "revId": "e927fb0447e661c3c97d0aec8181fff446dc9546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
