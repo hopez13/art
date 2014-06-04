@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf505ca5_3122d20b",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-04T22:35:11Z",
+      "side": 1,
+      "message": "Don\u0027t you need to use std::unique_ptr\u003cmirror::Object*[]\u003e ?",
+      "revId": "4ca443d531df0994673cda7d11d19c343bf3267d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
