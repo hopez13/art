@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffd8146d_2856d737",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-04T11:09:00Z",
+      "side": 1,
+      "message": "No error checking for fstat \u0026 sendfile ?",
+      "revId": "6bbd8e4681eb0d1ec586c638fe614c75cd6a2ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
