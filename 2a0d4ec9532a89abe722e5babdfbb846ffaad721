@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f162cdd_acdf7b98",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-04T18:00:29Z",
+      "side": 1,
+      "message": "could likely like in thread-inl.h, but the code is on a slow-path so I\u0027m not too bothered.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 1
+      },
+      "revId": "2a0d4ec9532a89abe722e5babdfbb846ffaad721",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
