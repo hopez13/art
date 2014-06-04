@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_571e5df8",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-04T18:39:48Z",
+      "side": 1,
+      "message": "Do these need to be pointers? if you just hold CallPatchInformation values it could reduce memory usage assuming there isn\u0027t multiple pointers pointing to the same address.",
+      "revId": "e59a04d55ce098a4c95945c48dc0f701f0d48053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
