@@ -16,6 +16,24 @@
       "revId": "e927fb0447e661c3c97d0aec8181fff446dc9546",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_5742dd75",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-04T19:33:40Z",
+      "side": 1,
+      "message": "I guess we might get by doing that, but here\u0027s my thinking:\n\nI\u0027d like to extend this to do a similar sort of verification at the time immune region is populated (at the beginning of a GC), rather than just once in Heap::Heap(), in the future.\n\nFor example, we might start reusing the same mem map between one of the bump pointer space and the main (free-list) space for background compaction like you suggested before. If we do that and have the GSS collector that puts the main space into the immune region, a check at the time the immune region is populated would likely be more assuring.\n\nI think an ART-internal accounting comes handy for this. For example, if there\u0027s already a large object map within the region we\u0027d like to designate as the immune region, how would we detect that? Relying on the ashmem name string matching only does not seem very robust. Besides, ashmem does not work on host.\n\nAnother concern is speed. Parsing text is heavier. Comparatively, I think the cost of this accounting with a multimap with 10-20 (+ # of LOS\u0027es) entries, isn\u0027t bad. Lastly, we gain the ability to dump ART-internal view of memory maps more easily for debugging and crash diagnosis, as well as adding other sorts of checks on top of this accounting.",
+      "parentUuid": "7f33447f_57edfd6e",
+      "revId": "e927fb0447e661c3c97d0aec8181fff446dc9546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
