@@ -16,6 +16,24 @@
       "revId": "4ca443d531df0994673cda7d11d19c343bf3267d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_0d49c147",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-04T22:46:22Z",
+      "side": 1,
+      "message": "I think that\u0027s superfluous, but done.",
+      "parentUuid": "bf505ca5_3122d20b",
+      "revId": "4ca443d531df0994673cda7d11d19c343bf3267d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
