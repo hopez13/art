@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f162cdd_0cfc6750",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-04T17:11:35Z",
+      "side": 1,
+      "message": "Should this call removed?",
+      "range": {
+        "startLine": 116,
+        "startChar": 20,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "3a359eb640e1513ca10ed3da207a28167135e668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_b60fb802",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-04T17:11:35Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 120,
+        "startChar": 20,
+        "endLine": 120,
+        "endChar": 47
+      },
+      "revId": "3a359eb640e1513ca10ed3da207a28167135e668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
