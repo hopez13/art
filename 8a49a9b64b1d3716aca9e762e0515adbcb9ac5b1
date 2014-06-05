@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fea00f0_fa009824",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-05T07:37:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the stack trace be cloned? If this object is the array we\u0027re returning to the user, I believe it has to be. I\u0027d add a test to ensure RI has this behavior as well.",
+      "range": {
+        "startLine": 1533,
+        "startChar": 17,
+        "endLine": 1533,
+        "endChar": 34
+      },
+      "revId": "8a49a9b64b1d3716aca9e762e0515adbcb9ac5b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
