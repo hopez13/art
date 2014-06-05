@@ -1,0 +1,556 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_61495747",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "if you are going to move it, move it to its own file?",
+      "range": {
+        "startLine": 663,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 19
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_26905738",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "@",
+      "range": {
+        "startLine": 722,
+        "startChar": 27,
+        "endLine": 722,
+        "endChar": 28
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_81ed7bdc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "so hopefully we have a lock on dex_files?",
+      "range": {
+        "startLine": 734,
+        "startChar": 2,
+        "endLine": 734,
+        "endChar": 64
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_22eb6f46",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "here is an example where I think we need to use all\n\nconsider people that use multi-dex to combined separately built dex files, the first one may not change when others are updated.",
+      "range": {
+        "startLine": 812,
+        "startChar": 2,
+        "endLine": 812,
+        "endChar": 56
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_a14f5f45",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "the old code protected against races between generation and opening. can we open via fd to avoid the race? ah, I see there is more checking above.",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 83
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_41ef73d9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "everywhere I see a delete of a local I think we should be using unique_ptr. why not here?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 4,
+        "endLine": 1107,
+        "endChar": 20
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_21a90fb2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "OpenDexFilesFromOat (no need to say Multi) and I think you don\u0027t need the explanation in the doc then either about how it can be used for \"single\"",
+      "range": {
+        "startLine": 276,
+        "startChar": 7,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_a1951f5c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "comment that caller takes ownership of OatFile consistently? it just seems odd to say it for some cases but not all of the others that return OatFile*",
+      "range": {
+        "startLine": 532,
+        "startChar": 63,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_813b3bbd",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "in all of these, the dex_location is the container right, which is why there is still a one-to-one mapping from dex to oat?\n\nhowever, shouldn\u0027t there be more than one dex_location_checksum. seems unsafe to assume just classes.dex matters. we could sum the checksums of all to keep things simple.",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 1
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_21d26f38",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "OpenAll doesn\u0027t really distinguish this from Open. Perhaps leave Open or rename to OpenFromZip",
+      "range": {
+        "startLine": 368,
+        "startChar": 9,
+        "endLine": 368,
+        "endChar": 21
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_a26bff2f",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "doc with example of what is true and what is false. is this unit tested?",
+      "range": {
+        "startLine": 823,
+        "startChar": 2,
+        "endLine": 823,
+        "endChar": 55
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_4268e332",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "again, please give example inputs and outputs (also hopefully this is unit tested?",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 827,
+        "endChar": 89
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_e1b4870e",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "move with the other char* variant. do we need both (fine if it is used a lot. \n\ntests?",
+      "range": {
+        "startLine": 829,
+        "startChar": 2,
+        "endLine": 829,
+        "endChar": 62
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_66017fd0",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "example doc? tests?",
+      "range": {
+        "startLine": 830,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 74
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_2677f756",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "isn\u0027t this one of the patterns from common_runtime_test.h",
+      "range": {
+        "startLine": 148,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 28
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_62d16786",
+        "filename": "runtime/dex_method_iterator_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "replace with CommonRuntimeTest helper? or are path assumptions not the same.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_c292b3d0",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "again, local delete \u003d\u003e unique_ptr",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 21
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_61be37c4",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "unique_ptr (and init on one line).\n\nwe always want to free. from libdvm code:\n\n    /*\n     * We can\u0027t just free arbitrary DEX files because they have bits and\n     * pieces of loaded classes.  The only exception to this rule is if\n     * they were never used to load classes.\n     *\n     * If we can\u0027t free them here, dvmInternalNativeShutdown() will free\n     * them when the VM shuts down.\n     */\n\nso the point is, the runtime has the ownership, so we can delete what is not registered, then delete the container. \n\nso the loop can just null out what is registered, then call the usual helper to delete the rest of the container contents.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_0270abec",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "is that really a limit of unordered_set?",
+      "range": {
+        "startLine": 218,
+        "startChar": 46,
+        "endLine": 219,
+        "endChar": 31
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_025bcb68",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "I worry about cases where we look with location and not also dex_location_checksum. you need to test with apps like https://play.google.com/store/apps/details?id\u003dcom.eclipsim.gpsstatus2 that use the same location more than once in the same runtime with different checksums.",
+      "range": {
+        "startLine": 318,
+        "startChar": 50,
+        "endLine": 318,
+        "endChar": 74
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_86e04bad",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "as noted elsewhere, there is a reason that most everything search function with a dex_location also takes a dex_location_checksum, namely https://play.google.com/store/apps/details?id\u003dcom.eclipsim.gpsstatus2",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 66
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_62564739",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "this is only used for .odex next to container. location will never be a \"multi-dex\" name",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1229,
+        "endChar": 60
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_c23b9308",
+        "filename": "test/112-multidex/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "WS",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_81d7bbf3",
+        "filename": "tools/generate-operator-out.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T05:49:14Z",
+      "side": 1,
+      "message": "enh?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
