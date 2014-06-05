@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_447bfe99",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-05T19:28:27Z",
+      "side": 1,
+      "message": "go ahead and turn this off so we can measure the impact.",
+      "revId": "046431ab25a0a55eabe0a39c3822803828892f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_5cd1b285",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-05T19:28:27Z",
+      "side": 1,
+      "message": "trailing space.",
+      "revId": "046431ab25a0a55eabe0a39c3822803828892f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_f39787bd",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-05T19:28:27Z",
+      "side": 1,
+      "message": "Let\u0027s change this back to 6 core temps and remove r4 from the list.  If we find it better to stop using r4 as a suspend countdown, it should be used for promotion purposes.",
+      "revId": "046431ab25a0a55eabe0a39c3822803828892f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_939debe0",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-05T19:28:27Z",
+      "side": 1,
+      "message": "trailing space.",
+      "revId": "046431ab25a0a55eabe0a39c3822803828892f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
