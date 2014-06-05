@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_667f2def",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-05T02:31:40Z",
+      "side": 1,
+      "message": "That might be the reason for a bug I\u0027ve been ignoring up to now.  Thanks.  The bug is that there are text relocations in x86.",
+      "parentUuid": "3f162cdd_e27fb782",
+      "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_a333f92c",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_46f3230d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-05T02:31:40Z",
+      "side": 1,
+      "message": "This is all still WIP.  More work to do, including removing debug lines.",
+      "parentUuid": "bf505ca5_a333f92c",
+      "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_628c0772",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2014-06-05T02:24:55Z",
       "side": 1,
       "message": "remove or change to log?",
+      "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_66f09fff",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-05T02:31:40Z",
+      "side": 1,
+      "message": "Like the other debug, WIP.",
+      "parentUuid": "3f162cdd_628c0772",
       "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
