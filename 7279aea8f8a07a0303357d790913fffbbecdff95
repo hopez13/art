@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffd8146d_95e3a3f0",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1039782
+      },
+      "writtenOn": "2014-06-05T03:33:34Z",
+      "side": 1,
+      "message": "Just a minor concern: how about having \u0027size_t\u0027 instead of \u0027int\u0027 in order to keep the things symmetric (similar functions around use \u0027size_t\u0027).",
+      "revId": "7279aea8f8a07a0303357d790913fffbbecdff95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
