@@ -34,6 +34,24 @@
       "revId": "44e49e02dbdcd0834fb5fb573b1d68f9ccd1873f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffd8146d_b5fd7f8d",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-05T02:28:13Z",
+      "side": 1,
+      "message": "Thanks you, I\u0027ll remove comment in a next patchset.\n\nCould you please provide some background on why we need these adjustments in reg_pool?",
+      "parentUuid": "3f162cdd_22da8f83",
+      "revId": "44e49e02dbdcd0834fb5fb573b1d68f9ccd1873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
