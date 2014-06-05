@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fea00f0_1ac35c72",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "The style seems to be to align #if with the static, so that the code has a 2 char indent.",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f81844b_32be70ed",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "missing fullstop",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_fac77879",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "and here",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f81844b_d2a924b6",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "Is this #elif correct ? You\u0027re already testing for __aarch64__ in the first #if statement.",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_baa8d0ae",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "Do you want to allow people to call std::atomic::load / store directly ? If not, consider composition or private inheritance.",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_faae58bb",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "Perhaps this needs to be rewritten as [sizeof(T) \u003d\u003d sizeof(Atomic\u003cT\u003e)] Given that you use this fact in Address. It\u0027s obviously true now, but won\u0027t be if anyone ever adds adds fields to this class. Unlikely I know, but thought I should point it out.",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_7ab4a80c",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "Does this really have to be a member of this class ?",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_3a95005b",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "template\u003cint SZ,... (remove extraneous space)",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f81844b_123b2cbf",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "Odd intendation",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f81844b_722e3882",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-05T09:54:52Z",
+      "side": 1,
+      "message": "tws",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
