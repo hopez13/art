@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_7e41f5c6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2014-06-05T16:19:52Z",
+      "side": 1,
+      "message": "Can you please add:\n\n#if defined(__linux__) \u0026\u0026 defined(__arm__)\n\nthis workaround isn\u0027t needed for x86, for example.",
+      "revId": "0a87d99380f27a0049cf191b06ad874e9fa014ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
