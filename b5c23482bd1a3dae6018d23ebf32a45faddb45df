@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf505ca5_99b0ac7a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T16:26:36Z",
+      "side": 1,
+      "message": "This is the frame set up by SETUP_REF_AND_ARGS_CALLEE_SAVE_FRAME in INVOKE_TRAMPOLINE. Could you please correct the layout for consistency (the registers are in the wrong order)?",
+      "range": {
+        "startLine": 1856,
+        "startChar": 26,
+        "endLine": 1856,
+        "endChar": 45
+      },
+      "revId": "b5c23482bd1a3dae6018d23ebf32a45faddb45df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_9e1959e0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T16:26:36Z",
+      "side": 1,
+      "message": "Line too long (I know, the file isn\u0027t well formatted, but let\u0027s start here).",
+      "range": {
+        "startLine": 1865,
+        "startChar": 100,
+        "endLine": 1865,
+        "endChar": 107
+      },
+      "revId": "b5c23482bd1a3dae6018d23ebf32a45faddb45df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
