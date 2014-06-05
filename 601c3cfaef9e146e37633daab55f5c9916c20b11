@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_f9ec5076",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "Hans may have other intents, the original purpose for this structure is so that we can ultimately just lose art::Atomic and use std::atomic.",
+      "parentUuid": "5fea00f0_baa8d0ae",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_faae58bb",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -104,6 +122,24 @@
     },
     {
       "key": {
+        "uuid": "3f162cdd_98550ad7",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "5fea00f0_faae58bb",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_7ab4a80c",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -115,6 +151,24 @@
       "writtenOn": "2014-06-05T09:54:52Z",
       "side": 1,
       "message": "Does this really have to be a member of this class ?",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_b8f80e9e",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "what\u0027s the concern? We\u0027ve fixed a number of uint/size_t type confusions, I believe where this is used is in a CAS to make the intent of the user clear.",
+      "parentUuid": "5fea00f0_7ab4a80c",
       "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_fe01856c",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "// TODO: move state_ to be a art::Atomic and use an intention revealing CAS operation that exposes the barrier semantics :-)",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 48
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f81844b_722e3882",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -166,6 +243,75 @@
       "writtenOn": "2014-06-05T09:54:52Z",
       "side": 1,
       "message": "tws",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_be68dd33",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "move to atomic.h?",
+      "range": {
+        "startLine": 534,
+        "startChar": 0,
+        "endLine": 539,
+        "endChar": 3
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_38eddeda",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment. We CAS to thin lock and CAS to inflate in the monitor code, a spurious failure would just cause the whole lock or inflate logic to restart. I don\u0027t see a proper with weak behavior.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 36
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_591f84bc",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-05T16:23:58Z",
+      "side": 1,
+      "message": "I\u0027d prefer if this mentioned that CasLockWord had acquire semantics.",
+      "range": {
+        "startLine": 697,
+        "startChar": 25,
+        "endLine": 697,
+        "endChar": 60
+      },
       "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
