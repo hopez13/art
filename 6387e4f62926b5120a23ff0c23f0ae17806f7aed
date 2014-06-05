@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3f162cdd_d5e34b40",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "I just moved it up, as it\u0027s now used in a different method. I assumed it was just local to ClassLinker and should then stay that way.",
+      "parentUuid": "7f33447f_61495747",
+      "range": {
+        "startLine": 663,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 19
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_26905738",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_019acb61",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "I am assuming that the caller has a local vector. That seems reasonable to me. I don\u0027t see a reason why the vector should be shared across threads.\n\nThe rollback is for cases like dex2oat, which reads all inputs into a \"big\" vector. In those cases I don\u0027t want \"half\" of a multidex in there if we fail.",
+      "parentUuid": "7f33447f_81ed7bdc",
+      "range": {
+        "startLine": 734,
+        "startChar": 2,
+        "endLine": 734,
+        "endChar": 64
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_22eb6f46",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "here is an example where I think we need to use all\n\nconsider people that use multi-dex to combined separately built dex files, the first one may not change when others are updated.",
+      "range": {
+        "startLine": 812,
+        "startChar": 2,
+        "endLine": 812,
+        "endChar": 56
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_a6e8e78c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "I thought it added unnecessary complexity to add multidex scanning to the open-oat-file code. Instead I optimistically take the file and try to \"multidex-open\" it, and see if it fails the checksums then. If it does, it will try to regenerate.\n\nWhat might be wrong is me not closing the oat file I opened in step 2) when multidex-loading fails.",
+      "parentUuid": "3f162cdd_22eb6f46",
       "range": {
         "startLine": 812,
         "startChar": 2,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_0195eb26",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Yeah, though there is one case above where I\u0027m not sure what to lock (as we have a dex location only).",
+      "parentUuid": "7f33447f_a14f5f45",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 83
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_41ef73d9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -128,6 +224,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "everywhere I see a delete of a local I think we should be using unique_ptr. why not here?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 4,
+        "endLine": 1107,
+        "endChar": 20
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_219a6f59",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "7f33447f_41ef73d9",
       "range": {
         "startLine": 1107,
         "startChar": 4,
@@ -186,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_61771756",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "7f33447f_a1951f5c",
+      "range": {
+        "startLine": 532,
+        "startChar": 63,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_813b3bbd",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -197,6 +341,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "in all of these, the dex_location is the container right, which is why there is still a one-to-one mapping from dex to oat?\n\nhowever, shouldn\u0027t there be more than one dex_location_checksum. seems unsafe to assume just classes.dex matters. we could sum the checksums of all to keep things simple.",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 1
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_26237745",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "As mentioned in the corresponding .cc part, I thought the added complexity is not worth it, and the Open code will take care of checking the other checksums.\n\nI made all these methods, as far as I could, private, so they are not exposed to anything outside ClassLinker. Thus it should not be able to be abused.",
+      "parentUuid": "7f33447f_813b3bbd",
       "range": {
         "startLine": 533,
         "startChar": 0,
@@ -232,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_e61caffd",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Will use OpenFromZip, good suggestion.",
+      "parentUuid": "7f33447f_21d26f38",
+      "range": {
+        "startLine": 368,
+        "startChar": 9,
+        "endLine": 368,
+        "endChar": 21
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_a26bff2f",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
@@ -243,6 +435,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "doc with example of what is true and what is false. is this unit tested?",
+      "range": {
+        "startLine": 823,
+        "startChar": 2,
+        "endLine": 823,
+        "endChar": 55
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_86128be5",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Not yet, but will be added.",
+      "parentUuid": "3f162cdd_a26bff2f",
       "range": {
         "startLine": 823,
         "startChar": 2,
@@ -278,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_a15d1fcd",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Again not yet.",
+      "parentUuid": "3f162cdd_4268e332",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 827,
+        "endChar": 89
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_e1b4870e",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
@@ -289,6 +529,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "move with the other char* variant. do we need both (fine if it is used a lot. \n\ntests?",
+      "range": {
+        "startLine": 829,
+        "startChar": 2,
+        "endLine": 829,
+        "endChar": 62
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_41a5338e",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "We use char* in one part of our code base, and std::string in another. To avoid c_str memory allocations it seemed prudent to use std::string functionality. Maybe not worth it?",
+      "parentUuid": "7f33447f_e1b4870e",
       "range": {
         "startLine": 829,
         "startChar": 2,
@@ -324,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "3f162cdd_350ac740",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Will be in the next PS.",
+      "parentUuid": "bf505ca5_66017fd0",
+      "range": {
+        "startLine": 830,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 74
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_2677f756",
         "filename": "runtime/dex_file_test.cc",
         "patchSetId": 4
@@ -335,6 +623,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "isn\u0027t this one of the patterns from common_runtime_test.h",
+      "range": {
+        "startLine": 148,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 28
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_66097fb9",
+        "filename": "runtime/dex_file_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "It is, but it is not available here. Note that this is not a member of a class, but a static function. I decided not to inline it into the test below or put it into DexFileTest as it wasn\u0027t before.",
+      "parentUuid": "bf505ca5_2677f756",
       "range": {
         "startLine": 148,
         "startChar": 2,
@@ -370,6 +682,30 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_e64fcff0",
+        "filename": "runtime/dex_method_iterator_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "As seen below, the input to OpenDexFile is a simplified \"name,\" and GetDexFileName does some translation. I left it structurally the way I found it (and it\u0027s the only \"real\" user of GetDexFileName in all tests), but I could refactor the functionality fully to CommonRuntimeTest (where GetDexFileName already lives).",
+      "parentUuid": "3f162cdd_62d16786",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_c292b3d0",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 4
@@ -381,6 +717,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "again, local delete \u003d\u003e unique_ptr",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 21
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_d54cab87",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "3f162cdd_c292b3d0",
       "range": {
         "startLine": 121,
         "startChar": 4,
@@ -416,6 +776,30 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_c155c37e",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "7f33447f_61be37c4",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_0270abec",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 4
@@ -427,6 +811,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "is that really a limit of unordered_set?",
+      "range": {
+        "startLine": 218,
+        "startChar": 46,
+        "endLine": 219,
+        "endChar": 31
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_e1fec715",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "The description likely doesn\u0027t hold, but here are my assumptions, in descending order of importance:\n(1) Type ids are sorted, and so are classes in a dex file. It might never have been explicit, but I thought the array we returned would be sorted, too.\n(2) Storage space is constrained. Set has lower requirements than unordered_set.\n(3) I thought the implementation is not that bad and iterating over a larger backing array in unordered_set would make up for the tree costs. That might not be true.",
+      "parentUuid": "3f162cdd_0270abec",
       "range": {
         "startLine": 218,
         "startChar": 46,
@@ -462,6 +870,30 @@
     },
     {
       "key": {
+        "uuid": "3f162cdd_15c8e38a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Yes, I will definitely need to check with apps that use dynamic dex/oat files.",
+      "parentUuid": "3f162cdd_025bcb68",
+      "range": {
+        "startLine": 318,
+        "startChar": 50,
+        "endLine": 318,
+        "endChar": 74
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_86e04bad",
         "filename": "runtime/oat_file.h",
         "patchSetId": 4
@@ -485,6 +917,30 @@
     },
     {
       "key": {
+        "uuid": "3f162cdd_d5a82bb0",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "I should have likely just used the function below with nullptr.\n\nThere is a reason for this, but it\u0027s likely too contrived to be realistic. It was to allow secondaries without checksums, but keep the loading code minimal (shared over \"oat found\" and \"oat regenerated\").",
+      "parentUuid": "bf505ca5_86e04bad",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 66
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_62564739",
         "filename": "runtime/utils.cc",
         "patchSetId": 4
@@ -496,6 +952,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "this is only used for .odex next to container. location will never be a \"multi-dex\" name",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1229,
+        "endChar": 60
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_e1d7a77b",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "The method is \"public,\" so I was erring on the side of safety.",
+      "parentUuid": "3f162cdd_62564739",
       "range": {
         "startLine": 1227,
         "startChar": 0,
@@ -542,6 +1022,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "enh?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_0193abd5",
+        "filename": "tools/generate-operator-out.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-05T07:08:23Z",
+      "side": 1,
+      "message": "Forgot to document this in the commit message. Two things:\n(1) I like enum classes (type safety FTW), and the tool didn\u0027t handle them.\n(2) After I made the change, I realized that the enum was private (as it\u0027s only used in private methods), so auto-generation will fail. So I added parsing a \"  // private\" comment to skip generating \u003c\u003c code.",
+      "parentUuid": "7f33447f_81d7bbf3",
       "range": {
         "startLine": 17,
         "startChar": 0,
