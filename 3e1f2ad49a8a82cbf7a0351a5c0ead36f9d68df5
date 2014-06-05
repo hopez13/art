@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf505ca5_c3ae4573",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T01:00:06Z",
+      "side": 1,
+      "message": "this is not the system class loader\n\nhttp://developer.android.com/reference/java/lang/ClassLoader.html#getSystemClassLoader()\n\nthe system class loader is -classpath, this is -Xbootclasspath:\n\nwe confuse this because we have FindSystemClass, but probably that should be removed or renamed FindBootClass\n\nso for the comments, I\u0027d just say the boot class loader, or just say \"// Search the boot class path\"",
+      "range": {
+        "startLine": 1389,
+        "startChar": 11,
+        "endLine": 1389,
+        "endChar": 30
+      },
+      "revId": "3e1f2ad49a8a82cbf7a0351a5c0ead36f9d68df5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_5fc0bc0c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T01:00:06Z",
+      "side": 1,
+      "message": "// The boot class loader is typically searched ahead of other class loaders,",
+      "range": {
+        "startLine": 1395,
+        "startChar": 9,
+        "endLine": 1395,
+        "endChar": 82
+      },
+      "revId": "3e1f2ad49a8a82cbf7a0351a5c0ead36f9d68df5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_2bcb3030",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-05T01:00:06Z",
+      "side": 1,
+      "message": "in the boot class path;",
+      "range": {
+        "startLine": 695,
+        "startChar": 43,
+        "endLine": 695,
+        "endChar": 72
+      },
+      "revId": "3e1f2ad49a8a82cbf7a0351a5c0ead36f9d68df5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
