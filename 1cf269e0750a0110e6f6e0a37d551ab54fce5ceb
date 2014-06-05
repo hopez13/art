@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f162cdd_e27fb782",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-05T02:24:55Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these 2 uses (line 1210 too) be PLT?  Won\u0027t it introduce text relocations, which are badness?",
+      "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_a333f92c",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-05T02:24:55Z",
+      "side": 1,
+      "message": "remove debug message or change to log?",
+      "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_628c0772",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-05T02:24:55Z",
+      "side": 1,
+      "message": "remove or change to log?",
+      "revId": "1cf269e0750a0110e6f6e0a37d551ab54fce5ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
