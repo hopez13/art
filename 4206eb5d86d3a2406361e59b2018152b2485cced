@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f33447f_d8bdb151",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-06T07:29:28Z",
+      "side": 1,
+      "message": "it\u0027d be worth swapping out reference out arguments to be pointer",
+      "range": {
+        "startLine": 1131,
+        "startChar": 61,
+        "endLine": 1131,
+        "endChar": 73
+      },
+      "revId": "4206eb5d86d3a2406361e59b2018152b2485cced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
