@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df2c3030_03f74d6f",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-06T13:30:15Z",
+      "side": 1,
+      "message": "See comment in RegStorage.h.",
+      "revId": "a5ffc5bfca82a0b73b5ec35f52594f98613267f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_fa78b705",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-06T13:30:15Z",
+      "side": 1,
+      "message": "ditto.",
+      "revId": "a5ffc5bfca82a0b73b5ec35f52594f98613267f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_23fcc950",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-06T13:30:15Z",
+      "side": 1,
+      "message": "ditto.",
+      "revId": "a5ffc5bfca82a0b73b5ec35f52594f98613267f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_9a6e5340",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-06T13:30:15Z",
+      "side": 1,
+      "message": "Let\u0027s not do this here.  RegStorage describes a hardware register, while RegisterInfo describes the relationship among registers and Dalvik values.  Although you may know that a different view of a register exists - that information in not available at the RegStorage level.  What you want here is  RegisterInfo\u0027s FindMatchingView().  There are a few examples of its use in the code, but basically you pass it a storage mask and it will return a matching aliased register (if it exists).   It\u0027s  little verbose, so if you like you could create similar As32bit() and As64Bit() helper functions in RegStorage in mir_to_lir.h.  These should be deleted.",
+      "revId": "a5ffc5bfca82a0b73b5ec35f52594f98613267f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
