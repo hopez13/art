@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ff749443_8ef5bbed",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T22:36:10Z",
+      "side": 1,
+      "message": "yeah, it seems better to fix the allocation site that hack delete?",
+      "parentUuid": "7f33447f_654159c7",
+      "revId": "63deda28a83808c3c9fb24875ca3b7a39a3bc1cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_c83bbc08",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 1
