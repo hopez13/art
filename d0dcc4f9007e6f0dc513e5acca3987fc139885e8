@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe21c19_966e0940",
+        "filename": "runtime/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-06T07:40:24Z",
+      "side": 1,
+      "message": "Given that this guy holds GC objects (the method, and we could also make the code a GC object), I find the TwoWordReturn super generic on something we must be careful not to leak.\n\nIt\u0027s definitely better than int64_t, but somehow it\u0027d be nice to know this deals with potential movable objects.",
+      "range": {
+        "startLine": 129,
+        "startChar": 16,
+        "endLine": 129,
+        "endChar": 17
+      },
+      "revId": "d0dcc4f9007e6f0dc513e5acca3987fc139885e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
