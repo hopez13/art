@@ -499,6 +499,24 @@
     },
     {
       "key": {
+        "uuid": "1f1b2808_7d2d7dc8",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:37:48Z",
+      "side": 1,
+      "message": "Actually no. It needs to not be because we call write() on it.",
+      "parentUuid": "bf505ca5_6e895112",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4350e0_60edd6d9",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
