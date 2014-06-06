@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe21c19_09279ed9",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-06T11:22:16Z",
+      "side": 1,
+      "message": "Unused include?",
+      "revId": "2d1fc39ead1b4f33650279f5bba996a030243833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_906ccdd9",
+        "filename": "compiler/dex/selectivity.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-06T11:22:16Z",
+      "side": 1,
+      "message": "I would call these SkipClass() and SkipMethod(). The \"selectivity\" doesn\u0027t convey the purpose.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 49
+      },
+      "revId": "2d1fc39ead1b4f33650279f5bba996a030243833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe21c19_891b8e8b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-06T11:22:16Z",
+      "side": 1,
+      "message": "The ExecuteClassSelectivityAction() check should be done in SkipClass().\n\nDon\u0027t compare a bool with true/false.",
+      "revId": "2d1fc39ead1b4f33650279f5bba996a030243833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fea00f0_b056b101",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1918,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-06T11:22:16Z",
+      "side": 1,
+      "message": "Break lines longer than 100 characters.",
+      "revId": "2d1fc39ead1b4f33650279f5bba996a030243833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
