@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff749443_0e0a2b40",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-06T22:37:10Z",
+      "side": 1,
+      "message": "left as an exercise for the reader :-)",
+      "range": {
+        "startLine": 335,
+        "startChar": 58,
+        "endLine": 336,
+        "endChar": 42
+      },
+      "revId": "73423d0d9a4b191258e3e23011efaa0ebe3bdd60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_a591a1f9",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-06T22:37:10Z",
+      "side": 1,
+      "message": "I believe it does, or would like to understand why its broken. Move the TODO to a bug?",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 113,
+        "endChar": 35
+      },
+      "revId": "73423d0d9a4b191258e3e23011efaa0ebe3bdd60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
