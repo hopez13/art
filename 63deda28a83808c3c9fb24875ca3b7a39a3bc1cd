@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "1f1b2808_18d56f51",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-06T23:36:47Z",
+      "side": 1,
+      "message": "This is used in a unique_ptr, we would still need the hack delete to call free or else we get the: \"free() / delete / delete []\" error due to allocating with malloc and freeing with delete",
+      "parentUuid": "ff749443_8ef5bbed",
+      "revId": "63deda28a83808c3c9fb24875ca3b7a39a3bc1cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_c83bbc08",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 1
