@@ -71,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "ff749443_6eb40f0d",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df2c3030_069f5a51",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df2c3030_86860a00",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -88,6 +106,24 @@
         "endLine": 52,
         "endChar": 28
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_ae2bd771",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Moved the friend.\n\nAt the moment I do actually use the assign constructor in a few places to make lifetimes easier to think about. I can rewrite these if you want.",
+      "parentUuid": "df2c3030_86860a00",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +153,24 @@
     },
     {
       "key": {
+        "uuid": "ff749443_4e3113dd",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4350e0_20c34e72",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_c8173cd7",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -134,6 +188,24 @@
         "endLine": 110,
         "endChar": 5
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_85757dde",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_c8173cd7",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_4e225599",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Yeah this is for the x86 intro. We only actually copy a single buffer. The other 3 we just pass the function the ones in this class.",
+      "parentUuid": "1f1b2808_b284a484",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f1b2808_1241d06c",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -180,6 +270,24 @@
         "endLine": 156,
         "endChar": 34
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_ae3199df",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "No.",
+      "parentUuid": "1f1b2808_1241d06c",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +317,24 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_e54fa99f",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1b2808_126a30f7",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df2c3030_a6e0e6ac",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -226,6 +352,24 @@
         "endLine": 169,
         "endChar": 24
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_bd4c75ac",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "The vector will store its payload on the heap and IIRC the compiler should be able to recognize that no aliasing occurs within this function and should only copy the relatively small (~20 bytes) vector data-structure on return, not the larger payload.\n\nStill I can change these if you think its worth it.",
+      "parentUuid": "df2c3030_a6e0e6ac",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -255,6 +399,24 @@
     },
     {
       "key": {
+        "uuid": "ff749443_ae42f71f",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4350e0_2044ae2e",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4350e0_0043b226",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -272,6 +434,24 @@
         "endLine": 198,
         "endChar": 28
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_08e7444c",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Removed Entierly.\n\nIt currently passes all of the tests for the old ElfWriterQuick. This API is entierly private to ElfWriterQuick. It seems like the old tests should be okay.",
+      "parentUuid": "df4350e0_0043b226",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -301,6 +481,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_6e895112",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4350e0_00fe5288",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4350e0_60edd6d9",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -318,6 +516,24 @@
         "endLine": 261,
         "endChar": 5
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_7d56dd38",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Maybe. I put the copy in because it means I don\u0027t need to deal with lifetime issues of the passed in sections.",
+      "parentUuid": "df4350e0_60edd6d9",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -347,6 +563,24 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_253cb1ff",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_08a5248f",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_28aa6061",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -364,6 +598,24 @@
         "endLine": 268,
         "endChar": 27
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_4e77b555",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_28aa6061",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -393,6 +645,24 @@
     },
     {
       "key": {
+        "uuid": "1f1b2808_1d424175",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f33447f_937aaafe",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_c8ae5c73",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -416,6 +686,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_8e5dbdcd",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Removed it entierly. It was something I thought I would need but don\u0027t.",
+      "parentUuid": "bf505ca5_c8ae5c73",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_8a560d36",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -433,6 +721,24 @@
         "endLine": 332,
         "endChar": 55
       },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_6ec3911b",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-06T23:32:19Z",
+      "side": 1,
+      "message": "Done.\n\nThis will write out most of the file (everything except oat file data. Also the comment is lying. It doesn\u0027t perform bounds checking, I\u0027ve removed this comment.",
+      "parentUuid": "3f162cdd_8a560d36",
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
