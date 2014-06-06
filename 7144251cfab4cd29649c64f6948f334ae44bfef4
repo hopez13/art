@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_0e71ad5e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-06T23:07:12Z",
+      "side": 1,
+      "message": "I realize f already had a HandleWrapper. Thanks for the cleanup.",
+      "parentUuid": "3f162cdd_8a5dadcd",
+      "revId": "7144251cfab4cd29649c64f6948f334ae44bfef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f1b2808_bd82353e",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 1
