@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "df4350e0_3ad13fdd",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5fea00f0_1ac35c72",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f81844b_32be70ed",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-06-05T09:54:52Z",
       "side": 1,
       "message": "missing fullstop",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_034e6d81",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "7f81844b_32be70ed",
       "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "df2c3030_c3471561",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "5fea00f0_fac77879",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f81844b_d2a924b6",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2014-06-05T09:54:52Z",
       "side": 1,
       "message": "Is this #elif correct ? You\u0027re already testing for __aarch64__ in the first #if statement.",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_4f76c3b2",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Good catch.  Thanks.  I changed it back to what it used to be for StoreStore, which is slightly more aggressive for ARM, but I believe still correct, if it\u0027s supported everywhere.  Since the old code used to work ...",
+      "parentUuid": "7f81844b_d2a924b6",
       "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "df2c3030_03718db9",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "That was also still my intent.  Public inheritance probably makes that slightly easier, so I left it.",
+      "parentUuid": "bf505ca5_f9ec5076",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_faae58bb",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -133,6 +223,24 @@
       "writtenOn": "2014-06-05T16:23:58Z",
       "side": 1,
       "message": "sgtm",
+      "parentUuid": "5fea00f0_faae58bb",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_83859d49",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Agreed.  Unfortunately, that results in incomplete type error messages.  (Along with a truly impressive colllection of avalanche errors.)  Deleted these and instead augmented the assertion outside the template to check the important cases.",
       "parentUuid": "5fea00f0_faae58bb",
       "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -175,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "df2c3030_a382193e",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "This is unchanged from the last version.  I could take it or leave it.",
+      "parentUuid": "3f162cdd_b8f80e9e",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fea00f0_3a95005b",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -192,6 +318,24 @@
     },
     {
       "key": {
+        "uuid": "df2c3030_235da921",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "5fea00f0_3a95005b",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f81844b_123b2cbf",
         "filename": "runtime/atomic.h",
         "patchSetId": 1
@@ -203,6 +347,24 @@
       "writtenOn": "2014-06-05T09:54:52Z",
       "side": 1,
       "message": "Odd intendation",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_badd4fef",
+        "filename": "runtime/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Aligned with previous statement.",
+      "parentUuid": "7f81844b_123b2cbf",
       "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -232,6 +394,30 @@
     },
     {
       "key": {
+        "uuid": "df4350e0_7ad7c7cb",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Did essentially that.",
+      "parentUuid": "7f33447f_fe01856c",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 48
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f81844b_722e3882",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -249,6 +435,24 @@
     },
     {
       "key": {
+        "uuid": "df2c3030_a64f86a0",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "7f81844b_722e3882",
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_be68dd33",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -260,6 +464,30 @@
       "writtenOn": "2014-06-05T16:23:58Z",
       "side": 1,
       "message": "move to atomic.h?",
+      "range": {
+        "startLine": 534,
+        "startChar": 0,
+        "endLine": 539,
+        "endChar": 3
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_e3d1f133",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "We need some refactoring here to get rid of the explicit fences.  Added a TODO here and in the corresponding setter\ncode.",
+      "parentUuid": "7f33447f_be68dd33",
       "range": {
         "startLine": 534,
         "startChar": 0,
@@ -295,6 +523,30 @@
     },
     {
       "key": {
+        "uuid": "1f1b2808_9d589110",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "I may be misreading the code.  But it looked to me like InflateThinLocked() is expected by its callers to succeed.  If the current thread owns the thin lock, it just calls Inflate, which calls Install, which eventually calls CasLockWord.  If CasLockWord fails spuriously, Install returns false, causing Inflate not to do anything else, apparently causing InflateThinLocked to silently fail?",
+      "parentUuid": "3f162cdd_38eddeda",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 36
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_591f84bc",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -306,6 +558,30 @@
       "writtenOn": "2014-06-05T16:23:58Z",
       "side": 1,
       "message": "I\u0027d prefer if this mentioned that CasLockWord had acquire semantics.",
+      "range": {
+        "startLine": 697,
+        "startChar": 25,
+        "endLine": 697,
+        "endChar": 60
+      },
+      "revId": "601c3cfaef9e146e37633daab55f5c9916c20b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_3d1b8548",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-06-06T22:49:19Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "bf505ca5_591f84bc",
       "range": {
         "startLine": 697,
         "startChar": 25,
