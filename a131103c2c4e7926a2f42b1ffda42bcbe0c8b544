@@ -45,6 +45,397 @@
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_069f5a51",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "alphabetical please",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_86860a00",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "our style has been to put this in a private: section at the end. also add DISALLOW_ macros as appropriate to prevent accidental constructors.",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 28
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_20c34e72",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "not sure we use inline unless it critical, I\u0027d leave it off by default, it will probably be inlined anyway.",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_c8173cd7",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "we try to use just // comments",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 5
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_b284a484",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "what is this used for? the x86 info?\n\ncould the data be passed at construction time?\ncould we take ownership rather than copy the data? presumably the caller won\u0027t need it anymore?",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 24
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_1241d06c",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "are their elf types for these uint8_t values? as I recall, they just get stored into a Elf..._Word, so probably this is fine as is.",
+      "range": {
+        "startLine": 156,
+        "startChar": 27,
+        "endLine": 156,
+        "endChar": 34
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_126a30f7",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "style is to have whitespace around ? and :",
+      "range": {
+        "startLine": 162,
+        "startChar": 44,
+        "endLine": 162,
+        "endChar": 65
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_a6e0e6ac",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "this could be big. shouldn\u0027t we pass back a pointer to the data that the caller should take ownership of?\n\nsimilar for the next two methods",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 24
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_2044ae2e",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "should we what it is used for during Write?",
+      "range": {
+        "startLine": 186,
+        "startChar": 6,
+        "endLine": 186,
+        "endChar": 29
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_0043b226",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "class doc for purpose? this is probably true for most of the classes.\n\nthis almost seems like it is for unit testing.\n\nspeaking of which, you probably want to add some unit tests of your new API to elf_writer_test, or actually to a new elf_writer_quick_test.",
+      "range": {
+        "startLine": 198,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 28
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_00fe5288",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "can this be const?",
+      "range": {
+        "startLine": 215,
+        "startChar": 15,
+        "endLine": 215,
+        "endChar": 36
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_60edd6d9",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "can we avoid copy? I assume caller won\u0027t want the data after giving it to us.",
+      "range": {
+        "startLine": 255,
+        "startChar": 4,
+        "endLine": 261,
+        "endChar": 5
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_08a5248f",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 265,
+        "startChar": 1,
+        "endLine": 267,
+        "endChar": 1
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_28aa6061",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 268,
+        "startChar": 1,
+        "endLine": 268,
+        "endChar": 27
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_937aaafe",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "perhaps a clearer name. debug_logging_?",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 270,
+        "endChar": 22
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_c8ae5c73",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "still unclear what this is for.\n\nis this for the oat related symbols? that is what I assumed symtab_builder_ was for.",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 46
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_8a560d36",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-06T21:17:17Z",
+      "side": 1,
+      "message": "const vector and pieces?",
+      "range": {
+        "startLine": 332,
+        "startChar": 22,
+        "endLine": 332,
+        "endChar": 55
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
