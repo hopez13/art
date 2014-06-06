@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df4350e0_40d1badb",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-06T19:30:32Z",
+      "side": 1,
+      "message": "This \u0027field\u0027 could have moved at the GetType() call above. Use fh.GetField() instead?",
+      "range": {
+        "startLine": 288,
+        "startChar": 11,
+        "endLine": 288,
+        "endChar": 16
+      },
+      "revId": "7144251cfab4cd29649c64f6948f334ae44bfef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4350e0_e0c5661a",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-06T19:30:32Z",
+      "side": 1,
+      "message": "Here, too.",
+      "range": {
+        "startLine": 291,
+        "startChar": 30,
+        "endLine": 291,
+        "endChar": 35
+      },
+      "revId": "7144251cfab4cd29649c64f6948f334ae44bfef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_5dc19960",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-06T19:30:32Z",
+      "side": 1,
+      "message": "This \u0027f\u0027 could have been moved at the above GetType() call. Change line 1762 to use NewHandleWrapper(\u0026f)?",
+      "range": {
+        "startLine": 1775,
+        "startChar": 4,
+        "endLine": 1775,
+        "endChar": 5
+      },
+      "revId": "7144251cfab4cd29649c64f6948f334ae44bfef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1b2808_bd82353e",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-06T19:30:32Z",
+      "side": 1,
+      "message": "\u0027safe\u0027 as in \u0027moving gc safe\u0027?",
+      "range": {
+        "startLine": 319,
+        "startChar": 54,
+        "endLine": 319,
+        "endChar": 58
+      },
+      "revId": "7144251cfab4cd29649c64f6948f334ae44bfef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
