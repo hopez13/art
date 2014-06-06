@@ -45,6 +45,30 @@
       "revId": "d0dcc4f9007e6f0dc513e5acca3987fc139885e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2c3030_e60fbe01",
+        "filename": "runtime/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-06T22:35:37Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s the goal here, and that should be well-documented. Code using this should be sufficiently locked as the main use case is assembly stubs.",
+      "parentUuid": "bfe21c19_966e0940",
+      "range": {
+        "startLine": 129,
+        "startChar": 16,
+        "endLine": 129,
+        "endChar": 17
+      },
+      "revId": "d0dcc4f9007e6f0dc513e5acca3987fc139885e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
