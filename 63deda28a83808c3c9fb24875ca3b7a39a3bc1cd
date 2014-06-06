@@ -16,6 +16,24 @@
       "revId": "63deda28a83808c3c9fb24875ca3b7a39a3bc1cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_aee99922",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-06T22:12:52Z",
+      "side": 1,
+      "message": "We allocate it in Create using new byte[], maybe irogers knows a better way? This is all I can think of.",
+      "parentUuid": "bf505ca5_c83bbc08",
+      "revId": "63deda28a83808c3c9fb24875ca3b7a39a3bc1cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
