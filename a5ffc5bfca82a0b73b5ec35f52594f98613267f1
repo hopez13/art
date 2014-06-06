@@ -67,6 +67,24 @@
       "revId": "a5ffc5bfca82a0b73b5ec35f52594f98613267f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f1c24fb_307f35f0",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-06T15:13:10Z",
+      "side": 1,
+      "message": "Thanks for your observation. I was aware of the existence of FindMatchingView() and I did not use it on purpose. I felt FindMatchingView() was an overkill and not appropriate to be used in the functions I was working on.  In particular, I thought that the code in call_arm64.cc sits very close to the assembler level (and provides functions that often look like assembler macros). It knows very well that every x register has a w register, it feels somewhat unnatural to have to ask to the upper layers.\n\nSaid that, I am happy to provide an alternative implementation which uses FindMatchingView() and see how that feels.",
+      "parentUuid": "df4350e0_9a6e5340",
+      "revId": "a5ffc5bfca82a0b73b5ec35f52594f98613267f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
