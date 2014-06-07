@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_ee9241d0",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2014-06-07T00:06:00Z",
+      "side": 1,
+      "message": "if I understand this correctly:\n\nunique_ptr calls delete obj -\u003e sequence of d-tor + operator delete()\n\nIf create allocates using operator new instead of new uint8_t[], everything should become consistent?",
+      "parentUuid": "1f1b2808_18d56f51",
+      "revId": "63deda28a83808c3c9fb24875ca3b7a39a3bc1cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_c83bbc08",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 1
