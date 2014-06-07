@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_d107e4e5",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-07T01:25:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_d16924c9",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff749443_b4d1e834",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-06-07T00:54:17Z",
       "side": 1,
       "message": "typo: immediate.\n\nYou can support 64 bit immediates by using 2 operand slots",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_91015cd3",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-07T01:25:44Z",
+      "side": 1,
+      "message": "Fixed the typo.  Will check how to use 2 slots.  Thanks!",
+      "parentUuid": "ff749443_b4d1e834",
       "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_31b968db",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-07T01:25:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_f1a300d1",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff749443_34be58ed",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2014-06-07T00:54:17Z",
       "side": 1,
       "message": "loc.reg \u003d temp;",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_71d7f0f4",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-07T01:25:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff749443_34be58ed",
       "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
