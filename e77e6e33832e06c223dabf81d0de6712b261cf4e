@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_bb5d44cd",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-07T01:39:30Z",
+      "side": 1,
+      "message": "To use 2 slots, you will have to add a new instruction format, so that ComputeSize can return the right size.  You will then have to Fix GenConstWide to call a LoadConstant(NoClobber?) that takes a int64_t value, and puts the high \u0026 low parts into 2 operands.   asssemble_x86.cc will then need to use the new instruction format to generate the correct instruction (and the disassembler will have to display it).\n\nWill a 32 bit move into a 64 bit register clear the upper word?  If so, you can optimize that case for positive 32 bit values.\n\nI suggest we use another CL for this change.",
+      "parentUuid": "bf505ca5_91015cd3",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_f1a300d1",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
