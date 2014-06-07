@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf505ca5_d16924c9",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-07T00:54:17Z",
+      "side": 1,
+      "message": "Please remove this TODO.  64 bit mode can do atomic 64 bit loads \u0026 stores",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_b4d1e834",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-07T00:54:17Z",
+      "side": 1,
+      "message": "typo: immediate.\n\nYou can support 64 bit immediates by using 2 operand slots",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_f1a300d1",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-07T00:54:17Z",
+      "side": 1,
+      "message": "This logic really belongs in Mir2Lir::ForceTempWide, not here.  Please remove this function, and fix that one.\n\nYou can use if (!IsPair()) to detect the 64 bit case.",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_34be58ed",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-07T00:54:17Z",
+      "side": 1,
+      "message": "loc.reg \u003d temp;",
+      "revId": "e77e6e33832e06c223dabf81d0de6712b261cf4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
