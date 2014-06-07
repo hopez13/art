@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f33447f_339b9eec",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "again, we typically don\u0027t put the inline. if you really need it, we have ALWAYS_INLINE which actually is paid attention to. \"inline\" itself was just a hint historically as I understand it and even without it the compiler may inline.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_eefb1f59",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "should the caller check for error we just CHECK(!fatal_error_); here?\n\ntypically we use some kind of \"std::string* error_msg\" to return a reason for the error. are we doing that somewhere?",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f1c24fb_c1ae3173",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -25,6 +71,145 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_7bbedcc3",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "I think the issue is that most of the fields are optional? that said, its odd that we 0 some fields.\n\nthat said, I could imagine a program header builder that understands the sections and builds all the above for you in out of line.\n\nah, the real issue is that that many values aren\u0027t know until the bottom. still, here we could just create the builder to old the space and then at the end actually fill out everything?",
+      "parentUuid": "7f1c24fb_c1ae3173",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 48
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_5ba0b897",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "since I wrote this I found that our dynamic linker always does this, so you could remove the TODO.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 76
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_d48a740d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 76
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_b1cd786a",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "we don\u0027t assign std::string. instead we use the constructor like:\n\nstd::string dynstr(dynsym_builder_.GenerateStrtab());\n\napparently this matters for at least some of the compilers we still use.\n\nhowever, I think this is one of the cases where the string is large, we should consider just\n\nunique_ptr\u003cstd::string\u003e dynstr(dynsym_builder_.GenerateStrtab());",
+      "range": {
+        "startLine": 181,
+        "startChar": 20,
+        "endLine": 181,
+        "endChar": 23
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_9494ec2c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "use unique_ptr to avoid copy",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 46
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_5b72f867",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "if this is being changed, the convention is not to pass by reference but by pointer (as in \"\u0026shstrtab\")",
+      "range": {
+        "startLine": 227,
+        "startChar": 37,
+        "endLine": 227,
+        "endChar": 45
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf293c21_1d0a5740",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -41,6 +226,282 @@
         "startChar": 0,
         "endLine": 228,
         "endChar": 51
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_7160508a",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "I\u0027d call this something like\n\nIncludingDebugSymbols (vs \"real\")\n\nunless this somehow relates to your fake stuff",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 21
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_9b60808b",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "again, i\u0027d use unique_ptr and avoid a copy",
+      "range": {
+        "startLine": 287,
+        "startChar": 2,
+        "endLine": 287,
+        "endChar": 69
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_51aaf461",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "\"until now\"\n\nbut also add for context\n\n\",\nnamely the size and the so_name offset\"",
+      "range": {
+        "startLine": 418,
+        "startChar": 47,
+        "endLine": 418,
+        "endChar": 61
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_7bd1fcdb",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "return pointer?",
+      "range": {
+        "startLine": 561,
+        "startChar": 0,
+        "endLine": 561,
+        "endChar": 22
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_d4cb5430",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 564,
+        "startChar": 7,
+        "endLine": 564,
+        "endChar": 11
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_74ddc0ec",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "return pointer?",
+      "range": {
+        "startLine": 578,
+        "startChar": 1,
+        "endLine": 578,
+        "endChar": 22
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_b1b9f8b8",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 585,
+        "startChar": 7,
+        "endLine": 585,
+        "endChar": 11
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_94006c9b",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "return pointer",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 11
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_d4f6f471",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "remove inline",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 6
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_dbe048ae",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "return pointer",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 644,
+        "endChar": 20
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_5455247c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "why not just use the 32 ids per bucket case then?",
+      "range": {
+        "startLine": 677,
+        "startChar": 2,
+        "endLine": 677,
+        "endChar": 35
+      },
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_f42c5025",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-07T01:51:03Z",
+      "side": 1,
+      "message": "would it be easier to use Elf32_Word? as i recall, this is the same even between 32 and 64 bit ELF\n\nPushWord may have come from the x86 CFI code, but I don\u0027t think we need it here.",
+      "range": {
+        "startLine": 690,
+        "startChar": 14,
+        "endLine": 690,
+        "endChar": 21
       },
       "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
