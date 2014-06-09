@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df719054_10048ae0",
+        "filename": "runtime/base/scoped_flock.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-09T16:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4350e0_d4cd8f69",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b846a263560f01762e628813d69f5007a84c4e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4350e0_f4ca0b50",
         "filename": "runtime/base/scoped_flock.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-09T16:22:36Z",
       "side": 1,
       "message": "2011 (was on the file this was forked from)",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 53
+      },
+      "revId": "b846a263560f01762e628813d69f5007a84c4e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf7e9c23_cfa42196",
+        "filename": "runtime/base/scoped_flock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-06-09T16:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4350e0_f4ca0b50",
       "range": {
         "startLine": 2,
         "startChar": 2,
