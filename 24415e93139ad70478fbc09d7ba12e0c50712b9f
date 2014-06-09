@@ -78,6 +78,30 @@
     },
     {
       "key": {
+        "uuid": "3f646c99_ae144313",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-09T19:39:18Z",
+      "side": 1,
+      "message": "Thanks, I didn\u0027t know that you can wrap something that doesn\u0027t really look like a constexpr in there.",
+      "parentUuid": "7f81844b_db27ff3e",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf7e9c23_ecaecbbb",
         "filename": "runtime/entrypoints/quick/callee_save_frame.h",
         "patchSetId": 4
