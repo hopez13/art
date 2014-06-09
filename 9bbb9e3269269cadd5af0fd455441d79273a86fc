@@ -22,6 +22,30 @@
       "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_3d387bbf",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-09T13:14:45Z",
+      "side": 1,
+      "message": "I think that this is okay as is, as it is only calculations that can end up with negative values that can cause problems.  If we assume stack frames are of positive size :-), then this should be fine.",
+      "parentUuid": "bf505ca5_17b45cbd",
+      "range": {
+        "startLine": 1699,
+        "startChar": 35,
+        "endLine": 1699,
+        "endChar": 41
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
