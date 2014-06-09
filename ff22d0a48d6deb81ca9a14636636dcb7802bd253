@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df2c3030_8cab8976",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T18:11:20Z",
+      "side": 1,
+      "message": "Do we need to put this copy in a pre fence visitor in case other threads attempt to read the string data?",
+      "revId": "ff22d0a48d6deb81ca9a14636636dcb7802bd253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
