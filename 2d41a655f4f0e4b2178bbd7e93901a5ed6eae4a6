@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffd3b444_600bbb8c",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-06-09T09:13:14Z",
+      "side": 1,
+      "message": "This is hard coded, since CallRuntimeHelperXXX doesn\u0027t support wide arg registers and hardfp. So far this seems to be the only place that requires the feature.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 7
+      },
+      "revId": "2d41a655f4f0e4b2178bbd7e93901a5ed6eae4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
