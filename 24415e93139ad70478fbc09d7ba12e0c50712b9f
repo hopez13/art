@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ff749443_fd00b324",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T06:02:32Z",
+      "side": 1,
+      "message": "our guideline on functions in headers is they have an inline, its less clear with constexpr. It feels more consistent to have it.",
+      "parentUuid": "df719054_6d6975c7",
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf7e9c23_ecaecbbb",
         "filename": "runtime/entrypoints/quick/callee_save_frame.h",
         "patchSetId": 4
