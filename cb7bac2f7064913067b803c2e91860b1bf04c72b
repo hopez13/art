@@ -22,6 +22,40 @@
       "revId": "cb7bac2f7064913067b803c2e91860b1bf04c72b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f81844b_e657c600",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T14:42:21Z",
+      "side": 1,
+      "message": "According to our bug fix this should be \nEmitPrefixAndOpcode(entry, NO_REG, NO_REG, raw_reg, false); (raw_reg should affect REX_B)",
+      "revId": "cb7bac2f7064913067b803c2e91860b1bf04c72b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf7e9c23_cfa981b6",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T14:42:21Z",
+      "side": 1,
+      "message": "According to our bug fix this should be EmitPrefixAndOpcode(entry, NO_REG, NO_REG, raw_reg, , entry-\u003eskeleton.r8_form); (raw_reg should affect REX_B)",
+      "revId": "cb7bac2f7064913067b803c2e91860b1bf04c72b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
