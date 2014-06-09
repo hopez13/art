@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "1f696874_16aec287",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T23:55:48Z",
+      "side": 1,
+      "message": "In that case just leave it, or maybe just explicitly pass true at other call sites. Your call.",
+      "parentUuid": "ff5d74d3_5b58e70e",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_657b9ccd",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 2
