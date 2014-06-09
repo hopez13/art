@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf505ca5_f7f6903f",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "add \n\nLIBART_HOST_LDFLAGS :\u003d\n\nto be clear its currently unused?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 21
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_17fc5c1e",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "remove? or explain why disabled?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 55
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_94228d96",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "its unclear if the delta is needed, but it depends on if bionic is doing the right thing, so I think its better to keep this...",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 1
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_770b608c",
+        "filename": "runtime/base/unix_file/mapped_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 6
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_1d0a5f40",
+        "filename": "runtime/base/unix_file/mapped_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "sigh, more losage. I wonder if enh can confirm if we need this on bionic. probably.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_3d071b37",
+        "filename": "runtime/elf_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "micro-API? is that the right term still",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 68
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_9d308f0d",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "the other oddities were linux specific. is this more of an apple vs unix issue?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_542c0589",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T06:26:21Z",
+      "side": 1,
+      "message": "should we include something, even if just \"(native stack not support on darwin)\"?",
+      "range": {
+        "startLine": 1101,
+        "startChar": 1,
+        "endLine": 1101,
+        "endChar": 6
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
