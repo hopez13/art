@@ -56,6 +56,24 @@
       "revId": "cb7bac2f7064913067b803c2e91860b1bf04c72b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df719054_b07fb683",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T14:57:53Z",
+      "side": 1,
+      "message": "The same fix is needed in EmitShiftRegC",
+      "parentUuid": "bf7e9c23_cfa981b6",
+      "revId": "cb7bac2f7064913067b803c2e91860b1bf04c72b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
