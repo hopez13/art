@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf505ca5_d7259413",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T06:52:19Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "bf505ca5_f7f6903f",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 21
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_17fc5c1e",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-09T06:26:21Z",
       "side": 1,
       "message": "remove? or explain why disabled?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 55
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_b72808ee",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T06:52:19Z",
+      "side": 1,
+      "message": "doh, I\u0027ll put it back.. I was trying to discover the other way to unlock a Mutex, the answer being to call Wait on a ConditionVariable..",
+      "parentUuid": "bf505ca5_17fc5c1e",
       "range": {
         "startLine": 332,
         "startChar": 0,
@@ -163,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "ff749443_9d7acf94",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T06:52:19Z",
+      "side": 1,
+      "message": "From the Linux man pages its not clear that posix_madvise is the same behavior for DONTNEED as regular madvise. I think the Apple implementation does as much as the specification requires.\n\nPOSIX_MADV_DONTNEED\n\n              Specifies  that  the application expects that it will not access\n              the specified range in the near future.\n\nvs.\n\nMADV_DONTNEED\n              Do not expect access in the near future.  (For the  time  being,\n              the  application is finished with the given range, so the kernel\n              can free resources associated with it.)  Subsequent accesses  of\n              pages  in this range will succeed, but will result either in re-\n              loading of the memory contents from the underlying  mapped  file\n              (see  mmap(2)) or zero-fill-on-demand pages for mappings without\n              an underlying file.",
+      "parentUuid": "ff749443_9d308f0d",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_542c0589",
         "filename": "runtime/utils.cc",
         "patchSetId": 1
@@ -174,6 +246,30 @@
       "writtenOn": "2014-06-09T06:26:21Z",
       "side": 1,
       "message": "should we include something, even if just \"(native stack not support on darwin)\"?",
+      "range": {
+        "startLine": 1101,
+        "startChar": 1,
+        "endLine": 1101,
+        "endChar": 6
+      },
+      "revId": "340608afd1ee6ef1c35c5c0581a077bc48df1e7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_343e21aa",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T06:52:19Z",
+      "side": 1,
+      "message": "agreed",
+      "parentUuid": "7f33447f_542c0589",
       "range": {
         "startLine": 1101,
         "startChar": 1,
