@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f696874_ed480146",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "Make it a class?",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_affaf9da",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "DecodeJObject already handles the null case, is this a performance optimization?",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_afe3d940",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "NewWeakGlobal calls AddWeakGlobalReference which already handles the null case.",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_6d55f1d3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "Make const",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_ef2b11a3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_5cabdd76",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_adfd298d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "const",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_4de34df1",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T20:19:23Z",
+      "side": 1,
+      "message": "const",
+      "revId": "7584bee367bc3da997c4071dcc1befb49b0c6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
