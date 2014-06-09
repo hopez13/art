@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df719054_6d6975c7",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T05:49:52Z",
+      "side": 1,
+      "message": "I would suggest to add here \"inline\", since build errors could be observed in host mode with build system as of 6/01 (\"unused function\", not reproducible on AOSP 6/09)",
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf7e9c23_ecaecbbb",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T05:49:52Z",
+      "side": 1,
+      "message": "The same suggestion about \"inline\"",
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf7e9c23_8ca387d2",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T05:49:52Z",
+      "side": 1,
+      "message": "The same suggestion about \"inline\"",
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
