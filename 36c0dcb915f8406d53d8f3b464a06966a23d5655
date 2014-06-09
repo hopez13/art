@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "ff5d74d3_5b58e70e",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-06-09T23:48:53Z",
+      "side": 1,
+      "message": "The C++ coding style seems to prohibit this and it doesn\u0027t fall under any of the excepted cases, should I still change this to default argument?",
+      "parentUuid": "bffcdced_d0fb4ce2",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_657b9ccd",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 2
