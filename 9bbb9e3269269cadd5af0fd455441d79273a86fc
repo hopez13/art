@@ -46,6 +46,24 @@
       "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf7e9c23_6f25ed11",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-09T20:50:49Z",
+      "side": 1,
+      "message": "Yes, adjust is always positive here.\n\nPlease merge this patch since it is blocker for enabling compilation for ART64",
+      "parentUuid": "ff749443_3d387bbf",
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
