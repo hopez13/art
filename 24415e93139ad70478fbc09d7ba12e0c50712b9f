@@ -37,6 +37,47 @@
     },
     {
       "key": {
+        "uuid": "7f81844b_bb4f9bf1",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-09T19:16:16Z",
+      "side": 1,
+      "message": "constexpr functions are implicitly inline. Do we want an unnecessary explicit inline anyway?",
+      "parentUuid": "ff749443_fd00b324",
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f81844b_db27ff3e",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-09T19:16:16Z",
+      "side": 1,
+      "message": "(LOG(FATAL) \u003c\u003c \"Unknown instruction set\" \u003c\u003c isa, 0)",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "24415e93139ad70478fbc09d7ba12e0c50712b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf7e9c23_ecaecbbb",
         "filename": "runtime/entrypoints/quick/callee_save_frame.h",
         "patchSetId": 4
