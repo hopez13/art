@@ -837,6 +837,24 @@
     },
     {
       "key": {
+        "uuid": "7f33447f_d439f5ec",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-09T05:45:18Z",
+      "side": 1,
+      "message": "I think that may only be true with std::move etc in c++11 which we are barely upgraded too. not sure yet if our compilers + STL impl are doing the right thing. the might *just* me.\n\ndanalbert?",
+      "parentUuid": "1f1b2808_bd4c75ac",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4350e0_2044ae2e",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
