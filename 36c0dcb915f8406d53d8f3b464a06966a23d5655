@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bffcdced_903c24de",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T23:39:34Z",
+      "side": 1,
+      "message": "I think you can return finalizer reference referents if we aren\u0027t preserving.",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_604f2ea2",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T23:39:34Z",
+      "side": 1,
+      "message": "Combine into a single if statement?",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_1052d410",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T23:39:34Z",
+      "side": 1,
+      "message": "You could probably do this inside of the lock to be safe, but this should be OK since we have a fence after SetReferent which should ensure we see the updated referent before the reference is not enqueued.",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_d0fb4ce2",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T23:39:34Z",
+      "side": 1,
+      "message": "How about using a default true parameter instead of overloading?",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_657b9ccd",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-09T23:39:34Z",
+      "side": 1,
+      "message": "the { should be in the function definition line.",
+      "revId": "36c0dcb915f8406d53d8f3b464a06966a23d5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
