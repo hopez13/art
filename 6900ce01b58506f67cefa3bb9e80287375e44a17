@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff749443_a264462a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T05:50:36Z",
+      "side": 1,
+      "message": "Instrumentation\n(this would be most accurate, the tracing and debugger both build off of the support given by instrumentation)",
+      "range": {
+        "startLine": 1587,
+        "startChar": 3,
+        "endLine": 1587,
+        "endChar": 11
+      },
+      "revId": "6900ce01b58506f67cefa3bb9e80287375e44a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff749443_824caaac",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-09T05:50:36Z",
+      "side": 1,
+      "message": "At this point the return address should be art_quick_instrumentation_exit but I can\u0027t see the set up?",
+      "range": {
+        "startLine": 1315,
+        "startChar": 4,
+        "endLine": 1315,
+        "endChar": 7
+      },
+      "revId": "6900ce01b58506f67cefa3bb9e80287375e44a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
