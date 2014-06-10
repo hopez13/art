@@ -846,6 +846,24 @@
     },
     {
       "key": {
+        "uuid": "1f696874_d0c7cd47",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T14:27:40Z",
+      "side": 1,
+      "message": "Correct. I did it this way so that if we ever decide to add more to the dynsym we would be able to without rewriting this seemingly unrelated piece of code.",
+      "parentUuid": "1f696874_d07fcd82",
+      "revId": "a131103c2c4e7926a2f42b1ffda42bcbe0c8b544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff749443_f42c5025",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
