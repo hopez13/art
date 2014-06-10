@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f696874_739dcbdd",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-10T19:19:42Z",
+      "side": 1,
+      "message": "Done. Fixed GetThreadGroup(), too.",
+      "parentUuid": "5fb2005d_912b7ca4",
+      "range": {
+        "startLine": 951,
+        "startChar": 5,
+        "endLine": 951,
+        "endChar": 50
+      },
+      "revId": "f3bbd9fa0466afc291cb060e929337844e88e807",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fb2005d_b1fb20e3",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-10T06:55:28Z",
       "side": 1,
       "message": "nullptr for consistency",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 15
+      },
+      "revId": "f3bbd9fa0466afc291cb060e929337844e88e807",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_97186b8f",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-10T19:19:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fb2005d_b1fb20e3",
       "range": {
         "startLine": 46,
         "startChar": 11,
