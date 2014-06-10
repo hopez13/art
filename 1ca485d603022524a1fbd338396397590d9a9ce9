@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "1fbc0831_f26be671",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-10T16:42:20Z",
+      "side": 1,
+      "message": "doesn\u0027t linter complain about having an empty line here?",
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_12630a99",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-10T16:42:20Z",
+      "side": 1,
+      "message": "There\u0027s a similar code in Runtime::Start() for the method case. I\u0027d prefer to have the file creation in the same place. Could you bring that one here?",
+      "range": {
+        "startLine": 292,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 3
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f696874_d0990d65",
         "filename": "runtime/profiler.cc",
         "patchSetId": 1
@@ -140,6 +180,29 @@
     },
     {
       "key": {
+        "uuid": "1fbc0831_d2b342d6",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-10T16:42:20Z",
+      "side": 1,
+      "message": "I know that you probably took this one from ProfileSampleResults::Put() but could you use  \"MutexLock mu(Thread::Current(), lock_);\"?",
+      "range": {
+        "startLine": 466,
+        "startChar": 2,
+        "endLine": 466,
+        "endChar": 32
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_031d6df7",
         "filename": "runtime/profiler.cc",
         "patchSetId": 1
@@ -156,6 +219,29 @@
         "startChar": 37,
         "endLine": 483,
         "endChar": 54
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb70c4e_53c0f60c",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-10T16:42:20Z",
+      "side": 1,
+      "message": "A bit of waste repeating the method name for every PC but I guess we won\u0027t have so many PCs in practice so this should be ok.",
+      "range": {
+        "startLine": 544,
+        "startChar": 9,
+        "endLine": 544,
+        "endChar": 91
       },
       "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
