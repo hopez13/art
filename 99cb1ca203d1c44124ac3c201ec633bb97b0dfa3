@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fbc0831_b292fe00",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-10T18:19:53Z",
+      "side": 1,
+      "message": "you cannot put 1 here because below you do a check ref \u003d\u003d 0 and you should return 0 if it is true.\n\nSo to me, return back to 1st patch set but set 0 here unconditionally...",
+      "range": {
+        "startLine": 2260,
+        "startChar": 17,
+        "endLine": 2260,
+        "endChar": 26
+      },
+      "revId": "99cb1ca203d1c44124ac3c201ec633bb97b0dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
