@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bffcdced_835cdda8",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "add a comment to explain what this is",
+      "range": {
+        "startLine": 529,
+        "startChar": 10,
+        "endLine": 529,
+        "endChar": 27
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_706621aa",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 542,
+        "startChar": 13,
+        "endLine": 542,
+        "endChar": 14
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_c39705f0",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "It seems off we don\u0027t just pass in the memory reference type to new LIRs when they are created, add explanation of why the design is like this.",
+      "range": {
+        "startLine": 1587,
+        "startChar": 0,
+        "endLine": 1588,
+        "endChar": 44
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_c3f1c54a",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "what am I? Why aren\u0027t resource masks just value types?",
+      "range": {
+        "startLine": 1590,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 34
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_410a3141",
+        "filename": "compiler/dex/quick/resource_mask.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "Add an explanation of what this is.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_8365fd5a",
+        "filename": "compiler/dex/quick/resource_mask.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "TODO: not public?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 3
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_305f499f",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:30:35Z",
+      "side": 1,
+      "message": "why do this? It looks like its making the code a lot harder to work with.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 3
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
