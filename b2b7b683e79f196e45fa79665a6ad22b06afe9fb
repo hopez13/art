@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "ff5d74d3_f44f5af0",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "Moved to compilerOptions element. Renamed to IncludeDebugSymbols. \n\nThis is unused in intel\u0027s dwarf.",
+      "parentUuid": "ff5d74d3_86e03fe4",
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f696874_102c85ba",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 810,
         "endChar": 58
       },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_b4e8028d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f696874_102c85ba",
       "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "bffcdced_99f56c62",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "It\u0027s used in the line above too.",
+      "parentUuid": "ff5d74d3_46ea47c4",
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f696874_302509ca",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 53,
         "endChar": 35
       },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_64650358",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "Added --strip-symbols and --no-strip-symbols as aliases for the regular flags. Added a check before stripping code is executed to skip stripping if we are keeping symbols.",
+      "parentUuid": "1f696874_302509ca",
       "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "ff5d74d3_54daeef6",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f696874_b030190d",
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff5d74d3_c614f714",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "1f696874_a60f8302",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "No this is for intel\u0027s stuff so that even if we have capture_debug off we will still take the information needed for intel.",
+      "parentUuid": "ff5d74d3_c614f714",
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_a30ab93d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -157,6 +265,24 @@
         "endLine": 357,
         "endChar": 76
       },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_e44fb3f0",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-10T20:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bffcdced_a30ab93d",
       "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
