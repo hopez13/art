@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fb70c4e_f0a3e0d0",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-10T09:15:31Z",
+      "side": 1,
+      "message": "If you call this function in a non-constexpr context, this will fail at run time. To get this checked at compile time, you need to force a constexpr context.",
+      "revId": "349bd178891a3276cca84e39e059295208f7706d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_4fbe8ded",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-10T09:15:31Z",
+      "side": 1,
+      "message": "Add constexpr to force compile time check.",
+      "revId": "349bd178891a3276cca84e39e059295208f7706d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
