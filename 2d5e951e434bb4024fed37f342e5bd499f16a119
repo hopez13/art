@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bffcdced_6610bf6e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfefd030_0001e89d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fe9cc2b_86d7cef3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "w4?    (w12 is free as well)",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fff2d415_c179c40c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "x4",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfefd030_40ebf089",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1658,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "w5",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fe9cc2b_c69f1652",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "w6",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfefd030_20e8648b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "w7",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfefd030_80f5f861",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "w8",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_50d19d85",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "b.eq",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_01a0b996",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-10T16:13:26Z",
+      "side": 1,
+      "message": "we just need the ret here",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
