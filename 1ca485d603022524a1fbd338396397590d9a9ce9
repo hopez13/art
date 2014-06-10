@@ -111,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "bf15bcf5_1739365e",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-10T21:18:13Z",
+      "side": 1,
+      "message": "we probably need to redesign the whole data structure that stores profile data if we don\u0027t want to use method pointers. In the current implementation, the hash function and the maps store the profile data heavily relies on the method pointer.",
+      "parentUuid": "1f696874_d0990d65",
+      "range": {
+        "startLine": 376,
+        "startChar": 71,
+        "endLine": 376,
+        "endChar": 77
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff5d74d3_a6645b2a",
         "filename": "runtime/profiler.cc",
         "patchSetId": 1
