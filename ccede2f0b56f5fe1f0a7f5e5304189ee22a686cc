@@ -46,6 +46,54 @@
       "revId": "ccede2f0b56f5fe1f0a7f5e5304189ee22a686cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_921a5a41",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-10T15:39:28Z",
+      "side": 1,
+      "message": "You\u0027re right. It should be the same used by the compiler.",
+      "parentUuid": "1f696874_907cf53e",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 18
+      },
+      "revId": "ccede2f0b56f5fe1f0a7f5e5304189ee22a686cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_d2c7c247",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-10T15:39:28Z",
+      "side": 1,
+      "message": "I understand your concern about performance. I didn\u0027t evaluate the cost of saving FPRs so far. On the other hand, it\u0027d be a regression for developers if we can\u0027t read/write float values from the debugger in this case.",
+      "parentUuid": "ff5d74d3_4656c738",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 18
+      },
+      "revId": "ccede2f0b56f5fe1f0a7f5e5304189ee22a686cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
