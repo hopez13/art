@@ -22,6 +22,30 @@
       "revId": "2ab743a1705a2adfaf0bbca04421091862a53a4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_c66e3712",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-10T15:12:46Z",
+      "side": 1,
+      "message": "I can change the name to HiddenArg2 if you prefer.",
+      "parentUuid": "ff5d74d3_c69717be",
+      "range": {
+        "startLine": 199,
+        "startChar": 10,
+        "endLine": 199,
+        "endChar": 51
+      },
+      "revId": "2ab743a1705a2adfaf0bbca04421091862a53a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
