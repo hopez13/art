@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bffcdced_ab18d5da",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-10T00:55:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure this call is required since the ClearWhiteReferences below will dequeue all references enqueue cleared references in the cleared_references_ queue.",
+      "revId": "77a1eb609c0612c49ef234b7bb02ca9cc0487d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_6d7f2634",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-10T00:55:40Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this boolean since the preserved callback should be doing all the work to decide which references to preserve.",
+      "revId": "77a1eb609c0612c49ef234b7bb02ca9cc0487d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_0b9d8910",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-10T00:55:40Z",
+      "side": 1,
+      "message": "If we delete the conditional it would be equivalent to always enqueueing in the cleared list. Maybe you can add a way to iterate over the reference queue so that we don\u0027t need to enqueue and dequeue?",
+      "revId": "77a1eb609c0612c49ef234b7bb02ca9cc0487d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
