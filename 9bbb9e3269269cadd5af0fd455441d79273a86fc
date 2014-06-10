@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fbc0831_ef3b0108",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1039894
+      },
+      "writtenOn": "2014-06-10T12:55:23Z",
+      "side": 1,
+      "message": "subq won\u0027t help in this particular place as soon as conversion is done in Immediate constructor. The right solution is to cast Immediate param to a signed type (same or similar way as it is done now).",
+      "parentUuid": "bffcdced_8307bd34",
+      "range": {
+        "startLine": 1653,
+        "startChar": 2,
+        "endLine": 1653,
+        "endChar": 6
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff5d74d3_660ae3f3",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1fbc0831_0f33e52e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1039894
+      },
+      "writtenOn": "2014-06-10T12:55:23Z",
+      "side": 1,
+      "message": "It is clear input param in DecreaseFrameSize is always \u003e\u003d0, this is not to be an issue with type conversion.",
+      "parentUuid": "ff5d74d3_660ae3f3",
+      "range": {
+        "startLine": 1685,
+        "startChar": 0,
+        "endLine": 1685,
+        "endChar": 132
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff5d74d3_8607dfe6",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-06-10T06:46:49Z",
       "side": 1,
       "message": "subq?",
+      "range": {
+        "startLine": 1694,
+        "startChar": 2,
+        "endLine": 1694,
+        "endChar": 6
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_6f30b120",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1039894
+      },
+      "writtenOn": "2014-06-10T12:55:23Z",
+      "side": 1,
+      "message": "this should work out.",
+      "parentUuid": "ff5d74d3_8607dfe6",
       "range": {
         "startLine": 1694,
         "startChar": 2,
