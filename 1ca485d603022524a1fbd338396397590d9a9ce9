@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff5d74d3_46a4872c",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "prefer dex_pc as pc can have different meanings",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 13
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_d0990d65",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "we should be trying to avoid holding references into the Java heap, they move and break. Think about using the safe MethodReference instead.",
+      "range": {
+        "startLine": 376,
+        "startChar": 71,
+        "endLine": 376,
+        "endChar": 77
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_03060db5",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 376,
+        "startChar": 88,
+        "endLine": 376,
+        "endChar": 90
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_a6645b2a",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "signature has a precise meaning, you are sampling methods here not the parameters to them, prefer kProfilerMethod",
+      "range": {
+        "startLine": 410,
+        "startChar": 37,
+        "endLine": 410,
+        "endChar": 55
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_631271e8",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "prefer kProfilerMethodAndDexPc",
+      "range": {
+        "startLine": 412,
+        "startChar": 44,
+        "endLine": 412,
+        "endChar": 58
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_b094992c",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 465,
+        "startChar": 72,
+        "endLine": 465,
+        "endChar": 74
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_031d6df7",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "std::ostream\u0026 os,",
+      "range": {
+        "startLine": 483,
+        "startChar": 37,
+        "endLine": 483,
+        "endChar": 54
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_707f0134",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:13:28Z",
+      "side": 1,
+      "message": "ugh, TODO remove this turd.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "1ca485d603022524a1fbd338396397590d9a9ce9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
