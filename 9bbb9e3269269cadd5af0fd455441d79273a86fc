@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "bffcdced_8307bd34",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T06:46:49Z",
+      "side": 1,
+      "message": "should we make this subq to avoid the problem?",
+      "range": {
+        "startLine": 1653,
+        "startChar": 2,
+        "endLine": 1653,
+        "endChar": 6
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_660ae3f3",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T06:46:49Z",
+      "side": 1,
+      "message": "morally the same as DecreaseFrameSize but no casts in that case?",
+      "range": {
+        "startLine": 1685,
+        "startChar": 0,
+        "endLine": 1685,
+        "endChar": 132
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_8607dfe6",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T06:46:49Z",
+      "side": 1,
+      "message": "subq?",
+      "range": {
+        "startLine": 1694,
+        "startChar": 2,
+        "endLine": 1694,
+        "endChar": 6
+      },
+      "revId": "9bbb9e3269269cadd5af0fd455441d79273a86fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf505ca5_17b45cbd",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
