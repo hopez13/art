@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff5d74d3_86e03fe4",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "this name doesn\u0027t seem clear to me.\n\nis this about saving debug symbols?\n\nwhy isn\u0027t this just in CompilerOptions above?\n\nis it also used for the intel dwarf case now?",
+      "range": {
+        "startLine": 108,
+        "startChar": 26,
+        "endLine": 108,
+        "endChar": 51
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_102c85ba",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "DidAddSymbols seems a clearer name from this context.",
+      "range": {
+        "startLine": 810,
+        "startChar": 39,
+        "endLine": 810,
+        "endChar": 58
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_46ea47c4",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "if this is only used here, just inline accessor call?",
+      "range": {
+        "startLine": 818,
+        "startChar": 6,
+        "endLine": 818,
+        "endChar": 17
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_302509ca",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "so I think we need to consider how this fits with ElfWriterMclinker. the MCLinker case always generates symbols and then we strip them in dex2oat using ELFStripper. it actually writes the unstripped version to $OUT/symbols/system and stripped verison to $OUT/system.\n\nI\u0027m just wondering if at the high level, the dex2oat option should be about \"keeping symbols\" vs \"omitting symbols\" (--strip-symbols vs --no-strip-symbols) so that we can make your new options work for both linkers.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_b030190d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "can\u0027t we just get this from compiler-\u003e options when we need it?",
+      "range": {
+        "startLine": 57,
+        "startChar": 24,
+        "endLine": 57,
+        "endChar": 55
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_c614f714",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "is this for your own debug? then use\n\nconst bool kForceDebugCapture \u003d false;",
+      "range": {
+        "startLine": 354,
+        "startChar": 8,
+        "endLine": 354,
+        "endChar": 41
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bffcdced_a30ab93d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "if this is just computed here, seems like we could just move it below the next \"if\" after we adjust quick_code_offset.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 76
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_4601e7cf",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-10T06:54:16Z",
+      "side": 1,
+      "message": "specifically, Alex was trying to use quick_code_start but it needed to be updated for his case of deduped code.",
+      "range": {
+        "startLine": 411,
+        "startChar": 46,
+        "endLine": 411,
+        "endChar": 62
+      },
+      "revId": "b2b7b683e79f196e45fa79665a6ad22b06afe9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
