@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fb70c4e_d02b3c71",
+        "filename": "compiler/dex/selectivity.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-10T09:35:38Z",
+      "side": 1,
+      "message": "Please add the \"class_def\" parameter name.",
+      "range": {
+        "startLine": 24,
+        "startChar": 40,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "052513fe1be59f59e41854f04cdb5aec39097dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_ef3dc1ad",
+        "filename": "compiler/dex/selectivity.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-10T09:35:38Z",
+      "side": 1,
+      "message": "Maybe define a typedef for the function type?",
+      "range": {
+        "startLine": 38,
+        "startChar": 40,
+        "endLine": 39,
+        "endChar": 99
+      },
+      "revId": "052513fe1be59f59e41854f04cdb5aec39097dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fbc0831_0f55a5d4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-10T09:35:38Z",
+      "side": 1,
+      "message": "Inconsistent naming: Compilation (SkipClassCompilation) v. Compile (SkipMethodCompile). Pick one and stick to it everywhere. I\u0027d go with Compilation.",
+      "range": {
+        "startLine": 1495,
+        "startChar": 12,
+        "endLine": 1495,
+        "endChar": 32
+      },
+      "revId": "052513fe1be59f59e41854f04cdb5aec39097dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
