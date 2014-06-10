@@ -22,6 +22,30 @@
       "revId": "ccede2f0b56f5fe1f0a7f5e5304189ee22a686cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff5d74d3_4656c738",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-10T15:17:09Z",
+      "side": 1,
+      "message": "I\u0027d prefer for now we didn\u0027t do this, it will be a performance regression. SetFpr and GetFpr should be able to fail and when they do we should report that up to the debugger caller. So float values are best effort for now.",
+      "parentUuid": "1f696874_907cf53e",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 18
+      },
+      "revId": "ccede2f0b56f5fe1f0a7f5e5304189ee22a686cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
