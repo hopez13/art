@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fd6e483_6a0c17cb",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-11T11:16:19Z",
+      "side": 1,
+      "message": "I know we didn\u0027t check previously but I don\u0027t see any reason why we should continue if we couldn\u0027t create the file. Could you add an warning and return if so?",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 3
+      },
+      "revId": "6e7f9612a2ec15f6122b68b0538adae772d48394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_8a222b3e",
+        "filename": "runtime/profiler_options.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-11T11:16:19Z",
+      "side": 1,
+      "message": "either align or just 2 spaces.",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 29
+      },
+      "revId": "6e7f9612a2ec15f6122b68b0538adae772d48394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fdbe0ac_29b4edd4",
+        "filename": "runtime/profiler_options.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-11T11:16:19Z",
+      "side": 1,
+      "message": "add \".\" at the end.",
+      "revId": "6e7f9612a2ec15f6122b68b0538adae772d48394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
