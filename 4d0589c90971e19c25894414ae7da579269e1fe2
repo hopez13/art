@@ -22,6 +22,30 @@
       "revId": "4d0589c90971e19c25894414ae7da579269e1fe2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfc6f0d8_e8176bd6",
+        "filename": "runtime/arch/memcmp16.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-11T15:10:31Z",
+      "side": 1,
+      "message": "Then it wouldn\u0027t be guaranteed to be the generic version, so the name would be wrong. :-) A malicious entity could create a cyclic dependency, but I don\u0027t think we need to worry about that. I\u0027ll clean it up in another CL.",
+      "parentUuid": "7fd6e483_6a66d7f7",
+      "range": {
+        "startLine": 22,
+        "startChar": 32,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "4d0589c90971e19c25894414ae7da579269e1fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
