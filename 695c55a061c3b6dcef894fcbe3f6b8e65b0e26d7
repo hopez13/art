@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f804079_b5ecd875",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-11T12:17:02Z",
+      "side": 1,
+      "message": "This isn\u0027t needed for X86_64.  It can address all the registers.  It should have \u0027!Gen64Bit() \u0026\u0026\u0027",
+      "revId": "695c55a061c3b6dcef894fcbe3f6b8e65b0e26d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_eec5af1a",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-11T12:17:02Z",
+      "side": 1,
+      "message": "I disagree with this too",
+      "revId": "695c55a061c3b6dcef894fcbe3f6b8e65b0e26d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_d5f15c4a",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2262,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-11T12:17:02Z",
+      "side": 1,
+      "message": "This doesn\u0027t see right to me.  The runtime routines should set the return register properly.  What is the problem?",
+      "revId": "695c55a061c3b6dcef894fcbe3f6b8e65b0e26d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_f5f6603f",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-11T12:17:02Z",
+      "side": 1,
+      "message": "This actually isn\u0027t needed if the encoding of set8r is done correctly.  I think that there are bugs in that code that I will look at today.",
+      "revId": "695c55a061c3b6dcef894fcbe3f6b8e65b0e26d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
