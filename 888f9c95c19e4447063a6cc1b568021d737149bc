@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f854c8a_948ef4d8",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-11T06:09:23Z",
+      "side": 1,
+      "message": "can we just use \"ART_BASE_ADDRESS\" here?",
+      "range": {
+        "startLine": 201,
+        "startChar": 20,
+        "endLine": 201,
+        "endChar": 31
+      },
+      "revId": "888f9c95c19e4447063a6cc1b568021d737149bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
