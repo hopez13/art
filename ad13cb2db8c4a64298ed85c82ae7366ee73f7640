@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f8a489d_ce52ab21",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-11T06:16:17Z",
+      "side": 1,
+      "message": "since as you noted this is all private, wouldn\u0027t it make sense to move it all to elf_writer_quick.cc?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "ad13cb2db8c4a64298ed85c82ae7366ee73f7640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
