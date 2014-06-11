@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "3f854c8a_5bb73412",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T23:42:34Z",
+      "side": 1,
+      "message": "Thanks!\nIdeally if an encoding is using R, X or B then we just use what\u0027s expected by the encoding. If there are RegCond where the Reg isn\u0027t Reg but base, then we should have EmitRegCondSpecial where we document which instructions have the special case. The code in GetInsnSize should agree with the code here, that RegCond passes an R or B or whatever. I think we may need to extend ComputeSize so that it considers more parts of the skeleton (such as r8_form).",
+      "parentUuid": "1f6328c5_1d6693a8",
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f6328c5_97152414",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 2
