@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fd5e878_277ffa34",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bffcdced_835cdda8",
+      "range": {
+        "startLine": 529,
+        "startChar": 10,
+        "endLine": 529,
+        "endChar": 27
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f696874_706621aa",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-10T15:30:35Z",
       "side": 1,
       "message": "* const",
+      "range": {
+        "startLine": 542,
+        "startChar": 13,
+        "endLine": 542,
+        "endChar": 14
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_aaf60f70",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f696874_706621aa",
       "range": {
         "startLine": 542,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7fd6e483_ca1c23fe",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bffcdced_c39705f0",
+      "range": {
+        "startLine": 1587,
+        "startChar": 0,
+        "endLine": 1588,
+        "endChar": 44
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_c3f1c54a",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-10T15:30:35Z",
       "side": 1,
       "message": "what am I? Why aren\u0027t resource masks just value types?",
+      "range": {
+        "startLine": 1590,
+        "startChar": 0,
+        "endLine": 1590,
+        "endChar": 34
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_ea1767d6",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bffcdced_c3f1c54a",
       "range": {
         "startLine": 1590,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5fdbe0ac_c9c71148",
+        "filename": "compiler/dex/quick/resource_mask.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5d74d3_410a3141",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_8365fd5a",
         "filename": "compiler/dex/quick/resource_mask.h",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "5fdbe0ac_090769e8",
+        "filename": "compiler/dex/quick/resource_mask.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "Reduced usage in PS5. However, it\u0027s needed by EncodeArmRegList()/EncodeArmFpcsRegList() and I don\u0027t know how to reasonably rewrite those without RawMask().",
+      "parentUuid": "bffcdced_8365fd5a",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 3
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f696874_305f499f",
         "filename": "compiler/dex/reg_storage.h",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2014-06-10T15:30:35Z",
       "side": 1,
       "message": "why do this? It looks like its making the code a lot harder to work with.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 3
+      },
+      "revId": "df6af0c81c63d57d14ce6d98c58449169126ddcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fdbe0ac_e93db5ad",
+        "filename": "compiler/dex/reg_storage.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T11:25:13Z",
+      "side": 1,
+      "message": "I want ArmMir2Lir::GetRegMaskArm() to be constexpr and it\u0027s using IsDouble(). For consistency I want IsFloat() and IsSingle() constexpr as well.\n\nI\u0027ll create helper macros {D,}CHECK_CONSTEXPR to make it cleaner.",
+      "parentUuid": "1f696874_305f499f",
       "range": {
         "startLine": 159,
         "startChar": 0,
