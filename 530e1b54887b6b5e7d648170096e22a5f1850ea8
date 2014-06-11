@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f854c8a_80986b96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T23:02:46Z",
+      "side": 1,
+      "message": "Just for my understanding, if we rephrase it, is the gist of the change that even while we are preserving references, if it\u0027s already marked (is_marked_callback returns a non-null reference) and it\u0027s not a finalizable reference, then we can return the non-null reference, without blocking, back to the caller of GetReferent()?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "530e1b54887b6b5e7d648170096e22a5f1850ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_9dd454f0",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T23:02:46Z",
+      "side": 1,
+      "message": "This ends in the middle of a sentence.",
+      "range": {
+        "startLine": 63,
+        "startChar": 72,
+        "endLine": 63,
+        "endChar": 85
+      },
+      "revId": "530e1b54887b6b5e7d648170096e22a5f1850ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_20579f00",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T23:02:46Z",
+      "side": 1,
+      "message": "Question: I may be misunderstanding this, but what is this IsEnqueued() call for? While we are preserving references (the case where preserving_references_ \u003d\u003d true and we execute the code after the \"||\"), isn\u0027t the reference always enqueued (the pending_next field is non-null and IsEnqueued() always returns true)?",
+      "range": {
+        "startLine": 75,
+        "startChar": 66,
+        "endLine": 75,
+        "endChar": 90
+      },
+      "revId": "530e1b54887b6b5e7d648170096e22a5f1850ea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
