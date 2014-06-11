@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ffc9f4e9_ec477f60",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-11T17:08:33Z",
+      "side": 1,
+      "message": "I have added a working version of indexOf here: https://android-review.googlesource.com/#/c/97459/ . \n\nRemoving this and re-basing your patch on top of mine should not cause many issues. I hope :-)",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bffcdced_6610bf6e",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
