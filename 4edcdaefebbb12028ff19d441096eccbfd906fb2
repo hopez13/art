@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f854c8a_f5301a0e",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T19:50:22Z",
+      "side": 1,
+      "message": "For example, it seems like the timing logger and the pause histogram should know the max values that the GcProfiler tries to extract and store for itself here.\n\nAlso, why we care about the max values only?",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f8a489d_f9f8179f",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 1
@@ -64,6 +87,75 @@
       "writtenOn": "2014-06-11T16:41:23Z",
       "side": 1,
       "message": "I\u0027m against guarding this stuff with a define macro. It is possible to do it without a real performance hit if it is put only in the instrumented allocation path. You can instrument / uninstrument the allocation entrypoints during runtime. See how start/stopAllocCounting works.",
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_f60f4601",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T19:50:22Z",
+      "side": 1,
+      "message": "As this is on the hot allocation path, this seems very expensive in terms of speed. It would likely change the performance characteristics to such an extent that the run with the profiling enabled may be very different from that with the profiling disabled.\n\nIs this call thread-safe? How is the concurrency handled?",
+      "range": {
+        "startLine": 66,
+        "startChar": 16,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_e8ae82bb",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T19:50:22Z",
+      "side": 1,
+      "message": "This is the existing runtime stats thing, which counts bytes allocated, etc.",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 18
+      },
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_e81a0242",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-11T19:50:22Z",
+      "side": 1,
+      "message": "This is the existing SIGQUIT dump thing, which dumps the existing GC performance data.",
+      "range": {
+        "startLine": 138,
+        "startChar": 11,
+        "endLine": 138,
+        "endChar": 25
+      },
       "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
