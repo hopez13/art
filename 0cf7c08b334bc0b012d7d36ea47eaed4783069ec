@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "3f854c8a_40e023ac",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f854c8a_5d0d6c56",
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f854c8a_5de64c50",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 1281,
         "endChar": 91
       },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f6328c5_1d6693a8",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Let me check how to change it.  Thanks!",
+      "parentUuid": "3f854c8a_5de64c50",
       "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "ff77347c_9657ec01",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6328c5_97152414",
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f854c8a_7df3100d",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 858,
         "endChar": 36
       },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_c040b3c6",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f854c8a_7df3100d",
       "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "ff77347c_d651640d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f8a489d_7c2eb081",
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f854c8a_fdf560ec",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 1680,
         "endChar": 69
       },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff77347c_3669b8c8",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f854c8a_fdf560ec",
       "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "1f6328c5_7d5dcfca",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6328c5_b7f308c1",
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f8a489d_bc3838c1",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 2
@@ -180,6 +306,24 @@
         "endLine": 2163,
         "endChar": 5
       },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_004b7be8",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-11T23:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f8a489d_bc3838c1",
       "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
