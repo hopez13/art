@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f8a489d_f9f8179f",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-11T16:41:23Z",
+      "side": 1,
+      "message": "Are you sure this works? I believe the timing loggers use exclusive time, that is, the value for MarkingPhase will be the time spent in the marking phase split itself without adding the time of the children splits.",
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_341b688d",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-11T16:41:23Z",
+      "side": 1,
+      "message": "std::min?",
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_307ff634",
+        "filename": "runtime/gc/gcprofiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-11T16:41:23Z",
+      "side": 1,
+      "message": "Make function names start with caps and member variables end with underscore to be more consistent with the style convention?",
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_99eaabc1",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-11T16:41:23Z",
+      "side": 1,
+      "message": "I\u0027m against guarding this stuff with a define macro. It is possible to do it without a real performance hit if it is put only in the instrumented allocation path. You can instrument / uninstrument the allocation entrypoints during runtime. See how start/stopAllocCounting works.",
+      "revId": "4edcdaefebbb12028ff19d441096eccbfd906fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
