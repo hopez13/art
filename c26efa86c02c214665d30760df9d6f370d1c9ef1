@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fdbe0ac_c96ef111",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-11T13:40:15Z",
+      "side": 1,
+      "message": "Initially I though this should go right after the mir-\u003edalvikInsn.opcode assignment. But since the opcode applies to both the SSA form and the dalvik registers, and given the added comments, I think it\u0027s OK to have it here. Ian?",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 59
+      },
+      "revId": "c26efa86c02c214665d30760df9d6f370d1c9ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
