@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fd6e483_6a66d7f7",
+        "filename": "runtime/arch/memcmp16.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-11T07:52:23Z",
+      "side": 1,
+      "message": "Why is that not just calling MemCmp16?",
+      "range": {
+        "startLine": 22,
+        "startChar": 32,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "4d0589c90971e19c25894414ae7da579269e1fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
