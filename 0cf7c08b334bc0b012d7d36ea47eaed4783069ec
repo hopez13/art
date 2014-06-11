@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f854c8a_5d0d6c56",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "cu_-\u003etarget64 ?",
+      "range": {
+        "startLine": 459,
+        "startChar": 23,
+        "endLine": 459,
+        "endChar": 68
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_5de64c50",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "This is stupid, can we just do the proper fix and stop passing bases as regs, indexes as bases, yadda yadda. The code is getting all caught up about something trivial. If we need new encoding kinds then that\u0027s fine.",
+      "range": {
+        "startLine": 1275,
+        "startChar": 0,
+        "endLine": 1281,
+        "endChar": 91
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f6328c5_97152414",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "IsByteRegister",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 384,
+        "endChar": 72
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_7df3100d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "For 32-bit,",
+      "range": {
+        "startLine": 858,
+        "startChar": 5,
+        "endLine": 858,
+        "endChar": 36
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_7c2eb081",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "this is getting sufficiently complicated we should add a IsByteRegister(RegStorage) member function to capture the logic.",
+      "range": {
+        "startLine": 859,
+        "startChar": 6,
+        "endLine": 859,
+        "endChar": 69
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_fdf560ec",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 1680,
+        "startChar": 5,
+        "endLine": 1680,
+        "endChar": 69
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f6328c5_b7f308c1",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 2159,
+        "startChar": 8,
+        "endLine": 2159,
+        "endChar": 71
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_bc3838c1",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-11T21:42:27Z",
+      "side": 1,
+      "message": "this check should be part of AllocateByteRegister and not repeated here",
+      "range": {
+        "startLine": 2161,
+        "startChar": 1,
+        "endLine": 2163,
+        "endChar": 5
+      },
+      "revId": "0cf7c08b334bc0b012d7d36ea47eaed4783069ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
