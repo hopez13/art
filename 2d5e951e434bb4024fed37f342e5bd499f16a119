@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3fd0ec87_4ebe87ed",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-06-11T15:26:09Z",
+      "side": 1,
+      "message": "This will be inherited from ARM 32bit, where r4 \u0026 r10 are callee saved. We could just use scratch here. This affects the code through out, and there looks like there are sufficient scratch registers to avoid saving much.",
+      "parentUuid": "bffcdced_6610bf6e",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfefd030_0001e89d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -149,6 +167,23 @@
       "writtenOn": "2014-06-10T16:13:26Z",
       "side": 1,
       "message": "b.eq",
+      "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffc9f4e9_2987c9c1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1686,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-06-11T15:26:09Z",
+      "side": 1,
+      "message": "Remove this commented code?",
       "revId": "2d5e951e434bb4024fed37f342e5bd499f16a119",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
