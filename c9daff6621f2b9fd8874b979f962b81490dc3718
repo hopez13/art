@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff77347c_1f1bef8c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-12T02:17:41Z",
+      "side": 1,
+      "message": "Why is this not pointer sized?  I thought kVregSize was 4 but an ArtMethod* is a pointer.  It was kArmWordSize before.",
+      "range": {
+        "startLine": 135,
+        "startChar": 8,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_91251bcc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-12T02:17:41Z",
+      "side": 1,
+      "message": "Why push/pop rather than mov?  To save a register?  It\u0027s slower.",
+      "range": {
+        "startLine": 307,
+        "startChar": 9,
+        "endLine": 307,
+        "endChar": 14
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff77347c_1f420f51",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-12T02:17:41Z",
+      "side": 1,
+      "message": "++reg (yes, I do it all time too.  Old habits die hard_",
+      "range": {
+        "startLine": 168,
+        "startChar": 42,
+        "endLine": 168,
+        "endChar": 45
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f854c8a_314d2f82",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-12T02:17:41Z",
+      "side": 1,
+      "message": "++reg",
+      "range": {
+        "startLine": 178,
+        "startChar": 44,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
