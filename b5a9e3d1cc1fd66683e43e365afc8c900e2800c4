@@ -46,6 +46,30 @@
       "revId": "b5a9e3d1cc1fd66683e43e365afc8c900e2800c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf713c8e_5ddacff6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-12T20:29:47Z",
+      "side": 1,
+      "message": "A scoped object access doesn\u0027t stop something like a GC-ed memory allocation giving away the mutator lock. There\u0027s enough going on here that I think the assertion would be useful.",
+      "parentUuid": "bf713c8e_5730ee1f",
+      "range": {
+        "startLine": 946,
+        "startChar": 0,
+        "endLine": 956,
+        "endChar": 3
+      },
+      "revId": "b5a9e3d1cc1fd66683e43e365afc8c900e2800c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
