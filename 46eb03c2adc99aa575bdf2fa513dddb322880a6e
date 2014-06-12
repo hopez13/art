@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6328c5_d9bd06c7",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-12T20:27:01Z",
+      "side": 1,
+      "message": "I wonder if we can start eliding these UNLIKELYs by having similar logic in the Check routines like CheckIndex.",
+      "range": {
+        "startLine": 1606,
+        "startChar": 6,
+        "endLine": 1606,
+        "endChar": 14
+      },
+      "revId": "46eb03c2adc99aa575bdf2fa513dddb322880a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
