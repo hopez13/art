@@ -16,6 +16,24 @@
       "revId": "e4af676da07f58eedea01489c68469b96fb0188e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_d3c7be47",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-12T16:24:27Z",
+      "side": 1,
+      "message": "Should this be\n\n  (reg.IsFloat() ? kArm64FPReg0 : 0) + reg.GetRegNum())\n\nor do we need to take the StorageSize() into account as on X86_64?",
+      "parentUuid": "ffc9f4e9_da70755d",
+      "revId": "e4af676da07f58eedea01489c68469b96fb0188e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
