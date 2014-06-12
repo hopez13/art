@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f6920a1_3ce6fd4f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-12T08:53:42Z",
+      "side": 1,
+      "message": "Quick and runtime have switch to a vreg size to make it consistent (a method is a GC object, and we only allocate in the first 4G memory range). The CL that changed it is: https://android-review.googlesource.com/96237",
+      "parentUuid": "ff77347c_1f1bef8c",
+      "range": {
+        "startLine": 135,
+        "startChar": 8,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f854c8a_91251bcc",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-12T02:17:41Z",
       "side": 1,
       "message": "Why push/pop rather than mov?  To save a register?  It\u0027s slower.",
+      "range": {
+        "startLine": 307,
+        "startChar": 9,
+        "endLine": 307,
+        "endChar": 14
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_6d8f1168",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-12T08:53:42Z",
+      "side": 1,
+      "message": "This is only used for the baseline code generation, so not super important. I moved to using push/pop because there is no checks that guarantee the register is free (although it is for the baseline compiler).",
+      "parentUuid": "3f854c8a_91251bcc",
       "range": {
         "startLine": 307,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5f6920a1_5cf3b10c",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-12T08:53:42Z",
+      "side": 1,
+      "message": ":-). Done.",
+      "parentUuid": "ff77347c_1f420f51",
+      "range": {
+        "startLine": 168,
+        "startChar": 42,
+        "endLine": 168,
+        "endChar": 45
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f854c8a_314d2f82",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-12T02:17:41Z",
       "side": 1,
       "message": "++reg",
+      "range": {
+        "startLine": 178,
+        "startChar": 44,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "c9daff6621f2b9fd8874b979f962b81490dc3718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f6920a1_7cf075ff",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-12T08:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f854c8a_314d2f82",
       "range": {
         "startLine": 178,
         "startChar": 44,
