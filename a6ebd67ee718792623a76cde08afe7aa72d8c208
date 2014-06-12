@@ -22,6 +22,30 @@
       "revId": "a6ebd67ee718792623a76cde08afe7aa72d8c208",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfc3fcc9_182e9580",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-12T16:43:44Z",
+      "side": 1,
+      "message": "Yes, I have already noticed that the normal profile files are created by app installd. For all app installed into the device, the profile file can be read and written by apps and can be world readable for system user to read the file. This condition of creating new profile files will only happen when profile options are provided through a dalvikvm command. To my understanding, only the root user can directly invoke dalvikvm command to create a runtime, in this case, only the root user can read and write the create file (0660). I suspect this part will be only used when we test the functionality of the profiler as it will not be executed and change the permission in a normal routine.\n\nFor the side note, I agree that appending the original format would make it cleaner and compact. I was afraid it might break some dependencies in dex2oat when it loads the profile files.",
+      "parentUuid": "5f6920a1_7cbeb5ed",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "a6ebd67ee718792623a76cde08afe7aa72d8c208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
