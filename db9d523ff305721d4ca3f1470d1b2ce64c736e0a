@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf713c8e_3d527396",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-12T20:37:46Z",
+      "side": 1,
+      "message": "DCHECK(IsAligned\u003c8\u003e(displacement));\nDCHECK_LE(displacement, 1020);",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 33
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df74307d_a41d8cfc",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-12T20:37:46Z",
+      "side": 1,
+      "message": "comment that this is 0b1111111100 ?",
+      "range": {
+        "startLine": 826,
+        "startChar": 37,
+        "endLine": 826,
+        "endChar": 41
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
