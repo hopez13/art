@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f49844c_72f0b8ff",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-12T21:10:14Z",
+      "side": 1,
+      "message": "I think there was an attempt to avoid wrapping in the usage statement out, probably need to short this looking at it relative to the other lines.",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 106
+      },
+      "revId": "4f485c30376b7aff6b6722dbfc7a649d79021165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
