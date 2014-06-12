@@ -22,6 +22,30 @@
       "revId": "958b0551ff7ed3b2ba204a469529b183219721f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_13ddd6ed",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-12T18:57:23Z",
+      "side": 1,
+      "message": "Will it be ok to change r8_form from boolean to enum with say none, yes_in_r, yes_in_b? And change the logic accordingly? r8_reg_reg_form will be eliminated.",
+      "parentUuid": "df74307d_9e8aa10c",
+      "range": {
+        "startLine": 1275,
+        "startChar": 0,
+        "endLine": 1281,
+        "endChar": 91
+      },
+      "revId": "958b0551ff7ed3b2ba204a469529b183219721f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
