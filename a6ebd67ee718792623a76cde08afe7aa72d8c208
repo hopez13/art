@@ -94,6 +94,30 @@
       "revId": "a6ebd67ee718792623a76cde08afe7aa72d8c208",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_102e6a80",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-12T17:45:01Z",
+      "side": 1,
+      "message": "As discussed offline, this needs further analysis w.r.t. access rights of this file.\n\nWe also decided that, in the meantime, depending on how fast you want this, you can feel free to add the extra data in the existing file. This should be behind a flag. (you should also restore the file creation in the runtime). \n\nI already suggested previously on how I think the lines can look like but if you think of a more efficient representation feel free to adapt :)",
+      "parentUuid": "7fd6e483_13631699",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 3
+      },
+      "revId": "a6ebd67ee718792623a76cde08afe7aa72d8c208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
