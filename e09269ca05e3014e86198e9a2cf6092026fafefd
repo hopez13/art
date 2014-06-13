@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf713c8e_5e69e2c6",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-13T16:58:25Z",
+      "side": 1,
+      "message": "I should have made it a constant.\n\nThis is *not* kDexNoIndex16, as that is a valid return (as in \"I didn\u0027t find anything\"). This, which is \u003e16b, signals an error when trying to load something.\n\nCleanup CL later.",
+      "parentUuid": "bf713c8e_1e576a00",
+      "range": {
+        "startLine": 1384,
+        "startChar": 80,
+        "endLine": 1384,
+        "endChar": 88
+      },
+      "revId": "e09269ca05e3014e86198e9a2cf6092026fafefd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf713c8e_3e6c26d8",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-13T16:54:53Z",
       "side": 1,
       "message": "This feels like kDexNoIndex16 to me.",
+      "range": {
+        "startLine": 1805,
+        "startChar": 0,
+        "endLine": 1805,
+        "endChar": 35
+      },
+      "revId": "e09269ca05e3014e86198e9a2cf6092026fafefd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df74307d_12275da7",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-13T16:58:25Z",
+      "side": 1,
+      "message": "In this case I guess one could reuse kDexNoIndex16, but that check was missing before. For the \"bigger\" picture see the other comment.",
+      "parentUuid": "bf713c8e_3e6c26d8",
       "range": {
         "startLine": 1805,
         "startChar": 0,
