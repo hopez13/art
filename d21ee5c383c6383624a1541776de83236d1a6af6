@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fd5e878_507bc2cc",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-13T11:43:24Z",
+      "side": 1,
+      "message": "you could share this code with the destructor",
+      "range": {
+        "startLine": 606,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 27
+      },
+      "revId": "d21ee5c383c6383624a1541776de83236d1a6af6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f6920a1_bff11f4b",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-13T11:43:24Z",
+      "side": 1,
+      "message": "Why do you need this one? Nobody actually reads it and PreviousValue already contains the count_.",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "d21ee5c383c6383624a1541776de83236d1a6af6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
