@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f4e8057_d7f6b43f",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-13T23:55:48Z",
+      "side": 1,
+      "message": "one of these 2 lines is wrong :-)\n\nUse ||\u003d ? or if (xx) yy \u003d true?",
+      "range": {
+        "startLine": 594,
+        "startChar": 6,
+        "endLine": 594,
+        "endChar": 31
+      },
+      "revId": "50f043f9dffafd3381853e348c3b5acc8032bb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf713c8e_6518c98e",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-13T23:55:48Z",
+      "side": 1,
+      "message": "Doesn\u0027t this belong in previous if?",
+      "revId": "50f043f9dffafd3381853e348c3b5acc8032bb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
