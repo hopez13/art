@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf713c8e_91952b5d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-13T19:15:11Z",
+      "side": 1,
+      "message": "usage is out of date, perhaps\n\n\": override ANDROID_ROOT when looking for the boot image.\"",
+      "range": {
+        "startLine": 143,
+        "startChar": 16,
+        "endLine": 143,
+        "endChar": 85
+      },
+      "revId": "887235845e203fce046c17120e86d4cac4c56035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
