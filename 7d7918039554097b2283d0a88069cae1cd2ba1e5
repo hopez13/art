@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fd6e483_9ef1cd4b",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "Why not on all archs?",
+      "range": {
+        "startLine": 659,
+        "startChar": 35,
+        "endLine": 659,
+        "endChar": 39
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_fef6093f",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 728,
+        "startChar": 35,
+        "endLine": 728,
+        "endChar": 39
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_bb8adf0b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "Nit: I think this is confusing, I find that byte**  and *quick_entry_point \u003d ... conveys better the intent.",
+      "range": {
+        "startLine": 648,
+        "startChar": 70,
+        "endLine": 648,
+        "endChar": 74
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_defb4527",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3486,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "mirror::Class**",
+      "range": {
+        "startLine": 3486,
+        "startChar": 36,
+        "endLine": 3486,
+        "endChar": 41
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_9b8f1b1c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4024,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "size_t*",
+      "range": {
+        "startLine": 4024,
+        "startChar": 70,
+        "endLine": 4024,
+        "endChar": 71
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f6920a1_62d7ecf4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4057,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "size_t*",
+      "range": {
+        "startLine": 4057,
+        "startChar": 74,
+        "endLine": 4057,
+        "endChar": 80
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_db999365",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-13T22:08:51Z",
+      "side": 1,
+      "message": "There are more fixed VTableLength then kJavaLangClassVTableLength and kJavaLangStringVTableLength. Where are they being checked?",
+      "range": {
+        "startLine": 589,
+        "startChar": 67,
+        "endLine": 589,
+        "endChar": 94
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
