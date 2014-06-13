@@ -88,6 +88,24 @@
       "revId": "eece7404be709e838deedca345c4743010cd2bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf713c8e_d4d9518f",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-13T20:26:07Z",
+      "side": 1,
+      "message": "That isn\u0027t right either. The intent here is for the code to match the instruction set manual where the is no notion of r8_form_b. I\u0027ll rewrite the patch later.",
+      "parentUuid": "df74307d_483122dd",
+      "revId": "eece7404be709e838deedca345c4743010cd2bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
