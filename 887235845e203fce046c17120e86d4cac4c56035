@@ -22,6 +22,30 @@
       "revId": "887235845e203fce046c17120e86d4cac4c56035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f49844c_076f240f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-13T20:42:32Z",
+      "side": 1,
+      "message": "android_root is used throughout the compiler, elf writer... Previously we were unconditionally setting it in the case of boot.art and I think that was a mistake as the GetAndroidRoot code is in effect being executed to set up android_root, except that logic also allows for the command line override. I don\u0027t follow the previous usage message and making this specific to the case of the boot image also doesn\u0027t seem right. For context, this change is necessary for the \"oat-target\" build dependency to work.",
+      "parentUuid": "bf713c8e_91952b5d",
+      "range": {
+        "startLine": 143,
+        "startChar": 16,
+        "endLine": 143,
+        "endChar": 85
+      },
+      "revId": "887235845e203fce046c17120e86d4cac4c56035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
