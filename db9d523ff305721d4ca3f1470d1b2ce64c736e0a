@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "df74307d_d24de585",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-13T16:38:17Z",
+      "side": 1,
+      "message": "So what is the displacement check doing?\nIf this function handles all displacements then its name is misleading.",
+      "parentUuid": "5f6920a1_5f0483e1",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 33
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df74307d_a41d8cfc",
         "filename": "compiler/dex/quick/arm/utility_arm.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The two lines are to be read together and all software engineers know what 1023 is, right?",
       "parentUuid": "df74307d_a41d8cfc",
+      "range": {
+        "startLine": 826,
+        "startChar": 37,
+        "endLine": 826,
+        "endChar": 41
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f49844c_8186a4ff",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-13T16:38:17Z",
+      "side": 1,
+      "message": "I think most engineers would write masks in hex for the clarity of which bits they are setting or clearing. In this case its worse as 1020 isn\u0027t a power of 2 (or power of -1).",
+      "parentUuid": "7fd6e483_13d7967e",
       "range": {
         "startLine": 826,
         "startChar": 37,
