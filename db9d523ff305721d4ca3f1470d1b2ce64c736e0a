@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f6920a1_5f0483e1",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-13T09:01:40Z",
+      "side": 1,
+      "message": "No and no. kThumb2Vldrs/kThumb2Vstrs don\u0027t need 8-byte alignment and displacement above 1020 is handled correctly below (and actually exercised by 083-compiler-regressions).",
+      "parentUuid": "bf713c8e_3d527396",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 33
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df74307d_a41d8cfc",
         "filename": "compiler/dex/quick/arm/utility_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-12T20:37:46Z",
       "side": 1,
       "message": "comment that this is 0b1111111100 ?",
+      "range": {
+        "startLine": 826,
+        "startChar": 37,
+        "endLine": 826,
+        "endChar": 41
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fd6e483_13d7967e",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-13T09:01:40Z",
+      "side": 1,
+      "message": "The two lines are to be read together and all software engineers know what 1023 is, right?",
+      "parentUuid": "df74307d_a41d8cfc",
       "range": {
         "startLine": 826,
         "startChar": 37,
