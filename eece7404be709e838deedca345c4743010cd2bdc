@@ -70,6 +70,24 @@
       "revId": "eece7404be709e838deedca345c4743010cd2bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df74307d_483122dd",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-13T19:31:42Z",
+      "side": 1,
+      "message": "I think we need two forms of r8_form_*.  Otherwise, inside this routine, we will never emit 0x40, if we only can pass raw_reg_b to EmitPrefix().\n\nI am ok to create a new type, such as kBaseCond that will call EmitBaseCond.  But, this new type and this new function won\u0027t fix the issue that I encounter in EmitPrefix.  Right?",
+      "parentUuid": "bf713c8e_3e36e61e",
+      "revId": "eece7404be709e838deedca345c4743010cd2bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
