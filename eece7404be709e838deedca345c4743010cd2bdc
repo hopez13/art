@@ -22,6 +22,30 @@
       "revId": "eece7404be709e838deedca345c4743010cd2bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf713c8e_7e593e68",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-13T18:50:06Z",
+      "side": 1,
+      "message": "no, a default parameter is bad?\nor\nno, this isn\u0027t the right way to fix it?\nor maybe both?\nI think if you sketch out the right parameters to EmitPrefix and ComputeSize, then Chao-Ying can flesh it out.",
+      "parentUuid": "7f49844c_ac271f3f",
+      "range": {
+        "startLine": 806,
+        "startChar": 27,
+        "endLine": 806,
+        "endChar": 66
+      },
+      "revId": "eece7404be709e838deedca345c4743010cd2bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
