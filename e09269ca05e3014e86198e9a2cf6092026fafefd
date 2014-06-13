@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "df74307d_7239715d",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-13T17:32:16Z",
+      "side": 1,
+      "message": "The issue is that we have two different uses of this. In one, we expect a valid index being returned. In the other one it is OK if this method doesn\u0027t find anything (so kDexNoIndex16 is a valid return then).",
+      "parentUuid": "7f49844c_0127143e",
+      "range": {
+        "startLine": 1384,
+        "startChar": 80,
+        "endLine": 1384,
+        "endChar": 88
+      },
+      "revId": "e09269ca05e3014e86198e9a2cf6092026fafefd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf713c8e_3e6c26d8",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
