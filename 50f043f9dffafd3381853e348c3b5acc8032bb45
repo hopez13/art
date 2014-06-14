@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf713c8e_25a971b2",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-14T00:03:09Z",
+      "side": 1,
+      "message": "||\u003d isn\u0027t a valid operator, you\u0027ll see this form of writing code in the method verifier.",
+      "parentUuid": "5f4e8057_d7f6b43f",
+      "range": {
+        "startLine": 594,
+        "startChar": 6,
+        "endLine": 594,
+        "endChar": 31
+      },
+      "revId": "50f043f9dffafd3381853e348c3b5acc8032bb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf713c8e_6518c98e",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2014-06-13T23:55:48Z",
       "side": 1,
       "message": "Doesn\u0027t this belong in previous if?",
+      "revId": "50f043f9dffafd3381853e348c3b5acc8032bb45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf713c8e_05cd559a",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-14T00:03:09Z",
+      "side": 1,
+      "message": "Its saying that if there was a REX_W prefix we shouldn\u0027t count a rex prefix here. It wasn\u0027t placed correctly before.",
+      "parentUuid": "bf713c8e_6518c98e",
       "revId": "50f043f9dffafd3381853e348c3b5acc8032bb45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
