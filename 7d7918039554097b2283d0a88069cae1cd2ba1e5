@@ -94,6 +94,23 @@
     },
     {
       "key": {
+        "uuid": "5f4e8057_fa69dd02",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3519,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-14T01:05:16Z",
+      "side": 1,
+      "message": "self",
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fd5e878_9b8f1b1c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -157,6 +174,23 @@
         "endLine": 589,
         "endChar": 94
       },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df74307d_d226bcdb",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-14T01:05:16Z",
+      "side": 1,
+      "message": "Call WriteBarrierEveryFieldOf?",
       "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
