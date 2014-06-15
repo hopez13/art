@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf713c8e_29486b72",
+        "filename": "compiler/dex/dataflow_iterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-15T12:44:24Z",
+      "side": 1,
+      "message": "It seems like you can abstract out the Next() and ctors into a \u0027PreOrderIterator\u0027 that is just passed in the block_id_list.\n\nYou can then use for both Bfs and Dfs iterators.  Same for other directions, etc.",
+      "revId": "1309c225fa684f4dbc29c092e058a0762a880b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df74307d_f822b73e",
+        "filename": "compiler/dex/dataflow_iterator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-15T12:44:24Z",
+      "side": 1,
+      "message": "debug message",
+      "revId": "1309c225fa684f4dbc29c092e058a0762a880b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
