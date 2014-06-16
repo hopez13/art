@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7fd6e483_1984d7b9",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-16T10:41:21Z",
+      "side": 1,
+      "message": "The displacement should be 4-byte aligned because that\u0027s what the insns can handle. (In our usage, some insns require 8-byte and other insns only 4-byte alignment.)\n\nThe pointer adjustment is supposed to help when the displacement is too large, not for fixing the alignment.\n\nRenaming the function: https://android-review.googlesource.com/97813",
+      "parentUuid": "df74307d_d24de585",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 33
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df74307d_a41d8cfc",
         "filename": "compiler/dex/quick/arm/utility_arm.cc",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I think most engineers would write masks in hex for the clarity of which bits they are setting or clearing. In this case its worse as 1020 isn\u0027t a power of 2 (or power of -1).",
       "parentUuid": "7fd6e483_13d7967e",
+      "range": {
+        "startLine": 826,
+        "startChar": 37,
+        "endLine": 826,
+        "endChar": 41
+      },
+      "revId": "db9d523ff305721d4ca3f1470d1b2ce64c736e0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_d62b2a71",
+        "filename": "compiler/dex/quick/arm/utility_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-16T10:41:21Z",
+      "side": 1,
+      "message": "Cleanup: https://android-review.googlesource.com/97813 .",
+      "parentUuid": "7f49844c_8186a4ff",
       "range": {
         "startLine": 826,
         "startChar": 37,
