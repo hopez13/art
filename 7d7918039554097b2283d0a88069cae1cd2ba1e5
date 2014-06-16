@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "bf469c40_6fab6d77",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "this is called from FixupObject. other cases such as fixing up methods are handled there. it would seem cleaner (and perhaps faster) to me to test the IsClass case once per instance instead of testing once per reference.",
+      "range": {
+        "startLine": 600,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 1
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fd5e878_bb8adf0b",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 1
@@ -83,6 +106,30 @@
       "side": 1,
       "message": "Out arguments should be pointers and not references, per the style guide. Why is this an out argument and not just the result?",
       "parentUuid": "1fd5e878_bb8adf0b",
+      "range": {
+        "startLine": 648,
+        "startChar": 70,
+        "endLine": 648,
+        "endChar": 74
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_ce7aa395",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "and perhaps there should just be a separate helper to call to get the value?\n\nit seems like its adding unnecessary complexity since its only used in the copy\u003d\u003dNULL case and usually doesn\u0027t look at the arguments, except in one case where we could ask the copy afterwards?",
+      "parentUuid": "9f439833_6b4fe146",
       "range": {
         "startLine": 648,
         "startChar": 70,
@@ -134,6 +181,144 @@
         "startChar": 0,
         "endLine": 147,
         "endChar": 100
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_6d653158",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "does class_linker_test check all these new constants to make sure they stay in sync?",
+      "range": {
+        "startLine": 212,
+        "startChar": 61,
+        "endLine": 212,
+        "endChar": 87
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_adeac93e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "i\u0027m really not thrilled about temp classes and extra fields in libcore if it can be avoided. I don\u0027t have a concrete suggested yet on how to avoid this.",
+      "range": {
+        "startLine": 1281,
+        "startChar": 6,
+        "endLine": 1281,
+        "endChar": 21
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_6e636fe6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "add \" \u003c\u003c descriptor\" for context.\n\nCHECK(new_class !\u003d NULL) \u003c\u003c descriptor first?",
+      "range": {
+        "startLine": 1500,
+        "startChar": 2,
+        "endLine": 1500,
+        "endChar": 33
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_aec7177a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2407,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "\u003c\u003c descriptor",
+      "range": {
+        "startLine": 2407,
+        "startChar": 2,
+        "endLine": 2407,
+        "endChar": 27
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_cecc63a1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "\u003c\u003c descriptor",
+      "range": {
+        "startLine": 2418,
+        "startChar": 2,
+        "endLine": 2418,
+        "endChar": 26
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_ad8d69b5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "\u003c\u003c descriptor",
+      "range": {
+        "startLine": 2425,
+        "startChar": 6,
+        "endLine": 2425,
+        "endChar": 31
       },
       "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -220,6 +405,29 @@
         "startChar": 74,
         "endLine": 4057,
         "endChar": 80
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_0d4f55a2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-16T18:53:01Z",
+      "side": 1,
+      "message": "as noted elsewhere, can we verify these in class_linker_test?",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 69,
+        "endChar": 69
       },
       "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
