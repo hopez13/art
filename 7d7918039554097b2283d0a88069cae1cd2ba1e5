@@ -71,6 +71,76 @@
     },
     {
       "key": {
+        "uuid": "9f439833_6b4fe146",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "Out arguments should be pointers and not references, per the style guide. Why is this an out argument and not just the result?",
+      "parentUuid": "1fd5e878_bb8adf0b",
+      "range": {
+        "startLine": 648,
+        "startChar": 70,
+        "endLine": 648,
+        "endChar": 74
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_8a15eb13",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "prefer nullptr to NULL",
+      "range": {
+        "startLine": 654,
+        "startChar": 16,
+        "endLine": 654,
+        "endChar": 20
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_2be079e2",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "document the arguments as the comment above doesn\u0027t explain why we have an out argument.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 100
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fd6e483_defb4527",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -191,6 +261,213 @@
       "writtenOn": "2014-06-14T01:05:16Z",
       "side": 1,
       "message": "Call WriteBarrierEveryFieldOf?",
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_eafae7db",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 302,
+        "startChar": 15,
+        "endLine": 302,
+        "endChar": 16
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_0a101b6d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 310,
+        "startChar": 15,
+        "endLine": 310,
+        "endChar": 16
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_0ae9fb20",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "s/;/./",
+      "range": {
+        "startLine": 1084,
+        "startChar": 41,
+        "endLine": 1084,
+        "endChar": 42
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_6a07d735",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "This feels redundant, we can just see if the ClassLinker/class_table_ contains this class.",
+      "range": {
+        "startLine": 1085,
+        "startChar": 0,
+        "endLine": 1085,
+        "endChar": 16
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_2ae6bf4f",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "Starting offset for static fields, used with reference_static_offsets_.",
+      "range": {
+        "startLine": 1087,
+        "startChar": 5,
+        "endLine": 1087,
+        "endChar": 10
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_4b25c5c8",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "Can this be folded into the ClassStatus?",
+      "range": {
+        "startLine": 1092,
+        "startChar": 0,
+        "endLine": 1095,
+        "endChar": 16
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_2b2eb980",
+        "filename": "runtime/mirror/proxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "Add DCHECKs that the first and second fields are named interfaces and throws, have expected types, etc.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf469c40_4c523fee",
+        "filename": "runtime/mirror/proxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "unused so remove",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 57
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_eafd878c",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-16T16:20:06Z",
+      "side": 1,
+      "message": "ugh.. this just exists so that sizeof operations on StringClass are successful during boot strapping in the class linker. Given the new structure can we remove it?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 2
+      },
       "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
