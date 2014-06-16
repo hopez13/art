@@ -207,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "9f439833_9f4d2387",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-16T23:40:24Z",
+      "side": 1,
+      "message": "This write is unconditionally non-atomic. In the old code, a GC implementation could choose to use an atomic write by passing a mark_callback that does an atomic write. I wonder if this would be a memory visibility issue for a concurrent moving collector. It might be ok as long as the ForwardSoftReferences call is surrounded by a lock for the concurrent case.",
+      "parentUuid": "7f3264d4_13b77613",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf469c40_52f3b40c",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 1
@@ -324,6 +342,24 @@
       "side": 1,
       "message": "Which name do you suggest?",
       "parentUuid": "9f439833_0e310bde",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3264d4_59890f12",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-16T23:40:24Z",
+      "side": 1,
+      "message": "Just leave it as is. As we already have MarkHeapReferenceCallback, it is fine. I just need to remember that it may update the given HeapReference.",
+      "parentUuid": "bf469c40_126e8c41",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
