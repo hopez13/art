@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3990b5_adbd5dc7",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-16T18:25:43Z",
+      "side": 1,
+      "message": "We should not require intrinsic !\u003d nullptr.\n  bool res \u003d ...;\n  if (res \u0026\u0026 intrinsic !\u003d nullptr) {\n    *intrinsic \u003d it-\u003esecond;\n  }\n  return res;",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 83
+      },
+      "revId": "b1d19b963825f506f9399d1bb04372b3b604e711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3990b5_cdc2a93a",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-16T18:25:43Z",
+      "side": 1,
+      "message": "This should be a single line:\n  } else {",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 560,
+        "endChar": 10
+      },
+      "revId": "b1d19b963825f506f9399d1bb04372b3b604e711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fd5e878_417f7633",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-16T18:25:43Z",
+      "side": 1,
+      "message": "This is a NOP now, please remove or replace with\n  DCHECK(rl_result.reg \u003d\u003d rl_src.reg);",
+      "revId": "b1d19b963825f506f9399d1bb04372b3b604e711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3990b5_edc76547",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-06-16T18:25:43Z",
+      "side": 1,
+      "message": "We\u0027re done using the sign_mask, so\n  FreeTemp(sign_mask)\nnow.",
+      "revId": "b1d19b963825f506f9399d1bb04372b3b604e711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
