@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f8a489d_b4d4d656",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "seems arm and arm64 still share part of the implementation for GenInlinedAbs and the arm and arm64 are in different directory. To avoid duplicate same copies of code to each implemetation and reduce the change scope, probably it\u0027s simpler to leave GenInlinedAbs virtual.",
+      "parentUuid": "0a3da49e_d5f22b50",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_cdad3ebe",
         "filename": "compiler/dex/quick/x86/codegen_x86.h",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2014-05-22T16:11:06Z",
       "side": 1,
       "message": "Mark with the OVERRIDE macro.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_5be81b8c",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_cdad3ebe",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "5f804079_db450bd4",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_55ff1b13",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 16
+      },
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a531cfd_2d6faacb",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2014-05-22T16:11:06Z",
       "side": 1,
       "message": "Naming conventions: sign_mask.",
+      "range": {
+        "startLine": 483,
+        "startChar": 15,
+        "endLine": 483,
+        "endChar": 23
+      },
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f8a489d_3487e6c1",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_2d6faacb",
       "range": {
         "startLine": 483,
         "startChar": 15,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "bf469c40_8ffb39e3",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a531cfd_4d6ceed4",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a58a819_7b55ead5",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 2
@@ -116,6 +224,24 @@
       "writtenOn": "2014-05-22T16:11:06Z",
       "side": 1,
       "message": "If you go into the trouble of working directly on memory in GenInlinedAbsFloat(), why not here?",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_763b36be",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58a819_7b55ead5",
       "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -139,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "5f804079_56e0f2e2",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_15cbd3e4",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3da49e_b5e4bf73",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 2
@@ -150,6 +294,24 @@
       "writtenOn": "2014-05-22T16:11:06Z",
       "side": 1,
       "message": "I don\u0027t like the DoesIntrinsicUseDoubleArgument(). Can we instead modify IsIntrinsic() to take an additional InlineMethod* argument and fill it with the data if the method is indeed intrinsic? That would allow any other analysis we may need later without spilling x86 details into architecture-independent code.",
+      "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f804079_76edf6d9",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1013850
+      },
+      "writtenOn": "2014-06-16T17:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a3da49e_b5e4bf73",
       "revId": "3449b30aedc1e1aecd3d8092ae598c789dded300",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
