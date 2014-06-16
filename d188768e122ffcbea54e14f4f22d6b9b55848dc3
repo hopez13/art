@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "bf469c40_32e8e88b",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "If the reference is updated to point to the same object at a new address its not necessary to have a write barrier.",
+      "parentUuid": "9f439833_ae48f744",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3264d4_cd3b7d08",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 660,
         "endChar": 16
       },
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf469c40_921d1cfd",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Nice catch, I think I want !\u003d nullptr here.",
+      "parentUuid": "7f3264d4_cd3b7d08",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "bf469c40_d221642b",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "I think we don\u0027t need a read barrier since thread suspension (checkpoint root updating) would never happen until the function is done.",
+      "parentUuid": "7f3264d4_cd929dd0",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3264d4_6da4512d",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 63,
         "endChar": 59
       },
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_9126fcda",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "7f3264d4_6da4512d",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "7f3264d4_13b77613",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Clarify? Is there something you want me to address related to this comment?",
+      "parentUuid": "7f3264d4_ad5f2951",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf469c40_52f3b40c",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 1
@@ -134,6 +224,24 @@
         "endLine": 107,
         "endChar": 71
       },
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf469c40_b27e98f0",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "It makes it that you don\u0027t need to remember to update the referents if the object is marked.",
+      "parentUuid": "bf469c40_52f3b40c",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "7f3264d4_f3566202",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3264d4_8dbee551",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f439833_0e310bde",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 1
@@ -180,6 +306,24 @@
         "endLine": 133,
         "endChar": 70
       },
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf469c40_126e8c41",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Which name do you suggest?",
+      "parentUuid": "9f439833_0e310bde",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "9f439833_f17f4082",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f439833_ae5c7726",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f3264d4_2db09978",
         "filename": "runtime/object_callbacks.h",
         "patchSetId": 1
@@ -226,6 +388,24 @@
         "endLine": 74,
         "endChar": 12
       },
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f439833_d151640d",
+        "filename": "runtime/object_callbacks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-16T21:02:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3264d4_2db09978",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
