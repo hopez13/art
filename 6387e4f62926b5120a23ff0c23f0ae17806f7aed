@@ -260,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "bffcdced_d6718463",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f33447f_219a6f59",
+      "range": {
+        "startLine": 1107,
+        "startChar": 4,
+        "endLine": 1107,
+        "endChar": 20
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_21a90fb2",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -271,6 +295,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "OpenDexFilesFromOat (no need to say Multi) and I think you don\u0027t need the explanation in the doc then either about how it can be used for \"single\"",
+      "range": {
+        "startLine": 276,
+        "startChar": 7,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_8e3ce44f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f33447f_21a90fb2",
       "range": {
         "startLine": 276,
         "startChar": 7,
@@ -317,6 +365,54 @@
       "writtenOn": "2014-06-05T07:08:23Z",
       "side": 1,
       "message": "Will do.",
+      "parentUuid": "7f33447f_a1951f5c",
+      "range": {
+        "startLine": 532,
+        "startChar": 63,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f33447f_a7220c96",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "In this case, the oat file has already been opened. That is why it is found. There is no \"ownership\" here.",
+      "parentUuid": "7f33447f_61771756",
+      "range": {
+        "startLine": 532,
+        "startChar": 63,
+        "endLine": 532,
+        "endChar": 64
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f162cdd_4e36cc6d",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "7f33447f_a1951f5c",
       "range": {
         "startLine": 532,
@@ -412,6 +508,30 @@
       "side": 1,
       "message": "Will use OpenFromZip, good suggestion.",
       "parentUuid": "7f33447f_21d26f38",
+      "range": {
+        "startLine": 368,
+        "startChar": 9,
+        "endLine": 368,
+        "endChar": 21
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf505ca5_171463a4",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_e61caffd",
       "range": {
         "startLine": 368,
         "startChar": 9,
@@ -706,6 +826,30 @@
     },
     {
       "key": {
+        "uuid": "bffcdced_5655747c",
+        "filename": "runtime/dex_method_iterator_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf505ca5_e64fcff0",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_c292b3d0",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 4
@@ -753,6 +897,30 @@
     },
     {
       "key": {
+        "uuid": "1f696874_9cf5f1ed",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f162cdd_d54cab87",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 21
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f33447f_61be37c4",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 4
@@ -788,6 +956,30 @@
       "side": 1,
       "message": "OK.",
       "parentUuid": "7f33447f_61be37c4",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f696874_3cf085fe",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f33447f_c155c37e",
       "range": {
         "startLine": 148,
         "startChar": 0,
@@ -941,6 +1133,30 @@
     },
     {
       "key": {
+        "uuid": "1f696874_3c072537",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f162cdd_d5a82bb0",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 66
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_62564739",
         "filename": "runtime/utils.cc",
         "patchSetId": 4
@@ -988,6 +1204,30 @@
     },
     {
       "key": {
+        "uuid": "ff5d74d3_706e1d43",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "7f33447f_e1d7a77b",
+      "range": {
+        "startLine": 1227,
+        "startChar": 0,
+        "endLine": 1229,
+        "endChar": 60
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f162cdd_c23b9308",
         "filename": "test/112-multidex/src/Main.java",
         "patchSetId": 4
@@ -999,6 +1239,30 @@
       "writtenOn": "2014-06-05T05:49:14Z",
       "side": 1,
       "message": "WS",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "6387e4f62926b5120a23ff0c23f0ae17806f7aed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4046504_054ed8a4",
+        "filename": "test/112-multidex/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T03:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f162cdd_c23b9308",
       "range": {
         "startLine": 20,
         "startChar": 0,
