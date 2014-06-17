@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2492a112_3fd1c733",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T21:31:46Z",
+      "side": 1,
+      "message": "Sorry about all the formatting snafu. Eclipse went wild and I didn\u0027t notice how pervasive and *bad* it was.",
+      "parentUuid": "24446156_3526b8ac",
+      "range": {
+        "startLine": 1039,
+        "startChar": 41,
+        "endLine": 1039,
+        "endChar": 43
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04291d85_11fd0e8b",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-17T18:50:06Z",
       "side": 1,
       "message": "This feels like it should be in utils.h",
+      "range": {
+        "startLine": 1084,
+        "startChar": 0,
+        "endLine": 1092,
+        "endChar": 3
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_bfbcf7f3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T21:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04291d85_11fd0e8b",
       "range": {
         "startLine": 1084,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2492a112_9f39f3c5",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T21:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c432a5f0_efcbbd52",
+      "range": {
+        "startLine": 1369,
+        "startChar": 39,
+        "endLine": 1369,
+        "endChar": 40
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04291d85_d10786e7",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-17T18:50:06Z",
       "side": 1,
       "message": "what\u0027s a basic native call? Native calls always have 1 handle (object for virtual, class for static).\nI think this needs more explanation, in particular what the overriding methods will do differently.",
+      "range": {
+        "startLine": 1469,
+        "startChar": 19,
+        "endLine": 1469,
+        "endChar": 24
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448dd5f1_20f8ca9a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T21:31:46Z",
+      "side": 1,
+      "message": "I wanted to avoid \"JNI\", but clarified this to \"Non-JNI.\"\n\nThis is not for a JNI call. This is purely the logic to fill the register and native call stacks. One can build a native call that does not need any JNI things.\n\nTo build a JNI call, one should use the subclasses like ComputeGenericJniFrameSize and FillJniCall.",
+      "parentUuid": "04291d85_d10786e7",
       "range": {
         "startLine": 1469,
         "startChar": 19,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2492a112_df19bb92",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T21:31:46Z",
+      "side": 1,
+      "message": "It isn\u0027t.\n\nFor initialization reasons, I needed a Reset function to set the handle scope after allocation.\n\nWe are modifying the contents of the scope, so it\u0027s also not denoting a const in that respect.\n\nSo I feel having it non-const is the right way.",
+      "parentUuid": "04291d85_9101fed3",
+      "range": {
+        "startLine": 1556,
+        "startChar": 13,
+        "endLine": 1556,
+        "endChar": 15
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c432a5f0_cfc80159",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-06-17T18:50:06Z",
       "side": 1,
       "message": "while here, fix the comments to be \"Run the visitor.\", and other cases below.",
+      "range": {
+        "startLine": 1668,
+        "startChar": 0,
+        "endLine": 1668,
+        "endChar": 20
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448dd5f1_e0e98290",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-17T21:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c432a5f0_cfc80159",
       "range": {
         "startLine": 1668,
         "startChar": 0,
