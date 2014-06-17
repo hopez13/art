@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e44ec981_0516f21c",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T07:05:08Z",
+      "side": 1,
+      "message": "add comments for the return value meaning",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 25
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44587541_0816071d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2297,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T07:05:08Z",
+      "side": 1,
+      "message": "log the failures too?",
+      "range": {
+        "startLine": 2297,
+        "startChar": 0,
+        "endLine": 2297,
+        "endChar": 18
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44587541_28942b2c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T07:05:08Z",
+      "side": 1,
+      "message": "seems very similar to the case below, fold and put more tag assertions on both cases?",
+      "range": {
+        "startLine": 2347,
+        "startChar": 0,
+        "endLine": 2347,
+        "endChar": 30
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0452fd22_461cf23c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2376,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T07:05:08Z",
+      "side": 1,
+      "message": "This ignores the expected tag and assigns the one derived from the object :-/",
+      "range": {
+        "startLine": 2376,
+        "startChar": 0,
+        "endLine": 2376,
+        "endChar": 42
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0452fd22_c607c2e7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2495,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T07:05:08Z",
+      "side": 1,
+      "message": "here the case is folded",
+      "range": {
+        "startLine": 2495,
+        "startChar": 0,
+        "endLine": 2495,
+        "endChar": 28
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0452fd22_8601cad3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2506,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T07:05:08Z",
+      "side": 1,
+      "message": "sanity check the tag?",
+      "range": {
+        "startLine": 2506,
+        "startChar": 21,
+        "endLine": 2506,
+        "endChar": 90
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
