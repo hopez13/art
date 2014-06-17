@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c44b8572_64fdaad5",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-17T08:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e44ec981_0516f21c",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 25
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44587541_0816071d",
         "filename": "runtime/debugger.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-17T07:05:08Z",
       "side": 1,
       "message": "log the failures too?",
+      "range": {
+        "startLine": 2297,
+        "startChar": 0,
+        "endLine": 2297,
+        "endChar": 18
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44b8572_c4169e62",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2297,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-17T08:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44587541_0816071d",
       "range": {
         "startLine": 2297,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6463b9f2_0935e9fb",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-17T08:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44587541_28942b2c",
+      "range": {
+        "startLine": 2347,
+        "startChar": 0,
+        "endLine": 2347,
+        "endChar": 30
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0452fd22_461cf23c",
         "filename": "runtime/debugger.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-17T07:05:08Z",
       "side": 1,
       "message": "This ignores the expected tag and assigns the one derived from the object :-/",
+      "range": {
+        "startLine": 2376,
+        "startChar": 0,
+        "endLine": 2376,
+        "endChar": 42
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "245d4132_8720a6ba",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2376,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-17T08:13:19Z",
+      "side": 1,
+      "message": "This allows to be accurate when returning the value. We can be asked to return an object with tag JT_OBJECT that is actually a thread so we return the object with JT_THREAD tag. However, we probably need to check we can\u0027t do the reverse (be asked to return a JT_THREAD object when it\u0027s not a thread) so the given tag is compatible with the actual value. I filed a bug for this.",
+      "parentUuid": "0452fd22_461cf23c",
       "range": {
         "startLine": 2376,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6463b9f2_c916b162",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2495,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-17T08:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0452fd22_c607c2e7",
+      "range": {
+        "startLine": 2495,
+        "startChar": 0,
+        "endLine": 2495,
+        "endChar": 28
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0452fd22_8601cad3",
         "filename": "runtime/debugger.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2014-06-17T07:05:08Z",
       "side": 1,
       "message": "sanity check the tag?",
+      "range": {
+        "startLine": 2506,
+        "startChar": 21,
+        "endLine": 2506,
+        "endChar": 90
+      },
+      "revId": "5936264726c4c25a82a1970709d022a4b1a6bea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6463b9f2_a9237dc6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2506,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-17T08:13:19Z",
+      "side": 1,
+      "message": "Correct. There is a TODO above saying we should check the given tag is valid with the variable\u0027s type corresponding to the slot. I filed a bug to track this.",
+      "parentUuid": "0452fd22_8601cad3",
       "range": {
         "startLine": 2506,
         "startChar": 21,
