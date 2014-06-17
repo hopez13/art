@@ -22,6 +22,30 @@
       "revId": "3a5052214df8140978f19f0e9e242df6ffcb621f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "245d4132_277a1a95",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-17T09:06:15Z",
+      "side": 1,
+      "message": "I can remove the escape sequences. Thing is, the amount of logging make these kinds of messages disappear.\n\nI\u0027m inclined to make it this way at first, and later think about better ways of running all the tests without all the logging.",
+      "parentUuid": "e44ec981_a5f39e7c",
+      "range": {
+        "startLine": 210,
+        "startChar": 12,
+        "endLine": 210,
+        "endChar": 71
+      },
+      "revId": "3a5052214df8140978f19f0e9e242df6ffcb621f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
