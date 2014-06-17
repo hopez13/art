@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e44ec981_bfd4c779",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-17T20:39:35Z",
+      "side": 1,
+      "message": "As far as I know, there is no encoding for ldr x8,[sp,#-16384].\n\nThe only one that\u0027s close is the unsigned scaled 12 bit offset.  I\u0027d love to be wrong though.",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 65
+      },
+      "revId": "8c2b179e47d6067f102b7600a139c2c202b5144d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44587541_57a93669",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-17T20:39:35Z",
+      "side": 1,
+      "message": "Is x8 always available here?  I assume so.",
+      "range": {
+        "startLine": 366,
+        "startChar": 26,
+        "endLine": 366,
+        "endChar": 31
+      },
+      "revId": "8c2b179e47d6067f102b7600a139c2c202b5144d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44587541_b7dab2f2",
+        "filename": "runtime/arch/arm64/fault_handler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-17T20:39:35Z",
+      "side": 1,
+      "message": "Don\u0027t want the bottom bit set - thumb",
+      "range": {
+        "startLine": 80,
+        "startChar": 27,
+        "endLine": 80,
+        "endChar": 35
+      },
+      "revId": "8c2b179e47d6067f102b7600a139c2c202b5144d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
