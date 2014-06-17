@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c44b8572_e7663ca9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-17T17:25:00Z",
+      "side": 1,
+      "message": "But the description of the instruction says (https://source.android.com/devices/tech/dalvik/dalvik-bytecode.html):\n\n\"This must be done as the instruction immediately after an invoke-kind \"\n\nSo I don\u0027t see what could happen in between the call and the move-result.",
+      "parentUuid": "0452fd22_2cde7775",
+      "range": {
+        "startLine": 411,
+        "startChar": 4,
+        "endLine": 411,
+        "endChar": 14
+      },
+      "revId": "f78c1e9d285608dd4332488cb512f5e51af9dbe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6463b9f2_e9197592",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "It\u0027s an HInstruction with type.  I saw that there was a pattern of adding a type to various instructions and wanted to consolidate it into a node that is an instruction and provides a type.",
       "parentUuid": "6463b9f2_e9197592",
+      "range": {
+        "startLine": 753,
+        "startChar": 6,
+        "endLine": 753,
+        "endChar": 17
+      },
+      "revId": "f78c1e9d285608dd4332488cb512f5e51af9dbe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44b8572_c7634097",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-17T17:25:00Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "44587541_cb98e9ee",
       "range": {
         "startLine": 753,
         "startChar": 6,
@@ -366,6 +414,30 @@
       "side": 1,
       "message": "I\u0027ll have to think some more about this.  The existence of the instruction that simply does a comparison and puts the 1 or 0 into a register is at odds with the DEX instruction sequence which has already coded it into the IF_XX.  Admittedly I am not yet familiar with the implementation details of all the optimizations we want to do and you are most likely right but I want to understand.",
       "parentUuid": "6463b9f2_694fc57d",
+      "range": {
+        "startLine": 852,
+        "startChar": 11,
+        "endLine": 852,
+        "endChar": 14
+      },
+      "revId": "f78c1e9d285608dd4332488cb512f5e51af9dbe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "245d4132_0aa03b94",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-17T17:25:00Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s at odds with the DEX instruction set, but I think the DEX instruction set is not great for these kinds of optimizations. Indeed, it is great for code generation, but writing the optimizations IMO is a bit cumbersome.",
+      "parentUuid": "e44ec981_6b1fb5f3",
       "range": {
         "startLine": 852,
         "startChar": 11,
