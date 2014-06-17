@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24446156_3526b8ac",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T18:50:06Z",
+      "side": 1,
+      "message": "isn\u0027t this ws alignment worse?",
+      "range": {
+        "startLine": 1039,
+        "startChar": 41,
+        "endLine": 1039,
+        "endChar": 43
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04291d85_11fd0e8b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T18:50:06Z",
+      "side": 1,
+      "message": "This feels like it should be in utils.h",
+      "range": {
+        "startLine": 1084,
+        "startChar": 0,
+        "endLine": 1092,
+        "endChar": 3
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c432a5f0_efcbbd52",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T18:50:06Z",
+      "side": 1,
+      "message": "cruft?",
+      "range": {
+        "startLine": 1369,
+        "startChar": 39,
+        "endLine": 1369,
+        "endChar": 40
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04291d85_d10786e7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T18:50:06Z",
+      "side": 1,
+      "message": "what\u0027s a basic native call? Native calls always have 1 handle (object for virtual, class for static).\nI think this needs more explanation, in particular what the overriding methods will do differently.",
+      "range": {
+        "startLine": 1469,
+        "startChar": 19,
+        "endLine": 1469,
+        "endChar": 24
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04291d85_9101fed3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T18:50:06Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 1556,
+        "startChar": 13,
+        "endLine": 1556,
+        "endChar": 15
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c432a5f0_cfc80159",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-17T18:50:06Z",
+      "side": 1,
+      "message": "while here, fix the comments to be \"Run the visitor.\", and other cases below.",
+      "range": {
+        "startLine": 1668,
+        "startChar": 0,
+        "endLine": 1668,
+        "endChar": 20
+      },
+      "revId": "8addb9162442a595a96a084d11ce20395390b2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
