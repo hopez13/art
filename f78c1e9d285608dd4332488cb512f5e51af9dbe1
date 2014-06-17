@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "2492a112_45e39e42",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-17T22:36:50Z",
+      "side": 1,
+      "message": "OK, wasn\u0027t aware of that restriction.  And looking at the code I now see that the output location of an invoke is R0 on ARM, so that is where the input to the instruction is.  OK, got it.  I\u0027ll remove the CallResult as it\u0027s not needed.",
+      "parentUuid": "c44b8572_e7663ca9",
+      "range": {
+        "startLine": 411,
+        "startChar": 4,
+        "endLine": 411,
+        "endChar": 14
+      },
+      "revId": "f78c1e9d285608dd4332488cb512f5e51af9dbe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6463b9f2_e9197592",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -438,6 +462,30 @@
       "side": 1,
       "message": "Yeah, it\u0027s at odds with the DEX instruction set, but I think the DEX instruction set is not great for these kinds of optimizations. Indeed, it is great for code generation, but writing the optimizations IMO is a bit cumbersome.",
       "parentUuid": "e44ec981_6b1fb5f3",
+      "range": {
+        "startLine": 852,
+        "startChar": 11,
+        "endLine": 852,
+        "endChar": 14
+      },
+      "revId": "f78c1e9d285608dd4332488cb512f5e51af9dbe1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_a50aaa3c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-17T22:36:50Z",
+      "side": 1,
+      "message": "I\u0027ve been working on it today and have something that you might like.  I\u0027m still not sure about how it will help with optimizations, but I have a good code sequence with the boolean instruction in place.  I\u0027ll upload tonight for your perusal.",
+      "parentUuid": "245d4132_0aa03b94",
       "range": {
         "startLine": 852,
         "startChar": 11,
