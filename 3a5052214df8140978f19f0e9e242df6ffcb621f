@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e44ec981_a5f39e7c",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-17T08:28:54Z",
+      "side": 1,
+      "message": "recently edheyl played some games like this with escape sequences for m/mm/mmm and it had to be reverted because it didn\u0027t always play well when run in unexpected places. (I was fine in emacs, but apparently other people running from IDEs etc didn\u0027t like to deal with the escape sequences)",
+      "range": {
+        "startLine": 210,
+        "startChar": 12,
+        "endLine": 210,
+        "endChar": 71
+      },
+      "revId": "3a5052214df8140978f19f0e9e242df6ffcb621f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
