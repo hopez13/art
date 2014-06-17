@@ -225,6 +225,24 @@
     },
     {
       "key": {
+        "uuid": "9f439833_c57efef1",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-17T01:31:36Z",
+      "side": 1,
+      "message": "The only place we should read this in another thread without a read barrier for concurrent moving GC should be in Reference.get right? I think thats OK since it will block until the reference is no longer enqueued, and we have an implied fence when we do StopPreservingReferences.",
+      "parentUuid": "9f439833_9f4d2387",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf469c40_52f3b40c",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 1
@@ -360,6 +378,24 @@
       "side": 1,
       "message": "Just leave it as is. As we already have MarkHeapReferenceCallback, it is fine. I just need to remember that it may update the given HeapReference.",
       "parentUuid": "bf469c40_126e8c41",
+      "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4046504_c53c70de",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-17T01:31:36Z",
+      "side": 1,
+      "message": "There\u0027s a comment in object_callbacks.h which should be sufficient.",
+      "parentUuid": "7f3264d4_59890f12",
       "revId": "d188768e122ffcbea54e14f4f22d6b9b55848dc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
