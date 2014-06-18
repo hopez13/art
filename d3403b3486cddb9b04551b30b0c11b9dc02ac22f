@@ -22,6 +22,98 @@
       "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04975d03_e81f1cba",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T16:29:20Z",
+      "side": 1,
+      "message": "uint32_t?  Can this be negative?",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 9
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d659dd_20c77425",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T16:29:20Z",
+      "side": 1,
+      "message": "++i",
+      "range": {
+        "startLine": 341,
+        "startChar": 41,
+        "endLine": 341,
+        "endChar": 44
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_b4689632",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T16:29:20Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 343,
+        "startChar": 18,
+        "endLine": 343,
+        "endChar": 22
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04975d03_082928ef",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T16:29:20Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 347,
+        "startChar": 9,
+        "endLine": 347,
+        "endChar": 13
+      },
+      "revId": "d3403b3486cddb9b04551b30b0c11b9dc02ac22f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
