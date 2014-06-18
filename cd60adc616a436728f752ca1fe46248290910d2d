@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2492a112_eee16fe9",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T02:18:52Z",
+      "side": 1,
+      "message": "Should these have accessor functions to mimic the ones in runtime?  That way they can be changed to a bit mask or whatever we want in the future",
+      "range": {
+        "startLine": 110,
+        "startChar": 7,
+        "endLine": 113,
+        "endChar": 1
+      },
+      "revId": "cd60adc616a436728f752ca1fe46248290910d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04975d03_f89b71e8",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T02:18:52Z",
+      "side": 1,
+      "message": "We probably need two command line options.  The existing runtime --implicit-checks: and another compiler option \u0027-implicit-checks:\u0027  The compiler\u0027s default should be the same as the runtime.",
+      "range": {
+        "startLine": 859,
+        "startChar": 4,
+        "endLine": 859,
+        "endChar": 11
+      },
+      "revId": "cd60adc616a436728f752ca1fe46248290910d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d659dd_fadefd20",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-18T02:18:52Z",
+      "side": 1,
+      "message": "Given the comment about accessor functions:\n\nif (cu_-\u003eExplicitNullChecks()) {",
+      "range": {
+        "startLine": 193,
+        "startChar": 15,
+        "endLine": 193,
+        "endChar": 36
+      },
+      "revId": "cd60adc616a436728f752ca1fe46248290910d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
