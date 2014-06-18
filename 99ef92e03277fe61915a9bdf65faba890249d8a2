@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a4cbf13b_d11204e7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-18T21:36:49Z",
+      "side": 1,
+      "message": "But your strategy *only* works on x86. On other architectures you do not have the leisure of having all arguments on the stack so that you can easily retrieve the args array. You cannot call an arbitrary native function from a JNI call - the signature has to match.\n\nSo the proper approach for you would have been to override the signature of the Java method. But then you cannot use the JNI compiler, either, because it won\u0027t give you the right things.\n\nDo you see the issue?",
+      "parentUuid": "4466b513_e1dadca5",
+      "range": {
+        "startLine": 1896,
+        "startChar": 9,
+        "endLine": 1896,
+        "endChar": 41
+      },
+      "revId": "99ef92e03277fe61915a9bdf65faba890249d8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04975d03_d8d23504",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 2
