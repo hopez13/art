@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64d659dd_17c2bc3b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1000428
+      },
+      "writtenOn": "2014-06-18T01:07:48Z",
+      "side": 1,
+      "message": "How do we know at compile time whether a method needs native bridge? The information is not available from the DEX file and can only be known when one tries to load a native library at runtime. From the DEX file, we know a method is native but don\u0027t know it uses a foreign ISA.",
+      "range": {
+        "startLine": 1896,
+        "startChar": 9,
+        "endLine": 1896,
+        "endChar": 41
+      },
+      "revId": "99ef92e03277fe61915a9bdf65faba890249d8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
