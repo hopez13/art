@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4466b513_27f784f7",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-18T20:28:21Z",
+      "side": 1,
+      "message": "Constants? Or since I think they\u0027re limited and well-defined, maybe enumerations?",
+      "range": {
+        "startLine": 1064,
+        "startChar": 35,
+        "endLine": 1067,
+        "endChar": 49
+      },
+      "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
