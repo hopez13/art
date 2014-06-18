@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_e89e3b82",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Added as TODO",
+      "parentUuid": "8a6a7464_2d36196f",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6a7464_4d9eeddd",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 16
@@ -42,6 +60,24 @@
         "endLine": 1312,
         "endChar": 39
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84ba6d9a_4a17331c",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a6a7464_4d9eeddd",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "e44ec981_fa580d0f",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5498b1_a359ba36",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5e84cf_6f2881e9",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 16
@@ -94,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "2492a112_427ab4fc",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "I\u0027ll add some comments to explain what the new code blocks do. StringInitToStringFactoryMethodID gets the proper method and fatally fails if something is wrong.",
+      "parentUuid": "0a5e84cf_6f2881e9",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5e84cf_cf78950a",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 16
@@ -111,6 +183,24 @@
         "endLine": 202,
         "endChar": 16
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_02d82cab",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "This code makes sure that all registers that hold a copy of the string get updated to contain the result of the StringFactory.\n\nThe old string is created by a new-instance instruction, which now just allocates a dummy string. It\u0027s possible for the result of the new-instance to be copied into different registers before String.\u003cinit\u003e is invoked. All copies of the dummy string have to be overwritten by the new StringFactory result, and this code sweeps the registers making sure that happens. I\u0027ve changed the comment to explain this a little more clearly.",
+      "parentUuid": "0a5e84cf_cf78950a",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -232,6 +322,24 @@
     },
     {
       "key": {
+        "uuid": "64d659dd_31a11052",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca570cb3_6428aae9",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a30447d_7fffc313",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 16
@@ -249,6 +357,24 @@
         "endLine": 351,
         "endChar": 30
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d659dd_d18524ba",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a30447d_7fffc313",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -278,6 +404,24 @@
     },
     {
       "key": {
+        "uuid": "64d659dd_116dec85",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "This was an artifact of rebasing multiple times. I\u0027ve updated it to use enums.",
+      "parentUuid": "0a30447d_1f0c8f9e",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca570cb3_442b2ee7",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 16
@@ -301,6 +445,24 @@
     },
     {
       "key": {
+        "uuid": "64d659dd_918f9cd6",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca570cb3_442b2ee7",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca570cb3_24b71274",
         "filename": "runtime/mirror/string-inl.h",
         "patchSetId": 16
@@ -318,6 +480,24 @@
         "endLine": 65,
         "endChar": 60
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_73eea8de",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca570cb3_24b71274",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -376,6 +556,24 @@
     },
     {
       "key": {
+        "uuid": "2492a112_f4537e99",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "I\u0027ve created visitors to handle the copying for these constructors.",
+      "parentUuid": "64ec997a_017eca36",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1b4808_c02cf488",
         "filename": "runtime/mirror/string.h",
         "patchSetId": 16
@@ -393,6 +591,24 @@
         "endLine": 47,
         "endChar": 47
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_737b0803",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Not quite, but I can return something similar",
+      "parentUuid": "2a1b4808_c02cf488",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -422,6 +638,24 @@
     },
     {
       "key": {
+        "uuid": "64d659dd_578a840d",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "ca570cb3_2422b209",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a30447d_5f6d2740",
         "filename": "runtime/mirror/string.h",
         "patchSetId": 16
@@ -439,6 +673,24 @@
         "endLine": 154,
         "endChar": 9
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d659dd_b7be509a",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a30447d_5f6d2740",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -468,6 +720,24 @@
     },
     {
       "key": {
+        "uuid": "2492a112_73ec6874",
+        "filename": "runtime/native/java_lang_String.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "charAt already has a compiler intrinsic. I\u0027ll consider adding intrinsics for other methods that were not native before.",
+      "parentUuid": "0a30447d_9f109fb4",
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa7bb835_bae30d68",
         "filename": "runtime/reflection.cc",
         "patchSetId": 16
@@ -485,6 +755,24 @@
         "endLine": 479,
         "endChar": 63
       },
+      "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2492a112_b3a5102d",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa7bb835_bae30d68",
       "revId": "b7b68522d2af81f8532f09492ffab3b602303e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

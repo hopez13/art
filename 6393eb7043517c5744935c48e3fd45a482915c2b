@@ -45,6 +45,24 @@
       "revId": "6393eb7043517c5744935c48e3fd45a482915c2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04975d03_848d2ab5",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2014-06-18T22:23:46Z",
+      "side": 0,
+      "message": "I created entrypoints for strings, but I think calling directly into String::Alloc is really what I want here. The entrypoints just call into String::Alloc in the end.",
+      "parentUuid": "2a698874_7c811da9",
+      "revId": "6393eb7043517c5744935c48e3fd45a482915c2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
