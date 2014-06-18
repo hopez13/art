@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4466b513_e1dadca5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1000428
+      },
+      "writtenOn": "2014-06-18T19:27:43Z",
+      "side": 1,
+      "message": "In PS1, all method invocations to foreign JNI methods go through a native bridge wrapper set in entry_point_from_jni_ in ArtMethod. The original fnptr to the foreign JNI method is stored in the newly added field entry_point_from_native_bridge_ in ArtMethod. The native bridge wrapper function is set in RegisterNativeMethods at runtime. See line 2511 of jni_internal.cc in PS1.\n\nThe native bridge wrapper function will interpret the calling convention properly based on the native function shorty and the ISA (x86 vs. x86-64.) It encapsulates the handling of calling convention differences inside the wrapper so it is transparent to ART.\n\nHaving all native bridge JNI calls go thru generic JNI gives up the benefit of optimized code sequence from JNI compiler. It will be better to be able to leverage the JNI compiler for native bridge JNI calls as well.",
+      "parentUuid": "64d659dd_578844a3",
+      "range": {
+        "startLine": 1896,
+        "startChar": 9,
+        "endLine": 1896,
+        "endChar": 41
+      },
+      "revId": "99ef92e03277fe61915a9bdf65faba890249d8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04975d03_d8d23504",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 2
