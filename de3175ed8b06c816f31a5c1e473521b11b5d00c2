@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2492a112_53a04495",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-18T01:08:20Z",
+      "side": 1,
+      "message": "just \"open_oat_file.reset()\" i believe is the idiom.",
+      "range": {
+        "startLine": 880,
+        "startChar": 6,
+        "endLine": 880,
+        "endChar": 37
+      },
+      "revId": "de3175ed8b06c816f31a5c1e473521b11b5d00c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
