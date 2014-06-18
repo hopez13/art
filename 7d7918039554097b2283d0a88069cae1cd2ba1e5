@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e47c09a6_d5dafca5",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-18T13:41:51Z",
+      "side": 1,
+      "message": "By implicit, you actually mean explicit right? We explicitly load it in GenInvokeNoInline.",
+      "parentUuid": "04975d03_be8ab953",
+      "range": {
+        "startLine": 659,
+        "startChar": 35,
+        "endLine": 659,
+        "endChar": 39
+      },
+      "revId": "7d7918039554097b2283d0a88069cae1cd2ba1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fd6e483_fef6093f",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
