@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04975d03_a58dbdb4",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-18T12:22:46Z",
+      "side": 1,
+      "message": "Won\u0027t this work for non-equality too?\n\nAlso, can you handle (val_hi \u003d\u003d -1 \u0026\u0026 static_cast\u003cint32_t\u003e(val_lo) \u003c 0) as an immediate too?",
+      "revId": "3157f9a18d0524e33b4feb67664974afc13ae351",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
