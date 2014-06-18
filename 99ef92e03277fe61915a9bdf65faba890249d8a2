@@ -22,6 +22,53 @@
       "revId": "99ef92e03277fe61915a9bdf65faba890249d8a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64d659dd_578844a3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-18T01:38:21Z",
+      "side": 1,
+      "message": "Good question and something to think about. What should happen now (but I think is not completely implemented), is that the compiled code is thrown away (the entrypoint can be overwritten). In the end, the previous PS was doing a similar thing by hijacking the jni entrypoint.\n\nBTW, I am not sure how your implementation would work with the JNI compiler, either. I did not see any code that changed the signature of a call from the quick method to the native bridge one. Your system kind of worked because of the x86 calling convention placing everything on the stack, but for x86-64 this would have never worked.",
+      "parentUuid": "64d659dd_17c2bc3b",
+      "range": {
+        "startLine": 1896,
+        "startChar": 9,
+        "endLine": 1896,
+        "endChar": 41
+      },
+      "revId": "99ef92e03277fe61915a9bdf65faba890249d8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04975d03_d8d23504",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-18T01:38:21Z",
+      "side": 1,
+      "message": "Here is where we should throw away the existing entrypoint, and unconditionally set the generic JNI entrypoint.",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 91
+      },
+      "revId": "99ef92e03277fe61915a9bdf65faba890249d8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
