@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24b9c1aa_07113624",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3164,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T00:33:45Z",
+      "side": 1,
+      "message": "Turn this into just a return statement?",
+      "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_92879cff",
+        "filename": "runtime/reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T00:33:45Z",
+      "side": 1,
+      "message": "Maybe we should add this to Add also?",
+      "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_126dec85",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T00:33:45Z",
+      "side": 1,
+      "message": "I\u0027m confused, you are passing in the address of the method but then also storing the return value? Shouldn\u0027t only one of these be needed?",
+      "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
