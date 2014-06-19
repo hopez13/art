@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_77c77a7d",
+        "filename": "runtime/native/java_lang_System.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T14:56:50Z",
+      "side": 1,
+      "message": "If you\u0027re doing that, then you can templatize the whole function.",
+      "parentUuid": "04803dc3_990cbfcb",
+      "range": {
+        "startLine": 185,
+        "startChar": 12,
+        "endLine": 185,
+        "endChar": 23
+      },
+      "revId": "7cedc471e82d7f27780038480445d74cf7358bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44b4f5af_2bfbe528",
         "filename": "runtime/native/java_lang_System.cc",
         "patchSetId": 1
