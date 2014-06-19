@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24b9c1aa_10496a75",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-19T06:59:20Z",
+      "side": 1,
+      "message": "these should be setting \"byte_operand \u003d true\"",
+      "range": {
+        "startLine": 896,
+        "startChar": 0,
+        "endLine": 896,
+        "endChar": 89
+      },
+      "revId": "a728abc85aa972a7e8bae669dee3a626851d81fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
