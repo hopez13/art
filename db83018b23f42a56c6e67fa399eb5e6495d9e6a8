@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e47c09a6_78767dec",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "Having these two methods is confusing. I would go with just one, and make the default argument null.",
+      "range": {
+        "startLine": 154,
+        "startChar": 14,
+        "endLine": 154,
+        "endChar": 32
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e47c09a6_3bfc7fd6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "How about passing a handle to this method?",
+      "range": {
+        "startLine": 1290,
+        "startChar": 37,
+        "endLine": 1290,
+        "endChar": 46
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "246b81de_dada21a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "We moved to using nullptr.",
+      "range": {
+        "startLine": 2394,
+        "startChar": 18,
+        "endLine": 2394,
+        "endChar": 22
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e47c09a6_3869e500",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2958,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "the code below does not need to be nested.",
+      "range": {
+        "startLine": 2958,
+        "startChar": 6,
+        "endLine": 2958,
+        "endChar": 7
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04803dc3_d96eb740",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "Why do you check? Don\u0027t you call this fixup once the temp can be replaced with the new?",
+      "range": {
+        "startLine": 3443,
+        "startChar": 30,
+        "endLine": 3443,
+        "endChar": 47
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04803dc3_39cd6bf9",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "Why do you need that now? Please add a comment.",
+      "range": {
+        "startLine": 116,
+        "startChar": 7,
+        "endLine": 116,
+        "endChar": 31
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04803dc3_79ec435b",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-19T10:20:41Z",
+      "side": 1,
+      "message": "Why do we need this? Why can\u0027t you just always enable it?",
+      "range": {
+        "startLine": 444,
+        "startChar": 11,
+        "endLine": 444,
+        "endChar": 16
+      },
+      "revId": "db83018b23f42a56c6e67fa399eb5e6495d9e6a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
