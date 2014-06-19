@@ -96,6 +96,24 @@
     },
     {
       "key": {
+        "uuid": "e43fa9e6_d158f40f",
+        "filename": "runtime/native/java_lang_System.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T23:02:40Z",
+      "side": 1,
+      "message": "+1 for templates, too much duplicate code here.",
+      "parentUuid": "44b4f5af_f7b28a21",
+      "revId": "7cedc471e82d7f27780038480445d74cf7358bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44b4f5af_2bfbe528",
         "filename": "runtime/native/java_lang_System.cc",
         "patchSetId": 1
