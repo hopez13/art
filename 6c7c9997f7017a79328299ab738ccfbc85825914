@@ -321,6 +321,24 @@
     },
     {
       "key": {
+        "uuid": "84ba6d9a_1ef89d9a",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T17:23:30Z",
+      "side": 1,
+      "message": "To me that instruction simply looks really dangerous. Correct me if I\u0027m wrong, but sxtx/uxtx means \"keep the upper 32b as is\". So I totally agree with you...",
+      "parentUuid": "6471f9c6_aeda8bf2",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a49db127_a42388c6",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
