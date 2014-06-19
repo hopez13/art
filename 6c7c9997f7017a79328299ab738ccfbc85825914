@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_9739cec5",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T15:13:09Z",
+      "side": 1,
+      "message": "See my reply in utility_arm64.cc I\u0027d prefer (..., kA64Sxtw, 0).",
+      "parentUuid": "e4932916_ece173e9",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4932916_0cdfff1e",
         "filename": "compiler/dex/quick/arm64/call_arm64.cc",
         "patchSetId": 2
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_b795f25d",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T15:13:09Z",
+      "side": 1,
+      "message": "Personally I prefer to have these things explicit when we have types for them. So I would add an int for the amount,\nand make the body use EncodeExtend. But I\u0027d like to hear Bill\u0027s opinion on that.",
+      "parentUuid": "a49db127_0417dc5f",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04ae7d65_262b1673",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
@@ -64,6 +100,24 @@
       "writtenOn": "2014-06-19T10:08:39Z",
       "side": 1,
       "message": "This seems a bit too strong, considering that you are using r_dest.Is64Bit() above to set widened_opcode. Also consider that the assembler will be able to detect such register misusages, once its checks are enabled to the full extent.",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b4f5af_7721ba92",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T15:13:09Z",
+      "side": 1,
+      "message": "Yes, but we kind of have a problem. The widened_opcode choice is wrong, isn\u0027t it. Dest is always 64b. Here is one of the issues where I don\u0027t know what the clean approach is.\n\nI think the check should be against r_src2?",
+      "parentUuid": "04ae7d65_262b1673",
       "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_17263eac",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T15:13:09Z",
+      "side": 1,
+      "message": "Why would we up-convert? For uxtx?",
+      "parentUuid": "44b4f5af_1c6bc503",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a49db127_a42388c6",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
@@ -98,6 +170,24 @@
       "writtenOn": "2014-06-19T10:08:39Z",
       "side": 1,
       "message": "This is not necessary if you use EncodeExtend. You could add,\n\n DCHECK(IsExtendedEncoding(ext));",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b4f5af_d72f467b",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T15:13:09Z",
+      "side": 1,
+      "message": "I\u0027ll replace this with EncodeExtend.",
+      "parentUuid": "a49db127_a42388c6",
       "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
