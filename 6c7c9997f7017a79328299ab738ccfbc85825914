@@ -70,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_1c6bc503",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T10:41:33Z",
+      "side": 1,
+      "message": "The name of the instruction should be kA64Sub4RRre, meaning that one expects that the third argument is a w register for kA64Sub4RRre and an x register for WIDE(kA64Sub4RRre). This is not strictly conforming to how the instruction is documented. For example, one should write \"add x1, x2, w3, uxtb #2\" rather than \"add x1, x2, x3, uxtb #2\". The reason, however, is just aesthetical: \"w3, uxtb #2\" and \"x3, uxtb #2\" are two ways to write the same thing (and the the GNU assembler seems to tolerate the latter). It is therefore morally fine to name the instruction kA64Sub4RRre. What we may want to do is to up-convert r_src2, when necessary (w -\u003e x). Down-converting (x -\u003e w) will not work (it will make the assembler register check in assemble_arm64.cc fail for the 3rd argument of the add example given above).",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a49db127_a42388c6",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
