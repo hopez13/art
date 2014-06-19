@@ -303,6 +303,24 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_aeda8bf2",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T16:43:50Z",
+      "side": 1,
+      "message": "You are right, the doc allows sxtx for both the 32-bit and the 64-bit variants of add and sub, which means it is legitimate. But to me \"add x1, x2, w3, sxtx #0\" seems more a truncation than an extension :-)",
+      "parentUuid": "44b4f5af_37726265",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a49db127_a42388c6",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
