@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_ca6ec740",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3164,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T19:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24b9c1aa_07113624",
+      "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ce254b_92879cff",
         "filename": "runtime/reference_table.h",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_8a68cf32",
+        "filename": "runtime/reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T19:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ce254b_92879cff",
+      "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ce254b_126dec85",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2014-06-19T00:33:45Z",
       "side": 1,
       "message": "I\u0027m confused, you are passing in the address of the method but then also storing the return value? Shouldn\u0027t only one of these be needed?",
+      "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0443dd81_a19b5890",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T19:08:21Z",
+      "side": 1,
+      "message": "It\u0027s sort of the way I intended the RB interface to be currently: it\u0027s up to the read barrier implementation whether it updates the passed-in Object** (root) with the new reference, whereas the return value should be the new reference.\n\nThe baker-style implementation I\u0027m looking at does not currently update it (maybe it should after all, but we will see.)\n\nIn this particular case, \"method\" (the local variable) plays the roles of an input param, and a potentially-updated (or potentially dummy) output param. Since jmethodID\u0027s are the roots we can\u0027t easily keep track of (as they are passed to the user code), we might imagine passing just Object* using a non-side-effect variant of the RB interface. But there are other normal-root cases where we\u0027d like to use a variant with side effect.\n\nThe current interface tries to handle both cases in one function.\n\nNote if we start moving methods (as the above CHECK would detect it), we would use a method ID table of some sort that would have normal-kind roots that we would want to pass in to the RB.\n\nI added comments to read_barrier.h.",
+      "parentUuid": "c4ce254b_126dec85",
       "revId": "395b86262590bc10abe3ad602cf99cb89877b7d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
