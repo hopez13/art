@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_11264eac",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T03:21:51Z",
+      "side": 1,
+      "message": "I was going with the style used in the compiler. It\u0027s in the CompilerOptions now, which has proper C++ style.",
+      "parentUuid": "2492a112_eee16fe9",
+      "range": {
+        "startLine": 110,
+        "startChar": 7,
+        "endLine": 113,
+        "endChar": 1
+      },
+      "revId": "cd60adc616a436728f752ca1fe46248290910d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04975d03_f89b71e8",
         "filename": "compiler/dex/frontend.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_116bae03",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T03:21:51Z",
+      "side": 1,
+      "message": "I have added code to dex2oat, but it\u0027s mostly copy-n-paste. The parsing should be refactored to be shared between Runtime and dex2oat, but I didn\u0027t find a good place to put it.",
+      "parentUuid": "04975d03_f89b71e8",
+      "range": {
+        "startLine": 859,
+        "startChar": 4,
+        "endLine": 859,
+        "endChar": 11
+      },
+      "revId": "cd60adc616a436728f752ca1fe46248290910d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64d659dd_fadefd20",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-06-18T02:18:52Z",
       "side": 1,
       "message": "Given the comment about accessor functions:\n\nif (cu_-\u003eExplicitNullChecks()) {",
+      "range": {
+        "startLine": 193,
+        "startChar": 15,
+        "endLine": 193,
+        "endChar": 36
+      },
+      "revId": "cd60adc616a436728f752ca1fe46248290910d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_407abefc",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T03:21:51Z",
+      "side": 1,
+      "message": "Basically done.",
+      "parentUuid": "64d659dd_fadefd20",
       "range": {
         "startLine": 193,
         "startChar": 15,
