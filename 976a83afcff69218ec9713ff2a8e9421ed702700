@@ -22,6 +22,30 @@
       "revId": "976a83afcff69218ec9713ff2a8e9421ed702700",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_f5e60ac0",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-19T01:27:33Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to be done anywhere else.  Any other opinions?",
+      "parentUuid": "44b4f5af_31e35244",
+      "range": {
+        "startLine": 920,
+        "startChar": 40,
+        "endLine": 920,
+        "endChar": 43
+      },
+      "revId": "976a83afcff69218ec9713ff2a8e9421ed702700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
