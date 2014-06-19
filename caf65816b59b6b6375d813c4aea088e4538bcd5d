@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6471f9c6_62cd67f8",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T18:16:09Z",
+      "side": 1,
+      "message": "Should this be flipped? Do you mean \"!kMoveFieldArrays\" ?",
+      "range": {
+        "startLine": 201,
+        "startChar": 6,
+        "endLine": 201,
+        "endChar": 22
+      },
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6471f9c6_c5231dc6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T18:16:09Z",
+      "side": 1,
+      "message": "Does this mean that MarkCompact isn\u0027t called from the zygote creation and collector transitions at least currently? Then, is the comment above obsolete?",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 7
+      },
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6471f9c6_82719bf4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T18:16:09Z",
+      "side": 1,
+      "message": "Should we leave a comment or a log message on the CHECK that says we don\u0027t scan large objects as the classes don\u0027t move or something like that? Otherwise, it may not be obvious why we have this CHECK.",
+      "range": {
+        "startLine": 373,
+        "startChar": 24,
+        "endLine": 373,
+        "endChar": 25
+      },
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0443dd81_ded765cb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-19T18:16:09Z",
+      "side": 1,
+      "message": "I guess this HeapReferenceMarkedCallback does not update ref_ptr, that is, side-effect-free, because we use this before moving objects. Correct? Leave a comment on this note?",
+      "range": {
+        "startLine": 483,
+        "startChar": 55,
+        "endLine": 483,
+        "endChar": 62
+      },
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
