@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24b9c1aa_30aa6ea6",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T09:44:38Z",
+      "side": 1,
+      "message": "The right name for this instruction is kA64Add4RRre.",
+      "revId": "9f975bfe091e9592a1b6b5b46d224ec04b1183b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_e6b5020c",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T09:44:38Z",
+      "side": 1,
+      "message": "\"!3o\" should be \"!3e\". Similarly to what done for kA64Cmp3Rre.",
+      "revId": "9f975bfe091e9592a1b6b5b46d224ec04b1183b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b9c1aa_d09e7282",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T09:44:38Z",
+      "side": 1,
+      "message": "The two comments above apply to this instruction as well. \"kA64Sub4rrre\" -\u003e \"kA64Sub4RRre\", and \"!3o\" -\u003e \"!3e\".",
+      "revId": "9f975bfe091e9592a1b6b5b46d224ec04b1183b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4932916_2cf8bb9a",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T09:44:38Z",
+      "side": 1,
+      "message": "I guess you could have used the function EncodeExtend, defined in this file.",
+      "revId": "9f975bfe091e9592a1b6b5b46d224ec04b1183b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
