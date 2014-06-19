@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_b6b0a116",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T21:31:59Z",
+      "side": 1,
+      "message": "yeah, but they encourage such overlapping string tricks in their example:\n\nhttp://www.sco.com/developers/gabi/latest/ch4.strtab.html",
+      "parentUuid": "24b9c1aa_30702eeb",
+      "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24b9c1aa_27979ac2",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 3
@@ -201,6 +219,24 @@
       "side": 1,
       "message": "Huh? I am not sure what you are suggesting.",
       "parentUuid": "4466b513_27f784f7",
+      "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6471f9c6_b6218195",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T21:31:59Z",
+      "side": 1,
+      "message": "I assume he means to define named constants for these can be be referenced everywhere they are needed to prevent typos.",
+      "parentUuid": "84ba6d9a_73b0f215",
       "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -694,6 +730,24 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_f64ff943",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T21:31:59Z",
+      "side": 1,
+      "message": "right, but I think I\u0027d make this in internal private version and add meaningfully named public entry points.",
+      "parentUuid": "6471f9c6_2ec75b25",
+      "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44b4f5af_2efd338b",
         "filename": "runtime/elf_file.h",
         "patchSetId": 3
@@ -729,6 +783,24 @@
       "side": 1,
       "message": "No. The changes to GdbJITSupport were purely added since they were easy and safe. I really don\u0027t want to rewrite that whole method, especially since I don\u0027t fully understand it.",
       "parentUuid": "44b4f5af_2efd338b",
+      "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_000de8c5",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T21:31:59Z",
+      "side": 1,
+      "message": "I think we understand it enough to nuke this. you added the code to find the 8/9/10/11 sections by name, so I think we can pattern match the rest.",
+      "parentUuid": "84ba6d9a_139bb665",
       "revId": "c868a30e7200221e01d4b64089dd1941e1d44a5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
