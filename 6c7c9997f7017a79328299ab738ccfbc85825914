@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "04ae7d65_06005a99",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T15:59:34Z",
+      "side": 1,
+      "message": "For consistency, we should then also change OpRegRegRegShift and all the other friends :-)",
+      "parentUuid": "44b4f5af_9739cec5",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4932916_0cdfff1e",
         "filename": "compiler/dex/quick/arm64/call_arm64.cc",
         "patchSetId": 2
@@ -142,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "c4ce254b_e6ff4211",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T15:59:34Z",
+      "side": 1,
+      "message": "Personally, I believe that the two checks can be removed. Instructions like:\n\n  add w1, w2, w3, sxtb #0\n  add x1, x2, x3, sxtx #0\n  add x1, x2, w3, sxtb #0\n\nare all valid and could be handled by this function.",
+      "parentUuid": "44b4f5af_7721ba92",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44b4f5af_1c6bc503",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
@@ -188,6 +224,24 @@
       "writtenOn": "2014-06-19T15:29:20Z",
       "side": 1,
       "message": "Oh, now I understand. This is not at all conforming to the specification in the documentation about the instruction set, as there the src_2 is always w.",
+      "parentUuid": "44b4f5af_17263eac",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b9c1aa_b05adea9",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T15:59:34Z",
+      "side": 1,
+      "message": "uxtx is a no-op, consider sxtb. Imagine the following instruction,\n\n  OpRegRegRegExtend(WIDE(kA64Sub4RRre), rx1, rx2, rw3, EncodeExtend(kA64Stxb, 0));\n\nA user may think this is perfectly legitimate. But if we do not up-convert, then the assembler will see an attempt to use rw3 in an instruction which wants an x register as its third argument. It doesn\u0027t sound right to force the user to provide an x, when an stxb operation is done on it. On the other hand, up-conversion is only legitimate if sxtx and uxtx are not being used, so if we do this we should exclude these two cases.",
       "parentUuid": "44b4f5af_17263eac",
       "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
