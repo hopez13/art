@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_e5e8a1ca",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T19:29:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6471f9c6_62cd67f8",
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6471f9c6_c5231dc6",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 5
@@ -42,6 +60,24 @@
         "endLine": 83,
         "endChar": 7
       },
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0443dd81_de1f65ba",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T19:29:48Z",
+      "side": 1,
+      "message": "Yes mark compact is not what we want during zygote creation.",
+      "parentUuid": "6471f9c6_c5231dc6",
       "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "0443dd81_017facb9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T19:29:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6471f9c6_82719bf4",
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0443dd81_ded765cb",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 5
@@ -88,6 +142,24 @@
         "endLine": 483,
         "endChar": 62
       },
+      "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0443dd81_215f4853",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T19:29:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0443dd81_ded765cb",
       "revId": "caf65816b59b6b6375d813c4aea088e4538bcd5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
