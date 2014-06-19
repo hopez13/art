@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_b80961ba",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Yup, need to think some more about it",
+      "parentUuid": "04803dc3_361498a3",
+      "range": {
+        "startLine": 409,
+        "startChar": 13,
+        "endLine": 409,
+        "endChar": 18
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47c09a6_15539416",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-19T17:04:25Z",
       "side": 1,
       "message": "We should add the same TODO for MOVE-WIDE instructions about long and double.",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 410,
+        "endChar": 31
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a70589_784529d3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_15539416",
       "range": {
         "startLine": 409,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0443dd81_4473826b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_57c26c6e",
+      "range": {
+        "startLine": 419,
+        "startChar": 4,
+        "endLine": 420,
+        "endChar": 34
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04803dc3_56bef453",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "I\u0027d move this check to the visitor itself, it\u0027s very instruction specific.",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 17
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_bd6c1fd9",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04803dc3_56bef453",
       "range": {
         "startLine": 54,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_3bf79af7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04803dc3_16c87ce8",
+      "range": {
+        "startLine": 422,
+        "startChar": 34,
+        "endLine": 422,
+        "endChar": 50
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "246b81de_377018eb",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "CHECK-\u003eDCHECK",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 7
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a70589_d3e19ee9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_377018eb",
       "range": {
         "startLine": 428,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_f3de1a21",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04803dc3_f6ae201f",
+      "range": {
+        "startLine": 430,
+        "startChar": 24,
+        "endLine": 430,
+        "endChar": 33
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47c09a6_555a6c63",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "Move this to the .cc file? It\u0027s only used there.",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a70589_13117624",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_555a6c63",
       "range": {
         "startLine": 36,
         "startChar": 16,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_9b4a663a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04803dc3_16e15c62",
+      "range": {
+        "startLine": 419,
+        "startChar": 34,
+        "endLine": 419,
+        "endChar": 50
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47c09a6_3569f000",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "DCHECK",
+      "range": {
+        "startLine": 425,
+        "startChar": 2,
+        "endLine": 425,
+        "endChar": 7
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6471f9c6_3b3f9aa6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_3569f000",
       "range": {
         "startLine": 425,
         "startChar": 2,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "e43fa9e6_bde7ff4c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_9757a435",
+      "range": {
+        "startLine": 426,
+        "startChar": 11,
+        "endLine": 426,
+        "endChar": 14
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47c09a6_755f6852",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "No, this is guarded by LocationsBuilderX86::VisitCondition, which is a contract between the codegen and the register allocator. You are guaranteed to have the inputs at the locations you requested.",
+      "range": {
+        "startLine": 438,
+        "startChar": 13,
+        "endLine": 438,
+        "endChar": 14
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_fd0a273d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "cool",
+      "parentUuid": "e47c09a6_755f6852",
       "range": {
         "startLine": 438,
         "startChar": 13,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "6471f9c6_dbe8deca",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Added Condition as in instruction.",
+      "parentUuid": "246b81de_3769f800",
+      "range": {
+        "startLine": 501,
+        "startChar": 34,
+        "endLine": 501,
+        "endChar": 44
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04803dc3_d6da04a6",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "Move to .cc.",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_3dc2cf6d",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04803dc3_d6da04a6",
       "range": {
         "startLine": 36,
         "startChar": 17,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_53e7ee79",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "OK, I\u0027ll deal with the stack offset case as we do in X86",
+      "parentUuid": "246b81de_b7542831",
+      "range": {
+        "startLine": 298,
+        "startChar": 34,
+        "endLine": 298,
+        "endChar": 50
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "246b81de_57434c79",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -358,6 +718,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "DCHECK",
+      "range": {
+        "startLine": 304,
+        "startChar": 2,
+        "endLine": 304,
+        "endChar": 7
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_9d55e3d8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_57434c79",
       "range": {
         "startLine": 304,
         "startChar": 2,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "e43fa9e6_fd5227ec",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_7748d092",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 10
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "246b81de_173dd4fb",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -404,6 +812,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "Add a helper for the codegen methods below.",
+      "range": {
+        "startLine": 368,
+        "startChar": 5,
+        "endLine": 368,
+        "endChar": 35
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6471f9c6_1b64169f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_173dd4fb",
       "range": {
         "startLine": 368,
         "startChar": 5,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "e43fa9e6_3dee4fdd",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "e47c09a6_d54d1ca9",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47c09a6_f54a988e",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -450,6 +906,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "Since the uses is a linked list, I\u0027d prefer adding a HasOnlyOneUse method in the Node class.",
+      "range": {
+        "startLine": 450,
+        "startChar": 6,
+        "endLine": 450,
+        "endChar": 18
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_bd425f4f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_f54a988e",
       "range": {
         "startLine": 450,
         "startChar": 6,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_938fa6d6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_55434c79",
+      "range": {
+        "startLine": 458,
+        "startChar": 13,
+        "endLine": 458,
+        "endChar": 15
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "246b81de_97300422",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -496,6 +1000,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "You actually already have IsCondition and IsIf defined line 530.",
+      "range": {
+        "startLine": 527,
+        "startChar": 15,
+        "endLine": 527,
+        "endChar": 30
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6471f9c6_3b9b1a66",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_97300422",
       "range": {
         "startLine": 527,
         "startChar": 15,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "c4a70589_f3fcda1e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done, and the others in this file too.",
+      "parentUuid": "246b81de_5ad4d156",
+      "range": {
+        "startLine": 763,
+        "startChar": 63,
+        "endLine": 763,
+        "endChar": 64
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "246b81de_7ad9958b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -542,6 +1094,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 764,
+        "startChar": 26,
+        "endLine": 764,
+        "endChar": 27
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a70589_9309e693",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b81de_7ad9958b",
       "range": {
         "startLine": 764,
         "startChar": 26,
@@ -577,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "e43fa9e6_bd837f44",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04803dc3_568834a3",
+      "range": {
+        "startLine": 839,
+        "startChar": 36,
+        "endLine": 839,
+        "endChar": 47
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47c09a6_b52d00cb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -588,6 +1188,30 @@
       "writtenOn": "2014-06-18T14:21:41Z",
       "side": 1,
       "message": "NeedsMaterialization?",
+      "range": {
+        "startLine": 907,
+        "startChar": 15,
+        "endLine": 907,
+        "endChar": 32
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_3d592f36",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-19T21:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e47c09a6_b52d00cb",
       "range": {
         "startLine": 907,
         "startChar": 15,
