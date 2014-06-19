@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44b4f5af_31e35244",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-06-19T01:23:29Z",
+      "side": 1,
+      "message": "Since this is just 8-bit, why not make it movb?",
+      "range": {
+        "startLine": 920,
+        "startChar": 40,
+        "endLine": 920,
+        "endChar": 43
+      },
+      "revId": "976a83afcff69218ec9713ff2a8e9421ed702700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
