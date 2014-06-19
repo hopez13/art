@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "c4ce254b_e63c2250",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-19T15:29:20Z",
+      "side": 1,
+      "message": "Oh, now I understand. This is not at all conforming to the specification in the documentation about the instruction set, as there the src_2 is always w.",
+      "parentUuid": "44b4f5af_17263eac",
+      "revId": "6c7c9997f7017a79328299ab738ccfbc85825914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a49db127_a42388c6",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 2
