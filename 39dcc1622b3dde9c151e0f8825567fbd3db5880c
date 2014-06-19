@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "c4ce254b_32b348da",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d659dd_b45deecc",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04975d03_2d9c3913",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
@@ -94,6 +112,42 @@
     },
     {
       "key": {
+        "uuid": "24b9c1aa_4773ae6b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e0e1ae_0fa5c5d6",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_52cdb442",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04975d03_4dfbc527",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44db1506_10f64442",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
@@ -111,6 +165,24 @@
         "endLine": 110,
         "endChar": 26
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b9c1aa_a7ab8a74",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Yes, we always visit the objects in the same order.",
+      "parentUuid": "44db1506_10f64442",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "24b9c1aa_678fd21c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e0e1ae_4fb8add5",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44db1506_30e6e87b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
@@ -157,6 +247,24 @@
         "endLine": 162,
         "endChar": 65
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b9c1aa_67a9126a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44db1506_30e6e87b",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -186,6 +294,24 @@
     },
     {
       "key": {
+        "uuid": "c4ce254b_321ee8f4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04c59d23_aef03770",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44db1506_13cc0e9d",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
@@ -203,6 +329,24 @@
         "endLine": 335,
         "endChar": 21
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b4f5af_ce833744",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Yes, it may not return null.",
+      "parentUuid": "44db1506_13cc0e9d",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -232,6 +376,24 @@
     },
     {
       "key": {
+        "uuid": "24b9c1aa_87da06f3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Delete, it used to be used when I was attempting to have moving classes.",
+      "parentUuid": "24e0e1ae_ef25e114",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24e0e1ae_ef9881ee",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
@@ -249,6 +411,24 @@
         "endLine": 393,
         "endChar": 84
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b9c1aa_27a1da51",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e0e1ae_ef9881ee",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -278,6 +458,24 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_8ebf7fe8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Yes, though I suppose we could combine them in the future.",
+      "parentUuid": "44db1506_b38422fb",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6471f9c6_3ffd4f8b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
@@ -295,6 +493,24 @@
         "endLine": 403,
         "endChar": 45
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b4f5af_0e262fac",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Yes, the main reference list can move, so we need to call this to update the \"root\". Also, you can\u0027t do ProcessReferences or SweepSystemWeaks after moving objects since ProcessReference can mark objects and SweepSystemWeaks needs to know if an object in the moving space was marked, and if so where did it move to, but since we clobber the lock words when we slide the objects over, this wouldn\u0027t be possible.",
+      "parentUuid": "6471f9c6_3ffd4f8b",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -324,6 +540,24 @@
     },
     {
       "key": {
+        "uuid": "24b9c1aa_0775b60c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24e0e1ae_524ff27c",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64d659dd_f7e4d849",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 3
@@ -341,6 +575,24 @@
         "endLine": 105,
         "endChar": 9
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b4f5af_8e521fec",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d659dd_f7e4d849",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -370,6 +622,24 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_4eee67de",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2492a112_934a4c3a",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64d659dd_17f71cf7",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 3
@@ -387,6 +657,24 @@
         "endLine": 165,
         "endChar": 9
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24b9c1aa_671a72d3",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d659dd_17f71cf7",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -416,6 +704,24 @@
     },
     {
       "key": {
+        "uuid": "c4ce254b_b2a2d820",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a49db127_1b0f3b94",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04975d03_ad04c9e3",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -433,6 +739,24 @@
         "endLine": 1822,
         "endChar": 11
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b4f5af_8eae9f85",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1822,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "This is the same behavior, before we always set it to kGcTypeFull after the if statement anyways.",
+      "parentUuid": "04975d03_ad04c9e3",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -462,6 +786,24 @@
     },
     {
       "key": {
+        "uuid": "44b4f5af_8e877fff",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Yes, Done",
+      "parentUuid": "2492a112_f3195892",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4466b513_1e6ded85",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 3
@@ -485,6 +827,24 @@
     },
     {
       "key": {
+        "uuid": "c4ce254b_123decfb",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4466b513_1e6ded85",
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2492a112_88769be9",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 3
@@ -502,6 +862,24 @@
         "endLine": 705,
         "endChar": 10
       },
+      "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ce254b_55d4be56",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-19T01:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2492a112_88769be9",
       "revId": "39dcc1622b3dde9c151e0f8825567fbd3db5880c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
