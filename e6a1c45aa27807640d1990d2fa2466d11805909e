@@ -43,6 +43,282 @@
     },
     {
       "key": {
+        "uuid": "04ae7d65_09194d0b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "the below check now finds all the \"interesting sections\" so this can be removed",
+      "range": {
+        "startLine": 1041,
+        "startChar": 0,
+        "endLine": 1043,
+        "endChar": 3
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44c65b5_1cf395c3",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "i think i\u0027d use the full debug_info names here (not just info) for clarify below. str and info are a bit too generic for something which such a long scope.",
+      "range": {
+        "startLine": 1044,
+        "startChar": 20,
+        "endLine": 1044,
+        "endChar": 24
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4932916_b2d506ef",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "lets just do it.",
+      "range": {
+        "startLine": 1063,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 32
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_86de3073",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "should this just be the section count?",
+      "range": {
+        "startLine": 1111,
+        "startChar": 27,
+        "endLine": 1111,
+        "endChar": 53
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a70589_4bcc1645",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "again here, all the sections.",
+      "range": {
+        "startLine": 1117,
+        "startChar": 31,
+        "endLine": 1117,
+        "endChar": 57
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_86f750f5",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "I think this is buggy, there is no TEMP_FAILURE_RETRY. probably it would be better to use pread() anyway?",
+      "range": {
+        "startLine": 1125,
+        "startChar": 0,
+        "endLine": 1126,
+        "endChar": 75
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44c65b5_1c5ef51d",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "Mark, was this just a cut/paste issue?",
+      "range": {
+        "startLine": 1129,
+        "startChar": 8,
+        "endLine": 1130,
+        "endChar": 21
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_46c2686e",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "again, seems wrong, need\nTEMP_FAILURE_RETRY(pread...\nplus a loop to make sure there aren\u0027t short reads. alternatively, we should use seek (but check error code) with ReadFully",
+      "range": {
+        "startLine": 1137,
+        "startChar": 8,
+        "endLine": 1138,
+        "endChar": 75
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44c65b5_fc986995",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "so is this clobbering yours?",
+      "range": {
+        "startLine": 1140,
+        "startChar": 8,
+        "endLine": 1140,
+        "endChar": 60
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43fa9e6_06c0605d",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "shouldn\u0027t they update the sh_size?",
+      "range": {
+        "startLine": 1141,
+        "startChar": 33,
+        "endLine": 1141,
+        "endChar": 55
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44c65b5_5c1ebdf4",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "this is what made be think that we should debug_info above should be an index, not a pointer. and this is an \"Index\", not an \"Offset\"",
+      "range": {
+        "startLine": 1159,
+        "startChar": 40,
+        "endLine": 1159,
+        "endChar": 41
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44c65b5_1c24354b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "more to come...",
+      "range": {
+        "startLine": 1227,
+        "startChar": 31,
+        "endLine": 1227,
+        "endChar": 57
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e43fa9e6_803f38a4",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 6
@@ -72,6 +348,29 @@
       "side": 1,
       "message": "This function is only called once per file per execution so there is no chance of the value being smashed there and it will stay around for as long as the ElfFile is loaded, which is the same lifetime as the jit_elf_image_ used in the top case.",
       "parentUuid": "e43fa9e6_803f38a4",
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a70589_d99e9f82",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-19T22:27:43Z",
+      "side": 1,
+      "message": "it really is just the program header in the above case (nothing to do with sections which has another elf meaning).",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 28
+      },
       "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
