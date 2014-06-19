@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6471f9c6_42cce39d",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T17:25:05Z",
+      "side": 1,
+      "message": "Here we should remove the if and replace it with:\n\n  DCHECK(r_dest.Is64Bit());\n  r_dest \u003d As32BitReg(r_dest);",
+      "revId": "4e15ff537ec50997d3a3fe7299f93617128efd26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84ba6d9a_3e2b2173",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-19T17:25:05Z",
+      "side": 1,
+      "message": "As above.",
+      "revId": "4e15ff537ec50997d3a3fe7299f93617128efd26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
