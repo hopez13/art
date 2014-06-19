@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "e47c09a6_15539416",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-19T17:04:25Z",
+      "side": 1,
+      "message": "We should add the same TODO for MOVE-WIDE instructions about long and double.",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 410,
+        "endChar": 31
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "246b81de_57c26c6e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-19T17:04:25Z",
+      "side": 1,
+      "message": "What about MOVE_WIDE_FROM16 ?",
+      "range": {
+        "startLine": 419,
+        "startChar": 4,
+        "endLine": 420,
+        "endChar": 34
+      },
+      "revId": "f2eb5db0327102422fcefdb78d8c74ed0f71f190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04803dc3_56bef453",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
