@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4105196_c32db6ca",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-20T17:40:42Z",
+      "side": 1,
+      "message": "At a later stage we should tweak this value accordingly - I expect that for short strings the implementation below outperforms memcmp16.",
+      "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
