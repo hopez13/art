@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44079552_1378ae43",
+        "filename": "runtime/native/java_lang_System.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:16:23Z",
+      "side": 1,
+      "message": "Add this to mirror::Array so that we can call array-\u003eAsPrimitiveArray\u003cT\u003e() since it\u0027s more object oriented?",
+      "revId": "2783c7be9c29993a5f9497266fa5a23b0f016b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44079552_53a07695",
+        "filename": "runtime/native/java_lang_System.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:16:23Z",
+      "side": 1,
+      "message": "Indentation seems to be off by a couple spaces.",
+      "revId": "2783c7be9c29993a5f9497266fa5a23b0f016b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
