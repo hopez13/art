@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44079552_76de4876",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "Use a reinterpret_cast instead of C style cast.",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84fd0d75_55169e1d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2398,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "nullptr?",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44079552_73193a0b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2961,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84fd0d75_959be690",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2964,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84fd0d75_b59eea80",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2967,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44079552_f3f36a7b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2969,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84fd0d75_95c80658",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4022,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-20T01:36:33Z",
+      "side": 1,
+      "message": "No need for the temporary variable success.",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
