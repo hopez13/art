@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c413859f_c7078035",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T22:36:26Z",
+      "side": 1,
+      "message": "I\u0027d prefer moving this to HCondition, it\u0027s very specific to them for now.",
+      "range": {
+        "startLine": 526,
+        "startChar": 15,
+        "endLine": 526,
+        "endChar": 35
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_272654de",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T22:36:26Z",
+      "side": 1,
+      "message": "Not a huge fan of this method name. Feels like the node itself knows if it got materialized, whereas it\u0027s the codegen that does. Since it\u0027s only calling NeedsMaterialization, I suggest just removing it.",
+      "range": {
+        "startLine": 528,
+        "startChar": 7,
+        "endLine": 528,
+        "endChar": 22
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d5d5fe_e03c62de",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T22:36:26Z",
+      "side": 1,
+      "message": "return uses_ !\u003d nullptr \u0026\u0026 uses_-\u003etail \u003d\u003d nullptr\n\nNumberOfUses is not cheap :(",
+      "range": {
+        "startLine": 533,
+        "startChar": 11,
+        "endLine": 533,
+        "endChar": 23
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e416c98e_48d1df32",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T22:36:26Z",
+      "side": 1,
+      "message": "Is that for another CL? I can\u0027t see any uses of it.",
+      "range": {
+        "startLine": 887,
+        "startChar": 6,
+        "endLine": 887,
+        "endChar": 21
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_072b58a4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T22:36:26Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 890,
+        "startChar": 19,
+        "endLine": 890,
+        "endChar": 31
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_67304c0d",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T22:36:26Z",
+      "side": 1,
+      "message": "Thinking about it, we could handle it with the Location object, just like we plan on optimizing constants: have a kImmediate for constants and kCondition for conditions.\n\nThat\u0027s future work though.",
+      "range": {
+        "startLine": 114,
+        "startChar": 9,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
