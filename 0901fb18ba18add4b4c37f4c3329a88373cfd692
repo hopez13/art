@@ -16,6 +16,24 @@
       "revId": "0901fb18ba18add4b4c37f4c3329a88373cfd692",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "642bb9c3_98e4c149",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-20T16:54:55Z",
+      "side": 1,
+      "message": "Yea, it is a bit messy - and particularly when considering arm32-style paired single registers.  I think a portable sameness test would be something like:\n\n  bool IsSameReg(RegStorage reg1, RegStorage reg2) {\n    RegisterInfo* info1 \u003d GetRegInfo(reg1);\n    RegisterInfo* info2 \u003d GetRegInfo(reg2);\n    return  (info1-\u003eMaster() \u003d\u003d info2-\u003eMaster()) \u0026\u0026\n            ((info1-\u003eStorageMask() \u0026 info2-\u003eStorageMask()) !\u003d 0);\n  }\n\nYuck.",
+      "parentUuid": "e4ede9ca_4dcd79f8",
+      "revId": "0901fb18ba18add4b4c37f4c3329a88373cfd692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
