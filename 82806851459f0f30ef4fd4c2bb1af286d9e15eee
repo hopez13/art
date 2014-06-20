@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c413859f_47fc30d7",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T21:49:24Z",
+      "side": 1,
+      "message": "It should then be a const reference.",
+      "range": {
+        "startLine": 449,
+        "startChar": 47,
+        "endLine": 449,
+        "endChar": 56
+      },
+      "revId": "82806851459f0f30ef4fd4c2bb1af286d9e15eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e416c98e_085ec71d",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-20T21:49:24Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 534,
+        "startChar": 66,
+        "endLine": 534,
+        "endChar": 75
+      },
+      "revId": "82806851459f0f30ef4fd4c2bb1af286d9e15eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
