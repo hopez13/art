@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4db2937_1d71b3f2",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44079552_76de4876",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84fd0d75_55169e1d",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2014-06-20T01:36:33Z",
       "side": 1,
       "message": "nullptr?",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "442075de_9d4aef8d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2398,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "84fd0d75_55169e1d",
       "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "442075de_fd57ab33",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2961,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44079552_73193a0b",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84fd0d75_959be690",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2014-06-20T01:36:33Z",
       "side": 1,
       "message": "CHECK_EQ",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_fd7b27c9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2964,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "84fd0d75_959be690",
       "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "04df5d24_e12380c5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2967,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "84fd0d75_b59eea80",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44079552_f3f36a7b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "e4db2937_3d5f4f53",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2969,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44079552_f3f36a7b",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84fd0d75_95c80658",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -115,6 +223,24 @@
       "writtenOn": "2014-06-20T01:36:33Z",
       "side": 1,
       "message": "No need for the temporary variable success.",
+      "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04df5d24_4154340e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4022,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-06-20T21:24:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "84fd0d75_95c80658",
       "revId": "b13410d28773c13527985398d1ef70e8cd8224a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
