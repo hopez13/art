@@ -227,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "642bb9c3_0f76c9ea",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-20T13:44:56Z",
+      "side": 1,
+      "message": "I think that the 16 was just to ensure we could align using RoundAndClear",
+      "parentUuid": "c44c65b5_1c5ef51d",
+      "range": {
+        "startLine": 1129,
+        "startChar": 8,
+        "endLine": 1130,
+        "endChar": 21
+      },
+      "revId": "e6a1c45aa27807640d1990d2fa2466d11805909e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e43fa9e6_46c2686e",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 6
