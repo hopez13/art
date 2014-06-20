@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "442075de_9c0f95bf",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-20T18:26:18Z",
+      "side": 1,
+      "message": "Got rid of assigning the return value to method. This might be less confusing.",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 10
+      },
+      "revId": "ea2e1bd713ca8295ba4fcd01e77a3ce532ea61e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
