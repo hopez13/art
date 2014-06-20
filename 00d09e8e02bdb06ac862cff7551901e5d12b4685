@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "642bb9c3_030b4243",
+        "filename": "runtime/arch/arm64/memcmp16_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-20T17:43:33Z",
+      "side": 1,
+      "message": "ART convention is no tabs. Could you clean this up, please?",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "242541ef_904ada8d",
+        "filename": "runtime/arch/arm64/memcmp16_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-20T17:43:33Z",
+      "side": 1,
+      "message": "Is this necessary? As far as I\u0027m aware, Android is and will always be little-endian.",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 21
+      },
+      "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4105196_c32db6ca",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -13,6 +59,24 @@
       "writtenOn": "2014-06-20T17:40:42Z",
       "side": 1,
       "message": "At a later stage we should tweak this value accordingly - I expect that for short strings the implementation below outperforms memcmp16.",
+      "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "442075de_91501e8f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-20T17:43:33Z",
+      "side": 1,
+      "message": "Definitely, that\u0027s why there\u0027s a TODO. :-)",
+      "parentUuid": "a4105196_c32db6ca",
       "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
