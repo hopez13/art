@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "e416c98e_88e47749",
+        "filename": "runtime/arch/arm64/memcmp16_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-20T17:46:48Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "642bb9c3_030b4243",
+      "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "242541ef_904ada8d",
         "filename": "runtime/arch/arm64/memcmp16_arm64.S",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 100,
         "endChar": 21
       },
+      "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4105196_66de9076",
+        "filename": "runtime/arch/arm64/memcmp16_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-20T17:46:48Z",
+      "side": 1,
+      "message": "It is inherited from bionic (and bionic inherits this from Linaro\u0027s cortex strings). I can remove this - I wanted the diff between this and the bionic version to be minimal.",
+      "parentUuid": "242541ef_904ada8d",
       "revId": "00d09e8e02bdb06ac862cff7551901e5d12b4685",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
