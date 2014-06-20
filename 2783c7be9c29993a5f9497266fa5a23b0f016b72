@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "84fd0d75_b52f0a7c",
+        "filename": "runtime/native/java_lang_System.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1048058
+      },
+      "writtenOn": "2014-06-20T01:27:49Z",
+      "side": 1,
+      "message": "The functions in mirror::Array include DCHECK statements that depend on specific type checking. I did not want to include this in that location without those statements, so I felt that it was safer to put it where it is primarily used.",
+      "parentUuid": "44079552_1378ae43",
+      "revId": "2783c7be9c29993a5f9497266fa5a23b0f016b72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44079552_53a07695",
         "filename": "runtime/native/java_lang_System.cc",
         "patchSetId": 2
