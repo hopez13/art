@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "04df5d24_a54edd7b",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-21T16:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4db2937_927a0afa",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 13
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04df5d24_33ecda73",
         "filename": "disassembler/disassembler_x86.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-21T06:15:33Z",
       "side": 1,
       "message": "I think the code here was pretty clear what the mask was to reveal",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 34
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e8e5cd_3c1af1d1",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-21T16:03:02Z",
+      "side": 1,
+      "message": "I am not sure what you are commenting on.  The 64 bit-ness depends on REX.W.",
+      "parentUuid": "04df5d24_33ecda73",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4db2937_867acb92",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-21T16:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e8e5cd_3c783144",
+      "range": {
+        "startLine": 99,
+        "startChar": 22,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04df5d24_53f16648",
         "filename": "disassembler/disassembler_x86.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-21T06:15:33Z",
       "side": 1,
       "message": "size",
+      "range": {
+        "startLine": 1081,
+        "startChar": 39,
+        "endLine": 1081,
+        "endChar": 43
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_a67fc782",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-21T16:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04df5d24_53f16648",
       "range": {
         "startLine": 1081,
         "startChar": 39,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c4e8e5cd_5c0fbd92",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-21T16:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4db2937_1266fa66",
+      "range": {
+        "startLine": 1084,
+        "startChar": 22,
+        "endLine": 1084,
+        "endChar": 27
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4e8e5cd_bc636197",
         "filename": "disassembler/disassembler_x86.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2014-06-21T06:15:33Z",
       "side": 1,
       "message": "else {\n  opcode \u003c\u003c \u0027l\u0027 ?\n}",
+      "range": {
+        "startLine": 1088,
+        "startChar": 4,
+        "endLine": 1088,
+        "endChar": 5
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_c683f343",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-21T16:03:02Z",
+      "side": 1,
+      "message": "This could go either way.  I chose not to change it, as it is the most common.",
+      "parentUuid": "c4e8e5cd_bc636197",
       "range": {
         "startLine": 1088,
         "startChar": 4,
