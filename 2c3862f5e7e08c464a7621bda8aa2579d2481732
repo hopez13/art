@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4db2937_927a0afa",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-21T06:15:33Z",
+      "side": 1,
+      "message": "constexpr uint8_t",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 13
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04df5d24_33ecda73",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-21T06:15:33Z",
+      "side": 1,
+      "message": "I think the code here was pretty clear what the mask was to reveal",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 34
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e8e5cd_3c783144",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-21T06:15:33Z",
+      "side": 1,
+      "message": "why REX_W but not REX_B and friends?",
+      "range": {
+        "startLine": 99,
+        "startChar": 22,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04df5d24_53f16648",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-21T06:15:33Z",
+      "side": 1,
+      "message": "size",
+      "range": {
+        "startLine": 1081,
+        "startChar": 39,
+        "endLine": 1081,
+        "endChar": 43
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_1266fa66",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-21T06:15:33Z",
+      "side": 1,
+      "message": "ok reuse, I\u0027d prefer a const uint8_t rather than a #define though",
+      "range": {
+        "startLine": 1084,
+        "startChar": 22,
+        "endLine": 1084,
+        "endChar": 27
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4e8e5cd_bc636197",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-21T06:15:33Z",
+      "side": 1,
+      "message": "else {\n  opcode \u003c\u003c \u0027l\u0027 ?\n}",
+      "range": {
+        "startLine": 1088,
+        "startChar": 4,
+        "endLine": 1088,
+        "endChar": 5
+      },
+      "revId": "2c3862f5e7e08c464a7621bda8aa2579d2481732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
