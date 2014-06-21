@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "c413859f_64f7aaf6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-21T08:18:19Z",
+      "side": 1,
+      "message": "Just for readability, I would rewrite to \"dex_offset + instruction.GetTargetOffset()\" to be consistent with the FindBlockStartingAt call below.",
+      "range": {
+        "startLine": 103,
+        "startChar": 44,
+        "endLine": 103,
+        "endChar": 86
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e416c98e_08b08714",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-21T08:18:19Z",
+      "side": 1,
+      "message": "Indent by 2 spaces here and for the other switches too.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_a742444f",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-21T08:18:19Z",
+      "side": 1,
+      "message": "Remove the new line above",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 8
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c413859f_c7078035",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
