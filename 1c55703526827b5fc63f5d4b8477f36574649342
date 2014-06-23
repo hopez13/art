@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4c1c553_3724d24b",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-23T18:27:46Z",
+      "side": 1,
+      "message": "Before setting rl_result, we need to clear rl_result.  Otherwise the upper 3 bytes are invalid for usage later on.",
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
