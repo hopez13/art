@@ -34,6 +34,24 @@
       "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c40963_fe5dd5cb",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-06-23T18:44:11Z",
+      "side": 1,
+      "message": "Ok.  I didn\u0027t notice the 8-bit sub and sign-extension.  Hopefully, this time is good.  Thanks a lot!",
+      "parentUuid": "44d5d5fe_038dd0dc",
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
