@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4c40963_f8540d32",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c413859f_64f7aaf6",
+      "range": {
+        "startLine": 103,
+        "startChar": 44,
+        "endLine": 103,
+        "endChar": 86
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e416c98e_08b08714",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-21T08:18:19Z",
       "side": 1,
       "message": "Indent by 2 spaces here and for the other switches too.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_34785044",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e416c98e_08b08714",
       "range": {
         "startLine": 40,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4db2937_da2824ee",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c413859f_a742444f",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 8
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c413859f_c7078035",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-20T22:36:26Z",
       "side": 1,
       "message": "I\u0027d prefer moving this to HCondition, it\u0027s very specific to them for now.",
+      "range": {
+        "startLine": 526,
+        "startChar": 15,
+        "endLine": 526,
+        "endChar": 35
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_54c22c3c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c413859f_c7078035",
       "range": {
         "startLine": 526,
         "startChar": 15,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e4db2937_3a34a863",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c413859f_272654de",
+      "range": {
+        "startLine": 528,
+        "startChar": 7,
+        "endLine": 528,
+        "endChar": 22
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44d5d5fe_e03c62de",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2014-06-20T22:36:26Z",
       "side": 1,
       "message": "return uses_ !\u003d nullptr \u0026\u0026 uses_-\u003etail \u003d\u003d nullptr\n\nNumberOfUses is not cheap :(",
+      "range": {
+        "startLine": 533,
+        "startChar": 11,
+        "endLine": 533,
+        "endChar": 23
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c40963_7870fdeb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44d5d5fe_e03c62de",
       "range": {
         "startLine": 533,
         "startChar": 11,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e4c40963_d87e71bc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Yeah, more instructions coming that will use it.  Thinking ahead.",
+      "parentUuid": "e416c98e_48d1df32",
+      "range": {
+        "startLine": 887,
+        "startChar": 6,
+        "endLine": 887,
+        "endChar": 21
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c413859f_072b58a4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "c4c1c553_d4d55cee",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c413859f_072b58a4",
+      "range": {
+        "startLine": 890,
+        "startChar": 19,
+        "endLine": 890,
+        "endChar": 31
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c413859f_67304c0d",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 5
@@ -197,6 +389,30 @@
       "writtenOn": "2014-06-20T22:36:26Z",
       "side": 1,
       "message": "Thinking about it, we could handle it with the Location object, just like we plan on optimizing constants: have a kImmediate for constants and kCondition for conditions.\n\nThat\u0027s future work though.",
+      "range": {
+        "startLine": 114,
+        "startChar": 9,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c40963_185aa962",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-06-23T17:45:03Z",
+      "side": 1,
+      "message": "OK, perhaps non-optimal for now but we\u0027ll deal with it later.",
+      "parentUuid": "c413859f_67304c0d",
       "range": {
         "startLine": 114,
         "startChar": 9,
