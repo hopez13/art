@@ -1,0 +1,901 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44aeb594_b8b1b9e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "I think the change should just move us over. I have concerns that by having feet in two implementations we\u0027re broken in some respect in both. At least if we move over we can fix the bugs in just the one implementation.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 39
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_fb540f32",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "It feels weird this is a runtime option. I could codegen with a different option to runtime, which would be broken.",
+      "range": {
+        "startLine": 683,
+        "startChar": 10,
+        "endLine": 683,
+        "endChar": 61
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_5a75f50b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1448,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Allocate a class with the status of not ready. For regular classes this object will be replaced when the Class becomes resolved.",
+      "range": {
+        "startLine": 1447,
+        "startChar": 1,
+        "endLine": 1448,
+        "endChar": 75
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_7a7ab9fc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 1492,
+        "startChar": 21,
+        "endLine": 1492,
+        "endChar": 25
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_fa06c981",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2398,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "CHECK(klass-\u003eIsProxyClass())",
+      "range": {
+        "startLine": 2398,
+        "startChar": 0,
+        "endLine": 2398,
+        "endChar": 19
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_7efc6dd7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2401,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "CHECK(!existing-\u003eIsResolved()); CHECK(klass-\u003eIsResolving());",
+      "range": {
+        "startLine": 2392,
+        "startChar": 0,
+        "endLine": 2401,
+        "endChar": 41
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_9e105970",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2421,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "I don\u0027t follow this, why aren\u0027t classes in the image resolved?",
+      "range": {
+        "startLine": 2411,
+        "startChar": 0,
+        "endLine": 2421,
+        "endChar": 3
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_7899e161",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2944,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 2944,
+        "startChar": 29,
+        "endLine": 2944,
+        "endChar": 33
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_9b36ab1e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2946,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "rename to resolution_lock to make meaning clear",
+      "range": {
+        "startLine": 2946,
+        "startChar": 30,
+        "endLine": 2946,
+        "endChar": 34
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_7b42bf73",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why wasn\u0027t this done as part of linking?",
+      "range": {
+        "startLine": 2954,
+        "startChar": 0,
+        "endLine": 2956,
+        "endChar": 5
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_9a6ead3f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2974,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "rename to initialization lock",
+      "range": {
+        "startLine": 2974,
+        "startChar": 30,
+        "endLine": 2974,
+        "endChar": 34
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_b87a993f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3440,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "move declaration into \"for (\" as there\u0027s no need for this to have such a broad scope",
+      "range": {
+        "startLine": 3440,
+        "startChar": 2,
+        "endLine": 3440,
+        "endChar": 12
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_bb33672d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3443,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "nullptr...",
+      "range": {
+        "startLine": 3443,
+        "startChar": 16,
+        "endLine": 3443,
+        "endChar": 20
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_db303323",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3521,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "CHECK_EQ and then you don\u0027t need to report the sizes.",
+      "range": {
+        "startLine": 3521,
+        "startChar": 2,
+        "endLine": 3521,
+        "endChar": 7
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_ba6b712e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3533,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": ".. waiters on the unresolved class that it is now resolved.",
+      "range": {
+        "startLine": 3533,
+        "startChar": 33,
+        "endLine": 3533,
+        "endChar": 44
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_3ed9058d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3537,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "This will notify waiters that saw the not yet resolved class in the class_table_ during EnsureResolved.",
+      "range": {
+        "startLine": 3537,
+        "startChar": 4,
+        "endLine": 3537,
+        "endChar": 43
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_fa65e95a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4017,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "nullptr, it\u0027d be an error to set this out argument in the case of a non-static linking",
+      "range": {
+        "startLine": 4017,
+        "startChar": 34,
+        "endLine": 4017,
+        "endChar": 45
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_586dfd84",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4062,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer this to move into a member function of mirror::Class, to capture that it ignores embedded tables and fields. Previously the fact it didn\u0027t include fields was some what evident in that this code is linking the fields.",
+      "range": {
+        "startLine": 4062,
+        "startChar": 20,
+        "endLine": 4062,
+        "endChar": 41
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_1aec5d73",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4069,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Comment that this is placing the fields after the IMT and Vtable.",
+      "range": {
+        "startLine": 4063,
+        "startChar": 4,
+        "endLine": 4069,
+        "endChar": 5
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_9866b5a8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4191,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "size_t (to be consistent with the argument)",
+      "range": {
+        "startLine": 4191,
+        "startChar": 2,
+        "endLine": 4191,
+        "endChar": 10
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_def10106",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Don\u0027t do this! If you need a header file that\u0027s going to bring in half the codebase, move the code that requires it into a -inl.h, that\u0027s why we have them.",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_f8ab3173",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "These should move to the appropriate mirror class.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 69
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_5af6d542",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Document public methods, what is multiple_of_8bytes? It feels unnecessary unless we\u0027ve exposed static field layout in a non-runtime dependent way.",
+      "range": {
+        "startLine": 406,
+        "startChar": 57,
+        "endLine": 406,
+        "endChar": 81
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_7b69dfff",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why doesn\u0027t this query the status?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 79
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_78a00196",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why isn\u0027t this in the class linker? why is it necessary?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 1
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_b8c8d957",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Avoid early returns unless they bring about clarity. In this function its important there are no early returns as at the end is when notification is performed.\nWhen you place a cut-out like this, add a comment saying why its necessary.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 3
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_d8d58dee",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "The comment and the code are now out of sync.",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 86
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_da8f45d5",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why 0? Shouldn\u0027t this be at least the existing size of the Class?",
+      "range": {
+        "startLine": 831,
+        "startChar": 24,
+        "endLine": 831,
+        "endChar": 25
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_d8602d8d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "please don\u0027t add to the header files when avoidable. Check you need this (and object_array below) and move to the -inl.h.",
+      "range": {
+        "startLine": 20,
+        "startChar": 20,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_7aa1d950",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "If this has to be unaligned then I\u0027d prefer an int32 of padding.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 4
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_1a929d03",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Perhaps resolving rather than transitioning.",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 24
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_bb4a878d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "This is inconsistent with all the other status checks in Class.",
+      "range": {
+        "startLine": 194,
+        "startChar": 37,
+        "endLine": 194,
+        "endChar": 39
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_5a9c1514",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why were they populated then? If we see a non-transitioned class in the GC will we erroneously visit static roots upon it? I would rather this wasn\u0027t done here, and there were assertions that StaticFields wasn\u0027t populated until the class is ready.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_9b4dcbaa",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "This is a description of the code and not the purpose of it. What is the \"Root\" property of Class that is being tested and what does it imply?",
+      "range": {
+        "startLine": 309,
+        "startChar": 4,
+        "endLine": 309,
+        "endChar": 66
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_db7e73bc",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be necessary",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 60
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84b42ddf_ba8291ae",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why can\u0027t we simply say a resolved class isn\u0027t temporary, and before this they are? I\u0027d rather not add other notions to the status of the class other than the state machine of it chugging forward through resolution...",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 60
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_3e02e52c",
+        "filename": "runtime/mirror/proxy.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "Don\u0027t do this! Create a proxy-inl.h if necessary.",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_98b4f5d8",
+        "filename": "runtime/mirror/proxy.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "I don\u0027t think this class serves any purpose now that the fields within it aren\u0027t valid for offsets. Remove.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 2
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e5b1f4_db575334",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:11:07Z",
+      "side": 1,
+      "message": "why is having this class useful? Remove.",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 2
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
