@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44d5d5fe_a33c244f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1854,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-23T18:02:01Z",
+      "side": 1,
+      "message": "Ldo_memcmp16 does not setup the correct args for memcmp16. I will upstream a fixed version of this patch.",
+      "revId": "b77389d5344619dd6dc7c966ee9669abc8894c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
