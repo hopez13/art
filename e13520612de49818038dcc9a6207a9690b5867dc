@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4c1c553_dd601f8d",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:30:58Z",
+      "side": 1,
+      "message": "Skip REX *if* present.\nThis should be conditional on being 64-bit. On 32-bit the REX prefix is used to encode inc and dec instructions.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 3
+      },
+      "revId": "e13520612de49818038dcc9a6207a9690b5867dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_3dd2f3e2",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:30:58Z",
+      "side": 1,
+      "message": "add CHECK_EQ for offsets 1,2,3 that they agree with the assumption on the right (ie that all cmp instructions will be 4 bytes long). What are r and v? If v were a displacement then the instruction would be longer.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 65
+      },
+      "revId": "e13520612de49818038dcc9a6207a9690b5867dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_fdd79bca",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:30:58Z",
+      "side": 1,
+      "message": "You could pick out the other multi-byte opcodes from the encoding maps, there\u0027s a small number.",
+      "range": {
+        "startLine": 105,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 3
+      },
+      "revId": "e13520612de49818038dcc9a6207a9690b5867dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_0b107bdc",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:30:58Z",
+      "side": 1,
+      "message": "modrm with no SIB but a displacement encoding?\nimmediate lengths?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 3
+      },
+      "revId": "e13520612de49818038dcc9a6207a9690b5867dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
