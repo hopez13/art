@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e416c98e_6b113524",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-23T16:18:57Z",
+      "side": 1,
+      "message": "add a local var profile_options.",
+      "range": {
+        "startLine": 95,
+        "startChar": 6,
+        "endLine": 95,
+        "endChar": 36
+      },
+      "revId": "69f916344d361db36785416c5a158354d9a7fc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d5d5fe_639bfc64",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-23T16:18:57Z",
+      "side": 1,
+      "message": "doesn\u0027t this fit on the same line?",
+      "range": {
+        "startLine": 445,
+        "startChar": 3,
+        "endLine": 445,
+        "endChar": 52
+      },
+      "revId": "69f916344d361db36785416c5a158354d9a7fc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_cdee8125",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-23T16:18:57Z",
+      "side": 1,
+      "message": "you should add a comment somewhere saying that you use a dummy root instead of a collection of roots.",
+      "range": {
+        "startLine": 555,
+        "startChar": 5,
+        "endLine": 555,
+        "endChar": 43
+      },
+      "revId": "69f916344d361db36785416c5a158354d9a7fc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_2a5a9b62",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-23T16:18:57Z",
+      "side": 1,
+      "message": "+1 space",
+      "range": {
+        "startLine": 565,
+        "startChar": 5,
+        "endLine": 565,
+        "endChar": 6
+      },
+      "revId": "69f916344d361db36785416c5a158354d9a7fc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d5d5fe_e3046ce5",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-23T16:18:57Z",
+      "side": 1,
+      "message": "+1 space, doesn\u0027t linter complain about this?",
+      "range": {
+        "startLine": 47,
+        "startChar": 18,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "69f916344d361db36785416c5a158354d9a7fc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_4de3b142",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-23T16:18:57Z",
+      "side": 1,
+      "message": "These are not actually only the leaves, right? They are nodes that contain methods hit by the profiler. (i.e. Method A could be an internal node and still appear here). I think it\u0027s better to change the name and add a comment about it.",
+      "range": {
+        "startLine": 131,
+        "startChar": 27,
+        "endLine": 131,
+        "endChar": 39
+      },
+      "revId": "69f916344d361db36785416c5a158354d9a7fc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
