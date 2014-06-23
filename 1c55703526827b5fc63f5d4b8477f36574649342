@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e4c40963_040a40ad",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:39:16Z",
+      "side": 1,
+      "message": "This is unnecessary, use EXT_0F_ENCODING_MAP and pass REX as the prefix.",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 171
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_bd6b632e",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:39:16Z",
+      "side": 1,
+      "message": "This is unnecessary, use EXT_0F_ENCODING_MAP and pass REX_w as the prefix.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 173
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c1c553_3724d24b",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
@@ -49,6 +95,98 @@
       "side": 1,
       "message": "Ok.  I didn\u0027t notice the 8-bit sub and sign-extension.  Hopefully, this time is good.  Thanks a lot!",
       "parentUuid": "44d5d5fe_038dd0dc",
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_6b7bbf02",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:39:16Z",
+      "side": 1,
+      "message": "This should be sign-extension to 32-bit.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c40963_e4daa4f3",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:39:16Z",
+      "side": 1,
+      "message": "This looks very broken.",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_6bbe5f54",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:39:16Z",
+      "side": 1,
+      "message": "res \u003d LoadConstantNoClobber(...)\nthe top bits are implicitly zero",
+      "range": {
+        "startLine": 618,
+        "startChar": 10,
+        "endLine": 618,
+        "endChar": 71
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4db2937_0bfddb18",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T20:39:16Z",
+      "side": 1,
+      "message": "move this into the \"if (val_hi !\u003d 0)\" case",
+      "range": {
+        "startLine": 620,
+        "startChar": 1,
+        "endLine": 622,
+        "endChar": 9
+      },
       "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
