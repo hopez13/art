@@ -577,6 +577,29 @@
     },
     {
       "key": {
+        "uuid": "a4e5b1f4_9e193994",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:36:49Z",
+      "side": 1,
+      "message": "Add assertions that when new_status is \u003e\u003d Resolving vtable and static field invariants hold, and when \u003c Resolving there aren\u0027t static fields..",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 0
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44aeb594_b8c8d957",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 6
@@ -684,6 +707,29 @@
         "startLine": 82,
         "startChar": 0,
         "endLine": 86,
+        "endChar": 4
+      },
+      "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44aeb594_780561a9",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-23T00:36:49Z",
+      "side": 1,
+      "message": "document resolving/transitioning and the 2 class objects model",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
         "endChar": 4
       },
       "revId": "85854b97d537678d1e7889107979c0d7ef0886d7",
