@@ -220,6 +220,30 @@
     },
     {
       "key": {
+        "uuid": "e416c98e_0b76c1ea",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:48:52Z",
+      "side": 1,
+      "message": "Yeah, it will do but it will not allow us to use registers \u003e 4 (r9l for example).",
+      "parentUuid": "649e596e_461a90d2",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c40963_e4daa4f3",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -348,6 +372,30 @@
       "writtenOn": "2014-06-24T04:22:45Z",
       "side": 1,
       "message": "Could you tweak the comment here, an empty REX prefix used to normalize the byte operations so that they apply to R4 through R15.",
+      "range": {
+        "startLine": 714,
+        "startChar": 3,
+        "endLine": 714,
+        "endChar": 24
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d5d5fe_63921cd3",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:48:52Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "048d9d44_b48288ae",
       "range": {
         "startLine": 714,
         "startChar": 3,
