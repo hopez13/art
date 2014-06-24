@@ -16,6 +16,24 @@
       "revId": "ce917e24df64d2ba1e25867d38c9b0ca4017d351",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_f7bfafe6",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:15:34Z",
+      "side": 1,
+      "message": "I thought of that way, too.\n\nAn issue would be atomicity/race between GetDexCacheCount() and GetDexCache() as they need to acquire dex_lock_. It\u0027d be possible after we call GetDexCacheCount(), the count could be changed by the time we call GetDexCache(). It might be ok if we can assume that dex_caches are never removed from the vector, or ImageWriter (the caller) won\u0027t violate the atomicity, thought that could be fragile.\n\nWe could expose the dex_lock to the caller, but it seems to make this less cleaner than the current way.\n\nAnother way is to return a copy of the vector, which would solve this issue and avoid the need to update the roots (line 225). As long as the number of dex caches is small, it might be ok.\n\nMore thoughts?",
+      "parentUuid": "24a8e18f_af807938",
+      "revId": "ce917e24df64d2ba1e25867d38c9b0ca4017d351",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
