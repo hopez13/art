@@ -268,6 +268,30 @@
     },
     {
       "key": {
+        "uuid": "e472491f_054fb27d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T08:22:02Z",
+      "side": 1,
+      "message": "we\u0027ll try to look into this issue in disassembler.",
+      "parentUuid": "048d9d44_d7a5562c",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c40963_e4daa4f3",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -327,6 +351,30 @@
       "side": 1,
       "message": "I don\u0027t follow. If the value is 0x00 00 00 00 FF FF FF FF then val_lo is 0xFF FF FF FF (or -1) and val_hi is 0. This code will make val_hi \u003d 1. The code below will then generate:\nr_dest :\u003d 1\nr_dest \u003c\u003c\u003d 32\nr_dest +\u003d 0xFF FF FF FF\nwhich will lead to 0x1 FF FF FF FF in r_dest rather than 0xFF FF FF FF.",
       "parentUuid": "44d5d5fe_a39b44e9",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6487392a_6935a5fb",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T08:22:02Z",
+      "side": 1,
+      "message": "No, r_dest :\u003d1, r_dest \u003c\u003c\u003d 32 and r_dest +\u003d 0x FF FF FF FF FF FF FF FF (due to sign extension of immediate for add). So it will be 0x 00 00 00 01 00 00 00 00 + 0x FF FF FF FF FF FF FF FF \u003d 0x 00 00 00 00 FF FF FF FF as expected.",
+      "parentUuid": "048d9d44_d7d4767b",
       "range": {
         "startLine": 611,
         "startChar": 0,
