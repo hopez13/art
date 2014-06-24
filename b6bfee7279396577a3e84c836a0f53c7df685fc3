@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "649c9984_a1431e26",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-24T18:20:52Z",
+      "side": 1,
+      "message": "1) GetCurrentMethod also visit the top of the stack using a very similar visitor. The only difference is GetCurrentMethod put the results in the visitor\u0027s member variables and the stackvisitor put the results in the vector. Therefore, I don\u0027t see an obvious gain by adding extra condition. Plus, we can also record the dex_pc if we use the second branch.\n2) Done.",
+      "parentUuid": "e472491f_454a8ae3",
+      "range": {
+        "startLine": 107,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 33
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "447cf5f0_c8da0ff4",
         "filename": "runtime/profiler.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-24T13:16:42Z",
       "side": 1,
       "message": "this is the same as L402-430. How about having a method \nbool BackgroundMethodSamplibgProfiler::ProcessMethod(const mirror::ArtMethod\u0026 method); which returns true if the method needs to be added to the table or not?\n\nOther options which remove the duplicate are also fine.",
+      "range": {
+        "startLine": 446,
+        "startChar": 1,
+        "endLine": 474,
+        "endChar": 3
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46cd148_e333727a",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-24T18:20:52Z",
+      "side": 1,
+      "message": "Done. Some of functions in ArtMethod is not marked as const, so I removed const keyword for the argument.",
+      "parentUuid": "447cf5f0_c8da0ff4",
       "range": {
         "startLine": 446,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "649c9984_81593a14",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-24T18:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e472491f_25974ef4",
+      "range": {
+        "startLine": 631,
+        "startChar": 11,
+        "endLine": 631,
+        "endChar": 31
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "447cf5f0_8812d7e5",
         "filename": "runtime/profiler.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a46cd148_03924e03",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-24T18:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "447cf5f0_8812d7e5",
+      "range": {
+        "startLine": 634,
+        "startChar": 12,
+        "endLine": 634,
+        "endChar": 33
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e472491f_e565365b",
         "filename": "runtime/profiler.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2014-06-24T13:16:42Z",
       "side": 1,
       "message": "you should spell out in a comment the context format. it will make this code a bit more easy to understand.",
+      "range": {
+        "startLine": 650,
+        "startChar": 16,
+        "endLine": 650,
+        "endChar": 27
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46cd148_23974af4",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1047393
+      },
+      "writtenOn": "2014-06-24T18:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e472491f_e565365b",
       "range": {
         "startLine": 650,
         "startChar": 16,
