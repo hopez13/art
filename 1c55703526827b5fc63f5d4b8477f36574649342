@@ -435,6 +435,30 @@
     },
     {
       "key": {
+        "uuid": "048d9d44_37485a92",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-24T09:23:07Z",
+      "side": 1,
+      "message": "Agreed, for the B8+REX.W and 64-immediate you\u0027d need a new encoding kind where you\u0027d store the 64-bit immediate over 2 ints.",
+      "parentUuid": "6487392a_8983b944",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4db2937_6bbe5f54",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
