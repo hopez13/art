@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44a315b3_6ac75b24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "run",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048d9d44_c2e672c0",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "below you use art_build_path defined above. seems like you should nuke it entirely or use it consistently.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048d9d44_221f36f4",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "product rules",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 17
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_2a1f13f4",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "suggestion: you started calling these PREREQ elsewhere, perhaps its better to use that everywhere?",
+      "range": {
+        "startLine": 103,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 23
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048d9d44_821e2af2",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "test rules",
+      "range": {
+        "startLine": 113,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 14
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649e596e_90fcadd8",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "stale filename in comment?",
+      "range": {
+        "startLine": 121,
+        "startChar": 14,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048d9d44_c2503290",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "its hard to see the delta here (at least on my smalls laptop screen doing diff)\n\ni might but the delta at the end for readability.",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 195
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_4af1b748",
+        "filename": "oatdump/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "i think I\u0027d get rid of that $(art_build) variable entirely :)",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048d9d44_02207a00",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "true constants don\u0027t need $$",
+      "range": {
+        "startLine": 334,
+        "startChar": 10,
+        "endLine": 334,
+        "endChar": 12
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_2abe3353",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-24T16:39:36Z",
+      "side": 1,
+      "message": "and the eval seems to be leading to $$$$ which just seems even more confusing. i see this in a lot of other places as well",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 348,
+        "endChar": 13
+      },
+      "revId": "685f03f13eda224891b489cdd0b72043256bf1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
