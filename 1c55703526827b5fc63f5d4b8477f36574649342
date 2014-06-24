@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c413859f_6d94ad2d",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:08:46Z",
+      "side": 1,
+      "message": "Will do a clean-up patch",
+      "parentUuid": "e4c40963_040a40ad",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 171
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c1c553_bd6b632e",
         "filename": "compiler/dex/quick/x86/assemble_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-23T20:39:16Z",
       "side": 1,
       "message": "This is unnecessary, use EXT_0F_ENCODING_MAP and pass REX_w as the prefix.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 173
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e416c98e_eba5252c",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:08:46Z",
+      "side": 1,
+      "message": "Will do a clean-up patch",
+      "parentUuid": "c4c1c553_bd6b632e",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -124,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "c413859f_4d99f161",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:08:46Z",
+      "side": 1,
+      "message": "I do not see x86 instruction allowing us to do a sign extension from 8-bit to 32-bit and use the whole r0-r15 register set at the same time. So I decided to use 8-bit to 64-bit sign extension.",
+      "parentUuid": "e4db2937_6b7bbf02",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c40963_e4daa4f3",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -170,6 +242,30 @@
     },
     {
       "key": {
+        "uuid": "44d5d5fe_c3d7687d",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:08:46Z",
+      "side": 1,
+      "message": "makes sense to me",
+      "parentUuid": "e4db2937_6bbe5f54",
+      "range": {
+        "startLine": 618,
+        "startChar": 10,
+        "endLine": 618,
+        "endChar": 71
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4db2937_0bfddb18",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -181,6 +277,30 @@
       "writtenOn": "2014-06-23T20:39:16Z",
       "side": 1,
       "message": "move this into the \"if (val_hi !\u003d 0)\" case",
+      "range": {
+        "startLine": 620,
+        "startChar": 1,
+        "endLine": 622,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c413859f_ad7d053c",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T04:08:46Z",
+      "side": 1,
+      "message": "together with above.",
+      "parentUuid": "e4db2937_0bfddb18",
       "range": {
         "startLine": 620,
         "startChar": 1,
