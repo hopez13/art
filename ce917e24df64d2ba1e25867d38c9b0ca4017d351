@@ -52,6 +52,24 @@
       "revId": "ce917e24df64d2ba1e25867d38c9b0ca4017d351",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_430a1a88",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T20:38:15Z",
+      "side": 1,
+      "message": "I tried this. There\u0027s one issue in ImageWriter::CreateImageRoots(). We\u0027d need to allocate an ObjectArray of the exact size GetDexCacheCount(), but we can\u0027t do the allocation while holding dex_lock_, since that allocation could cause a thread suspension. So, we can\u0027t guarantee the atomicity between GetDexCacheCount() and GetDexCache(). The best we can do is to lock dex_lock_ twice, first to get the count, unlock it, allocate the ObjectArray, lock it again, check that the count hasn\u0027t changed, and copy the elements. Not sure if this is good.\n\nBefore:\n\n  Handle\u003cObjectArray\u003cObject\u003e\u003e dex_caches(\n      hs.NewHandle(ObjectArray\u003cObject\u003e::Alloc(self, object_array_class.Get(),\n                                             class_linker-\u003eGetDexCaches().size())));\n  int i \u003d 0;\n  for (DexCache* dex_cache : class_linker-\u003eGetDexCaches()) {\n    dex_caches-\u003eSet\u003cfalse\u003e(i++, dex_cache);\n\n(note the \u0027before\u0027 code wasn\u0027t atomic w.r.t. the dex caches.)\n\nAfter:\n\n  size_t dex_cache_count;\n  {\n    ReaderMutexLock mu(Thread::Current(), *class_linker-\u003eDexLock());\n    dex_cache_count \u003d class_linker-\u003eGetDexCacheCount();\n  }\n  Handle\u003cObjectArray\u003cObject\u003e\u003e dex_caches(\n      hs.NewHandle(ObjectArray\u003cObject\u003e::Alloc(self, object_array_class.Get(),\n                                              dex_cache_count)));\n  CHECK(dex_caches.Get() !\u003d nullptr) \u003c\u003c \"Failed to allocate a dex cache array.\";\n  {\n    ReaderMutexLock mu(Thread::Current(), *class_linker-\u003eDexLock());\n    CHECK_EQ(dex_cache_count, class_linker-\u003eGetDexCacheCount())\n        \u003c\u003c \"The number of dex caches changed.\";\n    for (size_t i \u003d 0; i \u003c dex_cache_count; ++i) {\n      dex_caches-\u003eSet\u003cfalse\u003e(i, class_linker-\u003eGetDexCache(i));\n    }\n  }\n\nCopying the dex caches in a temporary container wouldn\u0027t work as that would hold Object* without being a root.",
+      "parentUuid": "e4a7a9cf_9d9f634f",
+      "revId": "ce917e24df64d2ba1e25867d38c9b0ca4017d351",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
