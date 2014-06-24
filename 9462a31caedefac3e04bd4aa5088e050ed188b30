@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4a7a9cf_1d0a33ae",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 0,
+      "message": "Does it make sense to keep this?",
+      "range": {
+        "startLine": 254,
+        "startChar": 28,
+        "endLine": 254,
+        "endChar": 43
+      },
+      "revId": "9462a31caedefac3e04bd4aa5088e050ed188b30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_fdf54767",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 0,
+      "message": "Is this timing dropped? Should it be kept as Heap::MarkStackAsLive() does not internally take a timing?",
+      "range": {
+        "startLine": 1130,
+        "startChar": 28,
+        "endLine": 1130,
+        "endChar": 43
+      },
+      "revId": "9462a31caedefac3e04bd4aa5088e050ed188b30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

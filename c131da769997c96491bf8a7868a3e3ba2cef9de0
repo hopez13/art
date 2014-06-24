@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44a315b3_16f6fc73",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Do we need two timings here?",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 57
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649e596e_65494e75",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Do we need two timings?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 57
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_f6f09871",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Do we need two?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 59
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_761e68f5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "t3?",
+      "range": {
+        "startLine": 375,
+        "startChar": 33,
+        "endLine": 375,
+        "endChar": 35
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_175b53b0",
+        "filename": "runtime/base/timing_logger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "I think we should check label isn\u0027t nullptr, or we could risk mixing start and end timings.",
+      "range": {
+        "startLine": 139,
+        "startChar": 40,
+        "endLine": 139,
+        "endChar": 45
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_57fb1b59",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Just one \u0026?",
+      "range": {
+        "startLine": 108,
+        "startChar": 25,
+        "endLine": 108,
+        "endChar": 27
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a315b3_77001f9b",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 111,
+        "startChar": 36,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_a07e7485",
+        "filename": "runtime/base/timing_logger.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Remove this? ScopedSplit no longer exists?",
+      "range": {
+        "startLine": 195,
+        "startChar": 15,
+        "endLine": 195,
+        "endChar": 26
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_7d1377ec",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Should this be placed with line 211 without having RevokeAllThreadLocalAllocationStacks() call in between?",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 28
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_9d988360",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "If Heap::UnBindBitmaps() is shared between collectors, it might make sense to move this to Heap::UnBindBitmaps().",
+      "range": {
+        "startLine": 298,
+        "startChar": 18,
+        "endLine": 298,
+        "endChar": 30
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048d9d44_6efccfd7",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-06-24T18:58:21Z",
+      "side": 1,
+      "message": "Should this be 21 to include the terminating null character?\n\n2^64 − 1 \u003d 18446744073709551615 has 20 digits.",
+      "range": {
+        "startLine": 536,
+        "startChar": 41,
+        "endLine": 536,
+        "endChar": 43
+      },
+      "revId": "c131da769997c96491bf8a7868a3e3ba2cef9de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
