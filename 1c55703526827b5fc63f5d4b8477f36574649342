@@ -459,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "6487392a_29b00d15",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T09:30:38Z",
+      "side": 1,
+      "message": "Exactly, as I said this work is in progress. As soon as it is ready this code will be re-written.",
+      "parentUuid": "048d9d44_37485a92",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4db2937_6bbe5f54",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
