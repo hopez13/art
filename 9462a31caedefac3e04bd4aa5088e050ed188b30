@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "44a315b3_7a7ac695",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T19:17:46Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e4a7a9cf_1d0a33ae",
+      "revId": "9462a31caedefac3e04bd4aa5088e050ed188b30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4a7a9cf_fdf54767",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 1130,
         "endChar": 43
       },
+      "revId": "9462a31caedefac3e04bd4aa5088e050ed188b30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_205ee4c7",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T19:17:46Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e4a7a9cf_fdf54767",
       "revId": "9462a31caedefac3e04bd4aa5088e050ed188b30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
