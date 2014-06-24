@@ -411,6 +411,30 @@
     },
     {
       "key": {
+        "uuid": "6487392a_8983b944",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-24T09:00:55Z",
+      "side": 1,
+      "message": "For now LIR does not support 64-bit immediate. This work is in progress. So we cannot use 64-bit immediate at this moment. This is why all these things.",
+      "parentUuid": "048d9d44_b74a8a8d",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4db2937_6bbe5f54",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
