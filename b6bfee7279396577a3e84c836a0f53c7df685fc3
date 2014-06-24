@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e472491f_454a8ae3",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "1) if max_depth \u003c\u003d 1 you can optimize and take the branch above. I\u0027m not fully familiar with stack traversal but based on the code seems to be pretty expensive even if you look only at the top. \n\n2) minor nit: a switch might be better then an if-else.",
+      "range": {
+        "startLine": 107,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 33
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447cf5f0_c8da0ff4",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "this is the same as L402-430. How about having a method \nbool BackgroundMethodSamplibgProfiler::ProcessMethod(const mirror::ArtMethod\u0026 method); which returns true if the method needs to be added to the table or not?\n\nOther options which remove the duplicate are also fine.",
+      "range": {
+        "startLine": 446,
+        "startChar": 1,
+        "endLine": 474,
+        "endChar": 3
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e472491f_25974ef4",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "the way you construct the map I don\u0027t see how this can be null. If it can be null then something is odd with the the map design.",
+      "range": {
+        "startLine": 631,
+        "startChar": 11,
+        "endLine": 631,
+        "endChar": 31
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447cf5f0_8812d7e5",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "same comment, the set should not have nulls.",
+      "range": {
+        "startLine": 634,
+        "startChar": 12,
+        "endLine": 634,
+        "endChar": 33
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e472491f_e565365b",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "you should spell out in a comment the context format. it will make this code a bit more easy to understand.",
+      "range": {
+        "startLine": 650,
+        "startChar": 16,
+        "endLine": 650,
+        "endChar": 27
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447cf5f0_8853b79a",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "nit: I would reverse the count and context. It will make the profile a bit more human readable since the context will be longer. Up to you :)",
+      "range": {
+        "startLine": 684,
+        "startChar": 41,
+        "endLine": 684,
+        "endChar": 59
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e472491f_657a26fd",
+        "filename": "runtime/profiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-06-24T13:16:42Z",
+      "side": 1,
+      "message": "this can be nullptr even if stack_trie_root is not.",
+      "range": {
+        "startLine": 731,
+        "startChar": 4,
+        "endLine": 731,
+        "endChar": 32
+      },
+      "revId": "b6bfee7279396577a3e84c836a0f53c7df685fc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
