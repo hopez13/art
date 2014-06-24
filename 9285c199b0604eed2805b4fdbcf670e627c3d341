@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a493f168_4bae2574",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "After thread is changed to suspended, we need get mutator_lock_ excursively to prevent other threads perform Ros2Ros compaction at the same time. Btw, keeping exclusive lock/unlock but replace TransitionFromxxx with ScopedThreadStateChange triggers compiler error.",
+      "parentUuid": "24a8e18f_d5ae2c86",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c1c553_a82883ec",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2014-06-24T00:14:12Z",
       "side": 1,
       "message": "Indents are off.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84826d17_0d40b5c3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4c1c553_a82883ec",
       "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "84826d17_ed09a1b9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "240c6177_a9fcd11d",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4ede9ca_614e7e7f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2014-06-24T00:14:12Z",
       "side": 1,
       "message": "I\u0027d prefer if we avoided using string comparisons.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84826d17_ad0fa9be",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ede9ca_614e7e7f",
       "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "c4962558_8c84a786",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4be91c4_362bf6a4",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "649e596e_37f1404a",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2014-06-24T00:14:12Z",
       "side": 1,
       "message": "Use namespaces + declarations instead of including this header file.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a493f168_2ba9d96a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "649e596e_37f1404a",
       "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "c4962558_4c92bfd2",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "I may not understand your comment.\nWe implement ros2ros compact-GC. During heap initialization, we calculate use_Ros2Ros_compact_ by (kUseRosAlloc \u0026\u0026 use_Ros2Ros_compact \u0026\u0026 background_collector_type_ \u003d\u003d kCollectorTypeCMS \u0026\u0026 foreground_collector_type_ \u003d\u003d kCollectorTypeCMS). If kUseRosAlloc is set false, Ros2Ros is disabled and its related initialization codes will be bypassed.",
+      "parentUuid": "24a8e18f_b5b448bf",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c1c553_28a1d39c",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "84826d17_8de025ae",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "This change reverts the background_collector to CMS.\nAs I explain in commit message, Ros2Ros compaction is applied in two cases:\n1. one compaction before before OOM.\n2. one compaction after application is switched background.\nThe 2nd case assumes that the background collector is CMS, and its benefit is to avoid the copying from bump pointer space to Ros space when app is switched foreground. It conflicts with the design to use SemiSpace(SS) collector as background collector. In my view, \"CMS as background collector + Ros2Ros compaction\" is alternative to \"SS as background collector\". Let me know your comments, thanks!",
+      "parentUuid": "c4c1c553_28a1d39c",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c40963_af7de53b",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
@@ -149,6 +293,24 @@
       "writtenOn": "2014-06-24T00:14:12Z",
       "side": 1,
       "message": "I believe the convention is to have all lower case variable names.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84826d17_cdae9d86",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-06-24T12:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c40963_af7de53b",
       "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
