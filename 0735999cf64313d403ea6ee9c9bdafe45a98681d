@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e472491f_c8da0ff4",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-06-24T19:46:57Z",
+      "side": 1,
+      "message": "Note: the diff shown by Gerrit for the code below is not great at all. What I did is the following,\n\n  if (cu_-\u003einstruction_set \u003d\u003d kArm64) {\n    NEW_CODE_TO_HANDLE_ARM64\n  } else {\n    OLD_CODE_WITHOUT_ARM64_CASE\n  }\n\nI guess it would be a good idea to clean this code up, but - as this touches several backends - I opted for handling the Arm64 case separately and use the old code for all the other backends.",
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
