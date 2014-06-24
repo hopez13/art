@@ -34,6 +34,24 @@
       "revId": "ce917e24df64d2ba1e25867d38c9b0ca4017d351",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4a7a9cf_9d9f634f",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T18:21:47Z",
+      "side": 1,
+      "message": "What if you make GetDexCacheCount and GetDexCache require the dex_lock_ does that work?",
+      "parentUuid": "44a315b3_f7bfafe6",
+      "revId": "ce917e24df64d2ba1e25867d38c9b0ca4017d351",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
