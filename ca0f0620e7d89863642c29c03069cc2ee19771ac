@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "447cf5f0_a8aebb1d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-24T14:00:13Z",
+      "side": 1,
+      "message": "I\u0027d prefer having it in its own CL then, for making it easier to understand things like, e.g. what GetSub is.",
+      "parentUuid": "e4c40963_d87e71bc",
+      "range": {
+        "startLine": 887,
+        "startChar": 6,
+        "endLine": 887,
+        "endChar": 21
+      },
+      "revId": "ca0f0620e7d89863642c29c03069cc2ee19771ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c413859f_072b58a4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
