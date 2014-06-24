@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24a8e18f_d5ae2c86",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Use ScopedThreadStateChange outside of the if statement instead of TransitionFromRunnableToSuspended / TransitionFromSuspendedToRunnable?",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_a82883ec",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Indents are off.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "240c6177_a9fcd11d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Use Atomic\u003c\u003e class instead of android_atomic_inc please.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4ede9ca_614e7e7f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "I\u0027d prefer if we avoided using string comparisons.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4be91c4_362bf6a4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Indents are off.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649e596e_37f1404a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Use namespaces + declarations instead of including this header file.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a8e18f_b5b448bf",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Is there any reason that this only works for RosAlloc? I don\u0027t see why we couldn\u0027t generalize the logic to work both when kUseRosAlloc is true or false.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c1c553_28a1d39c",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "Why was this changed to none, I assume it is unintentional?",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c40963_af7de53b",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-06-24T00:14:12Z",
+      "side": 1,
+      "message": "I believe the convention is to have all lower case variable names.",
+      "revId": "9285c199b0604eed2805b4fdbcf670e627c3d341",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
