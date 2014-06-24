@@ -387,6 +387,30 @@
     },
     {
       "key": {
+        "uuid": "048d9d44_b74a8a8d",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-24T08:53:10Z",
+      "side": 1,
+      "message": "Can you address this in a comment, but I\u0027m confused as to why you are doing it this way.\nIf val_hi is 0 then use the B8 encoding with no REX.W prefix. If val_hi is -1 then use C7 with a REX.W prefix, so the immediate is sign-extended. For all other values use the B8 with REX.W prefix and a 64-bit immediate. You shouldn\u0027t be needing to do shifts and adds.",
+      "parentUuid": "6487392a_6935a5fb",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "1c55703526827b5fc63f5d4b8477f36574649342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4db2937_6bbe5f54",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
