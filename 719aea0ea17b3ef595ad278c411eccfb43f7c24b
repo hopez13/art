@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64c57978_9c71a962",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-06-25T11:33:00Z",
+      "side": 1,
+      "message": "This code should work unchanged in 64 bit mode.  It doesn\u0027t use any GPRs.",
+      "revId": "719aea0ea17b3ef595ad278c411eccfb43f7c24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
