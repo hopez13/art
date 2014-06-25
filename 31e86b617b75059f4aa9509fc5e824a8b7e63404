@@ -16,6 +16,24 @@
       "revId": "31e86b617b75059f4aa9509fc5e824a8b7e63404",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e472491f_eb6345e4",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-06-25T12:11:30Z",
+      "side": 1,
+      "message": "I tested it on x86, x86_64 and ARM.\nI think it is not fair to limit this feature to x86 only. This implies the VTune SDK files be compatible with ARM, PPC, MIPS. I let VTune guys know about this.",
+      "parentUuid": "44ba35ef_b86a39fd",
+      "revId": "31e86b617b75059f4aa9509fc5e824a8b7e63404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
