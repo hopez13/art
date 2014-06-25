@@ -22,6 +22,30 @@
       "revId": "665de8a1710d2418f60d3bffdc99bdac32252530",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44ba35ef_f8443132",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-06-25T04:44:59Z",
+      "side": 1,
+      "message": "I can confirm that on a 64-bit host the 64-bit shared libraries are written to lib and the 32-bit ones to lib32. There\u0027s no 2ND_HOST_LIBRARY_PATH and HOST_OUT_SHARED_LIBRARIES references a lib32 and lib64.",
+      "parentUuid": "64c57978_b9ad9f77",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 53
+      },
+      "revId": "665de8a1710d2418f60d3bffdc99bdac32252530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
