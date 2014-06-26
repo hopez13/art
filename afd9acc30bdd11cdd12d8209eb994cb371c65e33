@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "447cf5f0_8b12d1e5",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 11
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-06-26T11:58:27Z",
+      "side": 1,
+      "message": "This reverts the switch to use GCC for ARM64 in https://android-review.googlesource.com/98911. Fixed in https://android-review.googlesource.com/99275.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 30
+      },
+      "revId": "afd9acc30bdd11cdd12d8209eb994cb371c65e33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44ba35ef_185ec5c7",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 11
