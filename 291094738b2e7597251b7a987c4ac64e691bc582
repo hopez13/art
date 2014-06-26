@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e472491f_2e548b0d",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-26T08:01:09Z",
+      "side": 1,
+      "message": "Do you need explicit here?",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 10
+      },
+      "revId": "291094738b2e7597251b7a987c4ac64e691bc582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6487392a_32bdd6c5",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-26T08:01:09Z",
+      "side": 1,
+      "message": "I don\u0027t think you need it here.",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 10
+      },
+      "revId": "291094738b2e7597251b7a987c4ac64e691bc582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6487392a_52c24a3c",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-26T08:01:09Z",
+      "side": 1,
+      "message": "Nor here.",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 10
+      },
+      "revId": "291094738b2e7597251b7a987c4ac64e691bc582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e472491f_4e49c774",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-26T08:01:09Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 543,
+        "startChar": 31,
+        "endLine": 543,
+        "endChar": 40
+      },
+      "revId": "291094738b2e7597251b7a987c4ac64e691bc582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e472491f_6e4e837f",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-26T08:01:09Z",
+      "side": 1,
+      "message": "Move that to the first if.\n\nAlso, you could do bool must_be_32_bit \u003d IsHighRegister(rd) || ...",
+      "range": {
+        "startLine": 1125,
+        "startChar": 15,
+        "endLine": 1125,
+        "endChar": 16
+      },
+      "revId": "291094738b2e7597251b7a987c4ac64e691bc582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
