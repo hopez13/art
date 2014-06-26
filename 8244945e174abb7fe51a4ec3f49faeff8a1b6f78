@@ -16,6 +16,24 @@
       "revId": "8244945e174abb7fe51a4ec3f49faeff8a1b6f78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_2a249bcd",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-26T21:16:26Z",
+      "side": 1,
+      "message": "That\u0027s why I put a WARNING into memcmp16_arm64.S. :-) I\u0027ll discuss with Ian whether we should include this optimization (which I think is nice to have).",
+      "parentUuid": "a4f851d3_8934bd00",
+      "revId": "8244945e174abb7fe51a4ec3f49faeff8a1b6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
