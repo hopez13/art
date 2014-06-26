@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4f851d3_8934bd00",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-06-26T20:42:19Z",
+      "side": 1,
+      "message": "My only worry here is that future c or assembly versions of memcmp16 might use x14, x15. I have used a more conservative approach in my tree:\n\n\n1852 .Ldo_memcmp16:\n1853     /* save lr, and return value if comparison equal */\n1854     stp x0, x30, [sp, #-16]!\n1855 \n1856     /* set-up args for __memcmp16 */\n1857     mov x0, x2\n1858     uxtw x2, w3\n1859 \n1860     bl __memcmp16\n1861 \n1862     /* restore lr, and return value if comparison equal */\n1863     ldp x1, x30, [sp], #16\n1864 \n1865     /* if the strings are equal (i.e. x0 \u003d\u003d 0) then return length comparison */\n1866     cmp x0, #0\n1867     csel x0, x1, x0, eq\n1868 \n1869     ret\n1870 END art_quick_string_compareto",
+      "revId": "8244945e174abb7fe51a4ec3f49faeff8a1b6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
