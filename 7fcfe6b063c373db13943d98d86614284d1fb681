@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "448b1570_1f056fde",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T23:07:13Z",
+      "side": 1,
+      "message": "SGTM. i was thinking a warning, but it could be really spammy.",
+      "parentUuid": "c4fb85cc_de1b8544",
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4fb85cc_d3a81e69",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 7
@@ -201,6 +219,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "c4fb85cc_d3a81e69",
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_2605ccde",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T23:07:13Z",
+      "side": 1,
+      "message": "NULL -\u003e nullptr while we are here.",
+      "range": {
+        "startLine": 1120,
+        "startChar": 15,
+        "endLine": 1120,
+        "endChar": 19
+      },
       "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
