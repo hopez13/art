@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4f851d3_b8c69d25",
+        "filename": "runtime/dwarf.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "we haven\u0027t been adding namespaces like this in most places.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_33af7284",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "we don\u0027t comment why we include things, but we do alphabetize",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4fec9bb_9f04ebae",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "is this just so we can find the beginning of the instructions? in that case we usually do [0]",
+      "range": {
+        "startLine": 1018,
+        "startChar": 23,
+        "endLine": 1018,
+        "endChar": 24
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_b3936245",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "perhaps just LOG(FATAL)?",
+      "range": {
+        "startLine": 1093,
+        "startChar": 13,
+        "endLine": 1093,
+        "endChar": 15
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_d3a81e69",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "abrev -\u003e abbrev here and elsewhere",
+      "range": {
+        "startLine": 1109,
+        "startChar": 16,
+        "endLine": 1109,
+        "endChar": 21
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4f851d3_d8fa7955",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "not a very helpful, remove.",
+      "range": {
+        "startLine": 1360,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 15
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_737e0a38",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-27T06:16:22Z",
+      "side": 1,
+      "message": "ERROR",
+      "range": {
+        "startLine": 1361,
+        "startChar": 8,
+        "endLine": 1361,
+        "endChar": 12
+      },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
