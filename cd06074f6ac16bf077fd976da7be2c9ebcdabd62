@@ -16,6 +16,24 @@
       "revId": "cd06074f6ac16bf077fd976da7be2c9ebcdabd62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c450e5a6_dc25cdd1",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1040335
+      },
+      "writtenOn": "2014-06-27T03:13:15Z",
+      "side": 1,
+      "message": "Mark, reverseBytes doesn\u0027t work for long constants in x86_64 mode because of a bug (in RA most probably). I decided to add \"return false;\" at line 1370 until I fix the bug.",
+      "parentUuid": "c4e2a51a_4c081ff7",
+      "revId": "cd06074f6ac16bf077fd976da7be2c9ebcdabd62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
