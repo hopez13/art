@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "a4f851d3_6c086af7",
+        "filename": "runtime/dwarf.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a4f851d3_b8c69d25",
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4fb85cc_33af7284",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 7
@@ -42,6 +60,24 @@
         "endLine": 28,
         "endChar": 18
       },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_bef7a9ac",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "Done. This was from when the include was a long path to elfutils.",
+      "parentUuid": "c4fb85cc_33af7284",
       "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "a4f851d3_ecbc5aca",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4fec9bb_9f04ebae",
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4fb85cc_b3936245",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 7
@@ -88,6 +142,24 @@
         "endLine": 1093,
         "endChar": 15
       },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fb85cc_de1b8544",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "I think we should be able to fail to load the gdb data without killing the program...\n\nAlso we could later add support for this. I just didn\u0027t want to have to deal with the variable length data during patching.",
+      "parentUuid": "c4fb85cc_b3936245",
       "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "c4fb85cc_7e0b71f5",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4fb85cc_d3a81e69",
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4f851d3_d8fa7955",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 7
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "a4f851d3_2cd3920a",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4f851d3_d8fa7955",
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4fb85cc_737e0a38",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 7
@@ -157,6 +265,24 @@
         "endLine": 1361,
         "endChar": 12
       },
+      "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4f851d3_cc93de44",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-06-27T16:16:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4fb85cc_737e0a38",
       "revId": "7fcfe6b063c373db13943d98d86614284d1fb681",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
