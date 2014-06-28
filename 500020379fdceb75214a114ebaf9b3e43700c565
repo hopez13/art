@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64865967_3a696036",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-06-28T00:09:22Z",
+      "side": 1,
+      "message": "I should change this so it is not stored independently per m unit. Namely, in the same way I change offsets to not overlap, I need to make a cumulative BitVector map for all of the new offsets.",
+      "range": {
+        "startLine": 899,
+        "startChar": 11,
+        "endLine": 899,
+        "endChar": 35
+      },
+      "revId": "500020379fdceb75214a114ebaf9b3e43700c565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
