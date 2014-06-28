@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64865967_5020c501",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "shouldn\u0027t this use STREQ or something?",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 11
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_d7710b61",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "can\u0027t this be removed?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 42
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2490e198_353738d2",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "Why not always have a non-empty store for simplicity? (verified in constructor)",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 41
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2490e198_75df001e",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "as I say later, I find this confusing. this isn\u0027t an estimate, it is the actual size (estimate implies approximate). In the other location, I suggest making this a public static OatHeader::Create method and making OatHeader::OatHeader private.",
+      "range": {
+        "startLine": 720,
+        "startChar": 5,
+        "endLine": 720,
+        "endChar": 13
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_10c31dd2",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "you need to add size stats for the key_value_store_ storage space.",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 278,
+        "endChar": 2
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2490e198_f549b047",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "again, i\u0027d just make the caller pass one instead of hiding special cases inside.",
+      "range": {
+        "startLine": 385,
+        "startChar": 4,
+        "endLine": 385,
+        "endChar": 63
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_b0c7b1da",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "!empty",
+      "range": {
+        "startLine": 386,
+        "startChar": 28,
+        "endLine": 386,
+        "endChar": 40
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_d0ccb5fe",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "I kind of understand why you are reversing the name of this class from the old method name, but it is odd to me that all the arguments are about explicit, not implict.",
+      "range": {
+        "startLine": 1174,
+        "startChar": 2,
+        "endLine": 1174,
+        "endChar": 22
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_70b2a985",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "I\u0027d add constants for these along where you defined the image file name one.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 22,
+        "endLine": 1388,
+        "endChar": 39
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_b0e01160",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "I would just remove this and assume it will be part of the store below?",
+      "range": {
+        "startLine": 174,
+        "startChar": 1,
+        "endLine": 179,
+        "endChar": 0
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_575e7bc8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "the check presumably should presumably be one or the other? it seems odd to tolerate both.",
+      "range": {
+        "startLine": 1166,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 69
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_90d86dae",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "no, i don\u0027t think so. it is only used by apps to match the image right? not be the boot.oat to the boot.art IIRC",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_d7b26bd4",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "Estimate? or Calculate?",
+      "range": {
+        "startLine": 414,
+        "startChar": 18,
+        "endLine": 414,
+        "endChar": 26
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_30d50175",
+        "filename": "runtime/oat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "is this for the person allocating the OatHeader with data? Why not make the constructor private and have the creation be contained within OatHeadeR::Create or something to hide this from the public API?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 91
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_50d2058e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "I\u0027d rather just return. having this implies there would be something else to do in the error case.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_97b5c3bb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "why not make it an CHECK error? presumably the oat version check comes first, so they are required for 036 version or higher.",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 46
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_f0877993",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-28T22:49:32Z",
+      "side": 1,
+      "message": "are you saying that is the runtime \u003d\u003d nullptr case? as in the else case that doesn\u0027t exist? again it would be clearer to me to say\n\nif (runtime \u003d\u003d nullptr) {\n  // Unstarted runtime, e.g., oatdump. Trust it\u0027s not going to be executed\n  return nullptr;\n}\n\nespecially since it seems like this could be done before even bothering to parse the options.",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 71
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
