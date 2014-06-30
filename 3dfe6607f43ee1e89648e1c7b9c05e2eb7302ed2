@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c450e5a6_c215e610",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-30T12:34:29Z",
+      "side": 1,
+      "message": "I\u0027d prefer the DCHECK at the caller\u0027s site:\nDCHECK(shadow_frame.GetMethod()-\u003eGetDeclaringClass()-\u003eIsInitializedOrInitializingInThread(self))",
+      "range": {
+        "startLine": 357,
+        "startChar": 49,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "3dfe6607f43ee1e89648e1c7b9c05e2eb7302ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841c2dfc_40ac628c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-06-30T12:34:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t className and class_loader be handles?",
+      "range": {
+        "startLine": 763,
+        "startChar": 60,
+        "endLine": 763,
+        "endChar": 66
+      },
+      "revId": "3dfe6607f43ee1e89648e1c7b9c05e2eb7302ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
