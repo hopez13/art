@@ -226,6 +226,98 @@
     },
     {
       "key": {
+        "uuid": "c47e2525_d5890e19",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:20:27Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 630,
+        "startChar": 40,
+        "endLine": 630,
+        "endChar": 43
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c47e2525_1588f60c",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:20:27Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 688,
+        "startChar": 47,
+        "endLine": 688,
+        "endChar": 51
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c47e2525_f5776a54",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:20:27Z",
+      "side": 1,
+      "message": "RefReg, or are we assuming kInvokeTgt is always pointer-size?",
+      "range": {
+        "startLine": 695,
+        "startChar": 31,
+        "endLine": 695,
+        "endChar": 34
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_ae151711",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:20:27Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 743,
+        "startChar": 47,
+        "endLine": 743,
+        "endChar": 51
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "448b1570_8b591e14",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 3
