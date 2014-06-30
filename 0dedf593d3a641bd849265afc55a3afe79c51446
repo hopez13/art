@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "c429c520_8eaf0f1b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-30T21:45:04Z",
+      "side": 1,
+      "message": "svelte is BS considering the potential heap sizes here and the fact that is is unlikely to be null except in tests. I\u0027m more worried about logic bugs.",
+      "parentUuid": "c47e2525_ac71a361",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 41
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2490e198_75df001e",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -707,6 +731,30 @@
     },
     {
       "key": {
+        "uuid": "241b8108_866cd447",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-30T21:45:04Z",
+      "side": 1,
+      "message": "change this to\n\nif (reg.get() \u003d\u003d nullptr) {\n  return nullptr;\n}\n\nand unindent the rest. similar for the rest of the cases. the nesting just makes it harder for me to follow the logic.",
+      "parentUuid": "64865967_0971b4f2",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "448b1570_97b5c3bb",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -754,6 +802,30 @@
     },
     {
       "key": {
+        "uuid": "04759d3d_110d6ec5",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-30T21:45:04Z",
+      "side": 1,
+      "message": "my point is it should never get here, which is why I say CHECK. isn\u0027t that header required post version 36?",
+      "parentUuid": "64865967_e96f900b",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 46
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64865967_f0877993",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -789,6 +861,30 @@
       "side": 1,
       "message": "I was structuring it so that oatdump would have the same behavior as actually running it. I found it \"weird\" to let oatdump dump an oat file without error, but then when running you\u0027d get malformed implicit check options. Open for discussion, though.",
       "parentUuid": "64865967_f0877993",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 71
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "241b8108_86fdb41a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-06-30T21:45:04Z",
+      "side": 1,
+      "message": "my point is, the comment seems to be about the opposite condition to the line it is on?",
+      "parentUuid": "a47bf135_cb7095f1",
       "range": {
         "startLine": 97,
         "startChar": 35,
