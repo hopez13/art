@@ -25,6 +25,190 @@
     },
     {
       "key": {
+        "uuid": "448b1570_2b8fd21c",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "As these are so simple, we should put the code where they are declared (and mir_to_lir.h has other examples like these as a guide...).",
+      "range": {
+        "startLine": 1241,
+        "startChar": 0,
+        "endLine": 1247,
+        "endChar": 1
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_ae4d1782",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 1332,
+        "startChar": 28,
+        "endLine": 1332,
+        "endChar": 30
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_ce6f43d7",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "RefReg, or drop it like in instanceof?",
+      "range": {
+        "startLine": 1340,
+        "startChar": 40,
+        "endLine": 1340,
+        "endChar": 56
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_2e8b675b",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "Why change to arg0?",
+      "range": {
+        "startLine": 1345,
+        "startChar": 39,
+        "endLine": 1345,
+        "endChar": 43
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_6e9c0f89",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 1376,
+        "startChar": 52,
+        "endLine": 1376,
+        "endChar": 55
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_0e99cb97",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 1379,
+        "startChar": 63,
+        "endLine": 1379,
+        "endChar": 67
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c47e2525_95106622",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 1381,
+        "startChar": 48,
+        "endLine": 1381,
+        "endChar": 51
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_6b34fa63",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T19:02:01Z",
+      "side": 1,
+      "message": "RefReg?",
+      "range": {
+        "startLine": 1394,
+        "startChar": 36,
+        "endLine": 1394,
+        "endChar": 40
+      },
+      "revId": "0735999cf64313d403ea6ee9c9bdafe45a98681d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e472491f_c8da0ff4",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 3
