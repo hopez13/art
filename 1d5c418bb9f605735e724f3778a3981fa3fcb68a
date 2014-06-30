@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "841c2dfc_fdc203cc",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-30T05:21:42Z",
+      "side": 1,
+      "message": "You\u0027re probably right (didn\u0027t get a chance to look at that one closely), but it can be considered independently.",
+      "parentUuid": "c450e5a6_7fafcb1b",
+      "range": {
+        "startLine": 533,
+        "startChar": 11,
+        "endLine": 533,
+        "endChar": 16
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6421f930_dc7061f1",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c450e5a6_1fbc8752",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-30T05:21:42Z",
+      "side": 1,
+      "message": "Yes, it would be better.  I\u0027ll leave it up to Andreas, but my inclination would be to patch it up later (keeping in mind that 32-bit targets would would need the high reg portion added to the next reg).",
+      "parentUuid": "6421f930_dc7061f1",
+      "range": {
+        "startLine": 1140,
+        "startChar": 7,
+        "endLine": 1140,
+        "endChar": 71
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "841c2dfc_1d233711",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2014-06-30T04:32:06Z",
       "side": 1,
       "message": "\u0026\u0026?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 45,
+        "endLine": 1288,
+        "endChar": 46
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6421f930_bc6fad0c",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-06-30T05:21:42Z",
+      "side": 1,
+      "message": "Thanks - yes, it should be \u0026\u0026.",
+      "parentUuid": "841c2dfc_1d233711",
       "range": {
         "startLine": 1288,
         "startChar": 45,
