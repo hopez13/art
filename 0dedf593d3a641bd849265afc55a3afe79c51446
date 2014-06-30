@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c47e2525_2c85b3f5",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "As the right side is std::string (as GetImage... was before), this will convert the string literal on the left and use std::string \u003d\u003d, doing the right thing.",
+      "parentUuid": "64865967_5020c501",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 11
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "448b1570_d7710b61",
         "filename": "compiler/oat_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "can\u0027t this be removed?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 42
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_8d513694",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "448b1570_d7710b61",
       "range": {
         "startLine": 194,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c47e2525_ac71a361",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Being svelt-y, conserving memory? I found it more intuitive that if you don\u0027t have anything \"to say,\" to just use nullptr.",
+      "parentUuid": "2490e198_353738d2",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 41
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2490e198_75df001e",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "as I say later, I find this confusing. this isn\u0027t an estimate, it is the actual size (estimate implies approximate). In the other location, I suggest making this a public static OatHeader::Create method and making OatHeader::OatHeader private.",
+      "range": {
+        "startLine": 720,
+        "startChar": 5,
+        "endLine": 720,
+        "endChar": 13
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c47e2525_8cc62726",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2490e198_75df001e",
       "range": {
         "startLine": 720,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "448b1570_4d5b4eb0",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Was rolled into size_oat_header, but I separated it out now.",
+      "parentUuid": "64865967_10c31dd2",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 278,
+        "endChar": 2
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2490e198_f549b047",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "again, i\u0027d just make the caller pass one instead of hiding special cases inside.",
+      "range": {
+        "startLine": 385,
+        "startChar": 4,
+        "endLine": 385,
+        "endChar": 63
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c47e2525_2c7cd3c1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2490e198_f549b047",
       "range": {
         "startLine": 385,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "448b1570_2d584a63",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64865967_b0c7b1da",
+      "range": {
+        "startLine": 386,
+        "startChar": 28,
+        "endLine": 386,
+        "endChar": 40
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64865967_d0ccb5fe",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "I kind of understand why you are reversing the name of this class from the old method name, but it is odd to me that all the arguments are about explicit, not implict.",
+      "range": {
+        "startLine": 1174,
+        "startChar": 2,
+        "endLine": 1174,
+        "endChar": 22
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "448b1570_0d5f8652",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s somewhat from Dave\u0027s naming convention.",
+      "parentUuid": "64865967_d0ccb5fe",
       "range": {
         "startLine": 1174,
         "startChar": 2,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "c47e2525_0c7f97b9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64865967_70b2a985",
+      "range": {
+        "startLine": 1388,
+        "startChar": 22,
+        "endLine": 1388,
+        "endChar": 39
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64865967_b0e01160",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "I would just remove this and assume it will be part of the store below?",
+      "range": {
+        "startLine": 174,
+        "startChar": 1,
+        "endLine": 179,
+        "endChar": 0
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_a9d8a8ad",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64865967_b0e01160",
       "range": {
         "startLine": 174,
         "startChar": 1,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "64865967_0988d4a2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "It tolerates either missing the entry entirely, or having an empty string there (as before). I think both say \"I don\u0027t have it\" equally well.",
+      "parentUuid": "448b1570_575e7bc8",
+      "range": {
+        "startLine": 1166,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 69
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64865967_90d86dae",
         "filename": "runtime/oat.cc",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "no, i don\u0027t think so. it is only used by apps to match the image right? not be the boot.oat to the boot.art IIRC",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_298d98b2",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64865967_90d86dae",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "c47e2525_0f6789f4",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Changed it to Compute and made it a function local to this file.",
+      "parentUuid": "448b1570_d7b26bd4",
+      "range": {
+        "startLine": 414,
+        "startChar": 18,
+        "endLine": 414,
+        "endChar": 26
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64865967_30d50175",
         "filename": "runtime/oat.h",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "is this for the person allocating the OatHeader with data? Why not make the constructor private and have the creation be contained within OatHeadeR::Create or something to hide this from the public API?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 91
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64865967_899cc4e2",
+        "filename": "runtime/oat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64865967_30d50175",
       "range": {
         "startLine": 100,
         "startChar": 0,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "64865967_0971b4f2",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not sure I understand.",
+      "parentUuid": "64865967_50d2058e",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "448b1570_97b5c3bb",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "64865967_e96f900b",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "Is FATALing out the right way, though? Returning nullptr here would try to regenerate and only fail in case it can\u0027t...",
+      "parentUuid": "448b1570_97b5c3bb",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 46
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64865967_f0877993",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -381,6 +765,30 @@
       "writtenOn": "2014-06-28T22:49:32Z",
       "side": 1,
       "message": "are you saying that is the runtime \u003d\u003d nullptr case? as in the else case that doesn\u0027t exist? again it would be clearer to me to say\n\nif (runtime \u003d\u003d nullptr) {\n  // Unstarted runtime, e.g., oatdump. Trust it\u0027s not going to be executed\n  return nullptr;\n}\n\nespecially since it seems like this could be done before even bothering to parse the options.",
+      "range": {
+        "startLine": 97,
+        "startChar": 35,
+        "endLine": 97,
+        "endChar": 71
+      },
+      "revId": "0dedf593d3a641bd849265afc55a3afe79c51446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47bf135_cb7095f1",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-06-30T21:31:27Z",
+      "side": 1,
+      "message": "I was structuring it so that oatdump would have the same behavior as actually running it. I found it \"weird\" to let oatdump dump an oat file without error, but then when running you\u0027d get malformed implicit check options. Open for discussion, though.",
+      "parentUuid": "64865967_f0877993",
       "range": {
         "startLine": 97,
         "startChar": 35,
