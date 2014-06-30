@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c450e5a6_7fafcb1b",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-30T04:32:06Z",
+      "side": 1,
+      "message": "General comment: please take a look into https://android-review.googlesource.com/#/c/99560/2/compiler/dex/quick/x86/target_x86.cc I think this simplifies a lot this utility. If we did a promotion we have already updated the ArgLocs with information about whether it is on promoted register or not. So I do not see the sense in looking into vmap table. We can simply use RegLocation information.",
+      "range": {
+        "startLine": 533,
+        "startChar": 11,
+        "endLine": 533,
+        "endChar": 16
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6421f930_dc7061f1",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-30T04:32:06Z",
+      "side": 1,
+      "message": "If we consider the long and int as different things and sort array then without taking into account we can meet the following case: let\u0027s we have 1 promoted register and v4 used as int 5 times and as long 5 times while v6 used as int 6 times. As a result we will promoted v6. however taking into account that core register for long and int is the same we could better benefit if we would promote v4. So I would consider add use_count to lower part anyway or handle this later as it is done in https://android-review.googlesource.com/#/c/99080/",
+      "range": {
+        "startLine": 1140,
+        "startChar": 7,
+        "endLine": 1140,
+        "endChar": 71
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841c2dfc_1d233711",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-30T04:32:06Z",
+      "side": 1,
+      "message": "\u0026\u0026?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 45,
+        "endLine": 1288,
+        "endChar": 46
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6421f930_fc7525de",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-06-30T04:32:06Z",
+      "side": 1,
+      "message": "This code expects that long is always promoted to pair registers but I do not see this logic in AllocPreservedCoreReg",
+      "range": {
+        "startLine": 1305,
+        "startChar": 14,
+        "endLine": 1305,
+        "endChar": 22
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
