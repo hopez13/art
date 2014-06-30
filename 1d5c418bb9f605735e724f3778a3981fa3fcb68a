@@ -143,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "84334d7e_36af3084",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-06-30T15:26:33Z",
+      "side": 1,
+      "message": "Please revert this part of patchset 3\u0027s state, x86_64 testing shows that it is not fully correct. Lets fix DCHECK issue in a separate CL.",
+      "parentUuid": "6421f930_bc6fad0c",
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6421f930_fc7525de",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 4
