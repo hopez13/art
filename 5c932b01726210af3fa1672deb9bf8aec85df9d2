@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e45a49dc_68e5db42",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-01T14:39:34Z",
+      "side": 1,
+      "message": "Would you please add a comment what it\u0027s testing. This code is different from the usual test as no EXPECT or ASSERT is necessary, so it\u0027s not immediately obvious.",
+      "range": {
+        "startLine": 1475,
+        "startChar": 1,
+        "endLine": 1475,
+        "endChar": 13
+      },
+      "revId": "5c932b01726210af3fa1672deb9bf8aec85df9d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
