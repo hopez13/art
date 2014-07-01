@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e45a49dc_28bda3ee",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-01T16:55:36Z",
+      "side": 1,
+      "message": "Mixup between IsFloat and IsSingle. Done.",
+      "parentUuid": "443dd54b_2f583563",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "045e7dcf_1a582d63",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-07-01T10:23:08Z",
       "side": 1,
       "message": "Remove \" || rs.IsDouble()\", as the identity below holds,\n\n  rs.IsFloat() \u003d\u003d (rs.IsSingle() || rs.IsDouble())",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04759d3d_17ec7edc",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-01T16:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "045e7dcf_1a582d63",
       "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "e45a49dc_c8aacfa8",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-01T16:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "045e7dcf_f501a228",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "646f3977_bdfa3722",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 1
@@ -82,6 +136,24 @@
       "writtenOn": "2014-07-01T12:05:06Z",
       "side": 1,
       "message": "Needs enums!",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a454d1b1_060bfc43",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-01T16:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "646f3977_bdfa3722",
       "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
