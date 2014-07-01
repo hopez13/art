@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "443dd54b_2f583563",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-01T10:23:08Z",
+      "side": 1,
+      "message": "!rs.IsFloat implies !rs.IsDouble. Remove \" \u0026\u0026 !rs.IsDouble()\"",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "045e7dcf_1a582d63",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-01T10:23:08Z",
+      "side": 1,
+      "message": "Remove \" || rs.IsDouble()\", as the identity below holds,\n\n  rs.IsFloat() \u003d\u003d (rs.IsSingle() || rs.IsDouble())",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "443dd54b_4f55792a",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-01T10:23:08Z",
+      "side": 1,
+      "message": "Aesthetics: why not using an enum, rather than a mere int? (e.g. kSkipWideCheck, kCheckWide, kCheckNoWide or kSkipRefCheck, etc.)",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
