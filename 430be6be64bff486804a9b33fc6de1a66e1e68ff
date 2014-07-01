@@ -50,6 +50,41 @@
       "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "045e7dcf_f501a228",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-01T12:05:06Z",
+      "side": 1,
+      "message": "I agree.  The code in ralloc_util.cc is impossible to understand with the mix of -1, 0, 1.",
+      "parentUuid": "443dd54b_4f55792a",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "646f3977_bdfa3722",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-01T12:05:06Z",
+      "side": 1,
+      "message": "Needs enums!",
+      "revId": "430be6be64bff486804a9b33fc6de1a66e1e68ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
