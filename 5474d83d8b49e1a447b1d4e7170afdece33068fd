@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "04f3dd1b_b8d149e0",
+        "filename": "compiler/compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-01T23:13:15Z",
+      "side": 1,
+      "message": "I\u0027d say that the comments in elf_writer_quick are enough to reveal why its called patches TBH. Also I don\u0027t totally understand what half of these mean right now so I\u0027m not sure I should be the one to write the explanations.",
+      "parentUuid": "24ee2135_6e5edfc8",
+      "revId": "5474d83d8b49e1a447b1d4e7170afdece33068fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f3dd1b_988e0d69",
         "filename": "compiler/compilers.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 95,
         "endChar": 105
       },
+      "revId": "5474d83d8b49e1a447b1d4e7170afdece33068fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4efa930_f7cc80fe",
+        "filename": "compiler/compilers.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-01T23:13:15Z",
+      "side": 1,
+      "message": "Done. Ill submit this with changes from later comments.",
+      "parentUuid": "04f3dd1b_988e0d69",
       "revId": "5474d83d8b49e1a447b1d4e7170afdece33068fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
