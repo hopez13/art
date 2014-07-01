@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24ee2135_6e5edfc8",
+        "filename": "compiler/compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-01T22:56:13Z",
+      "side": 1,
+      "message": "I\u0027m wondering if we need to start documenting these arguments, this one especially has a good rationale for being called patches, we should probably explain that.",
+      "range": {
+        "startLine": 77,
+        "startChar": 36,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "5474d83d8b49e1a447b1d4e7170afdece33068fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f3dd1b_988e0d69",
+        "filename": "compiler/compilers.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-01T22:56:13Z",
+      "side": 1,
+      "message": "past the dotted red line \u003d\u003e wrap",
+      "range": {
+        "startLine": 95,
+        "startChar": 89,
+        "endLine": 95,
+        "endChar": 105
+      },
+      "revId": "5474d83d8b49e1a447b1d4e7170afdece33068fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
