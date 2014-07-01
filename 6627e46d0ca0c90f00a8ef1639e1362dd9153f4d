@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c450e5a6_2237ea6a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-01T06:54:46Z",
+      "side": 1,
+      "message": "DIV_INT and REM_INT must handle division by zero. I don\u0027t think we support exception flow yet so we should delay the support for these until that.",
+      "range": {
+        "startLine": 544,
+        "startChar": 4,
+        "endLine": 545,
+        "endChar": 29
+      },
+      "revId": "6627e46d0ca0c90f00a8ef1639e1362dd9153f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c450e5a6_42347663",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-01T06:54:46Z",
+      "side": 1,
+      "message": "Same than DIV_INT",
+      "range": {
+        "startLine": 568,
+        "startChar": 4,
+        "endLine": 568,
+        "endChar": 31
+      },
+      "revId": "6627e46d0ca0c90f00a8ef1639e1362dd9153f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6421f930_7f8347b5",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-01T06:54:46Z",
+      "side": 1,
+      "message": "Same than DIV_INT",
+      "range": {
+        "startLine": 587,
+        "startChar": 3,
+        "endLine": 588,
+        "endChar": 41
+      },
+      "revId": "6627e46d0ca0c90f00a8ef1639e1362dd9153f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c450e5a6_a29bfa1b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-01T06:54:46Z",
+      "side": 1,
+      "message": "Same than DIV_INT",
+      "range": {
+        "startLine": 610,
+        "startChar": 4,
+        "endLine": 611,
+        "endChar": 43
+      },
+      "revId": "6627e46d0ca0c90f00a8ef1639e1362dd9153f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841c2dfc_e01496a8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-01T06:54:46Z",
+      "side": 1,
+      "message": "Same than DIV_INT. But here we have the literal. So we could handle only non-zero case.",
+      "range": {
+        "startLine": 632,
+        "startChar": 4,
+        "endLine": 633,
+        "endChar": 41
+      },
+      "revId": "6627e46d0ca0c90f00a8ef1639e1362dd9153f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841c2dfc_001aead1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-01T06:54:46Z",
+      "side": 1,
+      "message": "Same than DIV_INT_LIT16",
+      "range": {
+        "startLine": 646,
+        "startChar": 4,
+        "endLine": 647,
+        "endChar": 39
+      },
+      "revId": "6627e46d0ca0c90f00a8ef1639e1362dd9153f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
