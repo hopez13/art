@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84d6ed80_adfc69da",
+        "filename": "compiler/compilers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "can we just add this as a CompilerOptions that is in CompilerDriver so we don\u0027t have to pass it through all the layers explicitly? clearly we have it here at this point and even one layer below.",
+      "range": {
+        "startLine": 96,
+        "startChar": 37,
+        "endLine": 96,
+        "endChar": 58
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a77122_2e3067da",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "if this is the same as include_patches, I\u0027d call it the same name consistently thoughout.",
+      "range": {
+        "startLine": 832,
+        "startChar": 32,
+        "endLine": 832,
+        "endChar": 42
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a77122_4e0213d8",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "i\u0027d probably add the comment explaining that it is unsupported for now. its obvious why this is here now, because i just saw the mclinker change, but it won\u0027t be obvious later",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 32
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f3dd1b_25118d25",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "i agree that we should have this comment, but is this the right place? somewhere where we are actually calculating the size of the patches makes more sense to me.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 75
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f3dd1b_85e981cf",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "we don\u0027t need the argument here right? it is in oat_file_?",
+      "range": {
+        "startLine": 147,
+        "startChar": 25,
+        "endLine": 147,
+        "endChar": 39
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d6ed80_2d2999f0",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "this seems like a better place for the comment from above.",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 65
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a77122_2e37c71c",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "while clever, I assumed this would be in SetPatchLocation. i see this way that the patch information is scoped to this function. but that could be done with an out argument. I thought you might be doing this because there were a lot of cases in SetPatchLocation, but there aren\u0027t, there is just one. plus you have kind of a hacky return value now where 0 implies relative vs absolute, which is just for the convenience of maybe_push.",
+      "range": {
+        "startLine": 851,
+        "startChar": 4,
+        "endLine": 851,
+        "endChar": 14
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f3dd1b_a5d63df7",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "I don\u0027t think we should be reserving our own section type, I\u0027d just use a named section.",
+      "range": {
+        "startLine": 874,
+        "startChar": 25,
+        "endLine": 874,
+        "endChar": 39
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d6ed80_4d204d02",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "space around *",
+      "range": {
+        "startLine": 887,
+        "startChar": 29,
+        "endLine": 887,
+        "endChar": 30
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f3dd1b_e5ede5e0",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "again in this case, it can be found via compiler options.",
+      "range": {
+        "startLine": 40,
+        "startChar": 61,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d6ed80_0d9935f1",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "i wondered why you didn\u0027t do this in the other test where you set to true but then set back to false if portable.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 78
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f3dd1b_05729164",
+        "filename": "patchoat/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "do you depend on the compiler parts? if not, you can leave these out if you just need the runtime.",
+      "range": {
+        "startLine": 33,
+        "startChar": 78,
+        "endLine": 33,
+        "endChar": 106
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d6ed80_ed630122",
+        "filename": "runtime/elf_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "I\u0027d rather avoid using these I think some ABIs might have effectively used some of these.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 39
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a77122_f1480074",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "don\u0027t we want to assume unsigned for simplicity?",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 23
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a77122_11402c47",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T01:20:35Z",
+      "side": 1,
+      "message": "replace \u0027this oatfile.\" with \u003c\u003c GetLocation() so we know which one.",
+      "range": {
+        "startLine": 65,
+        "startChar": 40,
+        "endLine": 65,
+        "endChar": 55
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
