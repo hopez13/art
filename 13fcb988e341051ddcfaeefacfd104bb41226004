@@ -16,6 +16,23 @@
       "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c6c9d8_0517525f",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-02T18:35:39Z",
+      "side": 1,
+      "message": "The change above and the three analogous companions below are necessary to avoid problems with reference widths. Notice that without these changes, we would be asserting that references must be 32-bit wide. Notice that the one above is a hack, but a proper fix for this issue should probably come through a separate patch.",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
