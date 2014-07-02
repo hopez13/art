@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cafddd_a6580633",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-07-02T18:32:11Z",
+      "side": 1,
+      "message": "Removing kNullCheckElimination from here and doing: mma clean-oat \u0026\u0026 mma will hit the DCHECK(target_lir) issue.\n\nYou can also try running test 082 and it will fail in a similar way.",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
