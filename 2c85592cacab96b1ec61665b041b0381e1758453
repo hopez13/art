@@ -34,6 +34,24 @@
       "revId": "2c85592cacab96b1ec61665b041b0381e1758453",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b2d95d_d7fcd490",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-07-02T16:51:16Z",
+      "side": 1,
+      "message": "yeah, glibc agrees.",
+      "parentUuid": "64dbb9ad_8c8ec71d",
+      "revId": "2c85592cacab96b1ec61665b041b0381e1758453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
