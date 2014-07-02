@@ -161,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "44d07588_88535726",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-02T17:19:16Z",
+      "side": 1,
+      "message": "The DCHECK issue is adressed by Andreas\u0027s https://android-review.googlesource.com/#/c/99824/.\n\nPlease revert ralloc_util.cc to state of patchset 3 and merge the promotion patch. The changes between patchset 3 and 4 in ralloc_util.cc relate to 64-bit ref support in backend, please separate it into another CL.",
+      "parentUuid": "84334d7e_36af3084",
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6421f930_fc7525de",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 4
@@ -177,6 +195,52 @@
         "startChar": 14,
         "endLine": 1305,
         "endChar": 22
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d07588_c84d4f82",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-02T17:19:16Z",
+      "side": 1,
+      "message": "Please remove changes from FlushIns since they cause merge conflict with Simplify FlushIns patch.\n\nThe \"Simplify Flushins patch\" works correctly with patchset 3 of this CL.",
+      "range": {
+        "startLine": 1890,
+        "startChar": 53,
+        "endLine": 1890,
+        "endChar": 56
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44d07588_28434b57",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1922,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-02T17:19:16Z",
+      "side": 1,
+      "message": "Please remove changes from FlushIns since they cause merge conflict with Simplify FlushIns patch.\n\nThe \"Simplify Flushins patch\" works correctly with patchset 3 of this CL.",
+      "range": {
+        "startLine": 1922,
+        "startChar": 29,
+        "endLine": 1922,
+        "endChar": 32
       },
       "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
