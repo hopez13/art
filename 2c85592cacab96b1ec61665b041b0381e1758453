@@ -16,6 +16,24 @@
       "revId": "2c85592cacab96b1ec61665b041b0381e1758453",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64dbb9ad_8c8ec71d",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T16:49:01Z",
+      "side": 1,
+      "message": "no the above is becasuse the compiler was complaining about unsigned vs signed with the ternary operator.\n\nNo the original issue was the Elf32_Sword vs Elf32_Word change in https://android-review.googlesource.com/#/c/97640/3/compiler/elf_writer_quick.h\n\nlinux elf.h says  Elf32_Sword d_val;\nLLVM elf.h says Elf32_Word d_val;\nelfutils says Elf32_Word d_val \nhttp://www.sco.com/developers/gabi/latest/ch5.dynamic.html says Elf32_Word\td_val;\n\nso linux and therefore bionic seems wrong.",
+      "parentUuid": "64dbb9ad_0ce5b743",
+      "revId": "2c85592cacab96b1ec61665b041b0381e1758453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
