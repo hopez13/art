@@ -541,6 +541,374 @@
     },
     {
       "key": {
+        "uuid": "c4fc65ef_e504ccaf",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "rather than bake another copy of these strings here, I\u0027d make this return InstructionSet, and then use GetInstructionSetString.",
+      "range": {
+        "startLine": 52,
+        "startChar": 27,
+        "endLine": 52,
+        "endChar": 40
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_9efa7d54",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "i think we always call this error_msg. should we make it an argument and use it in place of the LOG(ERROR) and have the caller log? if not move to point of first use from here.",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 18
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_a523e443",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "art_location -\u003e image_location for consistency. also in the text part \"image file\"",
+      "range": {
+        "startLine": 80,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_feff3942",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "return false; after this",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 89
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_be1e61f4",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "WriteFully to deal with signal interrupts.",
+      "range": {
+        "startLine": 174,
+        "startChar": 31,
+        "endLine": 174,
+        "endChar": 36
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_9e239d44",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "WriteFully",
+      "range": {
+        "startLine": 189,
+        "startChar": 31,
+        "endLine": 189,
+        "endChar": 36
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "640d79e9_1f4b0b95",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "relocation",
+      "range": {
+        "startLine": 208,
+        "startChar": 19,
+        "endLine": 208,
+        "endChar": 29
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_3e1371ed",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "I think I\u0027d just move this into InHeap and rename it \"CheckHeapReference\" so it can be reused with the below call. it can deal with the null case as well. it is a pretty common pattern for us to have CheckFoo helper functions.",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 94
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_5e0aa5ae",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "all the values of what?",
+      "range": {
+        "startLine": 286,
+        "startChar": 2,
+        "endLine": 286,
+        "endChar": 38
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_a52da420",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "I think we have this knowledge elsewhere. ah yes, in ElfFixup::FixupDynamic. can you move this to a shared helper in elf_utils.h?\n\nthere are other cases you are missing because of this such as \n\n              case DT_MIPS_BASE_ADDRESS:\n              case DT_MIPS_CONFLICT:\n              case DT_MIPS_LIBLIST:\n              case DT_MIPS_RLD_MAP:",
+      "range": {
+        "startLine": 374,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 1
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "640d79e9_df41936f",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "just use \"ELF32_ST_TYPE(st_info)\"",
+      "range": {
+        "startLine": 444,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 1
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_85698838",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "we look all these sections up in CheckOatFile, can we just save them?",
+      "range": {
+        "startLine": 477,
+        "startChar": 2,
+        "endLine": 477,
+        "endChar": 67
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_c5eb905b",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "again, we always call these image (here and below)",
+      "range": {
+        "startLine": 537,
+        "startChar": 24,
+        "endLine": 537,
+        "endChar": 27
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_459ca0e1",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "we should consider moving to a non-fatal form of GetInstructionSetFromString. add a TODO?",
+      "range": {
+        "startLine": 671,
+        "startChar": 1,
+        "endLine": 686,
+        "endChar": 7
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_85a6a835",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "I think it\u0027s clearer to do the parsing checks here, but the semantic checks later",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 688,
+        "endChar": 27
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "640d79e9_226a34bc",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T18:52:21Z",
+      "side": 1,
+      "message": "supply",
+      "range": {
+        "startLine": 877,
+        "startChar": 20,
+        "endLine": 877,
+        "endChar": 25
+      },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84d6ed80_ed630122",
         "filename": "runtime/elf_utils.h",
         "patchSetId": 3
