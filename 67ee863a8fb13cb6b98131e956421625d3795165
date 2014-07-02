@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "440235bc_bea3018d",
+        "filename": "compiler/compilers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "I did it like this because I think we should have the patch information regardless of how we compile it. ISTM that the option is only whether or not to write it out.",
+      "parentUuid": "84d6ed80_adfc69da",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a77122_2e3067da",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
@@ -89,6 +107,24 @@
         "endLine": 832,
         "endChar": 42
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "640d79e9_ff91f7cd",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4a77122_2e3067da",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -118,6 +154,24 @@
     },
     {
       "key": {
+        "uuid": "640d79e9_1f994bf1",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4a77122_4e0213d8",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f3dd1b_25118d25",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 3
@@ -135,6 +189,24 @@
         "endLine": 146,
         "endChar": 75
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_3eb891b1",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04f3dd1b_25118d25",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -164,6 +236,24 @@
     },
     {
       "key": {
+        "uuid": "c4fc65ef_65d8bcfb",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Yes we need it. This is the File* that the elf_file is in. We need it to fully map in the elf file and add patching information.",
+      "parentUuid": "04f3dd1b_85e981cf",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84d6ed80_2d2999f0",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 3
@@ -181,6 +271,24 @@
         "endLine": 804,
         "endChar": 65
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_becca148",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84d6ed80_2d2999f0",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -210,6 +318,24 @@
     },
     {
       "key": {
+        "uuid": "04cafddd_46ef9221",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Rewrote using out parameters.",
+      "parentUuid": "a4a77122_2e37c71c",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f3dd1b_a5d63df7",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 3
@@ -227,6 +353,24 @@
         "endLine": 874,
         "endChar": 39
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_9ed1dde0",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Changed It to search for name.",
+      "parentUuid": "04f3dd1b_a5d63df7",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -256,6 +400,24 @@
     },
     {
       "key": {
+        "uuid": "440235bc_fec61926",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84d6ed80_4d204d02",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f3dd1b_e5ede5e0",
         "filename": "compiler/image_writer.h",
         "patchSetId": 3
@@ -273,6 +435,24 @@
         "endLine": 40,
         "endChar": 78
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "640d79e9_7fa68738",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Again. It seems like this is more an option controlling whether it gets written out and doesn\u0027t seem to belong in the compiler_options.",
+      "parentUuid": "04f3dd1b_e5ede5e0",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -302,6 +482,24 @@
     },
     {
       "key": {
+        "uuid": "640d79e9_3f29aff0",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "In the other test we just use the default compiler and it is not possible to determine the kind from a given compiler.",
+      "parentUuid": "84d6ed80_0d9935f1",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04f3dd1b_05729164",
         "filename": "patchoat/Android.mk",
         "patchSetId": 3
@@ -319,6 +517,24 @@
         "endLine": 33,
         "endChar": 106
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_1eb2edea",
+        "filename": "patchoat/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04f3dd1b_05729164",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -348,6 +564,24 @@
     },
     {
       "key": {
+        "uuid": "c4fc65ef_85d6a8f7",
+        "filename": "runtime/elf_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "It shouldn\u0027t. Sections for specific processor ABI\u0027s should be between SHT_LOPROC and SHT_HIPROC. OS \u0026 associated tools sections (i.e. for BSD/GNU tools we use) are kept between SHT_LOOS and SHT_HIOS.\n\nBetween LOUSER and HIUSER is reserved for application use. This means that since niether linux nor our loader uses it we should be free to do so.\n\nAnyway if it becomes a problem it would be easy to change the value then.",
+      "parentUuid": "84d6ed80_ed630122",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a77122_f1480074",
         "filename": "runtime/image.h",
         "patchSetId": 3
@@ -371,6 +605,24 @@
     },
     {
       "key": {
+        "uuid": "640d79e9_5f8d83db",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "We can have negative patch deltas and I think that the header should not hide that fact.",
+      "parentUuid": "a4a77122_f1480074",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a77122_11402c47",
         "filename": "runtime/oat_file.h",
         "patchSetId": 3
@@ -388,6 +640,24 @@
         "endLine": 65,
         "endChar": 55
       },
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4fc65ef_05f8d89a",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T18:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4a77122_11402c47",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
