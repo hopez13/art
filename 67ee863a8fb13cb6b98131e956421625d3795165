@@ -1387,6 +1387,24 @@
     },
     {
       "key": {
+        "uuid": "e4c6c9d8_34843e4c",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-02T23:18:12Z",
+      "side": 1,
+      "message": "I guess. I have the delta be from the offset the image was originally compiled to, which means negative delta\u0027s should be fine.",
+      "parentUuid": "440235bc_7e316924",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a77122_11402c47",
         "filename": "runtime/oat_file.h",
         "patchSetId": 3
