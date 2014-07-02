@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "640d79e9_a2bc84c9",
+        "filename": "compiler/compilers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T19:54:15Z",
+      "side": 1,
+      "message": "my point is, a lot of the diff is just to pass around this bool flag, it really should just be in the options. then we can document what it means one place, instead of through all all the call paths",
+      "parentUuid": "440235bc_bea3018d",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a77122_2e3067da",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
@@ -248,6 +266,24 @@
       "side": 1,
       "message": "Yes we need it. This is the File* that the elf_file is in. We need it to fully map in the elf file and add patching information.",
       "parentUuid": "04f3dd1b_85e981cf",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "640d79e9_42cc886b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T19:54:15Z",
+      "side": 1,
+      "message": "I see, this is my own confusing naming come back to bite me.",
+      "parentUuid": "c4fc65ef_65d8bcfb",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -950,6 +986,24 @@
     },
     {
       "key": {
+        "uuid": "440235bc_c1d3786e",
+        "filename": "runtime/elf_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T19:54:15Z",
+      "side": 1,
+      "message": "my point is that I don\u0027t think we need to use one, so I wouldn\u0027t.",
+      "parentUuid": "c4fc65ef_85d6a8f7",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a77122_f1480074",
         "filename": "runtime/image.h",
         "patchSetId": 3
@@ -985,6 +1039,24 @@
       "side": 1,
       "message": "We can have negative patch deltas and I think that the header should not hide that fact.",
       "parentUuid": "a4a77122_f1480074",
+      "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "440235bc_7e316924",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-02T19:54:15Z",
+      "side": 1,
+      "message": "can we? I don\u0027t think so. the platform is going to have a minimal supported base address, and we are going to have a delta from that.",
+      "parentUuid": "640d79e9_5f8d83db",
       "revId": "67ee863a8fb13cb6b98131e956421625d3795165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
