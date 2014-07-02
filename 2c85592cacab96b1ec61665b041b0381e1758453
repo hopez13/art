@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64dbb9ad_0ce5b743",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-07-02T16:06:12Z",
+      "side": 1,
+      "message": "was this the signedness difference you were talking about? when Android, the Linux kernel, glibc, the BSDs, and elfutils all agree, i think llvm is wrong even if they\u0027re right :-) in this case, i assume it\u0027s an incorrect assumption on their part about the default signedness of enums.",
+      "revId": "2c85592cacab96b1ec61665b041b0381e1758453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
