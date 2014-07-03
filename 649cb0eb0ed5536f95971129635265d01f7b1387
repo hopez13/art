@@ -22,6 +22,213 @@
       "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_4a3797d0",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "This *is* a reference.",
+      "range": {
+        "startLine": 1204,
+        "startChar": 37,
+        "endLine": 1204,
+        "endChar": 43
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_aa444b31",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "This *is* a reference.",
+      "range": {
+        "startLine": 1215,
+        "startChar": 37,
+        "endLine": 1215,
+        "endChar": 44
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_e6c7a0d9",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "Sorry, should have been deleted.",
+      "range": {
+        "startLine": 1126,
+        "startChar": 0,
+        "endLine": 1127,
+        "endChar": 94
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_2a597b12",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "Method* is reference.",
+      "range": {
+        "startLine": 263,
+        "startChar": 28,
+        "endLine": 263,
+        "endChar": 32
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_6a5373f2",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "Ref.",
+      "range": {
+        "startLine": 278,
+        "startChar": 28,
+        "endLine": 278,
+        "endChar": 33
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_26b25884",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "I\u0027d like to change this in a CL soon. I would like to make sure that you can call TargetRet(kArg0, true) on 32b backends and get a reg storage that is wide, that is, a pair. With your code, one *must not* call this for the x86 backend (as you\u0027d get a 64b register), which is fine currently, but this refactoring would simplify a lot of code in the arch-independent parts.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_06af5c1c",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "You might also want to check that cu_-\u003etarget64, as it doesn\u0027t make sense to get a 64b register on x86.",
+      "range": {
+        "startLine": 428,
+        "startChar": 4,
+        "endLine": 428,
+        "endChar": 26
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_66bc5054",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "Deletion of Check64BitReg: I know it\u0027s unused right now, but it can be valuable. Example: just recently you added mov with 64b immediate. In that case, one should check that the register is 64b, which this function was made for.",
+      "range": {
+        "startLine": 443,
+        "startChar": 2,
+        "endLine": 443,
+        "endChar": 3
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485d588_e6c6ba26",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2345,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T21:44:43Z",
+      "side": 1,
+      "message": "This is a ref.",
+      "range": {
+        "startLine": 2345,
+        "startChar": 30,
+        "endLine": 2345,
+        "endChar": 37
+      },
+      "revId": "649cb0eb0ed5536f95971129635265d01f7b1387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
