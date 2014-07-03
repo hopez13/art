@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "445315fd_b3a5c2a9",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T17:18:28Z",
+      "side": 1,
+      "message": "I agree, this does not make sense. We\u0027ll change it as suggested.",
+      "parentUuid": "445eb5fe_f80491af",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c6c9d8_0517525f",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 1
@@ -76,6 +94,24 @@
     },
     {
       "key": {
+        "uuid": "246381c5_3d26f720",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T17:18:28Z",
+      "side": 1,
+      "message": "You are right, this line can be moved above.",
+      "parentUuid": "445eb5fe_183dc549",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a495b1be_1be13bb1",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -99,6 +135,24 @@
     },
     {
       "key": {
+        "uuid": "246381c5_bdc207cb",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1706,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T17:18:28Z",
+      "side": 1,
+      "message": "OK, will do.",
+      "parentUuid": "a495b1be_1be13bb1",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -116,6 +170,24 @@
         "endLine": 1757,
         "endChar": 75
       },
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cafddd_7bf4e364",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T17:18:28Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "445eb5fe_78340164",
       "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
