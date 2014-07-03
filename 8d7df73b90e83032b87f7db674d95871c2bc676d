@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4485d588_e6187a0a",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T23:20:37Z",
+      "side": 1,
+      "message": "This should not be static.",
+      "range": {
+        "startLine": 991,
+        "startChar": 4,
+        "endLine": 991,
+        "endChar": 10
+      },
+      "revId": "8d7df73b90e83032b87f7db674d95871c2bc676d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
