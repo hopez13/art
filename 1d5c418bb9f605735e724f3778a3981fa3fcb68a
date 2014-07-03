@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c4c385c9_47a31027",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T07:22:24Z",
+      "side": 1,
+      "message": "I took the code for ARM64 as it was easier than fixing what was there. But I agree with Bill: the 32b case here can be fixed in a separate CL. We should actually be able to take advantage that both 64b backends have an overloaded implementation...",
+      "parentUuid": "841c2dfc_fdc203cc",
+      "range": {
+        "startLine": 533,
+        "startChar": 11,
+        "endLine": 533,
+        "endChar": 16
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6421f930_dc7061f1",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yes, it would be better.  I\u0027ll leave it up to Andreas, but my inclination would be to patch it up later (keeping in mind that 32-bit targets would would need the high reg portion added to the next reg).",
       "parentUuid": "6421f930_dc7061f1",
+      "range": {
+        "startLine": 1140,
+        "startChar": 7,
+        "endLine": 1140,
+        "endChar": 71
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485d588_4681263b",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T07:22:24Z",
+      "side": 1,
+      "message": "I\u0027d like to get the CL in \"as is\" and then would be happy to accept patches.",
+      "parentUuid": "c450e5a6_1fbc8752",
       "range": {
         "startLine": 1140,
         "startChar": 7,
@@ -179,6 +227,24 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_26b898b1",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T07:22:24Z",
+      "side": 1,
+      "message": "wide specialized to !kX86_64.",
+      "parentUuid": "44d07588_88535726",
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6421f930_fc7525de",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 4
@@ -190,6 +256,30 @@
       "writtenOn": "2014-06-30T04:32:06Z",
       "side": 1,
       "message": "This code expects that long is always promoted to pair registers but I do not see this logic in AllocPreservedCoreReg",
+      "range": {
+        "startLine": 1305,
+        "startChar": 14,
+        "endLine": 1305,
+        "endChar": 22
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_06b59cb9",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T07:22:24Z",
+      "side": 1,
+      "message": "Could you explain what you mean?",
+      "parentUuid": "6421f930_fc7525de",
       "range": {
         "startLine": 1305,
         "startChar": 14,
@@ -225,6 +315,30 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_c6b264d4",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T07:22:24Z",
+      "side": 1,
+      "message": "Merge conflict resolved by taking HEAD.",
+      "parentUuid": "44d07588_c84d4f82",
+      "range": {
+        "startLine": 1890,
+        "startChar": 53,
+        "endLine": 1890,
+        "endChar": 56
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44d07588_28434b57",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 4
@@ -236,6 +350,30 @@
       "writtenOn": "2014-07-02T17:19:16Z",
       "side": 1,
       "message": "Please remove changes from FlushIns since they cause merge conflict with Simplify FlushIns patch.\n\nThe \"Simplify Flushins patch\" works correctly with patchset 3 of this CL.",
+      "range": {
+        "startLine": 1922,
+        "startChar": 29,
+        "endLine": 1922,
+        "endChar": 32
+      },
+      "revId": "1d5c418bb9f605735e724f3778a3981fa3fcb68a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485d588_2684224c",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1922,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T07:22:24Z",
+      "side": 1,
+      "message": "Merge conflicted resolved by taking HEAD.",
+      "parentUuid": "44d07588_28434b57",
       "range": {
         "startLine": 1922,
         "startChar": 29,
