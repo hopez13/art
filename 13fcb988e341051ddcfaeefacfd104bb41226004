@@ -54,6 +54,29 @@
     },
     {
       "key": {
+        "uuid": "c4c385c9_4aacb78c",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T23:43:53Z",
+      "side": 1,
+      "message": "I was trying to find all cases where we get a 32b index.",
+      "range": {
+        "startLine": 898,
+        "startChar": 2,
+        "endLine": 898,
+        "endChar": 26
+      },
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c6c9d8_0517525f",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 1
@@ -65,6 +88,24 @@
       "writtenOn": "2014-07-02T18:35:39Z",
       "side": 1,
       "message": "The change above and the three analogous companions below are necessary to avoid problems with reference widths. Notice that without these changes, we would be asserting that references must be 32-bit wide. Notice that the one above is a hack, but a proper fix for this issue should probably come through a separate patch.",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_86750ce0",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T23:43:53Z",
+      "side": 1,
+      "message": "This means we reach kReference through something that is not Load/Store*Ref*, and that is wrong, IMHO. I marked two cases in another file.",
+      "parentUuid": "e4c6c9d8_0517525f",
       "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -153,6 +194,29 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_26853881",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T23:43:53Z",
+      "side": 1,
+      "message": "Should be LoadRefIndexed when you have a ref.",
+      "range": {
+        "startLine": 1714,
+        "startChar": 4,
+        "endLine": 1716,
+        "endChar": 56
+      },
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -188,6 +252,29 @@
       "side": 1,
       "message": "Will do.",
       "parentUuid": "445eb5fe_78340164",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_aa89eb19",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1767,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T23:43:53Z",
+      "side": 1,
+      "message": "Should be StoreRefIndexed if you have a ref.",
+      "range": {
+        "startLine": 1766,
+        "startChar": 4,
+        "endLine": 1767,
+        "endChar": 56
+      },
       "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
