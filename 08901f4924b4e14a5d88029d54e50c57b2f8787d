@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e4c6c9d8_0e7aca94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T10:03:10Z",
+      "side": 1,
+      "message": "Elimination.",
+      "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c051c0_66dbb0f9",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -19,6 +36,24 @@
         "endLine": 464,
         "endChar": 37
       },
+      "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "445315fd_507f2cb8",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T10:03:10Z",
+      "side": 1,
+      "message": "Yes, I had the same thought. Disambiguating seems the right thing to do. Maybe, introduce a TargetPtrReg()? Don\u0027t mind whether this is done here or in a future CL.",
+      "parentUuid": "a4c051c0_66dbb0f9",
       "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -480,6 +515,24 @@
         "endLine": 409,
         "endChar": 10
       },
+      "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c6c9d8_ce6f12d7",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-03T10:03:10Z",
+      "side": 1,
+      "message": "I would be careful with making this general. The As32BitReg() and As64BitReg() functions where born in the commit below,\n\n  https://android-review.googlesource.com/#/c/96939/\n\nWhen I created them I wanted them to be shared among the backends, but Bill argued that - in order for them to be shared - there was a need to make them use FindMatchingView(), which I found somewhat heavyweight (see discussion in the CL). The final agreement was to make them local. I later verified that these functions are inlined and produce no more than a couple of A64 instrucions when compiled for Arm64 (in non-debug builds). I would prefer that things stay this way.",
+      "parentUuid": "a4c051c0_06e75cbd",
       "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
