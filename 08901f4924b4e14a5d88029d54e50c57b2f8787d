@@ -106,6 +106,30 @@
     },
     {
       "key": {
+        "uuid": "445eb5fe_38c9a95b",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-03T10:04:13Z",
+      "side": 1,
+      "message": "r_tmp is used as a register to read 32-bit value to, so it should be 32-bit. Am I wrong?",
+      "parentUuid": "c4c385c9_677f2cb9",
+      "range": {
+        "startLine": 621,
+        "startChar": 27,
+        "endLine": 621,
+        "endChar": 51
+      },
+      "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c385c9_477cb0c2",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "writtenOn": "2014-07-03T09:20:22Z",
       "side": 1,
       "message": "As above.",
+      "range": {
+        "startLine": 714,
+        "startChar": 27,
+        "endLine": 714,
+        "endChar": 51
+      },
+      "revId": "08901f4924b4e14a5d88029d54e50c57b2f8787d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a495b1be_bb492749",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-03T10:04:13Z",
+      "side": 1,
+      "message": "As above",
+      "parentUuid": "c4c385c9_477cb0c2",
       "range": {
         "startLine": 714,
         "startChar": 27,
