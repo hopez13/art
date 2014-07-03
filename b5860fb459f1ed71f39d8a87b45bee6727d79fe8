@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c498e5f7_3cb35128",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-03T07:56:14Z",
+      "side": 1,
+      "message": "Andreas, to me you need only remove this addition for 64-bit platform if on all platforms core regs are shared for long and int. This way int and long will be counted together.",
+      "range": {
+        "startLine": 1169,
+        "startChar": 24,
+        "endLine": 1169,
+        "endChar": 35
+      },
+      "revId": "b5860fb459f1ed71f39d8a87b45bee6727d79fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
