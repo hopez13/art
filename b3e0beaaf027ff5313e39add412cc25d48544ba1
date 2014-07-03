@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4485d588_c6fa9655",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-03T22:07:25Z",
+      "side": 1,
+      "message": "Why does this have to be a pointer? All the uses I can see could easily work with a value (e.g., initialize to false and set to true where assigning to true_const right now).",
+      "range": {
+        "startLine": 205,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 44
+      },
+      "revId": "b3e0beaaf027ff5313e39add412cc25d48544ba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
