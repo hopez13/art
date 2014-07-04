@@ -22,6 +22,30 @@
       "revId": "b3e0beaaf027ff5313e39add412cc25d48544ba1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "445eb5fe_7bd87bfb",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-04T05:10:42Z",
+      "side": 1,
+      "message": "The ides is that most of instructions are byte to byte. In some cases it is byte to non-byte. So I\u0027d like to see the byte_secode_operand equals to the first one and change it when I need only. Otherwise I will need to set byte_second_operand to true in all places where I set byte_operand to true. So I decided to use pointer.",
+      "parentUuid": "4485d588_c6fa9655",
+      "range": {
+        "startLine": 205,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 44
+      },
+      "revId": "b3e0beaaf027ff5313e39add412cc25d48544ba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
