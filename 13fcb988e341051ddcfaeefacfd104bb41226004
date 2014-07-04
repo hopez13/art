@@ -343,6 +343,24 @@
     },
     {
       "key": {
+        "uuid": "445315fd_397b7347",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-04T17:31:25Z",
+      "side": 1,
+      "message": "OK. Could we move this discussion to CL 100257?\n\n  https://android-review.googlesource.com/#/c/100257/\n\nWe could merge this patch as is and try to \"get it right\" in a dedicated CL.",
+      "parentUuid": "a4c051c0_49084545",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
