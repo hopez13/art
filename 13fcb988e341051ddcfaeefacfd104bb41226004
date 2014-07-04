@@ -289,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "04cafddd_b07f95ec",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-04T10:52:07Z",
+      "side": 1,
+      "message": "The implicit scaling of the offset register in Load/StoreRefIndexed() is something I certainly would not expect as a \"natural behaviour\". I suspect that these functions should either not scale the index, or - if they do - be named differently (e.g. LoadRefScaleIndexed()?). Alternatively, they could take a boolean (to indicate whether to scale or not) or they could be removed, as you suggest. I have no strong opinions about what is the best option.",
+      "parentUuid": "c498e5f7_3f8343b6",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
