@@ -325,6 +325,24 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_49084545",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-04T17:19:41Z",
+      "side": 1,
+      "message": "I should have made this clearer: missing the scale parameter was an oversight of mine. Load/StoreRefIndexed should have that parameter if it is necessary.",
+      "parentUuid": "4485d588_466cc646",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
