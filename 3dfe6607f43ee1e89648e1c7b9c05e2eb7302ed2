@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_425676e3",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-04T14:43:04Z",
+      "side": 1,
+      "message": "AssertInitializedOrInitializingInThread should return a bool then. We could still log failure reasons using LOG(ERROR) inside AssertInitializedOrInitializingInThread. They\u0027d be printed in the logs to give more context about the error before the DCHECK fatal message. But I find it cumbersome: failure messages should be printed with the failing DCHECK itself. I fear one ignore them and focus only on the DCHECK failure message itself.",
+      "parentUuid": "445eb5fe_9efc5ddb",
+      "range": {
+        "startLine": 357,
+        "startChar": 49,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "3dfe6607f43ee1e89648e1c7b9c05e2eb7302ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "841c2dfc_40ac628c",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
