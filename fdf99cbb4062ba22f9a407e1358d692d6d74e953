@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cafddd_302d6583",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-04T00:51:13Z",
+      "side": 1,
+      "message": "I hit some issues with InlinedCas under x86_64.  Should we return false for x86_64 until the bugs are identified?  Thanks!",
+      "revId": "fdf99cbb4062ba22f9a407e1358d692d6d74e953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
