@@ -307,6 +307,24 @@
     },
     {
       "key": {
+        "uuid": "4485d588_466cc646",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-04T17:14:07Z",
+      "side": 1,
+      "message": "I have a strong opinion, and it\u0027s for keeping this. The reason to introduce the Ref functions was twofold: 1) to avoid having to check in the Base functions whether we have a small or a large register, and more importantly 2) so that all ref handling is in a \"central\" place. If/when we move to references being more than 32b pointers, this will allow us to easily and in very obvious places implement the compress/uncompress logic.",
+      "parentUuid": "04cafddd_b07f95ec",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
