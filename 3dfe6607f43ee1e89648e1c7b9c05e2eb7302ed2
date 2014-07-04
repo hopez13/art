@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_a24e5a7e",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-04T12:31:38Z",
+      "side": 1,
+      "message": "What I find confusing is that it\u0027s not following the current standard of how we check. For example line 356 is:\nDCHECK(!shadow_frame.GetMethod()-\u003eIsNative());\n\nNot \nshadow_frame.GetMethod()-\u003eAssertIsNotNative()\n\nHaving just one and consistent logic around writing debug checks makes it easier when reading the code.\n\nIsn\u0027t the DCHECK outputing the C instruction that failed?",
+      "parentUuid": "c498e5f7_02354efb",
+      "range": {
+        "startLine": 357,
+        "startChar": 49,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "3dfe6607f43ee1e89648e1c7b9c05e2eb7302ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "841c2dfc_40ac628c",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
