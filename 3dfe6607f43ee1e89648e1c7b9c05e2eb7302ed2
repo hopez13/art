@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "445eb5fe_9efc5ddb",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-04T12:58:31Z",
+      "side": 1,
+      "message": "OK. Maybe adding a redundant DCHECK at the call site would make things easier to read then. And also avoid the extra loads the compiler may not be able to remove:\n\nDCHECK(shadow_frame.GetMethod()-\u003eGetDeclaringClass()-\u003eAssertInitializedOrInitializingInThread(self));",
+      "parentUuid": "c498e5f7_42403648",
+      "range": {
+        "startLine": 357,
+        "startChar": 49,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "3dfe6607f43ee1e89648e1c7b9c05e2eb7302ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "841c2dfc_40ac628c",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
