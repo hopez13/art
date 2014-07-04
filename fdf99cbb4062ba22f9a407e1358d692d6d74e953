@@ -34,6 +34,24 @@
       "revId": "fdf99cbb4062ba22f9a407e1358d692d6d74e953",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485d588_0628fe0b",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-04T01:39:44Z",
+      "side": 1,
+      "message": "The DCHECK is typical and a sanity check, so is OK there.",
+      "parentUuid": "445315fd_169cbce0",
+      "revId": "fdf99cbb4062ba22f9a407e1358d692d6d74e953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
