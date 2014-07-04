@@ -77,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_bf2d9320",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-04T09:04:01Z",
+      "side": 1,
+      "message": "There are a couple of them (you can easily find them by restoring the check, which will lead to assertion failures). Using a 32-bit register as an index is, however, a legitimate thing to do (e.g. if the index is loaded with ldr wN, [...]) and therefore it is good to support it.",
+      "parentUuid": "c4c385c9_4aacb78c",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c6c9d8_0517525f",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 1
@@ -106,6 +124,24 @@
       "side": 1,
       "message": "This means we reach kReference through something that is not Load/Store*Ref*, and that is wrong, IMHO. I marked two cases in another file.",
       "parentUuid": "e4c6c9d8_0517525f",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "043d9d9e_eee2ff3d",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-04T09:04:01Z",
+      "side": 1,
+      "message": "OK. I now understand what your intentions are. I assumed that \n\n  LoadBaseIndexed(r_base, r_index, r_dest_ref, 0, kReference);\n\nwould be a perfectly legitimate thing do to for loading a reference. LoadRefIndexed() seems a specialisation of the function above. I assumed that one would use LoadRefIndexed(), when it is known that that the function-call always loads a reference. And I assumed that one would rather use LoadBaseIndexed(), when this is not known at compile time. In other words, I assumed that one would do:\n\n  OpSize size \u003d SizeOfDest(r_dest);\n  int scale \u003d ScaleOfDest(r_dest); // Or zero.\n  LoadBaseIndexed(r_base, r_index, r_dest, scale, size);\n\nRather than:\n\n  if (DestIsReference(r_dest)) {\n    LoadRefIndexed(r_base, r_index, r_dest, 0);\n  } else {\n    OpSize size \u003d SizeOfDest(r_dest);\n    int scale \u003d ScaleOfDest(r_dest); // Or zero.\n    LoadBaseIndexed(r_base, r_index, r_dest, scale, size);\n  }\n\nI have still to get convinced that the latter is better than the former. But, we should - at least - clarify what the calling protocol is by adding a comment before LoadBaseIndexed such as \"Do not use this to load a reference\".\n\nA problem would still remain, as the current prototype of LoadRefIndexed cannot replace LoadBaseIndexed if the offset is not scaled.",
+      "parentUuid": "a4c051c0_86750ce0",
       "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -217,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "043d9d9e_eefbdfdd",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-04T09:04:01Z",
+      "side": 1,
+      "message": "AFAICS, LoadRefIndexed uses scale \u003d\u003d 2, here we use scale \u003d\u003d 0. I think this will not work.",
+      "parentUuid": "a4c051c0_26853881",
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_78340164",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -275,6 +329,24 @@
         "endLine": 1767,
         "endChar": 56
       },
+      "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c498e5f7_1f3da749",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1767,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-04T09:04:01Z",
+      "side": 1,
+      "message": "Again, scale \u003d\u003d 0, here.",
+      "parentUuid": "c4c385c9_aa89eb19",
       "revId": "13fcb988e341051ddcfaeefacfd104bb41226004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
