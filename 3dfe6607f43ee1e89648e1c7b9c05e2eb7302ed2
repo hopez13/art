@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_42403648",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-04T12:49:12Z",
+      "side": 1,
+      "message": "I see your point. AssertInitializedOrInitializingInThread actually contains 2 CHECKS, each one with a specific failure message giving information known at runtime like the class\u0027 status. If I go the IsInitializedOrInitializingInThread route, I\u0027d need to move these failure messages to a separate function to dump it with the DCHECK. Assuming the method\u0027s class is in \"declaring_class\" variable, I\u0027d write something like \"DCHECK(declaring_class-\u003eIsInitializedOrInitializingInThread(thread)) \u003c\u003c class-\u003eDumpInitializationCheckFailureMessage(thread);\". If you prefer this way, it\u0027s fine to me\n\nNote we already have Thread::AssertThreadSuspensionIsAllowable as sanity check for debug build. It\u0027s a bit more complex than AssertInitializedOrInitializingInThread though.",
+      "parentUuid": "c498e5f7_a24e5a7e",
+      "range": {
+        "startLine": 357,
+        "startChar": 49,
+        "endLine": 357,
+        "endChar": 88
+      },
+      "revId": "3dfe6607f43ee1e89648e1c7b9c05e2eb7302ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "841c2dfc_40ac628c",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
