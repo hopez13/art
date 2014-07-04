@@ -46,6 +46,30 @@
       "revId": "b3e0beaaf027ff5313e39add412cc25d48544ba1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c6c9d8_84f4db65",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-04T05:36:08Z",
+      "side": 1,
+      "message": "Understandable, but that makes the meaning behind this somewhat hidden. How about a slightly different approach: a bool flag second_operand_override. You only ever set the second operand to true. So you could set the flag to true, and where you dereference the pointer right now, you do byte_operand || second_operand_override. This makes things a bit more explicit and avoids having to follow pointers when tracing the code. What do you think?",
+      "parentUuid": "445eb5fe_7bd87bfb",
+      "range": {
+        "startLine": 205,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 44
+      },
+      "revId": "b3e0beaaf027ff5313e39add412cc25d48544ba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
