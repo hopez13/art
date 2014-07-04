@@ -16,6 +16,24 @@
       "revId": "fdf99cbb4062ba22f9a407e1358d692d6d74e953",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "445315fd_169cbce0",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-04T01:17:16Z",
+      "side": 1,
+      "message": "I would suggest so.   In addition, this DCHECK is in an X86 specific file, so I don\u0027t think it is too useful.",
+      "parentUuid": "04cafddd_302d6583",
+      "revId": "fdf99cbb4062ba22f9a407e1358d692d6d74e953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
