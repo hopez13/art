@@ -57,6 +57,24 @@
       "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c6c9d8_278369b6",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-05T17:53:03Z",
+      "side": 1,
+      "message": "I totally agree with you here and had the same thoughts, but this was a small and contained refactoring. :-)",
+      "parentUuid": "c498e5f7_a23f3a4d",
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
