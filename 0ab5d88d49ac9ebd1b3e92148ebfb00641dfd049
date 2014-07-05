@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "445eb5fe_5edba5f8",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-05T10:19:28Z",
+      "side": 1,
+      "message": "That\u0027s good. I disliked the true/false. Also, we may end up needing more than the 32 and 64 bit views (e.g. for vector registers).",
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4485d588_86b96e65",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -19,6 +36,24 @@
         "endLine": 302,
         "endChar": 77
       },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c498e5f7_a23f3a4d",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-05T10:19:28Z",
+      "side": 1,
+      "message": "The first time I looked at this function I could not make sense of it. I preferred to split out the Arm64 case, rather than trying to extend the old (and pretty entropic) logic. I suspect for Arm (32-bit) we may never happen to call the function in a way where the hard/soft float mix matters. In other words, parts of this function may turn out to be dead code. As a positive side, the function is now hugely improved. One thing that may further help to clean up the code, is introducing a TargetArgReg(int n, RegLocation rl) which returns the n-th argument having the same \"type\" of rl (and would have a trivial implementation for Arm64). Another thing - that affects the whole quick compiler - is the wide/non-wide variants of functions. The code is literally scattered with\n\n  if (wide) UseWideVariant(); else UseNonWideVariant();\n\nBut, addressing this issue is a huge refactoring task.",
+      "parentUuid": "4485d588_86b96e65",
       "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
