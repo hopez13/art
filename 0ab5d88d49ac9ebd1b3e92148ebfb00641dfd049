@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4485d588_86b96e65",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-05T01:11:05Z",
+      "side": 1,
+      "message": "Note: this looks strange to me. That looks like on ARM we have a mixed soft-hard-float convention. arg0 is in farg0 if fp, but arg1 is always in arg1.",
+      "range": {
+        "startLine": 302,
+        "startChar": 33,
+        "endLine": 302,
+        "endChar": 77
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
