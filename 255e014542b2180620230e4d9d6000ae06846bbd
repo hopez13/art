@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c498e5f7_62237210",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-06T22:23:57Z",
+      "side": 1,
+      "message": "Aesthetics: the code suggests that LoadBaseIndexed() can handle size \u003d\u003d kReference, but this is not true. I would do a\n\n  case kReference: LOG(FATAL) \u003c\u003c \"Invalid usage of ...\";\n\n(as you suggested in your previous comment) and use k32 in LoadRefIndexed(). After all, the real handling of kReference is done in LoadRefIndexed() rather than here.",
+      "revId": "255e014542b2180620230e4d9d6000ae06846bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
