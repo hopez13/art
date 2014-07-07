@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "c4462542_effcbd90",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-07T06:36:50Z",
+      "side": 1,
+      "message": "In that case why not change it to OpSize, which basically has these already (except named k32 and k64)? This is likely also the future-proof way if we want to integrate vector registers, which likely show up in OpSize, too.\n\nAnd it is not OK to use kNotWide for references: the ARM64 backend is already written such that it (correctly) requires ref registers to be 64b (and has conversion in Load/StoreRefXXX where we could easily add compress/uncompress) - something I\u0027d like the x86(-64) backend to get to, too.",
+      "parentUuid": "c498e5f7_a2e65a7b",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 538,
+        "endChar": 9
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_5edba5f8",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
