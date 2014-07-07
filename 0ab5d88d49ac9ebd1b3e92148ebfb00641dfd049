@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_a2e65a7b",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-07T06:19:11Z",
+      "side": 1,
+      "message": "For your example, you are right the best way to use arg0.\nIf you really want to disambiguate kNotWide and  reference, can we add kRef? My understanding is as follows: this enum is for reading the common code. It should not know whether ref is 32-bit or 64-bit one. It should just specify what it needs: NotWide, Wide or Ref (at this moment ref and kNotwide are differed by usage TargetRefReg utility). And it decides it basing on VR information. VR for reference is actually 32-bit and in this term it is ok to use kNotWide for reference but if we really want to disambiguate them so let\u0027s introduce the kRef constant and use it (and eliminate TargetRefReg method).",
+      "parentUuid": "04cafddd_613d4d49",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 538,
+        "endChar": 9
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_5edba5f8",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
