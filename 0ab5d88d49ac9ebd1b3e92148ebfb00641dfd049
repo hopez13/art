@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4462542_4f8eb16b",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-07T05:04:17Z",
+      "side": 1,
+      "message": "I had that before and changed it. The issue is that ref registers are \"wide\" on 64b systems. So reading kNonWide in the code is ambiguous, too, without changing the name of the function.",
+      "parentUuid": "c498e5f7_e2c782d9",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 538,
+        "endChar": 9
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_5edba5f8",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
@@ -112,6 +136,30 @@
       "writtenOn": "2014-07-07T04:15:12Z",
       "side": 1,
       "message": "Could you please update a doc indicating that for wide case reg is expected to be only arg?",
+      "range": {
+        "startLine": 1203,
+        "startChar": 8,
+        "endLine": 1203,
+        "endChar": 81
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cafddd_41b5b1b8",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-07T05:04:17Z",
+      "side": 1,
+      "message": "The main question here is: when can you expect to get a correct result on a 32b system? My first attempt here was \"when wide registers are a pair of consecutive registers,\" for which the arg regs made sense. I would have thought we need ret, too, for long returns, but I did not find such a use case in the code.\n\nSo my try at documentation would be: must be k(F)Arg0-6 when on a 32b system, or any abstract register when on 64b.\n\nWhat do you think?",
+      "parentUuid": "043d9d9e_d1524611",
       "range": {
         "startLine": 1203,
         "startChar": 8,
