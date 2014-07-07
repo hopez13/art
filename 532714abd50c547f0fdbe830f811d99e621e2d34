@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cafddd_d77a03fe",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-07T17:21:07Z",
+      "side": 1,
+      "message": "This is clearly broken. At least the documentation should be updated, but in Android.oat.mk there are host tests with prerequisits that don\u0027t have a -host augmented to the variable name.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 43
+      },
+      "revId": "532714abd50c547f0fdbe830f811d99e621e2d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
