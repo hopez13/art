@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "e4c6c9d8_5384674c",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-07T16:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04cafddd_41e771bc",
+      "revId": "4942f13c5d0c1a90da0751a5b40b9307d90994bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04cafddd_81f16976",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "c4462542_d29a4460",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-07T16:48:58Z",
+      "side": 1,
+      "message": "I would rather not do this since we would need to pass in both a vector and a set to do the dedup stuff. Also this is not always even used, which means I dont think we should push it all the way down there for nothing. \n\nAnyway I\u0027ll be pulling all this out in the next CL to fix patching imageless files so who cares?",
+      "parentUuid": "04cafddd_81f16976",
+      "revId": "4942f13c5d0c1a90da0751a5b40b9307d90994bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c6c9d8_1d9cbe12",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 6
@@ -65,6 +101,24 @@
         "endLine": 103,
         "endChar": 31
       },
+      "revId": "4942f13c5d0c1a90da0751a5b40b9307d90994bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c6c9d8_9399bf9a",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-07T16:48:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c6c9d8_1d9cbe12",
       "revId": "4942f13c5d0c1a90da0751a5b40b9307d90994bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
