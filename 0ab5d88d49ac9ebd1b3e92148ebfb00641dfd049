@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "04cafddd_613d4d49",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-07T06:04:19Z",
+      "side": 1,
+      "message": "Yes, but we have a lot of code fragments that look like this:\n\nif (arg0.wide\u003d\u003d0) {\n  TargetReg(kArg0, ???)\n}\n\nThe correct use here is arg0, the reg location, which also has the ref flag. It is not correct to say kNotWide, even though it _sounds_ reasonable judging by the condition. This mixup I want to make as hard as possible.\n\nMaybe it makes sense to use OpSize, though? And maybe OpSize needs an element for pointer size.",
+      "parentUuid": "043d9d9e_f15742fe",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 538,
+        "endChar": 9
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_5edba5f8",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
