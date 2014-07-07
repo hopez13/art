@@ -16,6 +16,24 @@
       "revId": "255e014542b2180620230e4d9d6000ae06846bbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c6c9d8_dd286612",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-07T05:05:34Z",
+      "side": 1,
+      "message": "I would also prefer that, and probably the next CL will fix that. This one is just to not get inlining reverted. :-)",
+      "parentUuid": "c498e5f7_62237210",
+      "revId": "255e014542b2180620230e4d9d6000ae06846bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
