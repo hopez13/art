@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "043d9d9e_f15742fe",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-07T05:10:51Z",
+      "side": 1,
+      "message": "I guessed that this enum is not for refs. For refs we use TargetRefReg function without specifying wide kind, isn\u0027t it?",
+      "parentUuid": "c4462542_4f8eb16b",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 538,
+        "endChar": 9
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_5edba5f8",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
@@ -160,6 +184,30 @@
       "side": 1,
       "message": "The main question here is: when can you expect to get a correct result on a 32b system? My first attempt here was \"when wide registers are a pair of consecutive registers,\" for which the arg regs made sense. I would have thought we need ret, too, for long returns, but I did not find such a use case in the code.\n\nSo my try at documentation would be: must be k(F)Arg0-6 when on a 32b system, or any abstract register when on 64b.\n\nWhat do you think?",
       "parentUuid": "043d9d9e_d1524611",
+      "range": {
+        "startLine": 1203,
+        "startChar": 8,
+        "endLine": 1203,
+        "endChar": 81
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c498e5f7_22b24a84",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-07T05:10:51Z",
+      "side": 1,
+      "message": "I want doc is aligned with specification here. So if you allow only args for both fp and core and you have doc, doc should reflect this check.",
+      "parentUuid": "04cafddd_41b5b1b8",
       "range": {
         "startLine": 1203,
         "startChar": 8,
