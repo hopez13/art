@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c498e5f7_229c0ae1",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-07T07:55:41Z",
+      "side": 1,
+      "message": "Why would that be the proper way? Can\u0027t you use sizeof(HeapReference\u003cObject\u003e) (or something like that) instead?",
+      "range": {
+        "startLine": 639,
+        "startChar": 53,
+        "endLine": 639,
+        "endChar": 57
+      },
+      "revId": "2dbfdfebd893a99ab49235f212e5fafae3de7ffa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
