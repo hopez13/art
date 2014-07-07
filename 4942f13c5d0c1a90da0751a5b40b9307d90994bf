@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "643739c4_bdebd742",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-07T22:14:54Z",
+      "side": 1,
+      "message": "well, that is what I meant by passing in out arguments. I still think having the ugliness once in the callee is better than 3 times in the callers",
+      "parentUuid": "c4462542_d29a4460",
+      "revId": "4942f13c5d0c1a90da0751a5b40b9307d90994bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c6c9d8_1d9cbe12",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 6
