@@ -22,6 +22,30 @@
       "revId": "2dbfdfebd893a99ab49235f212e5fafae3de7ffa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c498e5f7_e5794ca1",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-07-07T10:16:01Z",
+      "side": 1,
+      "message": "Now I see that our references are 32 bits only which means that there\u0027s no reason to store sizeof(void*). using sizeof(HeapReference\u003cObject\u003e) might be the proper way but I\u0027m concerned that if we update it in anyway way that modifies the size this will break. (is it a valid concern?). \n\nI will update the comment to better reflect the way things are.",
+      "parentUuid": "c498e5f7_229c0ae1",
+      "range": {
+        "startLine": 639,
+        "startChar": 53,
+        "endLine": 639,
+        "endChar": 57
+      },
+      "revId": "2dbfdfebd893a99ab49235f212e5fafae3de7ffa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
