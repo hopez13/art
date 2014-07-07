@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "445eb5fe_de0ed595",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-07T06:45:50Z",
+      "side": 1,
+      "message": "Right, x64 is also ready for compress/decompress I guess. So I suggest to use kRef.\n\nIMHO, OpSize is worse because TargetReg is supposed to be a portable way to get a RegStorage. So I think it is better if it will decide what size RegStorage is required.",
+      "parentUuid": "c4462542_effcbd90",
+      "range": {
+        "startLine": 538,
+        "startChar": 2,
+        "endLine": 538,
+        "endChar": 9
+      },
+      "revId": "0ab5d88d49ac9ebd1b3e92148ebfb00641dfd049",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445eb5fe_5edba5f8",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
