@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84326dd1_508e446b",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-07T20:48:08Z",
+      "side": 1,
+      "message": "SHARED_LOCKS_REQUIRED(Locks::mutator_lock_)  ?",
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4462542_06aacea5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-07T20:48:08Z",
+      "side": 1,
+      "message": "If SetMethod were part of the constructor then this could be const.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 20
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_ef2af56c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-07T20:48:08Z",
+      "side": 1,
+      "message": "This should have been const.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 19
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_d0523411",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-07T20:48:08Z",
+      "side": 1,
+      "message": "const again.",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 33
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_f0981861",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3117,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-07T20:48:08Z",
+      "side": 1,
+      "message": "Here m is read and then written over a lock acquisition. Lock acquisition can clearly block, but won\u0027t give up the mutator lock. It\u0027d be nicer to read m after the MutexLock. As this isn\u0027t hot code, it\u0027d also be nice to not be using naked mirror::ArtMethod(s) but jmethodIDs to avoid the cognitive load of trying to spot safe points. That\u0027s probably a different CL, but moving the assignment to m below the MutexLock could be done in this change.",
+      "range": {
+        "startLine": 3093,
+        "startChar": 0,
+        "endLine": 3117,
+        "endChar": 24
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
