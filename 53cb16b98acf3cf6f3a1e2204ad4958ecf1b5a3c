@@ -1,0 +1,435 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4c051c0_525e2ac8",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "This should be ordered after the #include below. Ordering rule is:\ndir/foo.h.\nC system files.\nC++ system files.\nART .h files.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_de1345bb",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "TODO:\ncolumn wrap is 100 characters",
+      "range": {
+        "startLine": 799,
+        "startChar": 11,
+        "endLine": 799,
+        "endChar": 72
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_7e233110",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "Is this performance critical? If not leave as a CHECK as DCHECKs are seldom executed.",
+      "range": {
+        "startLine": 895,
+        "startChar": 6,
+        "endLine": 895,
+        "endChar": 15
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_92d1c2e0",
+        "filename": "patchoat/Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "prefer spaces to tabs except where tabs are significant, such as in rules.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_32e1eeb1",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "place next to use on line 113, this isn\u0027t C code",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 24
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43969b5_e1adae76",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "move down to line 197",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 23
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_b1a05f9a",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "This is copy and paste code, consider refactoring.",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 78
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_e8c746d9",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "TODO:\n\nie colon after TODO for consistency with the rest of the code base",
+      "range": {
+        "startLine": 351,
+        "startChar": 5,
+        "endLine": 351,
+        "endChar": 9
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43969b5_21b896b1",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "references should be const, this is an out argument so make it a pointer",
+      "range": {
+        "startLine": 626,
+        "startChar": 58,
+        "endLine": 626,
+        "endChar": 70
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4462542_07c805e9",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "static?",
+      "range": {
+        "startLine": 664,
+        "startChar": 0,
+        "endLine": 664,
+        "endChar": 3
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_b1169f1d",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "// namespace mirror\n\n(note we do this for the benefit of the python script that generates \u003c\u003c operators for enums)",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_28007e68",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4462542_87d5d576",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "please document the fields below and move to the bottom of the class declaration as per the style guide.",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 8
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_680a7688",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 9
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_a8146ea7",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_710507de",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 9
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_a8bd4e57",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "we generally avoid reference member variables, although they imply non-nullness they confuse ownership. Prefer pointers as above.",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 15
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4462542_0792c5d1",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "comment saying what I am for",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_f1101723",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:54:19Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 111,
+        "startChar": 12,
+        "endLine": 111,
+        "endChar": 14
+      },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
