@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4462542_e79699f5",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:20:02Z",
+      "side": 1,
+      "message": "this is somewhat annoying for the sake of one opcode, could we use a REX_W although this isn\u0027t what the manual defines? ie would the instruction decode ignore the REX W bit?",
+      "range": {
+        "startLine": 616,
+        "startChar": 9,
+        "endLine": 616,
+        "endChar": 77
+      },
+      "revId": "ff3fb861b61ab5682828df98d610c753100a7433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_b1c13f6b",
+        "filename": "compiler/dex/quick/x86/x86_lir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:20:02Z",
+      "side": 1,
+      "message": "Much easier to understand, thanks!",
+      "range": {
+        "startLine": 722,
+        "startChar": 27,
+        "endLine": 722,
+        "endChar": 28
+      },
+      "revId": "ff3fb861b61ab5682828df98d610c753100a7433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_51b3a326",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:20:02Z",
+      "side": 1,
+      "message": "// true when the opcode is dealing with byte operands",
+      "revId": "ff3fb861b61ab5682828df98d610c753100a7433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_885b2aaf",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:20:02Z",
+      "side": 1,
+      "message": "true when the source operand is a byte register but the target register isn\u0027t  (ie movsxb/movzxb).",
+      "range": {
+        "startLine": 205,
+        "startChar": 39,
+        "endLine": 205,
+        "endChar": 92
+      },
+      "revId": "ff3fb861b61ab5682828df98d610c753100a7433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
