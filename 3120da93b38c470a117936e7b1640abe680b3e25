@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a41cd152_43a68638",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "Add another CHECK_EQ to verify the java_lang_ref_Reference-\u003eGetClassSize() \u003d\u003d sizeof(mirror::ReferenceClass)?",
+      "range": {
+        "startLine": 467,
+        "startChar": 2,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_fbad5076",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "inline?",
+      "range": {
+        "startLine": 36,
+        "startChar": 25,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41cd152_0611fc72",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "Why was this moved up?",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_dba5eca8",
+        "filename": "runtime/mirror/reference.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "Does this currently get called?\n\nRuntime::VisitConstantRoots() should call it?",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_9be9b4cf",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "If we add a new root, please add the read barrier code. For an example, see String::GetJavaLangString() or Class::GetJavaLangClass().",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 35
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41cd152_663ab0e1",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "remove \u0027void\u0027?",
+      "range": {
+        "startLine": 132,
+        "startChar": 26,
+        "endLine": 132,
+        "endChar": 30
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_5be73cbc",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T23:59:55Z",
+      "side": 1,
+      "message": "Who writes to this field?",
+      "range": {
+        "startLine": 140,
+        "startChar": 10,
+        "endLine": 140,
+        "endChar": 28
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
