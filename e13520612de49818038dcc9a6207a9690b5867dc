@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e474097d_7eece0dd",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-08T06:13:51Z",
+      "side": 1,
+      "message": "When has this last been rebased? The method\n\nvoid MarkPossibleNullPointerExceptionAfter(int opt_flags, LIR* after);\n\nhas been in the tree for a while now.",
+      "range": {
+        "startLine": 801,
+        "startChar": 4,
+        "endLine": 801,
+        "endChar": 78
+      },
+      "revId": "e13520612de49818038dcc9a6207a9690b5867dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c1c553_dd601f8d",
         "filename": "runtime/arch/x86/fault_handler_x86.cc",
         "patchSetId": 8
