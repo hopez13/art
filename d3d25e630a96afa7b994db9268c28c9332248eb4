@@ -22,6 +22,30 @@
       "revId": "d3d25e630a96afa7b994db9268c28c9332248eb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c498e5f7_2bb5c5d2",
+        "filename": "test/304-method-tracing/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-08T15:39:24Z",
+      "side": 1,
+      "message": "Good point, this could help. But note running tests with method tracing could be really slow.",
+      "parentUuid": "84326dd1_512d6381",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "d3d25e630a96afa7b994db9268c28c9332248eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
