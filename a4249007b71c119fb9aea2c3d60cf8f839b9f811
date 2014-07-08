@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4462542_5d9c9c88",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_508e446b",
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4462542_06aacea5",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2014-07-07T20:48:08Z",
       "side": 1,
       "message": "If SetMethod were part of the constructor then this could be const.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 20
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4462542_1d44d42c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "As Breakpoint is used as a value type (gBreakpoints is a vector\u003cBreakpoint\u003e), const on the three members didn\u0027t compile due to the internal copy operations in vector::erase() at line 3103. Left them non-const.",
+      "parentUuid": "c4462542_06aacea5",
       "range": {
         "startLine": 193,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "643739c4_863ddbd9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "643739c4_ef2af56c",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 19
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_d0523411",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2014-07-07T20:48:08Z",
       "side": 1,
       "message": "const again.",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 33
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4462542_3d599012",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "84326dd1_d0523411",
       "range": {
         "startLine": 197,
         "startChar": 2,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "84326dd1_b41e8df4",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c498e5f7_908524f8",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 365,
+        "endChar": 75
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_f0981861",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "04267d9c_46f2120b",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3117,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_f0981861",
+      "range": {
+        "startLine": 3093,
+        "startChar": 0,
+        "endLine": 3117,
+        "endChar": 24
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "043d9d9e_d46a34fe",
         "filename": "runtime/debugger.h",
         "patchSetId": 1
@@ -145,6 +283,30 @@
       "writtenOn": "2014-07-08T07:45:56Z",
       "side": 1,
       "message": "Kind for consistency with the rest of your changes.",
+      "range": {
+        "startLine": 158,
+        "startChar": 7,
+        "endLine": 158,
+        "endChar": 14
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04267d9c_061ada86",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T18:20:15Z",
+      "side": 1,
+      "message": "Agreed. But the \u0027Kind\u0027 name would collide with the enum name above and does not compile.",
+      "parentUuid": "043d9d9e_d46a34fe",
       "range": {
         "startLine": 158,
         "startChar": 7,
