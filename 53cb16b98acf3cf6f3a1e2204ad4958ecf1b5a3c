@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "643739c4_a8870e94",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c051c0_525e2ac8",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c385c9_de1345bb",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 8
@@ -42,6 +60,24 @@
         "endLine": 799,
         "endChar": 72
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_e89106ce",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4c385c9_de1345bb",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "643739c4_88a32a26",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4c385c9_7e233110",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c051c0_92d1c2e0",
         "filename": "patchoat/Android.mk",
         "patchSetId": 8
@@ -88,6 +142,24 @@
         "endLine": 22,
         "endChar": 1
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_ddfceb90",
+        "filename": "patchoat/Android.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Taken from dex2oat\u0027s Android.mk",
+      "parentUuid": "a4c051c0_92d1c2e0",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "c4c385c9_6beff221",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c051c0_32e1eeb1",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e43969b5_e1adae76",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 8
@@ -134,6 +224,24 @@
         "endLine": 141,
         "endChar": 23
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43969b5_1c7ea136",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e43969b5_e1adae76",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_7dd697fa",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "I\u0027ll do that if i ever have to do more major work here.",
+      "parentUuid": "84326dd1_b1a05f9a",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "643739c4_e8c746d9",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 8
@@ -180,6 +306,24 @@
         "endLine": 351,
         "endChar": 9
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_3dcc1f6b",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_e8c746d9",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_1ddfa31e",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e43969b5_21b896b1",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4462542_07c805e9",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 8
@@ -232,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "a4c051c0_7decd7dd",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4462542_07c805e9",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_b1169f1d",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 8
@@ -243,6 +423,24 @@
       "writtenOn": "2014-07-08T15:54:19Z",
       "side": 1,
       "message": "// namespace mirror\n\n(note we do this for the benefit of the python script that generates \u003c\u003c operators for enums)",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_0bf75ef6",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_b1169f1d",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -272,6 +470,24 @@
     },
     {
       "key": {
+        "uuid": "c4c385c9_ebfbe2dd",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_28007e68",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4462542_87d5d576",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 8
@@ -289,6 +505,24 @@
         "endLine": 54,
         "endChar": 8
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e43969b5_5cc2e918",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4462542_87d5d576",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -318,6 +552,24 @@
     },
     {
       "key": {
+        "uuid": "e43969b5_dc6c198c",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_680a7688",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "643739c4_a8146ea7",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 8
@@ -335,6 +587,24 @@
         "endLine": 57,
         "endChar": 40
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_4b115672",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Not const. We need walk.",
+      "parentUuid": "643739c4_a8146ea7",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -364,6 +634,24 @@
     },
     {
       "key": {
+        "uuid": "c4c385c9_2b0e9a53",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_710507de",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "643739c4_a8bd4e57",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 8
@@ -381,6 +669,24 @@
         "endLine": 60,
         "endChar": 15
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_9d1b9345",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_a8bd4e57",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -410,6 +716,24 @@
     },
     {
       "key": {
+        "uuid": "e43969b5_9ca3718d",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4462542_0792c5d1",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_f1101723",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 8
@@ -427,6 +751,24 @@
         "endLine": 111,
         "endChar": 14
       },
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c385c9_4b1af687",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-08T16:54:51Z",
+      "side": 1,
+      "message": "Its not.",
+      "parentUuid": "84326dd1_f1101723",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
