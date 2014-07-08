@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04267d9c_ef7e7186",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "Does this macro include the class name prefix? __PRETTY_FUNCTION__?",
+      "range": {
+        "startLine": 304,
+        "startChar": 38,
+        "endLine": 304,
+        "endChar": 50
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_d7a5bfa8",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "Insert a \"// Fall-through\" comment line between lines 509 and 510?",
+      "range": {
+        "startLine": 510,
+        "startChar": 6,
+        "endLine": 510,
+        "endChar": 10
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e474097d_a17c99c3",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "Maybe leave a TODO: Change this string \"Empty\" to \"Released\" if kPageMapReleased?",
+      "range": {
+        "startLine": 1373,
+        "startChar": 35,
+        "endLine": 1373,
+        "endChar": 40
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_d8a07950",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "Does the compiler remove this loop on the non-debug build?",
+      "range": {
+        "startLine": 1566,
+        "startChar": 0,
+        "endLine": 1568,
+        "endChar": 9
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_9707c77d",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "This looks similar to Double-Checked Locking. I\u0027m not sure if this works in C++ just because page_map_ is volatile. Are you sure this works? Perhaps, if we assume that this function won\u0027t be called by multiple threads simultaneously, which is currently the case (maybe worth leaving a comment if so), does this work?",
+      "range": {
+        "startLine": 2111,
+        "startChar": 13,
+        "endLine": 2111,
+        "endChar": 22
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_38542d82",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "I think we can assert (DCHECK) here that we are only receiving kPageMapEmpty pages (from \u0027start\u0027 to \u0027end\u0027). Would it make more sense to assert that instead of checking if each entry is kPageMapEmpty before releasing it in the loop below? That would be more helpful to uncover a bug if, say, we accidentally call this function for non-kPageMapEmpty pages in the future.",
+      "range": {
+        "startLine": 2140,
+        "startChar": 17,
+        "endLine": 2140,
+        "endChar": 33
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643739c4_f779e3a0",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "I prefer aligning the beginning of the comments at the ends of lines 446-451 as before.",
+      "range": {
+        "startLine": 447,
+        "startChar": 20,
+        "endLine": 447,
+        "endChar": 22
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_a5bd75f0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-08T22:20:04Z",
+      "side": 1,
+      "message": "This updates the target time because we request heap trim even when we don\u0027t do transition (that is, while we are still in the foreground), correct? Maybe worth renaming the variable to heap_transition_or_trim_target_time_.",
+      "range": {
+        "startLine": 2741,
+        "startChar": 6,
+        "endLine": 2741,
+        "endChar": 34
+      },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
