@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c498e5f7_8b341965",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-08T17:32:59Z",
+      "side": 1,
+      "message": "With this CL, I\u0027ve seen only one function with such cycle in AOSP, namely boolean android.util.Base64$Encoder.process(byte[], int, int, boolean).",
+      "revId": "e8ae81453e1d6c19d7db2001a1e7b1849f74241c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
