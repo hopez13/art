@@ -70,6 +70,30 @@
       "revId": "67b9495ec0400b8aeb6d8940e6101510bf7eab48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e474097d_810b1d42",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-08T17:53:21Z",
+      "side": 1,
+      "message": "I agree. :-) The other solution would be to make TargetReg a pure virtual method. But I prefer to have some shared common code, even if just ARM and Mips are sharing.\n\nWe could discuss again a strengthening of the specification of TargetReg. If we specify that it must return the 32b view, then it could replace your TargetReg32.",
+      "parentUuid": "c498e5f7_8b8df9de",
+      "range": {
+        "startLine": 1193,
+        "startChar": 23,
+        "endLine": 1193,
+        "endChar": 32
+      },
+      "revId": "67b9495ec0400b8aeb6d8940e6101510bf7eab48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
