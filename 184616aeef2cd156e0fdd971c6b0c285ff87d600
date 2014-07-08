@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "442cf57a_2e1093dd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-08T18:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_477be145",
+      "revId": "184616aeef2cd156e0fdd971c6b0c285ff87d600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "643739c4_e1204192",
         "filename": "runtime/class_linker.h",
         "patchSetId": 19
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e474097d_619c4189",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-08T18:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_e1204192",
+      "revId": "184616aeef2cd156e0fdd971c6b0c285ff87d600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_875eb9c5",
         "filename": "runtime/mirror/reference.h",
         "patchSetId": 19
@@ -47,6 +83,24 @@
       "writtenOn": "2014-07-08T18:25:11Z",
       "side": 1,
       "message": "If you have a declaration above you could make this be the type of ReferenceClass* and return that type from GetJavaLangRefReference.",
+      "revId": "184616aeef2cd156e0fdd971c6b0c285ff87d600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e474097d_81995d9a",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-08T18:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_875eb9c5",
       "revId": "184616aeef2cd156e0fdd971c6b0c285ff87d600",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
