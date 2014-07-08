@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "643739c4_dac1636a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04267d9c_ef7e7186",
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "643739c4_d7a5bfa8",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 510,
         "endChar": 10
       },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c41f0544_4724d0ce",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_d7a5bfa8",
       "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "84326dd1_c0a3378c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e474097d_a17c99c3",
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c051c0_d8a07950",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 1568,
         "endChar": 9
       },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_c03fb74c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1568,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "It should be optimized out, but I\u0027ll put the if statement back.",
+      "parentUuid": "a4c051c0_d8a07950",
       "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "c41f0544_a7202491",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "Good question, we have an implicit fence from when we acquire the mutex so I think it\u0027s sound? Maybe irogers can comment?",
+      "parentUuid": "643739c4_9707c77d",
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c051c0_38542d82",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 2140,
         "endChar": 33
       },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_606c4b47",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2140,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "I don\u0027t think this works since this is called from FreePageRun::ReleasePages which happens after combining adjacent free page ranges. It could happen that these are already released and then we would fail the DCHECK when we call ReleasePageRange. Regarding calling with non Empty pages, there is a DCHECK which ensures each page is a FreePage. Is that good enough?",
+      "parentUuid": "a4c051c0_38542d82",
       "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "84326dd1_60fd2b18",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643739c4_f779e3a0",
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_a5bd75f0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -180,6 +306,24 @@
         "endLine": 2741,
         "endChar": 34
       },
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84326dd1_402907ef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-08T23:21:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_a5bd75f0",
       "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
