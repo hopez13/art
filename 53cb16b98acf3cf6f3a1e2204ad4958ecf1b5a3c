@@ -611,6 +611,24 @@
     },
     {
       "key": {
+        "uuid": "e43969b5_82bdc8f0",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T20:55:04Z",
+      "side": 1,
+      "message": "I\u0027m saying the pointer is const, not the thing pointed at.",
+      "parentUuid": "c4c385c9_4b115672",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_710507de",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 8
@@ -769,6 +787,24 @@
       "side": 1,
       "message": "Its not.",
       "parentUuid": "84326dd1_f1101723",
+      "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c051c0_181051dd",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T20:55:04Z",
+      "side": 1,
+      "message": "as above",
+      "parentUuid": "c4c385c9_4b1af687",
       "revId": "53cb16b98acf3cf6f3a1e2204ad4958ecf1b5a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
