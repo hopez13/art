@@ -88,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_908524f8",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-08T07:45:56Z",
+      "side": 1,
+      "message": "This function is called at each DEX instruction when debugging. Since Breakpoint::Method is more than an accessor now (and could be more expensive with moving methods), we should compare the dex pc first.",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 365,
+        "endChar": 75
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_f0981861",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -104,6 +127,29 @@
         "startChar": 0,
         "endLine": 3117,
         "endChar": 24
+      },
+      "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "043d9d9e_d46a34fe",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-08T07:45:56Z",
+      "side": 1,
+      "message": "Kind for consistency with the rest of your changes.",
+      "range": {
+        "startLine": 158,
+        "startChar": 7,
+        "endLine": 158,
+        "endChar": 14
       },
       "revId": "a4249007b71c119fb9aea2c3d60cf8f839b9f811",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
