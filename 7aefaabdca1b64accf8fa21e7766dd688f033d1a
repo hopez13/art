@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e43969b5_a76f36d7",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-08T18:30:21Z",
+      "side": 1,
+      "message": "const maybe for your purposes?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "7aefaabdca1b64accf8fa21e7766dd688f033d1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4224989_e57e9686",
+        "filename": "runtime/implicit_check_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-08T18:30:21Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 49
+      },
+      "revId": "7aefaabdca1b64accf8fa21e7766dd688f033d1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
