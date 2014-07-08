@@ -68,6 +68,24 @@
       "revId": "34c7c277fef7b9ec4c7bb4db948c2c8f3a806258",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "445eb5fe_0cc7474b",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-08T02:02:52Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/96346/ \"Add implicit null and stack checks for x86\" is not merged yet, lets address implicit check in a separate CL (this one is fully tested).",
+      "parentUuid": "a4c051c0_f293d643",
+      "revId": "34c7c277fef7b9ec4c7bb4db948c2c8f3a806258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
