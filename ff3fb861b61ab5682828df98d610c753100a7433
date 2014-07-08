@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c498e5f7_cbfaa155",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-08T16:46:39Z",
+      "side": 1,
+      "message": "As I understand, REX_W will mean mosxd r64, r32 but not movsx r64, r8 as we want. So we cannot use REX_W.",
+      "parentUuid": "c4462542_e79699f5",
+      "range": {
+        "startLine": 616,
+        "startChar": 9,
+        "endLine": 616,
+        "endChar": 77
+      },
+      "revId": "ff3fb861b61ab5682828df98d610c753100a7433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_b1c13f6b",
         "filename": "compiler/dex/quick/x86/x86_lir.h",
         "patchSetId": 5
