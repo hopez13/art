@@ -94,6 +94,30 @@
       "revId": "67b9495ec0400b8aeb6d8940e6101510bf7eab48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "043d9d9e_2284164c",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-08T18:32:39Z",
+      "side": 1,
+      "message": "To be honest I wanted to eliminate TargetReg32 and put this code to TargetReg with two parameters. Well... to me small duplication of the code is not so big deal comparing to leaving the type-unsafe TargetReg method as soon as we are trying to make it type-safe. If we leave this function, someone will use it, believe me :)\nBut is is just my opinion.",
+      "parentUuid": "e474097d_810b1d42",
+      "range": {
+        "startLine": 1193,
+        "startChar": 23,
+        "endLine": 1193,
+        "endChar": 32
+      },
+      "revId": "67b9495ec0400b8aeb6d8940e6101510bf7eab48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
