@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84326dd1_512d6381",
+        "filename": "test/304-method-tracing/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-08T15:33:18Z",
+      "side": 1,
+      "message": "Rather than a new test can we add a --trace option to run-test. I\u0027d like to make sure that all of our corner case tests, for example for proxies, are robust with tracing. I can add this as a test variant in Android.run-test.mk if you like.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "d3d25e630a96afa7b994db9268c28c9332248eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
