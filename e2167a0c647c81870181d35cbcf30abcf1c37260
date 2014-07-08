@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4462542_0c72ec64",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-07-08T02:53:29Z",
+      "side": 1,
+      "message": "Should be const because it does not modify pass itself.",
+      "range": {
+        "startLine": 113,
+        "startChar": 69,
+        "endLine": 113,
+        "endChar": 70
+      },
+      "revId": "e2167a0c647c81870181d35cbcf30abcf1c37260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
