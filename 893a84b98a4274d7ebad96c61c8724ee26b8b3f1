@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84326dd1_566c7146",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-07-09T01:45:45Z",
+      "side": 1,
+      "message": "is this what they intended? don\u0027t they really want $(TARGET_OUT_DATA_NATIVE_TEST)?",
+      "revId": "893a84b98a4274d7ebad96c61c8724ee26b8b3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
