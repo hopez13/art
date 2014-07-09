@@ -49,6 +49,24 @@
     },
     {
       "key": {
+        "uuid": "995e582a_6d2111bd",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-09T23:30:25Z",
+      "side": 1,
+      "message": "The race here should be benign. I\u0027ll add a comment.",
+      "parentUuid": "b9015cf5_55cfec95",
+      "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e474097d_34cc496b",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -66,6 +84,24 @@
         "endLine": 2157,
         "endChar": 34
       },
+      "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_961b3c65",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-09T23:30:25Z",
+      "side": 1,
+      "message": "I\u0027ll add TODO: I think only the mac build has that madvise doesn\u0027t zero.",
+      "parentUuid": "e474097d_34cc496b",
       "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -113,6 +149,24 @@
         "endLine": 2166,
         "endChar": 43
       },
+      "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_5625b496",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-09T23:30:25Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "f9f75445_925eaa24",
       "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
