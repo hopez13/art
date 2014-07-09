@@ -33,6 +33,24 @@
       "revId": "893a84b98a4274d7ebad96c61c8724ee26b8b3f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c41f0544_133db649",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-09T09:43:44Z",
+      "side": 1,
+      "message": "I believe when original put our stuff in the art/ subdir, it was so we could just focus on the art failures, not other tests (the test runner just found everything under /data/nativetest to run)\n\nso I think we still want an art subdirs, even if it they are now: \n\nuserdata/nativetest/arm/art\nuserdata/nativetest/arm64/art",
+      "parentUuid": "a41cd152_49c22519",
+      "revId": "893a84b98a4274d7ebad96c61c8724ee26b8b3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
