@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9f75445_662b5f9e",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-07-09T23:25:39Z",
+      "side": 1,
+      "message": "This check is no longer right when the temps are positive. I will fix this.",
+      "range": {
+        "startLine": 902,
+        "startChar": 0,
+        "endLine": 902,
+        "endChar": 35
+      },
+      "revId": "12ad2e5dfd28fb500c46ecad24d1d2ff6a3c2378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995e582a_2d2b199f",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-07-09T23:25:39Z",
+      "side": 1,
+      "message": "Makes sense for all of these to be uint32_t",
+      "range": {
+        "startLine": 905,
+        "startChar": 2,
+        "endLine": 905,
+        "endChar": 8
+      },
+      "revId": "12ad2e5dfd28fb500c46ecad24d1d2ff6a3c2378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
