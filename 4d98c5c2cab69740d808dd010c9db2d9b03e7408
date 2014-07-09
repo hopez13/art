@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c41f0544_738d0adc",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-09T11:30:02Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \u0027!IsPseudoMirOr(opcode)\u0027 ?",
+      "revId": "4d98c5c2cab69740d808dd010c9db2d9b03e7408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
