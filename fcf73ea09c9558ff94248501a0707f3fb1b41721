@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "995e582a_ede4e1b3",
+        "filename": "runtime/mirror/proxy.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T23:54:06Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 20,
+        "startChar": 23,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "fcf73ea09c9558ff94248501a0707f3fb1b41721",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_66fb5f58",
+        "filename": "runtime/mirror/proxy.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T23:54:06Z",
+      "side": 1,
+      "message": "This class contains nothing other the function declarations. Moving the functions into Class with an assert they are only called for proxy classes.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "fcf73ea09c9558ff94248501a0707f3fb1b41721",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995e582a_0d561592",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T23:54:06Z",
+      "side": 1,
+      "message": "This exists purely for a test. If this code isn\u0027t used by the runtime then we don\u0027t need it or the test.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 2
+      },
+      "revId": "fcf73ea09c9558ff94248501a0707f3fb1b41721",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
