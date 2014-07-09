@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "995e582a_4aff53cd",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:32:53Z",
+      "side": 1,
+      "message": "Its really only used for debug, so other than for the current thread its going to be racy. I\u0027ve added a comment.",
+      "parentUuid": "b9015cf5_41f3b6be",
+      "range": {
+        "startLine": 241,
+        "startChar": 11,
+        "endLine": 241,
+        "endChar": 28
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "043d9d9e_226fb63d",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b9015cf5_75478836",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9f75445_6362361b",
+      "range": {
+        "startLine": 310,
+        "startChar": 36,
+        "endLine": 310,
+        "endChar": 46
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "043d9d9e_828dcade",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -83,6 +131,30 @@
       "writtenOn": "2014-07-09T09:44:56Z",
       "side": 1,
       "message": "I don\u0027t think the comment adds anything as the function is pretty obvious now but I don\u0027t mind. (same for the others)",
+      "range": {
+        "startLine": 353,
+        "startChar": 8,
+        "endLine": 353,
+        "endChar": 64
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_307590d9",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "043d9d9e_828dcade",
       "range": {
         "startLine": 353,
         "startChar": 8,
@@ -118,6 +190,53 @@
     },
     {
       "key": {
+        "uuid": "d9045004_abedb525",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:32:53Z",
+      "side": 1,
+      "message": "Agreed. I think for now my intention is for the load to be sequentially consistent, but this has implied cost we could avoid by adding flag bits to state_.",
+      "parentUuid": "b92f9c8b_0b303d07",
+      "range": {
+        "startLine": 402,
+        "startChar": 42,
+        "endLine": 402,
+        "endChar": 50
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9015cf5_35a5809f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:32:53Z",
+      "side": 1,
+      "message": "Same issue as above, made sequentially consistent.",
+      "range": {
+        "startLine": 525,
+        "startChar": 0,
+        "endLine": 526,
+        "endChar": 63
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_43129aef",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 1
@@ -129,6 +248,30 @@
       "writtenOn": "2014-07-09T21:54:34Z",
       "side": 1,
       "message": "Should this be Atomic\u003cuint64_t\u003e?\nCan we document the intended semantics?\nMy guess is: Can be updated and reliably read by exclusive\nowner, and is read occasionally by other for logging purposes.\nIn the latter case the result is only a hint, and may occasionally be garbage.",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 37
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_77be7052",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:32:53Z",
+      "side": 1,
+      "message": "Its updated and cleared only when the lock is held. Reading it from other threads is racy. I\u0027ll improve the comment.",
+      "parentUuid": "f9f75445_43129aef",
       "range": {
         "startLine": 356,
         "startChar": 2,
