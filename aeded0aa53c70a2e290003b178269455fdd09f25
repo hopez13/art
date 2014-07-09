@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9015cf5_55cfec95",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-09T22:42:32Z",
+      "side": 1,
+      "message": "Thanks, Hans.\n\nI think that as long as we are okay with missing an opportunity to release pages occasionally (leaving an just-freed page as kPageMapEmpty rather than kPageMapReleased), it is fine.\n\nAs I understand, in the \u0027lazy initialization or singleton\u0027 pattern (a common example of double-checked locking), the equivalent of missing an opportunity to release pages occasionally would correspond to returning an not-yet-fully-initialized object, which is bad.",
+      "parentUuid": "e474097d_d4a5d5a8",
+      "range": {
+        "startLine": 2111,
+        "startChar": 9,
+        "endLine": 2111,
+        "endChar": 27
+      },
+      "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e474097d_34cc496b",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2014-07-09T01:31:52Z",
       "side": 1,
       "message": "Can this ever be false?  Is it safe to do the madvise if it\u0027s false?",
+      "range": {
+        "startLine": 2166,
+        "startChar": 8,
+        "endLine": 2166,
+        "endChar": 43
+      },
+      "revId": "aeded0aa53c70a2e290003b178269455fdd09f25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_925eaa24",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-09T22:42:32Z",
+      "side": 1,
+      "message": "This is safe as the case where it can be false is when it\u0027s already kPageMapReleased. The other cases are caught by the DHECK in the previous line.",
+      "parentUuid": "e474097d_14c74d4b",
       "range": {
         "startLine": 2166,
         "startChar": 8,
