@@ -248,6 +248,24 @@
     },
     {
       "key": {
+        "uuid": "b9015cf5_55a00c8f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-09T22:41:45Z",
+      "side": 1,
+      "message": "Agreed.\n\nMight it be worth asserting that each page is either empty or released in a separate loop before doing memset or madvise? In a situation where the assertion fails, side effects like memset/madvise could complicate the crash diagnosis.",
+      "parentUuid": "84326dd1_606c4b47",
+      "revId": "a5b080ec116e5710cda81fdad1a2bcaca7eb7f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "643739c4_f779e3a0",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 2
