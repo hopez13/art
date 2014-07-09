@@ -22,6 +22,30 @@
       "revId": "c3a35f1f00dfbb4cfba6aa748c2bc4b25777c14c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9015cf5_21730a67",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-07-09T18:28:14Z",
+      "side": 1,
+      "message": "Yes, please change this to size_t which is what slow_paths_.Size() returns.",
+      "parentUuid": "84326dd1_a4ebbe5b",
+      "range": {
+        "startLine": 771,
+        "startChar": 7,
+        "endLine": 771,
+        "endChar": 19
+      },
+      "revId": "c3a35f1f00dfbb4cfba6aa748c2bc4b25777c14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
