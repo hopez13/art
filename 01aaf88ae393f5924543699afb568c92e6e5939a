@@ -16,6 +16,24 @@
       "revId": "01aaf88ae393f5924543699afb568c92e6e5939a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_51fb8457",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T20:29:51Z",
+      "side": 1,
+      "message": "We cover this already in atomic.h line 563:\nCOMPILE_ASSERT(sizeof(Atomic\u003cint64_t\u003e) \u003d\u003d sizeof(int64_t), weird_atomic_int64_size);",
+      "parentUuid": "99e73894_659480c3",
+      "revId": "01aaf88ae393f5924543699afb568c92e6e5939a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
