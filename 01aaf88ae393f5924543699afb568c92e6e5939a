@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99e73894_659480c3",
+        "filename": "runtime/gc/accounting/card_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-09T18:45:34Z",
+      "side": 1,
+      "message": "Can you add a compile assert that makes sure that sizeof(Atomic\u003cuintptr_t\u003e) \u003d\u003d sizeof(uintptr_t)?",
+      "revId": "01aaf88ae393f5924543699afb568c92e6e5939a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
