@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99e73894_a2683ebc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a41cd152_43a68638",
+      "range": {
+        "startLine": 467,
+        "startChar": 2,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_fbad5076",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 20
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-08T23:59:55Z",
       "side": 1,
       "message": "inline?",
+      "range": {
+        "startLine": 36,
+        "startChar": 25,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4224989_4823ff0f",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_fbad5076",
       "range": {
         "startLine": 36,
         "startChar": 25,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e43969b5_7688a10e",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "A previous version required acquiring the lock, but the current version does not. I\u0027ve moved it back down.",
+      "parentUuid": "a41cd152_0611fc72",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_dba5eca8",
         "filename": "runtime/mirror/reference.cc",
         "patchSetId": 20
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "99e73894_22f8ae98",
+        "filename": "runtime/mirror/reference.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "My mistake, I forgot to add this to VisitConstantRoots, fixed.",
+      "parentUuid": "84326dd1_dba5eca8",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_9be9b4cf",
         "filename": "runtime/mirror/reference.h",
         "patchSetId": 20
@@ -105,6 +201,30 @@
       "writtenOn": "2014-07-08T23:59:55Z",
       "side": 1,
       "message": "If we add a new root, please add the read barrier code. For an example, see String::GetJavaLangString() or Class::GetJavaLangClass().",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 35
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e73894_42a612de",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84326dd1_9be9b4cf",
       "range": {
         "startLine": 90,
         "startChar": 11,
@@ -157,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "99e73894_a2bf1ee6",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e43969b5_d6bcf5ca",
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84326dd1_5be73cbc",
         "filename": "runtime/mirror/reference.h",
         "patchSetId": 20
@@ -168,6 +306,30 @@
       "writtenOn": "2014-07-08T23:59:55Z",
       "side": 1,
       "message": "Who writes to this field?",
+      "range": {
+        "startLine": 140,
+        "startChar": 10,
+        "endLine": 140,
+        "endChar": 28
+      },
+      "revId": "3120da93b38c470a117936e7b1640abe680b3e25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4224989_a819d3de",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-07-09T01:55:36Z",
+      "side": 1,
+      "message": "This is mainly used for benchmarking and debugging (see libcore changes in the same change-id). The problem is that simply setting the slow_path_enabled_ field causes the GetReferent method in reference processor to get stuck in a loop until GC unsets the flag. Because the intrinsic does not completely replace the JNI method, I added this field so that both the intrinsic path and the JNI path can be tested and benchmarked reliably.",
+      "parentUuid": "84326dd1_5be73cbc",
       "range": {
         "startLine": 140,
         "startChar": 10,
