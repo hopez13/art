@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9015cf5_41f3b6be",
+        "filename": "runtime/base/mutex-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-09T21:54:34Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the required semantics are here.  Is LoadRelaxed() or LoadJavaData() appropriate?  Clearly even LoadRelaxed is only a hint when called from non-owner.  Is it OK to get a half-updated result outside the owning thread?",
+      "range": {
+        "startLine": 241,
+        "startChar": 11,
+        "endLine": 241,
+        "endChar": 28
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "043d9d9e_226fb63d",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2014-07-09T09:44:56Z",
       "side": 1,
       "message": "a bit of inconsistency with the other comments, did you want to use \"with acquire memory ordering\"?",
+      "range": {
+        "startLine": 310,
+        "startChar": 36,
+        "endLine": 310,
+        "endChar": 46
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_6362361b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-09T21:54:34Z",
+      "side": 1,
+      "message": "Agreed.  It\u0027s also not guaranteed to be a fence, in that other earlier memory operations, including loads, may be delayed past it, as should be allowed.  It only affects the ordering of this particular load with respect to subsequent operations; it doesn\u0027t impose order between two sets of memory operations, as fences do.",
+      "parentUuid": "043d9d9e_226fb63d",
       "range": {
         "startLine": 310,
         "startChar": 36,
@@ -41,6 +88,52 @@
         "startChar": 8,
         "endLine": 353,
         "endChar": 64
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b92f9c8b_0b303d07",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-09T21:54:34Z",
+      "side": 1,
+      "message": "This is too weak.  It means the num_contenders load can be reordered with the CAS, and another lock acquisition can sneak in between the num_contenders load and the CAS, see a busy lock, increment num_contenders and start its futex wait.  This thread then performs the CAS, sees no waiters, and neglects to do the FUTEX_WAKE.\n\nThis is all very messy.  Certainly making everything sequentially consistent is correct.  Currently the increments and decrements of num_contenders are already sequentially consistent, which they may not need to be.  But that\u0027s off the critical path.\n\nI\u0027m not convinced that making either the CAS or the later load seq_cst is officially enough to solve the problem.  We probably need both.  If we assume (correctly, I think) that futex contains a fence, then I would be OK with just adding a fence before the num_contenders_ load.  In the long run, I think this really needs a correctness argument in the code.",
+      "range": {
+        "startLine": 402,
+        "startChar": 42,
+        "endLine": 402,
+        "endChar": 50
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_43129aef",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-09T21:54:34Z",
+      "side": 1,
+      "message": "Should this be Atomic\u003cuint64_t\u003e?\nCan we document the intended semantics?\nMy guess is: Can be updated and reliably read by exclusive\nowner, and is read occasionally by other for logging purposes.\nIn the latter case the result is only a hint, and may occasionally be garbage.",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 37
       },
       "revId": "32f71912617599fc1a874e92c595974630820740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
