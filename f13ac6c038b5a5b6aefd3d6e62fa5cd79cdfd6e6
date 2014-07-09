@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9f75445_571254ef",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:13:16Z",
+      "side": 1,
+      "message": "Add a comment, null when no GC in progress, holds.... so we can recover ...",
+      "range": {
+        "startLine": 1008,
+        "startChar": 5,
+        "endLine": 1008,
+        "endChar": 29
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9015cf5_d5941c80",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:13:16Z",
+      "side": 1,
+      "message": "this reads strangely, why do we have two flags use_sticky_compaction and background_collector_type? Should the comment be referring to both of these.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 77
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9015cf5_95c57478",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-09T22:13:16Z",
+      "side": 1,
+      "message": "Comment as to how this differs from background_collector_type_, when will one be used and not the other?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 64
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
