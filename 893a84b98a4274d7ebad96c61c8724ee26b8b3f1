@@ -16,6 +16,23 @@
       "revId": "893a84b98a4274d7ebad96c61c8724ee26b8b3f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41cd152_49c22519",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-07-09T01:47:51Z",
+      "side": 1,
+      "message": "This just keeps the previous behaviour.\nI am not sure if it\u0027s the proper solution. In art/build/Android.gtest.mk we build the 32-bit and 64-bit tests into userdata/nativetest/arm and userdata/nativetest/arm64 respectively, that\u0027s odd with the build system\u0027s nativetest-vs-nativetest64.",
+      "revId": "893a84b98a4274d7ebad96c61c8724ee26b8b3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
