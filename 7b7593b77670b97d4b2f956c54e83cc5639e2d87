@@ -70,6 +70,23 @@
       "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_462d0317",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-10T12:42:49Z",
+      "side": 1,
+      "message": "What you did seems right, but then this means the code above was clearly wrong. I wonder how it could have worked. Do you know whether the code was never called for ARM, x86 or did it just work by accident?\n\nConcerning how we fix the issue, I don\u0027t have a strong opinion on this. Using different flavours of registers (GP/FP) may slightly complicate the code (in the original C++ implementation and above) without a clear benefit apart from being slightly cleaner. The way you did it looks acceptable to me.",
+      "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
