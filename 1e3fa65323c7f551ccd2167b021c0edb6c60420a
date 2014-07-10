@@ -46,6 +46,30 @@
       "revId": "1e3fa65323c7f551ccd2167b021c0edb6c60420a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "598dc0f1_e36f4c36",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-07-10T19:18:54Z",
+      "side": 1,
+      "message": "Mark, I think just replace the \"int\" type to \"AtomicInteger\". It already supports the ++ operator so it should be a drop in change.",
+      "parentUuid": "3992cc12_1ffba358",
+      "range": {
+        "startLine": 862,
+        "startChar": 9,
+        "endLine": 867,
+        "endChar": 8
+      },
+      "revId": "1e3fa65323c7f551ccd2167b021c0edb6c60420a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
