@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3992cc12_9fb6d371",
+        "filename": "runtime/gc/space/bump_pointer_space-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-10T19:48:22Z",
+      "side": 1,
+      "message": "This is fine as a literal translation.  But there may be a performance opportunity here on ARM.  Do we rely elsewhere on the fact there is a fence here?  My guess is that (maybe) ThreadFenceForConstructor() followed by a relaxed operation is both cheaper and a better indication of the intent?  I don\u0027t understand the constraints well enough ...",
+      "range": {
+        "startLine": 71,
+        "startChar": 17,
+        "endLine": 71,
+        "endChar": 58
+      },
+      "revId": "be2a1df15a31a5223ee9af3015a00c31d2ad2e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
