@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "d93290f0_6c5d9b60",
+        "filename": "compiler/dex/quick/mips/target_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T01:38:58Z",
+      "side": 1,
+      "message": "To my knowledge, it only existed for the sake of MIPS.",
+      "parentUuid": "f94e7481_65fa46df",
+      "revId": "c72a508821075e79ebeaa91604d82af78d1a8df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d93290f0_eca2ab1d",
         "filename": "compiler/dex/quick/mips/utility_mips.cc",
         "patchSetId": 2
