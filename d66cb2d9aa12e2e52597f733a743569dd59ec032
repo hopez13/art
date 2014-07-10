@@ -22,6 +22,30 @@
       "revId": "d66cb2d9aa12e2e52597f733a743569dd59ec032",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "395d6c32_0741561e",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T01:34:48Z",
+      "side": 1,
+      "message": "Agreed, the increment/decrements are sequentially consistent and I was trying to avoid mixing orderings. This isn\u0027t performance critical and is already a source of issues thanks to daemon threads not being terminated when we destroy the runtime.",
+      "parentUuid": "f92594a9_50b15215",
+      "range": {
+        "startLine": 281,
+        "startChar": 29,
+        "endLine": 281,
+        "endChar": 55
+      },
+      "revId": "d66cb2d9aa12e2e52597f733a743569dd59ec032",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
