@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "395d6c32_cd347d15",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-10T21:17:33Z",
+      "side": 1,
+      "message": "If I understand the context correctly, I think these both need to be strong, since the sun.misc.unsafe versions are kind of documented to be strong, and j.u.c. definitely assumes they are.  This is a regression that we need to fix.",
+      "range": {
+        "startLine": 98,
+        "startChar": 21,
+        "endLine": 98,
+        "endChar": 63
+      },
+      "revId": "228602f562f1d130d06e60a98752d99c2d467d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "995e582a_1973f766",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 1
@@ -65,6 +88,52 @@
         "startChar": 2,
         "endLine": 636,
         "endChar": 32
+      },
+      "revId": "228602f562f1d130d06e60a98752d99c2d467d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d979b0b6_14f4f4ec",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-10T21:17:33Z",
+      "side": 1,
+      "message": "Relaxed should be fine here, and may be a measurable performance win.",
+      "range": {
+        "startLine": 159,
+        "startChar": 50,
+        "endLine": 159,
+        "endChar": 73
+      },
+      "revId": "228602f562f1d130d06e60a98752d99c2d467d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d1f8e4_52d37474",
+        "filename": "runtime/native/sun_misc_Unsafe.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-10T21:17:33Z",
+      "side": 1,
+      "message": "This and the next 3 need to be Strong.",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 31,
+        "endChar": 56
       },
       "revId": "228602f562f1d130d06e60a98752d99c2d467d6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
