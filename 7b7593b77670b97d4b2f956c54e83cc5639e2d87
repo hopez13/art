@@ -22,6 +22,30 @@
       "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19298885_ee14df61",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-10T05:39:45Z",
+      "side": 1,
+      "message": "Correction :)\nSo IF we really want to have such restriction....",
+      "parentUuid": "593f80b5_5026ecd6",
+      "range": {
+        "startLine": 822,
+        "startChar": 4,
+        "endLine": 822,
+        "endChar": 84
+      },
+      "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
