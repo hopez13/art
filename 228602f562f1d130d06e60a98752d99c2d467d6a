@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "995e582a_1973f766",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-10T09:13:26Z",
+      "side": 1,
+      "message": "Maybe a COMPILE_ASSERT that HeapReference is actually 32 bits, for future-proofing?",
+      "range": {
+        "startLine": 134,
+        "startChar": 2,
+        "endLine": 134,
+        "endChar": 33
+      },
+      "revId": "228602f562f1d130d06e60a98752d99c2d467d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_3ab9e804",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-10T09:13:26Z",
+      "side": 1,
+      "message": "Same as above?",
+      "range": {
+        "startLine": 636,
+        "startChar": 2,
+        "endLine": 636,
+        "endChar": 32
+      },
+      "revId": "228602f562f1d130d06e60a98752d99c2d467d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
