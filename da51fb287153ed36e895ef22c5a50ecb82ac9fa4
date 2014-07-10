@@ -16,6 +16,24 @@
       "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "395d6c32_2add3f7f",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T09:11:43Z",
+      "side": 1,
+      "message": "What\u0027s the issue with rs_rAX? The reason for using the test operation on Intel rather than a load is to avoid needing a temporary register to clobber. The result is not used, we\u0027re relying on the load for a segfault.",
+      "parentUuid": "593f80b5_3025a898",
+      "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
