@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "598dc0f1_2081aa3f",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-10T17:44:05Z",
+      "side": 1,
+      "message": "Ok.  ART callee-saved registers (that are caller-saved in a native ABI) should not be included here.  This is kind of tricky.  :-)",
+      "parentUuid": "993578d4_955e86cd",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7988c4e2_c1800271",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "rbx is caller save in 32-bit API but callee save in 64-bit.",
       "parentUuid": "7988c4e2_c1800271",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7988c4e2_24a0dc8e",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-10T17:44:05Z",
+      "side": 1,
+      "message": "rbx is a callee saved in both native 32-bit and 64-bit ABI.  We should be skip rbx always.  Thanks!",
+      "parentUuid": "19298885_b18aba07",
       "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
