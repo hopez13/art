@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "593f80b5_3025a898",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-10T09:07:47Z",
+      "side": 1,
+      "message": "Please handle here cu_-\u003etarget64 case:\n... Thread::ThreadSuspendTriggerOffset\u003c8\u003e ...\nIs rs_rAX still applicable here for 64-bit?..",
+      "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
