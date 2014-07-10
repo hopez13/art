@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "593f80b5_f07160ac",
+        "filename": "compiler/dex/global_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Once the field is resolved by the ClassLinker, it should be a unique ArtField and we take the declaring dex file and field index from there.",
+      "parentUuid": "19526823_06a5da9e",
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19526823_e6b99ecd",
         "filename": "compiler/dex/global_value_numbering.h",
         "patchSetId": 24
@@ -30,6 +48,30 @@
       "writtenOn": "2014-07-10T06:15:40Z",
       "side": 1,
       "message": "what am I?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993578d4_d29c2492",
+        "filename": "compiler/dex/global_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19526823_e6b99ecd",
       "range": {
         "startLine": 111,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "993578d4_f29f2884",
+        "filename": "compiler/dex/global_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59586041_c8646f9b",
+      "range": {
+        "startLine": 192,
+        "startChar": 40,
+        "endLine": 192,
+        "endChar": 41
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f94e7481_e55516dd",
         "filename": "compiler/dex/global_value_numbering.h",
         "patchSetId": 24
@@ -76,6 +142,30 @@
       "writtenOn": "2014-07-10T06:15:40Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 196,
+        "startChar": 26,
+        "endLine": 196,
+        "endChar": 27
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "593f80b5_50ca6c87",
+        "filename": "compiler/dex/global_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f94e7481_e55516dd",
       "range": {
         "startLine": 196,
         "startChar": 26,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "19298885_4eb1b315",
+        "filename": "compiler/dex/global_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59586041_a8613b89",
+      "range": {
+        "startLine": 200,
+        "startChar": 35,
+        "endLine": 200,
+        "endChar": 36
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59586041_885e77cd",
         "filename": "compiler/dex/global_value_numbering.h",
         "patchSetId": 24
@@ -122,6 +236,30 @@
       "writtenOn": "2014-07-10T06:15:40Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 205,
+        "startChar": 23,
+        "endLine": 205,
+        "endChar": 24
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19298885_aec25766",
+        "filename": "compiler/dex/global_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59586041_885e77cd",
       "range": {
         "startLine": 205,
         "startChar": 23,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "19298885_2ea667dd",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Obsolete typedef, removed.",
+      "parentUuid": "f94e7481_854c2255",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 20
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59586041_c8b34fd2",
         "filename": "compiler/dex/local_value_numbering.h",
         "patchSetId": 24
@@ -168,6 +330,30 @@
       "writtenOn": "2014-07-10T06:15:40Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 20
+      },
+      "revId": "6b4210d28fd647339b064b69acb5022279d85a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993578d4_92969c6c",
+        "filename": "compiler/dex/local_value_numbering.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-10T08:56:07Z",
+      "side": 1,
+      "message": "Obsolete typedef, removed.",
+      "parentUuid": "59586041_c8b34fd2",
       "range": {
         "startLine": 166,
         "startChar": 2,
