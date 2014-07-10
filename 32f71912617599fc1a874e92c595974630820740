@@ -281,6 +281,30 @@
       "revId": "32f71912617599fc1a874e92c595974630820740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93290f0_0c9e17e3",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-10T01:14:17Z",
+      "side": 1,
+      "message": "It still sounds like it should eventually become atomic?",
+      "parentUuid": "f9f75445_77be7052",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 37
+      },
+      "revId": "32f71912617599fc1a874e92c595974630820740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
