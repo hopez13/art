@@ -278,6 +278,30 @@
       "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7988c4e2_0afcbf1a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-10T19:46:35Z",
+      "side": 1,
+      "message": "The native ABI allows all XMM registers to be clobbered by the call, so you have to save to the stack.",
+      "parentUuid": "993578d4_35f59a32",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 36
+      },
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
