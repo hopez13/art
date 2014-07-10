@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3992cc12_9feed390",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-10T19:12:52Z",
+      "side": 1,
+      "message": "I don\u0027t understand the logic here, probably because I\u0027m not seeing the big picture.  If this happened, wouldn\u0027t page_map_[i] have changed as part of the coalescing?  So how could we still get here?\n\nPointers to the conflicting code might help me understand.",
+      "range": {
+        "startLine": 2125,
+        "startChar": 13,
+        "endLine": 2126,
+        "endChar": 50
+      },
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
