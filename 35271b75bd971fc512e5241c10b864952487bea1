@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9045004_791780b0",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-10T17:17:36Z",
+      "side": 1,
+      "message": "The natural counterpart for LoadConstantWide is LoadConstantNoClobber. See TODO before the LoadConstantWide implementation in utility_arm64.cc. This shouldn\u0027t have a real effect here, but I think is worth revising the names. Also, for Arm64 LoadConstantNoClobber will automatically call LoadConstantWide, if the input RegLocation is wide. This means that here you could just use a LoadConstant().",
+      "revId": "35271b75bd971fc512e5241c10b864952487bea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
