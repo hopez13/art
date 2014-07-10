@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f92594a9_d0878250",
+        "filename": "runtime/monitor_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-10T00:55:43Z",
+      "side": 1,
+      "message": "Maybe worth always having chunk size be a power of 2 to avoid a divide + mod?",
+      "revId": "4b5d19ce7d53878901719da83a1336def606041b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93290f0_6cb91b68",
+        "filename": "runtime/monitor_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-10T00:55:43Z",
+      "side": 1,
+      "message": "Use RoundUp here?",
+      "revId": "4b5d19ce7d53878901719da83a1336def606041b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
