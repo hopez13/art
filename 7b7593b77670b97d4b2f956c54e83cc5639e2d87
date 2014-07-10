@@ -105,6 +105,24 @@
       "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "593f80b5_33281208",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-10T18:46:12Z",
+      "side": 1,
+      "message": "I saw this problem on x86_64 when it needed double. The reason we did not mention it before probably because FastGet is false seems to be a rare condition + for floats/doubles it will just results in incorrect calculation and we can simply missed that the result is incorrect.",
+      "parentUuid": "19526823_69c58175",
+      "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
