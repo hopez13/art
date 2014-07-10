@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1980a8c3_f957f389",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T22:28:34Z",
+      "side": 1,
+      "message": "The coalescing code is in FreePages(). It does not necessarily update page_map_ in such a way that kPageMapEmpty necessarily means there\u0027s a free page run that starts at the position.",
+      "parentUuid": "3992cc12_9feed390",
+      "range": {
+        "startLine": 2125,
+        "startChar": 13,
+        "endLine": 2126,
+        "endChar": 50
+      },
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d1f8e4_92b31cea",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
