@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9045004_f94dd0aa",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-10T17:16:50Z",
+      "side": 1,
+      "message": "rs_fr12 to rs_fr15 are still clobbered by an external C call.  Right?",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7988c4e2_c1800271",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-10T17:16:50Z",
+      "side": 1,
+      "message": "Can rs_rBX be skipped?  It is a callee-saved register in the native 32-bit ABI.  Thanks!",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
