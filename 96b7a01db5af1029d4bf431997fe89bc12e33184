@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "593f80b5_13006e99",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-10T18:05:22Z",
+      "side": 1,
+      "message": "Ok I see what you mean (native ABI). Unfortunately this function is also used in intrinsic before using register directly. To be able to use ebx safely we should clobber it here.",
+      "parentUuid": "7988c4e2_24a0dc8e",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7988c4e2_c46810be",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
