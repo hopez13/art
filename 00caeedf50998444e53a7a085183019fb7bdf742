@@ -22,6 +22,30 @@
       "revId": "00caeedf50998444e53a7a085183019fb7bdf742",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_baacd8bf",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-10T09:36:09Z",
+      "side": 1,
+      "message": "We should, but on the other hand if we stored such things in there we\u0027d pollute the runtime with compiler flags...\n\nThis change is more to move all the existing flags to the top to easily see them and make changes to them...",
+      "parentUuid": "993578d4_32f370c0",
+      "range": {
+        "startLine": 91,
+        "startChar": 26,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "00caeedf50998444e53a7a085183019fb7bdf742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
