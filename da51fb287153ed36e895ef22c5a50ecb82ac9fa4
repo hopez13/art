@@ -88,6 +88,24 @@
       "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "396bacde_97c00411",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-10T21:11:06Z",
+      "side": 1,
+      "message": "I see.  However, x86_64 is not supported yet for implicit checks.  I guess there\u0027s no harm in thinking ahead to save some pain when we do implement it.",
+      "parentUuid": "1980a8c3_561b5465",
+      "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
