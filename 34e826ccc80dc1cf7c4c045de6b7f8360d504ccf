@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9f75445_c6ca33d8",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T00:06:36Z",
+      "side": 1,
+      "message": "ugh mixed use of ints and bools, prefer to compare with \u003d\u003d 0 and !\u003d 0 for clarity",
+      "range": {
+        "startLine": 1003,
+        "startChar": 6,
+        "endLine": 1003,
+        "endChar": 56
+      },
+      "revId": "34e826ccc80dc1cf7c4c045de6b7f8360d504ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
