@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "993578d4_955e86cd",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-10T17:31:19Z",
+      "side": 1,
+      "message": "Yes, but we do not do external call directly, we do it using stubs which saves fr12-15, so we should be safe. Clobbering fr12-15 does not make any sense here because Clobber of promoted register does not make any sense (see Clobber implementation).",
+      "parentUuid": "d9045004_f94dd0aa",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7988c4e2_c1800271",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "19298885_b18aba07",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-10T17:31:19Z",
+      "side": 1,
+      "message": "rbx is caller save in 32-bit API but callee save in 64-bit.",
+      "parentUuid": "7988c4e2_c1800271",
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7988c4e2_c46810be",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -47,6 +83,30 @@
       "writtenOn": "2014-07-10T17:26:19Z",
       "side": 1,
       "message": "This one will need better protection.\n\nThere is also one entrypoint in entrypoints_init that is directly a C call. You will have to route that through a stub.",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 36
+      },
+      "revId": "96b7a01db5af1029d4bf431997fe89bc12e33184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993578d4_55a81e61",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-10T17:31:19Z",
+      "side": 1,
+      "message": "you mean spill all callee saves (both gprs and fprs?)\n\nI will try to find which one.",
+      "parentUuid": "7988c4e2_c46810be",
       "range": {
         "startLine": 898,
         "startChar": 0,
