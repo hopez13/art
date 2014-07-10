@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9045004_0386cdc5",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T03:36:15Z",
+      "side": 1,
+      "message": "what does the bk mean then?",
+      "range": {
+        "startLine": 1008,
+        "startChar": 0,
+        "endLine": 1009,
+        "endChar": 37
+      },
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995e582a_3e258198",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T03:36:15Z",
+      "side": 1,
+      "message": "why don\u0027t we set the background_collector_type_ to be sticky compact? Is it that we have sticky compact and a different background collector. Can we comment about this?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 23
+      },
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
