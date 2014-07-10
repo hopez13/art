@@ -70,6 +70,24 @@
       "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_561b5465",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-10T21:06:00Z",
+      "side": 1,
+      "message": "It is a 32 bit move, but the offset that it is to move from is in the 64 bit thread area.  I think Dmitry wants:\nNewLIR2(kX86Mov32RT, rs_rAX.GetReg(),  cu_-\u003etarget64 ? Thread::ThreadSuspendTriggerOffset\u003c8\u003e().Int32Value() : Thread::ThreadSuspendTriggerOffset\u003c4\u003e().Int32Value());",
+      "parentUuid": "f97cb4a5_f53858e9",
+      "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
