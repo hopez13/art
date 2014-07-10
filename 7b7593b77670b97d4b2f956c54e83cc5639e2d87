@@ -87,6 +87,24 @@
       "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19526823_69c58175",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2014-07-10T18:26:46Z",
+      "side": 1,
+      "message": "This problem only shows up for Mips because  the return value is in different registers depending on the return type, where for Arm, it is always in r0:r1.",
+      "parentUuid": "d9045004_462d0317",
+      "revId": "7b7593b77670b97d4b2f956c54e83cc5639e2d87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
