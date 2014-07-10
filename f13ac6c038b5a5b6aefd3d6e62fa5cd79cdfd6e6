@@ -2,6 +2,512 @@
   "comments": [
     {
       "key": {
+        "uuid": "f9f75445_26a0b7bc",
+        "filename": "runtime/gc/collector/gc_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Why use a namespace for one enum? How about removing the namespace and renaming the eum StickyCompactResult, for example?\n\nAlso, I think we don\u0027t need to have this in this file. Move it to heap.h?",
+      "range": {
+        "startLine": 45,
+        "startChar": 10,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_03d12d8e",
+        "filename": "runtime/gc/collector/gc_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "These enum value names are too generic. Use more specific names?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_112f3679",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "kMemMapSpaceName?",
+      "range": {
+        "startLine": 99,
+        "startChar": 19,
+        "endLine": 99,
+        "endChar": 31
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_033fed41",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "The order of these do not match the code.",
+      "range": {
+        "startLine": 222,
+        "startChar": 45,
+        "endLine": 224,
+        "endChar": 76
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_23a30924",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Should do we do this on the parsed_options.cc side?",
+      "range": {
+        "startLine": 227,
+        "startChar": 2,
+        "endLine": 227,
+        "endChar": 92
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_2370a916",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Remove this LOG?",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 70
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_437bb5fe",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "how about main_space_1_map?",
+      "range": {
+        "startLine": 238,
+        "startChar": 12,
+        "endLine": 238,
+        "endChar": 29
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_1f3cdedb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "More descriptive name? Probably we\u0027d want to pass in  kRosAllocSpaceName[1] and kDlMallocSpaceName[1].",
+      "range": {
+        "startLine": 257,
+        "startChar": 62,
+        "endLine": 257,
+        "endChar": 72
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_43fa9523",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "I don\u0027t think this code is necessary or I don\u0027t understand.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 5
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_3fab1aa6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Can we allocate this one before the second one like the IsZygote case above? If we do this, we don\u0027t need the local variable \u0027request_begin\u0027.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 50
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995e582a_fedc8932",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "This comment seems misplaced.",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 45
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_ff9c9291",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Better name?",
+      "range": {
+        "startLine": 294,
+        "startChar": 62,
+        "endLine": 294,
+        "endChar": 72
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_ff2b7268",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Have one call site with the first parameter conditioned on use_sticky_compaction_?",
+      "range": {
+        "startLine": 630,
+        "startChar": 8,
+        "endLine": 630,
+        "endChar": 34
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_3f41da1e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Why suspend threads here? Note the above comment. Does this work if Walk() may try to suspend threads internally?",
+      "range": {
+        "startLine": 916,
+        "startChar": 10,
+        "endLine": 916,
+        "endChar": 36
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995e582a_3ec90161",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. kErrorIgnore does not seem to mean what this comment says.",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1305,
+        "endChar": 68
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_03aa4d06",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "This is confusing. We aren\u0027t trying one more after this.",
+      "range": {
+        "startLine": 1305,
+        "startChar": 69,
+        "endLine": 1305,
+        "endChar": 93
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_bf4cca54",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "I am not sure this direct/indirect names make sense.",
+      "range": {
+        "startLine": 1307,
+        "startChar": 12,
+        "endLine": 1307,
+        "endChar": 37
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_bfe3aae6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Is kErrorMemMap used at all?\n\nIf we don\u0027t do anything for these enum values, having enum values defined for these do not make a lot of sense.\n\nHow about just use bool as the return value instead of the enum?",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 34
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_e3b64172",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure the level of details of this log is necessary.",
+      "range": {
+        "startLine": 1325,
+        "startChar": 0,
+        "endLine": 1335,
+        "endChar": 74
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "995e582a_fed2490b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1545,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Just a note: Since rosalloc can madvise pages-by-pages, the reduction of Size() does not necessarily mean a RAM usage reduction.",
+      "range": {
+        "startLine": 1545,
+        "startChar": 60,
+        "endLine": 1545,
+        "endChar": 74
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_117296b0",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "break the line here?",
+      "range": {
+        "startLine": 158,
+        "startChar": 73,
+        "endLine": 158,
+        "endChar": 74
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_915ea624",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "I don\u0027t think we follow this comment style. Remove it? Same for the other two places in this file.",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 5
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_571254ef",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 5
@@ -37,6 +543,52 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f9f75445_571254ef",
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_e3640172",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "I don\u0027t think the _bk_ name is good. I suggest \"main_space_1_\".",
+      "range": {
+        "startLine": 1009,
+        "startChar": 22,
+        "endLine": 1009,
+        "endChar": 36
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_a32ef915",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Why is this one not Atomic?",
+      "range": {
+        "startLine": 1030,
+        "startChar": 2,
+        "endLine": 1030,
+        "endChar": 18
+      },
       "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -84,6 +636,29 @@
     },
     {
       "key": {
+        "uuid": "995e582a_cd4d9dab",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Do we need to update background_collector_type_ as well here?",
+      "range": {
+        "startLine": 423,
+        "startChar": 6,
+        "endLine": 423,
+        "endChar": 28
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9015cf5_95c57478",
         "filename": "runtime/parsed_options.h",
         "patchSetId": 5
@@ -119,6 +694,75 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b9015cf5_95c57478",
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_06b6db13",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Why is it called \u0027sticky\u0027?\n\nAs the term \u0027sticky\u0027 is already used for sticky bitmap GC, we should use a different name to avoid confusion.\n\nCan we rename the whole thing to something like \u0027free list space compaction\u0027, \u0027background transition compaction\u0027, \u0027cms background transition compaction\u0027?",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 29
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9f75445_6981f03e",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Why not hardcode this to kSuspended?",
+      "range": {
+        "startLine": 287,
+        "startChar": 71,
+        "endLine": 287,
+        "endChar": 87
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_3130f207",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T04:29:18Z",
+      "side": 1,
+      "message": "Should we check that the current/old state is kRunnable, instead?",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 13
+      },
       "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
