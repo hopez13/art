@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "396bacde_bad40dce",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T22:20:29Z",
+      "side": 1,
+      "message": "Maybe in addition to the race condition described here, is it possible that a coalesced free page run whose first part is released and the second part is empty could cause this DCHECK failure, without being racy with other threads?\n\nCan you describe the race condition situation referred to in this comment in more detail? I\u0027m not sure I follow.",
+      "range": {
+        "startLine": 2125,
+        "startChar": 24,
+        "endLine": 2125,
+        "endChar": 38
+      },
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3992cc12_9feed390",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -18,6 +41,29 @@
         "startChar": 13,
         "endLine": 2126,
         "endChar": 50
+      },
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d1f8e4_92b31cea",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2139,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-10T22:20:29Z",
+      "side": 1,
+      "message": "Don\u0027t we need to increment \u0027i\u0027 in the else case here to avoid an infinite loop?",
+      "range": {
+        "startLine": 2139,
+        "startChar": 10,
+        "endLine": 2139,
+        "endChar": 11
       },
       "revId": "23966220770ea36235751b4893d22d99ee8186cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
