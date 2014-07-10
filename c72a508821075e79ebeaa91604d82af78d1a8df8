@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f92594a9_b0c2b666",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T01:20:54Z",
+      "side": 1,
+      "message": "Is it not more true to say its always a reference?",
+      "range": {
+        "startLine": 785,
+        "startChar": 0,
+        "endLine": 786,
+        "endChar": 56
+      },
+      "revId": "c72a508821075e79ebeaa91604d82af78d1a8df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "395d6c32_07ab96a5",
+        "filename": "compiler/dex/quick/mips/target_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T01:20:54Z",
+      "side": 1,
+      "message": "if SupportsVolatileLoadStore(..) is always true then we should remove it",
+      "range": {
+        "startLine": 566,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 1
+      },
+      "revId": "c72a508821075e79ebeaa91604d82af78d1a8df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93290f0_eca2ab1d",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T01:20:54Z",
+      "side": 1,
+      "message": "column wrap is 100 characters, so move to 1 line.",
+      "range": {
+        "startLine": 554,
+        "startChar": 2,
+        "endLine": 555,
+        "endChar": 51
+      },
+      "revId": "c72a508821075e79ebeaa91604d82af78d1a8df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "395d6c32_a7c28a66",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T01:20:54Z",
+      "side": 1,
+      "message": "The same",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 669,
+        "endChar": 29
+      },
+      "revId": "c72a508821075e79ebeaa91604d82af78d1a8df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
