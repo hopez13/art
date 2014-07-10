@@ -34,6 +34,24 @@
       "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "593f80b5_50eeecd7",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-10T09:25:01Z",
+      "side": 1,
+      "message": "Well, sorry, it seems that there is no issue with rAX here. Only Thread::ThreadSuspendTriggerOffset\u003c8\u003e change needed (it is one of cross compilation issues)",
+      "parentUuid": "395d6c32_2add3f7f",
+      "revId": "da51fb287153ed36e895ef22c5a50ecb82ac9fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
