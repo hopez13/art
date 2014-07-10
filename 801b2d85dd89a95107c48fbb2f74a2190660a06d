@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "192428a3_d911f76f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-10T08:46:28Z",
+      "side": 1,
+      "message": "StickyCompact supports Ros space and DlMalloc space. I guess that we need check space-\u003eIsDlMallocSpace() and also check \"space \u003d\u003d main_space_-\u003eAsDlMallocSpace()\" before calling walk().",
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_0386cdc5",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 6
