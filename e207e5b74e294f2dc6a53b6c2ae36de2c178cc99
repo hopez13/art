@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3992cc12_bfbf17e6",
+        "filename": "compiler/driver/dex_compilation_unit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-10T18:45:41Z",
+      "side": 1,
+      "message": "Let\u0027s not add this. String comparison is inefficient and so we shouldn\u0027t be encouraging it. The appropriate this is to use a MethodReference.\n\nIn this CL I don\u0027t see this code being exercised either.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 39
+      },
+      "revId": "e207e5b74e294f2dc6a53b6c2ae36de2c178cc99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
