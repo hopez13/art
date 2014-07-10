@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9045004_86ee6bd5",
+        "filename": "runtime/monitor_pool.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-10T06:56:52Z",
+      "side": 1,
+      "message": "Changed to a free-list implementation.",
+      "parentUuid": "d9045004_ff0dbb5b",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "63dc6a8ce5c111d0d5df9ebe87c95be5cdb9d116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0afbe434_a7b60875",
         "filename": "runtime/monitor_pool.cc",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2014-04-30T22:34:27Z",
       "side": 1,
       "message": "GUARDED_BY(allocated_ids_lock_) ?",
+      "range": {
+        "startLine": 159,
+        "startChar": 40,
+        "endLine": 159,
+        "endChar": 41
+      },
+      "revId": "63dc6a8ce5c111d0d5df9ebe87c95be5cdb9d116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9045004_b102c295",
+        "filename": "runtime/monitor_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-10T06:56:52Z",
+      "side": 1,
+      "message": "No, as the translation from id to ptr needs this.touches this.",
+      "parentUuid": "eaf77045_a3071ea4",
       "range": {
         "startLine": 159,
         "startChar": 40,
