@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "396bacde_31dd807f",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-11T09:56:02Z",
+      "side": 1,
+      "message": "some documentation wouldn\u0027t go amiss. What\u0027s in the mask? how does it handle floats...?",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "2a44a7de0fc11de37ad22ced000805fa719484c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_85be8c4f",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-11T09:56:02Z",
+      "side": 1,
+      "message": "MemoryRegion is a bad name. The point is its a pointer with a bound check, BoundCheckedPointer?\nReasoning on why its a bad name - things go in memory, its implied. Region just tells me it contains mutiple things. I find the code using MemoryRegion hard to read.",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "2a44a7de0fc11de37ad22ced000805fa719484c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_25c3f8d1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-11T09:56:02Z",
+      "side": 1,
+      "message": "Embed in the stack map then?",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "2a44a7de0fc11de37ad22ced000805fa719484c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
