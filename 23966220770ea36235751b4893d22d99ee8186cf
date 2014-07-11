@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "99d1f8e4_754d4285",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-11T00:15:17Z",
+      "side": 1,
+      "message": "I added handling for that case, we now still do a release if that happens.",
+      "parentUuid": "396bacde_bad40dce",
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3992cc12_9feed390",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "99d1f8e4_1581563f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-11T00:15:17Z",
+      "side": 1,
+      "message": "Yes the problem arises when FreePages takes the lock and coalesces two page runs when we only processed the first one in the loop. This removes the free_page_run which starts at fpr and can result in not finding the page in the map.",
+      "parentUuid": "1980a8c3_f957f389",
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d1f8e4_92b31cea",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -89,6 +125,24 @@
         "endLine": 2139,
         "endChar": 11
       },
+      "revId": "23966220770ea36235751b4893d22d99ee8186cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d1f8e4_152b969e",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-11T00:15:17Z",
+      "side": 1,
+      "message": "Fall through increments the i.",
+      "parentUuid": "99d1f8e4_92b31cea",
       "revId": "23966220770ea36235751b4893d22d99ee8186cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
