@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79bfe48c_4fcae130",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-11T19:16:38Z",
+      "side": 1,
+      "message": "If we got this wrong once we need a better test. Here we test 2 concrete classes, can you add arrays, primitives (ie int.class/Integer.TYPE) and interfaces.",
+      "range": {
+        "startLine": 947,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 66
+      },
+      "revId": "e520a399f0a6fd05364fe51fed474c649ed63592",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
