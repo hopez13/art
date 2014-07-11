@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59b4e0af_4b8f39b0",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-11T19:13:32Z",
+      "side": 1,
+      "message": "Should this be a template parameter?",
+      "range": {
+        "startLine": 40,
+        "startChar": 73,
+        "endLine": 40,
+        "endChar": 97
+      },
+      "revId": "d8dc8e0881c50d38491d5bf0b7483403adf3bbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bfe48c_af5efdcc",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-11T19:13:32Z",
+      "side": 1,
+      "message": "So we need StoreStore semantics, that is the pre_fence_visitor\u0027s stores should happen ahead of any store of the object into a place a different thread may see it. When I read Acquire here I don\u0027t read StoreStore so maybe add a QuasiAtomic fence for this to make things more intention revealing.",
+      "range": {
+        "startLine": 77,
+        "startChar": 28,
+        "endLine": 77,
+        "endChar": 35
+      },
+      "revId": "d8dc8e0881c50d38491d5bf0b7483403adf3bbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
