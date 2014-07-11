@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d979b0b6_1a673d2a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-11T20:24:14Z",
+      "side": 1,
+      "message": "Looks dead, except for next statement?\nEliminate?",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "d8dc8e0881c50d38491d5bf0b7483403adf3bbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bfe48c_af5efdcc",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 1
@@ -36,6 +59,30 @@
       "writtenOn": "2014-07-11T19:13:32Z",
       "side": 1,
       "message": "So we need StoreStore semantics, that is the pre_fence_visitor\u0027s stores should happen ahead of any store of the object into a place a different thread may see it. When I read Acquire here I don\u0027t read StoreStore so maybe add a QuasiAtomic fence for this to make things more intention revealing.",
+      "range": {
+        "startLine": 77,
+        "startChar": 28,
+        "endLine": 77,
+        "endChar": 35
+      },
+      "revId": "d8dc8e0881c50d38491d5bf0b7483403adf3bbe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d1f8e4_c6380258",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-07-11T20:24:14Z",
+      "side": 1,
+      "message": "I believe you want ThreadFenceForConstructor instead.  ThreadFenceRelease would also be OK, but might be slower.  ThreadFenceAcquire is technically wrong (we want to essentially turn later stores into release stores w.r.t prior memory operations, instead of turning earlier loads into acquire loads), but the generated fence is likely to be the same for the architectures we care about.\n\nIn an ideal world, I believe ThreadFenceForConstructor would be the only fence we would ever use explicitly in ART.  Everything else should be part of an atomic ordering requirement.  (There are other use cases for fences elsewhere, e.g. for Seqlocks.)",
+      "parentUuid": "79bfe48c_af5efdcc",
       "range": {
         "startLine": 77,
         "startChar": 28,
