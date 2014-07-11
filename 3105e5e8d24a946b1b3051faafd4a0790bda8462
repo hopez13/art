@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59db0006_53ca9630",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-07-11T14:34:11Z",
+      "side": 1,
+      "message": "Looks like !IsTemp() is enough since IsRetired() must be IsTemp(). Can add an assert in IsRetired().",
+      "revId": "3105e5e8d24a946b1b3051faafd4a0790bda8462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
