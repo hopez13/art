@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7971a4c6_b9bdff9f",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-11T10:32:41Z",
+      "side": 1,
+      "message": "This documentation is in stack_map.h. I don\u0027t want to duplicate it here. I\u0027ll add a comment here to look at stack_map.h.",
+      "parentUuid": "396bacde_31dd807f",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "2a44a7de0fc11de37ad22ced000805fa719484c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1980a8c3_85be8c4f",
         "filename": "runtime/memory_region.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7971a4c6_79cf673f",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-11T10:32:41Z",
+      "side": 1,
+      "message": "This file was already there, I dit not create it nor import it. Since I\u0027m just adding functionality, we can do the renaming in another CL.",
+      "parentUuid": "1980a8c3_85be8c4f",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "2a44a7de0fc11de37ad22ced000805fa719484c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1980a8c3_25c3f8d1",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-07-11T09:56:02Z",
       "side": 1,
       "message": "Embed in the stack map then?",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "2a44a7de0fc11de37ad22ced000805fa719484c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7971a4c6_19c42b1f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-11T10:32:41Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment.",
+      "parentUuid": "1980a8c3_25c3f8d1",
       "range": {
         "startLine": 26,
         "startChar": 2,
