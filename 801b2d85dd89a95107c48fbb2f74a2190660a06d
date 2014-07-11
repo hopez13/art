@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f9c1141a_53f13c76",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:54:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "192428a3_d911f76f",
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_0386cdc5",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2014-07-10T03:36:15Z",
       "side": 1,
       "message": "what does the bk mean then?",
+      "range": {
+        "startLine": 1008,
+        "startChar": 0,
+        "endLine": 1009,
+        "endChar": 37
+      },
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c50824_6ef6cf71",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:54:44Z",
+      "side": 1,
+      "message": "backup\n\nchange main_space_bk_ to main_space_backup_",
+      "parentUuid": "d9045004_0386cdc5",
       "range": {
         "startLine": 1008,
         "startChar": 0,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "19c50824_b1873aff",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:54:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91d305e_5aab9576",
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9203493_587ba1d0",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 6
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "f9c1141a_b3d420ce",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:54:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9203493_587ba1d0",
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "995e582a_3e258198",
         "filename": "runtime/parsed_options.h",
         "patchSetId": 6
@@ -87,6 +165,30 @@
       "writtenOn": "2014-07-10T03:36:15Z",
       "side": 1,
       "message": "why don\u0027t we set the background_collector_type_ to be sticky compact? Is it that we have sticky compact and a different background collector. Can we comment about this?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 23
+      },
+      "revId": "801b2d85dd89a95107c48fbb2f74a2190660a06d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce104b_2ca5339f",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:54:44Z",
+      "side": 1,
+      "message": "Sticky compact is only used during background transition; background collector is still CMS. Mathieu Chartier already state it in the new comments.",
+      "parentUuid": "995e582a_3e258198",
       "range": {
         "startLine": 91,
         "startChar": 0,
