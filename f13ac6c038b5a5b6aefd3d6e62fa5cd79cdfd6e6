@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_31f90ae6",
+        "filename": "runtime/gc/collector/gc_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "f9f75445_26a0b7bc",
+      "range": {
+        "startLine": 45,
+        "startChar": 10,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_03d12d8e",
         "filename": "runtime/gc/collector/gc_type.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "These enum value names are too generic. Use more specific names?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c50824_d10d265c",
+        "filename": "runtime/gc/collector/gc_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_03d12d8e",
       "range": {
         "startLine": 48,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_91079e38",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_112f3679",
+      "range": {
+        "startLine": 99,
+        "startChar": 19,
+        "endLine": 99,
+        "endChar": 31
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_033fed41",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "The order of these do not match the code.",
+      "range": {
+        "startLine": 222,
+        "startChar": 45,
+        "endLine": 224,
+        "endChar": 76
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9c1141a_f0a93e12",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_033fed41",
       "range": {
         "startLine": 222,
         "startChar": 45,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d9ce104b_4ffaf1de",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "I think that we do not need this anymore, remove it.",
+      "parentUuid": "d9045004_23a30924",
+      "range": {
+        "startLine": 227,
+        "startChar": 2,
+        "endLine": 227,
+        "endChar": 92
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_2370a916",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "Remove this LOG?",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 70
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce104b_6fffadcd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_2370a916",
       "range": {
         "startLine": 233,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_71155216",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "d9045004_437bb5fe",
+      "range": {
+        "startLine": 238,
+        "startChar": 12,
+        "endLine": 238,
+        "endChar": 29
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_1f3cdedb",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "More descriptive name? Probably we\u0027d want to pass in  kRosAllocSpaceName[1] and kDlMallocSpaceName[1].",
+      "range": {
+        "startLine": 257,
+        "startChar": 62,
+        "endLine": 257,
+        "endChar": 72
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c50824_f10062d2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9f75445_1f3cdedb",
       "range": {
         "startLine": 257,
         "startChar": 62,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_91fd5e81",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Agree. Need confirm from Mathieu Chartier.",
+      "parentUuid": "d9045004_43fa9523",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 5
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_3fab1aa6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -220,6 +436,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "Can we allocate this one before the second one like the IsZygote case above? If we do this, we don\u0027t need the local variable \u0027request_begin\u0027.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 50
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce104b_2ff9a5e5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Agree. Need confirm from Mathieu Chartier.",
+      "parentUuid": "f9f75445_3fab1aa6",
       "range": {
         "startLine": 278,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "f9c1141a_7379d846",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "995e582a_fedc8932",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 45
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_ff9c9291",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -266,6 +530,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "Better name?",
+      "range": {
+        "startLine": 294,
+        "startChar": 62,
+        "endLine": 294,
+        "endChar": 72
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c50824_71c47249",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9f75445_ff9c9291",
       "range": {
         "startLine": 294,
         "startChar": 62,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_f1cf0261",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Sorry, I do not understand your comment clearly.",
+      "parentUuid": "f9f75445_ff2b7268",
+      "range": {
+        "startLine": 630,
+        "startChar": 8,
+        "endLine": 630,
+        "endChar": 34
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_3f41da1e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -312,6 +624,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "Why suspend threads here? Note the above comment. Does this work if Walk() may try to suspend threads internally?",
+      "range": {
+        "startLine": 916,
+        "startChar": 10,
+        "endLine": 916,
+        "endChar": 36
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce104b_8f077938",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Agree. Need confirm from Mathieu Chartier.",
+      "parentUuid": "f9f75445_3f41da1e",
       "range": {
         "startLine": 916,
         "startChar": 10,
@@ -370,6 +706,54 @@
     },
     {
       "key": {
+        "uuid": "d9ce104b_af04b533",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_03aa4d06",
+      "range": {
+        "startLine": 1305,
+        "startChar": 69,
+        "endLine": 1305,
+        "endChar": 93
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9c1141a_d3676c9d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "995e582a_3ec90161",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1305,
+        "endChar": 68
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_bf4cca54",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -381,6 +765,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "I am not sure this direct/indirect names make sense.",
+      "range": {
+        "startLine": 1307,
+        "startChar": 12,
+        "endLine": 1307,
+        "endChar": 37
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c50824_91b31eea",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9f75445_bf4cca54",
       "range": {
         "startLine": 1307,
         "startChar": 12,
@@ -416,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "d9ce104b_4f2191bc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Yes, KErrorMemMap is not used at all after refectoring. Remove it.",
+      "parentUuid": "f9f75445_bfe3aae6",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 34
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_e3b64172",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -427,6 +859,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "I\u0027m not sure the level of details of this log is necessary.",
+      "range": {
+        "startLine": 1325,
+        "startChar": 0,
+        "endLine": 1335,
+        "endChar": 74
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9c1141a_b3bd00a0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_e3b64172",
       "range": {
         "startLine": 1325,
         "startChar": 0,
@@ -462,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "d9ce104b_ef115d6f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1545,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Agree. Thanks for reminder.",
+      "parentUuid": "995e582a_fed2490b",
+      "range": {
+        "startLine": 1545,
+        "startChar": 60,
+        "endLine": 1545,
+        "endChar": 74
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_117296b0",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 5
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "d9ce104b_8f1e997e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_117296b0",
+      "range": {
+        "startLine": 158,
+        "startChar": 73,
+        "endLine": 158,
+        "endChar": 74
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_915ea624",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 5
@@ -496,6 +1000,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "I don\u0027t think we follow this comment style. Remove it? Same for the other two places in this file.",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 5
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce104b_af1b558d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_915ea624",
       "range": {
         "startLine": 507,
         "startChar": 0,
@@ -572,6 +1100,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_319caa59",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "I prefer change it to main_space_backup_ because it points to either \"main space\" or \"main space 1\"",
+      "parentUuid": "d9045004_e3640172",
+      "range": {
+        "startLine": 1009,
+        "startChar": 22,
+        "endLine": 1009,
+        "endChar": 36
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_a32ef915",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 5
@@ -583,6 +1135,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "Why is this one not Atomic?",
+      "range": {
+        "startLine": 1030,
+        "startChar": 2,
+        "endLine": 1030,
+        "endChar": 18
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ce104b_4f48b176",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9045004_a32ef915",
       "range": {
         "startLine": 1030,
         "startChar": 2,
@@ -659,6 +1235,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_f17dc238",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "995e582a_cd4d9dab",
+      "range": {
+        "startLine": 423,
+        "startChar": 6,
+        "endLine": 423,
+        "endChar": 28
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9015cf5_95c57478",
         "filename": "runtime/parsed_options.h",
         "patchSetId": 5
@@ -723,6 +1323,30 @@
     },
     {
       "key": {
+        "uuid": "19c50824_ae027795",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Agree that we drop \"sticky\". I select \"homogeneous space compaction\".",
+      "parentUuid": "f9f75445_06b6db13",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 29
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9f75445_6981f03e",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 5
@@ -746,6 +1370,30 @@
     },
     {
       "key": {
+        "uuid": "d9ce104b_6f4d6d85",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Need confirm from Mathieu Chartier",
+      "parentUuid": "f9f75445_6981f03e",
+      "range": {
+        "startLine": 287,
+        "startChar": 71,
+        "endLine": 287,
+        "endChar": 87
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9045004_3130f207",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 5
@@ -757,6 +1405,30 @@
       "writtenOn": "2014-07-10T04:29:18Z",
       "side": 1,
       "message": "Should we check that the current/old state is kRunnable, instead?",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 13
+      },
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c50824_918a3e08",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1012361
+      },
+      "writtenOn": "2014-07-11T13:55:00Z",
+      "side": 1,
+      "message": "Need confirm from Mathieu Chartier",
+      "parentUuid": "d9045004_3130f207",
       "range": {
         "startLine": 291,
         "startChar": 4,
