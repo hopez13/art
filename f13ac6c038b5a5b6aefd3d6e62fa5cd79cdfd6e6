@@ -660,6 +660,24 @@
     },
     {
       "key": {
+        "uuid": "1980a8c3_73b9b767",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-12T01:31:51Z",
+      "side": 1,
+      "message": "No longer relevant in new CL. Hiroshi refactored this logic into the space.",
+      "parentUuid": "d9ce104b_8f077938",
+      "revId": "f13ac6c038b5a5b6aefd3d6e62fa5cd79cdfd6e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "995e582a_3ec90161",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
