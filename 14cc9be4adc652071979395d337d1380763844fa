@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1980a8c3_71c9af36",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-12T00:01:32Z",
+      "side": 1,
+      "message": "Move this declaration to the else block of the if statement where it\u0027s used?",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_d161a388",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-12T00:01:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be a problem as we checked the tlab size. But how about DCHECK(obj !\u003d nullptr) with a proper error message?",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 7
+      },
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bfe48c_3ef8fd98",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-12T00:01:32Z",
+      "side": 1,
+      "message": "Do we want to have this check for the TLAB case above, too?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 5
+      },
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_91748b51",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-12T00:01:32Z",
+      "side": 1,
+      "message": "AllocatorTypeTLAB could be paired with a concurrent GC. When the TLAB path is taken above, new_num_bytes_allocated is zero here. Calling CheckConcurrentGC with with new_num_bytes_allocated \u003d\u003d 0 seems odd. How about adding \"\u0026\u0026 new_num_bytes_allocated !\u003d 0\" as the third component of the if condition?",
+      "range": {
+        "startLine": 149,
+        "startChar": 28,
+        "endLine": 149,
+        "endChar": 51
+      },
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bfe48c_9eb329ea",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-12T00:01:32Z",
+      "side": 1,
+      "message": "This means that we could throw an OOM a bit earlier with tlab allocator than before because we won\u0027t try to allocate into the fractional space at the end (in other words, we check OOM at the tlab granularity rather than at the individual object granularity) correct?",
+      "range": {
+        "startLine": 234,
+        "startChar": 21,
+        "endLine": 234,
+        "endChar": 46
+      },
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bfe48c_deb681c4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-12T00:01:32Z",
+      "side": 1,
+      "message": "Is this fixing an accounting bug? What\u0027s the significance of this?",
+      "range": {
+        "startLine": 784,
+        "startChar": 19,
+        "endLine": 784,
+        "endChar": 35
+      },
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
