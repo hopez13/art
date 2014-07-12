@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d9a7f088_2a2d1b18",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-12T18:50:03Z",
+      "side": 1,
+      "message": "$(notdir $(TARGET_OUT_DATA_NATIVE_TESTS))\n\nI\u0027d add a comment if you prefer my version to say what it evaluates to :-)",
+      "range": {
+        "startLine": 29,
+        "startChar": 35,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "fbb9f36f51c0c385195c11ce7bf5e0906e597546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bfe48c_75a693b0",
         "filename": "runtime/common_runtime_test.h",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2014-07-12T04:16:41Z",
       "side": 1,
       "message": "This is not correct, though. The 32b test on 64b also needs to look into nativetest64.",
+      "range": {
+        "startLine": 294,
+        "startChar": 10,
+        "endLine": 294,
+        "endChar": 44
+      },
+      "revId": "fbb9f36f51c0c385195c11ce7bf5e0906e597546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bfe48c_88d8ca90",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-12T18:50:03Z",
+      "side": 1,
+      "message": "Make it a #define-d constant and pass through from the make file? All code is subservient to our build system master.",
+      "parentUuid": "79bfe48c_75a693b0",
       "range": {
         "startLine": 294,
         "startChar": 10,
