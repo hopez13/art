@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9aaf451_48e97fcd",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-12T00:11:16Z",
+      "side": 1,
+      "message": "Please put this into a slow_path, that will avoid a jump and put the call out-of-line.",
+      "range": {
+        "startLine": 1317,
+        "startChar": 2,
+        "endLine": 1321,
+        "endChar": 26
+      },
+      "revId": "7cebbcdaef19ab4ccb9e2c6d15d6cb6a44ba3ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
