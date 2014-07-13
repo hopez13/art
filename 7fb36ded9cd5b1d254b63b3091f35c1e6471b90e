@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7971a4c6_3ff9cfe5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-13T05:50:43Z",
+      "side": 0,
+      "message": "This change can be recovered in AOSP by defining the \"running_on_host\u003dtrue\" if HAVE_ANDROID_OS and __x86_64__ are defined.\n\nPlease return back this change to AOSP :)\n\ndiff --git a/runtime/thread.cc b/runtime/thread.cc\t12\nindex e5ccde5..045ed1d 100644\t13\n--- a/runtime/thread.cc\t14\n+++ b/runtime/thread.cc\t15\n@@ -256,8 +256,12 @@ void Thread::InstallImplicitProtection(bool is_main_stack) {\t16\n #ifndef HAVE_ANDROID_OS\t17\n   bool running_on_host \u003d true;\t18\n #else\t19\n+#ifdef __i386__\t20\n+  bool running_on_host \u003d true;\t21\n+#else\t22\n   bool running_on_host \u003d false;\t23\n #endif\t24\n+#endif",
+      "revId": "7fb36ded9cd5b1d254b63b3091f35c1e6471b90e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
