@@ -137,6 +137,24 @@
       "revId": "14cc9be4adc652071979395d337d1380763844fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9a7f088_24a4725a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-13T20:08:37Z",
+      "side": 1,
+      "message": "Since we account for the entire TLAB when we allocate it, we need to account for all of it when we revoke it in the BumpPointerSpace class so that the accounting lines up.",
+      "parentUuid": "79bfe48c_deb681c4",
+      "revId": "14cc9be4adc652071979395d337d1380763844fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
