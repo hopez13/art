@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9a7f088_93eec690",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T17:03:40Z",
+      "side": 1,
+      "message": "ugh.. I thought we were loading from a constant pool",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "d7cde9e02decc2e75cd9dd9c5e6bea0913b2c9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_07ecb696",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T17:03:40Z",
+      "side": 1,
+      "message": "Presumably only on x86-64?\nWhy not: movd xmm0, rip:[literal offset] ?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "d7cde9e02decc2e75cd9dd9c5e6bea0913b2c9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9a7f088_d30bdeb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T17:03:40Z",
+      "side": 1,
+      "message": "iirc 0xFF..FF is also trivial to generate.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "d7cde9e02decc2e75cd9dd9c5e6bea0913b2c9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
