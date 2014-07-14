@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "996c98f2_601b2666",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-07-14T08:58:06Z",
+      "side": 1,
+      "message": "According to Serguei Katkov\u0027s latest evaluation, the logic for main thread on target (x86/x86_64) should be the same as for host.\ni.e. running_on_host \u003d is_main_stack;",
+      "revId": "639db8bf810c99e036a362022f08fadf1d98083c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f993d415_c3e32ae6",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
