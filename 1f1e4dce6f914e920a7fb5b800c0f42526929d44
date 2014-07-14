@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9a7f088_f36e1aca",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T16:27:49Z",
+      "side": 1,
+      "message": "Thanks!\nCan you add cases, here and below, for:\nmin(-0.0, 0.0) \u003d\u003d -0.0\nmin(-0.0, -0.0) \u003d\u003d -0.0\nmin(0.0, -0.0) \u003d\u003d -0.0",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 68
+      },
+      "revId": "1f1e4dce6f914e920a7fb5b800c0f42526929d44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9a7f088_b368a2bc",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T16:27:49Z",
+      "side": 1,
+      "message": "This approxEqual (here and below) is wrong, min or max should only ever return a value passed as an argument. This error appears elsewhere in this file, could you fix it as if I do I\u0027ll likely conflict with this change.",
+      "range": {
+        "startLine": 436,
+        "startChar": 22,
+        "endLine": 436,
+        "endChar": 33
+      },
+      "revId": "1f1e4dce6f914e920a7fb5b800c0f42526929d44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
