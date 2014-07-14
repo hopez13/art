@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "d965302b_ae086bba",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "s/inline //\ninline is implied for member functions",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 9
+      },
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "196c2814_4b2ee518",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 432,
+        "startChar": 2,
+        "endLine": 432,
+        "endChar": 9
+      },
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9683404_642dd417",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 432,
+        "startChar": 32,
+        "endLine": 432,
+        "endChar": 33
+      },
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "196c2814_4b9545ef",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "// True if a native bridge is required, ie the JNI contained n the library is not compatible with the runtime ISA.",
+      "range": {
+        "startLine": 471,
+        "startChar": 5,
+        "endLine": 471,
+        "endChar": 37
+      },
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9683404_a4a9ac13",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "Init",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d965302b_dd663f5f",
         "filename": "runtime/native_bridge.cc",
         "patchSetId": 3
@@ -13,6 +128,52 @@
       "writtenOn": "2014-07-14T21:24:57Z",
       "side": 1,
       "message": "typo:  PROP_ENABLE_NATIVE_BRIDGE -- not naive bridge.",
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9683404_04b7c06f",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "Load",
+      "range": {
+        "startLine": 74,
+        "startChar": 20,
+        "endLine": 74,
+        "endChar": 24
+      },
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d965302b_6ec813ec",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "Is",
+      "range": {
+        "startLine": 86,
+        "startChar": 20,
+        "endLine": 86,
+        "endChar": 22
+      },
       "revId": "e067f627562d76e54882c42443d6e19df4730c47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -36,6 +197,24 @@
     },
     {
       "key": {
+        "uuid": "196c2814_eb66d15e",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "They are const char*, and so not in the Java heap. There\u0027s also no suspension in this code, so handles aren\u0027t necessary.",
+      "parentUuid": "196c2814_ea66cf5e",
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9683404_be037ddd",
         "filename": "runtime/native_bridge.cc",
         "patchSetId": 3
@@ -47,6 +226,29 @@
       "writtenOn": "2014-07-14T21:24:57Z",
       "side": 1,
       "message": "Same SIRT comment.",
+      "revId": "e067f627562d76e54882c42443d6e19df4730c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9683404_c4aca825",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-14T23:35:54Z",
+      "side": 1,
+      "message": "GUARDED_BY(lock_)",
+      "range": {
+        "startLine": 110,
+        "startChar": 15,
+        "endLine": 110,
+        "endChar": 27
+      },
       "revId": "e067f627562d76e54882c42443d6e19df4730c47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
