@@ -39,6 +39,30 @@
       "revId": "639db8bf810c99e036a362022f08fadf1d98083c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1980a8c3_67580a37",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-14T16:22:26Z",
+      "side": 1,
+      "message": "Interesting.  I had thought that glibc\u0027s behavior was causing the need to read the whole stack but it might be a kernel configuration for intel processors only.  Thanks for finding this out.",
+      "parentUuid": "f993d415_c3e32ae6",
+      "range": {
+        "startLine": 274,
+        "startChar": 6,
+        "endLine": 274,
+        "endChar": 67
+      },
+      "revId": "639db8bf810c99e036a362022f08fadf1d98083c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
