@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f993d415_a3085e91",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-14T11:35:34Z",
+      "side": 1,
+      "message": "The phis are in their own list. I could avoid doing AsPhi with templates. Will think about it for another CL.",
+      "parentUuid": "f993d415_9d5a6362",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7ee2a7374b4a139989c8971e368c3ac6e8926bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f993d415_5d44db81",
         "filename": "compiler/optimizing/ssa_phi_elimination.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-11T13:10:44Z",
       "side": 1,
       "message": "Removes",
+      "range": {
+        "startLine": 45,
+        "startChar": 3,
+        "endLine": 45,
+        "endChar": 9
+      },
+      "revId": "7ee2a7374b4a139989c8971e368c3ac6e8926bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996c98f2_a064de70",
+        "filename": "compiler/optimizing/ssa_phi_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-14T11:35:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f993d415_5d44db81",
       "range": {
         "startLine": 45,
         "startChar": 3,
