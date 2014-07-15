@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9dbd436_26d3bc75",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-15T22:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390c8c77_55417c1d",
+      "range": {
+        "startLine": 491,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 3
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f188a2_51435677",
         "filename": "runtime/base/scoped_flock.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "39dacc33_45a8be61",
+        "filename": "runtime/base/scoped_flock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-15T22:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19f188a2_51435677",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79c98_d11bc48c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-07-15T18:50:29Z",
       "side": 1,
       "message": "this seems to be a much bigger change than i was expecting.",
+      "range": {
+        "startLine": 1108,
+        "startChar": 0,
+        "endLine": 1112,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9dbd436_a6b8ac01",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-15T22:42:28Z",
+      "side": 1,
+      "message": "The problem was that the loading logic was spread all over the place, There were ~5 locations where OatFile::Open was called and there was little distinction between what was a location and what was a path.\n\nI decided that instead of dealing with that insanity this would be easier.\n\nThis is also one reason I want tests that run with -Xnorelocate, to make sure this is still compatible with the old way.",
+      "parentUuid": "b9f79c98_d11bc48c",
       "range": {
         "startLine": 1108,
         "startChar": 0,
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "39dacc33_657062ea",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-15T22:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f79c98_91381ce9",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1191,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79c98_5147d463",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
@@ -152,6 +248,30 @@
       "writtenOn": "2014-07-15T18:50:29Z",
       "side": 1,
       "message": "I\u0027d make the error an out argument as usual. then you can use that in the the implementation below as well, right? \n\nin general, anytime you are cutting and pasting instead of refactoring it is probably bad.",
+      "range": {
+        "startLine": 1241,
+        "startChar": 0,
+        "endLine": 1255,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39dacc33_659942fa",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-15T22:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f79c98_5147d463",
       "range": {
         "startLine": 1241,
         "startChar": 0,
