@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9f79c98_ab7169ad",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-15T07:53:05Z",
+      "side": 1,
+      "message": "Why can you reduce from 32-\u003e22 now?",
+      "range": {
+        "startLine": 102,
+        "startChar": 74,
+        "endLine": 102,
+        "endChar": 76
+      },
+      "revId": "933a144751104b6021d4473d8bbf89db37d1b466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_4b5d6525",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-15T07:53:05Z",
+      "side": 1,
+      "message": "Use a switch?",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 8
+      },
+      "revId": "933a144751104b6021d4473d8bbf89db37d1b466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
