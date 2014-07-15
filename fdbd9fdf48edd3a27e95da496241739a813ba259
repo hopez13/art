@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "f9dbd436_03b4f267",
+        "filename": "runtime/instruction_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-15T20:41:30Z",
+      "side": 1,
+      "message": "This is the correct setting. We use thumb2 for almost everything internally (only portable makes a difference), and we expect kThumb2.",
+      "parentUuid": "390c8c77_15eed4d6",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79c98_91381ce9",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
