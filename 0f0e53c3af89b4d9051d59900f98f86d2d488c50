@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9e8d0cd_e21f02c2",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-07-15T11:18:03Z",
+      "side": 1,
+      "message": "It would be more useful to explain the equivalence of CondLs and cbz when the check value is zero, which is generally true, rather than just the specific case of array[0].",
+      "revId": "0f0e53c3af89b4d9051d59900f98f86d2d488c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
