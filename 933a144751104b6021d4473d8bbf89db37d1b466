@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "99cbb865_cb9cdd92",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-07-15T11:30:02Z",
+      "side": 1,
+      "message": "Unintended whitespace?",
+      "revId": "933a144751104b6021d4473d8bbf89db37d1b466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d0c40f_4a81a7a7",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-07-15T11:30:02Z",
+      "side": 1,
+      "message": "Was 32KB, now 23? Is that an accidental digital swap?\nI presume 13KB tests ok.",
+      "revId": "933a144751104b6021d4473d8bbf89db37d1b466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79c98_ab7169ad",
         "filename": "runtime/instruction_set.cc",
         "patchSetId": 5
