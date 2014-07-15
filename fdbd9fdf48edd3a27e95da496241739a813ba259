@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "390c8c77_55417c1d",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-15T18:50:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment standalone without more context. Can you add some more?",
+      "range": {
+        "startLine": 491,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 3
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_51435677",
+        "filename": "runtime/base/scoped_flock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-15T18:50:29Z",
+      "side": 1,
+      "message": "the comment doesn\u0027t apply to both of these. I\u0027d add its own comment since it is a utility function. we also have a scoped_flock_test which should be updated with the new API",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 48
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_d11bc48c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-15T18:50:29Z",
+      "side": 1,
+      "message": "this seems to be a much bigger change than i was expecting.",
+      "range": {
+        "startLine": 1108,
+        "startChar": 0,
+        "endLine": 1112,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_15eed4d6",
+        "filename": "runtime/instruction_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-15T18:50:29Z",
+      "side": 1,
+      "message": "I\u0027m a little surprised that the \"standard\" is thumb2 and not arm. thumb2 implies arm, but arm does not imply thumb2.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_91381ce9",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-15T18:50:29Z",
+      "side": 1,
+      "message": "can\u0027t the above just use the above as a helper? Just add an out argument with the error_msg",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1191,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_5147d463",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-15T18:50:29Z",
+      "side": 1,
+      "message": "I\u0027d make the error an out argument as usual. then you can use that in the the implementation below as well, right? \n\nin general, anytime you are cutting and pasting instead of refactoring it is probably bad.",
+      "range": {
+        "startLine": 1241,
+        "startChar": 0,
+        "endLine": 1255,
+        "endChar": 1
+      },
+      "revId": "fdbd9fdf48edd3a27e95da496241739a813ba259",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
