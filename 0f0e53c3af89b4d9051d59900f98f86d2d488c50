@@ -16,6 +16,24 @@
       "revId": "0f0e53c3af89b4d9051d59900f98f86d2d488c50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99cbb865_ab9f9984",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-15T11:23:53Z",
+      "side": 1,
+      "message": "Yes, I agree. Maybe mention that kArmCondLs is an unsigned less-than-or-equal comparison?",
+      "parentUuid": "d9e8d0cd_e21f02c2",
+      "revId": "0f0e53c3af89b4d9051d59900f98f86d2d488c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
