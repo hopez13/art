@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "f9dbd436_e0dc5c21",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-15T16:56:34Z",
+      "side": 1,
+      "message": "No accidental swap.",
+      "parentUuid": "79d0c40f_4a81a7a7",
+      "revId": "933a144751104b6021d4473d8bbf89db37d1b466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79c98_ab7169ad",
         "filename": "runtime/instruction_set.cc",
         "patchSetId": 5
@@ -70,6 +88,30 @@
       "writtenOn": "2014-07-15T07:53:05Z",
       "side": 1,
       "message": "Use a switch?",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 8
+      },
+      "revId": "933a144751104b6021d4473d8bbf89db37d1b466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9dbd436_00da2822",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-15T16:56:34Z",
+      "side": 1,
+      "message": "Was copied from the constexpr, may go back to it. But will do.",
+      "parentUuid": "b9f79c98_4b5d6525",
       "range": {
         "startLine": 107,
         "startChar": 2,
