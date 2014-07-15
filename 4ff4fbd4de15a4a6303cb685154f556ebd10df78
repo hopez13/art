@@ -1,0 +1,826 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "390c8c77_32accebe",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 32
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_52ceb269",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "Is it intentional not using a reference? If so, it would be nice to comment why.",
+      "range": {
+        "startLine": 135,
+        "startChar": 14,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_f13522ef",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "Looking at the code, we seem to make implicit copies of objects (StackMapEntry, DexRegisterEntry, ...) by getting them from GrowableArray::Get or CodeInfo\u003cT\u003e::GetStackMapAt.  Is it intentional or are we missing use of reference? It\u0027d be nice to comment on this so we avoid anyone trying to fix while we should not.",
+      "range": {
+        "startLine": 135,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 13
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_5186b658",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "We get a copy here. Is it intentional? Should we use a reference?",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_7181323f",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "Use copy constructor for const-ness.",
+      "range": {
+        "startLine": 164,
+        "startChar": 25,
+        "endLine": 164,
+        "endChar": 28
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_8e52bbf1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "Getting a copy here",
+      "range": {
+        "startLine": 172,
+        "startChar": 39,
+        "endLine": 172,
+        "endChar": 41
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_12ab8a77",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "Use copy constructor",
+      "range": {
+        "startLine": 179,
+        "startChar": 27,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_b13b9ae4",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "I don\u0027t see any use in the code so you can remove it. That allows to make MemoryRegion::pointer_ and MemoryRegion::size_ const.",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 13
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_72c93660",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const void* if removing Extend",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 6
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_8e2bdb69",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const size_t if removing Extend",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 8
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_2ec58776",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const. MemoryRegion::Store is const so there is no reason why we can\u0027t make it const here. Most of the comment below are missing const.",
+      "range": {
+        "startLine": 43,
+        "startChar": 31,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_92d93a42",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 51,
+        "startChar": 68,
+        "endLine": 51,
+        "endChar": 69
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_720ad6f6",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_712bf29d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 61,
+        "startChar": 9,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_51307608",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 63,
+        "startChar": 9,
+        "endLine": 63,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_52f87299",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const MemoryRegion",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_1126eed5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 97,
+        "startChar": 82,
+        "endLine": 97,
+        "endChar": 83
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_12154a17",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_6ecf8f96",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const MemoryRegion",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 2
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_91113e71",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 144,
+        "startChar": 33,
+        "endLine": 144,
+        "endChar": 34
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_520fd204",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 152,
+        "startChar": 32,
+        "endLine": 152,
+        "endChar": 33
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_f11ec27e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 160,
+        "startChar": 48,
+        "endLine": 160,
+        "endChar": 49
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_d11bc68c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 168,
+        "startChar": 49,
+        "endLine": 168,
+        "endChar": 50
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_8eb59b09",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 176,
+        "startChar": 37,
+        "endLine": 176,
+        "endChar": 38
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_2eac67be",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 184,
+        "startChar": 44,
+        "endLine": 184,
+        "endChar": 45
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_0eb1ab16",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_114d4e86",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "constexpr (here and below)",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_6ea66fde",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const MemoryRegion",
+      "range": {
+        "startLine": 211,
+        "startChar": 2,
+        "endLine": 211,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_4eabb3a4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 237,
+        "startChar": 38,
+        "endLine": 237,
+        "endChar": 39
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_ae9fb784",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 245,
+        "startChar": 58,
+        "endLine": 245,
+        "endChar": 59
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_8e9c7b91",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 253,
+        "startChar": 94,
+        "endLine": 253,
+        "endChar": 95
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_ee99bf9f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 259,
+        "startChar": 51,
+        "endLine": 259,
+        "endChar": 52
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_f2fd2680",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 266,
+        "startChar": 50,
+        "endLine": 266,
+        "endChar": 51
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_ce96836d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 277,
+        "startChar": 49,
+        "endLine": 277,
+        "endChar": 50
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_5147d663",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "constexpr (and below)",
+      "range": {
+        "startLine": 290,
+        "startChar": 9,
+        "endLine": 290,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_2e1bc766",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T13:47:44Z",
+      "side": 1,
+      "message": "const MemoryRegion",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
