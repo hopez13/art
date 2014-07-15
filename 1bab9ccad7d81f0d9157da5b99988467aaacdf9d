@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "390c8c77_72581637",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T12:37:47Z",
+      "side": 1,
+      "message": "Check this is really a constant?",
+      "range": {
+        "startLine": 531,
+        "startChar": 22,
+        "endLine": 531,
+        "endChar": 40
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f79c98_0ed88b8e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T12:37:47Z",
+      "side": 1,
+      "message": "nit: I\u0027d set a local variable with the register to use (IP here) and use this variable in these 2 lines. That would avoid any partial modification of the register to use.",
+      "range": {
+        "startLine": 536,
+        "startChar": 8,
+        "endLine": 537,
+        "endChar": 80
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390c8c77_525d1225",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T12:37:47Z",
+      "side": 1,
+      "message": "Same check than above",
+      "range": {
+        "startLine": 568,
+        "startChar": 20,
+        "endLine": 568,
+        "endChar": 38
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_2e5d8761",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T12:37:47Z",
+      "side": 1,
+      "message": "Same nit than above",
+      "range": {
+        "startLine": 573,
+        "startChar": 6,
+        "endLine": 574,
+        "endChar": 78
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19f188a2_4e6c530c",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-15T12:37:47Z",
+      "side": 1,
+      "message": "DCHECK(constant !\u003d nullptr) ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 35,
+        "endLine": 79,
+        "endChar": 54
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
