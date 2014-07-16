@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9982d817_501244ef",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "ugh, we should be moving to relocations rather than layering on top of this. Why isn\u0027t this logic in the compiler driver?",
+      "range": {
+        "startLine": 581,
+        "startChar": 10,
+        "endLine": 581,
+        "endChar": 41
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597ce0f0_8e373f18",
+        "filename": "compiler/elf_patcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "nullptr is not a bool",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 21
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597ce0f0_6e43eb77",
+        "filename": "compiler/elf_patcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "Function comments belong in headers.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 78
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597ce0f0_ee2efbbf",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "Document why annotalysis is broken with a TODO or fix.",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 31
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_1047ecdf",
+        "filename": "runtime/instruction_set.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "this is meaningless, remove",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 62
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_70566893",
+        "filename": "runtime/noop_compiler_callbacks.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "You describe when this is used not what the code means. Why don\u0027t all compilers support relocations?",
+      "range": {
+        "startLine": 35,
+        "startChar": 25,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7987e429_cfe691f8",
+        "filename": "runtime/oat.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "There is a general lack of documentation in this change. What is the delta? Could it be 0? When and why would I expect different values?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 29
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_d0647472",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "Presumably from your naming convention we map this as PROT_NONE?",
+      "range": {
+        "startLine": 43,
+        "startChar": 18,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597ce0f0_d1071637",
+        "filename": "runtime/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "out arguments on the right, please explain all of them",
+      "range": {
+        "startLine": 448,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 87
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597ce0f0_f1041a35",
+        "filename": "runtime/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "documentation is now inaccurate, fix",
+      "range": {
+        "startLine": 453,
+        "startChar": 68,
+        "endLine": 454,
+        "endChar": 14
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_10952cf0",
+        "filename": "test/Android.oat.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "follow the tab at the start of the line only convention used throughout this file. These lines shouldn\u0027t have tabs.",
+      "range": {
+        "startLine": 317,
+        "startChar": 1,
+        "endLine": 317,
+        "endChar": 2
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "597ce0f0_512b269d",
+        "filename": "test/Android.oat.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 76
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7987e429_af007dd1",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "remove tabs",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 1
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7987e429_cffdb180",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "remove tabs",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 23
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_509fa40f",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "remove tabs",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 7
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_90fe7c14",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "Is there any good reason for this other than laziness?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9982d817_10eb6c58",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:49:07Z",
+      "side": 1,
+      "message": "Explain the interaction with these and prebuild.",
+      "range": {
+        "startLine": 280,
+        "startChar": 1,
+        "endLine": 281,
+        "endChar": 82
+      },
+      "revId": "12a7b1251cfada5a1f2077ce57cf9813c7c8e265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
