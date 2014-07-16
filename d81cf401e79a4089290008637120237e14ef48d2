@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59ba20ef_f24b28e9",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-16T21:56:42Z",
+      "side": 1,
+      "message": "This instruction size calculation may be incorrect for x86_64.",
+      "revId": "d81cf401e79a4089290008637120237e14ef48d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59ba20ef_1218dc0f",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-16T21:56:42Z",
+      "side": 1,
+      "message": "This is incorrect for 64-bit targets.  We only can access 4 bytes as the method pointer.",
+      "revId": "d81cf401e79a4089290008637120237e14ef48d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
