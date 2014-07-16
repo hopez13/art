@@ -93,6 +93,24 @@
       "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c8a874_53d87b8f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-16T18:00:08Z",
+      "side": 0,
+      "message": "Can you re-add the verify_object_mode_ \u003d\u003d kVerifyObjectModeDisabled check?",
+      "parentUuid": "19c8a874_c0890fa0",
+      "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
