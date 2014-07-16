@@ -86,6 +86,24 @@
       "revId": "d81cf401e79a4089290008637120237e14ef48d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c8a874_e2fb6b22",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-16T22:48:45Z",
+      "side": 1,
+      "message": "Yes.  Ex:\n*out_method \u003d reinterpret_cast\u003cStackReference\u003cmirror::ArtMethod\u003e*\u003e(*out_sp)-\u003eAsMirrorPtr();",
+      "parentUuid": "59ba20ef_0da681ae",
+      "revId": "d81cf401e79a4089290008637120237e14ef48d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
