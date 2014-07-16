@@ -37,6 +37,23 @@
     },
     {
       "key": {
+        "uuid": "79c52478_33ec0897",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-16T22:47:24Z",
+      "side": 1,
+      "message": "Should we check rm \u003d  modrm \u0026 0xb111 here, instead of reg?",
+      "revId": "d81cf401e79a4089290008637120237e14ef48d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59ba20ef_1218dc0f",
         "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
         "patchSetId": 1
