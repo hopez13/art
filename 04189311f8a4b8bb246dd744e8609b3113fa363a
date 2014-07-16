@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19c8a874_d3080bbc",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T18:34:17Z",
+      "side": 1,
+      "message": "Do these routines belong here or the class linker?\nCan you add units tests.",
+      "range": {
+        "startLine": 830,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 88
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c52478_9fff5b42",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T18:34:17Z",
+      "side": 1,
+      "message": "Can you differentiate in the comment between:\n - a dex location\n - a canonical dex location\n - the file name of a dex file\nI think the distinction is confusing and worthy of explanation.",
+      "range": {
+        "startLine": 832,
+        "startChar": 5,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59ba20ef_be090103",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T18:34:17Z",
+      "side": 1,
+      "message": "prefer std::string",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 833,
+        "endChar": 69
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
