@@ -46,6 +46,30 @@
       "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39a80c90_b8e35d38",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-16T15:28:43Z",
+      "side": 1,
+      "message": "018-stack-overflow",
+      "parentUuid": "d9c1b053_491d31ff",
+      "range": {
+        "startLine": 102,
+        "startChar": 79,
+        "endLine": 102,
+        "endChar": 81
+      },
+      "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
