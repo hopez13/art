@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "19c8a874_627bdbd0",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T22:59:29Z",
+      "side": 1,
+      "message": "I\u0027d like to replace this by a proper table-driven solution that will always work.  That can be done in the future though.  The problem with this solution is that if we get the instruction length wrong, the program will crash rather than throwing an appropriate exception.",
+      "parentUuid": "19c8a874_a2417320",
+      "revId": "d81cf401e79a4089290008637120237e14ef48d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c52478_33ec0897",
         "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
         "patchSetId": 1
