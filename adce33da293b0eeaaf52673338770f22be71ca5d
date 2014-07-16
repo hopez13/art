@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "79c52478_bc66ad2a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2014-07-16T17:54:32Z",
+      "side": 0,
+      "message": "Huh? As written, the check is always true.",
+      "parentUuid": "79c52478_dc1cc105",
+      "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9961058_cc922f02",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -54,6 +72,24 @@
       "side": 0,
       "message": "I don\u0027t think you want to delete both conditions of the if statement.",
       "parentUuid": "d9961058_cc922f02",
+      "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c8a874_c0890fa0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2014-07-16T17:54:32Z",
+      "side": 0,
+      "message": "I do, because \"this \u003d\u003d nullptr\" is never true. It doesn\u0027t matter what verify_object_mode is if the first part is false. This code just doesn\u0027t work (or do what you think it is doing). Feel free to add in the appropriate check/validation that you want, but my intention with this CL is to unblock the LLVM rebase, not to improve ART verification.",
+      "parentUuid": "79c52478_3cd85d02",
       "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
