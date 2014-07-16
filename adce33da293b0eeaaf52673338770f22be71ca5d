@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "79c52478_dc1cc105",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-16T17:34:31Z",
+      "side": 0,
+      "message": "Update gc_allocator.cc to handle null Runtime::GetHeap()?",
+      "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9961058_cc922f02",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -19,6 +36,24 @@
         "endLine": 1060,
         "endChar": 10
       },
+      "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c52478_3cd85d02",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-16T17:34:31Z",
+      "side": 0,
+      "message": "I don\u0027t think you want to delete both conditions of the if statement.",
+      "parentUuid": "d9961058_cc922f02",
       "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
