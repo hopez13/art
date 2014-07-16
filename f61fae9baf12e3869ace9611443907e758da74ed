@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "f9c4b462_4f79b146",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T12:30:31Z",
+      "side": 1,
+      "message": "If we\u0027re to maintain this it will need a test as there are assumptions on the text output of oatdump. Perhaps we should just add more command line options to oatdump.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "f61fae9baf12e3869ace9611443907e758da74ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c8a874_8b43bd76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T12:30:31Z",
+      "side": 1,
+      "message": "seems more of a \"stripper\" than an \"exploder\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "f61fae9baf12e3869ace9611443907e758da74ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19c8a874_2b7629e9",
         "filename": "tools/explode-oatdump.py",
         "patchSetId": 1
