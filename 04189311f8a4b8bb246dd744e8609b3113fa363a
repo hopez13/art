@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39a80c90_e308da92",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-07-16T20:28:39Z",
+      "side": 1,
+      "message": "I added them here to minimize the places where we need to know how multidex names are composed. I think it\u0027s better that only one entity knows how to compose and decompose dex locations. It makes things easier to understand and follow.",
+      "parentUuid": "19c8a874_d3080bbc",
+      "range": {
+        "startLine": 830,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 88
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c52478_9fff5b42",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "39a80c90_7ef9dde4",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-07-16T20:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c52478_9fff5b42",
+      "range": {
+        "startLine": 832,
+        "startChar": 5,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59ba20ef_be090103",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-07-16T18:34:17Z",
       "side": 1,
       "message": "prefer std::string",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 833,
+        "endChar": 69
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39bf2ce0_77b95004",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-07-16T20:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59ba20ef_be090103",
       "range": {
         "startLine": 833,
         "startChar": 0,
