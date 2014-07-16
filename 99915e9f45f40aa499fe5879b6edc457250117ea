@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59ba20ef_d8fe0dd0",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T16:35:58Z",
+      "side": 1,
+      "message": "Interesting.  Do you know what fails?",
+      "parentUuid": "d9961058_32794848",
+      "range": {
+        "startLine": 172,
+        "startChar": 9,
+        "endLine": 172,
+        "endChar": 13
+      },
+      "revId": "99915e9f45f40aa499fe5879b6edc457250117ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "198d0845_94410cc0",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 2
@@ -41,6 +65,53 @@
         "startChar": 15,
         "endLine": 880,
         "endChar": 17
+      },
+      "revId": "99915e9f45f40aa499fe5879b6edc457250117ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59ba20ef_5839ddea",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T16:35:58Z",
+      "side": 1,
+      "message": "I\u0027ll check.  The CMN below might also need \u0027rd \u003d rn\u0027.",
+      "parentUuid": "198d0845_94410cc0",
+      "range": {
+        "startLine": 880,
+        "startChar": 15,
+        "endLine": 880,
+        "endChar": 17
+      },
+      "revId": "99915e9f45f40aa499fe5879b6edc457250117ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59ba20ef_b857d905",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T16:35:58Z",
+      "side": 1,
+      "message": "Prefer to pass an argument to the constructor if you really need this.  Other parts of the system use thumb2 assembler (JNI compiler, etc).  We don\u0027t want those affected by this.",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 41
       },
       "revId": "99915e9f45f40aa499fe5879b6edc457250117ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
