@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "59ba20ef_623627fc",
+        "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-16T23:34:45Z",
+      "side": 1,
+      "message": "0x7f4e433c2c21:               44896558            mov     [rbp + 88], r12d\nIt reports this is 5 bytes.  But, the issue may be to check the r/m field.  Thanks!",
+      "parentUuid": "19c8a874_a2417320",
+      "revId": "d81cf401e79a4089290008637120237e14ef48d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c52478_33ec0897",
         "filename": "runtime/arch/x86_64/fault_handler_x86_64.cc",
         "patchSetId": 1
