@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "59ba20ef_f2a7a88f",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T21:51:10Z",
+      "side": 1,
+      "message": "Not really worth it for host",
+      "parentUuid": "59ba20ef_a7cd746d",
+      "range": {
+        "startLine": 38,
+        "startChar": 13,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "6257522e79bfdbfc494c6c8fae2fa507f0d4b83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19c8a874_6c62f41a",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T21:51:10Z",
+      "side": 1,
+      "message": "I shall remove this.  It\u0027s only necessary when logging is on in signal handler.",
+      "parentUuid": "79c52478_0d9561ef",
+      "range": {
+        "startLine": 38,
+        "startChar": 25,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "6257522e79bfdbfc494c6c8fae2fa507f0d4b83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c52478_ed990d2d",
         "filename": "runtime/thread_linux.cc",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2014-07-16T21:13:50Z",
       "side": 1,
       "message": "and here",
+      "range": {
+        "startLine": 59,
+        "startChar": 23,
+        "endLine": 59,
+        "endChar": 27
+      },
+      "revId": "6257522e79bfdbfc494c6c8fae2fa507f0d4b83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c52478_88d39f10",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T21:51:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c52478_ed990d2d",
       "range": {
         "startLine": 59,
         "startChar": 23,
