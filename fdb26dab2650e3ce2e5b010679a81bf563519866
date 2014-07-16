@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79c52478_7f68076f",
+        "filename": "runtime/base/macros.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T18:28:05Z",
+      "side": 1,
+      "message": "can you also push this into:\nruntime/utils.h\nruntime/object_callbacks.h\nruntime/class_linker.h",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 19
+      },
+      "revId": "fdb26dab2650e3ce2e5b010679a81bf563519866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
