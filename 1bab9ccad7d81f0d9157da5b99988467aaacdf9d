@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9df9c55_6b68616f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T23:53:48Z",
+      "side": 1,
+      "message": "Or handle it as an \u0027if (locations-\u003eInAt(1).IsConstant())\u0027 and fatal out in the else case.",
+      "parentUuid": "390c8c77_72581637",
+      "range": {
+        "startLine": 531,
+        "startChar": 22,
+        "endLine": 531,
+        "endChar": 40
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f79c98_0ed88b8e",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -110,6 +134,29 @@
         "startChar": 35,
         "endLine": 79,
         "endChar": 54
+      },
+      "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590860ab_28ddcb1a",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-16T23:53:48Z",
+      "side": 1,
+      "message": "I don\u0027t think this is correct.  The size of the immediate argument in bits depends on the encoding and the instruction.  For example, thumb2 can have 8 or 12 bits but ARM has an encoded 12 bit immediate.",
+      "range": {
+        "startLine": 40,
+        "startChar": 27,
+        "endLine": 40,
+        "endChar": 38
       },
       "revId": "1bab9ccad7d81f0d9157da5b99988467aaacdf9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
