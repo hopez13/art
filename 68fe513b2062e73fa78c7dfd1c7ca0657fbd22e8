@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "198d0845_cecdc3f2",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-16T08:32:24Z",
+      "side": 1,
+      "message": "14 for release works fine for me\n22 for debug is not enough. The lowest I could get was 28.",
+      "range": {
+        "startLine": 102,
+        "startChar": 79,
+        "endLine": 102,
+        "endChar": 81
+      },
+      "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
