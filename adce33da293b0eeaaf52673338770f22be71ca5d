@@ -111,6 +111,24 @@
       "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c52478_5fb66314",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2014-07-16T18:06:55Z",
+      "side": 0,
+      "message": "That is a functional change. I added a separate CL that adds this back for you to verify. I have no clue what I would test in order to validate VerifyObjectModeDisabled.",
+      "parentUuid": "19c8a874_53d87b8f",
+      "revId": "adce33da293b0eeaaf52673338770f22be71ca5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
