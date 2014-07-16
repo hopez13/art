@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "f9c4b462_deb65972",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-07-16T00:26:46Z",
+      "side": 1,
+      "message": "Yes, as Ian said, you  don\u0027t need the \"ifeq..else..\" with the build system\u0027s TARGET_OUT_DATA_NATIVE_TESTS: ART_TARGET_NATIVETEST_DIR :\u003d /data/$(notdir $(TARGET_OUT_DATA_NATIVE_TESTS))",
+      "parentUuid": "d9a7f088_2a2d1b18",
+      "revId": "fbb9f36f51c0c385195c11ce7bf5e0906e597546",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bfe48c_75a693b0",
         "filename": "runtime/common_runtime_test.h",
         "patchSetId": 1
