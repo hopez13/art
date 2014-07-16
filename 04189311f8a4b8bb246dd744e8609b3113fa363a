@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "79c52478_cdc2c9cc",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-16T21:21:39Z",
+      "side": 1,
+      "message": "Agreed. The location vs file name logic is all in class linker, so I\u0027d argue the right place was there. The dex file code is supposed to be used to access an on disk dex file, not as a more general dumping ground. The more general dumping ground is the class linker :-)",
+      "parentUuid": "39a80c90_e308da92",
+      "range": {
+        "startLine": 830,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 88
+      },
+      "revId": "04189311f8a4b8bb246dd744e8609b3113fa363a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c52478_9fff5b42",
         "filename": "runtime/dex_file.h",
         "patchSetId": 1
