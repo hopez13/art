@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1902688d_badc5983",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-17T06:03:01Z",
+      "side": 1,
+      "message": "Presumably missing mutator_lock_, can you put a TODO saying why annotalysis fails (running in a signal handler) and put a dynamic assert Lock::mutator_lock_-\u003eAssertSharedHeld(self)",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 29
+      },
+      "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
