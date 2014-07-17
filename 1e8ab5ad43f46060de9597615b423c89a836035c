@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "598b0070_b0aa589f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-17T16:52:04Z",
+      "side": 1,
+      "message": "Can do.  I\u0027ll do it as a new CL though as it will affect many places in the compiler.",
+      "parentUuid": "b9f87cd3_0369cebf",
+      "range": {
+        "startLine": 1150,
+        "startChar": 6,
+        "endLine": 1150,
+        "endChar": 26
+      },
+      "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1902688d_badc5983",
         "filename": "runtime/arch/x86/fault_handler_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-17T06:03:01Z",
       "side": 1,
       "message": "Presumably missing mutator_lock_, can you put a TODO saying why annotalysis fails (running in a signal handler) and put a dynamic assert Lock::mutator_lock_-\u003eAssertSharedHeld(self)",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 29
+      },
+      "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "598b0070_90a5d4d1",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-17T16:52:04Z",
+      "side": 1,
+      "message": "There is already a check for the lock being held at fault_handler.cc:142 and that functions has a NO_THREAD_SAFETY_ANALYSIS incantation already.  Maybe the correct solution is to add it to the declaration of this function too in the header file?",
+      "parentUuid": "1902688d_badc5983",
       "range": {
         "startLine": 185,
         "startChar": 4,
