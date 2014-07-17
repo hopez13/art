@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1975083e_6e872f8a",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-17T18:47:22Z",
+      "side": 1,
+      "message": "Can you add a COMPILE_ASSERT(sizeof(HeapReference\u003cObject\u003e) \u003d\u003d sizeof(uint32_t)) then?",
+      "range": {
+        "startLine": 638,
+        "startChar": 18,
+        "endLine": 638,
+        "endChar": 19
+      },
+      "revId": "838d4ca161a3ea157a25c556f7a84401057e3fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
