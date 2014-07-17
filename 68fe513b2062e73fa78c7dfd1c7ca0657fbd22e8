@@ -124,6 +124,24 @@
       "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1975083e_34e418ee",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-17T20:29:21Z",
+      "side": 1,
+      "message": "I pass everything with BUILD_HOST_64bit\u003d1 for sdk-eng. :-(\n\nCan you figure out what value works for you?",
+      "parentUuid": "d9fb70cc_041c3684",
+      "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
