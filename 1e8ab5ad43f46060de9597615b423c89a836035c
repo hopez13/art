@@ -117,6 +117,23 @@
       "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "598b0070_b3f7c2a8",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-17T17:49:36Z",
+      "side": 1,
+      "message": "x86_64 uses RDI here.  We may create CTX_METHOD for eax (x86) and rdi (x86_64).  Thanks!",
+      "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
