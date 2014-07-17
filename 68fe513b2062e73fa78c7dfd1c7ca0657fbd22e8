@@ -70,6 +70,24 @@
       "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1902688d_2c5037e9",
+        "filename": "runtime/instruction_set.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-17T01:13:53Z",
+      "side": 1,
+      "message": "FYI.  Somehow, I can run 018-stack-overflow on the x86 emulator (aosp_x86-userdebug).  Host testing is ok.  Thanks!",
+      "parentUuid": "39a80c90_b8e35d38",
+      "revId": "68fe513b2062e73fa78c7dfd1c7ca0657fbd22e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
