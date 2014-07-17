@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d97e1025_60ddfa2b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2564,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-17T23:15:58Z",
+      "side": 1,
+      "message": "This needs a read barrier because class_table_ is a root. See RemoveClass() for an example.",
+      "range": {
+        "startLine": 2564,
+        "startChar": 27,
+        "endLine": 2564,
+        "endChar": 37
+      },
+      "revId": "98d1cc8033251c93786e2fa8c59a2e555a9493be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5964e099_a8851b4c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-17T23:15:58Z",
+      "side": 1,
+      "message": "memcpy() below bypasses the read barrier as well as wrongfully copies the header word that contains the read barrier data (forward pointer, etc.)\n\nA proper way to copy an object is what Object::Clone() (and CopyObject() in object.cc) does.",
+      "range": {
+        "startLine": 833,
+        "startChar": 14,
+        "endLine": 833,
+        "endChar": 20
+      },
+      "revId": "98d1cc8033251c93786e2fa8c59a2e555a9493be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
