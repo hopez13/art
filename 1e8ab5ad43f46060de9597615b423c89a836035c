@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b9f87cd3_66e530ad",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-17T17:02:33Z",
+      "side": 1,
+      "message": "Sounds good, thanks!",
+      "parentUuid": "598b0070_b0aa589f",
+      "range": {
+        "startLine": 1150,
+        "startChar": 6,
+        "endLine": 1150,
+        "endChar": 26
+      },
+      "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1902688d_badc5983",
         "filename": "runtime/arch/x86/fault_handler_x86.cc",
         "patchSetId": 1
