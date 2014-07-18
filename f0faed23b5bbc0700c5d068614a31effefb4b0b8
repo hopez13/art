@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "590220bc_d87a4dfa",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-18T23:34:33Z",
+      "side": 1,
+      "message": "const no more?",
+      "range": {
+        "startLine": 583,
+        "startChar": 90,
+        "endLine": 583,
+        "endChar": 91
+      },
+      "revId": "f0faed23b5bbc0700c5d068614a31effefb4b0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590220bc_f875910a",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-18T23:34:33Z",
+      "side": 1,
+      "message": "unused now, remove",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 13
+      },
+      "revId": "f0faed23b5bbc0700c5d068614a31effefb4b0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
