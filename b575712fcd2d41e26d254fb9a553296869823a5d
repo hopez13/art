@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79e44451_2adb2302",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2766,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-18T23:18:36Z",
+      "side": 1,
+      "message": "can we rename this to \"has_catch_all_handler\"",
+      "range": {
+        "startLine": 2766,
+        "startChar": 9,
+        "endLine": 2766,
+        "endChar": 25
+      },
+      "revId": "b575712fcd2d41e26d254fb9a553296869823a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590220bc_78efc18d",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2775,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-18T23:18:36Z",
+      "side": 1,
+      "message": "We should use the linker in case Throwable isn\u0027t yet resolved in this dex cache:\nlinker-\u003eResolveType(*dex_file_, handler_type_idx, *dex_cache_, *class_loader_);\nIf this returns nullptr the exception should be cleared.",
+      "range": {
+        "startLine": 2775,
+        "startChar": 0,
+        "endLine": 2775,
+        "endChar": 80
+      },
+      "revId": "b575712fcd2d41e26d254fb9a553296869823a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
