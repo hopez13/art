@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "590220bc_984bb5ea",
+        "filename": "runtime/instruction_set.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-18T23:27:21Z",
+      "side": 1,
+      "message": "Can we remove this? Its only useful for the ARM vs Thumb2 case, and we care about that as thumb2 has a +1 in the low-bit of its PC. I worry we\u0027ll confuse ISA and standard ISA. Explicitly comparing both ARM and Thumb2 is less error prone as it means we need to handle the +1 difference everywhere when appropriate.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 50
+      },
+      "revId": "379d209bd035f59f6eed2e4797089b1ce195f2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590220bc_5862bd64",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-18T23:27:21Z",
+      "side": 1,
+      "message": "how does this differ from the default with --prebuild? Presumably there are 4 combinations here:\n (prebuild or no) x (relocate or no)\nHere we have 3 combinations and the default is somewhat grey.",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 82
+      },
+      "revId": "379d209bd035f59f6eed2e4797089b1ce195f2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
