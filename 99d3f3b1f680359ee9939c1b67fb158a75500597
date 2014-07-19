@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9ef5430_f5df539f",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-19T01:57:44Z",
+      "side": 1,
+      "message": "|| space-\u003eIsImageSpace ??\nshouldn\u0027t we give the image objects their own id?",
+      "range": {
+        "startLine": 852,
+        "startChar": 26,
+        "endLine": 852,
+        "endChar": 48
+      },
+      "revId": "99d3f3b1f680359ee9939c1b67fb158a75500597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1975083e_e23d60fb",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-19T01:57:44Z",
+      "side": 1,
+      "message": "desiredHeap is a silly variable name, this is the space containing the object.. nothing to do with desired or heap",
+      "range": {
+        "startLine": 853,
+        "startChar": 4,
+        "endLine": 853,
+        "endChar": 15
+      },
+      "revId": "99d3f3b1f680359ee9939c1b67fb158a75500597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
