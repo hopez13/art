@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "590220bc_3bd38312",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "f9ef5430_f5f0f375",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79e44451_3539c8ec",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 230,
         "endChar": 31
       },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ee4c35_9939ebc5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79e44451_3539c8ec",
       "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "79e44451_f5cda06c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3969ec74_2d2ff9bd",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "790d24e9_8a8b495f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 244,
         "endChar": 51
       },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590220bc_1bd03f02",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done in PS4.",
+      "parentUuid": "790d24e9_8a8b495f",
       "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "79e44451_55d3ac10",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "790d24e9_4a25b196",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1975083e_42f6b470",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -134,6 +224,24 @@
         "endLine": 321,
         "endChar": 33
       },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "590220bc_fb9f4b55",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "For heap_begin and heap_end. Added comment.",
+      "parentUuid": "1975083e_42f6b470",
       "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "590220bc_dba407a5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9ef5430_552c4781",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9ef5430_b59aeb91",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -180,6 +306,24 @@
         "endLine": 396,
         "endChar": 42
       },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79e44451_b5aaf870",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Yes, its just preferred to minimize size of card table.",
+      "parentUuid": "f9ef5430_b59aeb91",
       "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "39ee4c35_794d074f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1975083e_222e0818",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1975083e_c28624c5",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -232,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "39ee4c35_d9e893cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1975083e_c28624c5",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79e44451_951ff47a",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 2
@@ -249,6 +429,24 @@
         "endLine": 1014,
         "endChar": 90
       },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ee4c35_b9edcfdb",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:00Z",
+      "side": 1,
+      "message": "Since it wasn\u0027t added we weren\u0027t deleting it, this only affects the this CL. It was causing test failures where the heap is created multiple times which resulted in running out of virtual memory.",
+      "parentUuid": "79e44451_951ff47a",
       "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
