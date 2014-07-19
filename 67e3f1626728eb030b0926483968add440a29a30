@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "39ee4c35_996c4bd2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79e44451_35b6e813",
+      "revId": "67e3f1626728eb030b0926483968add440a29a30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39ee4c35_0e70f3e8",
         "filename": "runtime/gc/space/bump_pointer_space.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 262,
         "endChar": 83
       },
+      "revId": "67e3f1626728eb030b0926483968add440a29a30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ee4c35_19cf9b96",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:13Z",
+      "side": 1,
+      "message": "Reported by caller, required by rosalloc to figure out which size bracket the allocation is.",
+      "parentUuid": "39ee4c35_0e70f3e8",
       "revId": "67e3f1626728eb030b0926483968add440a29a30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "79e44451_f50e4007",
+        "filename": "runtime/gc/space/large_object_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:13Z",
+      "side": 1,
+      "message": "Don\u0027t need implementation since it can\u0027t be called for large object spaces currently.",
+      "parentUuid": "39ee4c35_ee74afde",
+      "revId": "67e3f1626728eb030b0926483968add440a29a30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39ee4c35_4e8afb94",
         "filename": "runtime/gc/space/zygote_space.h",
         "patchSetId": 3
@@ -88,6 +142,24 @@
         "endLine": 80,
         "endChar": 3
       },
+      "revId": "67e3f1626728eb030b0926483968add440a29a30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39ee4c35_39b6df13",
+        "filename": "runtime/gc/space/zygote_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-19T01:53:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39ee4c35_4e8afb94",
       "revId": "67e3f1626728eb030b0926483968add440a29a30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
