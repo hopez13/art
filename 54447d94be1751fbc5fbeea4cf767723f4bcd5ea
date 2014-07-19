@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9ef5430_f5f0f375",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "If we enable hspace-compaction just for oom and but use SS as the background collector, it still works as we reuse the mem maps, right?",
+      "range": {
+        "startLine": 229,
+        "startChar": 6,
+        "endLine": 229,
+        "endChar": 46
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79e44451_3539c8ec",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "\u0027as\u0027?",
+      "range": {
+        "startLine": 230,
+        "startChar": 30,
+        "endLine": 230,
+        "endChar": 31
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3969ec74_2d2ff9bd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "This reads negated. It should say that we can\u0027t use the same space if we support homo..., right?",
+      "range": {
+        "startLine": 231,
+        "startChar": 10,
+        "endLine": 231,
+        "endChar": 21
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "790d24e9_8a8b495f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "Maybe we should allocate the mem map for the non-moving space first because otherwise the main mem maps could be allocated at the address where we will intend to allocate the non-moving space and the non-moving space allocation could fail (if the preference isn\u0027t honored)?",
+      "range": {
+        "startLine": 244,
+        "startChar": 23,
+        "endLine": 244,
+        "endChar": 51
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "790d24e9_4a25b196",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we create the backup main space only when the hspace compaction is enabled or the background collector is SS?",
+      "range": {
+        "startLine": 296,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 41
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1975083e_42f6b470",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow. Why did we add it in line 297 if we remove it here?",
+      "range": {
+        "startLine": 321,
+        "startChar": 5,
+        "endLine": 321,
+        "endChar": 33
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9ef5430_552c4781",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "This should be the non-moving space.",
+      "range": {
+        "startLine": 379,
+        "startChar": 61,
+        "endLine": 379,
+        "endChar": 75
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9ef5430_b59aeb91",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "This is only preferred as we decided to never immune the main space. Correct?",
+      "range": {
+        "startLine": 396,
+        "startChar": 14,
+        "endLine": 396,
+        "endChar": 42
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1975083e_222e0818",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "Just passing from_space instead may be clearer?",
+      "range": {
+        "startLine": 1496,
+        "startChar": 14,
+        "endLine": 1496,
+        "endChar": 38
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1975083e_c28624c5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "How about CHECK(temp_space_ !\u003d nullptr)?",
+      "range": {
+        "startLine": 1591,
+        "startChar": 8,
+        "endLine": 1591,
+        "endChar": 11
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79e44451_951ff47a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-19T01:29:20Z",
+      "side": 1,
+      "message": "Does this mean that we weren\u0027t deleting it at shutdown?",
+      "range": {
+        "startLine": 1014,
+        "startChar": 2,
+        "endLine": 1014,
+        "endChar": 90
+      },
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
