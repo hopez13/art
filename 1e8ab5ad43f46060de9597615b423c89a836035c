@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "195ee8cf_0c955b79",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T09:43:53Z",
+      "side": 1,
+      "message": "Sure. What I meant is to avoid duplicating this code and passing the info through arguments. See runtime.cc and dex2oat.cc for the duplication. The instruction_set.h seems like a natural place to put the code. If not done before, I\u0027ll integrate that in my CL that implements implicit checks for the optimizing compiler (and where I don\u0027t want to repeat the same switch code).",
+      "parentUuid": "f9ef5430_ac1f4b4f",
+      "range": {
+        "startLine": 1150,
+        "startChar": 6,
+        "endLine": 1150,
+        "endChar": 26
+      },
+      "revId": "1e8ab5ad43f46060de9597615b423c89a836035c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1902688d_badc5983",
         "filename": "runtime/arch/x86/fault_handler_x86.cc",
         "patchSetId": 1
