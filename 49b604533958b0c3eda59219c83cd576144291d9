@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "191c281e_9dc1e416",
+        "filename": "compiler/dex/quick_compiler_callbacks.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 44,
+        "startChar": 67,
+        "endLine": 44,
+        "endChar": 74
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91530f5_1bf31cc0",
+        "filename": "runtime/base/scoped_flock.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "Is that the right error message?",
+      "range": {
+        "startLine": 65,
+        "startChar": 41,
+        "endLine": 65,
+        "endChar": 50
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9123c0c_082bd39e",
+        "filename": "runtime/base/scoped_flock.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "191c281e_801cd786",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1169,
+        "startChar": 18,
+        "endLine": 1169,
+        "endChar": 25
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91530f5_bb914845",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "cache",
+      "range": {
+        "startLine": 1177,
+        "startChar": 18,
+        "endLine": 1177,
+        "endChar": 22
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "191c281e_e00f8b05",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "Should this stay in, at INFO level?",
+      "range": {
+        "startLine": 311,
+        "startChar": 10,
+        "endLine": 312,
+        "endChar": 38
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91530f5_9bad6c0f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 383,
+        "startChar": 4,
+        "endLine": 383,
+        "endChar": 71
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "191c281e_a08bd30c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-21T23:20:40Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 396,
+        "startChar": 4,
+        "endLine": 397,
+        "endChar": 32
+      },
+      "revId": "49b604533958b0c3eda59219c83cd576144291d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
