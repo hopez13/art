@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d91530f5_b77b2201",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-21T18:00:56Z",
+      "side": 1,
+      "message": "Yes, because IsDeoptimized() is no longer const.",
+      "parentUuid": "590220bc_d87a4dfa",
+      "range": {
+        "startLine": 583,
+        "startChar": 90,
+        "endLine": 583,
+        "endChar": 91
+      },
+      "revId": "f0faed23b5bbc0700c5d068614a31effefb4b0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "590220bc_f875910a",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-18T23:34:33Z",
       "side": 1,
       "message": "unused now, remove",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 13
+      },
+      "revId": "f0faed23b5bbc0700c5d068614a31effefb4b0b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9123c0c_36dd562d",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-21T18:00:56Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "590220bc_f875910a",
       "range": {
         "startLine": 21,
         "startChar": 10,
