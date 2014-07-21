@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f95af4db_4edee7f2",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-07-21T13:44:51Z",
+      "side": 1,
+      "message": "or you could have made this \"static const char[] kToolPrefix\" where sizeof( ) would work. You\u0027re right that it\u0027s more brittle, but I believe the google3 style guide recommends using char[] instead of \"char*\" for such compile time constants.",
+      "revId": "8baf0d9263f914aee8ca91df92660342ace9e671",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "195ee8cf_8cfaab52",
         "filename": "compiler/utils/assembler_thumb_test.cc",
         "patchSetId": 1
