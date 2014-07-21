@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d957f0b2_6ab713d8",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390c8c77_32accebe",
+      "range": {
+        "startLine": 46,
+        "startChar": 29,
+        "endLine": 46,
+        "endChar": 32
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "390c8c77_52ceb269",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 4
@@ -59,6 +83,54 @@
       "writtenOn": "2014-07-15T13:47:44Z",
       "side": 1,
       "message": "Looking at the code, we seem to make implicit copies of objects (StackMapEntry, DexRegisterEntry, ...) by getting them from GrowableArray::Get or CodeInfo\u003cT\u003e::GetStackMapAt.  Is it intentional or are we missing use of reference? It\u0027d be nice to comment on this so we avoid anyone trying to fix while we should not.",
+      "range": {
+        "startLine": 135,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 13
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f95af4db_2ec04b5e",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "MemoryRegion can be passed by value, it\u0027s actually part of its documentation.",
+      "parentUuid": "390c8c77_52ceb269",
+      "range": {
+        "startLine": 135,
+        "startChar": 14,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "195ee8cf_cca503a3",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "So the assumption is that GrowableArray::Get is inlined. Otherwise we would do these useless copies. Note that typing the return value a reference or a value does not make a difference.\n\nThe reason why GrowableArray::Get *must* be inlined is because otherwise typing GrowableArray as GrowableArray\u003cMyStruct\u003e would make it very inefficient, and we should change the code to returning a pointer instead.",
+      "parentUuid": "19f188a2_f13522ef",
       "range": {
         "startLine": 135,
         "startChar": 7,
@@ -186,6 +258,30 @@
     },
     {
       "key": {
+        "uuid": "195ee8cf_6cb72fd8",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "I\u0027d rather clean up MemoryRegion in a different CL. Here I\u0027m just using the current functionality and adding one. I agree the code could be tidied up though.",
+      "parentUuid": "19f188a2_b13b9ae4",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 13
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "390c8c77_72c93660",
         "filename": "runtime/memory_region.h",
         "patchSetId": 4
@@ -255,6 +351,30 @@
     },
     {
       "key": {
+        "uuid": "d957f0b2_2aecbb96",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer to keep it this way because I don\u0027t want the contract to imply const. The fact that it\u0027s const is an implementation detail (because I\u0027m using MemoryRegion, but I could also use a growable memory), and may change if we move away from MemoryRegion (by using uleb encoding for example).",
+      "parentUuid": "b9f79c98_2ec58776",
+      "range": {
+        "startLine": 43,
+        "startChar": 31,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "390c8c77_92d93a42",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -289,6 +409,30 @@
       "writtenOn": "2014-07-15T13:47:44Z",
       "side": 1,
       "message": "constexpr",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f95af4db_0e9a2f94",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "Done (and below).",
+      "parentUuid": "390c8c77_720ad6f6",
       "range": {
         "startLine": 60,
         "startChar": 9,
@@ -358,6 +502,30 @@
       "writtenOn": "2014-07-15T13:47:44Z",
       "side": 1,
       "message": "const MemoryRegion",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 14
+      },
+      "revId": "4ff4fbd4de15a4a6303cb685154f556ebd10df78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "195ee8cf_ec91df43",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T11:48:06Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep it this way, to use the default copy constructor. All these classes can just be passed by value.",
+      "parentUuid": "390c8c77_52f87299",
       "range": {
         "startLine": 65,
         "startChar": 2,
