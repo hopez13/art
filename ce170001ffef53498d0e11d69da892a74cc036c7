@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d957f0b2_cae887cd",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-21T09:41:18Z",
+      "side": 1,
+      "message": "Agreed, just a thought for the future.",
+      "parentUuid": "d957f0b2_4aa017be",
+      "range": {
+        "startLine": 1004,
+        "startChar": 23,
+        "endLine": 1004,
+        "endChar": 42
+      },
+      "revId": "ce170001ffef53498d0e11d69da892a74cc036c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "195ee8cf_29584969",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
