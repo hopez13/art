@@ -22,6 +22,29 @@
       "revId": "dc8b8c67eab9a9b9f4c8d9864cd315f90b5a4af9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91530f5_3e86c6c5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-21T23:55:18Z",
+      "side": 1,
+      "message": "nit: no newline needed here?",
+      "range": {
+        "startLine": 272,
+        "startChar": 21,
+        "endLine": 273,
+        "endChar": 8
+      },
+      "revId": "dc8b8c67eab9a9b9f4c8d9864cd315f90b5a4af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
