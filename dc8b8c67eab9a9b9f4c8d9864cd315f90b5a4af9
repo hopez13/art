@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9123c0c_fc573d04",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-21T19:06:55Z",
+      "side": 1,
+      "message": "Also, I think we need to have main_space \u003d\u003d non_moving_space (that is, separate_non_moving_space \u003d false) for GSS. Otherwise the zygote compaction won\u0027t work for GSS (and the device won\u0027t boot) since it does not compact from the main space to the non-moving space (only from the bump pointer space to the non-moving space).",
+      "range": {
+        "startLine": 234,
+        "startChar": 7,
+        "endLine": 234,
+        "endChar": 32
+      },
+      "revId": "dc8b8c67eab9a9b9f4c8d9864cd315f90b5a4af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
