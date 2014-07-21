@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f95af4db_b9f807e3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-21T15:42:36Z",
+      "side": 1,
+      "message": "nit: long line",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 114
+      },
+      "revId": "9c51770490c9e23abcf9ea8027bfc02bc443d8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d957f0b2_2dda9523",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-21T15:42:36Z",
+      "side": 1,
+      "message": "Missing \"codegen_-\u003eMarkNotLeaf();\"",
+      "range": {
+        "startLine": 752,
+        "startChar": 75,
+        "endLine": 752,
+        "endChar": 76
+      },
+      "revId": "9c51770490c9e23abcf9ea8027bfc02bc443d8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
