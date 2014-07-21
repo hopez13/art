@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "191c281e_bd32e079",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-21T22:37:13Z",
+      "side": 1,
+      "message": "We should move \"MarkPossibleNullPointerException(0);\" before \"if(!cu_-\u003etarget64)\".  It is always needed.  Thanks a lot!",
+      "revId": "c3561ae381960cbd52a83b7591504f158ec06920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
