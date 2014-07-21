@@ -248,6 +248,24 @@
     },
     {
       "key": {
+        "uuid": "d91530f5_7e62fe64",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-21T23:55:11Z",
+      "side": 1,
+      "message": "OK. Furthermore, what do you think about moving this RemoveSpace call to line 319 (right after the AddSpace call is) so that the intention is clearer?",
+      "parentUuid": "590220bc_fb9f4b55",
+      "revId": "54447d94be1751fbc5fbeea4cf767723f4bcd5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9ef5430_552c4781",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
