@@ -22,6 +22,30 @@
       "revId": "8baf0d9263f914aee8ca91df92660342ace9e671",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f95af4db_0edd4f1a",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-21T12:40:17Z",
+      "side": 1,
+      "message": "You\u0027re right. Before, it used to be sizeof(\"arm-eabi-\"), which would count the \u0027\\0\u0027. So that was broken, I changed it to a constant because it is used in other places, which broke it in a different way (now it would return 4/8).\n\nWe should stay with strlen. sizeof is too brittle.",
+      "parentUuid": "195ee8cf_8cfaab52",
+      "range": {
+        "startLine": 119,
+        "startChar": 48,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "8baf0d9263f914aee8ca91df92660342ace9e671",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
