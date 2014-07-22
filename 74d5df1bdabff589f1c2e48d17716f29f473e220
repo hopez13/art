@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "195ee8cf_9a2add98",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-22T09:29:46Z",
+      "side": 1,
+      "message": "Bad indentation.",
+      "range": {
+        "startLine": 1558,
+        "startChar": 0,
+        "endLine": 1561,
+        "endChar": 64
+      },
+      "revId": "74d5df1bdabff589f1c2e48d17716f29f473e220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d957f0b2_f81f594e",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-22T09:29:46Z",
+      "side": 1,
+      "message": "Instead of this DCHECK, we should \"DCHECK(last_lir_insn_-\u003eu.m.def_mask-\u003eHasBit(ResourceMask::kCCode));\" after the load constant.",
+      "range": {
+        "startLine": 251,
+        "startChar": 8,
+        "endLine": 251,
+        "endChar": 32
+      },
+      "revId": "74d5df1bdabff589f1c2e48d17716f29f473e220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d957f0b2_582f8d77",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-22T09:29:46Z",
+      "side": 1,
+      "message": "Style: I noticed that we usually create the label in one statement and assign in another.",
+      "range": {
+        "startLine": 261,
+        "startChar": 6,
+        "endLine": 261,
+        "endChar": 55
+      },
+      "revId": "74d5df1bdabff589f1c2e48d17716f29f473e220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f95af4db_94ce3298",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-22T09:29:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 55
+      },
+      "revId": "74d5df1bdabff589f1c2e48d17716f29f473e220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
