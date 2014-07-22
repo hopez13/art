@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "b9123c0c_3fe242a6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-22T01:26:17Z",
+      "side": 1,
+      "message": "It works for me, I think you are right though. Having main_space \u003d\u003d non_moving_space would save memory, but doesn\u0027t currently work for the zygote case. I am working on figuring out what is wrong. We didn\u0027t previously do this.",
+      "parentUuid": "b9123c0c_fc573d04",
+      "revId": "dc8b8c67eab9a9b9f4c8d9864cd315f90b5a4af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91530f5_3e86c6c5",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -42,6 +60,24 @@
         "endLine": 273,
         "endChar": 8
       },
+      "revId": "dc8b8c67eab9a9b9f4c8d9864cd315f90b5a4af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "191c281e_16ddb17e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-07-22T01:26:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91530f5_3e86c6c5",
       "revId": "dc8b8c67eab9a9b9f4c8d9864cd315f90b5a4af9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
