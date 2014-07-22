@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d91530f5_657269b2",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-22T16:56:55Z",
+      "side": 1,
+      "message": "Notice: the code above only affects Arm64, because:\n\n- for MIPS, Arm, x86, WideGPRsAreAliases() always returns false making this new version equivalent to the old,\n- for x86_64, the two versions are again equivalent due to how InexpensiveConstantLong() is implemented. This function returns true unconditionally for x86 and x86_64. This means that the old code never counts references for wide integer constants in the x86/x86_64 cases. The new code does the same and actually skips the second vreg in the wide constant as soon as it finds the first one. This proves that the new code and the old code behave in the same way when loc is a wide integer constants. In all the other cases (loc is not wide, is not integer, or is not a constant) it is quite easy to verify that the new and old version behave identically.\n\nFor Arm64 the old code is particularly bad, because IsInexpensiveConstant(long_integer) is not unconditionally true (it was unconditionally false, but this patch changes this). The consequence was that it ended up promoting odd registers and messing up the promotion map.",
+      "revId": "2728f6e41d2c40703745ce3d0f314bd666acc3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39bc8c31_af0f3906",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-22T16:56:55Z",
+      "side": 1,
+      "message": "We could alternatively change this to,\n\n  size_t core_reg_count_size \u003d num_regs * 2;\n  size_t fp_reg_count_size \u003d num_regs * 2;\n\nWhat do you think?",
+      "revId": "2728f6e41d2c40703745ce3d0f314bd666acc3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
