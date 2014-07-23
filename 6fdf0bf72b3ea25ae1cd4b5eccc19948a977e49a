@@ -52,6 +52,23 @@
       "revId": "6fdf0bf72b3ea25ae1cd4b5eccc19948a977e49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f93914b5_dcc33917",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-23T23:55:23Z",
+      "side": 1,
+      "message": "I didn\u0027t test on Mac.  We will need \"#define CTX_METHOD uc_mcontext-\u003e__ss.__eax\" here.  Thanks!",
+      "revId": "6fdf0bf72b3ea25ae1cd4b5eccc19948a977e49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
