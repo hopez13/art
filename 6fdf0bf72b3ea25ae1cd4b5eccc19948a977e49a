@@ -16,6 +16,24 @@
       "revId": "6fdf0bf72b3ea25ae1cd4b5eccc19948a977e49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39bc8c31_e7a2fd81",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-07-23T11:35:59Z",
+      "side": 1,
+      "message": "What change needs to be done for pop?  There can\u0027t be a null pointer exception there.",
+      "parentUuid": "f95af4db_7a391deb",
+      "revId": "6fdf0bf72b3ea25ae1cd4b5eccc19948a977e49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
