@@ -93,6 +93,30 @@
       "revId": "7ea6f79bbddd69d5db86a8656a31aaaf64ae2582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_a97b9d97",
+        "filename": "test/018-stack-overflow/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-23T22:18:56Z",
+      "side": 1,
+      "message": "Hmm. I\u0027d rather you keep the code and mark it as black listed than commenting a test. I dont want quick and interpreter to lose some coverage.",
+      "parentUuid": "f93914b5_53c3bc6c",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "7ea6f79bbddd69d5db86a8656a31aaaf64ae2582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
