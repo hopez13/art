@@ -34,6 +34,24 @@
       "revId": "6fdf0bf72b3ea25ae1cd4b5eccc19948a977e49a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193d089f_62b7fe6e",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-23T22:58:19Z",
+      "side": 1,
+      "message": "This change is to move \"MarkPossibleNullPointerException(0);\" before \"if (!cu_-\u003etarget64)\", so that both x86 and x86_64 can have suspend point.  Thanks!",
+      "parentUuid": "39bc8c31_e7a2fd81",
+      "revId": "6fdf0bf72b3ea25ae1cd4b5eccc19948a977e49a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
