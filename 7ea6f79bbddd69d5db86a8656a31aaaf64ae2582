@@ -117,6 +117,30 @@
       "revId": "7ea6f79bbddd69d5db86a8656a31aaaf64ae2582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193d089f_62361efc",
+        "filename": "test/018-stack-overflow/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T22:23:42Z",
+      "side": 1,
+      "message": "OK, I\u0027ll push another CL. I was remembering your comment of missing checks in the optimizing compiler, and thought it should expose that it\u0027s actually working correctly in some cases already. :-)",
+      "parentUuid": "7937e4c3_a97b9d97",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "7ea6f79bbddd69d5db86a8656a31aaaf64ae2582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
