@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "39bc8c31_7dc05a5f",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T17:12:08Z",
+      "side": 1,
+      "message": "I wanted to run the oat tests before the \"normal\" run tests, to have similar behavior to before (e.g., when doing mm test-art-target). So now we do:\n\n000: nop \u003d test run-test harness\n001: Main and HelloWorld, first oat tests\n002: sleep \u003d simple run-test\n003: omnibus-opcodes \u003d test opcodes\n004: rest of the old oat tests\n005-: other run tests\n\nAnd yes, I\u0027m exactly talking about \"outside\" testing, which uses some dedicated numbers, so I tried to keep renaming minimal (the range 001-008 is impacted, only).",
+      "parentUuid": "d998d0f7_df27bf36",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 6
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "996498c9_5a1f357b",
         "filename": "test/run-test",
         "patchSetId": 2
