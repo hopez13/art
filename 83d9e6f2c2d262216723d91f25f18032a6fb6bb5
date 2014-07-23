@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39bc8c31_7b1d0ac9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1840,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-23T00:20:07Z",
+      "side": 1,
+      "message": "Already talked about this in person: Can we enable the zygote compaction for GSS?",
+      "range": {
+        "startLine": 1840,
+        "startChar": 20,
+        "endLine": 1840,
+        "endChar": 35
+      },
+      "revId": "83d9e6f2c2d262216723d91f25f18032a6fb6bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
