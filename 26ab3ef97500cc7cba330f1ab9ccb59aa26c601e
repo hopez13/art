@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39bc8c31_e2df8b9f",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T16:59:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "996498c9_1a15bd5b",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 4
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "996498c9_3a128174",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-23T08:35:19Z",
       "side": 1,
       "message": "Why do we need reflection? Can\u0027t we add that to the classpath?",
+      "range": {
+        "startLine": 270,
+        "startChar": 42,
+        "endLine": 270,
+        "endChar": 49
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39bc8c31_a2b7436d",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T16:59:07Z",
+      "side": 1,
+      "message": "We compile with a \"normal\" javac version, the default build. I decided to go with that and not try to figure out where the core jar is etc.",
+      "parentUuid": "996498c9_3a128174",
       "range": {
         "startLine": 270,
         "startChar": 42,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "39bc8c31_22da33b0",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T16:59:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b995dcbe_fb2f2fa6",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 8
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d998d0f7_3c127174",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-23T08:35:19Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 8
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b7804c_e65ddf29",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T16:59:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d998d0f7_3c127174",
       "range": {
         "startLine": 277,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "79b2845d_e94650e1",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T16:59:07Z",
+      "side": 1,
+      "message": "This was the only way to order them in in the beginning without a major re-ordering of the other tests. I did: move nop to 000 (makes sense, as it\u0027s more a run-test infrastructure test), and merge 008-instanceof and 009-instanceof. I did not want to merge further tests or move all other tests along, as some of them we know by standard names and numbers.\n\nThe only downside of this: you can\u0027t run run-test 004, but must use run-test 004-InterfaceTest etc.",
+      "parentUuid": "d998d0f7_7c1cf985",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 6
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "996498c9_5a1f357b",
         "filename": "test/run-test",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-07-23T08:35:19Z",
       "side": 1,
       "message": "ws",
+      "range": {
+        "startLine": 247,
+        "startChar": 102,
+        "endLine": 247,
+        "endChar": 103
+      },
+      "revId": "26ab3ef97500cc7cba330f1ab9ccb59aa26c601e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b7804c_a66c77d1",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T16:59:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "996498c9_5a1f357b",
       "range": {
         "startLine": 247,
         "startChar": 102,
