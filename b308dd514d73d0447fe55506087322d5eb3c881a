@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39bc8c31_8c2fd6bb",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 647,
+        "startChar": 61,
+        "endLine": 647,
+        "endChar": 62
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b2845d_0ed47a27",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "Update.",
+      "range": {
+        "startLine": 650,
+        "startChar": 38,
+        "endLine": 650,
+        "endChar": 41
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b2845d_8ec06a60",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "Please put a comment explicitly noting why the suspend count is not stored - this is a point that would need to be changed if we move to implicit suspend checks and using x19 for other things.",
+      "range": {
+        "startLine": 681,
+        "startChar": 2,
+        "endLine": 681,
+        "endChar": 37
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b2845d_eeabf6a5",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "Update.",
+      "range": {
+        "startLine": 724,
+        "startChar": 51,
+        "endLine": 724,
+        "endChar": 60
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39bc8c31_c7d7f95d",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "Similar to above, put a comment.",
+      "range": {
+        "startLine": 753,
+        "startChar": 2,
+        "endLine": 753,
+        "endChar": 38
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b2845d_ae9a8e91",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 491,
+        "startChar": 43,
+        "endLine": 491,
+        "endChar": 48
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b2845d_8e97ca68",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "So why aren\u0027t you chosing one randomly, e.g., x20?",
+      "range": {
+        "startLine": 1548,
+        "startChar": 7,
+        "endLine": 1548,
+        "endChar": 46
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39bc8c31_ec430279",
+        "filename": "runtime/arch/arm64/thread_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-23T07:17:47Z",
+      "side": 1,
+      "message": "Already being tested in arch_test.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
