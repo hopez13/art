@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "592ce07a_c86d2f82",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T04:45:56Z",
+      "side": 1,
+      "message": "Okay. While we prefer lazily initialization because it saves the memory cost for app that does not need native-bridge. If we initialize native-bridge in Runtime::Init, it will be loaded and initialized for all apps and system servers. While most apps, you know, are with primary ABI.",
+      "parentUuid": "39580c1a_5293b206",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 3
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_70d50ec8",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 5
