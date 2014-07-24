@@ -52,6 +52,24 @@
       "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f93914b5_afe8e8cb",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T17:43:58Z",
+      "side": 1,
+      "message": "You need to set BUILD_HOST_64bit\u003d1, however, the x86-64 assembly code won\u0027t run on a Mac for the usual Mac screwed up their assembler reasons. My work around was to fill the x86-64 assembly code on the Mac with breakpoint instructions. Fixes welcome :-)",
+      "parentUuid": "d9461042_47a04dbe",
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
