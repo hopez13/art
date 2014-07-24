@@ -22,6 +22,30 @@
       "revId": "73edb7fafb101f9fc0a675f8b93baf42db3a8c21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193d089f_abbe1ebf",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3066,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T15:56:38Z",
+      "side": 1,
+      "message": "I think this is something best living in the compiler callbacks. We can pass to the compiler callback that there are class change errors within the code and not inline in that (unlikely) case.",
+      "parentUuid": "9932d8d1_2ada3f35",
+      "range": {
+        "startLine": 3066,
+        "startChar": 28,
+        "endLine": 3066,
+        "endChar": 36
+      },
+      "revId": "73edb7fafb101f9fc0a675f8b93baf42db3a8c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
