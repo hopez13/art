@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3931ecd1_87416624",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T01:49:18Z",
+      "side": 1,
+      "message": "It is kinda exception if it fails in the first time. Then we will be a little bit slower to handle it by trying to reload native-bridge the next time it was invoked.\n\nAnd we are okay to add a new field init_fail_ to indicate the first time init failure. In that case it returns false directly.",
+      "parentUuid": "d9461042_2fb405ba",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 3
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_70d50ec8",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-23T20:39:10Z",
       "side": 1,
       "message": "Why this way? And even if you want to go with extern and not simply include the right header files, move all of this to the .cc file.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 104
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3931ecd1_c7243e9e",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T01:49:18Z",
+      "side": 1,
+      "message": "Okay we can move them to .cc file. And we use extern C because inside native-bridge it may look up that symbol in some cases (for example, native-activity may call native-bridge and register native methods before ART), looking up a mangling name looks a bit unnatural.",
+      "parentUuid": "f93914b5_70d50ec8",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1926e89c_06a01abd",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T01:49:18Z",
+      "side": 1,
+      "message": "Okay.",
+      "parentUuid": "193d089f_317e2a35",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 10
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "193d089f_518bb60d",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-23T20:39:10Z",
       "side": 1,
       "message": "Similar. NativeBridgeCallbacks maybe.",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 10
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3931ecd1_c7f27eba",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T01:49:18Z",
+      "side": 1,
+      "message": "Okay.",
+      "parentUuid": "193d089f_518bb60d",
       "range": {
         "startLine": 99,
         "startChar": 2,
