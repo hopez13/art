@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "1926e89c_e6ff7e40",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T04:53:34Z",
+      "side": 1,
+      "message": "And we agree with you to use command-line parameter instead of property. Some other module (zygote?) need to do the property and pass it to ART. May you help on that?",
+      "parentUuid": "39580c1a_5293b206",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 3
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_70d50ec8",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 5
