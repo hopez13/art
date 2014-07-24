@@ -354,6 +354,30 @@
       "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3931ecd1_ca09a302",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T07:43:40Z",
+      "side": 1,
+      "message": "Yes. Then we need to dynamically allocate memory for that data structure. Or to use global variable?",
+      "parentUuid": "193d089f_98929a90",
+      "range": {
+        "startLine": 112,
+        "startChar": 9,
+        "endLine": 112,
+        "endChar": 17
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
