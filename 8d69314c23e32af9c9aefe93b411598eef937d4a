@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "d9461042_9690a9fa",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1051588
+      },
+      "writtenOn": "2014-07-24T06:39:50Z",
+      "side": 1,
+      "message": "Sounds good if Runtime::Init() is per-app. \nThere is a problem: we cannot always find .so files in the apk, for example, pre-load apps (its .so is under /system/lib).",
+      "parentUuid": "f93914b5_7606e1ad",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 3
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_70d50ec8",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 5
