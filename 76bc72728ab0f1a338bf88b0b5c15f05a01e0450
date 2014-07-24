@@ -34,6 +34,24 @@
       "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9461042_47a04dbe",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-24T17:30:20Z",
+      "side": 1,
+      "message": "Maybe you need manually edit this file to enable the 64-bit host build.\nEx:\nfu@fu-ubuntu:/disk/dev/aosp/build$ git diff\ndiff --git a/core/envsetup.mk b/core/envsetup.mk\nindex d0b5846..f48cc25 100644\n--- a/core/envsetup.mk\n+++ b/core/envsetup.mk\n@@ -71,7 +71,7 @@ endif\n # after we default to 64-bit host build.\n ifeq (,$(BUILD_HOST_64bit))\n # Default to 32-bit-by-default multilib host build.\n-HOST_PREFER_32_BIT :\u003d true\n+HOST_PREFER_32_BIT :\u003d false\n endif\n \n # HOST_ARCH",
+      "parentUuid": "193d089f_d525cbc9",
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
