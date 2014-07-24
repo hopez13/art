@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f93914b5_6ce7eef4",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T16:45:23Z",
+      "side": 1,
+      "message": "Is the bug that this is never true? Well it looks currently that it could be true, but that\u0027s a bug in that we should generating PC relative loads using RIP addressing.",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 44
+      },
+      "revId": "6e17535dc2a0db4f24a92b3e6854b53cf949b360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f93914b5_cc14621d",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T16:45:23Z",
+      "side": 1,
+      "message": "which means we always come in here, and this code is 32-bit specific?\nShould this code do what the code below does and do:\nif (r_dest.IsPair()) {\n  ... what we have 32-bit code\n} else {\n  ... the code you added above for 64-bit\n}",
+      "range": {
+        "startLine": 602,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 9
+      },
+      "revId": "6e17535dc2a0db4f24a92b3e6854b53cf949b360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
