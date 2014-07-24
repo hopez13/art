@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_4d5b0d68",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1039893
+      },
+      "writtenOn": "2014-07-24T17:31:35Z",
+      "side": 1,
+      "message": "Seems like there is no bug here. I\u0027ve checked it on a simple test like:\n\npublic static double foo(double a) {\n   return a / 500000000000.0d;\n}\n\nCompiler generated loading through const pool in both x86 and x86_64 cases (without this patch). The problem was in my test, I made it based on my Min/Max patch which was not enabled in AnalyzeInvokeStatic, and after I checked the generated code, I found out that it used 2 core regs. So that was my mistake.\n\nSeems like this (loading through const pool) is not the optimal method for x86_64, because compiler generates an additional call/pop in a beginning of the function and use the memory access to const pool, which can be expensive.",
+      "parentUuid": "f93914b5_6ce7eef4",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 44
+      },
+      "revId": "6e17535dc2a0db4f24a92b3e6854b53cf949b360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_cc14621d",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 3
