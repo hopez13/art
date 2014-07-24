@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d9461042_a7be5198",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T17:39:58Z",
+      "side": 1,
+      "message": "The reason the call-pop is generated is that x86 doesn\u0027t have RIP addressing, while x86-64 does. The codegen choices are:\n\nmov rX, #value\nmovd xmmY, rX\n\nor\n\nmovd xmmY, rip:[literal pool offset to #value]\n\nmy experience has been the latter is better in that it at least uses 1 fewer register.\n\nI\u0027m happy to have the two implementation choices be available under an instruction set features flag. I\u0027d like if we could fix the non-use of RIP addressing as that also impacts the switch implementation.\n\nI\u0027m happy to take this code relatively as-is and follow up on the other issues, but I\u0027d like the structure of the float code to match that of the int code below. As I commented below.",
+      "parentUuid": "9932d8d1_4d5b0d68",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 44
+      },
+      "revId": "6e17535dc2a0db4f24a92b3e6854b53cf949b360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_cc14621d",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 3
