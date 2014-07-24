@@ -22,6 +22,30 @@
       "revId": "35690630b82dc1dbf4a7ada37225893a550ea1e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_ca41a351",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-07-24T04:08:57Z",
+      "side": 1,
+      "message": "No, PextrwRRI uses other encoding than b/d version. For the pextrw (66 0F C5) dest reg is in reg part of rmod and src is in r/m. So kRegRegImm should be used.",
+      "parentUuid": "9949f84f_9517c6df",
+      "range": {
+        "startLine": 411,
+        "startChar": 19,
+        "endLine": 411,
+        "endChar": 29
+      },
+      "revId": "35690630b82dc1dbf4a7ada37225893a550ea1e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
