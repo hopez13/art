@@ -402,6 +402,30 @@
       "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9949f84f_1bdea7f1",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-24T15:32:36Z",
+      "side": 1,
+      "message": "If you define a global variable, you can fully remove the field and don\u0027t need a forward declaration. I\u0027m fine either way, as I don\u0027t think we\u0027d want to have more than one bridge active.",
+      "parentUuid": "1926e89c_e972f160",
+      "range": {
+        "startLine": 112,
+        "startChar": 9,
+        "endLine": 112,
+        "endChar": 17
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
