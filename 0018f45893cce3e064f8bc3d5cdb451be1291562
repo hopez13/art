@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f974b47c_bb4ccf8a",
+        "filename": "runtime/arch/x86/opcodes.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "ws",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9949f84f_f8ff2940",
+        "filename": "runtime/arch/x86/x86_inst_len.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "If this is generic then this should be an argument",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9949f84f_f81649e0",
+        "filename": "runtime/arch/x86/x86_opcodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "This feels like the disassembler in table form, can we fold the code? (It also feels a lot like the quick assembler)",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f974b47c_fb464766",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f922f488_25534ef9",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "This isn\u0027t true, we can assert we hold a lock and then have fake lock/unlock functions. So that we can statically analyze the lock usage in this code. It should be a TODO here to fix this.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 64
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9949f84f_b84be1e9",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "kHostAltSigStackSize",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9949f84f_f8556985",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-24T00:19:58Z",
+      "side": 1,
+      "message": "We should assert we never come here for ANDROID_OS for both documentation and to avoid memory usage on device.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
