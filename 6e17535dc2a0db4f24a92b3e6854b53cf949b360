@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_8cb8a766",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1039893
+      },
+      "writtenOn": "2014-07-24T17:47:20Z",
+      "side": 1,
+      "message": "I agree, will rework it.",
+      "parentUuid": "d9461042_a7be5198",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 44
+      },
+      "revId": "6e17535dc2a0db4f24a92b3e6854b53cf949b360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_cc14621d",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 3
