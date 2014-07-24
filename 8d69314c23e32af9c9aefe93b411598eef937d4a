@@ -378,6 +378,30 @@
       "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1926e89c_e972f160",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-24T08:24:42Z",
+      "side": 1,
+      "message": "What about we remove this field and define a global variable in .cc. Then we can hide this data structure in .h with a forward declaration.",
+      "parentUuid": "3931ecd1_ca09a302",
+      "range": {
+        "startLine": 112,
+        "startChar": 9,
+        "endLine": 112,
+        "endChar": 17
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
