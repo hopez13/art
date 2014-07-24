@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "39580c1a_5293b206",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-24T03:56:45Z",
+      "side": 1,
+      "message": "Don\u0027t worry about this one. With the change towards passing the property as a command-line parameter, I\u0027ll put the initialization into Runtime::Init again as in the other CL. Thus there won\u0027t be concurrency issues etc, and the flag will mean whether there\u0027s a native bridge or not...",
+      "parentUuid": "3931ecd1_87416624",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 3
+      },
+      "revId": "8d69314c23e32af9c9aefe93b411598eef937d4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f93914b5_70d50ec8",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 5
