@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "193d089f_68d8bf03",
+        "filename": "runtime/arch/x86/opcodes.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f974b47c_bb4ccf8a",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9949f84f_f8ff2940",
         "filename": "runtime/arch/x86/x86_inst_len.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-24T00:19:58Z",
       "side": 1,
       "message": "If this is generic then this should be an argument",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193d089f_a8f0e774",
+        "filename": "runtime/arch/x86/x86_inst_len.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "9949f84f_f8ff2940",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d9461042_26ad0a1f",
+        "filename": "runtime/arch/x86/x86_opcodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "I\u0027d rather not rewrite the intel disassembler.  The purpose of this table is to provide the information needed for the length calculation only.  It doesn\u0027t handle all instructions (no x87, 3-byte-opcodes or alternate two-byte tables).  It would be a reasonable amount of work to redo the disassembler and I don\u0027t think it\u0027s worth it right now.  Maybe later?",
+      "parentUuid": "9949f84f_f81649e0",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f974b47c_fb464766",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-24T00:19:58Z",
       "side": 1,
       "message": "the",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f93914b5_87331a09",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f974b47c_fb464766",
       "range": {
         "startLine": 47,
         "startChar": 15,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "193d089f_683c3f4b",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f922f488_25534ef9",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 64
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9949f84f_b84be1e9",
         "filename": "runtime/thread_linux.cc",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d9461042_069e4ee2",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9949f84f_b84be1e9",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9949f84f_f8556985",
         "filename": "runtime/thread_linux.cc",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2014-07-24T00:19:58Z",
       "side": 1,
       "message": "We should assert we never come here for ANDROID_OS for both documentation and to avoid memory usage on device.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "0018f45893cce3e064f8bc3d5cdb451be1291562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193d089f_a87b8700",
+        "filename": "runtime/thread_linux.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-24T01:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9949f84f_f8556985",
       "range": {
         "startLine": 41,
         "startChar": 0,
