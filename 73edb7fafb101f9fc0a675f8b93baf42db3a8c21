@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9932d8d1_2ada3f35",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3066,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-24T09:13:16Z",
+      "side": 1,
+      "message": "Better to have such a list/helper in a shared header.",
+      "range": {
+        "startLine": 3066,
+        "startChar": 28,
+        "endLine": 3066,
+        "endChar": 36
+      },
+      "revId": "73edb7fafb101f9fc0a675f8b93baf42db3a8c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
