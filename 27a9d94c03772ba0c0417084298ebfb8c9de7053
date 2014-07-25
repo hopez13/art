@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "592ce07a_ce80d73e",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-25T12:46:03Z",
+      "side": 1,
+      "message": "Easier to be understand in this way:\n\nif ((callbacks_ !\u003d nullptr) \u0026\u0026 callbacks_-\u003einitialize(...))\n  available_ \u003d true;\nelse {\n  dlclose(handle);\n  callbacks_ \u003d nullptr;\n}",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 5
+      },
+      "revId": "27a9d94c03772ba0c0417084298ebfb8c9de7053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "592ce07a_ee859b4b",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-25T12:46:03Z",
+      "side": 1,
+      "message": "NativeLibrary may be easily confused with the native JNI library. What about SetBridgeLibrary ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 14,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "27a9d94c03772ba0c0417084298ebfb8c9de7053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
