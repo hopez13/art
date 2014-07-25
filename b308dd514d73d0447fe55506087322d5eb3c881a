@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3931ecd1_ade4896d",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "This comment is removed, since I\u0027ve already tried this.\n\nIt becomes slower. Probably, there are more transitions from managed code to runtime functions or jni than I expected. Also, we already have enough promote registers, so it is hardly to get much performance by simply enlarge the promote register pool.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 92
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39bc8c31_8c2fd6bb",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2014-07-23T07:17:47Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 647,
+        "startChar": 61,
+        "endLine": 647,
+        "endChar": 62
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3931ecd1_cdd9bdbc",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39bc8c31_8c2fd6bb",
       "range": {
         "startLine": 647,
         "startChar": 61,
@@ -48,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "1926e89c_8ca26b81",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "This comment was removed, since it is duplicated with the comment later.",
+      "parentUuid": "79b2845d_0ed47a27",
+      "range": {
+        "startLine": 650,
+        "startChar": 38,
+        "endLine": 650,
+        "endChar": 41
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79b2845d_8ec06a60",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 1
@@ -59,6 +130,30 @@
       "writtenOn": "2014-07-23T07:17:47Z",
       "side": 1,
       "message": "Please put a comment explicitly noting why the suspend count is not stored - this is a point that would need to be changed if we move to implicit suspend checks and using x19 for other things.",
+      "range": {
+        "startLine": 681,
+        "startChar": 2,
+        "endLine": 681,
+        "endChar": 37
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "592ce07a_6b035d9c",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "The comment is added to Arm64JniCallingConvention::CoreSpillMask(), since these code must match the spill mask.",
+      "parentUuid": "79b2845d_8ec06a60",
       "range": {
         "startLine": 681,
         "startChar": 2,
@@ -94,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "3931ecd1_ad93a9da",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b2845d_eeabf6a5",
+      "range": {
+        "startLine": 724,
+        "startChar": 51,
+        "endLine": 724,
+        "endChar": 60
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39bc8c31_c7d7f95d",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 1
@@ -105,6 +224,30 @@
       "writtenOn": "2014-07-23T07:17:47Z",
       "side": 1,
       "message": "Similar to above, put a comment.",
+      "range": {
+        "startLine": 753,
+        "startChar": 2,
+        "endLine": 753,
+        "endChar": 38
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "592ce07a_8b46d1e0",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "The comment is added to Arm64JniCallingConvention::CoreSpillMask(), since these code must match the spill mask.",
+      "parentUuid": "39bc8c31_c7d7f95d",
       "range": {
         "startLine": 753,
         "startChar": 2,
@@ -151,6 +294,30 @@
       "writtenOn": "2014-07-23T07:17:47Z",
       "side": 1,
       "message": "So why aren\u0027t you chosing one randomly, e.g., x20?",
+      "range": {
+        "startLine": 1548,
+        "startChar": 7,
+        "endLine": 1548,
+        "endChar": 46
+      },
+      "revId": "b308dd514d73d0447fe55506087322d5eb3c881a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3931ecd1_cd98ddf9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-07-25T04:16:29Z",
+      "side": 1,
+      "message": "Done\n\nThanks, I forgot to modify this which would become a bug...",
+      "parentUuid": "79b2845d_8e97ca68",
       "range": {
         "startLine": 1548,
         "startChar": 7,
