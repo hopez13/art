@@ -255,6 +255,30 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_73fb528b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T15:15:14Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.",
+      "parentUuid": "7937e4c3_4fcea1ee",
+      "range": {
+        "startLine": 1242,
+        "startChar": 34,
+        "endLine": 1242,
+        "endChar": 52
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_4f5061ea",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -314,6 +338,30 @@
       "side": 1,
       "message": "The Quick compiler does something wrong then. Quick and Optimizing compilers should both use the same data offset.",
       "parentUuid": "7937e4c3_af80fda5",
+      "range": {
+        "startLine": 1254,
+        "startChar": 55,
+        "endLine": 1254,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_af61dd16",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T15:15:14Z",
+      "side": 1,
+      "message": "Actually, DataOffset is just differentiating between 64 and the rest because of alignment. So whatever you pass to it that is not 64 will return the same thing. Quick just doesn\u0027t care and give 32 for all component size.",
+      "parentUuid": "7937e4c3_2fa08d14",
       "range": {
         "startLine": 1254,
         "startChar": 55,
