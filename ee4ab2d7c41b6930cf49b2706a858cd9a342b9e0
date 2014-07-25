@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b9431c33_f11020b7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T15:01:57Z",
+      "side": 1,
+      "message": "I\u0027m fine with it, it\u0027s just I prefer using macros as a last resort :)\n\nThe Google C++ style guide just say to \"be very cautious\" with them.",
+      "parentUuid": "7937e4c3_4f930107",
+      "range": {
+        "startLine": 735,
+        "startChar": 1,
+        "endLine": 735,
+        "endChar": 40
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_0fde69f1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_4fcea1ee",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T15:01:57Z",
+      "side": 1,
+      "message": "Aah I understand: an instruction \"const v0, #3\" is a constant in the IR so you handle this case, right?",
+      "parentUuid": "7937e4c3_8f7b3901",
+      "range": {
+        "startLine": 1242,
+        "startChar": 34,
+        "endLine": 1242,
+        "endChar": 52
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_4f5061ea",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "This applies for fields, but not for arrays, where data is packed.",
       "parentUuid": "7937e4c3_4f5061ea",
+      "range": {
+        "startLine": 1254,
+        "startChar": 55,
+        "endLine": 1254,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_2fa08d14",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T15:01:57Z",
+      "side": 1,
+      "message": "The Quick compiler does something wrong then. Quick and Optimizing compilers should both use the same data offset.",
+      "parentUuid": "7937e4c3_af80fda5",
       "range": {
         "startLine": 1254,
         "startChar": 55,
@@ -507,6 +579,30 @@
       "side": 1,
       "message": "I think DataOffset is pretty much the shared method you\u0027re asking for. We could have one that takes a PrimitiveType and switch in it, but we\u0027re doing the switch here anyway...",
       "parentUuid": "9932d8d1_10384c08",
+      "range": {
+        "startLine": 1248,
+        "startChar": 62,
+        "endLine": 1248,
+        "endChar": 69
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_135696e8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T15:01:57Z",
+      "side": 1,
+      "message": "Yes but you have this code in each code generator. I meant we should share it between code generators.",
+      "parentUuid": "b9431c33_91943cf5",
       "range": {
         "startLine": 1248,
         "startChar": 62,
