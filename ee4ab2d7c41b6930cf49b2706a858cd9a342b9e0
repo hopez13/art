@@ -374,6 +374,30 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_f3a4a2a4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T15:20:33Z",
+      "side": 1,
+      "message": "Ah yes, I didn\u0027t check the DataOffset implementation. Thanks",
+      "parentUuid": "7937e4c3_af61dd16",
+      "range": {
+        "startLine": 1254,
+        "startChar": 55,
+        "endLine": 1254,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9932d8d1_f042d872",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
