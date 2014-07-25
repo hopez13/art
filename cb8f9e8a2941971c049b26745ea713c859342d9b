@@ -22,6 +22,30 @@
       "revId": "cb8f9e8a2941971c049b26745ea713c859342d9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f922f488_6eda8324",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-25T09:08:21Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the meaning. For normal APKs, the location is the name/place of the jar file. For multidex APKs, we need a way to distinguish the zipped up dex files. So the second/third/... dex files get an \"extended\" or \"synthetic\" location, like x.jar:classes2.dex. To look for resources, we need to look into x.jar, that\u0027s what this change is about.\n\nOnce Calin is back, I would like him to take a look at it, as he had done refactoring before. If he is OK with it, I\u0027ll push a small cleanup CL to fix the comment.",
+      "parentUuid": "9932d8d1_10ddac2c",
+      "range": {
+        "startLine": 385,
+        "startChar": 54,
+        "endLine": 385,
+        "endChar": 62
+      },
+      "revId": "cb8f9e8a2941971c049b26745ea713c859342d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
