@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d91ff043_99e8e7cc",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "Any particular reason for moving this onto the heap?",
+      "range": {
+        "startLine": 834,
+        "startChar": 2,
+        "endLine": 836,
+        "endChar": 87
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91cfc52_32d1ce8f",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "Why the fore loop. Is only some of the dbg_info\u0027s having line information possible/meaningful?",
+      "range": {
+        "startLine": 849,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 3
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91ff043_79e40bef",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "This seems like it could be wrong.\n\nCan we have one without the other?\n\nDo we actually handle having only one intelligently?",
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e70794_b103ea9b",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "strcmp already does this IIRC.",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1050,
+        "endChar": 1
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e70794_b1608a5c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "A lambda or static function would probably be nicer.",
+      "range": {
+        "startLine": 1090,
+        "startChar": 2,
+        "endLine": 1102,
+        "endChar": 4
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91cfc52_1d15c35b",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "I am fairly certain this is wrong, see below.",
+      "range": {
+        "startLine": 1230,
+        "startChar": 0,
+        "endLine": 1231,
+        "endChar": 61
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91cfc52_f242d672",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "I am fairly certain this is wrong. See below.",
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e70794_b181aa75",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "I am fairly certain this is wrong, see below.",
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91cfc52_f26bb6f2",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-25T16:44:23Z",
+      "side": 1,
+      "message": "I think this will break current gdb behavior since IIRC the low_pc_/high_pc_ are offsets from the start of the text section already. We save them as that since we don\u0027t know what the actual addresses of these things will be until later when we have already loaded the oat file.\n\nSee ElfFile::GdbJITSupport",
+      "range": {
+        "startLine": 1312,
+        "startChar": 0,
+        "endLine": 1313,
+        "endChar": 63
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
