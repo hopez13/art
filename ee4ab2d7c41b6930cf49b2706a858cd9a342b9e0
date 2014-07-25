@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9932d8d1_b01ce004",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "We should avoid using macros. It\u0027s comfortable to write code but it\u0027s not always easy to follow when reading.\n\nHere only the type is changing. maybe you could do the type selection inside BuildArrayAccess (based on the instruction opcode) to simplify this switch.",
+      "range": {
+        "startLine": 735,
+        "startChar": 1,
+        "endLine": 735,
+        "endChar": 40
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_0fde69f1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "const Location",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 10
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_d1ac0477",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "const Location",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 10
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_d01154eb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "Is it an optimization for constant propagation?",
+      "range": {
+        "startLine": 1242,
+        "startChar": 34,
+        "endLine": 1242,
+        "endChar": 52
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_4f5061ea",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "The Quick compiler only uses data offset for 32-bit or 64-bit element (see ArmMir2Lir::GenArrayGet for instance). We should treat boolean, byte, char, short, int and float as 32-bit element for the moment.\n\nI know there is ongoing work to handle 8-bit and 16-bit element. Are you anticipating this change?",
+      "range": {
+        "startLine": 1254,
+        "startChar": 55,
+        "endLine": 1254,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_f042d872",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "\", LSL, TIMES_1\" for consistency",
+      "range": {
+        "startLine": 1260,
+        "startChar": 69,
+        "endLine": 1260,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_30d1d08f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 1308,
+        "startChar": 62,
+        "endLine": 1308,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_51c1f412",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "TIMES_8",
+      "range": {
+        "startLine": 1324,
+        "startChar": 77,
+        "endLine": 1324,
+        "endChar": 84
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_50848483",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "Same as AGET_BOOLEAN, ...",
+      "range": {
+        "startLine": 1368,
+        "startChar": 55,
+        "endLine": 1368,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_0fe589ad",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "Dead code: it\u0027s handled below calling \"pAputObject\" helper.",
+      "range": {
+        "startLine": 1404,
+        "startChar": 6,
+        "endLine": 1408,
+        "endChar": 7
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_10384c08",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "Same than ARM. We should probably create a common method to compute array data offset based on type.",
+      "range": {
+        "startLine": 1248,
+        "startChar": 62,
+        "endLine": 1248,
+        "endChar": 69
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_31e2a8a6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "Same than ARM",
+      "range": {
+        "startLine": 1093,
+        "startChar": 55,
+        "endLine": 1093,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_af4b9de9",
+        "filename": "compiler/utils/assembler_thumb_test_expected.cc.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T13:55:56Z",
+      "side": 1,
+      "message": "Missing a tab?",
+      "range": {
+        "startLine": 46,
+        "startChar": 18,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
