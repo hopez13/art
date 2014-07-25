@@ -22,6 +22,30 @@
       "revId": "ca928ba8b9e109ced2b9d72622dc34bda63ac211",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_711d10c9",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-25T14:54:44Z",
+      "side": 0,
+      "message": "I don\u0027t see a point in having a separate test that \"compilation succeeds.\"",
+      "parentUuid": "b9431c33_b18058a6",
+      "range": {
+        "startLine": 725,
+        "startChar": 92,
+        "endLine": 725,
+        "endChar": 99
+      },
+      "revId": "ca928ba8b9e109ced2b9d72622dc34bda63ac211",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
