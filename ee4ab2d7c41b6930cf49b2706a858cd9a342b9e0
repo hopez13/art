@@ -73,6 +73,23 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_930fe606",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-07-25T15:02:23Z",
+      "side": 1,
+      "message": "Missed #undef ARRAY_XX",
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_0fde69f1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
