@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "595300fd_6a099b94",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-25T21:43:00Z",
+      "side": 1,
+      "message": "Changed differently, but in the same vein.",
+      "parentUuid": "592ce07a_ce80d73e",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 5
+      },
+      "revId": "27a9d94c03772ba0c0417084298ebfb8c9de7053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "592ce07a_ee859b4b",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-25T12:46:03Z",
       "side": 1,
       "message": "NativeLibrary may be easily confused with the native JNI library. What about SetBridgeLibrary ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 14,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "27a9d94c03772ba0c0417084298ebfb8c9de7053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595300fd_aa11c3bd",
+        "filename": "runtime/native_bridge.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-25T21:43:00Z",
+      "side": 1,
+      "message": "As we\u0027re not setting the library, but the string defining the library, I left String in there.",
+      "parentUuid": "592ce07a_ee859b4b",
       "range": {
         "startLine": 32,
         "startChar": 14,
