@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_1304d6e4",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T15:05:35Z",
+      "side": 1,
+      "message": "Hmm, I wonder where such a strategy could lead us to.... :)",
+      "parentUuid": "9932d8d1_7336f2d2",
+      "range": {
+        "startLine": 740,
+        "startChar": 24,
+        "endLine": 740,
+        "endChar": 47
+      },
+      "revId": "c327cb7247a90e48f657fa356a36203d2d3a087c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9431c33_71e430ef",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 4
