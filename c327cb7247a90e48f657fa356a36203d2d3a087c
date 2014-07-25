@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9431c33_71e430ef",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-07-25T13:58:56Z",
+      "side": 1,
+      "message": "JNICallingConvention::CurrentParamStackOffset() should not use the same displacement as JNICallingConvention::CurrentParamHandleScopeEntryOffset(). As it is, increasing the frame size by std::max(main_out_arg_size, end_out_arg_size) and working out the correct offsets would be extremely messy.",
+      "range": {
+        "startLine": 187,
+        "startChar": 23,
+        "endLine": 187,
+        "endChar": 40
+      },
+      "revId": "c327cb7247a90e48f657fa356a36203d2d3a087c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
