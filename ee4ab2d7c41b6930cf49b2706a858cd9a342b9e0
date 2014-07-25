@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_4f930107",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "I think the switch would look the same whether here or in BuildArrayAccess. This macro is pretty similar to the one introduced by Dave for IF. It\u0027s small enough that I am tempted to just accept it. On the other hand, it\u0027s simple enough that we could fold it.\n\nIn any case, I don\u0027t really care, do we have a non-macro guideline?",
+      "parentUuid": "9932d8d1_b01ce004",
+      "range": {
+        "startLine": 735,
+        "startChar": 1,
+        "endLine": 735,
+        "endChar": 40
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_0fde69f1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-25T13:55:56Z",
       "side": 1,
       "message": "const Location",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 10
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_3312ba74",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7937e4c3_0fde69f1",
       "range": {
         "startLine": 114,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_6f90c5f9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9431c33_d1ac0477",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 10
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9932d8d1_d01154eb",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-25T13:55:56Z",
       "side": 1,
       "message": "Is it an optimization for constant propagation?",
+      "range": {
+        "startLine": 1242,
+        "startChar": 34,
+        "endLine": 1242,
+        "endChar": 52
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_8f7b3901",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "It is an optimization, but it\u0027s not related to constant propagation. It avoids allocating a register for the index if it\u0027s a constant.",
+      "parentUuid": "9932d8d1_d01154eb",
       "range": {
         "startLine": 1242,
         "startChar": 34,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_af80fda5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "This applies for fields, but not for arrays, where data is packed.",
+      "parentUuid": "7937e4c3_4f5061ea",
+      "range": {
+        "startLine": 1254,
+        "startChar": 55,
+        "endLine": 1254,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9932d8d1_f042d872",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-07-25T13:55:56Z",
       "side": 1,
       "message": "\", LSL, TIMES_1\" for consistency",
+      "range": {
+        "startLine": 1260,
+        "startChar": 69,
+        "endLine": 1260,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_3339daec",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "The thing about the assembler, is that you can express the same operation through multiple API. So at this level, you should use the simplest API. We could fix the assembler to always optimize the generated code, but the contract is that the caller pretty much knows what it\u0027s doing.",
+      "parentUuid": "9932d8d1_f042d872",
       "range": {
         "startLine": 1260,
         "startChar": 69,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_7333520a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "Done. (and FYI this fails the test, it was a bad refactoring from my side).",
+      "parentUuid": "9932d8d1_30d1d08f",
+      "range": {
+        "startLine": 1308,
+        "startChar": 62,
+        "endLine": 1308,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9431c33_51c1f412",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-07-25T13:55:56Z",
       "side": 1,
       "message": "TIMES_8",
+      "range": {
+        "startLine": 1324,
+        "startChar": 77,
+        "endLine": 1324,
+        "endChar": 84
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_2f6ded3d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "Done (and ditto).",
+      "parentUuid": "b9431c33_51c1f412",
       "range": {
         "startLine": 1324,
         "startChar": 77,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "b9431c33_b132187a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "9932d8d1_50848483",
+      "range": {
+        "startLine": 1368,
+        "startChar": 55,
+        "endLine": 1368,
+        "endChar": 70
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_0fe589ad",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_4f6a2127",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "nice catch, thanks.",
+      "parentUuid": "7937e4c3_0fe589ad",
+      "range": {
+        "startLine": 1404,
+        "startChar": 6,
+        "endLine": 1408,
+        "endChar": 7
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9932d8d1_10384c08",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -243,6 +483,30 @@
       "writtenOn": "2014-07-25T13:55:56Z",
       "side": 1,
       "message": "Same than ARM. We should probably create a common method to compute array data offset based on type.",
+      "range": {
+        "startLine": 1248,
+        "startChar": 62,
+        "endLine": 1248,
+        "endChar": 69
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_91943cf5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "I think DataOffset is pretty much the shared method you\u0027re asking for. We could have one that takes a PrimitiveType and switch in it, but we\u0027re doing the switch here anyway...",
+      "parentUuid": "9932d8d1_10384c08",
       "range": {
         "startLine": 1248,
         "startChar": 62,
@@ -289,6 +553,30 @@
       "writtenOn": "2014-07-25T13:55:56Z",
       "side": 1,
       "message": "Missing a tab?",
+      "range": {
+        "startLine": 46,
+        "startChar": 18,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "ee4ab2d7c41b6930cf49b2706a858cd9a342b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_d19ec412",
+        "filename": "compiler/utils/assembler_thumb_test_expected.cc.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-25T14:44:26Z",
+      "side": 1,
+      "message": "Hmmm I think the comparison tool for checking we generate the same code does not differentiate between tabs and spaces.",
+      "parentUuid": "7937e4c3_af4b9de9",
       "range": {
         "startLine": 46,
         "startChar": 18,
