@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3931ecd1_f0a3b651",
+        "filename": "runtime/native_bridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-07-26T03:20:34Z",
+      "side": 1,
+      "message": "Good. That is even better.",
+      "parentUuid": "595300fd_6a099b94",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 5
+      },
+      "revId": "27a9d94c03772ba0c0417084298ebfb8c9de7053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "592ce07a_ee859b4b",
         "filename": "runtime/native_bridge.h",
         "patchSetId": 1
