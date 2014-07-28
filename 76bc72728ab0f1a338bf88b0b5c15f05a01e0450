@@ -70,6 +70,121 @@
       "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91ff043_85622e8b",
+        "filename": "runtime/arch/x86/x86_inst_len.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-28T20:52:44Z",
+      "side": 1,
+      "message": "any reason to keep these in the .h?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91ff043_a5880a11",
+        "filename": "runtime/arch/x86/x86_inst_len.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-28T20:52:44Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 6
+      },
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7615332e_9f60fb5c",
+        "filename": "runtime/arch/x86/x86_inst_len.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-28T20:52:44Z",
+      "side": 1,
+      "message": "why all the state?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 15
+      },
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_3c57a8e7",
+        "filename": "runtime/arch/x86/x86_opcodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-28T20:52:44Z",
+      "side": 1,
+      "message": "struct",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91ff043_c5a26682",
+        "filename": "runtime/arch/x86/x86_opcodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-28T20:52:44Z",
+      "side": 1,
+      "message": "struct",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
