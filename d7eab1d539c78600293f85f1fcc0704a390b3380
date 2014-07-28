@@ -374,6 +374,30 @@
       "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_9911c7be",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T17:50:19Z",
+      "side": 1,
+      "message": "I would suggest to keep these values valid virtual adresses and fix FixDebugInfo accordingly. This way other Elf and Dwarf tools will be able to read the data. \nCan you share any reference to the oat patching docs?",
+      "parentUuid": "36f65b4a_28576ae7",
+      "range": {
+        "startLine": 1312,
+        "startChar": 0,
+        "endLine": 1313,
+        "endChar": 63
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
