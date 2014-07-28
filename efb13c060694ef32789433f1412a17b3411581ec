@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7937e4c3_f840fd1c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-28T17:33:06Z",
+      "side": 1,
+      "message": "We want to make explicit clinit checks in the grpah, to remove redundant ones, so we should probably add them as well.\n\nAlso, having an explicit data dependency between the clinit and the static field access will help code motion passes. So HStaticFieldGet and HStaticFieldSet would take as input the clinit check.",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "efb13c060694ef32789433f1412a17b3411581ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_7836cdd2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-28T17:33:06Z",
+      "side": 1,
+      "message": "Because These methods call )or may call) into runtime, thye need an environment for knowing where dex registers are. So you need to add a NeedEnvirnment(){ return true; } to them",
+      "range": {
+        "startLine": 1372,
+        "startChar": 6,
+        "endLine": 1372,
+        "endChar": 21
+      },
+      "revId": "efb13c060694ef32789433f1412a17b3411581ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
