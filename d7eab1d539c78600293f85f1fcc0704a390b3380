@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "d91ff043_b9067981",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-28T16:16:57Z",
+      "side": 1,
+      "message": "NVM you\u0027re right. Still is null being passed in here an acceptable input?\n\nThis is just a nit-pick though. Feel free to disregard it.",
+      "parentUuid": "9932d8d1_9e41ad24",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1050,
+        "endChar": 1
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96e70794_b1608a5c",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 2
@@ -317,6 +341,30 @@
       "side": 1,
       "message": "I used \u0027dwarfdump -ka\u0027 to check the generated OAT file and found it needs VMA address (i.e. base + offset) in the .debug_line at least. That is why, to get the base address for .debug_* generation I had to split ElfBuilder::Write into ElfBuilder::Init and ElfBuilder::Write. Could you please describe the patching workflow and why/when it is needed? Why can not we use the standard Elf relocation? Why we have to patch boot.oat once it is generated?\nI believe that in GdbJITSupport we have to *offset* the debugging info rather than *set* a new .text address.",
       "parentUuid": "b91cfc52_f26bb6f2",
+      "range": {
+        "startLine": 1312,
+        "startChar": 0,
+        "endLine": 1313,
+        "endChar": 63
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_28576ae7",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-28T16:16:57Z",
+      "side": 1,
+      "message": "No the problem isn\u0027t that it\u0027s that at this point we still do not have any idea the actual address this code will be loaded at. If we are compiling boot.oat we need to first figure out the size of the image (which happens next) and if we are compiling an application we need to wait until runtime.\n\nTherefore we just keep the PC as relative to the start of the .text section and then when loading the oat file fix up these by adding the actual text section address to them. The code for this is in runtime/elf_file.cc:1285 (FixupDebugInfo). If you really want the final word though I\u0027d suggest you ask your colleague Mark Mendel (mark.p.mendell@intel.com) since he was the one who initially wrote in this gdb support.",
+      "parentUuid": "7937e4c3_12a3f223",
       "range": {
         "startLine": 1312,
         "startChar": 0,
