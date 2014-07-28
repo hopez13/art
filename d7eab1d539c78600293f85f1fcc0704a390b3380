@@ -302,6 +302,30 @@
       "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7937e4c3_12a3f223",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T09:36:36Z",
+      "side": 1,
+      "message": "I used \u0027dwarfdump -ka\u0027 to check the generated OAT file and found it needs VMA address (i.e. base + offset) in the .debug_line at least. That is why, to get the base address for .debug_* generation I had to split ElfBuilder::Write into ElfBuilder::Init and ElfBuilder::Write. Could you please describe the patching workflow and why/when it is needed? Why can not we use the standard Elf relocation? Why we have to patch boot.oat once it is generated?\nI believe that in GdbJITSupport we have to *offset* the debugging info rather than *set* a new .text address.",
+      "parentUuid": "b91cfc52_f26bb6f2",
+      "range": {
+        "startLine": 1312,
+        "startChar": 0,
+        "endLine": 1313,
+        "endChar": 63
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
