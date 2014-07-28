@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_c8b11ee3",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-28T16:40:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36f65b4a_b48e36da",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 51
+      },
+      "revId": "333d5790084c016b15a366f84a2ed3074b5afd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9431c33_dfc88b5f",
         "filename": "runtime/entrypoints/quick/quick_entrypoints_enum.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-28T14:02:58Z",
       "side": 1,
       "message": "I see the \"kQuick\" prefix used in a few other places and the names of the entry points are quite arbitrary. I feel this has a potential for name conflicts.",
+      "range": {
+        "startLine": 28,
+        "startChar": 44,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "333d5790084c016b15a366f84a2ed3074b5afd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91ff043_3c30b708",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_enum.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-28T16:40:47Z",
+      "side": 1,
+      "message": "The other kQuick things are: Compiler::kQuick, kQuickSoftFloatAbi, kQuickCalleeSaveFrame..., kQuickParameter. I think the naming falls right in here and makes clear these are Quick-specific entrypoints. I can\u0027t do anything about the now standard names for those entrypoints.",
+      "parentUuid": "b9431c33_dfc88b5f",
       "range": {
         "startLine": 28,
         "startChar": 44,
