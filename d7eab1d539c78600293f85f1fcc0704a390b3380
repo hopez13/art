@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_526aca26",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T07:07:53Z",
+      "side": 1,
+      "message": "The reason is the local frame limitation in the art/build/Android.common_build.mk: -Wframe-larger-than\u003d1728",
+      "parentUuid": "d91ff043_99e8e7cc",
+      "range": {
+        "startLine": 834,
+        "startChar": 2,
+        "endLine": 836,
+        "endChar": 87
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b91cfc52_32d1ce8f",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-25T16:44:23Z",
       "side": 1,
       "message": "Why the fore loop. Is only some of the dbg_info\u0027s having line information possible/meaningful?",
+      "range": {
+        "startLine": 849,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 3
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_d41152eb",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T07:07:53Z",
+      "side": 1,
+      "message": "this loop is check if there is any line info",
+      "parentUuid": "b91cfc52_32d1ce8f",
       "range": {
         "startLine": 849,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_7e36b9d2",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T07:07:53Z",
+      "side": 1,
+      "message": "We generate .debug_abbrev, .debug_info and .debug_str if we got lineInfo or CFI.\nWe generate .debug_frame only if we got CFI.\nWe generate .debug_line only if we got lineInfo.",
+      "parentUuid": "d91ff043_79e40bef",
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96e70794_b103ea9b",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 2
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "9932d8d1_9e41ad24",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T07:07:53Z",
+      "side": 1,
+      "message": "which strcmp do you mean?\nI have just verified the standard strcmp from libc. It crashes with NULLs.",
+      "parentUuid": "96e70794_b103ea9b",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1050,
+        "endChar": 1
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96e70794_b1608a5c",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 2
@@ -99,6 +189,30 @@
       "writtenOn": "2014-07-25T16:44:23Z",
       "side": 1,
       "message": "A lambda or static function would probably be nicer.",
+      "range": {
+        "startLine": 1090,
+        "startChar": 2,
+        "endLine": 1102,
+        "endChar": 4
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9431c33_f4164ee0",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-28T07:07:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96e70794_b1608a5c",
       "range": {
         "startLine": 1090,
         "startChar": 2,
