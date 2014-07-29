@@ -73,6 +73,23 @@
     },
     {
       "key": {
+        "uuid": "560aef14_35b107ce",
+        "filename": "runtime/arch/x86/x86_inst_len.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-07-29T22:54:28Z",
+      "side": 1,
+      "message": "FYI.  I got an issue when decoding \"F30F105208        movss   xmm2, [edx + 8]\".\nShould we check \"if (opcode \u003d\u003d 0x0f)\" here?  Checking *pc or checking *pc_ may be wrong, because pc is the original pointer and pc_ has been incremented by 1.  Thanks!",
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91ff043_85622e8b",
         "filename": "runtime/arch/x86/x86_inst_len.h",
         "patchSetId": 5
