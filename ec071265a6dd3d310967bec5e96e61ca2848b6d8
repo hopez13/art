@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7937e4c3_f810fdb6",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-07-29T10:02:30Z",
+      "side": 1,
+      "message": "This condition is the wrong way round.\nload/store pairs with pre/post indexing or offsets are restricted to 63 slots - not the subtract in SpillRegsFrameSize.",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
