@@ -22,6 +22,30 @@
       "revId": "4470c1d5a94ebedd8e579a212eb4c60da1ae6b24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_c41fd24e",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-29T08:24:21Z",
+      "side": 1,
+      "message": "I guess because it worked initially and snprintf was simpler for the original author. But yeah, we should probably move to std::string.",
+      "parentUuid": "560aef14_fbe38ba9",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 174,
+        "endChar": 17
+      },
+      "revId": "4470c1d5a94ebedd8e579a212eb4c60da1ae6b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
