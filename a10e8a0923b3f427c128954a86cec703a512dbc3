@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "560aef14_e7352c11",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-29T20:23:49Z",
+      "side": 1,
+      "message": "Dead code. Removed.",
+      "parentUuid": "d91ff043_dce883cd",
+      "revId": "a10e8a0923b3f427c128954a86cec703a512dbc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16fb1735_d2b55468",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-07-28T17:24:58Z",
       "side": 1,
       "message": "Move the --pScan out and do pScan-\u003eIsNull()?",
+      "revId": "a10e8a0923b3f427c128954a86cec703a512dbc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "560aef14_b2053032",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-07-29T20:23:49Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "16fb1735_d2b55468",
       "revId": "a10e8a0923b3f427c128954a86cec703a512dbc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
