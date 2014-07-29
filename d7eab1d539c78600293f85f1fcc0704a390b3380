@@ -398,6 +398,30 @@
       "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7615332e_8e4687e2",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-29T00:45:59Z",
+      "side": 1,
+      "message": "If you feel like doing that sure. The code is fairly simple. It just walks along all of the DIE\u0027s and increases the LOW_PC and HIGH_PC by the .text address. AFAIK there is no real reference for the oat gdb stuff.",
+      "parentUuid": "9932d8d1_9911c7be",
+      "range": {
+        "startLine": 1312,
+        "startChar": 0,
+        "endLine": 1313,
+        "endChar": 63
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
