@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "560aef14_fbe38ba9",
+        "filename": "compiler/utils/assembler_thumb_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-07-29T00:26:15Z",
+      "side": 1,
+      "message": "why are we stack allocating this instead of just using std::string and StringPrintf to avoid such issues?",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 174,
+        "endChar": 17
+      },
+      "revId": "4470c1d5a94ebedd8e579a212eb4c60da1ae6b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
