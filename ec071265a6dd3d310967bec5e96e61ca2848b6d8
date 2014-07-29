@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_2b6e373a",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-29T17:42:36Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "b9431c33_7ad5e5c7",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_f810fdb6",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-07-29T10:02:30Z",
       "side": 1,
       "message": "This condition is the wrong way round.\nload/store pairs with pre/post indexing or offsets are restricted to 63 slots - not the subtract in SpillRegsFrameSize.",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7615332e_16b84dc5",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-29T17:42:36Z",
+      "side": 1,
+      "message": "Yes, and this check makes sure that framesize is less than that, as the last spill is exactly to the top of the framesize. So the framesize can be maximally 63 * slots. I guess the RoundUp is unneeded, as I should assume that it\u0027s already 16B-aligned.",
+      "parentUuid": "7937e4c3_f810fdb6",
       "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_0b3db345",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-29T17:42:36Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "7937e4c3_83eeb21e",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9932d8d1_84623a62",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2014-07-29T11:04:33Z",
       "side": 1,
       "message": "I guess the instruction below could be replaced with a kA64StrPre3fXD (which should have the same immediate range and should thus be safe to use). The instruction is not in the encoding map, but could be added.",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "560aef14_e7d1ac90",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-07-29T17:42:36Z",
+      "side": 1,
+      "message": "Yes, this one could be, but I thought it easier to keep it simple. For completeness, I\u0027d also have to add kA64StrPre3rXD, then, and so on. As things are 16B aligned, and we don\u0027t use acquire/release or exclusive, I somehow doubt that any aarch64 implementation should be worse with this than the str. But if you find out on Juno that it\u0027s the case, a follow-up is welcome.",
+      "parentUuid": "9932d8d1_84623a62",
       "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
