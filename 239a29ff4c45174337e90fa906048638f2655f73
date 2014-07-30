@@ -108,6 +108,24 @@
       "revId": "239a29ff4c45174337e90fa906048638f2655f73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_c1a32253",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T17:09:30Z",
+      "side": 1,
+      "message": "GDB accepts both .debug_frame and .eh_frame.\nHowever:\n- .eh_frame is an ABI requirement for x86_64;\n- Even in x86, GCC now emits .eh_frame instead of .debug_frame for -g\n\nFor these considerations, I replaced .debug_frame with .eh_frame.\nHope it answers your question :-)",
+      "parentUuid": "1624f7a2_ddfe7c7a",
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
