@@ -46,6 +46,30 @@
       "revId": "b9c5a763e1d68e2bb54e3898f0d160a13c7c75c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763a93c6_514ef482",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T19:38:29Z",
+      "side": 1,
+      "message": "You should probably make a note that this discrepancy is intentional.",
+      "parentUuid": "1624f7a2_d693f995",
+      "range": {
+        "startLine": 1548,
+        "startChar": 30,
+        "endLine": 1548,
+        "endChar": 31
+      },
+      "revId": "b9c5a763e1d68e2bb54e3898f0d160a13c7c75c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
