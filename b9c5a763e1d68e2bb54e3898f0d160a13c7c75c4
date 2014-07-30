@@ -22,6 +22,30 @@
       "revId": "b9c5a763e1d68e2bb54e3898f0d160a13c7c75c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1624f7a2_d693f995",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T18:43:48Z",
+      "side": 1,
+      "message": "Yep it is 6. I\u0027ve double checked with both quick generated code \u0026 CFI generated.\n\nIn fact it\u0027s the only reason that this whole function exists...",
+      "parentUuid": "963547d4_58acd58c",
+      "range": {
+        "startLine": 1548,
+        "startChar": 30,
+        "endLine": 1548,
+        "endChar": 31
+      },
+      "revId": "b9c5a763e1d68e2bb54e3898f0d160a13c7c75c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
