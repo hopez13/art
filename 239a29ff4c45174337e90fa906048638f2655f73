@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_e166262d",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T17:28:49Z",
+      "side": 1,
+      "message": "Thanks for the suggestion!\n\nHowever, I want to keep it this way because it\u0027s simple, and thus easy to read. Using a factor and then do a multiply seem unnecessary complication to me...",
+      "parentUuid": "36f65b4a_c1d32241",
+      "range": {
+        "startLine": 1494,
+        "startChar": 2,
+        "endLine": 1500,
+        "endChar": 3
+      },
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f65b4a_4106f23d",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_c42fb0a6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T17:28:49Z",
+      "side": 1,
+      "message": "Yay that\u0027s way better!\nThanks.",
+      "parentUuid": "36f65b4a_a1149e61",
+      "range": {
+        "startLine": 1597,
+        "startChar": 36,
+        "endLine": 1597,
+        "endChar": 67
+      },
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6204393_fb894766",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -146,6 +194,24 @@
       "side": 1,
       "message": "GDB accepts both .debug_frame and .eh_frame.\nHowever:\n- .eh_frame is an ABI requirement for x86_64;\n- Even in x86, GCC now emits .eh_frame instead of .debug_frame for -g\n\nFor these considerations, I replaced .debug_frame with .eh_frame.\nHope it answers your question :-)",
       "parentUuid": "1624f7a2_ddfe7c7a",
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_849e4886",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T17:28:49Z",
+      "side": 1,
+      "message": "GDB accepts both .debug_frame and .eh_frame.\n\nHowever:\n1. .eh_frame is an ABI requirement for x86_64;\n2. Even in x86, GCC now emits .eh_frame instead of .debug_frame for -g\n\nFor these considerations, I replaced .debug_frame with .eh_frame.\n\nHope it answers your question :-)",
+      "parentUuid": "36f65b4a_c1a32253",
       "revId": "239a29ff4c45174337e90fa906048638f2655f73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
