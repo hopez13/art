@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_ce99142c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f974b47c_f7780a46",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f922f488_73ad030c",
         "filename": "Android.mk",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "is this to tell it not to relocate the boot.oat?",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 28
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_f35cc165",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Yes. Don\u0027t care about relocating while compiling the boot.",
+      "parentUuid": "f922f488_73ad030c",
       "range": {
         "startLine": 320,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1624f7a2_79be63c2",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "360f3b26_17e17433",
+      "range": {
+        "startLine": 759,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 43
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6016bf5_bbef471c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "I\u0027ve seen this pattern before, can we make a helper for this part and use it from where you copied it from (and search for others)?",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1007,
+        "endChar": 3
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_8e854c4e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "If you want I can but the problem is that any way we do this (except via a macro) we will need to either to a \u0027new\u0027 or do a memcpy (since one of these returns a reference and one returns a newly allocated structure.",
+      "parentUuid": "b6016bf5_bbef471c",
       "range": {
         "startLine": 1000,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1624f7a2_799423f5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6016bf5_7bfbffe0",
+      "range": {
+        "startLine": 1008,
+        "startChar": 2,
+        "endLine": 1008,
+        "endChar": 90
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360f3b26_3780f83b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "VerifyOatChecksums -\u003e VerifyOatChecksum (singular, it only checks one now, right?)\n\nalso, it isn\u0027t clear when to use the above vs this from the names probably",
+      "range": {
+        "startLine": 1011,
+        "startChar": 18,
+        "endLine": 1011,
+        "endChar": 36
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1624f7a2_b9919b00",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Changed to VerifyOatAndDexFileChecksums",
+      "parentUuid": "360f3b26_3780f83b",
       "range": {
         "startLine": 1011,
         "startChar": 18,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "560aef14_952fb312",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6f76345_fd3ca7dd",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 95
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360f3b26_d7865c56",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "I\u0027d add some doc, especially noting when it is done in place and when it is not.\n\nalso, I didn\u0027t see a definition added for the new one, is this just an accidental add?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 72
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_2ec2c069",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Removed InPlace version. Removed declaration here.",
+      "parentUuid": "360f3b26_d7865c56",
       "range": {
         "startLine": 127,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_ce16b424",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6f76345_5d7b9b97",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 33
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360f3b26_b793e896",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 3
@@ -220,6 +436,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "should these be const?",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 31
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1624f7a2_19440f7f",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "360f3b26_b793e896",
       "range": {
         "startLine": 278,
         "startChar": 0,
@@ -301,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_4eb3c4d4",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6f76345_fda027c0",
+      "range": {
+        "startLine": 296,
+        "startChar": 4,
+        "endLine": 297,
+        "endChar": 10
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6016bf5_3b80d73b",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 3
@@ -312,6 +576,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "needs to be disabled.",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 56
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1624f7a2_5c7b9597",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6016bf5_3b80d73b",
       "range": {
         "startLine": 365,
         "startChar": 0,
@@ -347,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "560aef14_f54cafae",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Yes both are used to tell us if we need to deal with stuff wierdly due to the profile file.",
+      "parentUuid": "7615332e_51ffef41",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 38
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f65b4a_c67d82f5",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 3
@@ -358,6 +670,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "some of these only seem to be used in the if, move them there so they aren\u0027t visible outside.",
+      "range": {
+        "startLine": 402,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 35
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_eef05876",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "all 3 are used around line 540",
+      "parentUuid": "36f65b4a_c67d82f5",
       "range": {
         "startLine": 402,
         "startChar": 2,
@@ -393,6 +729,30 @@
     },
     {
       "key": {
+        "uuid": "1624f7a2_7cc4117b",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "no. Removed.",
+      "parentUuid": "7615332e_8cc32a42",
+      "range": {
+        "startLine": 509,
+        "startChar": 2,
+        "endLine": 510,
+        "endChar": 2
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f65b4a_1a04daa2",
         "filename": "runtime/parsed_options.h",
         "patchSetId": 3
@@ -416,6 +776,30 @@
     },
     {
       "key": {
+        "uuid": "560aef14_58f5d2e9",
+        "filename": "runtime/parsed_options.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Yes. It should be true.\n\nMoved to globals.h",
+      "parentUuid": "36f65b4a_1a04daa2",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36f65b4a_fa46d6e2",
         "filename": "runtime/utils.cc",
         "patchSetId": 3
@@ -427,6 +811,30 @@
       "writtenOn": "2014-07-29T19:17:50Z",
       "side": 1,
       "message": "i think there is a unit test for this, so you should add a new case for .oat",
+      "range": {
+        "startLine": 1239,
+        "startChar": 0,
+        "endLine": 1239,
+        "endChar": 98
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36f65b4a_0e3a5c4d",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T00:15:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36f65b4a_fa46d6e2",
       "range": {
         "startLine": 1239,
         "startChar": 0,
