@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "f6204393_fb894766",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T17:14:32Z",
+      "side": 1,
+      "message": "Is -1 an acceptable value to encode here? If not you should check for it and bail if it is received.",
+      "range": {
+        "startLine": 1610,
+        "startChar": 40,
+        "endLine": 1610,
+        "endChar": 98
+      },
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1624f7a2_ddfe7c7a",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -123,6 +146,23 @@
       "side": 1,
       "message": "GDB accepts both .debug_frame and .eh_frame.\nHowever:\n- .eh_frame is an ABI requirement for x86_64;\n- Even in x86, GCC now emits .eh_frame instead of .debug_frame for -g\n\nFor these considerations, I replaced .debug_frame with .eh_frame.\nHope it answers your question :-)",
       "parentUuid": "1624f7a2_ddfe7c7a",
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6016bf5_e410906d",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T17:14:32Z",
+      "side": 1,
+      "message": "Does eh_frame not have CIEs?",
       "revId": "239a29ff4c45174337e90fa906048638f2655f73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
