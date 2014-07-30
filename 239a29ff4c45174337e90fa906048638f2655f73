@@ -165,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_e424f49e",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T17:29:48Z",
+      "side": 1,
+      "message": "Ahh good catch :-)\n-1 is unacceptable and should be taken care of.\nThanks!",
+      "parentUuid": "f6204393_fb894766",
+      "range": {
+        "startLine": 1610,
+        "startChar": 40,
+        "endLine": 1610,
+        "endChar": 98
+      },
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1624f7a2_ddfe7c7a",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -229,6 +253,24 @@
       "writtenOn": "2014-07-30T17:14:32Z",
       "side": 1,
       "message": "Does eh_frame not have CIEs?",
+      "revId": "239a29ff4c45174337e90fa906048638f2655f73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "963547d4_f53cb2dd",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-07-30T17:29:48Z",
+      "side": 1,
+      "message": "It has CIE.\nBut eh_frame and debug frame distinguish CIE \u0026 FDE in different ways.\nThis code is correct for eh_frame.",
+      "parentUuid": "b6016bf5_e410906d",
       "revId": "239a29ff4c45174337e90fa906048638f2655f73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
