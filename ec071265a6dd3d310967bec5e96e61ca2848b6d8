@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "7937e4c3_1273ed66",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-07-30T16:55:50Z",
+      "side": 1,
+      "message": "Ok, after walking it through with Matteo, it\u0027s clear now what you\u0027re doing.",
+      "parentUuid": "7615332e_16b84dc5",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7937e4c3_83eeb21e",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 1
