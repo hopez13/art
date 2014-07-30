@@ -139,6 +139,24 @@
       "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9932d8d1_5153a3f7",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-07-30T09:34:18Z",
+      "side": 1,
+      "message": "OK. This may indeed have a minimal impact. Let\u0027s keep the code as it is for now and focus on more urgent business ;-)",
+      "parentUuid": "560aef14_e7d1ac90",
+      "revId": "ec071265a6dd3d310967bec5e96e61ca2848b6d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
