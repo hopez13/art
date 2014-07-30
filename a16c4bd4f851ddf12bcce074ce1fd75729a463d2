@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "963547d4_557c9ec6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-07-30T18:17:50Z",
+      "side": 1,
+      "message": "Nitpick: Out arguments are usually pointers in art.",
+      "range": {
+        "startLine": 1544,
+        "startChar": 64,
+        "endLine": 1544,
+        "endChar": 82
+      },
+      "revId": "a16c4bd4f851ddf12bcce074ce1fd75729a463d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
