@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "36f65b4a_497dfe35",
+        "filename": "runtime/arch/x86/x86_inst_len.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-07-30T00:03:35Z",
+      "side": 1,
+      "message": "Yeah, should be opcode.  Don\u0027t worry about it though.",
+      "parentUuid": "560aef14_35b107ce",
+      "revId": "76bc72728ab0f1a338bf88b0b5c15f05a01e0450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91ff043_85622e8b",
         "filename": "runtime/arch/x86/x86_inst_len.h",
         "patchSetId": 5
