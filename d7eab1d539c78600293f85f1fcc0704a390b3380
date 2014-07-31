@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6204393_a95f05c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-31T05:02:26Z",
+      "side": 1,
+      "message": "Yes. The current tasks is to support OAT patching of the debug sections.",
+      "parentUuid": "1624f7a2_93a7c892",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "763a93c6_dabf9495",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-07-31T04:29:10Z",
       "side": 1,
       "message": "\"* \"",
+      "range": {
+        "startLine": 265,
+        "startChar": 8,
+        "endLine": 265,
+        "endChar": 10
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6f76345_51c264ce",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-31T05:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763a93c6_dabf9495",
       "range": {
         "startLine": 265,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f6204393_69a7ad93",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-31T05:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763a93c6_5afa8453",
+      "range": {
+        "startLine": 404,
+        "startChar": 108,
+        "endLine": 404,
+        "endChar": 109
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "763a93c6_9af0ec75",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-07-31T04:29:10Z",
       "side": 1,
       "message": "\"\u0026 \"",
+      "range": {
+        "startLine": 408,
+        "startChar": 79,
+        "endLine": 408,
+        "endChar": 81
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6f76345_11acdc20",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-31T05:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763a93c6_9af0ec75",
       "range": {
         "startLine": 408,
         "startChar": 79,
@@ -528,6 +624,30 @@
       "writtenOn": "2014-07-31T04:29:10Z",
       "side": 1,
       "message": "std::vector\u003cuint8_t\u003e*",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 38
+      },
+      "revId": "d7eab1d539c78600293f85f1fcc0704a390b3380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6204393_e9b29dcf",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-07-31T05:02:26Z",
+      "side": 1,
+      "message": "please explain. changing \u0026data to *data needs changing all the class source from data.member to data-\u003emember",
+      "parentUuid": "1624f7a2_33b6b4c6",
       "range": {
         "startLine": 142,
         "startChar": 16,
