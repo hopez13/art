@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6f76345_77343068",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-07-31T17:54:39Z",
+      "side": 1,
+      "message": "I think this deserves a comment as to why these cases don\u0027t need validation.",
+      "revId": "91c5e7e912cbe3674689ee4f419637983fe288fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
