@@ -46,6 +46,30 @@
       "revId": "345c6ecbb6a7a117d1bced506a85fb0851fa11d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16295785_748c402a",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-07-31T03:18:49Z",
+      "side": 1,
+      "message": "I don\u0027t understand, aren\u0027t you optimizing the call sequence to load from the vtable instead? Why isn\u0027t the call sequence homogeneous between archs?",
+      "parentUuid": "1624f7a2_f3d16790",
+      "range": {
+        "startLine": 592,
+        "startChar": 14,
+        "endLine": 592,
+        "endChar": 29
+      },
+      "revId": "345c6ecbb6a7a117d1bced506a85fb0851fa11d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
