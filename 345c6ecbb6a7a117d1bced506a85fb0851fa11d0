@@ -70,6 +70,30 @@
       "revId": "345c6ecbb6a7a117d1bced506a85fb0851fa11d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16295785_88fb0be0",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-07-31T17:58:17Z",
+      "side": 1,
+      "message": "It\u0027s true x86 can do the same thing. However that requires more code change since the final call instruction generation is shared by virtual call, static call, etc. and the improvement needs to be measured. I\u0027ll leave it to some future task.",
+      "parentUuid": "16295785_748c402a",
+      "range": {
+        "startLine": 592,
+        "startChar": 14,
+        "endLine": 592,
+        "endChar": 29
+      },
+      "revId": "345c6ecbb6a7a117d1bced506a85fb0851fa11d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
