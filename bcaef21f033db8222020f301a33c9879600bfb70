@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "763a93c6_1a3d1cd8",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-31T03:23:48Z",
+      "side": 1,
+      "message": "GetStatus is in class.h, were you missing object-inl.h that this include gets for you (amongst a lot of other stuff)",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "bcaef21f033db8222020f301a33c9879600bfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1624f7a2_1836371d",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-31T03:23:48Z",
+      "side": 1,
+      "message": "!resolved-\u003eIsErroneous()",
+      "range": {
+        "startLine": 48,
+        "startChar": 32,
+        "endLine": 48,
+        "endChar": 77
+      },
+      "revId": "bcaef21f033db8222020f301a33c9879600bfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16295785_d4653497",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-07-31T03:23:48Z",
+      "side": 1,
+      "message": "!klass-\u003eIsErroneous()",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 78
+      },
+      "revId": "bcaef21f033db8222020f301a33c9879600bfb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
