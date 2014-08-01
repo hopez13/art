@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "968387c4_c52facba",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-01T17:55:43Z",
+      "side": 1,
+      "message": "Returning here would leak a dangling MemMap object in maps_. Instead, we should run the code in lines 394-403 for the reuse_ \u003d\u003d false case? One way is to surround the munmap code (lines 388-391) with an \"if (!reuse_) { ... } \" statement.",
+      "range": {
+        "startLine": 385,
+        "startChar": 6,
+        "endLine": 385,
+        "endChar": 17
+      },
+      "revId": "42f986d70f3374d7d90f4121695251df73ae2e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
