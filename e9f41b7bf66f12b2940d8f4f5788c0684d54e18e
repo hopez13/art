@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "968387c4_b7ef3a1c",
+        "filename": "compiler/utils/arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-02T02:05:35Z",
+      "side": 1,
+      "message": "This naming is impenetrable. Arena ok, a pool to allocate into. Allocate ok, something I can allocate with. Adapter.. no idea - presumably something to do with differences between ART and the STL but why? In keeping with the rest of this code, no comments. The only hope to ascertain the meaning is from the implementation. The only hope to reuse the code is to hope to copy and paste an existing example.",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 23
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7688d3e2_9561d417",
+        "filename": "compiler/utils/arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-02T02:05:35Z",
+      "side": 1,
+      "message": "what\u0027s a \"not tracking allocation\" ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 29
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3692db12_34f566eb",
+        "filename": "compiler/utils/arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-02T02:05:35Z",
+      "side": 1,
+      "message": "A FooberMeegooberMeegummeryFlibberyFlobberyThingyImpl. :-/. And its clearly not Abstract and an Impl because there aren\u0027t any pure virtuals within it.",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7688d3e2_b559786f",
+        "filename": "compiler/utils/arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-02T02:05:35Z",
+      "side": 1,
+      "message": "This is intended as a general utility, it should be documented.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 33
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
