@@ -160,6 +160,30 @@
       "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b676cbc3_13c88c5a",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1050938
+      },
+      "writtenOn": "2014-08-03T08:48:33Z",
+      "side": 1,
+      "message": "slightly change it to make it more readable.",
+      "parentUuid": "968387c4_09e60a4c",
+      "range": {
+        "startLine": 260,
+        "startChar": 30,
+        "endLine": 260,
+        "endChar": 31
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
