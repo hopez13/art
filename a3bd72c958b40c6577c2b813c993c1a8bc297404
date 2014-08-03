@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7688d3e2_10a95210",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 54,
+        "startChar": 39,
+        "endLine": 54,
+        "endChar": 45
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968387c4_89d21a70",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "Please don\u0027t use C-style abbreviations. We prefer expressive names.",
+      "range": {
+        "startLine": 55,
+        "startChar": 37,
+        "endLine": 55,
+        "endChar": 40
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968387c4_a9d7de5f",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "We prefer declarations near their use, not old C-style. E.g., count1 and count2 are local to the conditional, i local to the loop.",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 31
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7688d3e2_b0b50669",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "The preferred way is new and std::unique_ptr.",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 51
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3692db12_8813f6c4",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "This unconditional one here indicates that we should add non-static methods for completeness.",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968387c4_69e1d632",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "See above, ART preferred memory handling is unique_ptr.",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 18
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968387c4_09e60a4c",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-03T07:05:47Z",
+      "side": 1,
+      "message": "Upper case.",
+      "range": {
+        "startLine": 260,
+        "startChar": 30,
+        "endLine": 260,
+        "endChar": 31
+      },
+      "revId": "a3bd72c958b40c6577c2b813c993c1a8bc297404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
