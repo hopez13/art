@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7688d3e2_fba12f1b",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-04T16:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6325ff0_6fea2d54",
+      "revId": "efab9ca44629720dbea6204a70cd4d4a924346da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3692db12_08028bda",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2014-08-01T20:42:43Z",
       "side": 1,
       "message": "CTZ in utils.h",
+      "range": {
+        "startLine": 1242,
+        "startChar": 22,
+        "endLine": 1242,
+        "endChar": 35
+      },
+      "revId": "efab9ca44629720dbea6204a70cd4d4a924346da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968387c4_6c424426",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-04T16:30:55Z",
+      "side": 1,
+      "message": "Done, also in the older code below.",
+      "parentUuid": "3692db12_08028bda",
       "range": {
         "startLine": 1242,
         "startChar": 22,
