@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56dbcf05_7318fade",
+        "filename": "compiler/utils/arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-04T10:44:49Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "968387c4_b7ef3a1c",
+      "range": {
+        "startLine": 159,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 23
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7688d3e2_9561d417",
         "filename": "compiler/utils/arena_containers.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-02T02:05:35Z",
       "side": 1,
       "message": "what\u0027s a \"not tracking allocation\" ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 29
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6c1231a_ed864556",
+        "filename": "compiler/utils/arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-04T10:44:49Z",
+      "side": 1,
+      "message": "This specialization is used when we\u0027re not tracking allocations.",
+      "parentUuid": "7688d3e2_9561d417",
       "range": {
         "startLine": 40,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "96d1c7e4_f535b210",
+        "filename": "compiler/utils/arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-04T10:44:49Z",
+      "side": 1,
+      "message": "You have a very limited view of what \"implementation\" means. The analogy could be expressed with concepts but C++ doesn\u0027t support them (yet; maybe C++17).",
+      "parentUuid": "3692db12_34f566eb",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7688d3e2_b559786f",
         "filename": "compiler/utils/arena_containers.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-08-02T02:05:35Z",
       "side": 1,
       "message": "This is intended as a general utility, it should be documented.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 33
+      },
+      "revId": "e9f41b7bf66f12b2940d8f4f5788c0684d54e18e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56dbcf05_53ea9653",
+        "filename": "compiler/utils/arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-04T10:44:49Z",
+      "side": 1,
+      "message": "The question is where to put the documentation. For this CL, I decided to put it at the initial declaration (see the one-liner above) rather than either this \u003cvoid\u003e specialization or the main template below.",
+      "parentUuid": "7688d3e2_b559786f",
       "range": {
         "startLine": 60,
         "startChar": 0,
