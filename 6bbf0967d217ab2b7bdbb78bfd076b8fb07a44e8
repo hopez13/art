@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d64c1fb5_bf3c13dd",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T02:52:20Z",
+      "side": 1,
+      "message": "prefer, if (cu_-\u003etarget64) {",
+      "range": {
+        "startLine": 1566,
+        "startChar": 4,
+        "endLine": 1566,
+        "endChar": 16
+      },
+      "revId": "6bbf0967d217ab2b7bdbb78bfd076b8fb07a44e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
