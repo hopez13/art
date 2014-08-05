@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7688d3e2_c01d5383",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T00:18:28Z",
+      "side": 1,
+      "message": "there are checks and comments below in the \"if (reuse)\" block. I added another to check that the range overlaps an existing map.",
+      "parentUuid": "3692db12_52f595e9",
+      "range": {
+        "startLine": 331,
+        "startChar": 45,
+        "endLine": 331,
+        "endChar": 56
+      },
+      "revId": "f382affb7313a7003f56d47d830986fda270f9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7688d3e2_ad484845",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-04T20:47:23Z",
       "side": 1,
       "message": "why doesn\u0027t this fail in the reuse case?",
+      "range": {
+        "startLine": 376,
+        "startChar": 7,
+        "endLine": 379,
+        "endChar": 3
+      },
+      "revId": "f382affb7313a7003f56d47d830986fda270f9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3692db12_7496843d",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T00:18:28Z",
+      "side": 1,
+      "message": "because if expected is non-null, it is just happy to get what it asked for.",
+      "parentUuid": "7688d3e2_ad484845",
       "range": {
         "startLine": 376,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "968387c4_b3166723",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T00:18:28Z",
+      "side": 1,
+      "message": "thanks",
+      "parentUuid": "7688d3e2_0d8054e9",
+      "range": {
+        "startLine": 388,
+        "startChar": 7,
+        "endLine": 388,
+        "endChar": 13
+      },
+      "revId": "f382affb7313a7003f56d47d830986fda270f9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "968387c4_a24a938b",
         "filename": "runtime/mem_map.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2014-08-04T20:47:23Z",
       "side": 1,
       "message": "document meaning of reuse",
+      "range": {
+        "startLine": 80,
+        "startChar": 47,
+        "endLine": 80,
+        "endChar": 59
+      },
+      "revId": "f382affb7313a7003f56d47d830986fda270f9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3692db12_52cef599",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T00:18:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "968387c4_a24a938b",
       "range": {
         "startLine": 80,
         "startChar": 47,
@@ -128,6 +224,54 @@
       "writtenOn": "2014-08-04T20:47:23Z",
       "side": 1,
       "message": "Add comments on who is responsible for unmapping.",
+      "range": {
+        "startLine": 155,
+        "startChar": 16,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "f382affb7313a7003f56d47d830986fda270f9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968387c4_fd1a8088",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T00:18:28Z",
+      "side": 1,
+      "message": "Done, but only name_ is also const. the sizes can change.",
+      "parentUuid": "968387c4_4266272f",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 6
+      },
+      "revId": "f382affb7313a7003f56d47d830986fda270f9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3692db12_92c47d7c",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T00:18:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "968387c4_c2847787",
       "range": {
         "startLine": 155,
         "startChar": 16,
