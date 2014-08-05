@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76345307_75447080",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T21:15:04Z",
+      "side": 1,
+      "message": "you have NO_THREAD_SAFETY on the declaration, annotations belong on the declaration.\nLocks::mutator_lock_-\u003eAssertHeld(self);",
+      "range": {
+        "startLine": 198,
+        "startChar": 90,
+        "endLine": 198,
+        "endChar": 134
+      },
+      "revId": "c05ce5f487d8f15aa04090394cea39bebae636cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76345307_f556c03d",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T21:15:04Z",
+      "side": 1,
+      "message": "PcAndSp, following the acronyms are words convention",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 32
+      },
+      "revId": "c05ce5f487d8f15aa04090394cea39bebae636cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
