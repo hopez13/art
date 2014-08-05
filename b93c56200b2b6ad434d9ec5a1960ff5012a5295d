@@ -306,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "f6684304_dbbe4be9",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-05T19:43:40Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s what I meant. As soon as that is gone, it\u0027s clear that there are no NPEs here.",
+      "parentUuid": "56390f00_06333e2c",
+      "range": {
+        "startLine": 1508,
+        "startChar": 19,
+        "endLine": 1508,
+        "endChar": 20
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c1fb5_1ff54764",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
