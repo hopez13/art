@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "76345307_e11d66ca",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-05T10:34:07Z",
+      "side": 1,
+      "message": "This is an INVOKE_STATIC, it will not have the MIR_IGNORE_NULL_CHECK set, ever. The meaning would be ill-defined anyway as we\u0027ve got 2 references to check.",
+      "range": {
+        "startLine": 1482,
+        "startChar": 24,
+        "endLine": 1482,
+        "endChar": 47
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6496ba6_de39215a",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -163,6 +186,30 @@
     },
     {
       "key": {
+        "uuid": "56390f00_00216600",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-05T10:34:07Z",
+      "side": 1,
+      "message": "MarkPossibleNullPointerException()",
+      "parentUuid": "d64c1fb5_3ff00374",
+      "range": {
+        "startLine": 1508,
+        "startChar": 19,
+        "endLine": 1508,
+        "endChar": 20
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c1fb5_1ff54764",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -232,6 +279,30 @@
     },
     {
       "key": {
+        "uuid": "76345307_84dc6883",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-05T10:34:07Z",
+      "side": 1,
+      "message": "MarkPossibleNullPointerException()",
+      "parentUuid": "d64c1fb5_5fffcf41",
+      "range": {
+        "startLine": 1514,
+        "startChar": 19,
+        "endLine": 1514,
+        "endChar": 20
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c1fb5_bfe373aa",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -266,6 +337,30 @@
       "writtenOn": "2014-08-05T04:24:14Z",
       "side": 1,
       "message": "A floating-point load?",
+      "range": {
+        "startLine": 1547,
+        "startChar": 48,
+        "endLine": 1547,
+        "endChar": 55
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56390f00_809e1611",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1547,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-05T10:34:07Z",
+      "side": 1,
+      "message": "A potentially unaligned floating-point load? Alignment fault even with SCTRL.A \u003d 0.",
+      "parentUuid": "b6496ba6_9e84b9bf",
       "range": {
         "startLine": 1547,
         "startChar": 48,
