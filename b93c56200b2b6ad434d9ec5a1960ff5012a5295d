@@ -282,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "56390f00_06333e2c",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-05T18:12:17Z",
+      "side": 1,
+      "message": "There\u0027s the \"if (!cu_-\u003ecompiler_driver-\u003eGetCompilerOptions().GetImplicitNullChecks())\" condition for the explicit checks. It could be dropped... and probably should be as it\u0027s at odds with the comment above that.",
+      "parentUuid": "b6496ba6_cf720db1",
+      "range": {
+        "startLine": 1508,
+        "startChar": 19,
+        "endLine": 1508,
+        "endChar": 20
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c1fb5_1ff54764",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
