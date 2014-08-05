@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "76345307_4476e0b2",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-05T11:16:35Z",
+      "side": 1,
+      "message": "Yes. Quick doesn\u0027t have any mechanism for marking individual arguments as null-checked right now, so we need those null checks here.",
+      "parentUuid": "363e5beb_02b5ecce",
+      "range": {
+        "startLine": 1482,
+        "startChar": 24,
+        "endLine": 1482,
+        "endChar": 47
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6496ba6_de39215a",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
