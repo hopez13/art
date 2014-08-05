@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "363e5beb_02b5ecce",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-05T11:04:12Z",
+      "side": 1,
+      "message": "Do you mean this flag should simply be ignored?",
+      "parentUuid": "76345307_e11d66ca",
+      "range": {
+        "startLine": 1482,
+        "startChar": 24,
+        "endLine": 1482,
+        "endChar": 47
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6496ba6_de39215a",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 1
@@ -361,6 +385,30 @@
       "side": 1,
       "message": "A potentially unaligned floating-point load? Alignment fault even with SCTRL.A \u003d 0.",
       "parentUuid": "b6496ba6_9e84b9bf",
+      "range": {
+        "startLine": 1547,
+        "startChar": 48,
+        "endLine": 1547,
+        "endChar": 55
+      },
+      "revId": "b93c56200b2b6ad434d9ec5a1960ff5012a5295d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962f07b5_6b293172",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1547,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-05T11:04:12Z",
+      "side": 1,
+      "message": "Actually, at first I was trying to use d registers to copy 4 elements at a time and ignore the differences between 32-bit and 64-bit. But at last, I found that I am not able to access d registers at this level. But I forgot to change kSingle back to k32.",
+      "parentUuid": "56390f00_809e1611",
       "range": {
         "startLine": 1547,
         "startChar": 48,
