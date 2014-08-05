@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76345307_5577ace5",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T21:11:14Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "revId": "cd93a6424ae30739aaec46c7e09ac45ed1a9eb17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76345307_957134f1",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T21:11:14Z",
+      "side": 1,
+      "message": "move to private",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 67
+      },
+      "revId": "cd93a6424ae30739aaec46c7e09ac45ed1a9eb17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63f63e6_a686cc54",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T21:11:14Z",
+      "side": 1,
+      "message": "comment that this is a bswap + 3 rounds of moving whereas the generic luni implementation has 5 rounds (putting a Java equivalent of the code would make the implementation here more clear).",
+      "range": {
+        "startLine": 1081,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 18
+      },
+      "revId": "cd93a6424ae30739aaec46c7e09ac45ed1a9eb17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
