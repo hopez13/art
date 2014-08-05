@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16431782_e1be00e9",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T02:35:11Z",
+      "side": 1,
+      "message": "describe what expected and limit are, the range could appear to be from expected to expected + limit. Perhaps just follow STL style with begin and end for clarity.",
+      "range": {
+        "startLine": 133,
+        "startChar": 29,
+        "endLine": 134,
+        "endChar": 45
+      },
+      "revId": "fedcec7e20212bf371e161dad148ba6bf7002352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16431782_81a73cd9",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T02:35:11Z",
+      "side": 1,
+      "message": "similar, also we tend to write \"if(!Check...)\" below, clarify the difference between CheckNonOverlapping and !CheckOverlapping",
+      "range": {
+        "startLine": 155,
+        "startChar": 12,
+        "endLine": 156,
+        "endChar": 47
+      },
+      "revId": "fedcec7e20212bf371e161dad148ba6bf7002352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64c1fb5_1c4a758d",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T02:35:11Z",
+      "side": 1,
+      "message": "describe arguments",
+      "range": {
+        "startLine": 181,
+        "startChar": 28,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "fedcec7e20212bf371e161dad148ba6bf7002352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6496ba6_9e867955",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-05T02:35:11Z",
+      "side": 1,
+      "message": "s/;;//",
+      "range": {
+        "startLine": 78,
+        "startChar": 58,
+        "endLine": 78,
+        "endChar": 60
+      },
+      "revId": "fedcec7e20212bf371e161dad148ba6bf7002352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
