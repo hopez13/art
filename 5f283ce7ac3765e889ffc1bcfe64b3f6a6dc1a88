@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "76345307_c142e2c2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T08:11:38Z",
+      "side": 1,
+      "message": "the ImageHeader is small enough, we could return a copy?",
+      "parentUuid": "36f65b4a_8e854c4e",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1007,
+        "endChar": 3
+      },
+      "revId": "5f283ce7ac3765e889ffc1bcfe64b3f6a6dc1a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6016bf5_7bfbffe0",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
