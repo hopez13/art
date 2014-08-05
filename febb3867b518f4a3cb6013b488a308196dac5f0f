@@ -22,6 +22,30 @@
       "revId": "febb3867b518f4a3cb6013b488a308196dac5f0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76345307_419412f5",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-05T08:18:14Z",
+      "side": 1,
+      "message": "I also think that GetInlinedGet is a confusing name for this function, perhaps GenInlinedReferenceGet? but these are comments for Mathieu and Fred...",
+      "parentUuid": "36f65b4a_ae0b70f7",
+      "range": {
+        "startLine": 1145,
+        "startChar": 3,
+        "endLine": 1147,
+        "endChar": 93
+      },
+      "revId": "febb3867b518f4a3cb6013b488a308196dac5f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
