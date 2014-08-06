@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76345307_adc5081f",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-06T21:43:11Z",
+      "side": 1,
+      "message": "How long can this list get? Is there any scenario where this could become too slow due to O(n)?",
+      "revId": "75c6852dbaaf254ca0af4aa84350e2b249d73063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
