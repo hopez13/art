@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "56390f00_b5db92fe",
+        "filename": "runtime/gc/accounting/card_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-06T18:35:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f63f63e6_8c980ff7",
+      "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f63f63e6_0cacff0e",
         "filename": "runtime/gc/accounting/card_table_test.cc",
         "patchSetId": 2
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "f63f63e6_0c5a3f62",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-06T18:35:30Z",
+      "side": 1,
+      "message": "Just default constants, I dont want to randomize to avoid making the test non deterministic.",
+      "parentUuid": "f63f63e6_0cacff0e",
+      "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f63f63e6_ac9eabdd",
         "filename": "runtime/gc/accounting/card_table_test.cc",
         "patchSetId": 2
@@ -65,6 +101,24 @@
         "endLine": 50,
         "endChar": 25
       },
+      "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76345307_eaded6ef",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-06T18:35:30Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "f63f63e6_ac9eabdd",
       "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
