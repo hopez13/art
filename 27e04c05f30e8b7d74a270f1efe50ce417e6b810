@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16431782_3ee63e77",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-06T05:16:52Z",
+      "side": 1,
+      "message": "Maybe change this function name to ConstructCIE?\nCIE (Common Information Entry) is the name in DWARF standard.",
+      "range": {
+        "startLine": 863,
+        "startChar": 22,
+        "endLine": 863,
+        "endChar": 42
+      },
+      "revId": "27e04c05f30e8b7d74a270f1efe50ce417e6b810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6684304_4116c525",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-06T05:16:52Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 941,
+        "startChar": 22,
+        "endLine": 941,
+        "endChar": 39
+      },
+      "revId": "27e04c05f30e8b7d74a270f1efe50ce417e6b810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
