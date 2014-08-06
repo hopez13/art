@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d64c1fb5_775c6764",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T16:40:19Z",
+      "side": 1,
+      "message": "I am very skeptical that this is wise.\n\nWhy not just use the .debug_abbrev parsing code we already have to find all the addr\u0027s we need to fix.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c1fb5_97d3f341",
         "filename": "compiler/elf_fixup.cc",
         "patchSetId": 7
@@ -18,6 +41,109 @@
         "startChar": 30,
         "endLine": 65,
         "endChar": 32
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6684304_94ac9d75",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T16:40:19Z",
+      "side": 1,
+      "message": "Any reason for this?",
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16431782_19571c3c",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T16:40:19Z",
+      "side": 1,
+      "message": "I\u0027d put a comment noting that the code is also used for GDB init.",
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64c1fb5_f7387709",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T16:40:19Z",
+      "side": 1,
+      "message": "Document what they are with comments please.",
+      "range": {
+        "startLine": 1070,
+        "startChar": 2,
+        "endLine": 1075,
+        "endChar": 4
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6684304_f4bcf1a2",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T16:40:19Z",
+      "side": 1,
+      "message": "uintptr_t* rel_table \u003d reinterpret_cast\u003cuintptr_t*\u003e(...)?",
+      "range": {
+        "startLine": 1078,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 51
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d64c1fb5_178fe3d8",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T16:40:19Z",
+      "side": 1,
+      "message": "How the hell does this work?\n\nAlso, if this does what I think it does you should consider just reworking the methods already there.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 0,
+        "endLine": 1089,
+        "endChar": 5
       },
       "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
