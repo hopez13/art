@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "16431782_ef3ffb3d",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-06T21:52:32Z",
+      "side": 1,
+      "message": "I think that if it\u0027s a dependency of the elf format, I would just switch in this method instead of making it a template.",
+      "range": {
+        "startLine": 469,
+        "startChar": 24,
+        "endLine": 469,
+        "endChar": 25
+      },
+      "revId": "7d4f425867fc328a1c129696359a211db193fc3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16431782_4f642f71",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-06T21:52:32Z",
+      "side": 1,
+      "message": "Style is const reference for arguments. If you need to change the data, don\u0027t make it const.",
+      "range": {
+        "startLine": 470,
+        "startChar": 28,
+        "endLine": 470,
+        "endChar": 33
+      },
+      "revId": "7d4f425867fc328a1c129696359a211db193fc3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6624b22_27b2c21c",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 1
