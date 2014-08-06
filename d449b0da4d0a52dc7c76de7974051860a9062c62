@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16431782_d98494c0",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T15:38:27Z",
+      "side": 1,
+      "message": "It seems like it would be better (and it would remove a memcpy) to just create the RawSectionBuilder and then pass its buffer down through this call instead of creating it like this.\n\nMake ConstructCIEFrame into bool ConstructCIEFrame(std::vector\u003cbyte\u003e* buf, InstructionSet isa)",
+      "range": {
+        "startLine": 983,
+        "startChar": 0,
+        "endLine": 984,
+        "endChar": 64
+      },
+      "revId": "d449b0da4d0a52dc7c76de7974051860a9062c62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
