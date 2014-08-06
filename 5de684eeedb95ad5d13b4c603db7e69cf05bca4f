@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96fd4775_dbb2bf7d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-06T21:01:20Z",
+      "side": 1,
+      "message": "don\u0027t we usually put whitespace after *? here and below twice",
+      "range": {
+        "startLine": 42,
+        "startChar": 23,
+        "endLine": 42,
+        "endChar": 47
+      },
+      "revId": "5de684eeedb95ad5d13b4c603db7e69cf05bca4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6624b22_5c299171",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-06T21:01:20Z",
+      "side": 1,
+      "message": "isn\u0027t odd to use \u0026\u0026 here instead of making it clear a pointer is being passed?",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 45
+      },
+      "revId": "5de684eeedb95ad5d13b4c603db7e69cf05bca4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16431782_4cb55dce",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-06T21:01:20Z",
+      "side": 1,
+      "message": "long line now (wasn\u0027t before)",
+      "range": {
+        "startLine": 407,
+        "startChar": 12,
+        "endLine": 407,
+        "endChar": 106
+      },
+      "revId": "5de684eeedb95ad5d13b4c603db7e69cf05bca4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
