@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f63f63e6_8c980ff7",
+        "filename": "runtime/gc/accounting/card_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-06T18:17:55Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 64,
+        "startChar": 41,
+        "endLine": 64,
+        "endChar": 45
+      },
+      "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63f63e6_0cacff0e",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-06T18:17:55Z",
+      "side": 1,
+      "message": "Reasons for those constants? Constexpr? Maybe randomized? What about testing values where we expect failure?",
+      "range": {
+        "startLine": 49,
+        "startChar": 56,
+        "endLine": 49,
+        "endChar": 86
+      },
+      "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63f63e6_ac9eabdd",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-06T18:17:55Z",
+      "side": 1,
+      "message": "What does this comment mean?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "457e86d9faf3a1b29b17ea8fcd280ba8fa816a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
