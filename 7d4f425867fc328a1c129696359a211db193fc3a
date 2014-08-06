@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b6624b22_e7b1eae2",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-06T22:01:22Z",
+      "side": 1,
+      "message": "Just chatted with Brian, I\u0027m referencing:\n\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.xml\n\n\"Remember that most of the time input parameters are going to be specified as const T\u0026. Using const T* instead communicates to the reader that the input is somehow treated differently. So if you choose const T* rather than const T\u0026, do so for a concrete reason; otherwise it will likely confuse readers by making them look for an explanation that doesn\u0027t exist.\"\n\nSo you can use it, but it lead to confusion.",
+      "parentUuid": "16431782_4f642f71",
+      "range": {
+        "startLine": 470,
+        "startChar": 28,
+        "endLine": 470,
+        "endChar": 33
+      },
+      "revId": "7d4f425867fc328a1c129696359a211db193fc3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6624b22_27b2c21c",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 1
