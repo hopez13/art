@@ -22,6 +22,30 @@
       "revId": "d449b0da4d0a52dc7c76de7974051860a9062c62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d665ff2a_9ad84d3c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-06T20:48:38Z",
+      "side": 1,
+      "message": "The change to SetBuffer is done.",
+      "parentUuid": "16431782_d98494c0",
+      "range": {
+        "startLine": 983,
+        "startChar": 0,
+        "endLine": 984,
+        "endChar": 64
+      },
+      "revId": "d449b0da4d0a52dc7c76de7974051860a9062c62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
