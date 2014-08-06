@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96fd4775_8780d43d",
+        "filename": "runtime/gc/accounting/card_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-06T23:34:06Z",
+      "side": 1,
+      "message": "Are these necessary?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 40
+      },
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6624b22_22347067",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-06T23:34:06Z",
+      "side": 1,
+      "message": "Should this class be in the art::gc::accounting namespace?",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96fd4775_67acd0bb",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-06T23:34:06Z",
+      "side": 1,
+      "message": "Is this short for \"PickRandomCard\"? In any case, why not spell it out?",
+      "range": {
+        "startLine": 61,
+        "startChar": 7,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96fd4775_a77cf83b",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-06T23:34:06Z",
+      "side": 1,
+      "message": "Are these lines debug code left unintentionally?\n\nWhy LOG(ERROR), not EXPECT_EQ? But Line 133 does the same check in an EXPECT_EQ.\n\nLine 131 is long. It could be broken into two?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 9
+      },
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
