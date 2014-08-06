@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6a7bf88_33b112ce",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-06T17:21:51Z",
+      "side": 1,
+      "message": "char*, would avoid some boiler plate below and some potential std::string construction costs.",
+      "range": {
+        "startLine": 272,
+        "startChar": 52,
+        "endLine": 272,
+        "endChar": 64
+      },
+      "revId": "b816b3634ebd28329920098ae5a207f5d0ad0ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6a7bf88_9362468c",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-06T17:21:51Z",
+      "side": 1,
+      "message": "with no ISA in the path, is this not a location rather than a file name?",
+      "range": {
+        "startLine": 276,
+        "startChar": 37,
+        "endLine": 276,
+        "endChar": 40
+      },
+      "revId": "b816b3634ebd28329920098ae5a207f5d0ad0ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6a7bf88_b35f42c9",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-06T17:21:51Z",
+      "side": 1,
+      "message": "Comments are nice, you could list an example return value :-)",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 60
+      },
+      "revId": "b816b3634ebd28329920098ae5a207f5d0ad0ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6a7bf88_f3b29acf",
+        "filename": "runtime/proxy_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-06T17:21:51Z",
+      "side": 1,
+      "message": "Can you update build/Android.gtest.mk and move this test to the runtime list.",
+      "range": {
+        "startLine": 27,
+        "startChar": 25,
+        "endLine": 27,
+        "endChar": 42
+      },
+      "revId": "b816b3634ebd28329920098ae5a207f5d0ad0ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
