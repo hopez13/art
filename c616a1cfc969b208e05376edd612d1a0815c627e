@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76345307_5be19b5d",
+        "filename": "test/046-reflect/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-06T13:29:05Z",
+      "side": 1,
+      "message": "This is probably the wrong place to put these tests. You can write a regular junit tst for these things.\n\nYou can add to libcore/harmony-tests/src/test/java/org/apache/harmony/tests/java/lang/reflect/ParameterizedTypeTest.java\n\nor add a new test under libcore/luni/src/test/java/libcore/java/lang/reflect/...",
+      "revId": "c616a1cfc969b208e05376edd612d1a0815c627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
