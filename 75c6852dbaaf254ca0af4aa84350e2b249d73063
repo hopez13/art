@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f63f63e6_f760805d",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-06T21:53:59Z",
+      "side": 1,
+      "message": "This is essentially the same as the previously used ScanLiteralPool method with an additional check for the dex file. It grows proportionally to the number of class patching, so unless we do lots of class type patching for lots of different class types, this shouldn\u0027t be an issue.",
+      "parentUuid": "76345307_adc5081f",
+      "revId": "75c6852dbaaf254ca0af4aa84350e2b249d73063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56390f00_278ab908",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2014-08-06T21:46:38Z",
       "side": 1,
       "message": "can you comment this, point out its java.lang.ref.Reference vs ObjectReference",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 49
+      },
+      "revId": "75c6852dbaaf254ca0af4aa84350e2b249d73063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63f63e6_572fb412",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-06T21:53:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56390f00_278ab908",
       "range": {
         "startLine": 216,
         "startChar": 0,
