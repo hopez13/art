@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f63f63e6_f7a880fc",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-06T22:46:16Z",
+      "side": 1,
+      "message": "Its part of ELF mostly. The problem was I was assuming this would always be sizeof(uintptr_t) which is bad. \n\nAlso I agree templates are icky but in this case I think the benefits outweigh the cons.",
+      "parentUuid": "f63f63e6_b7a8b80d",
+      "range": {
+        "startLine": 469,
+        "startChar": 24,
+        "endLine": 469,
+        "endChar": 25
+      },
+      "revId": "7d4f425867fc328a1c129696359a211db193fc3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16431782_4f642f71",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 1
