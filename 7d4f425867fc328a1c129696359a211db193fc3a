@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f63f63e6_b7a8b80d",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-06T22:33:46Z",
+      "side": 1,
+      "message": "What I mean is: What is the reason we have to differentiate between the two types? Is that because of the ELF format, or is that because we think it\u0027s nicer to be 64 in 64bits and 32 in 32bits.\n\nYou wouldn\u0027t need to repeat yourself either without a template. You probably can sense I\u0027m not a big fan of templates.",
+      "parentUuid": "76029343_d11aa488",
+      "range": {
+        "startLine": 469,
+        "startChar": 24,
+        "endLine": 469,
+        "endChar": 25
+      },
+      "revId": "7d4f425867fc328a1c129696359a211db193fc3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16431782_4f642f71",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 1
