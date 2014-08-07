@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56202fde_bce379aa",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T20:32:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6eda3ca_4dc739dd",
+      "range": {
+        "startLine": 421,
+        "startChar": 10,
+        "endLine": 422,
+        "endChar": 14
+      },
+      "revId": "8f66658ba2a55d399d71d6197ce20c17d0960ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360c9b77_f21d2683",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f6dbe336_63c8565c",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T20:32:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "360c9b77_f21d2683",
+      "range": {
+        "startLine": 440,
+        "startChar": 1,
+        "endLine": 441,
+        "endChar": 12
+      },
+      "revId": "8f66658ba2a55d399d71d6197ce20c17d0960ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16f157a2_b156fae7",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-08-07T20:23:01Z",
       "side": 1,
       "message": "Why the numbers?  Why leave a gap between 4 and 6?",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "8f66658ba2a55d399d71d6197ce20c17d0960ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56202fde_7c29010b",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T20:32:26Z",
+      "side": 1,
+      "message": "Because of the encoding. This class encodes the constant (as a pointer to a HConstant instruction) and the kind, so \u00275\u0027 conflicts with the encoding. The checks to not conflict are form line 57 to 64.",
+      "parentUuid": "16f157a2_b156fae7",
       "range": {
         "startLine": 47,
         "startChar": 22,
