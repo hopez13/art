@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16f157a2_949e4cde",
+        "filename": "runtime/utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-07T04:43:00Z",
+      "side": 1,
+      "message": "But the implementation should go into utils.cc, not be somewhere in the elf_linker...",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 65
+      },
+      "revId": "ee6ce799321e9ae8f60c6d9c256320644004f600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
