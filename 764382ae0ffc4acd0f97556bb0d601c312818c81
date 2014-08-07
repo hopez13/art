@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96fd4775_6744d080",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T00:01:24Z",
+      "side": 1,
+      "message": "move to scope of if? also, should we add it to the out arg error_msgs?",
+      "range": {
+        "startLine": 896,
+        "startChar": 2,
+        "endLine": 896,
+        "endChar": 24
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360c9b77_cfecbd29",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T00:01:24Z",
+      "side": 1,
+      "message": "one worry is we do the search once, then do it again for the look up. I assume it is not too expensive now, but if we could just make the search function non-fatal, it seems like it would be a little faster.",
+      "range": {
+        "startLine": 1829,
+        "startChar": 0,
+        "endLine": 1831,
+        "endChar": 1
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360c9b77_0f4ec581",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T00:01:24Z",
+      "side": 1,
+      "message": "and now we do a second search here, and then again a third below",
+      "range": {
+        "startLine": 1890,
+        "startChar": 0,
+        "endLine": 1893,
+        "endChar": 1
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360c9b77_2fad89ba",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T00:01:24Z",
+      "side": 1,
+      "message": "it was intentional before that we did this outside the loop so we did it once per class, not once per method",
+      "range": {
+        "startLine": 1968,
+        "startChar": 0,
+        "endLine": 1968,
+        "endChar": 94
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16f157a2_6ece6f9a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T00:01:24Z",
+      "side": 1,
+      "message": "DCHECK that oat_class !\u003d NULL?",
+      "range": {
+        "startLine": 2120,
+        "startChar": 0,
+        "endLine": 2120,
+        "endChar": 17
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16f157a2_8e9d9b8d",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T00:01:24Z",
+      "side": 1,
+      "message": "I\u0027d comment when success is false yet we have dex_files...",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 39
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
