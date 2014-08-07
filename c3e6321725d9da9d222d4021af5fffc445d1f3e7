@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16f157a2_9d6dcf3f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3915,
+      "author": {
+        "id": 1047453
+      },
+      "writtenOn": "2014-08-07T17:45:00Z",
+      "side": 1,
+      "message": "I have a question: I was under the impression that the new implementation of GetFreeMemory (based on max_allowed_footprint_) could return values greater than GetTotalMemory. Is this correct or is always true that GetFreeMemory \u003c GetTotalMemory ?",
+      "range": {
+        "startLine": 3915,
+        "startChar": 56,
+        "endLine": 3915,
+        "endChar": 69
+      },
+      "revId": "c3e6321725d9da9d222d4021af5fffc445d1f3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
