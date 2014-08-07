@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "16f157a2_eee53fee",
+        "filename": "runtime/gc/accounting/card_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-07T21:48:45Z",
+      "side": 1,
+      "message": "Fixes linking error with clang,",
+      "parentUuid": "96fd4775_8780d43d",
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6624b22_22347067",
         "filename": "runtime/gc/accounting/card_table_test.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 36,
         "endChar": 19
       },
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360c9b77_afb5f9ba",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-07T21:48:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6624b22_22347067",
       "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "360c9b77_4fb1edcc",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-07T21:48:45Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "96fd4775_67acd0bb",
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96fd4775_a77cf83b",
         "filename": "runtime/gc/accounting/card_table_test.cc",
         "patchSetId": 3
@@ -88,6 +142,24 @@
         "endLine": 132,
         "endChar": 9
       },
+      "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16f157a2_6e0b0ff9",
+        "filename": "runtime/gc/accounting/card_table_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-07T21:48:45Z",
+      "side": 1,
+      "message": "It was for debugging, I\u0027ll delete.",
+      "parentUuid": "96fd4775_a77cf83b",
       "revId": "2c26501d24d929abe096ecce44f91410290b33c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
