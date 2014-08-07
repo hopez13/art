@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "360c9b77_ce0e7656",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-07T21:40:17Z",
+      "side": 1,
+      "message": "just lose the const-s on the Get.. routines?",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 9
+      },
+      "revId": "798bdbb7ad71b031ffce7bac2377ce4b68548855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
