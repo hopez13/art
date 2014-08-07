@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6133f9f_07007824",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T22:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96fd4775_6744d080",
+      "range": {
+        "startLine": 896,
+        "startChar": 2,
+        "endLine": 896,
+        "endChar": 24
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "360c9b77_cfecbd29",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-07T00:01:24Z",
       "side": 1,
       "message": "one worry is we do the search once, then do it again for the look up. I assume it is not too expensive now, but if we could just make the search function non-fatal, it seems like it would be a little faster.",
+      "range": {
+        "startLine": 1829,
+        "startChar": 0,
+        "endLine": 1831,
+        "endChar": 1
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6dbe336_915e8c20",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T22:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "360c9b77_cfecbd29",
       "range": {
         "startLine": 1829,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "56202fde_029b3e97",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T22:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "360c9b77_2fad89ba",
+      "range": {
+        "startLine": 1968,
+        "startChar": 0,
+        "endLine": 1968,
+        "endChar": 94
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16f157a2_6ece6f9a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "96b467df_9a386d09",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T22:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16f157a2_6ece6f9a",
+      "range": {
+        "startLine": 2120,
+        "startChar": 0,
+        "endLine": 2120,
+        "endChar": 17
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16f157a2_8e9d9b8d",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 2
@@ -128,6 +224,30 @@
       "writtenOn": "2014-08-07T00:01:24Z",
       "side": 1,
       "message": "I\u0027d comment when success is false yet we have dex_files...",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 39
+      },
+      "revId": "764382ae0ffc4acd0f97556bb0d601c312818c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6e5ebf4_be0b5544",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-07T22:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16f157a2_8e9d9b8d",
       "range": {
         "startLine": 117,
         "startChar": 0,
