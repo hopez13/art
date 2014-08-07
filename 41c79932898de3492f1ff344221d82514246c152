@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6eda3ca_8d7c813c",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-07T00:50:39Z",
+      "side": 1,
+      "message": "What will satisfy this? The linker? It might be worth refactoring into utils.h",
+      "range": {
+        "startLine": 1013,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 6
+      },
+      "revId": "41c79932898de3492f1ff344221d82514246c152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6eda3ca_ed6a6523",
+        "filename": "compiler/utils/dwarf_cfi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-07T00:50:39Z",
+      "side": 1,
+      "message": "Yeah, we don\u0027t really like extern, better to refactor that somewhere and use include files.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 72
+      },
+      "revId": "41c79932898de3492f1ff344221d82514246c152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16f157a2_aed4d781",
+        "filename": "compiler/utils/x86/managed_register_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-07T00:50:39Z",
+      "side": 1,
+      "message": "These don\u0027t correspond to static_cast\u003cint\u003e(id_)?",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 3
+      },
+      "revId": "41c79932898de3492f1ff344221d82514246c152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16f157a2_311a0a61",
+        "filename": "compiler/utils/x86_64/managed_register_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-07T00:50:39Z",
+      "side": 1,
+      "message": "Again, static_cast might be simpler. Also, don\u0027t use CHECK(0), do a LOG(FATAL), if possible.",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 5
+      },
+      "revId": "41c79932898de3492f1ff344221d82514246c152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
