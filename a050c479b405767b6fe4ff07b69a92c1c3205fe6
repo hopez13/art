@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "360c9b77_d1b73710",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T23:34:24Z",
+      "side": 1,
+      "message": "DCHECK oat_class !\u003d NULL ?",
+      "range": {
+        "startLine": 2028,
+        "startChar": 0,
+        "endLine": 2028,
+        "endChar": 51
+      },
+      "revId": "a050c479b405767b6fe4ff07b69a92c1c3205fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6dbe336_91c76cdc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2030,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-07T23:34:24Z",
+      "side": 1,
+      "message": "no one line if\u0027s please. and braces please.",
+      "range": {
+        "startLine": 2030,
+        "startChar": 0,
+        "endLine": 2030,
+        "endChar": 40
+      },
+      "revId": "a050c479b405767b6fe4ff07b69a92c1c3205fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
