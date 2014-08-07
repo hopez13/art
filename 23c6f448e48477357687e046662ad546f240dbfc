@@ -22,6 +22,30 @@
       "revId": "23c6f448e48477357687e046662ad546f240dbfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6f7ab98_eb36d1fa",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-07T10:29:42Z",
+      "side": 1,
+      "message": "I see, you\u0027re saying that the branch predictor can\u0027t learn that a conditional back-branch is likely to be _taken_, or that it takes a few _slow_ iterations to learn .",
+      "parentUuid": "962f07b5_8c448881",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1024,
+        "endChar": 36
+      },
+      "revId": "23c6f448e48477357687e046662ad546f240dbfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
