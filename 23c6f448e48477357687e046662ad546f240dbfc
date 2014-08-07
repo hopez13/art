@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "962f07b5_8c448881",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-07T09:32:21Z",
+      "side": 1,
+      "message": "Though there are 2 branches in the loop, it is faster than :\n\nb.cond return\nloop:\n...\nb.cond loop\nb return",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1024,
+        "endChar": 36
+      },
+      "revId": "23c6f448e48477357687e046662ad546f240dbfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
