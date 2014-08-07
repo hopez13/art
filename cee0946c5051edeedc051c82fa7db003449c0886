@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56390f00_ea26d81a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-07T05:33:55Z",
+      "side": 1,
+      "message": "both .debug_info, .debug_line and eh_frame have they own syntaxes to parse. I suggest .rel.debug to not implement parsing.",
+      "parentUuid": "d64c1fb5_775c6764",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 65
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d64c1fb5_97d3f341",
         "filename": "compiler/elf_fixup.cc",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "56390f00_2f7c55c6",
+        "filename": "compiler/elf_fixup.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-07T05:33:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d64c1fb5_97d3f341",
+      "range": {
+        "startLine": 65,
+        "startChar": 30,
+        "endLine": 65,
+        "endChar": 32
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6684304_94ac9d75",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 7
@@ -59,6 +107,24 @@
       "writtenOn": "2014-08-06T16:40:19Z",
       "side": 1,
       "message": "Any reason for this?",
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76029343_14009a24",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-07T05:33:55Z",
+      "side": 1,
+      "message": "just suggested to not make unnecessary copies by sending the parameter by value. Instead, send it by reference.",
+      "parentUuid": "f6684304_94ac9d75",
       "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +171,30 @@
     },
     {
       "key": {
+        "uuid": "56390f00_eaab7808",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-07T05:33:55Z",
+      "side": 1,
+      "message": "Added the following comment to elf_file.h:\n  // Normally debug sections do not have relocation tables in Elf files.\n  // But we need to be able to fixup addresses in the debug sections\n  // when we patchoat the file or prepare the sections for gdb. For these\n  // purposes we maintain .rel.debug section, which contains a sequence \n  // of addresses to patch:\n  // struct {\n  //   byte section_index; // DEBUG_SECTION_INDEX\n  //   Elf32_Offs offset_to_patch; \n  // }\n  // offset_to_patch refers to a relocated address in the debug section\n  // pointed by the section_index (either .debug_info, .debug_line\n  // or eh_frame)",
+      "parentUuid": "d64c1fb5_f7387709",
+      "range": {
+        "startLine": 1070,
+        "startChar": 2,
+        "endLine": 1075,
+        "endChar": 4
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6684304_f4bcf1a2",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 7
@@ -116,6 +206,30 @@
       "writtenOn": "2014-08-06T16:40:19Z",
       "side": 1,
       "message": "uintptr_t* rel_table \u003d reinterpret_cast\u003cuintptr_t*\u003e(...)?",
+      "range": {
+        "startLine": 1078,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 51
+      },
+      "revId": "cee0946c5051edeedc051c82fa7db003449c0886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76029343_94392aed",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-07T05:33:55Z",
+      "side": 1,
+      "message": "Bytes are read from .rel.debug using \"rel_table[entry]\".\n\"offset\" is in the patched section, pointed by \"sec_id\".\npatched_section[sec_id] is one of debug_info-\u003esh_offset, debug_line-\u003esh_offset or eh_frame-\u003esh_offset.",
+      "parentUuid": "f6684304_f4bcf1a2",
       "range": {
         "startLine": 1078,
         "startChar": 0,
