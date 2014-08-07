@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6eda3ca_4dc739dd",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-07T20:23:01Z",
+      "side": 1,
+      "message": "Maybe reverse these:\n\n++i;\nDCHECK_LT(i, environment_size);",
+      "range": {
+        "startLine": 421,
+        "startChar": 10,
+        "endLine": 422,
+        "endChar": 14
+      },
+      "revId": "8f66658ba2a55d399d71d6197ce20c17d0960ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360c9b77_f21d2683",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-07T20:23:01Z",
+      "side": 1,
+      "message": "ditto, and any others",
+      "range": {
+        "startLine": 440,
+        "startChar": 1,
+        "endLine": 441,
+        "endChar": 12
+      },
+      "revId": "8f66658ba2a55d399d71d6197ce20c17d0960ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16f157a2_b156fae7",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-07T20:23:01Z",
+      "side": 1,
+      "message": "Why the numbers?  Why leave a gap between 4 and 6?",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "8f66658ba2a55d399d71d6197ce20c17d0960ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
