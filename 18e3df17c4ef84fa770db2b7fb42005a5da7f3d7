@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "360c9b77_8176fcaf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-08T07:06:26Z",
+      "side": 1,
+      "message": "typically we drop the non-inl version, right? I know I have. I see that isn\u0027t the case below.\n\nsurprised this just sat here, is it still wanted?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "18e3df17c4ef84fa770db2b7fb42005a5da7f3d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
