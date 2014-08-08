@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6e89fcd_a5db4437",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-08T11:43:47Z",
+      "side": 1,
+      "message": "don\u0027t mind, but I don\u0027t think this can happen.",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 36
+      },
+      "revId": "8346d4937eb0be734143e08f26586743683fae21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b467df_001eaac5",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-08T11:43:47Z",
+      "side": 1,
+      "message": "I think we should always warn here. At least during dogfood, so that it will be \"scratch our eyes\" if our assumption (this is very rare) is wrong. We can disable it later.",
+      "range": {
+        "startLine": 342,
+        "startChar": 4,
+        "endLine": 342,
+        "endChar": 8
+      },
+      "revId": "8346d4937eb0be734143e08f26586743683fae21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b467df_a026de19",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-08T11:43:47Z",
+      "side": 1,
+      "message": "why lower_bound and not find?",
+      "range": {
+        "startLine": 347,
+        "startChar": 49,
+        "endLine": 347,
+        "endChar": 60
+      },
+      "revId": "8346d4937eb0be734143e08f26586743683fae21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6e89fcd_45ed20d8",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-08T11:43:47Z",
+      "side": 1,
+      "message": "why bother? does it matter?\n\nalso, using null as values in the map doesn\u0027t seem ideal...",
+      "range": {
+        "startLine": 371,
+        "startChar": 31,
+        "endLine": 371,
+        "endChar": 40
+      },
+      "revId": "8346d4937eb0be734143e08f26586743683fae21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6e89fcd_8542c822",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-08T11:43:47Z",
+      "side": 1,
+      "message": "constructed",
+      "range": {
+        "startLine": 307,
+        "startChar": 62,
+        "endLine": 307,
+        "endChar": 73
+      },
+      "revId": "8346d4937eb0be734143e08f26586743683fae21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6e89fcd_650bfcf8",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-08T11:43:47Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 314,
+        "startChar": 29,
+        "endLine": 315,
+        "endChar": 12
+      },
+      "revId": "8346d4937eb0be734143e08f26586743683fae21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
