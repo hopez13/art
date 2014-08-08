@@ -45,6 +45,30 @@
       "revId": "5229123f54f5db9668f72a933ddeeb136dd82f79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "360c9b77_64a7a693",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-08T16:47:59Z",
+      "side": 1,
+      "message": "The first entry is CIE(Common Information Entry), not an FDE(Frame Description Entry).\nWe are only dealing with FDEs here, so we can just skip this CIE.",
+      "parentUuid": "d6e89fcd_e508ec49",
+      "range": {
+        "startLine": 1050,
+        "startChar": 15,
+        "endLine": 1050,
+        "endChar": 22
+      },
+      "revId": "5229123f54f5db9668f72a933ddeeb136dd82f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
