@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b6e5ebf4_15fc2480",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T02:00:12Z",
+      "side": 1,
+      "message": "Changed to IsDex2OatEnabled()",
+      "parentUuid": "56202fde_c3d8053d",
+      "range": {
+        "startLine": 892,
+        "startChar": 27,
+        "endLine": 892,
+        "endChar": 32
+      },
+      "revId": "da7e178e584146404aeeecdbb77e278ce50dff93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6dbe336_e95360f6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9699c785_55507e96",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T02:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6dbe336_e95360f6",
+      "range": {
+        "startLine": 2128,
+        "startChar": 0,
+        "endLine": 2128,
+        "endChar": 2
+      },
+      "revId": "da7e178e584146404aeeecdbb77e278ce50dff93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56202fde_4316d525",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2014-08-08T05:20:14Z",
       "side": 1,
       "message": "I\u0027d say:\n\nno_image_dex2oat and no_dex2oat, to match the style of the image_compiler_options and compiler_options...\n\nanother thing to consider is not be negative, rename them to be positive in the code, even if not on the command line. \n\nis_image_dex2oat_enabled? is_dex2oat_enabled? they aren\u0027t used often enough to need to be short.",
+      "range": {
+        "startLine": 225,
+        "startChar": 1,
+        "endLine": 227,
+        "endChar": 1
+      },
+      "revId": "da7e178e584146404aeeecdbb77e278ce50dff93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3cfb2_53597638",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T02:00:12Z",
+      "side": 1,
+      "message": "Moved to use dex2oat_enabled_.",
+      "parentUuid": "56202fde_4316d525",
       "range": {
         "startLine": 225,
         "startChar": 1,
@@ -105,6 +177,30 @@
       "writtenOn": "2014-08-08T05:20:14Z",
       "side": 1,
       "message": "these don\u0027t even match what you had up top (no hypens). :) I find with the hyphens more readable, but again i\u0027d use no-image-dex2oat and no-dex2oat (see above we have compiler-option vs image-compiler-option)",
+      "range": {
+        "startLine": 793,
+        "startChar": 1,
+        "endLine": 795,
+        "endChar": 1
+      },
+      "revId": "da7e178e584146404aeeecdbb77e278ce50dff93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3cfb2_735e7a23",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T02:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56202fde_8310cd26",
       "range": {
         "startLine": 793,
         "startChar": 1,
