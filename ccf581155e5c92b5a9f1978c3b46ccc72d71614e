@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3681fb17_075c1663",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T03:27:38Z",
+      "side": 1,
+      "message": "we didn\u0027t come down here to set the interpreter entry point? or we do that elsewhere now? or?",
+      "range": {
+        "startLine": 2286,
+        "startChar": 0,
+        "endLine": 2289,
+        "endChar": 3
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567caff0_884f37a2",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T03:27:38Z",
+      "side": 1,
+      "message": "you can give a better description if you want. i just had put placeholders in for missing ones, they can use more elaboration.",
+      "range": {
+        "startLine": 782,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 44
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7687f329_ccef7f1b",
+        "filename": "test/116-nodex2oat/nodex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T03:27:38Z",
+      "side": 1,
+      "message": "WS (and line length I think)",
+      "range": {
+        "startLine": 31,
+        "startChar": 106,
+        "endLine": 31,
+        "endChar": 108
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567caff0_0845077f",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T03:27:38Z",
+      "side": 1,
+      "message": "test files when these two chars are removed? nice. I didn\u0027t know about the evil of .cc in run-tests now... does that work outside the build system? I\u0027ll have to look.",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3681fb17_874f26a2",
+        "filename": "test/Android.libarttest.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T03:27:38Z",
+      "side": 1,
+      "message": "ah, I see it doesn\u0027t. It is lame that run-test needs the build system now.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7687f329_0cfb57e1",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T03:27:38Z",
+      "side": 1,
+      "message": "yuck, if anything I\u0027d have some config in the test for this. do we have other hacky special cases?",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 2
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
