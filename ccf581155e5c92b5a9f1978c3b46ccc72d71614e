@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "567caff0_eb97cd68",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T06:04:33Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "7687f329_2c7bbb98",
+      "range": {
+        "startLine": 2286,
+        "startChar": 0,
+        "endLine": 2289,
+        "endChar": 3
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567caff0_884f37a2",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 8
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Added one with -Xdex2oat, and without any flag.",
       "parentUuid": "567caff0_0845077f",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3681fb17_0a433b2c",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T06:04:33Z",
+      "side": 1,
+      "message": "sorry, I meant to say\n\n\"test fails when these two chars are removed?\"",
+      "parentUuid": "7687f329_cc93ff95",
       "range": {
         "startLine": 17,
         "startChar": 36,
