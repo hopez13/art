@@ -305,6 +305,30 @@
       "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3681fb17_0ae89bc8",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-09T06:07:48Z",
+      "side": 1,
+      "message": "I\u0027d say just disable, but we really aren\u0027t running any-non-prebuild tests? I think I preferred the old, oat tests are prebuild, run-tests are not. I felt  like we had more coverage in less time.",
+      "parentUuid": "567caff0_8b0e5155",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 2
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
