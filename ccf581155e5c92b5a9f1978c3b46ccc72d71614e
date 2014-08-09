@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7687f329_2c7bbb98",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T04:20:17Z",
+      "side": 1,
+      "message": "The oat_class check line 2428 of the current version prevented calling LinkCode when being in a compiler environment (oat_class \u003d\u003d nullptr meant being in a compiler runtime). So this is just keeping the previous behavior. A compiler runtime does some things its own way.",
+      "parentUuid": "3681fb17_075c1663",
+      "range": {
+        "startLine": 2286,
+        "startChar": 0,
+        "endLine": 2289,
+        "endChar": 3
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567caff0_884f37a2",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-09T03:27:38Z",
       "side": 1,
       "message": "you can give a better description if you want. i just had put placeholders in for missing ones, they can use more elaboration.",
+      "range": {
+        "startLine": 782,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 44
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7687f329_4c80ef3c",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T04:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567caff0_884f37a2",
       "range": {
         "startLine": 782,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7687f329_6c85b34b",
+        "filename": "test/116-nodex2oat/nodex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T04:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7687f329_ccef7f1b",
+      "range": {
+        "startLine": 31,
+        "startChar": 106,
+        "endLine": 31,
+        "endChar": 108
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "567caff0_0845077f",
         "filename": "test/116-nodex2oat/run",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-08-09T03:27:38Z",
       "side": 1,
       "message": "test files when these two chars are removed? nice. I didn\u0027t know about the evil of .cc in run-tests now... does that work outside the build system? I\u0027ll have to look.",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 38
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7687f329_cc93ff95",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T04:20:17Z",
+      "side": 1,
+      "message": "Added one with -Xdex2oat, and without any flag.",
+      "parentUuid": "567caff0_0845077f",
       "range": {
         "startLine": 17,
         "startChar": 36,
@@ -128,6 +224,30 @@
       "writtenOn": "2014-08-09T03:27:38Z",
       "side": 1,
       "message": "yuck, if anything I\u0027d have some config in the test for this. do we have other hacky special cases?",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 2
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "567caff0_8b0e5155",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-09T04:20:17Z",
+      "side": 1,
+      "message": "Yeah that\u0027s not pretty. I could disable the test with prebuild, but we\u0027re currently only running prebuild tests continuously....\n\nThat\u0027s the only hacky special case. Unfortunately the prebuild is before we give any hooks to the tests. We could add a magic file in the test directory we could test against to disable prebuild. WDYT?\n\nAlternatively, I could change class_linker.cc to not use the oat file provided. But that\u0027s probably not the behavior we want, pretty silly to not use an oat file if it exists already....",
+      "parentUuid": "7687f329_0cfb57e1",
       "range": {
         "startLine": 200,
         "startChar": 1,
