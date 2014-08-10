@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3681fb17_4dac6d74",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-10T03:24:33Z",
+      "side": 1,
+      "message": "This is good.  The -Bsymbolic broke the mac build and I was working on removing it for __APPLE__.  Now I don\u0027t need to .  Cool.",
+      "range": {
+        "startLine": 382,
+        "startChar": 2,
+        "endLine": 382,
+        "endChar": 37
+      },
+      "revId": "58bea4a6114b9ea4b00e36186357e5b431430123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
