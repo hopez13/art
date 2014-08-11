@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_5302e4db",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-11T18:41:21Z",
+      "side": 1,
+      "message": "Also underscore should only follow member variables in classes.",
+      "parentUuid": "36a65bd4_4294547e",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 14
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16ab179f_9e0f5d03",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 16
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_f3bd70c4",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-11T18:41:21Z",
+      "side": 1,
+      "message": "kNotFound ? why the subtraction?",
+      "parentUuid": "16ab179f_9e0f5d03",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 116,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56a10fb9_00cbe633",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 16
@@ -59,6 +107,30 @@
       "writtenOn": "2014-08-11T18:09:33Z",
       "side": 1,
       "message": "Any reason for this?",
+      "range": {
+        "startLine": 190,
+        "startChar": 21,
+        "endLine": 190,
+        "endChar": 26
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ea93f0_71b85800",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-11T18:41:21Z",
+      "side": 1,
+      "message": "Documentation if nothing else.",
+      "parentUuid": "56a10fb9_00cbe633",
       "range": {
         "startLine": 190,
         "startChar": 21,
