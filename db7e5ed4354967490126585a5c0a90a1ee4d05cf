@@ -140,6 +140,30 @@
       "revId": "db7e5ed4354967490126585a5c0a90a1ee4d05cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d0433d_98c9b939",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-11T20:00:22Z",
+      "side": 1,
+      "message": "Ah nevermind, I thought this was JNI implementation. I understand now why you need that here.",
+      "parentUuid": "56ef4fff_f0a680ae",
+      "range": {
+        "startLine": 452,
+        "startChar": 15,
+        "endLine": 452,
+        "endChar": 38
+      },
+      "revId": "db7e5ed4354967490126585a5c0a90a1ee4d05cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
