@@ -46,6 +46,30 @@
       "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a10fb9_40632e92",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2090,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-11T17:18:40Z",
+      "side": 1,
+      "message": "Maybe it would be easier to understand if things were negated. Could it be !HasOPeer() || opeer-\u003eno_started\n\n(or something like that)",
+      "parentUuid": "56a3cfb2_a4db3a37",
+      "range": {
+        "startLine": 2090,
+        "startChar": 13,
+        "endLine": 2090,
+        "endChar": 23
+      },
+      "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
