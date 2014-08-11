@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f672031f_a86dd33e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2090,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-11T16:18:25Z",
+      "side": 1,
+      "message": "Maybe use a different method for capturing the information? Do already started threads have no Jni peers anymore?",
+      "range": {
+        "startLine": 2090,
+        "startChar": 13,
+        "endLine": 2090,
+        "endChar": 23
+      },
+      "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
