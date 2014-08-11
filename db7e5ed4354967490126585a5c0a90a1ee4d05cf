@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56ef4fff_50cf8c61",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-11T19:49:37Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ll look into the names.  Confusing, agreed.",
+      "parentUuid": "b6ca4b8f_56877252",
+      "range": {
+        "startLine": 360,
+        "startChar": 7,
+        "endLine": 360,
+        "endChar": 18
+      },
+      "revId": "db7e5ed4354967490126585a5c0a90a1ee4d05cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76ea93f0_b458ee36",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "56ef4fff_b0c7d84c",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-11T19:49:37Z",
+      "side": 1,
+      "message": "The issue I was trying to catch was an upcall from JNI where the SP is very close to the limit.  Unlikely, agreed.",
+      "parentUuid": "76ea93f0_b458ee36",
+      "range": {
+        "startLine": 286,
+        "startChar": 15,
+        "endLine": 286,
+        "endChar": 38
+      },
+      "revId": "db7e5ed4354967490126585a5c0a90a1ee4d05cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76ea93f0_f4c31672",
         "filename": "runtime/reflection.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-08-11T19:38:51Z",
       "side": 1,
       "message": "How about doing this check at every JNI entry? The fact that we are calling a leaf frame elides the stack check, but any runtime code we call will also not do the stack check. So I think it\u0027s cleaner to have it for each JNI entry.",
+      "range": {
+        "startLine": 452,
+        "startChar": 15,
+        "endLine": 452,
+        "endChar": 38
+      },
+      "revId": "db7e5ed4354967490126585a5c0a90a1ee4d05cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ef4fff_f0a680ae",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-11T19:49:37Z",
+      "side": 1,
+      "message": "Don\u0027t follow.  What do you mean by \u0027every JNI entry\u0027?  JNI compiler output?",
+      "parentUuid": "76ea93f0_f4c31672",
       "range": {
         "startLine": 452,
         "startChar": 15,
