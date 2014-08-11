@@ -329,6 +329,30 @@
       "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36a65bd4_3f9ba798",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-11T17:13:32Z",
+      "side": 1,
+      "message": "Instead of disabling it, I have changed the run script of the test to remove the --no-prebuild from the command line.",
+      "parentUuid": "3681fb17_0ae89bc8",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 2
+      },
+      "revId": "ccf581155e5c92b5a9f1978c3b46ccc72d71614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
