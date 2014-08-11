@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_5ce1d1a0",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ab179f_9ef87d2a",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16d4f72c_7614b060",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 28
@@ -30,6 +48,24 @@
       "writtenOn": "2014-08-11T18:31:11Z",
       "side": 1,
       "message": "Need to add inline here for linkage.",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d0433d_3e072dab",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "This seems a bit massive for an inlined method, I moved both align and shuffle over to the cc file.",
+      "parentUuid": "16d4f72c_7614b060",
       "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f6d0433d_f55b186b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 4536,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6ca4b8f_f3d1f06d",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76c53378_f95e7723",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 28
@@ -64,6 +118,24 @@
       "writtenOn": "2014-08-11T18:31:11Z",
       "side": 1,
       "message": "Do these need to be template ints? I suppose it should be a bit faster.",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6ca4b8f_7cac8d21",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 4614,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Mainly because IsAligned is a template method and I\u0027d like to keep the method general regardless of the byte size of alignment. I don\u0027t think it\u0027d be a big issue since the alignment should be constant and known at compile time always.",
+      "parentUuid": "76c53378_f95e7723",
       "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_9c2e49aa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 4623,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56baefee_985d3527",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76ea93f0_71e6184d",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 28
@@ -98,6 +188,24 @@
       "writtenOn": "2014-08-11T18:31:11Z",
       "side": 1,
       "message": "This logic is complicated, but I supposed you need to know the class size before linking the fields.\n\nAlso, use IsAligned instead of \u0026 0x7.",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ea93f0_313d3046",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76ea93f0_71e6184d",
       "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_93f87c2a",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6d0433d_f542f826",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36a65bd4_7fa24f21",
         "filename": "runtime/reference_table_test.cc",
         "patchSetId": 28
@@ -132,6 +258,24 @@
       "writtenOn": "2014-08-11T18:31:11Z",
       "side": 1,
       "message": "Supposed to be with other includes below.",
+      "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76ea93f0_912dfc18",
+        "filename": "runtime/reference_table_test.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-11T22:31:55Z",
+      "side": 1,
+      "message": "Wasn\u0027t needed at all, removed.",
+      "parentUuid": "36a65bd4_7fa24f21",
       "revId": "4d52df4686c60366f7f84ab3da3c4aed5c5a7f19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
