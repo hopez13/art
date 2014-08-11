@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36a65bd4_4294547e",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-11T18:09:33Z",
+      "side": 1,
+      "message": "Different types for from_ and to_?",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 14
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16ab179f_9e0f5d03",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-11T18:09:33Z",
+      "side": 1,
+      "message": "Maybe an explicit type cast here?",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 116,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a10fb9_00cbe633",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-11T18:09:33Z",
+      "side": 1,
+      "message": "Any reason for this?",
+      "range": {
+        "startLine": 190,
+        "startChar": 21,
+        "endLine": 190,
+        "endChar": 26
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36a65bd4_4209f44a",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-11T18:09:33Z",
+      "side": 1,
+      "message": "I\u0027m not too comfortable with this change. Now we need \"Array\" to have .size() and a GetByte() function, and it\u0027s not quite clear at first sight.\n\nCan you keep this DedupeHashFunc the way it was, and add a toUint8Vector() to SrcMap? I know it needs copying contents of SrcMap, but since it\u0027s only in debug mode, I think that\u0027s fine.",
+      "range": {
+        "startLine": 776,
+        "startChar": 2,
+        "endLine": 776,
+        "endChar": 27
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36a65bd4_9fdf539d",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-11T18:09:33Z",
+      "side": 1,
+      "message": "Enum may be clearer in this case.",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36a65bd4_4237b4f7",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-08-11T18:09:33Z",
+      "side": 1,
+      "message": "We only generate stand and special opcodes?",
+      "range": {
+        "startLine": 1121,
+        "startChar": 4,
+        "endLine": 1121,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
