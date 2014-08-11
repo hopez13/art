@@ -70,6 +70,30 @@
       "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3cfb2_640b12f9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2090,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-08-11T17:22:01Z",
+      "side": 1,
+      "message": "Thread::opeer is checked after that. I\u0027ll see how to make things clearer.",
+      "parentUuid": "56a10fb9_40632e92",
+      "range": {
+        "startLine": 2090,
+        "startChar": 13,
+        "endLine": 2090,
+        "endChar": 23
+      },
+      "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
