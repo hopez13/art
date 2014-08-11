@@ -22,6 +22,30 @@
       "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3cfb2_a4db3a37",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2090,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-08-11T17:15:26Z",
+      "side": 1,
+      "message": "All started threads have no JNI peer. The JNI peer is only used when starting thread from Java. It is deleted before calling Thread.run method.\n\nHowever, having a null jpeer doesn\u0027t mean the thread is started. From the debugger POV, it just an indication we are still in the process of starting up a thread.\n\nThis is really a special case for the debugger so I think we could keep such name. I just prefer to avoid any name related to thread state because this could be confusing about its use. I\u0027m thinking about a better naming. I accept suggestions :)",
+      "parentUuid": "f672031f_a86dd33e",
+      "range": {
+        "startLine": 2090,
+        "startChar": 13,
+        "endLine": 2090,
+        "endChar": 23
+      },
+      "revId": "b03017c3b53181c3577be225d773d35495cde4e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
