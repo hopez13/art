@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9699c785_387a113c",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-11T03:51:31Z",
+      "side": 1,
+      "message": "append \u0027_\u0027 to the field names",
+      "range": {
+        "startLine": 1097,
+        "startChar": 11,
+        "endLine": 1097,
+        "endChar": 22
+      },
+      "revId": "855a1fbcaf4254e3badcc418880bec34a80e62dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3cfb2_9613cc78",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-11T03:51:31Z",
+      "side": 1,
+      "message": "uint8_t standard_opcode_lengths_[0];",
+      "range": {
+        "startLine": 1106,
+        "startChar": 10,
+        "endLine": 1106,
+        "endChar": 19
+      },
+      "revId": "855a1fbcaf4254e3badcc418880bec34a80e62dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6e5ebf4_104ef24b",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-11T03:51:31Z",
+      "side": 1,
+      "message": "this is not needed as a class method. It can be made static local inside elf_file.cc",
+      "range": {
+        "startLine": 132,
+        "startChar": 14,
+        "endLine": 132,
+        "endChar": 26
+      },
+      "revId": "855a1fbcaf4254e3badcc418880bec34a80e62dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a3cfb2_963cacdd",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-11T03:51:31Z",
+      "side": 1,
+      "message": "suggestion: the methods can return Leb128Encoder\u0026 and we can push several values in one sequence Leb128Encoder(vec).PushBackUnsigned(a).PushBackSigned(b). ...",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 6
+      },
+      "revId": "855a1fbcaf4254e3badcc418880bec34a80e62dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
