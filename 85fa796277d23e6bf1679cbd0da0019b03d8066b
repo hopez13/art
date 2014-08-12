@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6d0433d_f4bc3158",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-08-12T17:48:45Z",
+      "side": 1,
+      "message": "For x86_64, we use rdi.\nEx:\n#define CTX_METHOD uc_mcontext-\u003e__ss.__rdi\n\nThanks!",
+      "revId": "85fa796277d23e6bf1679cbd0da0019b03d8066b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
