@@ -69,6 +69,30 @@
       "revId": "7cd154d36c75e4a09d5c04dc7ee9d0f40e63dba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76c53378_e24d9c85",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T06:44:24Z",
+      "side": 1,
+      "message": "Tong, I added it. Its standard in ART to mark FINAL classes as final using the C++11 keyword which isn\u0027t supported in all compilers.",
+      "parentUuid": "9633877e_62141661",
+      "range": {
+        "startLine": 193,
+        "startChar": 21,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "7cd154d36c75e4a09d5c04dc7ee9d0f40e63dba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
