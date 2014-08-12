@@ -367,6 +367,24 @@
     },
     {
       "key": {
+        "uuid": "f6d0433d_9414dd61",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-12T17:12:09Z",
+      "side": 1,
+      "message": "Slowing dex2oat by 10ms at most, either way you are clearly not optimizing the hottest functions in this change.",
+      "parentUuid": "563d8f4b_20e60afa",
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6d0433d_c1f975e6",
         "filename": "runtime/utf-inl.h",
         "patchSetId": 1
