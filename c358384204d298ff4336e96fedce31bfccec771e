@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_7f859ab8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T16:42:23Z",
+      "side": 1,
+      "message": "It is, as described in the commit message.",
+      "parentUuid": "9633877e_c5c96c38",
+      "range": {
+        "startLine": 682,
+        "startChar": 2,
+        "endLine": 684,
+        "endChar": 2
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9633877e_85dcc4f7",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_df76ee16",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T16:42:23Z",
+      "side": 1,
+      "message": "The typedef tells me nothing, a set is a thing with defined operations, as is a string. The typedef is more characters. The place where this gets annoying is with iterators and we use auto there.",
+      "parentUuid": "f6d0433d_fe49b099",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 59
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9633877e_e5183012",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "b6ca4b8f_5f6bfe28",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T16:42:23Z",
+      "side": 1,
+      "message": "a typedef isn\u0027t an abstraction, its just information hiding",
+      "parentUuid": "9633877e_e5183012",
+      "range": {
+        "startLine": 274,
+        "startChar": 2,
+        "endLine": 274,
+        "endChar": 23
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6ca4b8f_3fbde29c",
         "filename": "runtime/dex_file-inl.h",
         "patchSetId": 1
@@ -128,6 +200,30 @@
       "writtenOn": "2014-08-12T16:22:59Z",
       "side": 1,
       "message": "Is this faster than calling memcmp directly?  An extra compare and branch forward.  memcmp might be doing it too.",
+      "range": {
+        "startLine": 57,
+        "startChar": 9,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d0433d_81549de0",
+        "filename": "runtime/dex_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T16:42:23Z",
+      "side": 1,
+      "message": "I\u0027ve reverted this, it was from Mathieu\u0027s change and I don\u0027t think its sound. The string length is the utf16 length and so may be too short.",
+      "parentUuid": "b6ca4b8f_3fbde29c",
       "range": {
         "startLine": 57,
         "startChar": 9,
