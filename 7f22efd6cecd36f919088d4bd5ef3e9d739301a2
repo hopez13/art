@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f62cc32f_550f4c52",
+        "filename": "runtime/native_bridge_art_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-12T20:31:57Z",
+      "side": 1,
+      "message": "Because there\u0027s no definition in the library, just a forward declaration. I guess we should move this there but it will add a dependency on libnativehelper.",
+      "parentUuid": "76c53378_a89ae35b",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "7f22efd6cecd36f919088d4bd5ef3e9d739301a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56baefee_a16a04ee",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "361bbb08_f71ea052",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-12T20:31:57Z",
+      "side": 1,
+      "message": "better, I\u0027ll update.",
+      "parentUuid": "56baefee_a16a04ee",
+      "range": {
+        "startLine": 615,
+        "startChar": 2,
+        "endLine": 615,
+        "endChar": 36
+      },
+      "revId": "7f22efd6cecd36f919088d4bd5ef3e9d739301a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56baefee_614d0ca8",
         "filename": "test/115-native-bridge/nativebridge.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-08-12T20:21:41Z",
       "side": 1,
       "message": "Include libnativebridge for these?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "7f22efd6cecd36f919088d4bd5ef3e9d739301a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1630777d_96296ca6",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-12T20:31:57Z",
+      "side": 1,
+      "message": "will do.",
+      "parentUuid": "56baefee_614d0ca8",
       "range": {
         "startLine": 29,
         "startChar": 0,
