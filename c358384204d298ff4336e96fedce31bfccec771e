@@ -332,6 +332,23 @@
     },
     {
       "key": {
+        "uuid": "563d8f4b_40354ec4",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-12T17:06:02Z",
+      "side": 1,
+      "message": "If this function is so hot that it is worth hand inlining all the logic, maybe it would be worth merging:\nhttps://android-review.googlesource.com/#/c/103865/\nWhich eliminates nearly all calls to FindStringId.",
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6d0433d_c1f975e6",
         "filename": "runtime/utf-inl.h",
         "patchSetId": 1
