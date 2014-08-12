@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "16d4f72c_e5b12019",
+        "filename": "runtime/native_bridge_art_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-12T20:36:25Z",
+      "side": 1,
+      "message": "It feels like the def should be there, as it\u0027s what we expect the native bridge wants. Having this here seems like pasting the concerns over the code base.\n\nWhat\u0027s the part that requires libnativehelper? Jni?",
+      "parentUuid": "f62cc32f_550f4c52",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "7f22efd6cecd36f919088d4bd5ef3e9d739301a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56baefee_a16a04ee",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
