@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "f6d0433d_c1f8552b",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T16:58:28Z",
+      "side": 1,
+      "message": "No, if you changed a std::set to a hash table by changing the typedef you\u0027d have to fix up all the uses the same as with this. The point is to avoid gratuitous information hiding so that you can actually know what the type of an object is, not what someone thought was a cute typedef name on a Monday.",
+      "parentUuid": "9633877e_c8d2e33e",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 59
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9633877e_e5183012",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
