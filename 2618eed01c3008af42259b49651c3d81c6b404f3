@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "16d9576f_2eaca70e",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "yes. SrcMapElem is used for several different types of (from,to) pairs. \u0027from\u0027 is always non-negative, but \u0027to\u0027 can be a negative line number difference.",
+      "parentUuid": "36a65bd4_4294547e",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 14
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ef4fff_d3eca6de",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6ca4b8f_5302e4db",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 14
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16ab179f_9e0f5d03",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 16
@@ -84,6 +132,54 @@
       "side": 1,
       "message": "kNotFound ? why the subtraction?",
       "parentUuid": "16ab179f_9e0f5d03",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 116,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16d9576f_9184de50",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ab179f_9e0f5d03",
+      "range": {
+        "startLine": 116,
+        "startChar": 40,
+        "endLine": 116,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16d9576f_b17fda81",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6ca4b8f_f3bd70c4",
       "range": {
         "startLine": 116,
         "startChar": 40,
@@ -166,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "16d9576f_b1f47aef",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "we can implement operator[] and conversion from SrcMapElem to uint8_t. \u0027Array\u0027 can be renamed to \u0027ByteArray\u0027. array.size() is used as in the original source. Done.",
+      "parentUuid": "36a65bd4_4209f44a",
+      "range": {
+        "startLine": 776,
+        "startChar": 2,
+        "endLine": 776,
+        "endChar": 27
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36a65bd4_9fdf539d",
         "filename": "compiler/elf_writer_quick.h",
         "patchSetId": 16
@@ -189,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "16d9576f_51879652",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36a65bd4_9fdf539d",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36a65bd4_4237b4f7",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 16
@@ -200,6 +344,30 @@
       "writtenOn": "2014-08-11T18:09:33Z",
       "side": 1,
       "message": "We only generate stand and special opcodes?",
+      "range": {
+        "startLine": 1121,
+        "startChar": 4,
+        "endLine": 1121,
+        "endChar": 41
+      },
+      "revId": "2618eed01c3008af42259b49651c3d81c6b404f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ef4fff_93f61ead",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-12T04:29:57Z",
+      "side": 1,
+      "message": "removed the comment",
+      "parentUuid": "36a65bd4_4237b4f7",
       "range": {
         "startLine": 1121,
         "startChar": 4,
