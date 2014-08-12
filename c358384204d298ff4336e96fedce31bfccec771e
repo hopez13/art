@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f6d0433d_c1b055cc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-12T16:55:28Z",
+      "side": 1,
+      "message": "Ah, the image_classes-\u003einsert() is constructing a new string out of the const char * returned (the same as temp).  Subtle.  Perhaps a comment in the code so that future people don\u0027t get confused and break it.",
+      "parentUuid": "b6ca4b8f_7f859ab8",
+      "range": {
+        "startLine": 682,
+        "startChar": 2,
+        "endLine": 684,
+        "endChar": 2
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9633877e_85dcc4f7",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 1
@@ -142,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9633877e_c8d2e33e",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-12T16:55:28Z",
+      "side": 1,
+      "message": "The typedef might be changed to a class.  Maybe we want to store the strings in a hash table, or some sort of other storage other than a std::set (due to performance issues or something).  Removing the abstraction prevents this.",
+      "parentUuid": "b6ca4b8f_df76ee16",
+      "range": {
+        "startLine": 106,
+        "startChar": 38,
+        "endLine": 106,
+        "endChar": 59
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9633877e_e5183012",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -177,6 +225,30 @@
       "side": 1,
       "message": "a typedef isn\u0027t an abstraction, its just information hiding",
       "parentUuid": "9633877e_e5183012",
+      "range": {
+        "startLine": 274,
+        "startChar": 2,
+        "endLine": 274,
+        "endChar": 23
+      },
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d0433d_014bedea",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-12T16:55:28Z",
+      "side": 1,
+      "message": "It\u0027s a shorthand alias.  Replace it with a class and it\u0027s an abstraction.  The point is, as long as the interface is the same, the caller doesn\u0027t need to be aware of what it is.\n\nBut whatever.",
+      "parentUuid": "b6ca4b8f_5f6bfe28",
       "range": {
         "startLine": 274,
         "startChar": 2,
