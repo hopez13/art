@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56ef4fff_d6901442",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-12T13:44:21Z",
+      "side": 1,
+      "message": "I think this needs a new format to store the highest bit for the WIDE version.",
+      "range": {
+        "startLine": 628,
+        "startChar": 33,
+        "endLine": 628,
+        "endChar": 51
+      },
+      "revId": "237f43d69dc39b0d203b25d50a3a29b37a84b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16d9576f_3494f87d",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-12T13:44:21Z",
+      "side": 1,
+      "message": "Previous value is unused, define imm here and drop the previous definition.",
+      "range": {
+        "startLine": 909,
+        "startChar": 12,
+        "endLine": 909,
+        "endChar": 15
+      },
+      "revId": "237f43d69dc39b0d203b25d50a3a29b37a84b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
