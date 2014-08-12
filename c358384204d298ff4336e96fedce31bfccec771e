@@ -385,6 +385,24 @@
     },
     {
       "key": {
+        "uuid": "7638d35c_817d9a38",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-12T17:15:19Z",
+      "side": 1,
+      "message": "The slowest function is malloc caused by std::string usage. This is the performance regression and what this change fixes. The change cleans code up and doesn\u0027t resort to secondary runtime data structures in an attempt to hide a problem while creating a new one. The design of the dex file code is deliberate and we removed similar layers of caching in the past due to the fact that to set up the cache you must touch all the dex files. Look at the lazy initialization of the class table in the class linker.",
+      "parentUuid": "f6d0433d_9414dd61",
+      "revId": "c358384204d298ff4336e96fedce31bfccec771e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6d0433d_c1f975e6",
         "filename": "runtime/utf-inl.h",
         "patchSetId": 1
