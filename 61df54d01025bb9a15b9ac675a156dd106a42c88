@@ -46,6 +46,30 @@
       "revId": "61df54d01025bb9a15b9ac675a156dd106a42c88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966aa764_6d241112",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-13T06:49:02Z",
+      "side": 1,
+      "message": "Oh I see. Then scratch my comment, implicit orders aren\u0027t clean. I like PS1 better. Maybe init length_ to 0 as well.",
+      "parentUuid": "966aa764_2d05b977",
+      "range": {
+        "startLine": 149,
+        "startChar": 42,
+        "endLine": 149,
+        "endChar": 43
+      },
+      "revId": "61df54d01025bb9a15b9ac675a156dd106a42c88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
