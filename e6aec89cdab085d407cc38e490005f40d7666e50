@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "966aa764_f0cf783b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-13T15:31:54Z",
+      "side": 1,
+      "message": "Bug: 17000769",
+      "revId": "e6aec89cdab085d407cc38e490005f40d7666e50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64deb11_84d2870c",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-13T15:31:54Z",
+      "side": 1,
+      "message": "others seem to use one space, not two",
+      "range": {
+        "startLine": 782,
+        "startChar": 39,
+        "endLine": 782,
+        "endChar": 41
+      },
+      "revId": "e6aec89cdab085d407cc38e490005f40d7666e50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67b2b36_5fb8dbff",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-13T15:31:54Z",
+      "side": 1,
+      "message": "I might comment why there are three cases\n\n# Make sure we can run without oat\n\n# Make sure we can run with out\n\n# Make sure we can run with the default settings\n\n?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "e6aec89cdab085d407cc38e490005f40d7666e50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
