@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "b67b2b36_74d93e3e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-13T05:14:45Z",
+      "side": 1,
+      "message": "I think the problem is easily solved by moving native_bridge_art_callbacks_ to be a static global in the cc file. Pointers don\u0027t seem to be the right solution here, as we exactly wanted to avoid all management issues.\n\nThe bigger question is: do we need the implementation of the three callback methods to be in a separate .h + .cc. On the one hand it\u0027s a cleaner separation, on the other hand we can easily make the static globals in runtime.cc.",
+      "parentUuid": "b64deb11_30e64efa",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "cedf8a892dd45aec85de002b91496ac19cf4be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67b2b36_543d22d6",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
