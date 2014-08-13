@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "966aa764_caef2391",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-13T02:24:58Z",
+      "side": 1,
+      "message": "Not sure I follow, this is an inline lock acquisition.",
+      "range": {
+        "startLine": 193,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 69
+      },
+      "revId": "e44e3441c773b07c40149a79ee2ace4d802a4776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64deb11_758b6897",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-13T02:24:58Z",
+      "side": 1,
+      "message": "an inline unlock too.",
+      "range": {
+        "startLine": 242,
+        "startChar": 2,
+        "endLine": 242,
+        "endChar": 74
+      },
+      "revId": "e44e3441c773b07c40149a79ee2ace4d802a4776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
