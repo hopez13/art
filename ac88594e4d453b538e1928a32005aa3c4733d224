@@ -352,6 +352,30 @@
       "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966aa764_0deeb590",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T05:18:31Z",
+      "side": 1,
+      "message": "Comment was wrong.  It was a count, but I changed it when I realized the limit was 1.  Comment has been fixed.",
+      "parentUuid": "966aa764_2ab35f84",
+      "range": {
+        "startLine": 1003,
+        "startChar": 13,
+        "endLine": 1003,
+        "endChar": 29
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
