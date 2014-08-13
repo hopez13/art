@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b64deb11_50fc3a80",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-13T04:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67b2b36_b4f9e6e6",
+      "range": {
+        "startLine": 1186,
+        "startChar": 26,
+        "endLine": 1186,
+        "endChar": 30
+      },
+      "revId": "76406ad727201ac51b09bbd38ca446876cfc0260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b64deb11_5098ba98",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-13T03:57:22Z",
       "side": 1,
       "message": "Note, native and quick ABIs differ in native uses x87 and quick uses SSE2.",
+      "range": {
+        "startLine": 1214,
+        "startChar": 7,
+        "endLine": 1214,
+        "endChar": 52
+      },
+      "revId": "76406ad727201ac51b09bbd38ca446876cfc0260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64deb11_f0bd46c4",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-13T04:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64deb11_5098ba98",
       "range": {
         "startLine": 1214,
         "startChar": 7,
