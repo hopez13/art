@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b64deb11_f01f867e",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "Done, except still need large_frame.",
+      "parentUuid": "966aa764_aa542f8a",
+      "range": {
+        "startLine": 363,
+        "startChar": 9,
+        "endLine": 363,
+        "endChar": 84
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "966aa764_6a57178d",
         "filename": "compiler/dex/quick/arm64/call_arm64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-13T02:48:18Z",
       "side": 1,
       "message": "similar",
+      "range": {
+        "startLine": 343,
+        "startChar": 8,
+        "endLine": 343,
+        "endChar": 19
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966aa764_2a059f77",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "966aa764_6a57178d",
       "range": {
         "startLine": 343,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b67b2b36_b1dfb89c",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67b2b36_91763c16",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 7
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67b2b36_910cfca0",
         "filename": "runtime/arch/arm/asm_support_arm.h",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b64deb11_b029fea5",
+        "filename": "runtime/arch/arm/asm_support_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "It is indeed, but without the reader knowing what the offset was before it\u0027s not appropriate to say that it was increased by 8.  If it increases again we need to remove that comment.",
+      "parentUuid": "b67b2b36_910cfca0",
+      "range": {
+        "startLine": 27,
+        "startChar": 33,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67b2b36_d11284c1",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2014-08-13T02:48:18Z",
       "side": 1,
       "message": "0",
+      "range": {
+        "startLine": 961,
+        "startChar": 23,
+        "endLine": 961,
+        "endChar": 28
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64deb11_7014d660",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "But it is a boolean, not a counter.",
+      "parentUuid": "b67b2b36_d11284c1",
       "range": {
         "startLine": 961,
         "startChar": 23,
@@ -151,6 +271,54 @@
       "writtenOn": "2014-08-13T02:48:18Z",
       "side": 1,
       "message": "int32_t, bool is supposed to imply this isn\u0027t a count.. its 32-bit for the sake of ease of alignment",
+      "range": {
+        "startLine": 1003,
+        "startChar": 4,
+        "endLine": 1003,
+        "endChar": 12
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67b2b36_11cface9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "966aa764_4a8813d2",
+      "range": {
+        "startLine": 1003,
+        "startChar": 13,
+        "endLine": 1003,
+        "endChar": 29
+      },
+      "revId": "ac88594e4d453b538e1928a32005aa3c4733d224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966aa764_6a24f711",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-13T03:07:14Z",
+      "side": 1,
+      "message": "Eh?  It\u0027s a boolean, not a counter.  Do you want this as plain \u0027bool\u0027?",
+      "parentUuid": "b67b2b36_31050878",
       "range": {
         "startLine": 1003,
         "startChar": 4,
