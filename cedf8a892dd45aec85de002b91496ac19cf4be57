@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "361bbb08_fdec3fde",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-13T12:17:30Z",
+      "side": 1,
+      "message": "Yes, we can get rid of the extra .h and have it as a global (as it was before), or even more to move everything to runtime.cc (as Andreas suggested).\n\nI opted for different files (.h and .cc) because it seems much cleaner to me. Globals annoys me as they are hard to follow and runtime.cc is already very big IMO (adding them there will only decrease readability).\n\nSaying this, I don\u0027t have a very strong preference here :) so if you really prefer an alternative I can change it.",
+      "parentUuid": "b67b2b36_74d93e3e",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "cedf8a892dd45aec85de002b91496ac19cf4be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67b2b36_543d22d6",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
