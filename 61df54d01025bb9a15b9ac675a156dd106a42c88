@@ -22,6 +22,30 @@
       "revId": "61df54d01025bb9a15b9ac675a156dd106a42c88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966aa764_2d05b977",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-13T06:38:17Z",
+      "side": 1,
+      "message": "This means the order of calling SetModRm and SetSIB is important, which is not codified right now. Is that change OK with you (all current callers have the right order, I\u0027ll just add a comment)?",
+      "parentUuid": "b67b2b36_b4c9e638",
+      "range": {
+        "startLine": 149,
+        "startChar": 42,
+        "endLine": 149,
+        "endChar": 43
+      },
+      "revId": "61df54d01025bb9a15b9ac675a156dd106a42c88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
