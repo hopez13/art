@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b67b2b36_b4c9e638",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-13T06:30:14Z",
+      "side": 1,
+      "message": "Being picky, but since SetModRM takes care of initializing the rest, maybe just do the setting to 0 that method as well.",
+      "range": {
+        "startLine": 149,
+        "startChar": 42,
+        "endLine": 149,
+        "endChar": 43
+      },
+      "revId": "61df54d01025bb9a15b9ac675a156dd106a42c88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
