@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "966aa764_ad9a095c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-13T04:56:13Z",
+      "side": 1,
+      "message": "After talking with Andreas, I might need a kRuntimeISA check here. Will run the tests on all platforms.",
+      "range": {
+        "startLine": 1702,
+        "startChar": 16,
+        "endLine": 1702,
+        "endChar": 17
+      },
+      "revId": "337fe6f3203f5147c3efea2e442ee300060de69e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
