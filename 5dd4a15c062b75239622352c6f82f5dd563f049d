@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d657bfb2_2a1b5b8f",
+        "filename": "runtime/native_bridge_art_interface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-14T18:33:16Z",
+      "side": 1,
+      "message": "\u003cjni.h\u003e, \u003cstdint.h\u003e",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64deb11_876a7cb2",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-14T18:33:16Z",
+      "side": 1,
+      "message": "gets",
+      "range": {
+        "startLine": 621,
+        "startChar": 14,
+        "endLine": 621,
+        "endChar": 17
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64deb11_a7b8d800",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-14T18:33:16Z",
+      "side": 1,
+      "message": "for documentations sake, what are the expected values if native bridge is present?",
+      "range": {
+        "startLine": 624,
+        "startChar": 86,
+        "endLine": 624,
+        "endChar": 100
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6540bb2_2682b879",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-14T18:33:16Z",
+      "side": 1,
+      "message": "Can we document what this is as its effectively an API. I blame Andreas.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 48
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
