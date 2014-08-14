@@ -46,6 +46,30 @@
       "revId": "38a09040432001f1a4330ac80b80b1178e1eaf8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f62cc32f_e44584d7",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-14T10:25:49Z",
+      "side": 1,
+      "message": "If you look closely at the flow, it\u0027s been used in paths we usually don\u0027t reach, i.e. debug info when we abort or under use_match or gVerboseMethods, or tracking memory usage, ... and now with the profile as well.\n\nIt\u0027s not that difficult to write a little helper class LazyMethodName for this.",
+      "parentUuid": "1630777d_2a33472d",
+      "range": {
+        "startLine": 786,
+        "startChar": 28,
+        "endLine": 786,
+        "endChar": 63
+      },
+      "revId": "38a09040432001f1a4330ac80b80b1178e1eaf8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
