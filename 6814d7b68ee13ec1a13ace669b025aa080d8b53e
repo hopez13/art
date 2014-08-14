@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b64deb11_2e7caac5",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-14T00:09:19Z",
+      "side": 0,
+      "message": "Add 4 new IPUT_QUICKs to the dex instructions to handle these. It will be a performance regression if we no longer quicken these. We have at least 20 unused opcodes available.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 35
+      },
+      "revId": "6814d7b68ee13ec1a13ace669b025aa080d8b53e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
