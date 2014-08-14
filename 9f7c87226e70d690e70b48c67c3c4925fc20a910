@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6540bb2_091ead7e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-14T18:35:38Z",
+      "side": 1,
+      "message": "Are these also for the tests? Else you should separate them. What are they used for? I can\u0027t find a use.",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 68
+      },
+      "revId": "9f7c87226e70d690e70b48c67c3c4925fc20a910",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
