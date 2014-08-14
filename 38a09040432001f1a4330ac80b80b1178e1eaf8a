@@ -22,6 +22,30 @@
       "revId": "38a09040432001f1a4330ac80b80b1178e1eaf8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1630777d_2a33472d",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-14T10:13:00Z",
+      "side": 1,
+      "message": "If you look closely at the flow, this is used in many other places. Thus I moved it here to compute the name just once. In particular, the profile usage was guarded by ProfilePresent() anyway.",
+      "parentUuid": "1630777d_4acc83f2",
+      "range": {
+        "startLine": 786,
+        "startChar": 28,
+        "endLine": 786,
+        "endChar": 63
+      },
+      "revId": "38a09040432001f1a4330ac80b80b1178e1eaf8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
