@@ -22,6 +22,30 @@
       "revId": "9f7c87226e70d690e70b48c67c3c4925fc20a910",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f62cc32f_caf96fe6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-08-14T18:37:29Z",
+      "side": 1,
+      "message": "They\u0027re being used below. They will be the stubs installed in the entrypoints.",
+      "parentUuid": "b6540bb2_091ead7e",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 68
+      },
+      "revId": "9f7c87226e70d690e70b48c67c3c4925fc20a910",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
