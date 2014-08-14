@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1630777d_4acc83f2",
+        "filename": "compiler/dex/frontend.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-14T09:23:18Z",
+      "side": 1,
+      "message": "PrettyMethod() is pretty expensive. We should avoid it as long as we don\u0027t need it. For example if we don\u0027t have the profile.",
+      "range": {
+        "startLine": 786,
+        "startChar": 28,
+        "endLine": 786,
+        "endChar": 63
+      },
+      "revId": "38a09040432001f1a4330ac80b80b1178e1eaf8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
