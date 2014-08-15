@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b64deb11_b93558c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-15T16:59:26Z",
+      "side": 1,
+      "message": "Done.\n\nAlso no bug since the current version will work with anything that the elf_writer will spit out. This is just a small future-proofing.",
+      "parentUuid": "b6540bb2_578afc5b",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "dd91031498bd21c69ff9f7a4fadb5ec0caf04e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6540bb2_573d1cd6",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2014-08-14T20:43:14Z",
       "side": 1,
       "message": "we use begin/end for things like this to follow STL conventions",
+      "range": {
+        "startLine": 1230,
+        "startChar": 0,
+        "endLine": 1231,
+        "endChar": 20
+      },
+      "revId": "dd91031498bd21c69ff9f7a4fadb5ec0caf04e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5602efbb_fbc10bca",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-15T16:59:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6540bb2_573d1cd6",
       "range": {
         "startLine": 1230,
         "startChar": 0,
