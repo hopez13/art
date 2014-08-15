@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f68be3a0_3d70afa7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-15T19:14:28Z",
+      "side": 1,
+      "message": "WS after ::",
+      "range": {
+        "startLine": 1321,
+        "startChar": 28,
+        "endLine": 1321,
+        "endChar": 29
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f68be3a0_3db50f08",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-15T19:14:28Z",
+      "side": 1,
+      "message": "WARNING? we don\u0027t return nullptr, its not an unrecoverable error",
+      "range": {
+        "startLine": 1390,
+        "startChar": 8,
+        "endLine": 1390,
+        "endChar": 13
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7680d379_2157aee6",
+        "filename": "test/117-nopatchoat/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-15T19:14:28Z",
+      "side": 1,
+      "message": "could this just be part of the other test that does -Xnodex2oat?",
+      "range": {
+        "startLine": 28,
+        "startChar": 33,
+        "endLine": 28,
+        "endChar": 44
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7680d379_c1ec42df",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-15T19:14:28Z",
+      "side": 1,
+      "message": "WS",
+      "range": {
+        "startLine": 156,
+        "startChar": 16,
+        "endLine": 156,
+        "endChar": 17
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
