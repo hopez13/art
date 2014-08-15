@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "96ad47ff_b52e6a14",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1036486
+      },
+      "writtenOn": "2014-08-15T18:49:14Z",
+      "side": 1,
+      "message": "This seemed to fix the problem I was having.  Perhaps a better choice than kEncodeMem would be kEncodeHeapRef (or other single bit).  The intention was to check that only kEncodeLiteral was set and not the others.  The goal was to prevent kEncodeAll triggering the check for kEncodeLiteral.  Maybe this \u0027fix\u0027 was actually not fixing anything but preventing the optimization from happening.  That\u0027s entirely possible.  Since you have a better understanding of this than me, please feel free to fix it properly",
+      "parentUuid": "56d02f88_8b907141",
+      "range": {
+        "startLine": 203,
+        "startChar": 8,
+        "endLine": 203,
+        "endChar": 45
+      },
+      "revId": "adc73cbe869f9560cf84bda2e953a2b267b1438f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56d02f88_ab8bb511",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 3
