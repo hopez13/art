@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6c683d8_6ef0a3ff",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-15T18:39:10Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this is performance sensitive code, but using Class::DescriptorEquals() instead and checking IsConstructor() first might be more efficient.",
+      "range": {
+        "startLine": 126,
+        "startChar": 6,
+        "endLine": 126,
+        "endChar": 12
+      },
+      "revId": "db8a664e0b68c7c4d36270cd21dce8de1912d7f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
