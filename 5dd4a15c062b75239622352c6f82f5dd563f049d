@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76b2935d_b1e7a0fa",
+        "filename": "runtime/native_bridge_art_interface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-15T09:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d657bfb2_2a1b5b8f",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b64deb11_876a7cb2",
         "filename": "runtime/runtime.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-14T18:33:16Z",
       "side": 1,
       "message": "gets",
+      "range": {
+        "startLine": 621,
+        "startChar": 14,
+        "endLine": 621,
+        "endChar": 17
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76b2935d_f1f128b8",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-15T09:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64deb11_876a7cb2",
       "range": {
         "startLine": 621,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "76b2935d_31dc502f",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-15T09:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64deb11_a7b8d800",
+      "range": {
+        "startLine": 624,
+        "startChar": 86,
+        "endLine": 624,
+        "endChar": 100
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6540bb2_2682b879",
         "filename": "test/115-native-bridge/nativebridge.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-08-14T18:33:16Z",
       "side": 1,
       "message": "Can we document what this is as its effectively an API. I blame Andreas.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 48
+      },
+      "revId": "5dd4a15c062b75239622352c6f82f5dd563f049d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16a1570c_4efcd380",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-08-15T09:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6540bb2_2682b879",
       "range": {
         "startLine": 266,
         "startChar": 0,
