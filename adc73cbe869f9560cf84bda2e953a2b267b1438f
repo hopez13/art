@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16a1570c_718a520a",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-15T17:26:41Z",
+      "side": 1,
+      "message": "This is equivalent to\n\n  if (!this_mem_mask.Intersects(\n      kEncodeLiteral.Union(kEncodeDalvikReg).Union(kEncodeHeapRef))) {",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 74
+      },
+      "revId": "adc73cbe869f9560cf84bda2e953a2b267b1438f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56d02f88_8b907141",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-15T17:26:41Z",
+      "side": 1,
+      "message": "Condition always false. At the comment above we \"continue\" if we don\u0027t intersect one of three flags and all of them are in the kEncodeMem. (Btw, the second part of the condition here is implied by the first since kEncodeMem contains kEncodeLiteral.)",
+      "range": {
+        "startLine": 203,
+        "startChar": 8,
+        "endLine": 203,
+        "endChar": 45
+      },
+      "revId": "adc73cbe869f9560cf84bda2e953a2b267b1438f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56d02f88_ab8bb511",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-15T17:26:41Z",
+      "side": 1,
+      "message": "Condition always false. alias_mem_mask is a subset of kEncodeMem and it\u0027s not empty in this branch, so it must necessarily intersect kEncodeMem.",
+      "range": {
+        "startLine": 251,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 50
+      },
+      "revId": "adc73cbe869f9560cf84bda2e953a2b267b1438f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
