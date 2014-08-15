@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7680d379_e19786c5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-15T20:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f68be3a0_3d70afa7",
+      "range": {
+        "startLine": 1321,
+        "startChar": 28,
+        "endLine": 1321,
+        "endChar": 29
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f68be3a0_3db50f08",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-15T19:14:28Z",
       "side": 1,
       "message": "WARNING? we don\u0027t return nullptr, its not an unrecoverable error",
+      "range": {
+        "startLine": 1390,
+        "startChar": 8,
+        "endLine": 1390,
+        "endChar": 13
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "168f97ae_3ea98911",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-15T20:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f68be3a0_3db50f08",
       "range": {
         "startLine": 1390,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7680d379_c17b62ce",
+        "filename": "test/117-nopatchoat/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-15T20:41:26Z",
+      "side": 1,
+      "message": "No. Test 116 is only good for when --no-prebuild is send. This is only good for when --prebuild --relocate is sent. Also this checks slightly different things.",
+      "parentUuid": "7680d379_2157aee6",
+      "range": {
+        "startLine": 28,
+        "startChar": 33,
+        "endLine": 28,
+        "endChar": 44
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7680d379_c1ec42df",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-08-15T19:14:28Z",
       "side": 1,
       "message": "WS",
+      "range": {
+        "startLine": 156,
+        "startChar": 16,
+        "endLine": 156,
+        "endChar": 17
+      },
+      "revId": "1eb541a42b23fbaebdff1db67fd650f7746780ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "168f97ae_5ecf35e8",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-15T20:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7680d379_c1ec42df",
       "range": {
         "startLine": 156,
         "startChar": 16,
