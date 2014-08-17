@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7637f3c3_4c8a2f0a",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-17T06:35:00Z",
+      "side": 1,
+      "message": "s/raw oat method quick or portable//",
+      "range": {
+        "startLine": 347,
+        "startChar": 9,
+        "endLine": 347,
+        "endChar": 42
+      },
+      "revId": "87553c9fa1298ffb40127b2bb6413859fd3f79df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3631fbd1_eaa587a0",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-17T06:35:00Z",
+      "side": 1,
+      "message": "s/./, return null if no code exists. This is unlike Get..OatCodeFor which will return a bridge or interpreter entrypoint./",
+      "range": {
+        "startLine": 347,
+        "startChar": 68,
+        "endLine": 347,
+        "endChar": 69
+      },
+      "revId": "87553c9fa1298ffb40127b2bb6413859fd3f79df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3631fbd1_0abbbbc5",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-17T06:35:00Z",
+      "side": 1,
+      "message": "Perhaps this should be factored into a IsEntrypointInterpreter method on ArtMethod, then this could be CHECK(IsEntrypointInterpreter()) ..",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 9
+      },
+      "revId": "87553c9fa1298ffb40127b2bb6413859fd3f79df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
