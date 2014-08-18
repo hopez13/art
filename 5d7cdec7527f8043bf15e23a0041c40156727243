@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b61c0b53_46c2146b",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-18T09:51:07Z",
+      "side": 1,
+      "message": "This part is almost the same with patch-set 1, but now fix-up of opcode, register and imm is not necessary with the new format added.",
+      "range": {
+        "startLine": 899,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 11
+      },
+      "revId": "5d7cdec7527f8043bf15e23a0041c40156727243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
