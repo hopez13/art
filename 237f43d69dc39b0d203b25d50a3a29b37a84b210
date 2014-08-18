@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "93e71994_c8c48378",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-18T09:52:06Z",
+      "side": 1,
+      "message": "Finally, I decide to add a new format so that we can exactly follow the specification which should make the code more clear.",
+      "parentUuid": "56ef4fff_1687bc01",
+      "range": {
+        "startLine": 628,
+        "startChar": 33,
+        "endLine": 628,
+        "endChar": 51
+      },
+      "revId": "237f43d69dc39b0d203b25d50a3a29b37a84b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16d9576f_3494f87d",
         "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2014-08-12T13:44:21Z",
       "side": 1,
       "message": "Previous value is unused, define imm here and drop the previous definition.",
+      "range": {
+        "startLine": 909,
+        "startChar": 12,
+        "endLine": 909,
+        "endChar": 15
+      },
+      "revId": "237f43d69dc39b0d203b25d50a3a29b37a84b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61fbf43_473db044",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-18T09:52:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16d9576f_3494f87d",
       "range": {
         "startLine": 909,
         "startChar": 12,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d61fbf43_c79d2017",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-18T09:52:06Z",
+      "side": 1,
+      "message": "Still use wide variant. The wide variant not only select wide skeleton and also mean X register should be used if the register can be X or W. Now the skeleton is defined as CUSTOM_VARIANTS(0x36000000, 0x36000000) so there should be no confusion.",
+      "parentUuid": "f6d5a333_1387d401",
+      "range": {
+        "startLine": 863,
+        "startChar": 33,
+        "endLine": 863,
+        "endChar": 37
+      },
+      "revId": "237f43d69dc39b0d203b25d50a3a29b37a84b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56ef4fff_f6743852",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 1
@@ -106,6 +178,30 @@
       "writtenOn": "2014-08-12T13:51:10Z",
       "side": 1,
       "message": "This should never be WIDE.",
+      "range": {
+        "startLine": 870,
+        "startChar": 34,
+        "endLine": 870,
+        "endChar": 38
+      },
+      "revId": "237f43d69dc39b0d203b25d50a3a29b37a84b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93e71994_88ae7bb8",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-08-18T09:52:06Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "56ef4fff_f6743852",
       "range": {
         "startLine": 870,
         "startChar": 34,
