@@ -16,6 +16,24 @@
       "revId": "3ea69c0abce1b81b3c45033867d49b00e6d6b709",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "733aa5c6_b1ff6075",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-18T23:42:29Z",
+      "side": 1,
+      "message": "I actually thought it was clear as is, it really is describing the first part, and when why it is only a warning in the checkjni case.",
+      "parentUuid": "b31a5d65_b6b8865d",
+      "revId": "3ea69c0abce1b81b3c45033867d49b00e6d6b709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
