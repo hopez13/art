@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "933559d4_48cab8e7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4446,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-19T21:17:05Z",
+      "side": 1,
+      "message": "This AllocArtMethodArray() call is a GC point.",
+      "range": {
+        "startLine": 4446,
+        "startChar": 36,
+        "endLine": 4446,
+        "endChar": 55
+      },
+      "revId": "41369d2f7042b728a78d5f1e8c49925463e50294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "933559d4_68c57cd5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4502,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-19T21:17:05Z",
+      "side": 1,
+      "message": "This Clone() call is a GC point.",
+      "range": {
+        "startLine": 4502,
+        "startChar": 84,
+        "endLine": 4502,
+        "endChar": 89
+      },
+      "revId": "41369d2f7042b728a78d5f1e8c49925463e50294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
