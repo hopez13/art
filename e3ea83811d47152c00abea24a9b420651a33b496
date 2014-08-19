@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "13fb2935_618350b4",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-19T11:50:35Z",
+      "side": 1,
+      "message": "Agree. This operator is used by DedupeSet when \u0027to_\u0027 is positive. Changed + to | for safety: mapped the pair to one 64-bit value, which implies \u003c and \u003d\u003d.",
+      "parentUuid": "13fb2935_e1b7600c",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 21
+      },
+      "revId": "e3ea83811d47152c00abea24a9b420651a33b496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13fb2935_c1c46478",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 19
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "13fb2935_41f3b44c",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-19T11:50:35Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "13fb2935_c1c46478",
+      "range": {
+        "startLine": 146,
+        "startChar": 4,
+        "endLine": 146,
+        "endChar": 15
+      },
+      "revId": "e3ea83811d47152c00abea24a9b420651a33b496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9310f93f_9d36c766",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 19
@@ -59,6 +107,30 @@
       "writtenOn": "2014-08-18T15:29:34Z",
       "side": 1,
       "message": "Why not erase(std::unique(begin(), end(), \u003ccustom-equality-comparator\u003e), end())?\n\nThis custom approach reinvents the wheel... and makes it square: all the extra allocations needed for the push_back()!",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "e3ea83811d47152c00abea24a9b420651a33b496",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13fb2935_61eeb06a",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2014-08-19T11:50:35Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. One more task of this wheel is memory compaction :)\nTo use std::unique we need to define operator \u003d\u003d.\nI rewrote it as you suggested: unique, resize, shrink_to_fit",
+      "parentUuid": "9310f93f_9d36c766",
       "range": {
         "startLine": 148,
         "startChar": 0,
