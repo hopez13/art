@@ -90,6 +90,29 @@
       "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9310f93f_e3b400d3",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-19T12:45:42Z",
+      "side": 1,
+      "message": "The problem is that ArmMir2Lir::Load/StoreBaseDispBody() cannot stick to this assumption since no indexed load/store exists for fp regs.",
+      "range": {
+        "startLine": 227,
+        "startChar": 56,
+        "endLine": 228,
+        "endChar": 62
+      },
+      "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
