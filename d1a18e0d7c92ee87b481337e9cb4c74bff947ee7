@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3344ad56_3856ad09",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-19T18:35:45Z",
+      "side": 1,
+      "message": "I guess this is effectively disabling the str-str below.",
+      "parentUuid": "13fb2935_a159586d",
+      "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9310f93f_60e7c674",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 1
@@ -111,6 +129,24 @@
     },
     {
       "key": {
+        "uuid": "3344ad56_380c6d12",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-19T18:35:45Z",
+      "side": 1,
+      "message": "I would not say that this means *this* code is broken too much.\n\nWe could either clean this up and generalize GetInstructionOffset. For FP load/store instructions, either the displacement is non-zero, in which case the base reg+disp is what we want to look at. Else if it\u0027s zero we need to pull the base + too-large disp from the preceding add. We don\u0027t optimize this in any way, so this pattern should be the only one.\n\nOf course with the optimizations on Quick dying down, it might just be the easiest thing to adjust GetInstructionOffset to return a negative value and treat it like an indexed store, stopping LSE here.",
+      "parentUuid": "9310f93f_808d3abb",
+      "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9310f93f_e3b400d3",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 1
@@ -122,6 +158,30 @@
       "writtenOn": "2014-08-19T12:45:42Z",
       "side": 1,
       "message": "The problem is that ArmMir2Lir::Load/StoreBaseDispBody() cannot stick to this assumption since no indexed load/store exists for fp regs.",
+      "range": {
+        "startLine": 227,
+        "startChar": 56,
+        "endLine": 228,
+        "endChar": 62
+      },
+      "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3344ad56_239e8251",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-19T18:35:45Z",
+      "side": 1,
+      "message": "See above comment. I had || check_lir_offset in the condition before, but thought all of those would have been sorted out by the filter. I think that\u0027s the easiest change.",
+      "parentUuid": "9310f93f_e3b400d3",
       "range": {
         "startLine": 227,
         "startChar": 56,
