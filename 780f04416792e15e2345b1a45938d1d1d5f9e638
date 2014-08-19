@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9310f93f_e36640a3",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-08-19T13:11:30Z",
+      "side": 1,
+      "message": "I\u0027m not very fond of implicit conversion operators. I\u0027d prefer to have operator\u003c and operator\u003d\u003d at the namespace scope.\n\n(As for the operator uint8_t, I understand that it\u0027s necessary if we don\u0027t want to make big changes to the CompilerDriver::DedupeHashFunc\u003c\u003e, so I\u0027m OK with keeping that one.)",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "780f04416792e15e2345b1a45938d1d1d5f9e638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
