@@ -183,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "f34e9581_05c71227",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-20T22:16:33Z",
+      "side": 1,
+      "message": "How much improvement did that CL give us, actually, out of curiosity?\n\nI was thinking about the alias_info before. It\u0027s another horrible overloading, but we can easily use it. I guess 2^17-1 is a decent value, as that static displacement is pretty unlikely. Alternatively, 1 would be fine, too, as objects start with a class reference at 0. Note: I think we should not shift the displacement, as Fred\u0027s change might interact with this.",
+      "parentUuid": "13fb2935_47fd0448",
+      "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9310f93f_e3b400d3",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 1
