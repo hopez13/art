@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3344ad56_4cc76e26",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-20T03:59:47Z",
+      "side": 1,
+      "message": "Set if",
+      "range": {
+        "startLine": 99,
+        "startChar": 5,
+        "endLine": 99,
+        "endChar": 7
+      },
+      "revId": "e0ff6e59e172f387248485030f703d6175bdbf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d33271f0_a036e265",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-20T03:59:47Z",
+      "side": 1,
+      "message": "Set if",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 7
+      },
+      "revId": "e0ff6e59e172f387248485030f703d6175bdbf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d33271f0_008b76d2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1829,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-20T03:59:47Z",
+      "side": 1,
+      "message": "it feels like we should log something when we come here redundantly",
+      "range": {
+        "startLine": 1829,
+        "startChar": 0,
+        "endLine": 1829,
+        "endChar": 11
+      },
+      "revId": "e0ff6e59e172f387248485030f703d6175bdbf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3344ad56_0cd96605",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-20T03:59:47Z",
+      "side": 1,
+      "message": "Has for consistency with HasImageSpace",
+      "range": {
+        "startLine": 603,
+        "startChar": 7,
+        "endLine": 603,
+        "endChar": 11
+      },
+      "revId": "e0ff6e59e172f387248485030f703d6175bdbf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d33271f0_0072561e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-20T03:59:47Z",
+      "side": 1,
+      "message": "comment that this is the old alloc space and large object are outside its scope? Or perhaps update comments in zygote space to be more descriptive.",
+      "range": {
+        "startLine": 857,
+        "startChar": 40,
+        "endLine": 857,
+        "endChar": 41
+      },
+      "revId": "e0ff6e59e172f387248485030f703d6175bdbf90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
