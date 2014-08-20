@@ -140,6 +140,30 @@
       "revId": "29b3841ad8c1c18ee7ddd2d8cab85806b3d62eaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d33271f0_a666faef",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-08-20T15:53:42Z",
+      "side": 1,
+      "message": "The C code would be responsible for setting up EBX.  Each routine does so.\nPlease try removing this, and confirming that it still works.",
+      "parentUuid": "736385f2_0975e946",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "29b3841ad8c1c18ee7ddd2d8cab85806b3d62eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
