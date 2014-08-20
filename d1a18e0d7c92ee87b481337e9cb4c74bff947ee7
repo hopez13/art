@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "33f66d4a_eb94dced",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-08-20T09:20:34Z",
+      "side": 1,
+      "message": "This stops the search for:\n\nload value, address\n\nstore new_value, address\n\nIf the store is storing a different value to the memory location than stop.",
+      "parentUuid": "3344ad56_3856ad09",
+      "revId": "d1a18e0d7c92ee87b481337e9cb4c74bff947ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9310f93f_60e7c674",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 1
