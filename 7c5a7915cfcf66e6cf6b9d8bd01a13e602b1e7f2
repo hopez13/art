@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d33271f0_7b766b58",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-20T06:40:52Z",
+      "side": 1,
+      "message": "if you move forward with this, I\u0027d just change things to take the ClassPath type.",
+      "range": {
+        "startLine": 83,
+        "startChar": 27,
+        "endLine": 83,
+        "endChar": 75
+      },
+      "revId": "7c5a7915cfcf66e6cf6b9d8bd01a13e602b1e7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d33271f0_5b7baf3e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-20T06:40:52Z",
+      "side": 1,
+      "message": "unique_ptr and release? I just always use it, am I being overly paranoid?",
+      "range": {
+        "startLine": 377,
+        "startChar": 6,
+        "endLine": 377,
+        "endChar": 16
+      },
+      "revId": "7c5a7915cfcf66e6cf6b9d8bd01a13e602b1e7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3344ad56_47e06930",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-20T06:40:52Z",
+      "side": 1,
+      "message": "why not have the ClassPath delete its own contents?",
+      "range": {
+        "startLine": 1671,
+        "startChar": 0,
+        "endLine": 1671,
+        "endChar": 52
+      },
+      "revId": "7c5a7915cfcf66e6cf6b9d8bd01a13e602b1e7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b32fbd8b_8e667bf0",
+        "filename": "runtime/class_path.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-20T06:40:52Z",
+      "side": 1,
+      "message": "I see. You have the map for the ClassPath, not once per dex file.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "7c5a7915cfcf66e6cf6b9d8bd01a13e602b1e7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3344ad56_e7ee3d23",
+        "filename": "runtime/dex_file-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-20T06:40:52Z",
+      "side": 1,
+      "message": "seems fixable separately.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 67
+      },
+      "revId": "7c5a7915cfcf66e6cf6b9d8bd01a13e602b1e7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3344ad56_c7eb3911",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-20T06:40:52Z",
+      "side": 1,
+      "message": "do/while? evil I say.",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "7c5a7915cfcf66e6cf6b9d8bd01a13e602b1e7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
