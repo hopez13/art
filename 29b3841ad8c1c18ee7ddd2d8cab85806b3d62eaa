@@ -116,6 +116,30 @@
       "revId": "29b3841ad8c1c18ee7ddd2d8cab85806b3d62eaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "736385f2_0975e946",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-20T15:34:35Z",
+      "side": 1,
+      "message": "We end up calling into C code, so I thought it\u0027s better to keep it. I haven\u0027t looked at libart.so enough to know what the compiler generates with visibility\u003dprotected when we go from ART code, to say, STL code (which will go through a PLT).",
+      "parentUuid": "b32fbd8b_4e941331",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "29b3841ad8c1c18ee7ddd2d8cab85806b3d62eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
