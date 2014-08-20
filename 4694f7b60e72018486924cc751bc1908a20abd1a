@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3f77545_1caf4c1b",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-08-20T09:20:17Z",
+      "side": 1,
+      "message": "this_is_64bit ? otherwise do we still need it (bool this_is_64bit) ?",
+      "revId": "4694f7b60e72018486924cc751bc1908a20abd1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
