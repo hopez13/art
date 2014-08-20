@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b32fbd8b_ceb483d3",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-08-20T12:45:53Z",
+      "side": 1,
+      "message": "call this \u0027reg\u0027 rather than \u0027op\u0027?",
+      "range": {
+        "startLine": 699,
+        "startChar": 8,
+        "endLine": 699,
+        "endChar": 10
+      },
+      "revId": "5a4e31a32e13b828293a9699fabb6da8db2a95c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b32fbd8b_8eae7b81",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-08-20T12:45:53Z",
+      "side": 1,
+      "message": "This seems weird, but I guess it handles 64 bit version too.",
+      "range": {
+        "startLine": 700,
+        "startChar": 12,
+        "endLine": 700,
+        "endChar": 23
+      },
+      "revId": "5a4e31a32e13b828293a9699fabb6da8db2a95c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b32fbd8b_aeb137e1",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-08-20T12:45:53Z",
+      "side": 1,
+      "message": "Just call this once?",
+      "range": {
+        "startLine": 706,
+        "startChar": 30,
+        "endLine": 706,
+        "endChar": 58
+      },
+      "revId": "5a4e31a32e13b828293a9699fabb6da8db2a95c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
