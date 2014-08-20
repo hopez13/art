@@ -16,6 +16,24 @@
       "revId": "4694f7b60e72018486924cc751bc1908a20abd1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d34b5172_642c8a21",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-20T22:16:15Z",
+      "side": 1,
+      "message": "I should remove the this_is_64bit. It is not a precondition for this, as check_lir as 64b can clobber a 32b this_lir.",
+      "parentUuid": "f3f77545_1caf4c1b",
+      "revId": "4694f7b60e72018486924cc751bc1908a20abd1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
