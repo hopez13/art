@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "13aec965_69d6c163",
+        "filename": "runtime/arch/x86/portable_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-21T16:41:11Z",
+      "side": 1,
+      "message": "I have to count, here. This was just a brainless \"Oh, it mentions alignment, then remember that SETUP_GOT lowers the stack by 4B\" thing.",
+      "parentUuid": "13aec965_c6dec227",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 25
+      },
+      "revId": "6b3b4a4af863043a475f22a5b8561888f6729e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13aec965_86e8cac7",
         "filename": "runtime/arch/x86/portable_entrypoints_x86.S",
         "patchSetId": 1
