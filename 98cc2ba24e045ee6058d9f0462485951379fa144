@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1630777d_8b3a9dde",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-21T23:24:47Z",
+      "side": 1,
+      "message": "Addressed in another comment (new entrypoints added).",
+      "parentUuid": "766ff376_dea601af",
+      "range": {
+        "startLine": 731,
+        "startChar": 17,
+        "endLine": 731,
+        "endChar": 34
+      },
+      "revId": "98cc2ba24e045ee6058d9f0462485951379fa144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766ff376_7e54b5df",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 30
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-14T00:09:19Z",
       "side": 1,
       "message": "This is unnecessary for x86-64 where this code is also used. Use AllocateByteRegister.",
+      "range": {
+        "startLine": 882,
+        "startChar": 0,
+        "endLine": 887,
+        "endChar": 5
+      },
+      "revId": "98cc2ba24e045ee6058d9f0462485951379fa144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f62cc32f_ca9acf5d",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-21T23:24:47Z",
+      "side": 1,
+      "message": "Changed to AllocateByteRegister and added check for target64.",
+      "parentUuid": "766ff376_7e54b5df",
       "range": {
         "startLine": 882,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b6540bb2_97c7144d",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-21T23:24:47Z",
+      "side": 1,
+      "message": "Added additional entrypoints for signed/unsigned loads to make it easier on the caller.",
+      "parentUuid": "b67b2b36_0a644eec",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 37
+      },
+      "revId": "98cc2ba24e045ee6058d9f0462485951379fa144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b64deb11_ada2ff1d",
         "filename": "runtime/mirror/art_field.h",
         "patchSetId": 30
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "3663bbc5_ba984d28",
+        "filename": "runtime/mirror/art_field.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-21T23:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64deb11_ada2ff1d",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 93
+      },
+      "revId": "98cc2ba24e045ee6058d9f0462485951379fa144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67b2b36_6db64cc7",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 30
@@ -105,6 +201,30 @@
       "writtenOn": "2014-08-14T00:09:19Z",
       "side": 1,
       "message": "Similarly byte/boolean rather than 8.",
+      "range": {
+        "startLine": 251,
+        "startChar": 31,
+        "endLine": 251,
+        "endChar": 32
+      },
+      "revId": "98cc2ba24e045ee6058d9f0462485951379fa144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7669b3a1_fc43a576",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-21T23:24:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67b2b36_6db64cc7",
       "range": {
         "startLine": 251,
         "startChar": 31,
