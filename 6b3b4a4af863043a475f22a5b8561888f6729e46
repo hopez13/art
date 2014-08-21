@@ -22,6 +22,76 @@
       "revId": "6b3b4a4af863043a475f22a5b8561888f6729e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_c6dec227",
+        "filename": "runtime/arch/x86/portable_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T15:09:33Z",
+      "side": 1,
+      "message": "I agree with Mark. We\u0027re not currently testing this code, and this would only be a performance issue. The addl is unnecessary.",
+      "parentUuid": "33b90dab_27323a10",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 25
+      },
+      "revId": "6b3b4a4af863043a475f22a5b8561888f6729e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_86e8cac7",
+        "filename": "runtime/arch/x86/portable_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T15:09:33Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 23
+      },
+      "revId": "6b3b4a4af863043a475f22a5b8561888f6729e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_e4dbba34",
+        "filename": "runtime/arch/x86/portable_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T15:09:33Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 23
+      },
+      "revId": "6b3b4a4af863043a475f22a5b8561888f6729e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
