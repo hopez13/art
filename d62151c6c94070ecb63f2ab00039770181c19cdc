@@ -1,0 +1,481 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13aec965_0fc70d50",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_6fcd6147",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "what am I? what\u0027s the size of an environment? why\u0027s it associated with an instruction?",
+      "range": {
+        "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 33
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_787be93e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "been",
+      "range": {
+        "startLine": 586,
+        "startChar": 13,
+        "endLine": 586,
+        "endChar": 17
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b90dab_f06cd6d5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "what am I?",
+      "range": {
+        "startLine": 598,
+        "startChar": 0,
+        "endLine": 598,
+        "endChar": 29
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_afd7d9f6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1341,
+        "startChar": 0,
+        "endLine": 1341,
+        "endChar": 30
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_efcdd16c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1426,
+        "startChar": 0,
+        "endLine": 1426,
+        "endChar": 34
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_d8dbfdfd",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "document that fall-through is intended",
+      "range": {
+        "startLine": 931,
+        "startChar": 0,
+        "endLine": 933,
+        "endChar": 35
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_7a7a0194",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "why 3? document differences",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 43
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_1ac74d50",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "How do live ranges relate to instructions and temps? Do ins overlap with temps? What about outs? Are there conventions that should be documented?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 11
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_d8ae9d1d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 19
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b90dab_30f82e27",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "add a new constructor, make is_temp_ const.",
+      "range": {
+        "startLine": 160,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 30
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_9ab1fde1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "presumably an offset, amend name",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13aec965_1a998d68",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "worth a comment",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 7
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b90dab_bb34ffef",
+        "filename": "runtime/mirror/art_method-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "+offset",
+      "range": {
+        "startLine": 234,
+        "startChar": 48,
+        "endLine": 234,
+        "endChar": 57
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b90dab_7b7a0794",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "+offset",
+      "range": {
+        "startLine": 331,
+        "startChar": 32,
+        "endLine": 331,
+        "endChar": 41
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b90dab_5b5ce32a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "LOG(WARNING) ?",
+      "range": {
+        "startLine": 128,
+        "startChar": 23,
+        "endLine": 128,
+        "endChar": 24
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b90dab_3b5b2f32",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "+Offset",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 22
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_d839bd0b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "+_offset",
+      "range": {
+        "startLine": 152,
+        "startChar": 28,
+        "endLine": 152,
+        "endChar": 37
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_3845717d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "+Offset",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 18
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_53d12e68",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "+_offset",
+      "range": {
+        "startLine": 290,
+        "startChar": 43,
+        "endLine": 290,
+        "endChar": 52
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3a7d188_33e03230",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-21T20:42:37Z",
+      "side": 1,
+      "message": "use \"else {\" to avoid early return.",
+      "range": {
+        "startLine": 2122,
+        "startChar": 8,
+        "endLine": 2122,
+        "endChar": 14
+      },
+      "revId": "d62151c6c94070ecb63f2ab00039770181c19cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
