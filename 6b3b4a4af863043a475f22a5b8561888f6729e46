@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33b90dab_27323a10",
+        "filename": "runtime/arch/x86/portable_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-08-21T12:39:00Z",
+      "side": 1,
+      "message": "This seems fishy to me, although it is consistent.  I also think it is harmless, due to \u0027leave\u0027.  Comments?\n\nAlso 2 occurrences below",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 25
+      },
+      "revId": "6b3b4a4af863043a475f22a5b8561888f6729e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
