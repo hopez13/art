@@ -164,6 +164,30 @@
       "revId": "29b3841ad8c1c18ee7ddd2d8cab85806b3d62eaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "938399c4_85452431",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-21T01:23:41Z",
+      "side": 1,
+      "message": "You are right, of course the compiler is responsible to do this correctly as ebx is callee-save.\n\nhttps://android-review.googlesource.com/#/c/104943/",
+      "parentUuid": "d33271f0_a666faef",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "29b3841ad8c1c18ee7ddd2d8cab85806b3d62eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
