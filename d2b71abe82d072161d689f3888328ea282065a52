@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13f169a2_427ee2f0",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T16:33:11Z",
+      "side": 1,
+      "message": "why should this hold? add a comment",
+      "range": {
+        "startLine": 733,
+        "startChar": 0,
+        "endLine": 733,
+        "endChar": 36
+      },
+      "revId": "d2b71abe82d072161d689f3888328ea282065a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f169a2_8278ca01",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T16:33:11Z",
+      "side": 1,
+      "message": "what\u0027s this doing? add a comment",
+      "range": {
+        "startLine": 734,
+        "startChar": 0,
+        "endLine": 742,
+        "endChar": 5
+      },
+      "revId": "d2b71abe82d072161d689f3888328ea282065a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f169a2_021e9ac5",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T16:33:11Z",
+      "side": 1,
+      "message": "for x86-64 this should just be a no-op and we use RIP addressing",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 957,
+        "endChar": 83
+      },
+      "revId": "d2b71abe82d072161d689f3888328ea282065a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
