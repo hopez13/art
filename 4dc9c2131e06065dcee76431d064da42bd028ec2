@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33b3cdfb_60a848ab",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-22T21:09:33Z",
+      "side": 1,
+      "message": "Actually this refers to num locals so fix the comment.",
+      "range": {
+        "startLine": 76,
+        "startChar": 64,
+        "endLine": 76,
+        "endChar": 79
+      },
+      "revId": "4dc9c2131e06065dcee76431d064da42bd028ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53076152_da3d92d8",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-22T21:09:33Z",
+      "side": 1,
+      "message": "Add a TODO here because using RIP will mean 0 will need to be reserved for BE.",
+      "range": {
+        "startLine": 135,
+        "startChar": 64,
+        "endLine": 135,
+        "endChar": 65
+      },
+      "revId": "4dc9c2131e06065dcee76431d064da42bd028ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
