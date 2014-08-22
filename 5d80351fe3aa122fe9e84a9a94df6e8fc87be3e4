@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33b3cdfb_5a997167",
+        "filename": "compiler/dex/selectivity.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-08-22T18:39:34Z",
+      "side": 1,
+      "message": "use a namespace instead",
+      "revId": "5d80351fe3aa122fe9e84a9a94df6e8fc87be3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b3cdfb_ba7fed2d",
+        "filename": "compiler/dex/selectivity.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-08-22T18:39:34Z",
+      "side": 1,
+      "message": "move these as static function pointers in the cc file",
+      "revId": "5d80351fe3aa122fe9e84a9a94df6e8fc87be3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
