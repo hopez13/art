@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "53076152_043a264d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T16:35:08Z",
+      "side": 1,
+      "message": "I thought it was computed globally and initialized in the entry block. Which is a cost on all paths not just the one that needs the code pointer. That said for x86-64 we just shouldn\u0027t be generating code pointer calculations.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "d2b71abe82d072161d689f3888328ea282065a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13f169a2_427ee2f0",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 1
