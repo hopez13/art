@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "53076152_659e8c52",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T19:01:03Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure about this one, I think having using an OpSize makes more sense for code generation, but type makes more sense for determining entrypoint. The concern I have is that Type doesn\u0027t always map to the same OpSize necessarily. For example, a store for Byte and Char both use unsigned byte stores because the instruction is shorter depending on ISA. Even though it\u0027s extra code, I think it\u0027s better to have the caller explicitly pass in the parameters so that we can perform sanity checks afterwards.",
+      "parentUuid": "13f169a2_c3dbf4fd",
+      "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53076152_e5eb9c10",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 32
@@ -30,6 +48,24 @@
       "writtenOn": "2014-08-22T18:38:39Z",
       "side": 1,
       "message": "As I said in cc file, is passing OpSize still necessary?",
+      "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b3cdfb_1a4539d8",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T19:01:03Z",
+      "side": 1,
+      "message": "Addressed in cc file.",
+      "parentUuid": "53076152_e5eb9c10",
       "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "13f169a2_b56c1fd5",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T19:01:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13f169a2_630200a7",
+      "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53076152_e566fcf0",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 32
@@ -64,6 +118,24 @@
       "writtenOn": "2014-08-22T18:38:39Z",
       "side": 1,
       "message": "Why didn\u0027t you use the macro for art_quick_get64_static?",
+      "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b3cdfb_1a1a9907",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 32
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T19:01:03Z",
+      "side": 1,
+      "message": "Originally thought alignment would be different for 64bit, changed to macro.",
+      "parentUuid": "53076152_e566fcf0",
       "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "53076152_c505b8e5",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T19:01:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b3cdfb_7acc7572",
+      "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53076152_251e4453",
         "filename": "runtime/mirror/art_field.h",
         "patchSetId": 32
@@ -98,6 +188,24 @@
       "writtenOn": "2014-08-22T18:38:39Z",
       "side": 1,
       "message": "Would it be worth changing these to use the JNI primitives, jboolean, jbyte, etc...?",
+      "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b3cdfb_9adb09ff",
+        "filename": "runtime/mirror/art_field.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T19:01:03Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we keep the concepts separate? The methods are used in other places besides JNI.",
+      "parentUuid": "53076152_251e4453",
       "revId": "afbd6b6837ce6e98b922ae17cd7ce30adeb97bae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
