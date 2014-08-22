@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33b3cdfb_3db3d71e",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-22T19:55:09Z",
+      "side": 0,
+      "message": "I removed this because this approach is not friendly to class initialization proved by other means. Just because it is not proven in this logic it doesn\u0027t mean we cannot let another pass prove it.",
+      "range": {
+        "startLine": 1105,
+        "startChar": 12,
+        "endLine": 1105,
+        "endChar": 64
+      },
+      "revId": "64d9da0ae817eaeb50e9fd8dd253fac32b3aaec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
