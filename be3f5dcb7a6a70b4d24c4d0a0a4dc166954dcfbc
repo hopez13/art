@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "131a49b4_9a295d76",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 4786,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T23:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b3cdfb_4b31a573",
+      "revId": "be3f5dcb7a6a70b4d24c4d0a0a4dc166954dcfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b3cdfb_8b2bbd05",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 34
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "131a49b4_fa3691cf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 4825,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T23:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33b3cdfb_8b2bbd05",
+      "range": {
+        "startLine": 4825,
+        "startChar": 0,
+        "endLine": 4825,
+        "endChar": 50
+      },
+      "revId": "be3f5dcb7a6a70b4d24c4d0a0a4dc166954dcfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53076152_8dc7564e",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 34
@@ -53,6 +95,30 @@
       "writtenOn": "2014-08-22T22:35:26Z",
       "side": 1,
       "message": "Align comments or use 2 char indent.",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 87
+      },
+      "revId": "be3f5dcb7a6a70b4d24c4d0a0a4dc166954dcfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13c88974_f9a7b32b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1047773
+      },
+      "writtenOn": "2014-08-22T23:19:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53076152_8dc7564e",
       "range": {
         "startLine": 386,
         "startChar": 0,
