@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53076152_f9b86b5e",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T15:27:13Z",
+      "side": 1,
+      "message": "typedefs",
+      "range": {
+        "startLine": 35,
+        "startChar": 52,
+        "endLine": 35,
+        "endChar": 59
+      },
+      "revId": "38dca552e6cf52f388a8bb129def7d4680ebc006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13f169a2_02c5fa71",
+        "filename": "compiler/llvm/llvm_compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T15:27:13Z",
+      "side": 1,
+      "message": "avoid by declaring class Compiler; class CompilerDriver; ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "38dca552e6cf52f388a8bb129def7d4680ebc006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73d0e50f_64f22402",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T15:27:13Z",
+      "side": 1,
+      "message": "missing 4 char indent.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 46
+      },
+      "revId": "38dca552e6cf52f388a8bb129def7d4680ebc006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73d0e50f_a40b4c48",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T15:27:13Z",
+      "side": 1,
+      "message": "what am I ?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 38
+      },
+      "revId": "38dca552e6cf52f388a8bb129def7d4680ebc006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53076152_79dc7ba9",
+        "filename": "compiler/optimizing/optimizing_compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-22T15:27:13Z",
+      "side": 1,
+      "message": "avoid by declaring class Compiler; class CompilerDriver; ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "38dca552e6cf52f388a8bb129def7d4680ebc006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
