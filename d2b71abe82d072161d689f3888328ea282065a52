@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "13f169a2_5d9c07e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-22T17:09:23Z",
+      "side": 1,
+      "message": "Let me clarify :)\n\nSo the code pointer register is calculated at start of method and then spilled into its home location (temp VR on stack). All paths that need it load this register which is then cached by the backend temp system that tries to prevent reloads. Well when you have a diamond shape in the generated code (the code that generates is linear), then only one of the paths would have loaded the start of method register. Thus at merge of diamond shape it is not valid to say that the backend temp always is loaded in physical register even though the temp caching system says so.\n\nRegarding x86_64, I agree. All accesses should be done relative to instruction pointer (future feature). But I think you are right to note this because the code right now explicitly assumes that explicit non-rip register is being used.",
+      "parentUuid": "53076152_043a264d",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "d2b71abe82d072161d689f3888328ea282065a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13f169a2_427ee2f0",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 1
