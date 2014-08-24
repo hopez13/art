@@ -22,6 +22,30 @@
       "revId": "bf99f77dda749e2b653e8c45259b1fb56e7bb012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9399d985_f2bb48a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3694,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-24T19:30:21Z",
+      "side": 1,
+      "message": "Its used to be that going from DexCache to DexFile was expensive, it isn\u0027t as much now. We had a mutable ArtMethod* in MethodHelper so that changing a method while walking a vtable say, wouldn\u0027t cause fresh DexFile lookups if the DexCache didn\u0027t change. When ArtMethods became move-able then these fields in MethodHelper became handles.",
+      "parentUuid": "13f169a2_1a08bab9",
+      "range": {
+        "startLine": 3694,
+        "startChar": 2,
+        "endLine": 3694,
+        "endChar": 44
+      },
+      "revId": "bf99f77dda749e2b653e8c45259b1fb56e7bb012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
