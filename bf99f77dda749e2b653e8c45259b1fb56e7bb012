@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13f169a2_1a08bab9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3694,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-24T01:48:01Z",
+      "side": 1,
+      "message": "Is that because MethodHelper needs a mutable handle (why?)? Seems like unnecessary overhead.",
+      "range": {
+        "startLine": 3694,
+        "startChar": 2,
+        "endLine": 3694,
+        "endChar": 44
+      },
+      "revId": "bf99f77dda749e2b653e8c45259b1fb56e7bb012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
