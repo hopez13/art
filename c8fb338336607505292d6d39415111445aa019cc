@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f316958e_54733af3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-25T16:34:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9399d985_12f36c7f",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 101
+      },
+      "revId": "c8fb338336607505292d6d39415111445aa019cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13f169a2_5ce7df73",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f316958e_94849288",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-25T16:34:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13f169a2_5ce7df73",
+      "range": {
+        "startLine": 598,
+        "startChar": 0,
+        "endLine": 602,
+        "endChar": 3
+      },
+      "revId": "c8fb338336607505292d6d39415111445aa019cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c4d562_f568982f",
         "filename": "runtime/class_linker.h",
         "patchSetId": 10
@@ -59,6 +107,24 @@
       "writtenOn": "2014-08-24T19:55:52Z",
       "side": 1,
       "message": "missed full-stop",
+      "revId": "c8fb338336607505292d6d39415111445aa019cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f316958e_f4818676",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-25T16:34:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3c4d562_f568982f",
       "revId": "c8fb338336607505292d6d39415111445aa019cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
