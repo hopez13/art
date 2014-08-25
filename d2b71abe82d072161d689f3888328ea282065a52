@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f3dbf536_23756ea2",
+        "filename": "compiler/dex/quick/x86/fp_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1039893
+      },
+      "writtenOn": "2014-08-25T08:34:02Z",
+      "side": 1,
+      "message": "I think we have to use a condition here instead of CHECK, because base_of_code_ may not be initialized in some cases (see AnalyzeInvokeStatic)",
+      "parentUuid": "13f169a2_427ee2f0",
+      "range": {
+        "startLine": 733,
+        "startChar": 0,
+        "endLine": 733,
+        "endChar": 36
+      },
+      "revId": "d2b71abe82d072161d689f3888328ea282065a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13f169a2_8278ca01",
         "filename": "compiler/dex/quick/x86/fp_x86.cc",
         "patchSetId": 1
