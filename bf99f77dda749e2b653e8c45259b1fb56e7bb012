@@ -46,6 +46,24 @@
       "revId": "bf99f77dda749e2b653e8c45259b1fb56e7bb012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f316958e_7f2d6fb2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3694,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-25T16:50:26Z",
+      "side": 1,
+      "message": "Yes, maybe worth adding a non changeable method helper but this could be the only use.",
+      "parentUuid": "13f169a2_1a08bab9",
+      "revId": "bf99f77dda749e2b653e8c45259b1fb56e7bb012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
