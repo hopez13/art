@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3c4d562_feb8705e",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-25T22:45:04Z",
+      "side": 1,
+      "message": "note that the returned oat file is not executable?",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "138de944_b4d2888f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-25T22:45:04Z",
+      "side": 1,
+      "message": "i\u0027m a little worry about startup time regression here. do we have to do this in the non-error case? is there a cheaper test we can do? such as, only do this if there is not an ImageSpace",
+      "range": {
+        "startLine": 561,
+        "startChar": 0,
+        "endLine": 567,
+        "endChar": 81
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "739e256e_254586d8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-25T22:45:04Z",
+      "side": 1,
+      "message": "probably should have a comment noting that we are falling back here to non-exec oat files and note why (motivation is that we might be out of space)",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 574,
+        "endChar": 75
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13c88974_f0cfc0e9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-25T22:45:04Z",
+      "side": 1,
+      "message": "!image_location.empty()",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 32
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
