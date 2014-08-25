@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3c4d562_3e458d2f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-25T17:13:29Z",
+      "side": 1,
+      "message": "it and it2 are confusing, prefer something like value_it and field_it",
+      "range": {
+        "startLine": 3849,
+        "startChar": 36,
+        "endLine": 3849,
+        "endChar": 38
+      },
+      "revId": "0298a48b1b7c739809ee99dc886a622c57da2263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9399d985_fb3323dd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3857,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-25T17:13:29Z",
+      "side": 1,
+      "message": "This comment is lost now, previously it was explaining the call out to ConstructFieldArray.",
+      "range": {
+        "startLine": 3856,
+        "startChar": 0,
+        "endLine": 3857,
+        "endChar": 43
+      },
+      "revId": "0298a48b1b7c739809ee99dc886a622c57da2263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3c4d562_7efaa591",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3873,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-25T17:13:29Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 3868,
+        "startChar": 0,
+        "endLine": 3873,
+        "endChar": 5
+      },
+      "revId": "0298a48b1b7c739809ee99dc886a622c57da2263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
