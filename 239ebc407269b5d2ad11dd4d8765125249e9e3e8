@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f3d0553d_9ea5215b",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-26T19:22:33Z",
+      "side": 1,
+      "message": "Agreed. I believe I was worried about all of the changes that I would have to do for the \"portable\" path and all of the gtests. But let me tackle this because my preferred deprecation methodology is complete removal :)",
+      "parentUuid": "73c54578_9f2abb01",
+      "revId": "239ebc407269b5d2ad11dd4d8765125249e9e3e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73c54578_bcda2d84",
         "filename": "compiler/dex/global_value_numbering_test.cc",
         "patchSetId": 20
