@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "73c54578_9f2abb01",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-08-26T17:59:19Z",
+      "side": 1,
+      "message": "Why deprecate?  If there is now a preferred replacement, use it everywhere and delete the old.",
+      "revId": "239ebc407269b5d2ad11dd4d8765125249e9e3e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73c54578_bcda2d84",
         "filename": "compiler/dex/global_value_numbering_test.cc",
         "patchSetId": 20
