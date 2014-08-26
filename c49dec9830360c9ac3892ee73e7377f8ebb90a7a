@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9397195e_9654dcde",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1376c912_ccc4e378",
+      "range": {
+        "startLine": 1364,
+        "startChar": 6,
+        "endLine": 1364,
+        "endChar": 9
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c4d562_feb8705e",
         "filename": "runtime/oat_file.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-25T22:45:04Z",
       "side": 1,
       "message": "note that the returned oat file is not executable?",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3cd11a8_f719da13",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3c4d562_feb8705e",
       "range": {
         "startLine": 43,
         "startChar": 2,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d3cd11a8_fac66183",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Yes this is done in the non-error case as well. Just way down in the ImageSpace startup during Heap initialization.\n\nAnyway this isn\u0027t a terribly heavy function. It is basically about 3-4 calls to OS::FileExists.",
+      "parentUuid": "138de944_b4d2888f",
+      "range": {
+        "startLine": 561,
+        "startChar": 0,
+        "endLine": 567,
+        "endChar": 81
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1376c912_cc4dc354",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -106,6 +178,30 @@
       "writtenOn": "2014-08-26T04:27:16Z",
       "side": 1,
       "message": "seems odd to rely on the caller to make *failures 0. As this is the intended behavior I\u0027d either add a DCHECK_EQ(*failures, 0u) here or do the assignment here. Ie ensure an out argument is assigned on all return paths. Making *failures equal dex_files.size() would make more sense to me in the error case than leaving it as 0.",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 36
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9397195e_16eb2ccb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1376c912_cc4dc354",
       "range": {
         "startLine": 568,
         "startChar": 0,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "d3cd11a8_fa5b0132",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "739e256e_254586d8",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 574,
+        "endChar": 75
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1376c912_cce863c9",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -152,6 +272,30 @@
       "writtenOn": "2014-08-26T04:27:16Z",
       "side": 1,
       "message": "but we relied on this fact for the other return paths?",
+      "range": {
+        "startLine": 589,
+        "startChar": 2,
+        "endLine": 589,
+        "endChar": 16
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3cd11a8_da6045dd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1376c912_cce863c9",
       "range": {
         "startLine": 589,
         "startChar": 2,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "9397195e_d677040f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13c88974_f0cfc0e9",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 32
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33810d18_aa4f8fa3",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -198,6 +366,30 @@
       "writtenOn": "2014-08-26T04:27:16Z",
       "side": 1,
       "message": "only used at line 784, move next to use",
+      "range": {
+        "startLine": 685,
+        "startChar": 2,
+        "endLine": 685,
+        "endChar": 54
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3cd11a8_7a7011a6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-26T21:42:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33810d18_aa4f8fa3",
       "range": {
         "startLine": 685,
         "startChar": 2,
