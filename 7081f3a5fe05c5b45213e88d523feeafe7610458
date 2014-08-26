@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13d4092d_d0a704d9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T21:44:49Z",
+      "side": 1,
+      "message": "To enable use a non-debug build",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "7081f3a5fe05c5b45213e88d523feeafe7610458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13d4092d_50c53470",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T21:44:49Z",
+      "side": 1,
+      "message": "!kIsDebugBuild",
+      "range": {
+        "startLine": 65,
+        "startChar": 43,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "7081f3a5fe05c5b45213e88d523feeafe7610458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3d0553d_8faf2919",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T21:44:49Z",
+      "side": 1,
+      "message": "To enable use a non-debug build",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "7081f3a5fe05c5b45213e88d523feeafe7610458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3d0553d_cfc401dc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T21:44:49Z",
+      "side": 1,
+      "message": "!kIsDebugBuild",
+      "range": {
+        "startLine": 51,
+        "startChar": 42,
+        "endLine": 51,
+        "endChar": 47
+      },
+      "revId": "7081f3a5fe05c5b45213e88d523feeafe7610458",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
