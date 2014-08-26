@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73c54578_733ba0e3",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T20:59:46Z",
+      "side": 1,
+      "message": "this should be either 32 or \"32 64\" depending on whether the host or target has support",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 59
+      },
+      "revId": "218cb5a610e427067eee3f004d26deb8ede9aa3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
