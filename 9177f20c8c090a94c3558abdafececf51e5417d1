@@ -22,6 +22,30 @@
       "revId": "9177f20c8c090a94c3558abdafececf51e5417d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3b17d0f_3b0857ba",
+        "filename": "runtime/entrypoints/quick/quick_instrumentation_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-08-26T15:45:11Z",
+      "side": 0,
+      "message": "I have implemented step-out by adding a new InterpreterWillBeExited event to the InstrumentationListener and sending that event from artQuickToInterpreterBridge before returning.\nIn response to that event the debugger will request a frame deoptimization by setting the deoptimization exception, thus we will be able to step into the upcall that was compiled originally.",
+      "parentUuid": "53a121b9_804016bd",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "9177f20c8c090a94c3558abdafececf51e5417d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
