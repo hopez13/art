@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1376c912_ccc4e378",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T04:27:16Z",
+      "side": 1,
+      "message": "I believe we\u0027d generally place these on the line above",
+      "range": {
+        "startLine": 1364,
+        "startChar": 6,
+        "endLine": 1364,
+        "endChar": 9
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c4d562_feb8705e",
         "filename": "runtime/oat_file.h",
         "patchSetId": 2
@@ -48,6 +71,53 @@
     },
     {
       "key": {
+        "uuid": "1376c912_6c3f6fa1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T04:27:16Z",
+      "side": 1,
+      "message": "Its seems we\u0027re returning a count of errors but no error messages. Presumably these were sent to the log but the feeling is inconsistent with the rest of the code where we pass an error_msg out argument.",
+      "parentUuid": "138de944_b4d2888f",
+      "range": {
+        "startLine": 561,
+        "startChar": 0,
+        "endLine": 567,
+        "endChar": 81
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1376c912_cc4dc354",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T04:27:16Z",
+      "side": 1,
+      "message": "seems odd to rely on the caller to make *failures 0. As this is the intended behavior I\u0027d either add a DCHECK_EQ(*failures, 0u) here or do the assignment here. Ie ensure an out argument is assigned on all return paths. Making *failures equal dex_files.size() would make more sense to me in the error case than leaving it as 0.",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 36
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "739e256e_254586d8",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -71,6 +141,29 @@
     },
     {
       "key": {
+        "uuid": "1376c912_cce863c9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T04:27:16Z",
+      "side": 1,
+      "message": "but we relied on this fact for the other return paths?",
+      "range": {
+        "startLine": 589,
+        "startChar": 2,
+        "endLine": 589,
+        "endChar": 16
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13c88974_f0cfc0e9",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -87,6 +180,29 @@
         "startChar": 6,
         "endLine": 613,
         "endChar": 32
+      },
+      "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33810d18_aa4f8fa3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-26T04:27:16Z",
+      "side": 1,
+      "message": "only used at line 784, move next to use",
+      "range": {
+        "startLine": 685,
+        "startChar": 2,
+        "endLine": 685,
+        "endChar": 54
       },
       "revId": "c49dec9830360c9ac3892ee73e7377f8ebb90a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
