@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "73c54578_42f1e86e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-26T18:19:16Z",
+      "side": 1,
+      "message": "I\u0027ll restore the old behavior of only timing non debug builds.",
+      "parentUuid": "13d4092d_3cf17970",
+      "revId": "c7aa0045fdaead18383bc7cf8acd1b4cb6fec136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73c54578_c20bb8fa",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 544,
         "endChar": 49
       },
+      "revId": "c7aa0045fdaead18383bc7cf8acd1b4cb6fec136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13d4092d_dc1e05fa",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-26T18:19:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73c54578_c20bb8fa",
       "revId": "c7aa0045fdaead18383bc7cf8acd1b4cb6fec136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
