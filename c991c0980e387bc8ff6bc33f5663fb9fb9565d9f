@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "13d4092d_c09bafef",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-27T00:44:51Z",
+      "side": 1,
+      "message": "Will do. You\u0027re right in that it improves readability at callsite but I don\u0027t like it because it allows null reference.",
+      "parentUuid": "73c54578_c5a5fd59",
+      "range": {
+        "startLine": 1214,
+        "startChar": 47,
+        "endLine": 1214,
+        "endChar": 59
+      },
+      "revId": "c991c0980e387bc8ff6bc33f5663fb9fb9565d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13d4092d_204a6372",
         "filename": "compiler/dex/mir_graph.cc",
         "patchSetId": 8
@@ -59,6 +83,30 @@
       "writtenOn": "2014-08-27T00:01:02Z",
       "side": 1,
       "message": "should we append strings as strings and avoid going via const char*, strlen and StringPrintf?",
+      "range": {
+        "startLine": 1274,
+        "startChar": 27,
+        "endLine": 1274,
+        "endChar": 99
+      },
+      "revId": "c991c0980e387bc8ff6bc33f5663fb9fb9565d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13d4092d_60abbbfc",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-08-27T00:44:51Z",
+      "side": 1,
+      "message": "Well when you say it this way... :)\n\nLet me see what I can do to reduce path length here.",
+      "parentUuid": "13d4092d_8086d755",
       "range": {
         "startLine": 1274,
         "startChar": 27,
