@@ -46,6 +46,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7321c530_62064cf2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-27T23:20:52Z",
+      "side": 1,
+      "message": "I can see that we can skip this no-gap check if there is no image (eg dex2oat).\n\nI don\u0027t see what the Valgrind case looks like. It\u0027s got an image, but the non-moving space comes before the image space? I don\u0027t see how that happens. Does it have a separate non-moving space (from the main space)? Can you clarify?\n\nIn any case, this check should be enabled as much as possible. Or else, we\u0027d have a large object being treated as immune and a GC crash.",
+      "parentUuid": "9333997e_28b90f61",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
