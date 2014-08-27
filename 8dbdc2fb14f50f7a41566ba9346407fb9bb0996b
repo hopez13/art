@@ -70,6 +70,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7321c530_a2fc644d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-27T23:27:53Z",
+      "side": 1,
+      "message": "dex2oat has an image in the case that we\u0027re compiling an app.",
+      "parentUuid": "7321c530_62064cf2",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
