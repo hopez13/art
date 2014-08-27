@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53ef61ff_2ac2536a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-27T18:58:23Z",
+      "side": 1,
+      "message": "the code and the comment below don\u0027t match up. Why do we only check in the zygote case? dex2oat allocates objects like Strings, that may end up as large object allocations.",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
