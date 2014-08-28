@@ -184,6 +184,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "931c79fc_ddc61f84",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-28T01:01:55Z",
+      "side": 1,
+      "message": "dex2oatd I 31595 31595 art/runtime/gc/heap.cc:412] 0\n\nSo separate_non_moving_space is false.",
+      "parentUuid": "9333997e_564bd43e",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
