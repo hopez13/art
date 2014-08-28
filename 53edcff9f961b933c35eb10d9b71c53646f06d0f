@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1330897d_6ab85fc7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7321c530_e201f7a1",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3dfbd55_6b88619d",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2014-08-28T08:38:40Z",
       "side": 1,
       "message": "I assume this is only supposed to work in the zygote and host ?\n\nI think we should make this very very clear. In the past, we\u0027ve had very confusing errors on the target when something else goes wrong because of insufficient perms to do stuff like this.",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7321c530_98142c5e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3dfbd55_6b88619d",
       "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "7321c530_98098c52",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7321c530_62ee4794",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 75
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "530841ab_a8dbfbb0",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "7321c530_382160ba",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "530841ab_a8dbfbb0",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1330897d_9fc65f51",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -93,6 +177,30 @@
       "writtenOn": "2014-08-28T07:23:30Z",
       "side": 1,
       "message": "why not just let this case cover the DT_DIR case too?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7321c530_45822d7c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1330897d_9fc65f51",
       "range": {
         "startLine": 98,
         "startChar": 0,
@@ -152,6 +260,54 @@
     },
     {
       "key": {
+        "uuid": "7321c530_a5854984",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3fe95bb_857ca2f4",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "531681dd_d231240c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "We\u0027re running as root, we\u0027d delete it anyway...",
+      "parentUuid": "531681dd_e7f7ccf0",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "530841ab_88e0375a",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -163,6 +319,24 @@
       "writtenOn": "2014-08-28T08:38:40Z",
       "side": 1,
       "message": "We should LOG(INFO) that we\u0027re doing this (like the system_server currently does).",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "531681dd_526754ed",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "530841ab_88e0375a",
       "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -233,6 +407,24 @@
     },
     {
       "key": {
+        "uuid": "7321c530_184fbc81",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3dfbd55_4b85a581",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "531681dd_670c1c61",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
@@ -280,6 +472,54 @@
     },
     {
       "key": {
+        "uuid": "1330897d_6a837ff9",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "That\u0027s a great idea. Done.",
+      "parentUuid": "b3dfbd55_2b82597b",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 33
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1330897d_0a944b2f",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "We need it for --prebuild run-tests to work since we put the prebuilt version in the dalvik-cache (since we cannot be switching android root and we shouldn\u0027t be touching system)",
+      "parentUuid": "531681dd_670c1c61",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 33
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7321c530_a20bffb7",
         "filename": "test/etc/push-and-run-prebuilt-test-jar",
         "patchSetId": 2
@@ -291,6 +531,30 @@
       "writtenOn": "2014-08-28T07:23:30Z",
       "side": 1,
       "message": "is that in a dalvik-cache dir?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 36
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1330897d_4a8a430c",
+        "filename": "test/etc/push-and-run-prebuilt-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2014-08-28T16:36:12Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "7321c530_a20bffb7",
       "range": {
         "startLine": 197,
         "startChar": 0,
