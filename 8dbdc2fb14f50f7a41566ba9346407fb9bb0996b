@@ -118,6 +118,24 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7338e55c_950b94b8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-28T00:43:05Z",
+      "side": 1,
+      "message": "With the current logic, the only time the compiler might attempt to immune the non moving space is if GSS is enabled. In this case separate_non_moving_space\u003d\u003dtrue and hopefully we would have that the space is right after the image.",
+      "parentUuid": "931c79fc_ba449181",
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
