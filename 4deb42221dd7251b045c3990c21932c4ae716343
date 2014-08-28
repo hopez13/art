@@ -46,6 +46,30 @@
       "revId": "4deb42221dd7251b045c3990c21932c4ae716343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "736f0577_6f864559",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-28T19:26:04Z",
+      "side": 1,
+      "message": "but my point is, Runtime::Current()-\u003eAddCurrentRuntimeFeaturesAsDex2OatArguments(\u0026arg_vector); is already doing this. that is why I thought it was odd you needed to add the arg, since we don\u0027t pass it to actually pass the --instruction-set\u003d",
+      "parentUuid": "736f0577_cf7411a8",
+      "range": {
+        "startLine": 76,
+        "startChar": 26,
+        "endLine": 76,
+        "endChar": 44
+      },
+      "revId": "4deb42221dd7251b045c3990c21932c4ae716343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
