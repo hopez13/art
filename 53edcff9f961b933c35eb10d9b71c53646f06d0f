@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "b3dfbd55_6b88619d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-28T08:38:40Z",
+      "side": 1,
+      "message": "I assume this is only supposed to work in the zygote and host ?\n\nI think we should make this very very clear. In the past, we\u0027ve had very confusing errors on the target when something else goes wrong because of insufficient perms to do stuff like this.",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7321c530_62ee4794",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -42,6 +59,23 @@
         "endLine": 77,
         "endChar": 75
       },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "530841ab_a8dbfbb0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-28T08:38:40Z",
+      "side": 1,
+      "message": "Why is this a warning and not an error ?",
       "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +128,47 @@
     },
     {
       "key": {
+        "uuid": "f3fe95bb_857ca2f4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-28T08:38:40Z",
+      "side": 1,
+      "message": "Yeah, I\u0027d continue here. In the worst case there will be a bit of spam, but I think that\u0027s worthwhile.",
+      "parentUuid": "531681dd_e7f7ccf0",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "530841ab_88e0375a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-28T08:38:40Z",
+      "side": 1,
+      "message": "We should LOG(INFO) that we\u0027re doing this (like the system_server currently does).",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "531681dd_c7f648f3",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -117,6 +192,23 @@
     },
     {
       "key": {
+        "uuid": "b3dfbd55_4b85a581",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-28T08:38:40Z",
+      "side": 1,
+      "message": "LOG(INFO) \u003c\u003c",
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "531681dd_670c1c61",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
@@ -128,6 +220,30 @@
       "writtenOn": "2014-08-28T07:23:30Z",
       "side": 1,
       "message": "why make this optional?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 33
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3dfbd55_2b82597b",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-08-28T08:38:40Z",
+      "side": 1,
+      "message": "Yeah, I don\u0027t understand this either. Is this for host vs target ? Or do you want this to be zygote only (i.e, not for command line vms).\n\nIf it\u0027s only for the zygote, then maybe just condition it on -Xzygote. That\u0027s clearer IMO.",
+      "parentUuid": "531681dd_670c1c61",
       "range": {
         "startLine": 227,
         "startChar": 0,
