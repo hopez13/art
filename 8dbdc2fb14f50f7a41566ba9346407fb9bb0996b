@@ -136,6 +136,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7321c530_a8c68350",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-28T00:55:07Z",
+      "side": 1,
+      "message": "If separate_non_moving_space is false in your dex2oat situation, the main space and the non-moving space are the same space, in which case we should allocate the main space right after the image, but to allocate the main space (main_mem_map_1) we use MapAnonymousPreferredAddress() which does not guarantee the result is at the specified address, instead of MapAnonymous() which does, as in:\n\n267:  main_mem_map_1.reset(MapAnonymousPreferredAddress(kMemMapSpaceName[0], request_begin, capacity_,\n268:                                         PROT_READ | PROT_WRITE, \u0026error_str));\n\nThis seems a bug to me.\n\nBut I am not sure if separate_non_moving_space is false in your dex2oat situation. Can you instrument this function and see what the value separate_non_moving_space is (as well as, if you will, the result addresses of the MapAnonymousPreferredAddress() and MapAnonymous() which could be added to the error message of the LOG(FATAL) in line 417)?",
+      "parentUuid": "931c79fc_ba449181",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
