@@ -232,6 +232,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "931c79fc_7d67d39f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-28T01:47:36Z",
+      "side": 1,
+      "message": "OK, can\u0027t really follow the details of the discussion, not a GC person... :-)\n\nFrom Mathieu\u0027s comment, should the additional check actually be more \"permissive\"? The \"hopefully\" sounds bad. From his comment, I would change it to \u0026\u0026 (is_zygote || separate_non_moving_space).",
+      "parentUuid": "1330897d_d92b9708",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
