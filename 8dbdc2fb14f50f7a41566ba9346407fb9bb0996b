@@ -256,6 +256,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7321c530_2e6cbb41",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-28T04:29:32Z",
+      "side": 1,
+      "message": "That\u0027s fine, too. To explicitly include the non-zygote GSS case, it\u0027d be also good to have \n\n  \"\u0026\u0026 (is_zygote || foreground_collector_ \u003d\u003d kCollectorTypeGSS)\".\n\nor even,\n\n  \"\u0026\u0026 (is_zygote || separate_non_moving_space || foreground_collector_ \u003d\u003d kCollectorTypeGSS)\".\n\nRight now, \"foreground_collector_ \u003d\u003d kCollectorTypeGSS\" or \"is_zygote \u003d\u003d true\" implies \"separate_non_moving_space \u003d\u003d true\".",
+      "parentUuid": "931c79fc_7d67d39f",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
