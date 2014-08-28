@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "1330897d_df193714",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-28T08:48:19Z",
+      "side": 1,
+      "message": "actually never mind. there is a different issue. we should not only prune /data/dalvik-cache/\u003cisa\u003e but /data/dalvik-cache, to remove old files from dalvik (before the \u003cisa\u003e dir).\n\nthe code in PackageManagerService.java does that. it can be nuked with this change. and so can the installd path it calls.",
+      "parentUuid": "531681dd_c7f648f3",
+      "range": {
+        "startLine": 146,
+        "startChar": 22,
+        "endLine": 146,
+        "endChar": 65
+      },
+      "revId": "53edcff9f961b933c35eb10d9b71c53646f06d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3dfbd55_4b85a581",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
