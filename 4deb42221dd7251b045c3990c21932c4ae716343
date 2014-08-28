@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "736f0577_6f3ba5e3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-08-28T19:22:17Z",
+      "side": 1,
+      "message": "isn\u0027t this always kRuntimeISA?",
+      "range": {
+        "startLine": 76,
+        "startChar": 26,
+        "endLine": 76,
+        "endChar": 44
+      },
+      "revId": "4deb42221dd7251b045c3990c21932c4ae716343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
