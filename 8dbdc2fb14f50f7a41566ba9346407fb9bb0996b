@@ -160,6 +160,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9333997e_564bd43e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-08-28T00:59:36Z",
+      "side": 1,
+      "message": "It doesn\u0027t get to the gap. The aborting CHECK is in CheckNoGaps:\n\nCheck failed: begin_map-\u003eBaseBegin() \u003c\u003d end_map-\u003eBaseBegin() (begin_map-\u003eBaseBegin()\u003d0x70000000, end_map-\u003eBaseBegin()\u003d0x5e3f000)\n\nLet me put in some debug info before.",
+      "parentUuid": "7321c530_a8c68350",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
