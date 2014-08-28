@@ -208,6 +208,30 @@
       "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1330897d_d92b9708",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-08-28T01:38:29Z",
+      "side": 1,
+      "message": "Thanks. On a second thought, you\u0027re right. It\u0027s the zygote space that can be added to the immune space, not the non-moving space, though the zygote space is curved out of the non-moving space. So, if is_zygote \u003d\u003d false, we can skip this no gap check. For the GSS case, I agree with Mathieu.",
+      "parentUuid": "931c79fc_ddc61f84",
+      "range": {
+        "startLine": 410,
+        "startChar": 65,
+        "endLine": 412,
+        "endChar": 81
+      },
+      "revId": "8dbdc2fb14f50f7a41566ba9346407fb9bb0996b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
