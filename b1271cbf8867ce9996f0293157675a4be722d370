@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93df197f_ab49f9f5",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-29T22:02:03Z",
+      "side": 1,
+      "message": "Can you use operator new( instead of malloc? Look at register_line.h.",
+      "revId": "b1271cbf8867ce9996f0293157675a4be722d370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53e9212a_2fdcd52c",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-29T22:02:03Z",
+      "side": 1,
+      "message": "Placement new is cleaner than reinterpret cast.",
+      "revId": "b1271cbf8867ce9996f0293157675a4be722d370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93df197f_cb2b9d08",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-08-29T22:02:03Z",
+      "side": 1,
+      "message": "Can change this to use delete after using placement new.",
+      "revId": "b1271cbf8867ce9996f0293157675a4be722d370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
