@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3541db2_f74a0890",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-29T05:01:46Z",
+      "side": 1,
+      "message": "No, there are 32 and 16 bit no index values. 16 is generally types, 32 everything else.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "d16762c6836c364d311610e7c1e4afc6ad6bcd51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3541db2_973f14f1",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-29T05:01:46Z",
+      "side": 1,
+      "message": "Status : int8_t",
+      "range": {
+        "startLine": 137,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 13
+      },
+      "revId": "d16762c6836c364d311610e7c1e4afc6ad6bcd51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
