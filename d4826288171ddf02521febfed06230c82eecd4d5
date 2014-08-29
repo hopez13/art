@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13a1690c_3159eabf",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-29T23:21:16Z",
+      "side": 1,
+      "message": "I believe this isn\u0027t sound. Generally we\u0027re doing:\n\nsynchronized(obj) {\n  while(!predicate()) {\n     obj.wait();\n   }\n}\n\nby releasing the lock and acquiring it again the predicate can have changed and the notify be missed. The reason the wait is done under a lock is to avoid races with the predicate changing.",
+      "range": {
+        "startLine": 742,
+        "startChar": 0,
+        "endLine": 746,
+        "endChar": 33
+      },
+      "revId": "d4826288171ddf02521febfed06230c82eecd4d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3a7bd22_2e88679c",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-29T23:21:16Z",
+      "side": 1,
+      "message": "when defeating thread safety analysis we should comment as to why. See all the other functions that do this.",
+      "range": {
+        "startLine": 393,
+        "startChar": 58,
+        "endLine": 393,
+        "endChar": 83
+      },
+      "revId": "d4826288171ddf02521febfed06230c82eecd4d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13a1690c_b12b1a09",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-29T23:21:16Z",
+      "side": 1,
+      "message": "The TODO above was to get rid of special case ConditionVariable code :-)",
+      "range": {
+        "startLine": 393,
+        "startChar": 6,
+        "endLine": 393,
+        "endChar": 7
+      },
+      "revId": "d4826288171ddf02521febfed06230c82eecd4d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
