@@ -39,6 +39,24 @@
       "revId": "4ff7c93f2eaf8bbb3e9e578b05adb325ce3e7e51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3a7bd22_7164109a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1873,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-30T00:16:21Z",
+      "side": 1,
+      "message": "I\u0027ll add to the comment. There\u0027s a race in either the kMovingClasses case or not, with classes being added after the classes were visited.",
+      "parentUuid": "b3a7bd22_5199149b",
+      "revId": "4ff7c93f2eaf8bbb3e9e578b05adb325ce3e7e51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
