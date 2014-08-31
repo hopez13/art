@@ -22,6 +22,30 @@
       "revId": "0d45e978a22b38421073ded226ddb878608fda1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f38bf5a0_a0ead4c3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-31T01:02:42Z",
+      "side": 1,
+      "message": "The sha that added the original code is:\ne6bb3b2ce5a69c31c2adfc7eb2705633b7f966eb\nNote I\u0027m unaware of other resolution loops, so this is a behavioral change. That said, as the exception is checked and cleared, bad behavior should be benign.",
+      "parentUuid": "936479c9_5aabb5fb",
+      "range": {
+        "startLine": 1584,
+        "startChar": 33,
+        "endLine": 1584,
+        "endChar": 37
+      },
+      "revId": "0d45e978a22b38421073ded226ddb878608fda1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
