@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "936479c9_5aabb5fb",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-08-31T00:38:01Z",
+      "side": 1,
+      "message": "This change means we do more resolution here than in the verifier/compiler.\ntrue vs manager-\u003eGetCompiler()-\u003eIsImage()\nie in the old code we only pre-resolve fields/methods for the image. This should help avoid resolution in the verifier/compiler and we have plenty of context here. I\u0027m concerned that this will test the CheckAndClearResolveException code more and thereby introduce bugs.",
+      "range": {
+        "startLine": 1584,
+        "startChar": 33,
+        "endLine": 1584,
+        "endChar": 37
+      },
+      "revId": "0d45e978a22b38421073ded226ddb878608fda1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
