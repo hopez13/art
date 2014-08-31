@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "133de99e_2e3b27e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1867,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-08-31T09:06:32Z",
+      "side": 1,
+      "message": "FYI, in one JDWP test there are 3000+ classes in the table. In the context of a big app being debugged, we could have even more so I\u0027m concerned we could crash in this case. \n\nTo avoid the OOME risk, maybe we could visit classes by chunks? We\u0027d need to manage a kind of chunk index though. Besides a class could be added into the list in the meantime so we\u0027d need to handle that case too.",
+      "parentUuid": "13a1690c_947a4c39",
+      "range": {
+        "startLine": 1867,
+        "startChar": 0,
+        "endLine": 1867,
+        "endChar": 48
+      },
+      "revId": "4ff7c93f2eaf8bbb3e9e578b05adb325ce3e7e51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3a7bd22_5199149b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
