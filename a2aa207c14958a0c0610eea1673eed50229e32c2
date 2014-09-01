@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "133de99e_713512ea",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:59:50Z",
+      "side": 1,
+      "message": "Why are you collecting them instead of visiting them?",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d398b1f7_1c88559c",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:59:50Z",
+      "side": 1,
+      "message": "I don\u0027t think you need a worklist. By doing a reverse post order visit you know you\u0027ve visited the inputs before visiting the instruction itself.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133de99e_11892e69",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:59:50Z",
+      "side": 1,
+      "message": "We probably need to encode that in the HInstruction itself, that knows how to statically execute itself (e.g. HAdd -\u003e +).",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 15
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133de99e_f1482278",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:59:50Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 8
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d398b1f7_5c82dd7b",
+        "filename": "compiler/optimizing/constant_propagation_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:59:50Z",
+      "side": 1,
+      "message": "Check that the returned graph only contains a constant + return instruction?",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 21
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33582d1a_2f216903",
+        "filename": "compiler/optimizing/constant_propagation_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:59:50Z",
+      "side": 1,
+      "message": "Also add tests with control flow?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 1
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
