@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "133de99e_31146a5c",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:52:25Z",
+      "side": 1,
+      "message": "Please add a (virtual) HasSideEffects method on HInstruction.",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133de99e_91499e7f",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:52:25Z",
+      "side": 1,
+      "message": "Phis should probably be dealt separately (and already are in SsaDeadPhiElimination), since we statically know they never have side effects.",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33582d1a_cf09bd94",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:52:25Z",
+      "side": 1,
+      "message": "I don\u0027t think you need a worklist approach. You could just do a post-dominator visit and remove dead instructions. This way, you ensure dead instructions cannot be used by dead instructions.",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33582d1a_6f04517d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:52:25Z",
+      "side": 1,
+      "message": "Always use braces for control flow.",
+      "range": {
+        "startLine": 81,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 24
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d398b1f7_5cabbdfb",
+        "filename": "compiler/optimizing/dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:52:25Z",
+      "side": 1,
+      "message": "I think you should check you did eliminate the instructions you think should be eliminated.",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 27
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d398b1f7_1ca1351c",
+        "filename": "compiler/optimizing/dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:52:25Z",
+      "side": 1,
+      "message": "Nit: /** and * at each line.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 2
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
