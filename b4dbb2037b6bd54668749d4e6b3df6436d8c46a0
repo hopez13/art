@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d398b1f7_5cb9fd5f",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:30:01Z",
+      "side": 1,
+      "message": "Please add helper methods on HBasicBlock and HInstruction to check whether one block dominates another, and one instruction dominates another.",
+      "range": {
+        "startLine": 198,
+        "startChar": 46,
+        "endLine": 198,
+        "endChar": 49
+      },
+      "revId": "b4dbb2037b6bd54668749d4e6b3df6436d8c46a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33582d1a_2f8889d3",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T13:30:01Z",
+      "side": 1,
+      "message": "No need for explicit.",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "b4dbb2037b6bd54668749d4e6b3df6436d8c46a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
