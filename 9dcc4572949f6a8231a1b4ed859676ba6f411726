@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33582d1a_0fb825c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T11:37:26Z",
+      "side": 1,
+      "message": "Maybe DCHECK !oat_file-\u003eIsExecutable()",
+      "range": {
+        "startLine": 1329,
+        "startChar": 6,
+        "endLine": 1329,
+        "endChar": 28
+      },
+      "revId": "9dcc4572949f6a8231a1b4ed859676ba6f411726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133de99e_2efa471f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-01T11:37:26Z",
+      "side": 1,
+      "message": "it\u0027s -\u003e its",
+      "range": {
+        "startLine": 1345,
+        "startChar": 60,
+        "endLine": 1345,
+        "endChar": 62
+      },
+      "revId": "9dcc4572949f6a8231a1b4ed859676ba6f411726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
