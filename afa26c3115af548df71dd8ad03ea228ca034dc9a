@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1326c99c_66ec6e2a",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-02T08:21:45Z",
+      "side": 1,
+      "message": "Maybe use IsConstant and let the FoldConstant handle the types?",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "afa26c3115af548df71dd8ad03ea228ca034dc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d398b1f7_7f1b0bd5",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-02T08:21:45Z",
+      "side": 1,
+      "message": "I would move this logic to the instruction itself:\n\nclass HIntConstant {\n  int appy(int a, int b) { ... }\n}",
+      "range": {
+        "startLine": 128,
+        "startChar": 17,
+        "endLine": 128,
+        "endChar": 39
+      },
+      "revId": "afa26c3115af548df71dd8ad03ea228ca034dc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
