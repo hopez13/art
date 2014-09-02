@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d398b1f7_0549d879",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3127,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "133de99e_91227ec3",
+      "range": {
+        "startLine": 3127,
+        "startChar": 8,
+        "endLine": 3127,
+        "endChar": 22
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d398b1f7_3c9ef1de",
         "filename": "runtime/debugger.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-01T13:56:45Z",
       "side": 1,
       "message": "m can be NULL in the case of an upcall, right? It\u0027s worth adding a comment.",
+      "range": {
+        "startLine": 3136,
+        "startChar": 6,
+        "endLine": 3136,
+        "endChar": 7
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133de99e_77618288",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3136,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d398b1f7_3c9ef1de",
       "range": {
         "startLine": 3136,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1326c99c_0983cdf9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3138,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d398b1f7_1cd69586",
+      "range": {
+        "startLine": 3138,
+        "startChar": 8,
+        "endLine": 3138,
+        "endChar": 22
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33582d1a_eff76135",
         "filename": "runtime/debugger.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-09-01T13:56:45Z",
       "side": 1,
       "message": "This is a ReaderMutexLock now.",
+      "range": {
+        "startLine": 3141,
+        "startChar": 4,
+        "endLine": 3141,
+        "endChar": 13
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1326c99c_498dc521",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "It is defined as Mutex or do I miss something?",
+      "parentUuid": "33582d1a_eff76135",
       "range": {
         "startLine": 3141,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d398b1f7_453be0e2",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3142,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "I don\u0027t understand, I think at that line it is guaranteed that m is not nullptr",
+      "parentUuid": "133de99e_d1432659",
+      "range": {
+        "startLine": 3142,
+        "startChar": 37,
+        "endLine": 3142,
+        "endChar": 38
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d398b1f7_5cd01d88",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "1326c99c_2967a9a0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "When we place a breakpoint in a static initialiser and it get caught, then in that state the upcall we can see in the stack (in Eclipse, for example) is the caller (method which called a static method that caused the static intialization), not the callee (static method that caused static initialization), but in interpreter mode the upcall is the callee and stepping out get us back to the callee.",
+      "parentUuid": "d398b1f7_5cd01d88",
+      "range": {
+        "startLine": 820,
+        "startChar": 4,
+        "endLine": 825,
+        "endChar": 40
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d398b1f7_dc96edc7",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2014-09-01T13:56:45Z",
       "side": 1,
       "message": "Can we move that into Dbg::IsForcedInterpreterNeededForCalling please? I\u0027d prefer we limit access to debugger internals.",
+      "range": {
+        "startLine": 672,
+        "startChar": 8,
+        "endLine": 672,
+        "endChar": 31
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1326c99c_8975fd4b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-02T17:12:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d398b1f7_dc96edc7",
       "range": {
         "startLine": 672,
         "startChar": 8,
