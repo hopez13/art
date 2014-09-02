@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "1326c99c_09b58db5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-02T17:37:54Z",
+      "side": 1,
+      "message": "Ah yes, nervermind. It\u0027s a change I\u0027m working on and it\u0027s not merged yet. I\u0027ll submit it tomorrow.",
+      "parentUuid": "1326c99c_498dc521",
+      "range": {
+        "startLine": 3141,
+        "startChar": 4,
+        "endLine": 3141,
+        "endChar": 13
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "133de99e_d1432659",
         "filename": "runtime/debugger.cc",
         "patchSetId": 5
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "133de99e_17e75eb9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3142,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-02T17:37:54Z",
+      "side": 1,
+      "message": "Oh sorry, I misread the scope of the if above. Forget my comment.",
+      "parentUuid": "d398b1f7_453be0e2",
+      "range": {
+        "startLine": 3142,
+        "startChar": 37,
+        "endLine": 3142,
+        "endChar": 38
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d398b1f7_5cd01d88",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "When we place a breakpoint in a static initialiser and it get caught, then in that state the upcall we can see in the stack (in Eclipse, for example) is the caller (method which called a static method that caused the static intialization), not the callee (static method that caused static initialization), but in interpreter mode the upcall is the callee and stepping out get us back to the callee.",
       "parentUuid": "d398b1f7_5cd01d88",
+      "range": {
+        "startLine": 820,
+        "startChar": 4,
+        "endLine": 825,
+        "endChar": 40
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133de99e_97198e15",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-02T17:37:54Z",
+      "side": 1,
+      "message": "That\u0027s a bug in the interpreter then, I\u0027ll take a look. So you need this to properly step out of the class initializer, right?",
+      "parentUuid": "1326c99c_2967a9a0",
       "range": {
         "startLine": 820,
         "startChar": 4,
