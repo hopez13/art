@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b395fdbe_10283271",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-02T17:47:07Z",
+      "side": 1,
+      "message": "I was already aware of that :) But my comment here was to note that this flag is used when part of instruction semantics is to ensure clinit elimination. Let me see if I can make it a bit more descriptive.",
+      "parentUuid": "33d58d79_0a863b57",
+      "range": {
+        "startLine": 113,
+        "startChar": 11,
+        "endLine": 113,
+        "endChar": 52
+      },
+      "revId": "15302ec501fdb734755f5d251d1efa995bfc3f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c695d8_28898369",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 15
