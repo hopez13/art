@@ -22,6 +22,30 @@
       "revId": "33ac819bd13c6e9d42b36ae8393c37cfb1bb4cde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d398b1f7_e54eacfa",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-03T08:53:45Z",
+      "side": 1,
+      "message": "The \"SrcMapElem::operator uint8_t()\" is explicit. I find this preferable to implicit conversion operators even though I\u0027d rather see a design where we would not pretend that SrcMapElem is a byte.",
+      "parentUuid": "9399d985_bca0ae18",
+      "range": {
+        "startLine": 769,
+        "startChar": 10,
+        "endLine": 769,
+        "endChar": 61
+      },
+      "revId": "33ac819bd13c6e9d42b36ae8393c37cfb1bb4cde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
