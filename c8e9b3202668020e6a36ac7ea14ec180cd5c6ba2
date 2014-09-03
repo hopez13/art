@@ -380,6 +380,30 @@
     },
     {
       "key": {
+        "uuid": "b01a5365_73a0c07c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-03T12:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1326c99c_090e6dc9",
+      "range": {
+        "startLine": 820,
+        "startChar": 4,
+        "endLine": 825,
+        "endChar": 40
+      },
+      "revId": "c8e9b3202668020e6a36ac7ea14ec180cd5c6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d398b1f7_dc96edc7",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 5
