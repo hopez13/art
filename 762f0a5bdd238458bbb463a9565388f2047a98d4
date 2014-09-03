@@ -22,6 +22,24 @@
       "revId": "762f0a5bdd238458bbb463a9565388f2047a98d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f04e8b81_4ee88742",
+        "filename": "compiler/dex/pass.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1043725
+      },
+      "writtenOn": "2014-09-03T20:03:54Z",
+      "side": 0,
+      "message": "Other pass drivers and associated passes (e.g. StaticAnalyzer) may not refer to the CompilationUnit. And will fail compilation due to incomplete type (from the forward declaration on line 27). Thanks for the feedback thought:) Patchset 5 instead just includes the header and leaves pass.h and pass_me.h alone.",
+      "parentUuid": "50583741_6b18dd65",
+      "revId": "762f0a5bdd238458bbb463a9565388f2047a98d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
