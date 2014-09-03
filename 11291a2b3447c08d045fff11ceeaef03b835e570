@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50583741_2b3b05b6",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-03T18:05:36Z",
+      "side": 1,
+      "message": "Seems that pass.h should not remove BasePrintMessage and thus this change should not happen here.",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "11291a2b3447c08d045fff11ceeaef03b835e570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
