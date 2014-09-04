@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50583741_fdcfeb62",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T00:00:37Z",
+      "side": 1,
+      "message": "NULL?",
+      "range": {
+        "startLine": 835,
+        "startChar": 14,
+        "endLine": 835,
+        "endChar": 21
+      },
+      "revId": "012c9b61e1031838910df62c020c311829333b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10807fc3_96e7acf7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T00:00:37Z",
+      "side": 1,
+      "message": "Semantic change. For cleanliness? E.g., you didn\u0027t do similar below in GetArrayLength...",
+      "range": {
+        "startLine": 1244,
+        "startChar": 4,
+        "endLine": 1244,
+        "endChar": 25
+      },
+      "revId": "012c9b61e1031838910df62c020c311829333b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f04e8b81_f1371315",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T00:00:37Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 226,
+        "startChar": 48,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "012c9b61e1031838910df62c020c311829333b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f04e8b81_24dfa775",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T00:00:37Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 233,
+        "startChar": 47,
+        "endLine": 233,
+        "endChar": 51
+      },
+      "revId": "012c9b61e1031838910df62c020c311829333b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
