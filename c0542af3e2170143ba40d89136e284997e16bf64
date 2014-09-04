@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f07ccba5_95d6c4d4",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-04T01:55:01Z",
+      "side": 1,
+      "message": "Now that the sentinel is a real object, this should enable the read barrier, as in just \"Read()\". Or else we would be comparing its to-space address and the from-space address of an object (which can be the sentinel object.)",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 91
+      },
+      "revId": "c0542af3e2170143ba40d89136e284997e16bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f093eb15_9179ec9e",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-04T01:55:01Z",
+      "side": 1,
+      "message": "I think this \"ref : *this\" invokes IrtIterator which skips null/invalid entries by using SkipNullsAndTombstones() (see the other comment.) This mean that we are not updating the sentinel object refs in this IRT here, which I think would break a moving GC. We need to update the sentinel object refs in this IRT by not skipping sentinel objects in SkipNullsAndTombstones().",
+      "range": {
+        "startLine": 266,
+        "startChar": 19,
+        "endLine": 266,
+        "endChar": 23
+      },
+      "revId": "c0542af3e2170143ba40d89136e284997e16bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f093eb15_11139c77",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-04T01:55:01Z",
+      "side": 1,
+      "message": "Likewise, this should enable the read barrier, as in \"Read()\".",
+      "range": {
+        "startLine": 217,
+        "startChar": 35,
+        "endLine": 217,
+        "endChar": 62
+      },
+      "revId": "c0542af3e2170143ba40d89136e284997e16bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10979f03_a434e611",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-04T01:55:01Z",
+      "side": 1,
+      "message": "Should we check that it\u0027s not null when it\u0027s allocated and set at startup, turn this into a debug check, or turn this into a LOG(FATAL)?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "c0542af3e2170143ba40d89136e284997e16bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
