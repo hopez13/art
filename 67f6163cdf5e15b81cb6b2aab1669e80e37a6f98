@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90d1cfe4_b5672aee",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T14:09:36Z",
+      "side": 1,
+      "message": "Actually, you might want to check this while iterating over the phis, to avoid keeping this within_phi_list around.",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b09df327_fe0b5db5",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T14:09:36Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 123,
+        "startChar": 12,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a75c_9fd6d7d4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T14:09:36Z",
+      "side": 1,
+      "message": "This can stay here, as it is shared between phis and regular instructions.",
+      "range": {
+        "startLine": 131,
+        "startChar": 24,
+        "endLine": 131,
+        "endChar": 25
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a75c_7ff74b6b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T14:09:36Z",
+      "side": 1,
+      "message": "Instead of passing that by parameter, you could just do instruction-\u003eIsPhi.",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 14
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
