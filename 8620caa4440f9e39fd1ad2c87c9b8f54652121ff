@@ -22,6 +22,30 @@
       "revId": "8620caa4440f9e39fd1ad2c87c9b8f54652121ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b09df327_beecf599",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:00:53Z",
+      "side": 1,
+      "message": "Right. I had to extend the hierarchy of nodes and code generator visitors though. Is that OK?",
+      "parentUuid": "33582d1a_2ffa491f",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "8620caa4440f9e39fd1ad2c87c9b8f54652121ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
