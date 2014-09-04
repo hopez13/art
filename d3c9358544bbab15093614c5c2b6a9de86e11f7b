@@ -22,6 +22,30 @@
       "revId": "d3c9358544bbab15093614c5c2b6a9de86e11f7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50583741_8feaf6c2",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-04T00:07:55Z",
+      "side": 0,
+      "message": "I\u0027ll move to the -inl.h.",
+      "parentUuid": "50583741_2f5c2a26",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 239,
+        "endChar": 3
+      },
+      "revId": "d3c9358544bbab15093614c5c2b6a9de86e11f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
