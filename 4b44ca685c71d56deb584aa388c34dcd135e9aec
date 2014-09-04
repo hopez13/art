@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0a0a75c_9cefc58e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T09:47:26Z",
+      "side": 1,
+      "message": "Note that this won\u0027t work with the new compiler, as dex registers might not have a dedicated stack location.",
+      "range": {
+        "startLine": 514,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 93
+      },
+      "revId": "4b44ca685c71d56deb584aa388c34dcd135e9aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
