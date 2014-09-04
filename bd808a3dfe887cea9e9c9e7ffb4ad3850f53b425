@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d0a0a75c_dfdc5ff8",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "133de99e_31146a5c",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f04e8b81_24a447a5",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -189,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b09df327_9e61f964",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "133de99e_91499e7f",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33582d1a_cf09bd94",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -212,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d0a0a75c_5f1b6f0a",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:20:11Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/106492/1",
+      "parentUuid": "33582d1a_cf09bd94",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33582d1a_6f04517d",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -223,6 +295,30 @@
       "writtenOn": "2014-09-01T13:52:25Z",
       "side": 1,
       "message": "Always use braces for control flow.",
+      "range": {
+        "startLine": 81,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 24
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d1cfe4_b5c08a62",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33582d1a_6f04517d",
       "range": {
         "startLine": 81,
         "startChar": 21,
@@ -269,6 +365,30 @@
       "writtenOn": "2014-09-01T13:52:25Z",
       "side": 1,
       "message": "I think you should check you did eliminate the instructions you think should be eliminated.",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 27
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a75c_df577f8a",
+        "filename": "compiler/optimizing/dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:20:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d398b1f7_5cabbdfb",
       "range": {
         "startLine": 47,
         "startChar": 22,
