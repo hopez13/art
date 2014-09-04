@@ -25,6 +25,76 @@
     },
     {
       "key": {
+        "uuid": "10807fc3_39f9eb9a",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-04T00:09:38Z",
+      "side": 1,
+      "message": "I agree with Nicolas here.",
+      "parentUuid": "133de99e_31146a5c",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f04e8b81_24a447a5",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-04T00:09:38Z",
+      "side": 1,
+      "message": "I do not see how this is safe to remove. This updates the heap. This is only okay to remove if the array does not escape and you have successfully disambiguated heap accesses.",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50583741_0fd04601",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-04T00:09:38Z",
+      "side": 1,
+      "message": "Linear pass through blocks is likely not going to be effective for DCE.",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 44
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "133de99e_91499e7f",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -87,6 +157,29 @@
         "startChar": 21,
         "endLine": 81,
         "endChar": 24
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10807fc3_59bce7c5",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-04T00:09:38Z",
+      "side": 1,
+      "message": "Seem a pass infrastructure like in Quick would be more useful. So that these optimizations can be easily controlled and reran as needed.",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
       },
       "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
