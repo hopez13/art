@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "50dbd705_44cbae59",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-04T21:27:01Z",
+      "side": 1,
+      "message": "Also, we likely haven\u0027t updated/forwarded the sentinel root ref in the runtime at this point if we are scanning the local indirect reference table during the root visit, because we visit Thread::VisitRoots() (which calls IRT::VisitRoots() for local jni refs, which in turns calls this function) before Runtime::VisitNonThreadRoots()  (which scans/updates the sentinel root.)",
+      "range": {
+        "startLine": 34,
+        "startChar": 30,
+        "endLine": 34,
+        "endChar": 52
+      },
+      "revId": "c0542af3e2170143ba40d89136e284997e16bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f093eb15_9179ec9e",
         "filename": "runtime/indirect_reference_table.cc",
         "patchSetId": 3
