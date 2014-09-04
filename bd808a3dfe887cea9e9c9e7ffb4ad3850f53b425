@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "d0a0a75c_bf371364",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a0a75c_3c1a3104",
+      "range": {
+        "startLine": 35,
+        "startChar": 14,
+        "endLine": 35,
+        "endChar": 28
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50583741_0fd04601",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -412,6 +436,30 @@
       "writtenOn": "2014-09-01T13:52:25Z",
       "side": 1,
       "message": "Nit: /** and * at each line.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 2
+      },
+      "revId": "bd808a3dfe887cea9e9c9e7ffb4ad3850f53b425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b09df327_fe6fdd35",
+        "filename": "compiler/optimizing/dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T14:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d398b1f7_1ca1351c",
       "range": {
         "startLine": 55,
         "startChar": 0,
