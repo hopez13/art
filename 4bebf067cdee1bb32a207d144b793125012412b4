@@ -45,6 +45,30 @@
       "revId": "4bebf067cdee1bb32a207d144b793125012412b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d1cfe4_72ef98d4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T09:50:52Z",
+      "side": 1,
+      "message": "Those are not handled yet.",
+      "parentUuid": "f04e8b81_24afa76b",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "4bebf067cdee1bb32a207d144b793125012412b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
