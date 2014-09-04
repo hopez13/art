@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "306bc3de_fd7eff30",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T17:15:20Z",
+      "side": 1,
+      "message": "I somewhat agree with you Calin, but thought it was too much overhead just for a single flag. But I\u0027ll make the change.",
+      "parentUuid": "50583741_c3b4456a",
+      "range": {
+        "startLine": 509,
+        "startChar": 37,
+        "endLine": 509,
+        "endChar": 61
+      },
+      "revId": "bb128f60e76ddaa306b1e080cfbd7e8c28e811cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90d1cfe4_72f7986b",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
