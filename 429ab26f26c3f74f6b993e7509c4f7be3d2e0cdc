@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10979f03_27aa185b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1877,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-04T06:27:01Z",
+      "side": 1,
+      "message": "can we put the field setting into the constructor? and then make the fields const? also, will we need the unique_ptr? or just have the destructor cleanup?",
+      "range": {
+        "startLine": 1872,
+        "startChar": 0,
+        "endLine": 1877,
+        "endChar": 20
+      },
+      "revId": "429ab26f26c3f74f6b993e7509c4f7be3d2e0cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
