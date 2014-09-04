@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90d1cfe4_52413423",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T09:45:02Z",
+      "side": 1,
+      "message": "I think I\u0027d rather have instructions order their inputs consistently (eg ordered by id), than complicate the equality.\n\nBut that\u0027s a good point for a future optimization.",
+      "parentUuid": "10807fc3_b6ec289a",
+      "range": {
+        "startLine": 467,
+        "startChar": 19,
+        "endLine": 467,
+        "endChar": 25
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10807fc3_39f80bde",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d0a0a75c_7cf7596b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T09:45:02Z",
+      "side": 1,
+      "message": "As you can see, the flags I\u0027ve put in here are pretty basic: all or nothing. In a former project, exceptions were dealt separately, which was a bit annoying, so we might consider putting exceptions in this class.\n\nNote that move-exception do not exist at this level (there is no dex register). About sget, it will be decomposed in a series of instructions (clinit, static-get), where the clinit might throw.",
+      "parentUuid": "10807fc3_39f80bde",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 17
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f04e8b81_9111ffbc",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-09-03T23:54:01Z",
       "side": 1,
       "message": "Seems that a future enhancement here should be being more explicit with the semantics and differentiate between all \"somethings\".\n\nFrom the uses below seems that this is being used for heap stores and depends on something is a heap load.",
+      "range": {
+        "startLine": 504,
+        "startChar": 23,
+        "endLine": 504,
+        "endChar": 44
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d1cfe4_3240301d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T09:45:02Z",
+      "side": 1,
+      "message": "Yes, this will be refined the further we go. The current class is just to have an abstraction over side effects.",
+      "parentUuid": "f04e8b81_9111ffbc",
       "range": {
         "startLine": 504,
         "startChar": 23,
