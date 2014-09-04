@@ -118,6 +118,40 @@
       "revId": "84ce991b7fe93f7eb40f5aaae4e3ea0e3ea8665f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0204b93_98e499f3",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-09-04T13:56:05Z",
+      "side": 1,
+      "message": "Without this patch, a check_lir pointing to \"blr x30\" is handled via the if-block below (\"stop_here \u003d true;\"). This happens because LOAD_STORE_FILTER(check_flags) returns true if check_lir is a branch.\n\nWith this patch... (continued below)",
+      "revId": "84ce991b7fe93f7eb40f5aaae4e3ea0e3ea8665f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a75c_dcad4d21",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-09-04T13:56:05Z",
+      "side": 1,
+      "message": "...the branch instruction is handled here and the DCHECK below fails.\n\nYou may wonder why the branch is handled here. This happens because those LIR-s that have the branch flag set ((flag \u0026 IS_BRANCH) !\u003d 0) are handled (see mir_to_lir-inl.h) by setting,\n\n  lir-\u003eu.m.def_mask \u003d lir-\u003eu.m.use_mask \u003d \u0026kEncodeAll;\n\nThe effect is that alias_mem_mask.Equal(this_mem_mask) and thus the !alias_mem_mask.Equal(kEncodeNone) above is necessarily true.\n\nProbably, LOAD_STORE_FILTER() above needs to be replaced with a \"wider\" condition, to make sure that branches are handled as they were before. For example, replacing LOAD_STORE_FILTER(check_flags) \u0026\u0026 ... in the if above with\n\n  (check_flags \u0026 IS_BRANCH) || (LOAD_STORE_FILTER(check_flags) \u0026\u0026 ...)\n\nSeems to solve the problem. Alternatively, the code in mir_to_lir-inl.h which sets all the flags for branches should be revised. Probably, both.",
+      "revId": "84ce991b7fe93f7eb40f5aaae4e3ea0e3ea8665f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
