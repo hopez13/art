@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b09df327_5b770354",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T08:56:32Z",
+      "side": 1,
+      "message": "This is the baseline codegen, which mostly follows Quick conventions wrt stack. The temporaries in that context always have a spill location (because we don\u0027t do register allocation in the baseline codegen).",
+      "parentUuid": "10807fc3_1922ef93",
+      "range": {
+        "startLine": 45,
+        "startChar": 35,
+        "endLine": 45,
+        "endChar": 57
+      },
+      "revId": "89fce4a6acefb32004cb678a14b831f1b7d8555a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f04e8b81_a499579c",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b09df327_7b7c3f35",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T08:56:32Z",
+      "side": 1,
+      "message": "Just to make sure: MIR and LIR are Quick things. So I assume you\u0027re talking about HInstructions and the notion of temps in the register allocator?\n\nYou\u0027re right that there is both a HTemporary and a notion of temp in the register allocator (the one highlighted here). I agree this is confusing, and welcome any other names. Maybe the HTemporary could have a better abstraction.",
+      "parentUuid": "f04e8b81_a499579c",
+      "range": {
+        "startLine": 481,
+        "startChar": 13,
+        "endLine": 481,
+        "endChar": 21
+      },
+      "revId": "89fce4a6acefb32004cb678a14b831f1b7d8555a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f04e8b81_845d3b28",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2014-09-04T00:03:23Z",
       "side": 1,
       "message": "Why is lack of GC map an \"optimized\" method? Seems that this is implying no suspend points in optimized methods. Or is this just being used as a temporary transition until correct GC maps are generated? If the latter, a comment here would help :)",
+      "range": {
+        "startLine": 155,
+        "startChar": 53,
+        "endLine": 155,
+        "endChar": 67
+      },
+      "revId": "89fce4a6acefb32004cb678a14b831f1b7d8555a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d1cfe4_325cb026",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-04T08:56:32Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the latter. Good point about the comment. Done.",
+      "parentUuid": "f04e8b81_845d3b28",
       "range": {
         "startLine": 155,
         "startChar": 53,
