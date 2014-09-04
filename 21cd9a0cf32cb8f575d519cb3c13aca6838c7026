@@ -82,6 +82,24 @@
       "revId": "21cd9a0cf32cb8f575d519cb3c13aca6838c7026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50dbd705_59a5d7a3",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T20:30:54Z",
+      "side": 1,
+      "message": "The issue is that the linker puts in a relative address if you just use SYMBOL. That\u0027s OK for calls, but as we use this as a \"fake\" return address, that\u0027s broken.",
+      "parentUuid": "d07987b6_17415672",
+      "revId": "21cd9a0cf32cb8f575d519cb3c13aca6838c7026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
