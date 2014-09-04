@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b09df327_bed395e3",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T13:55:44Z",
+      "side": 1,
+      "message": "Yes, its make more sense.  Especially since the current implementation does not support changing the graph once the visitor is built.",
+      "parentUuid": "b09df327_3e76a555",
+      "range": {
+        "startLine": 35,
+        "startChar": 18,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "b401702a45bcae8936ca2828508e9ed5b3536a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0a0a75c_5fa5afa3",
         "filename": "compiler/optimizing/graph_checker_test.cc",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "90d1cfe4_5574bea6",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T13:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09df327_fe67dd9e",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 8
+      },
+      "revId": "b401702a45bcae8936ca2828508e9ed5b3536a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90d1cfe4_554b5e74",
         "filename": "compiler/optimizing/graph_checker_test.cc",
         "patchSetId": 3
@@ -82,6 +130,30 @@
       "writtenOn": "2014-09-04T13:40:08Z",
       "side": 1,
       "message": "Change comments to:\n/**\n *\n *\n */\n\nstyle.",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "b401702a45bcae8936ca2828508e9ed5b3536a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b09df327_7ef74d6b",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-04T13:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d1cfe4_554b5e74",
       "range": {
         "startLine": 36,
         "startChar": 3,
