@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "50583741_5915e4d3",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-04T17:28:57Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. I don\u0027t have the time right now to work on this, so contributions (just cherry-pick and update, or a new CL) are very welcome. Especially if it involves new test cases.",
+      "parentUuid": "f0204b93_98e499f3",
+      "revId": "84ce991b7fe93f7eb40f5aaae4e3ea0e3ea8665f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0a0a75c_dcad4d21",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 3
