@@ -22,6 +22,29 @@
       "revId": "4bebf067cdee1bb32a207d144b793125012412b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f04e8b81_24afa76b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-04T00:11:26Z",
+      "side": 1,
+      "message": "Shouldn\u0027t switches also be captured?\n\nWhat about control flow caused by exceptions?",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "4bebf067cdee1bb32a207d144b793125012412b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
