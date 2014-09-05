@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "d0a0a75c_d04bec3b",
+        "filename": "compiler/optimizing/constant_propagation_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-05T17:37:14Z",
+      "side": 1,
+      "message": "Why in the next change? Seems like that\u0027s what you want to check here.",
+      "parentUuid": "f0aa0b52_28e20363",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 21
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33582d1a_2f216903",
         "filename": "compiler/optimizing/constant_propagation_test.cc",
         "patchSetId": 1
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "Good point.  Do you have an idea of the cases we should assess?",
       "parentUuid": "33582d1a_2f216903",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 1
+      },
+      "revId": "a2aa207c14958a0c0610eea1673eed50229e32c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d1cfe4_c6c00264",
+        "filename": "compiler/optimizing/constant_propagation_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-05T17:37:14Z",
+      "side": 1,
+      "message": "Actually, the constant propagation should not deal with control flow (it is driven by reverse post order visit), so I don\u0027t think we need to check at this level.",
+      "parentUuid": "90d1cfe4_063ccad7",
       "range": {
         "startLine": 101,
         "startChar": 0,
