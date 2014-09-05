@@ -156,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "f0aa0b52_25746edb",
+        "filename": "compiler/dex/quick/local_optimizations.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-09-05T16:48:22Z",
+      "side": 1,
+      "message": "Thanks for clarifying this. I am currently working on the \"neighbourhood\" of this, but not directly on it. Depending on how it goes, I may push an update for this CL next week.",
+      "parentUuid": "50583741_5915e4d3",
+      "revId": "84ce991b7fe93f7eb40f5aaae4e3ea0e3ea8665f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0a0a75c_dcad4d21",
         "filename": "compiler/dex/quick/local_optimizations.cc",
         "patchSetId": 3
