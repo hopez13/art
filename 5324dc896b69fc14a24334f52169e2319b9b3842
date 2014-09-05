@@ -22,6 +22,30 @@
       "revId": "5324dc896b69fc14a24334f52169e2319b9b3842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50dbd705_1ab73a10",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-05T02:50:44Z",
+      "side": 1,
+      "message": "this may need the LITERAL macro too",
+      "parentUuid": "10807fc3_e40898bb",
+      "range": {
+        "startLine": 1261,
+        "startChar": 9,
+        "endLine": 1261,
+        "endChar": 10
+      },
+      "revId": "5324dc896b69fc14a24334f52169e2319b9b3842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
