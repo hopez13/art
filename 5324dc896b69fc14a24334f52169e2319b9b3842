@@ -46,6 +46,30 @@
       "revId": "5324dc896b69fc14a24334f52169e2319b9b3842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50dbd705_9ab48a07",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-05T02:53:12Z",
+      "side": 1,
+      "message": "Considering that LITERAL is defined as $ both for Apple and non-Apple, I\u0027d hope so, but it\u0027s not tested, yet. Gotta let Ian compile it.\n\nNote that this should not be an issue anymore for AOSP, as that should be self-contained now (only using Android toolchain, no host assembler).",
+      "parentUuid": "10807fc3_e40898bb",
+      "range": {
+        "startLine": 1261,
+        "startChar": 9,
+        "endLine": 1261,
+        "endChar": 10
+      },
+      "revId": "5324dc896b69fc14a24334f52169e2319b9b3842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
