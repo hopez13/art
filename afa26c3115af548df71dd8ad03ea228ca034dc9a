@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90d1cfe4_c6ea420d",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-05T17:10:39Z",
+      "side": 1,
+      "message": "I moved most of the work done in this section to HInstruction nodes and got rid of FoldConstant.  The constant propagation pass is more orthogonal to the instruction hierarchy now.  Modifications/additions to this hierarchy (e.g. future support for multiplications or divisions) should have little or no impact on art::ConstantPropagation.",
+      "parentUuid": "1326c99c_66ec6e2a",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "afa26c3115af548df71dd8ad03ea228ca034dc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d398b1f7_7f1b0bd5",
         "filename": "compiler/optimizing/constant_propagation.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-02T08:21:45Z",
       "side": 1,
       "message": "I would move this logic to the instruction itself:\n\nclass HIntConstant {\n  int appy(int a, int b) { ... }\n}",
+      "range": {
+        "startLine": 128,
+        "startChar": 17,
+        "endLine": 128,
+        "endChar": 39
+      },
+      "revId": "afa26c3115af548df71dd8ad03ea228ca034dc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a75c_3057b007",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-05T17:10:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d398b1f7_7f1b0bd5",
       "range": {
         "startLine": 128,
         "startChar": 17,
