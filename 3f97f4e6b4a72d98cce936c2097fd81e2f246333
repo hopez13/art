@@ -22,6 +22,30 @@
       "revId": "3f97f4e6b4a72d98cce936c2097fd81e2f246333",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0a0a75c_906244e3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-05T17:09:32Z",
+      "side": 1,
+      "message": "This class is useful to handle static evaluation of arithmetic binary operations (especially in the latest versions of the CLs).  HBinaryOperation also includes comparisons and I was not sure initially whether they should be handled like arithmetic operations in the constant propagation pass.  I will check if I can get rid of HArithmeticBinaryOperation.",
+      "parentUuid": "133de99e_7490a087",
+      "range": {
+        "startLine": 1219,
+        "startChar": 6,
+        "endLine": 1219,
+        "endChar": 32
+      },
+      "revId": "3f97f4e6b4a72d98cce936c2097fd81e2f246333",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
