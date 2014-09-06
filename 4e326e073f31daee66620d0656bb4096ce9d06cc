@@ -22,6 +22,30 @@
       "revId": "4e326e073f31daee66620d0656bb4096ce9d06cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10807fc3_f5e7d9f5",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-06T23:38:43Z",
+      "side": 1,
+      "message": "Skipping nulls and tombstones doesn\u0027t sound worth it, we should just process the sentinel references and upto to the to space. There\u0027s no correctness about scanning the sentinels just a performance one. The old code needed to skip as otherwise it could break the GC.",
+      "parentUuid": "10431f82_1eaa6d73",
+      "range": {
+        "startLine": 34,
+        "startChar": 10,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "4e326e073f31daee66620d0656bb4096ce9d06cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
