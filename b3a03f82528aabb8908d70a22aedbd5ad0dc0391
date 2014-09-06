@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "303e63eb_88f9169d",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-06T22:06:20Z",
+      "side": 1,
+      "message": "Why do we want the GC map in a compiled method to be mutable? Worth a comment.",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "b3a03f82528aabb8908d70a22aedbd5ad0dc0391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "303e63eb_28e8cac4",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-06T22:06:20Z",
+      "side": 1,
+      "message": "comment seems to say I should be a CodeInfoBuilder :-)",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "b3a03f82528aabb8908d70a22aedbd5ad0dc0391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "303e63eb_08e506ee",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-06T22:06:20Z",
+      "side": 1,
+      "message": "update comment above for kNone",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 10
+      },
+      "revId": "b3a03f82528aabb8908d70a22aedbd5ad0dc0391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
