@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10431f82_1eaa6d73",
+        "filename": "runtime/indirect_reference_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-06T04:51:18Z",
+      "side": 1,
+      "message": "I take back my comment. This is more subtle than I thought.\n\nHere are what I think are the issues:\n\nAn invalid entry of the weak globals table will contain the \"old\" (or from-space) cleared jni weak global ref (the sentinel) from the last GC run (or the ref before it\u0027s moved) because it was what was written at the last GC (in JavaVMExt::SweepJniWeakGlobals()).\n\nDuring the current GC run, when the weak globals table is scanned for sweep (JavaVMExt::SweepJniWeakGlobals()), the table is iterated by using IrtIterator and this function should skip invalid entries (line 34 above). But, since the Runtime::sentinel_ already points to the \"new\" ref (already moved by the GC), this comparison won\u0027t correctly skip invalid entries. In other words, IsClearedJniWeakGlobal() is incorrect after the sentinel is moved at the beginning of a GC run (at the root scan time.) (This was the issue before patch set 1.)\n\nIf we enable the read barrier on the entry read (the Read() call in line 34 above), then it\u0027d cause all objects in the valid entries of the table marked alive, which is incorrect because they should be \u0027weak\u0027 refs. (This is the issue in patch set 1.)\n\nI think one way to fix these is to use the \"old\" cleared jni weak global ref in IsClearedJniWeakGlobal(), as opposed to the \u0027current\u0027 ref and remove line 34. \n\nIf we use the \"old\" ref, it should match what\u0027s in the weak globals table.\n\nIf we remove line 34, the invalid entries in the weak globals will get updated as the JNI weak global sweep will see invalid entries (otherwise they don\u0027t.) Since the cleared jni weak global ref points to a real object, if we don\u0027t skip invalid entries in line 34, JavaVMExt::SweepJniWeakGlobals() will see them and correctly update the cleared jni weak global ref from the old ref to the new ref.\n\nvoid JavaVMExt::SweepJniWeakGlobals(IsMarkedCallback* callback, void* arg) {\n  MutexLock mu(Thread::Current(), weak_globals_lock_);\n  for (mirror::Object** entry : weak_globals_) {                ---\u003e This will invoke IrtIterator. We don\u0027t skip invalid entries.\n    // Since this is called by the GC, we don\u0027t need a read barrier.                                                                                                                                                                                                                                                        \n    mirror::Object* obj \u003d *entry;                                     ---\u003e This will read the entry without a read barrier.\n    mirror::Object* new_obj \u003d callback(obj, arg);             ---\u003e This will update the cleared jni weak global ref as well as valid entries.\n    if (new_obj \u003d\u003d nullptr) {\n      new_obj \u003d Runtime::Current()-\u003eGetClearedJniWeakGlobal();  ---\u003e This will write the new cleared jni weak global ref into the entries that died at this GC.\n    }\n    *entry \u003d new_obj;\n  }\n}\n\nFor the local/global tables, removing line 34 is fine as they won\u0027t contain the cleared jni weak global ref ever.\n\nUnfortunately, we need a lock around SweepJniWeakGlobals() because that\u0027s the time when the \u0027right\u0027 cleared jni weak global ref changes. And GetClearedJniWeakGlobal() and IsClearedJniWeakGlobal() need to lock the same lock.\n\nFeedback appreciated.",
+      "range": {
+        "startLine": 34,
+        "startChar": 10,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "4e326e073f31daee66620d0656bb4096ce9d06cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
