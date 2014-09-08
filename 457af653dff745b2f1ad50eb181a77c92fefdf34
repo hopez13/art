@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "90fd4f75_95848651",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-08T14:15:02Z",
+      "side": 1,
+      "message": "Yeah I agree it\u0027s confusing. I could rename KindEquals into InstructionKind, what do you think?\n\nThe GetType is the Java type of the instruction.",
+      "parentUuid": "90d1cfe4_61e3406a",
+      "range": {
+        "startLine": 470,
+        "startChar": 6,
+        "endLine": 470,
+        "endChar": 35
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10807fc3_39f80bde",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -189,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "90fd4f75_55833e4a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-08T14:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90fd4f75_b5154a5d",
+      "range": {
+        "startLine": 616,
+        "startChar": 5,
+        "endLine": 616,
+        "endChar": 71
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90d1cfe4_0186f490",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -200,6 +248,30 @@
       "writtenOn": "2014-09-08T14:05:40Z",
       "side": 1,
       "message": "This check is not enforced in the implementation, so I guess this means \"otherwise this method will fail/its behavior is not defined\".",
+      "range": {
+        "startLine": 616,
+        "startChar": 72,
+        "endLine": 617,
+        "endChar": 43
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fd4f75_757e4286",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-08T14:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d1cfe4_0186f490",
       "range": {
         "startLine": 616,
         "startChar": 72,
