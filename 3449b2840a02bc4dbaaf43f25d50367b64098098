@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90fd4f75_156256e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-09-08T14:17:43Z",
+      "side": 1,
+      "message": "I think it\u0027s good to mentions that you cleaned the bash script. It was not immediately clear that the re-ordering was for correctness or just a clean up.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "3449b2840a02bc4dbaaf43f25d50367b64098098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_aed6fbfa",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-09-08T14:17:43Z",
+      "side": 1,
+      "message": "It would be nice to document a use case for this. We discussed and I got why this would be useful but on the long term because we have so many stuff it\u0027s very easy to lose track or remember the usefulness. (This applies in so many other cases as well..., so it\u0027s good to start from somewhere).",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 87
+      },
+      "revId": "3449b2840a02bc4dbaaf43f25d50367b64098098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
