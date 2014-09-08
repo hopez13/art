@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "90d1cfe4_61e3406a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-08T14:05:40Z",
+      "side": 1,
+      "message": "I fail to see the difference between a \"kind\" and a \"type\".   Perhaps you should state it more clearly in the definition of `KindEquals()\u0027 in `compiler/optimizing/nodes.cc\u0027.  In particular, what\u0027s the difference between `!KindEquals(other)\u0027 and `GetType() !\u003d other-\u003eGetType()\u0027?",
+      "range": {
+        "startLine": 470,
+        "startChar": 6,
+        "endLine": 470,
+        "endChar": 35
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10807fc3_39f80bde",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -136,6 +159,52 @@
         "startChar": 23,
         "endLine": 504,
         "endChar": 44
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fd4f75_b5154a5d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-08T14:05:40Z",
+      "side": 1,
+      "message": "Maybe add that \"data\" here refers only to information stored in the instruction itself, and does not take its inputs into account?",
+      "range": {
+        "startLine": 616,
+        "startChar": 5,
+        "endLine": 616,
+        "endChar": 71
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d1cfe4_0186f490",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-08T14:05:40Z",
+      "side": 1,
+      "message": "This check is not enforced in the implementation, so I guess this means \"otherwise this method will fail/its behavior is not defined\".",
+      "range": {
+        "startLine": 616,
+        "startChar": 72,
+        "endLine": 617,
+        "endChar": 43
       },
       "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
