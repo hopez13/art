@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90fd4f75_5283544a",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-08T09:30:52Z",
+      "side": 1,
+      "message": "Yeah, changed to const*.",
+      "parentUuid": "303e63eb_88f9169d",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "b3a03f82528aabb8908d70a22aedbd5ad0dc0391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "303e63eb_28e8cac4",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "90fd4f75_923bfce0",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-08T09:30:52Z",
+      "side": 1,
+      "message": "Indeed, I rephrased the comment.",
+      "parentUuid": "303e63eb_28e8cac4",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "b3a03f82528aabb8908d70a22aedbd5ad0dc0391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "303e63eb_08e506ee",
         "filename": "runtime/stack_map.h",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2014-09-06T22:06:20Z",
       "side": 1,
       "message": "update comment above for kNone",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 10
+      },
+      "revId": "b3a03f82528aabb8908d70a22aedbd5ad0dc0391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fd4f75_b23e00d1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-08T09:30:52Z",
+      "side": 1,
+      "message": "Good catch, done.",
+      "parentUuid": "303e63eb_08e506ee",
       "range": {
         "startLine": 87,
         "startChar": 0,
