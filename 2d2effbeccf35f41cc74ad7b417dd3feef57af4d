@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50075752_f0340013",
+        "filename": "compiler/elf_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-08T19:58:17Z",
+      "side": 1,
+      "message": "when cross compiling, uintptr_t might not be right either?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 56
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50075752_13d54e56",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-08T19:58:17Z",
+      "side": 1,
+      "message": "similar here I think.",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 28
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0684b04_2f4c55aa",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-08T19:58:17Z",
+      "side": 1,
+      "message": "old fashioned macro for all these boilerplate delegations based on is_elf64_?",
+      "range": {
+        "startLine": 2625,
+        "startChar": 0,
+        "endLine": 2633,
+        "endChar": 1
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50075752_d058dc68",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-08T19:58:17Z",
+      "side": 1,
+      "message": "I was trying to keep any \"oat\" specific code out of ElfFile. stripping and relocation perhaps fit that, not sure if our custom relocations fit that.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 52
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
