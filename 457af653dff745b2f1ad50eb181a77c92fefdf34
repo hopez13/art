@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f0aa0b52_aeecbb99",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-08T15:12:35Z",
+      "side": 1,
+      "message": "Alright, it is much clearer for me now, thanks.  Renaming `KindEquals\u0027 to `InstructionKindEquals\u0027 (or even to `InstructionTypeEquals\u0027) looks good to me.",
+      "parentUuid": "90fd4f75_95848651",
+      "range": {
+        "startLine": 470,
+        "startChar": 6,
+        "endLine": 470,
+        "endChar": 35
+      },
+      "revId": "457af653dff745b2f1ad50eb181a77c92fefdf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10807fc3_39f80bde",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
