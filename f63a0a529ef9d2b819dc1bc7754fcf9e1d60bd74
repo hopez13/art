@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10c5df23_82e8aa43",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-08T17:16:53Z",
+      "side": 1,
+      "message": "don\u0027t depend on non-local phone targets like adb, libnativehelper, and libjavacore.\n\nthose work with m/mma/mmma, but not mm and mmm. if you use the proper makefile variables like above in art-host, you will get told if the files are missing and you need to do a broader build, but it will work fine if they are there.",
+      "range": {
+        "startLine": 369,
+        "startChar": 12,
+        "endLine": 369,
+        "endChar": 64
+      },
+      "revId": "f63a0a529ef9d2b819dc1bc7754fcf9e1d60bd74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "306bc3de_23b1b5c9",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-08T17:16:53Z",
+      "side": 1,
+      "message": "I\u0027d keep the art-host targets together",
+      "range": {
+        "startLine": 371,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 104
+      },
+      "revId": "f63a0a529ef9d2b819dc1bc7754fcf9e1d60bd74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
