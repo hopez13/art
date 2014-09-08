@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10807fc3_5a36f9f9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-08T15:13:54Z",
+      "side": 1,
+      "message": "Seems odd we pay this cost even when verification should usually succeed. Also, this isn\u0027t C code so there\u0027s no need to declare things at the top of functions.",
+      "range": {
+        "startLine": 1564,
+        "startChar": 0,
+        "endLine": 1564,
+        "endChar": 58
+      },
+      "revId": "44adcf4107d176b45a87c0e3f736522e1ebe5e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10807fc3_fa74a5a8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-08T15:13:54Z",
+      "side": 1,
+      "message": "runtime",
+      "range": {
+        "startLine": 1574,
+        "startChar": 13,
+        "endLine": 1574,
+        "endChar": 31
+      },
+      "revId": "44adcf4107d176b45a87c0e3f736522e1ebe5e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
