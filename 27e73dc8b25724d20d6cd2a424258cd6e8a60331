@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90fd4f75_b8242116",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-09T13:13:33Z",
+      "side": 1,
+      "message": "Actually, it is core-libart.jar that is missing, so I\u0027d add $(TARGET_OUT_JAVA_LIBRARIES)/core-libart.jar here, or in build-art-target.\n\nLet me cherry-pick your change and add some other changes on top of this, so we don\u0027t get conflicts with what I do.",
+      "range": {
+        "startLine": 368,
+        "startChar": 47,
+        "endLine": 368,
+        "endChar": 48
+      },
+      "revId": "27e73dc8b25724d20d6cd2a424258cd6e8a60331",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
