@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b04973a6_67c95d3b",
+        "filename": "compiler/elf_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-09-09T19:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50075752_f0340013",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 56
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50075752_13d54e56",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-08T19:58:17Z",
       "side": 1,
       "message": "similar here I think.",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 28
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0684b04_94fc9d4d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-09-09T19:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50075752_13d54e56",
       "range": {
         "startLine": 809,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f0684b04_741aa104",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-09-09T19:54:15Z",
+      "side": 1,
+      "message": "Yeah I\u0027d like that too, but we need to set \"Load(executable, error_msg)\" as the macro parameter, which is not allowed by clang.\n\nI\u0027m really not familiar with macros; so if there\u0027s a way please point it out...",
+      "parentUuid": "f0684b04_2f4c55aa",
+      "range": {
+        "startLine": 2625,
+        "startChar": 0,
+        "endLine": 2633,
+        "endChar": 1
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50075752_d058dc68",
         "filename": "runtime/elf_file.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2014-09-08T19:58:17Z",
       "side": 1,
       "message": "I was trying to keep any \"oat\" specific code out of ElfFile. stripping and relocation perhaps fit that, not sure if our custom relocations fit that.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 52
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b04973a6_e7e56db2",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-09-09T19:54:15Z",
+      "side": 1,
+      "message": "Those \"oat\" specific code requires implementation details of ElfFileImpl; so if we move them elsewhere, we will have to expose declaration of ElfFileImpl, which others seems opposed to.\n\nIf you really want them out, I can do that of course :-)",
+      "parentUuid": "50075752_d058dc68",
       "range": {
         "startLine": 80,
         "startChar": 0,
