@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0aa0b52_7949aff1",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-09T09:34:16Z",
+      "side": 0,
+      "message": "Things have changed: I used to not build libnativehelper libjavacore with build-art-target before.",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 64
+      },
+      "revId": "165542588f5b8851d681a901580a277196d752d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
