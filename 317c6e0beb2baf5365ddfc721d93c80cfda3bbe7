@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90262ff7_cd679ded",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2816,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 1,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "9382b917_13c7f681",
+      "range": {
+        "startLine": 2816,
+        "startChar": 2,
+        "endLine": 2816,
+        "endChar": 63
+      },
+      "revId": "317c6e0beb2baf5365ddfc721d93c80cfda3bbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73c54578_39c50f72",
         "filename": "runtime/debugger.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-08-26T09:35:08Z",
       "side": 1,
       "message": "Will we execute the following code if single step is not active? I\u0027m concerned if this is the case as it will impact overall debugging overhead.",
+      "range": {
+        "startLine": 2831,
+        "startChar": 2,
+        "endLine": 2831,
+        "endChar": 63
+      },
+      "revId": "317c6e0beb2baf5365ddfc721d93c80cfda3bbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_4f7451dc",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2831,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 1,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "73c54578_39c50f72",
       "range": {
         "startLine": 2831,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f0aa0b52_7f7aefca",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2984,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 1,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "d3b431fe_5c50bd40",
+      "range": {
+        "startLine": 2981,
+        "startChar": 2,
+        "endLine": 2984,
+        "endChar": 3
+      },
+      "revId": "317c6e0beb2baf5365ddfc721d93c80cfda3bbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33a66dd4_bf43375a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-08-26T09:35:08Z",
       "side": 1,
       "message": "Too long line: 100 characters max.",
+      "range": {
+        "startLine": 515,
+        "startChar": 6,
+        "endLine": 515,
+        "endChar": 123
+      },
+      "revId": "317c6e0beb2baf5365ddfc721d93c80cfda3bbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_cf7fa1b2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 1,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "33a66dd4_bf43375a",
       "range": {
         "startLine": 515,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_2f5e255b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 1,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "73c54578_d9cbb38b",
+      "range": {
+        "startLine": 707,
+        "startChar": 6,
+        "endLine": 709,
+        "endChar": 7
+      },
+      "revId": "317c6e0beb2baf5365ddfc721d93c80cfda3bbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3b431fe_dc63ad1e",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2014-08-26T09:35:08Z",
       "side": 1,
       "message": "I\u0027m not sure they should be instrumentation events. IMO they are specific to debugger so we shouldn\u0027t need to modify instrumentation to handle these.",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 41
+      },
+      "revId": "317c6e0beb2baf5365ddfc721d93c80cfda3bbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_df88c39d",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 1,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "d3b431fe_dc63ad1e",
       "range": {
         "startLine": 117,
         "startChar": 4,

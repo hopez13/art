@@ -46,6 +46,30 @@
       "revId": "9177f20c8c090a94c3558abdafececf51e5417d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_ef825d7a",
+        "filename": "runtime/entrypoints/quick/quick_instrumentation_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-10T11:11:22Z",
+      "side": 0,
+      "message": "Removed from the latest PS.",
+      "parentUuid": "b3b17d0f_3b0857ba",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "9177f20c8c090a94c3558abdafececf51e5417d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
