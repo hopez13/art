@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0aa0b52_bfe4e7f2",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-10T07:29:13Z",
+      "side": 1,
+      "message": "Not necessarily your code, but adding constants instead of true/false makes reviewing easy (instead of figuring out what Alloc takes as template arguments...).",
+      "range": {
+        "startLine": 159,
+        "startChar": 46,
+        "endLine": 159,
+        "endChar": 50
+      },
+      "revId": "5c3760885f57294333abbc00314dac1aabad9811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
