@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90262ff7_d06734ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-10T17:37:13Z",
+      "side": 1,
+      "message": "It\u0027s currently easier with the code generators: a return instruction just returns and we don\u0027t need to cache and share a slow path for the method exit suspend check between returns.",
+      "parentUuid": "d013479f_edd9bd2c",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "453b2a5c4c52fb3e3bd93f14b3f5db7741ddb71a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d013479f_8d03e9df",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-10T15:53:43Z",
       "side": 1,
       "message": "Agreed with comment below. This check is a bit too conservative and should be updated once loops are properly identified. :)",
+      "range": {
+        "startLine": 473,
+        "startChar": 6,
+        "endLine": 473,
+        "endChar": 24
+      },
+      "revId": "453b2a5c4c52fb3e3bd93f14b3f5db7741ddb71a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_30c69086",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-10T17:37:13Z",
+      "side": 1,
+      "message": "Note that we already identify them in the compiler. But I haven\u0027t put any optimizations to remove the suspend check yet.",
+      "parentUuid": "d013479f_8d03e9df",
       "range": {
         "startLine": 473,
         "startChar": 6,
