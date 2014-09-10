@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0168b8e_c4a2d3c8",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2014-09-10T22:14:30Z",
+      "side": 1,
+      "message": "Why is this changing? The host should already be compiling just fine with clang, and I think that increasing this size is not something we really want to do.",
+      "revId": "d82f570fe165364108618f81c15f9b5ae7d6644c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
