@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0aa0b52_b16adbb4",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-11T16:10:30Z",
+      "side": 1,
+      "message": "GetLoopEffects(block)",
+      "range": {
+        "startLine": 75,
+        "startChar": 60,
+        "endLine": 75,
+        "endChar": 98
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_73c65255",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-11T16:10:30Z",
+      "side": 1,
+      "message": "Please add ArenaUnorderedSet to arena_containers.h and use it to reimplement this class. (Or get rid of this class completely; Kill() can be a static function in GlobalValueNumberer.)",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_73981264",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-11T16:10:30Z",
+      "side": 1,
+      "message": "Use ArenaVector please, I want to deprecate GrowableArray.",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 15
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_6ee8fe5b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-11T16:10:30Z",
+      "side": 1,
+      "message": "DCHECK_EQ(); do we have operator\u003c\u003c(std::ostream\u0026, InstructionKind)?",
+      "range": {
+        "startLine": 474,
+        "startChar": 2,
+        "endLine": 474,
+        "endChar": 40
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_ce69f231",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-11T16:10:30Z",
+      "side": 1,
+      "message": "DCHECK_EQ()",
+      "range": {
+        "startLine": 482,
+        "startChar": 2,
+        "endLine": 482,
+        "endChar": 56
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
