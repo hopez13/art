@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90262ff7_f0efd88c",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T09:31:23Z",
+      "side": 1,
+      "message": "This apparently disables non-valgrind test as well :( See my case about great Makefile rules?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "928f72bd75c385ba2708c58521171a77264d4486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_d0ec549b",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T09:31:23Z",
+      "side": 1,
+      "message": "This was fixed.",
+      "range": {
+        "startLine": 50,
+        "startChar": 31,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "928f72bd75c385ba2708c58521171a77264d4486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
