@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_fb821b7a",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T17:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0aa0b52_b16adbb4",
+      "range": {
+        "startLine": 75,
+        "startChar": 60,
+        "endLine": 75,
+        "endChar": 98
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90262ff7_73c65255",
         "filename": "compiler/optimizing/gvn.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-11T16:10:30Z",
       "side": 1,
       "message": "Please add ArenaUnorderedSet to arena_containers.h and use it to reimplement this class. (Or get rid of this class completely; Kill() can be a static function in GlobalValueNumberer.)",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_3e4b0176",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T17:28:25Z",
+      "side": 1,
+      "message": "This class will get refined based on the load it gets compiling representative apps. As long as we haven\u0027t profiled this load, I\u0027m a bit reluctant into creating some generic implementation that this will \"customize\". So I\u0027d rather wait for this class to stabilize before considering refactoring.",
+      "parentUuid": "90262ff7_73c65255",
       "range": {
         "startLine": 56,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "90262ff7_7ef3b905",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T17:28:25Z",
+      "side": 1,
+      "message": "The optimizing compiler makes heavy use of GrowableArray. I\u0027d rather use it uniformly and change it once GrowableArray gets removed than use a mix of both.",
+      "parentUuid": "90262ff7_73981264",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 15
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0aa0b52_6ee8fe5b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_bb88939c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T17:28:25Z",
+      "side": 1,
+      "message": "Done. And no about the InstructionKind, but that\u0027s ok, as the check is mostly making sure one macro is right.",
+      "parentUuid": "f0aa0b52_6ee8fe5b",
+      "range": {
+        "startLine": 474,
+        "startChar": 2,
+        "endLine": 474,
+        "endChar": 40
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0aa0b52_ce69f231",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2014-09-11T16:10:30Z",
       "side": 1,
       "message": "DCHECK_EQ()",
+      "range": {
+        "startLine": 482,
+        "startChar": 2,
+        "endLine": 482,
+        "endChar": 56
+      },
+      "revId": "dfbc299add65718101d78388ed20322246afd185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_1e271dd6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-11T17:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0aa0b52_ce69f231",
       "range": {
         "startLine": 482,
         "startChar": 2,
