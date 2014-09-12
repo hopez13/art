@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "709e1b6e_86839849",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-12T23:37:08Z",
+      "side": 1,
+      "message": "So much cleaner than last time I reviewed :) Liking it now.",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c4cb62_2cdb9036",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-12T23:37:08Z",
+      "side": 1,
+      "message": "Okay, so I am not familiar with the HIR yet. But in MIR, I prefer side effects for anything with memory effects, thread effect, etc. And thus things like branches don\u0027t get captured as having side effects, they have well defined behavior. Therefore having a check for HasDefs allows keeping instructions that fall in this bucket because clearly if it defines nothing, it must have some semantic meaning. :)\n\nAnyway, from looking later in patch I see branch semantics are expressed as side effects and thus this code is legal :) But wanted to offer possibly a different view.",
+      "range": {
+        "startLine": 33,
+        "startChar": 17,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
