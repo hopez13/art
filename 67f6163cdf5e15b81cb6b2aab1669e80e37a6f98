@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_601afa04",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T10:24:07Z",
+      "side": 1,
+      "message": "The problem is, the lists of phis and instructions within a HBasicBlock are both implemented as HInstructionList objects.  As HPhi inherits from HInstruction, relying on VisitPhi and VisitInstruction only (using the default visitor traversal based on Accept) to catch phi-in-instruction-list or instruction-in-phi-list errors would not be enough.\n\nI thought about two implementation strategies for this issue:\n1. re-implement iterations on phi- and instruction-lists instead of using the Accept/Visit idiom of the Visitor design pattern (implemented in patch sets 1 \u0026 2) ;\n2. use VisitPhi and VisitInstruction to implement these checks, but keep a marker of the type of instructions we should be expecting (phi or non-phi) while browsing a list (implemented in patch sets 3, 4 \u0026 5).\n\nWhat do you think?",
+      "parentUuid": "90d1cfe4_b5672aee",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b09df327_fe0b5db5",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "90262ff7_7e79f902",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T10:24:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a0a75c_9fd6d7d4",
+      "range": {
+        "startLine": 131,
+        "startChar": 24,
+        "endLine": 131,
+        "endChar": 25
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0a0a75c_7ff74b6b",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2014-09-04T14:09:36Z",
       "side": 1,
       "message": "Instead of passing that by parameter, you could just do instruction-\u003eIsPhi.",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 14
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_669b32f0",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T10:24:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a0a75c_7ff74b6b",
       "range": {
         "startLine": 134,
         "startChar": 8,
