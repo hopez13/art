@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0bed3c4_a2a260c7",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-12T16:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9099cf85_f288a812",
+      "revId": "3cee92737d8dc59b79fa9cee24749ef064fba938",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b46fdf_c3d91c06",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f0c4cb62_4d18d465",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-12T16:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90b46fdf_c3d91c06",
+      "revId": "3cee92737d8dc59b79fa9cee24749ef064fba938",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b46fdf_43f7cc6a",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2014-09-12T05:39:42Z",
       "side": 1,
       "message": "Is it worth eagerly setting these up so that we don\u0027t need to do a null check each time?",
+      "revId": "3cee92737d8dc59b79fa9cee24749ef064fba938",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0bed3c4_07324624",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-12T16:35:33Z",
+      "side": 1,
+      "message": "We do create the instance just once, the logic here is overkill I\u0027ll tidy it up.",
+      "parentUuid": "90b46fdf_43f7cc6a",
       "revId": "3cee92737d8dc59b79fa9cee24749ef064fba938",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
