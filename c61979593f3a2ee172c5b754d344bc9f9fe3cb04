@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0c4cb62_54e86542",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-12T03:17:56Z",
+      "side": 1,
+      "message": "Not a pointer type anymore. ptr_size.",
+      "range": {
+        "startLine": 601,
+        "startChar": 41,
+        "endLine": 601,
+        "endChar": 46
+      },
+      "revId": "c61979593f3a2ee172c5b754d344bc9f9fe3cb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
