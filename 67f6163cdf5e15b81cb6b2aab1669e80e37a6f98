@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_417420a7",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T11:21:53Z",
+      "side": 1,
+      "message": "Yes, absolutely.  Simpler and shorter. :)\nDone in https://android-review.googlesource.com/#/c/105646/7",
+      "parentUuid": "f0aa0b52_c488f312",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b09df327_fe0b5db5",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "writtenOn": "2014-09-04T14:09:36Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 123,
+        "startChar": 12,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_a4eff78d",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T11:21:53Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/105646/7",
+      "parentUuid": "b09df327_fe0b5db5",
       "range": {
         "startLine": 123,
         "startChar": 12,
