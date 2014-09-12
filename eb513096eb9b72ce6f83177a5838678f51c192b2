@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "709e1b6e_46c1b03a",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-12T23:51:58Z",
+      "side": 1,
+      "message": "Seems there is also a bug where the first insn here doesn\u0027t get its bb updated.",
+      "range": {
+        "startLine": 260,
+        "startChar": 11,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "eb513096eb9b72ce6f83177a5838678f51c192b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0933369_3184e8bb",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-12T23:51:58Z",
+      "side": 1,
+      "message": "This dcheck is also too strict (in addition to logic being messy). The problem occurs when SpecialMethodInliner inlines invoke, marks it with nop, then next instruction (the inlined one) receives same offset. Since they have same offset, if the nop was the \"insn\" then it will have updated dex_pc_to_block_map_ already. So the new offset will already be in the new block.",
+      "range": {
+        "startLine": 274,
+        "startChar": 6,
+        "endLine": 274,
+        "endChar": 15
+      },
+      "revId": "eb513096eb9b72ce6f83177a5838678f51c192b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
