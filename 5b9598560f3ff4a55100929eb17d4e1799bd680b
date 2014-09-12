@@ -70,6 +70,30 @@
       "revId": "5b9598560f3ff4a55100929eb17d4e1799bd680b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c4cb62_4c928c92",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-12T23:26:43Z",
+      "side": 1,
+      "message": "I think baseline is standard in v8/dart. Baseline in other contexts means a different compiler which is generally taking an instruction and splatting it to a machine code pattern. I think there\u0027s some ambiguity here as to whether something like register allocation would be an \"optimization\". Perhaps explain what a baseline compile would do somewhere.",
+      "parentUuid": "f0aa0b52_44e2c363",
+      "range": {
+        "startLine": 118,
+        "startChar": 13,
+        "endLine": 118,
+        "endChar": 22
+      },
+      "revId": "5b9598560f3ff4a55100929eb17d4e1799bd680b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
