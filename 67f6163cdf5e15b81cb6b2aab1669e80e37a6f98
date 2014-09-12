@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f0aa0b52_c488f312",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-12T10:31:18Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer doing the check in the iteration:\n\nfor (HInstructionIterator it(block-\u003eGetPhis()); !it.Done(); it.Advance()) {\n  // check is a phi\n  // call Accept.\n}\n\nfor (HInstructionIterator it(block-\u003eGetPhis()); !it.Done(); it.Advance()) {\n  // check is not a phi.\n  // call Accept.\n}\n\nDoes that make sense?",
+      "parentUuid": "d0fa6781_601afa04",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "67f6163cdf5e15b81cb6b2aab1669e80e37a6f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b09df327_fe0b5db5",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 4
