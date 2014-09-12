@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f0c4cb62_777e4386",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-12T03:16:34Z",
+      "side": 1,
+      "message": "Breaking up the whole call would help. Do a varargs macro with the first parameter being the method name and the varargs part being the parameters. Something like this (for only one part):\n\nDELEGATE_RET(Name,...) return elf_.elf32-\u003e Name ( __VA_ARGS__ );\n\nIf you want to be really fancy, you can use varargs with recursive macros to do the whole thing. Your varargs are then a list of type and name of the parameters...",
+      "parentUuid": "f0684b04_741aa104",
+      "range": {
+        "startLine": 2625,
+        "startChar": 0,
+        "endLine": 2633,
+        "endChar": 1
+      },
+      "revId": "2d2effbeccf35f41cc74ad7b417dd3feef57af4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50075752_d058dc68",
         "filename": "runtime/elf_file.h",
         "patchSetId": 6
