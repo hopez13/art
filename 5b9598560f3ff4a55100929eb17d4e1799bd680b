@@ -22,6 +22,30 @@
       "revId": "5b9598560f3ff4a55100929eb17d4e1799bd680b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90262ff7_196297e4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-12T12:55:20Z",
+      "side": 1,
+      "message": "Baseline is pretty standard in compilers and JITs, so if we do call it the |\"baseline\" compiler I\u0027d rather keep that flag for consistency. Instead of the baseline compiler we could call it the \"unoptimizing compiler\", but I\u0027d prefer baseline.",
+      "parentUuid": "f0aa0b52_849bdb20",
+      "range": {
+        "startLine": 118,
+        "startChar": 13,
+        "endLine": 118,
+        "endChar": 22
+      },
+      "revId": "5b9598560f3ff4a55100929eb17d4e1799bd680b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
