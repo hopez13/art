@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "90d1cfe4_4cf8b3de",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T10:27:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09df327_bed395e3",
+      "range": {
+        "startLine": 35,
+        "startChar": 18,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "b401702a45bcae8936ca2828508e9ed5b3536a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0a0a75c_5fa5afa3",
         "filename": "compiler/optimizing/graph_checker_test.cc",
         "patchSetId": 3
@@ -248,6 +272,30 @@
       "writtenOn": "2014-09-04T13:40:08Z",
       "side": 1,
       "message": "Maybe also add a test with inconsistent number of occurrences.",
+      "range": {
+        "startLine": 107,
+        "startChar": 19,
+        "endLine": 107,
+        "endChar": 56
+      },
+      "revId": "b401702a45bcae8936ca2828508e9ed5b3536a8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_e4816ff1",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-12T10:27:54Z",
+      "side": 1,
+      "message": "Yes, will do.",
+      "parentUuid": "b09df327_5ea0517c",
       "range": {
         "startLine": 107,
         "startChar": 19,
