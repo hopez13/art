@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1076bf12_e903512c",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-15T17:43:24Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "709e1b6e_86839849",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0fa6781_56134133",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-15T09:38:24Z",
       "side": 1,
       "message": "nodes -\u003e basic block (and remove parens)\nI would remove (backward) also and explain why it is post order.",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_e9d372e2",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-15T17:43:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0fa6781_56134133",
       "range": {
         "startLine": 24,
         "startChar": 13,
@@ -82,6 +130,30 @@
       "writtenOn": "2014-09-15T09:38:24Z",
       "side": 1,
       "message": "Side effects are now encoded in the instruction. You can just add the following function to the SideEffects class:\n\n  bool HasSideEffects() const {\n    size_t all_bits_set \u003d (1 \u003c\u003c kFlagChangesCount) - 1; \n    return (flags_ \u0026 all_bits_set) !\u003d 0;\n  }\n\nAnd remove the virtual bool HasSideEffects to all HInstruction (you can add a helper in HInstruction that would just call the method on SideEffects).",
+      "range": {
+        "startLine": 561,
+        "startChar": 15,
+        "endLine": 561,
+        "endChar": 29
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_2979e99c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-15T17:43:24Z",
+      "side": 1,
+      "message": "This is not yet entirely clear to me, but if this method is to check all the bits of the flags, shouldn\u0027t it read:\n\n  size_t all_bits_set \u003d (1 \u003c\u003c kFlagDependsOnCount) - 1;\n\ninstead?",
+      "parentUuid": "d0fa6781_7612bd2d",
       "range": {
         "startLine": 561,
         "startChar": 15,
