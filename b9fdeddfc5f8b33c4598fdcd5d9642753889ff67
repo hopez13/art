@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f0aa0b52_a29b6720",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3188,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-09-15T17:17:26Z",
+      "side": 1,
+      "message": "cu_-\u003etarget64 is necessarily true here. Remove if.",
+      "revId": "b9fdeddfc5f8b33c4598fdcd5d9642753889ff67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70b9bbd7_5c2c11b6",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
