@@ -116,6 +116,29 @@
       "revId": "453b2a5c4c52fb3e3bd93f14b3f5db7741ddb71a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_c606823f",
+        "filename": "test/121-simple-suspend-check/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-15T07:16:58Z",
+      "side": 1,
+      "message": "I think this pattern generates a GOTO. We should add loops generating IF_EQ and IF_EQZ (or similar) to test suspend point for these instructions.",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "453b2a5c4c52fb3e3bd93f14b3f5db7741ddb71a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
