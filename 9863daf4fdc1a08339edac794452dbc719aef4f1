@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_96576905",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-09-15T03:00:32Z",
+      "side": 1,
+      "message": "Bill as I understand we need to clobber only if we can return, if we do not return than no need to merge current RA state with that returned from slow path.\n\nSo my answer is that we do not need clobber here.",
+      "parentUuid": "709e1b6e_73fcb34c",
+      "revId": "9863daf4fdc1a08339edac794452dbc719aef4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c4cb62_b6228b91",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-09-14T19:02:30Z",
       "side": 1,
       "message": "Here as well?",
+      "revId": "9863daf4fdc1a08339edac794452dbc719aef4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_765c7d27",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2900,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-09-15T03:00:32Z",
+      "side": 1,
+      "message": "See response for similar case in other file.",
+      "parentUuid": "f0c4cb62_b6228b91",
       "revId": "9863daf4fdc1a08339edac794452dbc719aef4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
