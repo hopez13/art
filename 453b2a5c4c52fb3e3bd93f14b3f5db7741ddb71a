@@ -139,6 +139,30 @@
       "revId": "453b2a5c4c52fb3e3bd93f14b3f5db7741ddb71a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_b63d4547",
+        "filename": "test/121-simple-suspend-check/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T11:00:02Z",
+      "side": 1,
+      "message": "Good point. I checked and dx will only use goto\u0027s for branching backward (checked wiht while and do/while). I think I need to create the dex instructions myself.",
+      "parentUuid": "1076bf12_c606823f",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "453b2a5c4c52fb3e3bd93f14b3f5db7741ddb71a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
