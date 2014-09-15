@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_56134133",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:38:24Z",
+      "side": 1,
+      "message": "nodes -\u003e basic block (and remove parens)\nI would remove (backward) also and explain why it is post order.",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c4cb62_2cdb9036",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 7
@@ -41,6 +64,29 @@
         "startChar": 17,
         "endLine": 33,
         "endChar": 31
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_7612bd2d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:38:24Z",
+      "side": 1,
+      "message": "Side effects are now encoded in the instruction. You can just add the following function to the SideEffects class:\n\n  bool HasSideEffects() const {\n    size_t all_bits_set \u003d (1 \u003c\u003c kFlagChangesCount) - 1; \n    return (flags_ \u0026 all_bits_set) !\u003d 0;\n  }\n\nAnd remove the virtual bool HasSideEffects to all HInstruction (you can add a helper in HInstruction that would just call the method on SideEffects).",
+      "range": {
+        "startLine": 561,
+        "startChar": 15,
+        "endLine": 561,
+        "endChar": 29
       },
       "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
