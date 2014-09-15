@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1076bf12_e64b7e3b",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_26ef56d5",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "Please use visitor pattern (have a VisitBinaryOperation method in this class).",
+      "range": {
+        "startLine": 35,
+        "startChar": 35,
+        "endLine": 35,
+        "endChar": 62
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_76cbdd59",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_2285374c",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "The following code is duplicating what\u0027s happening line 40, please add a helper.",
+      "range": {
+        "startLine": 51,
+        "startChar": 32,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_56bce1c5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "It feels weird to have a constant evaluate something. I think I\u0027d prefer having the logic in the binary operation, that would switch on the type.",
+      "range": {
+        "startLine": 468,
+        "startChar": 11,
+        "endLine": 468,
+        "endChar": 23
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_f6fd0d7c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "Remove const on pointers. On parameters, const should mostly be used for references (see google c++ style guide for the reason).",
+      "range": {
+        "startLine": 1224,
+        "startChar": 38,
+        "endLine": 1224,
+        "endChar": 43
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_c64e824e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1229,
+        "startChar": 38,
+        "endLine": 1229,
+        "endChar": 43
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_a65186ef",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:52:02Z",
+      "side": 1,
+      "message": "Didn\u0027t we say this class should just be folded into HBinaryOperation?",
+      "range": {
+        "startLine": 1371,
+        "startChar": 6,
+        "endLine": 1371,
+        "endChar": 32
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
