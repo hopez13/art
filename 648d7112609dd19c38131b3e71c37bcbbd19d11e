@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0933369_88c486dc",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-09-15T20:39:03Z",
+      "side": 1,
+      "message": "Hi Dave,  I got an assertion from this stack end check.\nEx:\nInvokeVirtualOrInterfaceWithVarArg -\u003e ThrowStackOverflowError -\u003e \nart::JNI::GetFieldID -\u003e art::FindFieldID -\u003e art::ClassLinker::FindClass -\u003e\nart::Thread::AssertNoPendingException -\u003e LOG(FATAL)\n\nIs this behavior expected?\nThanks a lot!",
+      "revId": "648d7112609dd19c38131b3e71c37bcbbd19d11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
