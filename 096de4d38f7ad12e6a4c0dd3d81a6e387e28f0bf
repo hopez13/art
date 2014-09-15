@@ -1,0 +1,441 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0aa0b52_223c57d8",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Please also add direct stl dependencies (like map).",
+      "range": {
+        "startLine": 17,
+        "startChar": 25,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_46229294",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Add a VisitBinaryOperation in this visitor?",
+      "range": {
+        "startLine": 122,
+        "startChar": 45,
+        "endLine": 122,
+        "endChar": 62
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_66278ea3",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "No need to check, the visitor pattern ensures it\u0027s not.",
+      "range": {
+        "startLine": 122,
+        "startChar": 21,
+        "endLine": 122,
+        "endChar": 28
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_261d9655",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "BinaryOperation will only have two inputs, so you can just check whether InputAt(0) is a constant or not.\n\nNote that having two constants as input is fine.",
+      "range": {
+        "startLine": 124,
+        "startChar": 9,
+        "endLine": 124,
+        "endChar": 23
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_963be9b3",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "The following two methods could be in the .h file.",
+      "range": {
+        "startLine": 158,
+        "startChar": 35,
+        "endLine": 158,
+        "endChar": 36
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_82742ba8",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Remove extra new line.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 1
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_f6998d9b",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "arena -\u003e allocator (I know I may have left a few places that called it arena, but we should really call them allocator, as there is an Arena class).",
+      "range": {
+        "startLine": 27,
+        "startChar": 31,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_2213f777",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Add new line.",
+      "range": {
+        "startLine": 65,
+        "startChar": 49,
+        "endLine": 65,
+        "endChar": 51
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_86a2cac7",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Maybe move this to optimizing_unit_test.h, and change the other tests to use it?",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_56186165",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "CFG2?",
+      "range": {
+        "startLine": 100,
+        "startChar": 19,
+        "endLine": 100,
+        "endChar": 23
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_a69fc680",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "CFG3?",
+      "range": {
+        "startLine": 110,
+        "startChar": 19,
+        "endLine": 110,
+        "endChar": 23
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_9622c991",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Add a check that the graph is valid before you\u0027re making it invalid?",
+      "range": {
+        "startLine": 126,
+        "startChar": 44,
+        "endLine": 126,
+        "endChar": 46
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_76275da3",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 142,
+        "startChar": 44,
+        "endLine": 142,
+        "endChar": 46
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_a250471e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Add DCHECK_EQ(instruction1-\u003eGetBlock() \u003d\u003d instruction2-\u003eGetBlock());",
+      "range": {
+        "startLine": 396,
+        "startChar": 75,
+        "endLine": 396,
+        "endChar": 76
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1076bf12_c69cc28e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Why this check? You\u0027re returning line 400 anyway.",
+      "range": {
+        "startLine": 398,
+        "startChar": 34,
+        "endLine": 398,
+        "endChar": 36
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_4245d35d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "Add LOG(FATAL) \u003c\u003c \"Can\u0027t find an order between two instructions of the same block\".\n\nOr something like that.",
+      "range": {
+        "startLine": 406,
+        "startChar": 13,
+        "endLine": 406,
+        "endChar": 14
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0fa6781_56418123",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 409,
+        "startChar": 61,
+        "endLine": 409,
+        "endChar": 62
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_624a4f6f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "There is no order in phis (conceptually they are done in parallel).\n\nI think we should either return false or LOG(FATAL). The latter seems best for now, as it\u0027s probably an error if we want to check dominance between two phis. Also, returning false would render this function non-commutative.",
+      "range": {
+        "startLine": 424,
+        "startChar": 46,
+        "endLine": 424,
+        "endChar": 47
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0aa0b52_023fdbcf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-15T09:13:42Z",
+      "side": 1,
+      "message": "dominates -\u003e dominate",
+      "range": {
+        "startLine": 590,
+        "startChar": 27,
+        "endLine": 590,
+        "endChar": 36
+      },
+      "revId": "096de4d38f7ad12e6a4c0dd3d81a6e387e28f0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
