@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50baf7ee_78d70184",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T13:02:03Z",
+      "side": 1,
+      "message": "Maybe DCHECK that.",
+      "range": {
+        "startLine": 33,
+        "startChar": 30,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "revId": "c1d1abc91a96b5d5bc59833e6ca5f7ad35afcb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d4ff2c_96198c11",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T13:02:03Z",
+      "side": 1,
+      "message": "And DCHECK the opposite here.",
+      "range": {
+        "startLine": 35,
+        "startChar": 36,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "c1d1abc91a96b5d5bc59833e6ca5f7ad35afcb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
