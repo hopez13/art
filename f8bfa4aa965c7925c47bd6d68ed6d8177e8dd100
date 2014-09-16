@@ -163,6 +163,30 @@
       "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70c53b78_59e1e332",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T07:53:18Z",
+      "side": 1,
+      "message": "No, it is ok to depend on something and not have side effects.",
+      "parentUuid": "1076bf12_2979e99c",
+      "range": {
+        "startLine": 561,
+        "startChar": 15,
+        "endLine": 561,
+        "endChar": 29
+      },
+      "revId": "f8bfa4aa965c7925c47bd6d68ed6d8177e8dd100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
