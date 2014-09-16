@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0b1730f_10f2127c",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-16T22:49:51Z",
+      "side": 1,
+      "message": "Is there a chance that we want to null-check large_object_space as part of the following if statement rather than asserting it\u0027s not null? Or, is this code only called when LOS is enabled?",
+      "range": {
+        "startLine": 376,
+        "startChar": 4,
+        "endLine": 376,
+        "endChar": 10
+      },
+      "revId": "da409930487d3347da9e19f5551d78866e78fc92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c0ef69_44a7af2e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-16T22:49:51Z",
+      "side": 1,
+      "message": "Maybe move this down next to kDefaultLargeObjectSpaceType?",
+      "range": {
+        "startLine": 134,
+        "startChar": 26,
+        "endLine": 134,
+        "endChar": 54
+      },
+      "revId": "da409930487d3347da9e19f5551d78866e78fc92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b427fe_23d02966",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-16T22:49:51Z",
+      "side": 1,
+      "message": "I don\u0027t think we usually indent #if/#else/#endif.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "da409930487d3347da9e19f5551d78866e78fc92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
