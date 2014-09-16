@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "10d4ff2c_d67944d6",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T15:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0aa0b52_62a48fa6",
+      "range": {
+        "startLine": 30,
+        "startChar": 63,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "78d656adfcede5547ed5e3d15fd5c76e328fb21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50baf7ee_5b131777",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-16T14:22:48Z",
       "side": 1,
       "message": "You should add a reference to it in the dex2oat help for --compiler-filter option (see Usage function in dex2oat.cc)",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "78d656adfcede5547ed5e3d15fd5c76e328fb21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70c53b78_3cc4dd75",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T15:30:06Z",
+      "side": 1,
+      "message": "Of course! Done.",
+      "parentUuid": "50baf7ee_5b131777",
       "range": {
         "startLine": 31,
         "startChar": 4,
