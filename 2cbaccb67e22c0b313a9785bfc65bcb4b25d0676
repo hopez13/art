@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "b0b1730f_0f5e755a",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-16T20:20:28Z",
+      "side": 1,
+      "message": "And x86? :)",
+      "range": {
+        "startLine": 658,
+        "startChar": 71,
+        "endLine": 658,
+        "endChar": 76
+      },
+      "revId": "2cbaccb67e22c0b313a9785bfc65bcb4b25d0676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b427fe_8bb4b9bb",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-16T20:20:28Z",
+      "side": 1,
+      "message": "Optimizing compilers that do heavy inlining and optimizations like unrolling might not like this upper limit. Likely not a concern for now but worth mentioning. I currently do not see what it is used for anyway.",
+      "range": {
+        "startLine": 659,
+        "startChar": 43,
+        "endLine": 659,
+        "endChar": 53
+      },
+      "revId": "2cbaccb67e22c0b313a9785bfc65bcb4b25d0676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b427fe_0b1b090c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-16T20:20:28Z",
+      "side": 1,
+      "message": "Although this comment may be true for now, I imagine it need not be the case. Namely, maybe even Quick can elide putting in maps if not needed.",
+      "range": {
+        "startLine": 784,
+        "startChar": 10,
+        "endLine": 784,
+        "endChar": 89
+      },
+      "revId": "2cbaccb67e22c0b313a9785bfc65bcb4b25d0676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c0ef69_f4caf886",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
@@ -36,6 +105,30 @@
       "writtenOn": "2014-09-16T19:56:47Z",
       "side": 1,
       "message": "Razvan? Does this seem like a good place to you?",
+      "range": {
+        "startLine": 800,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 5
+      },
+      "revId": "2cbaccb67e22c0b313a9785bfc65bcb4b25d0676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0b1730f_aa49af7a",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-16T20:20:28Z",
+      "side": 1,
+      "message": "As long as it is printed, doesn\u0027t matter much where it is placed. Though, from an analysis standpoint, it makes it a bit easier to look at this map next to the vmap. This is because for performance analysis and debugging, one tends to care about the locations and both this and vmap help with forming that picture.",
+      "parentUuid": "d0b427fe_4be8f1c5",
       "range": {
         "startLine": 800,
         "startChar": 0,
