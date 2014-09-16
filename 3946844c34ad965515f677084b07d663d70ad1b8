@@ -22,6 +22,30 @@
       "revId": "3946844c34ad965515f677084b07d663d70ad1b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_db15e7a6",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T21:09:25Z",
+      "side": 1,
+      "message": "I think this is a rebase or a leftover temporary fix gone wrong. I\u0027ll double check tomorrow, but it looks like we can get rid of it.\n\nThanks for spotting it.",
+      "parentUuid": "b0b1730f_0fa0b57b",
+      "range": {
+        "startLine": 620,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 1
+      },
+      "revId": "3946844c34ad965515f677084b07d663d70ad1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
