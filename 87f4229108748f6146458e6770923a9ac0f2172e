@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10d4ff2c_b6f24800",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "I think this should be the other way around? If the second is a constant but the first is not, that\u0027s an error.",
+      "range": {
+        "startLine": 127,
+        "startChar": 30,
+        "endLine": 127,
+        "endChar": 31
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70c53b78_19eb6b13",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "Oh yes, we need a new visitor for that. I think a visitor where each non-overridden method just delegates to its super class might be useful.",
+      "range": {
+        "startLine": 140,
+        "startChar": 46,
+        "endLine": 140,
+        "endChar": 49
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d4ff2c_96f74cf0",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "I find auto mostly useful for large types. In such a case I would just put the type (and get rid of the utility import).",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 6
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_f84af16f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "The name is too close to ReplaceWith, which will make it difficult to know which does what. Since this is only used for tests, I think I\u0027d prefer having it there (and with a longer name? for example ReplaceAndRemoveInstructionWith).",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 36
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_98309509",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "A pointer check is enough.",
+      "range": {
+        "startLine": 312,
+        "startChar": 18,
+        "endLine": 312,
+        "endChar": 26
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_382069b6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "Missing \u0027.\u0027.\n\nCannot -\u003e Did not ?",
+      "range": {
+        "startLine": 414,
+        "startChar": 75,
+        "endLine": 414,
+        "endChar": 80
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_58131d77",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T08:23:38Z",
+      "side": 1,
+      "message": "The \"cannot compute\" sounds like we should :) Maybe just say \"There is no dominance between phis of a same block\" ?",
+      "range": {
+        "startLine": 433,
+        "startChar": 30,
+        "endLine": 433,
+        "endChar": 37
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
