@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "90c0ef69_c445ff7e",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-09-16T22:53:39Z",
+      "side": 1,
+      "message": "Good point, if we do a null check we can get a invalid root error instead of segfault (or DCHECK failure).",
+      "parentUuid": "b0b1730f_10f2127c",
+      "revId": "da409930487d3347da9e19f5551d78866e78fc92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c0ef69_44a7af2e",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "90c0ef69_84382706",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-09-16T22:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c0ef69_44a7af2e",
+      "revId": "da409930487d3347da9e19f5551d78866e78fc92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0b427fe_23d02966",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 148,
         "endChar": 2
       },
+      "revId": "da409930487d3347da9e19f5551d78866e78fc92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c0ef69_d7d93391",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-09-16T22:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b427fe_23d02966",
       "revId": "da409930487d3347da9e19f5551d78866e78fc92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
