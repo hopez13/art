@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "70c53b78_7989479f",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T13:33:10Z",
+      "side": 1,
+      "message": "OK.  For now, I should just remove the check from this CL, until normalization is implemented.",
+      "parentUuid": "70c53b78_99e1bb60",
+      "range": {
+        "startLine": 127,
+        "startChar": 30,
+        "endLine": 127,
+        "endChar": 31
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70c53b78_19eb6b13",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 8
