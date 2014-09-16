@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "70c53b78_99e1bb60",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-16T12:59:32Z",
+      "side": 1,
+      "message": "Oh yeah indeed, we either need a normalization phase after the SSA construction or just do it while constructing SSA.\n\nI suggest doing that as well as the check in a separate CL.",
+      "parentUuid": "70c53b78_d983b3b3",
+      "range": {
+        "startLine": 127,
+        "startChar": 30,
+        "endLine": 127,
+        "endChar": 31
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70c53b78_19eb6b13",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 8
