@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70c53b78_d983b3b3",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "I just had a look at the implementation of art::HGraphBuilder and both cases seem to happen.  For instance the Dex instruction\n\n  add-int/lit16 v1, v0, #+2\n\nproduces a HAdd node with a left-hand non-constant input and a right-hand constant one, while the Dex instruction\n\n  rsub-int v1, v0, #+2\n\nproduces a HSub node with a left-hand constant input and a right-hand non-constant one.\n\nOr maybe this check on constant inputs is not meant for graphs directly produced by art::HGraphBuilder, but rather for graphs that underwent some sort of canonization prior to checking?",
+      "parentUuid": "10d4ff2c_b6f24800",
+      "range": {
+        "startLine": 127,
+        "startChar": 30,
+        "endLine": 127,
+        "endChar": 31
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70c53b78_19eb6b13",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-16T08:23:38Z",
       "side": 1,
       "message": "Oh yes, we need a new visitor for that. I think a visitor where each non-overridden method just delegates to its super class might be useful.",
+      "range": {
+        "startLine": 140,
+        "startChar": 46,
+        "endLine": 140,
+        "endChar": 49
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d4ff2c_d67b843c",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "Agreed.  Will try to implement this.",
+      "parentUuid": "70c53b78_19eb6b13",
       "range": {
         "startLine": 140,
         "startChar": 46,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "10d4ff2c_96750c4a",
+        "filename": "compiler/optimizing/graph_checker_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "OK, done.  FWIW, I believe all statements following this pattern:\n\n  Type* val \u003d new Type(...);\n\nshould use `auto\u0027 to prevent information duplication. :-)\n\nAs for\n\n  #include \u003cutility\u003e\n\nthis was a stray statement, sorry.",
+      "parentUuid": "10d4ff2c_96f74cf0",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 6
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50baf7ee_f84af16f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-09-16T08:23:38Z",
       "side": 1,
       "message": "The name is too close to ReplaceWith, which will make it difficult to know which does what. Since this is only used for tests, I think I\u0027d prefer having it there (and with a longer name? for example ReplaceAndRemoveInstructionWith).",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 36
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d4ff2c_d6a4a491",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "HBasicBlock::ReplaceInstruction is also used later in ConstantPropagation::Run.\n\nThe name is admittedly confusing; your suggestion is better.",
+      "parentUuid": "50baf7ee_f84af16f",
       "range": {
         "startLine": 310,
         "startChar": 18,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "10d4ff2c_b6a92868",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50baf7ee_98309509",
+      "range": {
+        "startLine": 312,
+        "startChar": 18,
+        "endLine": 312,
+        "endChar": 26
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50baf7ee_382069b6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "70c53b78_99f65b3b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50baf7ee_382069b6",
+      "range": {
+        "startLine": 414,
+        "startChar": 75,
+        "endLine": 414,
+        "endChar": 80
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50baf7ee_58131d77",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -151,6 +295,30 @@
       "writtenOn": "2014-09-16T08:23:38Z",
       "side": 1,
       "message": "The \"cannot compute\" sounds like we should :) Maybe just say \"There is no dominance between phis of a same block\" ?",
+      "range": {
+        "startLine": 433,
+        "startChar": 30,
+        "endLine": 433,
+        "endChar": 37
+      },
+      "revId": "87f4229108748f6146458e6770923a9ac0f2172e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_780f01c5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-16T12:08:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50baf7ee_58131d77",
       "range": {
         "startLine": 433,
         "startChar": 30,
