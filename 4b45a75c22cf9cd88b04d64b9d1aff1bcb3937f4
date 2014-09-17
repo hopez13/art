@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "90c0ef69_51af68b4",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-17T16:55:50Z",
+      "side": 1,
+      "message": "Cool. Thanks for the clarification. You might still have an ordering problem since only after constant propagation you can identify inputs as constant.",
+      "parentUuid": "70c53b78_02ead0c4",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "4b45a75c22cf9cd88b04d64b9d1aff1bcb3937f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "300d83bc_3609a6be",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 12
