@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "300d83bc_165fc2a0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-17T16:49:16Z",
+      "side": 1,
+      "message": "This is brittle for loops with multiple back edges (since preheader may be at an unknown location in predecessors list).",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 72
+      },
+      "revId": "604c6e4764edb2fd244e9f47626868cda5644a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300d83bc_962bb205",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-17T16:49:16Z",
+      "side": 1,
+      "message": "Defensive programming might still be the better approach instead of making this assumption. I am worried of improper update to predecessors and someone assuming preheader comes first.",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 69
+      },
+      "revId": "604c6e4764edb2fd244e9f47626868cda5644a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
