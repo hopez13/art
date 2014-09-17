@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10d4ff2c_3962ab68",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T09:03:01Z",
+      "side": 1,
+      "message": "I am not yet familiar with the coding style guidelines, but if this line is getting too long with respect to code line limits, may I suggest breaking the literal string this way:\n\n  UsageError(\"  --compiler-filter\u003d\"\n             \"(verify-none|interpret-only|space|balanced|speed|everything|time):\");\n\nor possibly like this:\n\n  UsageError(\"  --compiler-filter\u003d\"\n             \"(verify-none\"\n             \"|interpret-only\"\n             \"|space\"\n             \"|balanced\"\n             \"|speed\"\n             \"|everything\"\n             \"|time):\");\n\n?",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 96
+      },
+      "revId": "84540d6addb043a042cff9c3a403603a051d4228",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
