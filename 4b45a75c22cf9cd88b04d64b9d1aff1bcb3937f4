@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90c0ef69_4e47c589",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-17T16:44:00Z",
+      "side": 1,
+      "message": "This traversal won\u0027t capture loop phi nodes that have constant inputs with the same constant. Though you may not want to fold those anyway since it will push a constant initialization at entry to loop.",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "4b45a75c22cf9cd88b04d64b9d1aff1bcb3937f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300d83bc_3609a6be",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-17T16:44:00Z",
+      "side": 1,
+      "message": "Very clean approach. I like this :)",
+      "range": {
+        "startLine": 1433,
+        "startChar": 4,
+        "endLine": 1433,
+        "endChar": 12
+      },
+      "revId": "4b45a75c22cf9cd88b04d64b9d1aff1bcb3937f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
