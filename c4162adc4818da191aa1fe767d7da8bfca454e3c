@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "50baf7ee_be70e159",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "I have submitted another CL where most of the work is done by a StaticEvaluator visitor (see https://android-review.googlesource.com/#/c/107904/), as I was not sure which was the best approach.  Do you think I should merge ConstantProgation and that StaticEvaluator visitor?",
+      "parentUuid": "1076bf12_26ef56d5",
+      "range": {
+        "startLine": 35,
+        "startChar": 35,
+        "endLine": 35,
+        "endChar": 62
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d4ff2c_966cec0d",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1076bf12_e64b7e3b",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0fa6781_76cbdd59",
         "filename": "compiler/optimizing/constant_propagation.cc",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2014-09-15T09:52:02Z",
       "side": 1,
       "message": "No need.",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70c53b78_3c9dfd87",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0fa6781_76cbdd59",
       "range": {
         "startLine": 47,
         "startChar": 15,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d0fa6781_e99092f9",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0aa0b52_2285374c",
+      "range": {
+        "startLine": 51,
+        "startChar": 32,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0fa6781_56bce1c5",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2014-09-15T09:52:02Z",
       "side": 1,
       "message": "It feels weird to have a constant evaluate something. I think I\u0027d prefer having the logic in the binary operation, that would switch on the type.",
+      "range": {
+        "startLine": 468,
+        "startChar": 11,
+        "endLine": 468,
+        "endChar": 23
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d4ff2c_99453f80",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0fa6781_56bce1c5",
       "range": {
         "startLine": 468,
         "startChar": 11,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "10d4ff2c_7ce49144",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Done (this code has been removed since).",
+      "parentUuid": "d0fa6781_f6fd0d7c",
+      "range": {
+        "startLine": 1224,
+        "startChar": 38,
+        "endLine": 1224,
+        "endChar": 43
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1076bf12_c64e824e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "70c53b78_1f890b15",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Done (this code has been removed since).",
+      "parentUuid": "1076bf12_c64e824e",
+      "range": {
+        "startLine": 1229,
+        "startChar": 38,
+        "endLine": 1229,
+        "endChar": 43
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1076bf12_a65186ef",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2014-09-15T09:52:02Z",
       "side": 1,
       "message": "Didn\u0027t we say this class should just be folded into HBinaryOperation?",
+      "range": {
+        "startLine": 1371,
+        "startChar": 6,
+        "endLine": 1371,
+        "endChar": 32
+      },
+      "revId": "c4162adc4818da191aa1fe767d7da8bfca454e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50baf7ee_fe765956",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-17T11:56:08Z",
+      "side": 1,
+      "message": "Yes.  Done, at last. :)",
+      "parentUuid": "1076bf12_a65186ef",
       "range": {
         "startLine": 1371,
         "startChar": 6,
