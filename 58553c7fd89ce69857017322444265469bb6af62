@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90c0ef69_c6497f7a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-17T02:29:40Z",
+      "side": 1,
+      "message": "I guess the auto-ification in this file is a result of the new iterators being long-winded to type. Unfortunate but its the style elsewhere.",
+      "range": {
+        "startLine": 572,
+        "startChar": 2,
+        "endLine": 572,
+        "endChar": 6
+      },
+      "revId": "58553c7fd89ce69857017322444265469bb6af62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
