@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7021bb30_fc79a5d5",
+        "filename": "runtime/native_bridge_art_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-18T20:53:32Z",
+      "side": 1,
+      "message": "This is ART style: the own header, then the \"external\" headers, then other ART headers; all separated by a newline.",
+      "parentUuid": "508bd76f_30898815",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 8
+      },
+      "revId": "fa009b86e63365d3faf13caf573eaaf71172e8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_10bec498",
         "filename": "runtime/runtime.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-18T11:03:00Z",
       "side": 1,
       "message": "This will override the pre-initialization done by zygote. I think we should have a way of telling that we already did it.",
+      "range": {
+        "startLine": 429,
+        "startChar": 6,
+        "endLine": 429,
+        "endChar": 31
+      },
+      "revId": "fa009b86e63365d3faf13caf573eaaf71172e8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901c6ffc_4389cc13",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-18T20:53:32Z",
+      "side": 1,
+      "message": "See above. This is the non-zygote case. If we fork from the zygote, we never get here.",
+      "parentUuid": "508bd76f_10bec498",
       "range": {
         "startLine": 429,
         "startChar": 6,
