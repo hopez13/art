@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9081cf4e_b2ad80ba",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "Yes.  But if Evaluate is virtual, then it cannot not be a method template.  Thus we would need to either\n* duplicate Evaluate for each type of constants (arguments) (int32_t/int64_t or possibly HIntConstant/HLongConstant); or\n* move and duplicate the switch on constant (argument) types in each Evaluate method.\n\nI went for the first solution in https://android-review.googlesource.com/#/c/105964/14 as it was the shortest one and it factored the code switching on argument types.",
+      "parentUuid": "9081cf4e_321d107f",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_b049f87a",
         "filename": "compiler/optimizing/constant_propagation.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-18T08:32:27Z",
       "side": 1,
       "message": "O -\u003e I for instruction (and document that it\u0027s an HBinaryOperation).",
+      "range": {
+        "startLine": 57,
+        "startChar": 21,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_929e3c57",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "508bd76f_b049f87a",
       "range": {
         "startLine": 57,
         "startChar": 21,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f02ccb2f_55b98cc8",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9081cf4e_72139877",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_9044f463",
         "filename": "compiler/optimizing/constant_propagation.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-09-18T08:32:27Z",
       "side": 1,
       "message": "I think it would look less magic without the StaticEvaluation method. It\u0027s convenient because it allows you to avoid doing \"new HIntConstant\", but I think you do loose in readbility.",
+      "range": {
+        "startLine": 73,
+        "startChar": 12,
+        "endLine": 73,
+        "endChar": 20
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02ccb2f_75b608dc",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "This code (actually the whole visitor) has been removed in https://android-review.googlesource.com/#/c/105964/14",
+      "parentUuid": "508bd76f_9044f463",
       "range": {
         "startLine": 73,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f02ccb2f_15b314eb",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "Likewise.",
+      "parentUuid": "9081cf4e_f226a8d7",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 23
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_d04a7c70",
         "filename": "compiler/optimizing/constant_propagation.h",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "508bd76f_b0c7b825",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "Likewise.",
+      "parentUuid": "508bd76f_d04a7c70",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_703cf0d8",
         "filename": "compiler/optimizing/constant_propagation.h",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2014-09-18T08:32:27Z",
       "side": 1,
       "message": "Does this need to be a field? I think we can just create it temporarily in the Run method. Keeping state around (like result_) is error-prone.",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 35
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_92707c5a",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-18T14:44:01Z",
+      "side": 1,
+      "message": "Likewise.",
+      "parentUuid": "508bd76f_703cf0d8",
       "range": {
         "startLine": 105,
         "startChar": 18,
