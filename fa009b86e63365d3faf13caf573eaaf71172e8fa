@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508bd76f_30898815",
+        "filename": "runtime/native_bridge_art_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-09-18T11:03:00Z",
+      "side": 1,
+      "message": "nit: useless empty line before",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 8
+      },
+      "revId": "fa009b86e63365d3faf13caf573eaaf71172e8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_10bec498",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-09-18T11:03:00Z",
+      "side": 1,
+      "message": "This will override the pre-initialization done by zygote. I think we should have a way of telling that we already did it.",
+      "range": {
+        "startLine": 429,
+        "startChar": 6,
+        "endLine": 429,
+        "endChar": 31
+      },
+      "revId": "fa009b86e63365d3faf13caf573eaaf71172e8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
