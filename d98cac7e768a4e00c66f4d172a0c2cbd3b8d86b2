@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9081cf4e_321d107f",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "Do we need a method for each binary instructions? If Evaluate was virtual on the HBinaryOperation we could just have one VisitBinaryOperation, right?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_b049f87a",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "O -\u003e I for instruction (and document that it\u0027s an HBinaryOperation).",
+      "range": {
+        "startLine": 57,
+        "startChar": 21,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_72139877",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "I\u0027d remove the Dispatch in the name.",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 40
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_9044f463",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "I think it would look less magic without the StaticEvaluation method. It\u0027s convenient because it allows you to avoid doing \"new HIntConstant\", but I think you do loose in readbility.",
+      "range": {
+        "startLine": 73,
+        "startChar": 12,
+        "endLine": 73,
+        "endChar": 20
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_f226a8d7",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 23
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_d04a7c70",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "Make it private.",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_703cf0d8",
+        "filename": "compiler/optimizing/constant_propagation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:32:27Z",
+      "side": 1,
+      "message": "Does this need to be a field? I think we can just create it temporarily in the Run method. Keeping state around (like result_) is error-prone.",
+      "range": {
+        "startLine": 105,
+        "startChar": 18,
+        "endLine": 105,
+        "endChar": 35
+      },
+      "revId": "d98cac7e768a4e00c66f4d172a0c2cbd3b8d86b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
