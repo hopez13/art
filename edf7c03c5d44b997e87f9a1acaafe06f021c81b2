@@ -22,6 +22,30 @@
       "revId": "edf7c03c5d44b997e87f9a1acaafe06f021c81b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3042e3dc_eeb9ef66",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-18T08:30:27Z",
+      "side": 1,
+      "message": "Agreed, this is historical from a) before instruction_set.h and b) then parsing was fatal on unrecognized strings.\n\nDone.",
+      "parentUuid": "9081cf4e_720ab845",
+      "range": {
+        "startLine": 2132,
+        "startChar": 20,
+        "endLine": 2132,
+        "endChar": 39
+      },
+      "revId": "edf7c03c5d44b997e87f9a1acaafe06f021c81b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
