@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "508bd76f_30c18866",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-18T09:28:01Z",
+      "side": 1,
+      "message": "The reason of the \"Odd\" I think",
+      "range": {
+        "startLine": 299,
+        "startChar": 12,
+        "endLine": 300,
+        "endChar": 47
+      },
+      "revId": "182b10f63734a62b821ec56f1bff5f23e761236b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3042e3dc_aedc47a8",
         "filename": "runtime/jdwp/jdwp_event.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2014-09-18T08:46:55Z",
       "side": 1,
       "message": "I\u0027d add a comment (like from the commit message or the other changed message) explaining why this isn\u0027t actually \"Odd\" saying why this actually frequently happens. (And remove the \"Odd:\" while you are at it).",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 92
+      },
+      "revId": "182b10f63734a62b821ec56f1bff5f23e761236b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_b0ad78ba",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-18T09:28:01Z",
+      "side": 1,
+      "message": "Right, it\u0027s not odd indeed. The comment on the method explains that for Eclipse. We should move it there.",
+      "parentUuid": "3042e3dc_aedc47a8",
       "range": {
         "startLine": 320,
         "startChar": 0,
