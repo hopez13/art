@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d07ee724_8c3aa7af",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-18T18:23:17Z",
+      "side": 1,
+      "message": "why don\u0027t we abort here if we can\u0027t find what we are looking for instead of in the caller?",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 1
+      },
+      "revId": "cefcea838729287a04174664a76514dd793dd77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
