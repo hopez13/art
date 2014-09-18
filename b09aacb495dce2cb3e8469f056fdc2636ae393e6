@@ -22,6 +22,30 @@
       "revId": "b09aacb495dce2cb3e8469f056fdc2636ae393e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02ccb2f_f578d89a",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-18T08:55:12Z",
+      "side": 1,
+      "message": "Good point. Descriptor does not work with references (kPrimNot) though.",
+      "parentUuid": "9081cf4e_f24f887d",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "b09aacb495dce2cb3e8469f056fdc2636ae393e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
