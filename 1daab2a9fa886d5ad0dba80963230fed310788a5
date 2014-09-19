@@ -118,6 +118,30 @@
       "revId": "1daab2a9fa886d5ad0dba80963230fed310788a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_d6a4b4aa",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-19T10:20:08Z",
+      "side": 1,
+      "message": "Thanks Brian. I removed the adb root then, and added wait-for-device for all first commands. Seems like it works, at least on my machine.",
+      "parentUuid": "d057c7b2_04653696",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "1daab2a9fa886d5ad0dba80963230fed310788a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
