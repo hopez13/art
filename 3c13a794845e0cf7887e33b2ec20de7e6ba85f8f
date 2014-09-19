@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508bd76f_b6825045",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-19T07:38:03Z",
+      "side": 1,
+      "message": "can_compile -\u003e is_dex2oat_enabled (helps readability).",
+      "range": {
+        "startLine": 379,
+        "startChar": 7,
+        "endLine": 379,
+        "endChar": 18
+      },
+      "revId": "3c13a794845e0cf7887e33b2ec20de7e6ba85f8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
