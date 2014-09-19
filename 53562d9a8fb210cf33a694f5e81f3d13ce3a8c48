@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50e9172a_da5c052c",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-19T21:59:09Z",
+      "side": 0,
+      "message": "I\u0027d prefer these were left in. It clears the PC on down-calls for native. In general there\u0027s an invariant that the top of managed stack\u0027s PC is within the top of managed stack\u0027s code.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 73
+      },
+      "revId": "53562d9a8fb210cf33a694f5e81f3d13ce3a8c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
