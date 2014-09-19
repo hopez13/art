@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5064b799_48b57462",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-19T15:54:46Z",
+      "side": 1,
+      "message": "does this need to be conditional on lhs being a byte register?",
+      "range": {
+        "startLine": 524,
+        "startChar": 9,
+        "endLine": 524,
+        "endChar": 42
+      },
+      "revId": "4acef30cc6a48b5fe07d55db6b9cf0d093b326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
