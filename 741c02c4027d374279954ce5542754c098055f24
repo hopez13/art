@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f05a0bdc_0e922f92",
+        "filename": "test/etc/host-run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-09-19T16:55:53Z",
+      "side": 1,
+      "message": "change to /bin/bash I guess",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 9
+      },
+      "revId": "741c02c4027d374279954ce5542754c098055f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_f6ee98d6",
         "filename": "test/etc/host-run-test-jar",
         "patchSetId": 1
