@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9081cf4e_f590d2cf",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-19T08:43:20Z",
+      "side": 1,
+      "message": "-\u003e Loop pre-header is not the first predecessor of the loop header.",
+      "range": {
+        "startLine": 167,
+        "startChar": 24,
+        "endLine": 167,
+        "endChar": 27
+      },
+      "revId": "57e2b66a0bc91667237361781847fd6212acb298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_96562c08",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-19T08:43:20Z",
+      "side": 1,
+      "message": "Also ensure the loop header only has two predecessors, and the last one is the back edge?",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 5
+      },
+      "revId": "57e2b66a0bc91667237361781847fd6212acb298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_9595c6be",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-19T08:43:20Z",
+      "side": 1,
+      "message": "I\u0027d remove the IsInLoop check. A phi should never have itself as a first input.\n\nAlso, we should check that:\n1) The number of phi inputs is the same as the number of predecessors\n2) The phi input is either in the predecessor, or in a block that dominates the predecessor.",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 19
+      },
+      "revId": "57e2b66a0bc91667237361781847fd6212acb298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
