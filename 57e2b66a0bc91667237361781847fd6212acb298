@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9081cf4e_956e260d",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-22T13:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9081cf4e_f590d2cf",
+      "range": {
+        "startLine": 167,
+        "startChar": 24,
+        "endLine": 167,
+        "endChar": 27
+      },
+      "revId": "57e2b66a0bc91667237361781847fd6212acb298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "508bd76f_96562c08",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9081cf4e_b5732af4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-22T13:20:47Z",
+      "side": 1,
+      "message": "Done.\n\nI should perhaps also check there is only one back edge per loop?",
+      "parentUuid": "508bd76f_96562c08",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 5
+      },
+      "revId": "57e2b66a0bc91667237361781847fd6212acb298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9081cf4e_9595c6be",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-09-19T08:43:20Z",
       "side": 1,
       "message": "I\u0027d remove the IsInLoop check. A phi should never have itself as a first input.\n\nAlso, we should check that:\n1) The number of phi inputs is the same as the number of predecessors\n2) The phi input is either in the predecessor, or in a block that dominates the predecessor.",
+      "range": {
+        "startLine": 196,
+        "startChar": 11,
+        "endLine": 196,
+        "endChar": 19
+      },
+      "revId": "57e2b66a0bc91667237361781847fd6212acb298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_86e35aac",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-22T13:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9081cf4e_9595c6be",
       "range": {
         "startLine": 196,
         "startChar": 11,
