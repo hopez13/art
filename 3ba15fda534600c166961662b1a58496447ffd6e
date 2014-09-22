@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508bd76f_df46078d",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T14:19:29Z",
+      "side": 1,
+      "message": "Maybe move all the code below to a CheckLoop method. The method should also check that all blocks in the loop are dominated by the loop header. Can be done in a different CL though.",
+      "range": {
+        "startLine": 162,
+        "startChar": 13,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "3ba15fda534600c166961662b1a58496447ffd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_815264f1",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T14:19:29Z",
+      "side": 1,
+      "message": "I think you can move this one line above.",
+      "range": {
+        "startLine": 168,
+        "startChar": 8,
+        "endLine": 168,
+        "endChar": 10
+      },
+      "revId": "3ba15fda534600c166961662b1a58496447ffd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b05413b2_0909cdbd",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T14:19:29Z",
+      "side": 1,
+      "message": "Also check that the first predecessor is not a back edge.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 62
+      },
+      "revId": "3ba15fda534600c166961662b1a58496447ffd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_414c7c54",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T14:19:29Z",
+      "side": 1,
+      "message": "Matter of style, but I suggest moving this check line 180 as an else if, and then the code line 181 as an else.",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 8
+      },
+      "revId": "3ba15fda534600c166961662b1a58496447ffd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_7f4fdba3",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T14:19:29Z",
+      "side": 1,
+      "message": "The double loop is odd: you only need one loop: a phi input at index I is the input coming from predecessor I.",
+      "range": {
+        "startLine": 250,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 7
+      },
+      "revId": "3ba15fda534600c166961662b1a58496447ffd6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
