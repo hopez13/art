@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9081cf4e_616bc06d",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T15:36:30Z",
+      "side": 1,
+      "message": "I would just use an index over the input:\nfor (size_t i \u003d 0, e \u003d phi-\u003eInputCount(); i \u003c e; ++i)\n\nAnd get rid of the \u0027index\u0027 variable.",
+      "range": {
+        "startLine": 265,
+        "startChar": 9,
+        "endLine": 265,
+        "endChar": 23
+      },
+      "revId": "5389ae0f27072d4fcbfb63d814480fe222d46068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b05413b2_69d4017e",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T15:36:30Z",
+      "side": 1,
+      "message": "I\u0027m not going to check precedence, but it\u0027d be more readable with:\n\nif (!(input-\u003eGetBlock() \u003d\u003d predecessor || input-\u003eGetBlock()-\u003eDominates(predecessor)) {\n  ...\n}",
+      "range": {
+        "startLine": 269,
+        "startChar": 9,
+        "endLine": 269,
+        "endChar": 11
+      },
+      "revId": "5389ae0f27072d4fcbfb63d814480fe222d46068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
