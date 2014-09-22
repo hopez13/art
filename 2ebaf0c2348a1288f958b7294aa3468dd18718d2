@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9081cf4e_01bf544a",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-22T17:51:29Z",
+      "side": 1,
+      "message": "I\u0027ve seen for (uint32_t idx : loop_blocks-\u003eIndexes()) work elsewhere (ssa_liveness_analysis.cc:192), could you write something similar here?",
+      "range": {
+        "startLine": 222,
+        "startChar": 46,
+        "endLine": 222,
+        "endChar": 47
+      },
+      "revId": "2ebaf0c2348a1288f958b7294aa3468dd18718d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
