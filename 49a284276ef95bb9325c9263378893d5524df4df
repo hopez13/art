@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9081cf4e_01ef54d4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-22T14:20:24Z",
+      "side": 1,
+      "message": "All right, good to know.",
+      "parentUuid": "b05413b2_a900b99e",
+      "range": {
+        "startLine": 377,
+        "startChar": 30,
+        "endLine": 377,
+        "endChar": 47
+      },
+      "revId": "49a284276ef95bb9325c9263378893d5524df4df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9081cf4e_e1cfb0c6",
         "filename": "compiler/optimizing/nodes_test.cc",
         "patchSetId": 2
