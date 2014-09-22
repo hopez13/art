@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b05413b2_29a7e92f",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-22T16:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9081cf4e_616bc06d",
+      "range": {
+        "startLine": 265,
+        "startChar": 9,
+        "endLine": 265,
+        "endChar": 23
+      },
+      "revId": "5389ae0f27072d4fcbfb63d814480fe222d46068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b05413b2_69d4017e",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-22T15:36:30Z",
       "side": 1,
       "message": "I\u0027m not going to check precedence, but it\u0027d be more readable with:\n\nif (!(input-\u003eGetBlock() \u003d\u003d predecessor || input-\u003eGetBlock()-\u003eDominates(predecessor)) {\n  ...\n}",
+      "range": {
+        "startLine": 269,
+        "startChar": 9,
+        "endLine": 269,
+        "endChar": 11
+      },
+      "revId": "5389ae0f27072d4fcbfb63d814480fe222d46068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b05413b2_e979d1d5",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-22T16:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b05413b2_69d4017e",
       "range": {
         "startLine": 269,
         "startChar": 9,
