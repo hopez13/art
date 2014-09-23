@@ -22,6 +22,30 @@
       "revId": "2ebaf0c2348a1288f958b7294aa3468dd18718d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_2c360fd2",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-23T09:52:22Z",
+      "side": 1,
+      "message": "Done.\n\n(I didn\u0027t see it was actually mentioned in the documentation of art::BitVector...)",
+      "parentUuid": "9081cf4e_01bf544a",
+      "range": {
+        "startLine": 222,
+        "startChar": 46,
+        "endLine": 222,
+        "endChar": 47
+      },
+      "revId": "2ebaf0c2348a1288f958b7294aa3468dd18718d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
