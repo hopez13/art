@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b05413b2_cc5d035f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-23T10:59:44Z",
+      "side": 1,
+      "message": "OK, got it. Makes sense, thanks.",
+      "parentUuid": "508bd76f_45b008dc",
+      "range": {
+        "startLine": 554,
+        "startChar": 4,
+        "endLine": 554,
+        "endChar": 72
+      },
+      "revId": "005a0096dbef13c1831ffc11867c845381a8af23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9081cf4e_6cd09703",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
