@@ -22,6 +22,30 @@
       "revId": "4acef30cc6a48b5fe07d55db6b9cf0d093b326ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508bd76f_253944e8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-09-23T08:56:11Z",
+      "side": 1,
+      "message": "The `Register` type does not encode the width of the registers, but only a register id, so we can\u0027t check that here.\nThe requirements for register sizes between codegen stubs are implicit. The arm64 port will propose a different approach enforcing register size coherency (which will certainly come with its own issues!).",
+      "parentUuid": "5064b799_48b57462",
+      "range": {
+        "startLine": 524,
+        "startChar": 9,
+        "endLine": 524,
+        "endChar": 42
+      },
+      "revId": "4acef30cc6a48b5fe07d55db6b9cf0d093b326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
