@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "508bd76f_c5cab855",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-23T10:40:11Z",
+      "side": 1,
+      "message": "Shouldn\u0027t line 554 be in the preceding `if\u0027 block?",
+      "range": {
+        "startLine": 554,
+        "startChar": 4,
+        "endLine": 554,
+        "endChar": 72
+      },
+      "revId": "005a0096dbef13c1831ffc11867c845381a8af23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_6cd09703",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-23T10:40:11Z",
+      "side": 1,
+      "message": "Shouldn\u0027t line 437 be in the preceding `if\u0027 block?",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 71
+      },
+      "revId": "005a0096dbef13c1831ffc11867c845381a8af23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_ecbb27cd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-23T10:40:11Z",
+      "side": 1,
+      "message": "-\u003e tells whether this instruction is just before `if_`",
+      "range": {
+        "startLine": 1095,
+        "startChar": 35,
+        "endLine": 1096,
+        "endChar": 10
+      },
+      "revId": "005a0096dbef13c1831ffc11867c845381a8af23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
