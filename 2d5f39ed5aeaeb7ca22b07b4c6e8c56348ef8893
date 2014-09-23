@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5002f7bb_fedc59a9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5119,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-23T01:28:07Z",
+      "side": 1,
+      "message": "Use a ScopedAssertoThreadSuspension?",
+      "range": {
+        "startLine": 5073,
+        "startChar": 0,
+        "endLine": 5119,
+        "endChar": 58
+      },
+      "revId": "2d5f39ed5aeaeb7ca22b07b4c6e8c56348ef8893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5002f7bb_dee1955f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-23T01:28:07Z",
+      "side": 1,
+      "message": "Add a \"here be dragons\" comment? Re-materialization of const member variables means that a const mirror pointer may not be updated by a read barrier. Generally we\u0027ve avoided making such member variables const, here there is a reliance on no thread suspension. Perhaps assert that no thread suspension is allowable in the constructor.",
+      "range": {
+        "startLine": 1455,
+        "startChar": 23,
+        "endLine": 1455,
+        "endChar": 28
+      },
+      "revId": "2d5f39ed5aeaeb7ca22b07b4c6e8c56348ef8893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10307f7d_934f33a3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-23T01:28:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1500,
+        "startChar": 24,
+        "endLine": 1500,
+        "endChar": 29
+      },
+      "revId": "2d5f39ed5aeaeb7ca22b07b4c6e8c56348ef8893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5002f7bb_3ed7f184",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-23T01:28:07Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1191,
+        "startChar": 16,
+        "endLine": 1191,
+        "endChar": 17
+      },
+      "revId": "2d5f39ed5aeaeb7ca22b07b4c6e8c56348ef8893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10307f7d_335c1f5b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-23T01:28:07Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1197,
+        "startChar": 13,
+        "endLine": 1197,
+        "endChar": 14
+      },
+      "revId": "2d5f39ed5aeaeb7ca22b07b4c6e8c56348ef8893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
