@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "30d58379_8a4b4b93",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-24T20:53:37Z",
+      "side": 1,
+      "message": "I usually write:\n\nvar a \u003d foo\n    ? 2\n    : 1;\n    \nSo two indents (four spaces) on the expressions.",
+      "parentUuid": "10ca3fde_c99c3559",
+      "range": {
+        "startLine": 151,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 13
+      },
+      "revId": "b1405155c6e41f8951e980535db65f48c7428be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10ca3fde_a95c592a",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
