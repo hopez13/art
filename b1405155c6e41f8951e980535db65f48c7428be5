@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0c68bd8_a82c5320",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-24T17:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d58379_4a3673f9",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 11
+      },
+      "revId": "b1405155c6e41f8951e980535db65f48c7428be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10ca3fde_498fa569",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-24T14:26:32Z",
       "side": 1,
       "message": "Nit: indent one more.",
+      "range": {
+        "startLine": 151,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 13
+      },
+      "revId": "b1405155c6e41f8951e980535db65f48c7428be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_c99c3559",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-24T17:41:01Z",
+      "side": 1,
+      "message": "Should I still indent one more if I move line 150 to line 149?  I guess the expected pattern is:\n\n  foo\n    ? bar\n    : baz;",
+      "parentUuid": "10ca3fde_498fa569",
       "range": {
         "startLine": 151,
         "startChar": 8,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "30d58379_6ae897c6",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-24T17:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c68bd8_68e89bc6",
+      "range": {
+        "startLine": 166,
+        "startChar": 10,
+        "endLine": 166,
+        "endChar": 26
+      },
+      "revId": "b1405155c6e41f8951e980535db65f48c7428be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c68bd8_a812932d",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -128,6 +200,54 @@
       "writtenOn": "2014-09-24T14:26:32Z",
       "side": 1,
       "message": "If you want to make it const, the parameter needs to be a reference.",
+      "range": {
+        "startLine": 430,
+        "startChar": 45,
+        "endLine": 430,
+        "endChar": 46
+      },
+      "revId": "b1405155c6e41f8951e980535db65f48c7428be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_4ae5d3ec",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-24T17:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c68bd8_a812932d",
+      "range": {
+        "startLine": 430,
+        "startChar": 23,
+        "endLine": 430,
+        "endChar": 26
+      },
+      "revId": "b1405155c6e41f8951e980535db65f48c7428be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_698c2126",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-24T17:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c68bd8_8817d71d",
       "range": {
         "startLine": 430,
         "startChar": 45,
