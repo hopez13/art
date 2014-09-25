@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "704e1b58_776a6827",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-09-25T21:51:46Z",
+      "side": 1,
+      "message": "uint32 to match the other variables? also we could probably use 16 bits (8 bits for each) in the future.",
+      "revId": "dd522f7753ec50335c61be88543718d62725a7ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
