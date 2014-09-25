@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b06ed3ae_535c845b",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:39:44Z",
+      "side": 1,
+      "message": "We should DCHECK that the barrier will be generated.",
+      "range": {
+        "startLine": 450,
+        "startChar": 22,
+        "endLine": 450,
+        "endChar": 41
+      },
+      "revId": "4ec3679605e906bd55a9c94a97e09134ecf2f144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
