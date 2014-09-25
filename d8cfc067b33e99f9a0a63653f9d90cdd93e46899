@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f08beba0_9ada9c1f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:36:06Z",
+      "side": 1,
+      "message": "Why not if NO_DEX_TO_DEX just return kDontDexToDexCompile?",
+      "range": {
+        "startLine": 516,
+        "startChar": 8,
+        "endLine": 516,
+        "endChar": 21
+      },
+      "revId": "d8cfc067b33e99f9a0a63653f9d90cdd93e46899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08beba0_5ab9f4c8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:36:06Z",
+      "side": 1,
+      "message": "We should avoid ifdefs",
+      "range": {
+        "startLine": 580,
+        "startChar": 1,
+        "endLine": 580,
+        "endChar": 7
+      },
+      "revId": "d8cfc067b33e99f9a0a63653f9d90cdd93e46899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d071878d_032c781b",
+        "filename": "compiler/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:36:06Z",
+      "side": 1,
+      "message": "just use kRuntimeISA",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "d8cfc067b33e99f9a0a63653f9d90cdd93e46899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b06ed3ae_53b8045c",
+        "filename": "compiler/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:36:06Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 38
+      },
+      "revId": "d8cfc067b33e99f9a0a63653f9d90cdd93e46899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08beba0_5ab494ba",
+        "filename": "compiler/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:36:06Z",
+      "side": 1,
+      "message": "VLOG(compiler)",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 11
+      },
+      "revId": "d8cfc067b33e99f9a0a63653f9d90cdd93e46899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b06ed3ae_b39078cf",
+        "filename": "compiler/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-25T00:36:06Z",
+      "side": 1,
+      "message": "rather than c\u0026p from common_compiler_test move to utils.h?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 6
+      },
+      "revId": "d8cfc067b33e99f9a0a63653f9d90cdd93e46899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
