@@ -16,6 +16,24 @@
       "revId": "dd522f7753ec50335c61be88543718d62725a7ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5053d7fc_b3bea24b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-25T22:45:45Z",
+      "side": 1,
+      "message": "The original thought was that as this is exposed as Java (signed) int on the Java side (java/lang/Class.java), (signed) int32_t would be better. But I see the other fields are uint32_t which are int on the Java side. Will change it to uint32_t to be consistent.\n\nAnd agree about 8 bits for each.",
+      "parentUuid": "704e1b58_776a6827",
+      "revId": "dd522f7753ec50335c61be88543718d62725a7ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
