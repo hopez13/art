@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30d58379_8d7b653d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-25T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c68bd8_6bb8955c",
+      "range": {
+        "startLine": 536,
+        "startChar": 31,
+        "endLine": 536,
+        "endChar": 57
+      },
+      "revId": "e728e9ad54a41247cd2d58a1aa1720f97fba7652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10ca3fde_6c654f96",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-25T11:09:46Z",
       "side": 1,
       "message": "I suppose that you are removing them here (instead of not generating them in the builder in the first place) because they might be needed in some cases (maybe for compatibility reasons)?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "e728e9ad54a41247cd2d58a1aa1720f97fba7652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c68bd8_2b3b3d04",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-25T11:23:55Z",
+      "side": 1,
+      "message": "Yeah they\u0027re added while building to please the baseline pipeline (build -\u003e codegen). I\u0027ve improved the comment.",
+      "parentUuid": "10ca3fde_6c654f96",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "30d58379_2d6b596e",
+        "filename": "compiler/optimizing/instruction_simplifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-25T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d58379_ade909d2",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "e728e9ad54a41247cd2d58a1aa1720f97fba7652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30d58379_0d52d5f2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-09-25T11:09:46Z",
       "side": 1,
       "message": "Maybe document dex_pc (which I guess stands for program counter)?  If I understand correctly, this value registers the position (in 16-bit units) of the Dex instruction that led to the creation of the basic block.",
+      "range": {
+        "startLine": 279,
+        "startChar": 47,
+        "endLine": 279,
+        "endChar": 53
+      },
+      "revId": "e728e9ad54a41247cd2d58a1aa1720f97fba7652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_6d655196",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-25T11:23:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d58379_0d52d5f2",
       "range": {
         "startLine": 279,
         "startChar": 47,
