@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30d58379_ad73c9be",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3153,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-25T08:55:45Z",
+      "side": 1,
+      "message": "Could please explain why you need this? A deoptimized method should use the interpreter entrypoints (artQuickToInterpreter and artInterpreterToInterpreter bridges). What is the case where relying on the entrypoints is not enough?",
+      "range": {
+        "startLine": 3148,
+        "startChar": 4,
+        "endLine": 3153,
+        "endChar": 5
+      },
+      "revId": "cec4cfe067a4d37bc6fd25f201c2d1f78824488a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9081cf4e_469a5291",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-09-25T08:55:45Z",
+      "side": 1,
+      "message": "Forced",
+      "range": {
+        "startLine": 515,
+        "startChar": 5,
+        "endLine": 515,
+        "endChar": 12
+      },
+      "revId": "cec4cfe067a4d37bc6fd25f201c2d1f78824488a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
