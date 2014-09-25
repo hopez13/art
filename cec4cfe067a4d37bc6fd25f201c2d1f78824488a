@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0c68bd8_0bdac1f9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3153,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-25T14:17:28Z",
+      "side": 1,
+      "message": "If a static initialiser calls a static method A and that A calls an another one B from the same class and that B method has a breakpoint placed in it, then in the case where the whole static call is handled by artQuickResolutionTrampoline the trampoline will return GetQuickOatCodeFor(B), because the class will still be in its initialisation phase. But this will not work for situations where we issue a continue jdwp command (thus no single step control), because the other static call will run in quick mode.",
+      "parentUuid": "30d58379_ad73c9be",
+      "range": {
+        "startLine": 3148,
+        "startChar": 4,
+        "endLine": 3153,
+        "endChar": 5
+      },
+      "revId": "cec4cfe067a4d37bc6fd25f201c2d1f78824488a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9081cf4e_469a5291",
         "filename": "runtime/debugger.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-25T08:55:45Z",
       "side": 1,
       "message": "Forced",
+      "range": {
+        "startLine": 515,
+        "startChar": 5,
+        "endLine": 515,
+        "endChar": 12
+      },
+      "revId": "cec4cfe067a4d37bc6fd25f201c2d1f78824488a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_ec0adf85",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-25T14:17:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9081cf4e_469a5291",
       "range": {
         "startLine": 515,
         "startChar": 5,
