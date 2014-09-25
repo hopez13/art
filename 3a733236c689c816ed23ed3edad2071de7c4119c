@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ca3fde_2c52374c",
+        "filename": "runtime/mirror/art_method-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-09-25T14:23:38Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this step, but for proxy constructors runtime-\u003eGetInstrumentation()-\u003eGetQuickCodeFor(this) returns GetQuickProxyInvokeHandler() through runtime-\u003eGetClassLinker()-\u003eGetQuickOatCodeFor(method) if instrumentation_stubs_installed_ is false.\nBut for that function pointer the GetQuickFrameInfo(code_pointer) will return invalid frame info.",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 3
+      },
+      "revId": "3a733236c689c816ed23ed3edad2071de7c4119c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
