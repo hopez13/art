@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "10ca3fde_afae19b6",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b06ed3ae_bc9045cf",
+      "range": {
+        "startLine": 372,
+        "startChar": 2,
+        "endLine": 372,
+        "endChar": 10
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08beba0_abeb8810",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-25T15:01:48Z",
       "side": 1,
       "message": "worth a comment saying what it is",
+      "range": {
+        "startLine": 496,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 77
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_ef213190",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08beba0_abeb8810",
       "range": {
         "startLine": 496,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "10ca3fde_cf26f5a5",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9049cf4f_72a7d82e",
+      "range": {
+        "startLine": 288,
+        "startChar": 11,
+        "endLine": 288,
+        "endChar": 13
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06ed3ae_1ca05918",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2014-09-25T15:01:48Z",
       "side": 1,
       "message": "* const",
+      "range": {
+        "startLine": 997,
+        "startChar": 8,
+        "endLine": 997,
+        "endChar": 10
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_90ca5a86",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b06ed3ae_1ca05918",
       "range": {
         "startLine": 997,
         "startChar": 8,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "f0c68bd8_8e623f1b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Added the const and a TODO for the moment. I\u0027ll try to figure out how to do this with ScopedAssertNoThreadSuspension in the ARMv8 CL. (The destruction order is a problem.)",
+      "parentUuid": "b06ed3ae_5caad1f7",
+      "range": {
+        "startLine": 998,
+        "startChar": 14,
+        "endLine": 998,
+        "endChar": 45
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08beba0_cb21b4c2",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 13
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "f0c68bd8_ee6e530d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08beba0_cb21b4c2",
+      "range": {
+        "startLine": 999,
+        "startChar": 13,
+        "endLine": 999,
+        "endChar": 14
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06ed3ae_bc7925d7",
         "filename": "compiler/oat_writer.h",
         "patchSetId": 13
@@ -174,6 +318,30 @@
       "writtenOn": "2014-09-25T15:01:48Z",
       "side": 1,
       "message": "* const",
+      "range": {
+        "startLine": 264,
+        "startChar": 13,
+        "endLine": 264,
+        "endChar": 15
+      },
+      "revId": "2f0255f8e5d84897a4fb054586ccda1c984df9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_5068e2bc",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-25T16:51:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b06ed3ae_bc7925d7",
       "range": {
         "startLine": 264,
         "startChar": 13,
