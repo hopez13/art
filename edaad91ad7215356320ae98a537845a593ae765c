@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7069bba1_22a40fa5",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-26T22:45:15Z",
+      "side": 1,
+      "message": "this seems a little convoluted and leads to a signed/unsigned conversion, prefer:\n\nif (value !\u003d INT_MIN) {\n  int32_t abs_value \u003d std::abs\n  ..\n}\nreturn false;\n\n?",
+      "range": {
+        "startLine": 348,
+        "startChar": 6,
+        "endLine": 348,
+        "endChar": 72
+      },
+      "revId": "edaad91ad7215356320ae98a537845a593ae765c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907b8f5f_c946228d",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-26T22:45:15Z",
+      "side": 1,
+      "message": "\u0026\u0026 ?\n-LLONG_MIN \u003d\u003d LLONG_MIN so why special case?",
+      "range": {
+        "startLine": 812,
+        "startChar": 28,
+        "endLine": 812,
+        "endChar": 29
+      },
+      "revId": "edaad91ad7215356320ae98a537845a593ae765c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0c347c9_ffc71824",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-26T22:45:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 945,
+        "startChar": 0,
+        "endLine": 945,
+        "endChar": 70
+      },
+      "revId": "edaad91ad7215356320ae98a537845a593ae765c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
