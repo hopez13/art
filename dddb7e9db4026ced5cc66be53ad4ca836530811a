@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0c68bd8_f49586bd",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T16:27:58Z",
+      "side": 1,
+      "message": "I initially put the definition/initialization in the .cc file because I thought I cannot do otherwise, but I had forgotten about `constexpr\u0027; done.",
+      "parentUuid": "30d58379_f09596bd",
+      "range": {
+        "startLine": 47,
+        "startChar": 33,
+        "endLine": 47,
+        "endChar": 61
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30d58379_109dcae0",
         "filename": "compiler/optimizing/optimization.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-09-26T10:56:50Z",
       "side": 1,
       "message": "Why not putting this logic in Check?",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c68bd8_74aa36f8",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T16:27:58Z",
+      "side": 1,
+      "message": "The intent behind Check() was to factor common code, the checker being either GraphChecker or SSAChecker.  I have renamed this method to CheckWithChecker() and introduced a Check() method to isolate this logic.",
+      "parentUuid": "30d58379_109dcae0",
       "range": {
         "startLine": 29,
         "startChar": 8,
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "f0c68bd8_3489dea0",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T16:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ca3fde_1ab7ad0f",
+      "range": {
+        "startLine": 30,
+        "startChar": 35,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_9b90bbcf",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T16:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d58379_30a0ce18",
+      "range": {
+        "startLine": 30,
+        "startChar": 60,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c68bd8_19ab3b0d",
         "filename": "compiler/optimizing/optimization.h",
         "patchSetId": 1
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "10ca3fde_f5562208",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T16:27:58Z",
+      "side": 1,
+      "message": "I used a pointer instead of a reference here to give class users the option to disable visualization, by setting `visualizer\u0027 to `nullptr\u0027.  This is documented in PS2.",
+      "parentUuid": "f0c68bd8_19ab3b0d",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30d58379_b074bedf",
         "filename": "compiler/optimizing/optimization.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2014-09-26T10:56:50Z",
       "side": 1,
       "message": "const graph_",
+      "range": {
+        "startLine": 55,
+        "startChar": 10,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_3571daab",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T16:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d58379_b074bedf",
       "range": {
         "startLine": 55,
         "startChar": 10,
