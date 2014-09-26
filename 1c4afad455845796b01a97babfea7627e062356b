@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ca3fde_fa7d7188",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-26T14:22:00Z",
+      "side": 1,
+      "message": "I know this is not part of the CL per se, but I would change it to:\n\n  user-\u003eIsPhi()",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 102,
+        "endChar": 35
+      },
+      "revId": "1c4afad455845796b01a97babfea7627e062356b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
