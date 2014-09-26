@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9032afd1_33b1daca",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-26T22:53:31Z",
+      "side": 1,
+      "message": "Side question: why isn\u0027t this movl instead of movq? Heap references are 32-bit. I\u0027m not sure how this is working.",
+      "range": {
+        "startLine": 1994,
+        "startChar": 2,
+        "endLine": 1994,
+        "endChar": 6
+      },
+      "revId": "2bcfd85e3c7b747dcdc710ae988bc9b447d79b09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
