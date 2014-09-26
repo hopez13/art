@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10ca3fde_5a892514",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-26T12:33:04Z",
+      "side": 1,
+      "message": "Can we designate r16-r17 as trashed by linker stubs? See IP0/IP1 in\nhttps://android-review.googlesource.com/#/c/82135/6/runtime/arch/arm64/registers_arm64.h .\nI need at least one in OatWriter::Arm64RelativeCallPatcher::CompileThunkCode() in\nhttps://android-review.googlesource.com/#/c/108713/4/compiler/oat_writer.cc .",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 9
+      },
+      "revId": "d06e11ef5ca3a1fd05a0ce9e76eb515f574c1cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
