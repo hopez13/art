@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30d58379_f09596bd",
+        "filename": "compiler/optimizing/constant_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-26T10:56:50Z",
+      "side": 1,
+      "message": "I would just put the name in the .h file.",
+      "range": {
+        "startLine": 47,
+        "startChar": 33,
+        "endLine": 47,
+        "endChar": 61
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_109dcae0",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-26T10:56:50Z",
+      "side": 1,
+      "message": "Why not putting this logic in Check?",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_30a0ce18",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-26T10:56:50Z",
+      "side": 1,
+      "message": "If the arguments do not fit on ine line, I\u0027d prefer one per line.",
+      "range": {
+        "startLine": 30,
+        "startChar": 60,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_1ab7ad0f",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-26T10:56:50Z",
+      "side": 1,
+      "message": "is_ssa_from -\u003e is_in_ssa_from ?",
+      "range": {
+        "startLine": 30,
+        "startChar": 35,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0c68bd8_19ab3b0d",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-26T10:56:50Z",
+      "side": 1,
+      "message": "Could yo make that a const\u0026 instead?",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30d58379_b074bedf",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-26T10:56:50Z",
+      "side": 1,
+      "message": "const graph_",
+      "range": {
+        "startLine": 55,
+        "startChar": 10,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
