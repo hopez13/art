@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b0433333_1fe4d343",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-26T21:24:45Z",
+      "side": 1,
+      "message": "Move into the .cc then?",
+      "parentUuid": "b0433333_d1c24417",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 21
+      },
+      "revId": "7bb72006392aa9e9a04460414af04ea577fe7df3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704e1b58_bd102ab8",
         "filename": "compiler/dex/mir_method_info.h",
         "patchSetId": 20
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I just wanted to avoid compiler inserted nops for alignment so they wouldn\u0027t be considered in memcmp. But see my answer above.",
       "parentUuid": "103ddf9e_74b0a0dc",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 37
+      },
+      "revId": "7bb72006392aa9e9a04460414af04ea577fe7df3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103ddf9e_68099fbd",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-26T21:24:45Z",
+      "side": 1,
+      "message": "If rearranging fields saves memory then it\u0027d still be worthwhile.",
+      "parentUuid": "b0433333_b11f78f4",
       "range": {
         "startLine": 89,
         "startChar": 0,
