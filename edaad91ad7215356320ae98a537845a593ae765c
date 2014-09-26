@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "103ddf9e_150113a2",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-09-26T22:53:58Z",
+      "side": 1,
+      "message": "My understanding is that although in practice this is the case, negation of LLONG_MIN is technically undefined.  Any language lawyers in the house?",
+      "parentUuid": "907b8f5f_c946228d",
+      "range": {
+        "startLine": 812,
+        "startChar": 28,
+        "endLine": 812,
+        "endChar": 29
+      },
+      "revId": "edaad91ad7215356320ae98a537845a593ae765c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0c347c9_ffc71824",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 1
