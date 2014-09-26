@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "10ca3fde_55ed7693",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3740,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-09-26T18:56:10Z",
+      "side": 1,
+      "message": "Actually you\u0027re right, since we couldn\u0027t get to this point if we already have a hard failure, just checking if we have one now (as in, after the call to GetInstanceField) will suffice.",
+      "parentUuid": "108f9fae_74da45fb",
+      "range": {
+        "startLine": 3740,
+        "startChar": 0,
+        "endLine": 3740,
+        "endChar": 63
+      },
+      "revId": "780e1252304076244343315410d9af26c217353f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704e1b58_dd616ee1",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
