@@ -22,6 +22,30 @@
       "revId": "1722968c1a5e55bca50361fec28e1291104fb6ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e76c92_059ed43d",
+        "filename": "test/083-compiler-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9872,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-29T18:38:38Z",
+      "side": 1,
+      "message": "I though volatile load/store doesn\u0027t affect the visibility of non-volatile fields. If it does, I\u0027ll also need to fix the processing of volatile IGET/IPUT in GVN.",
+      "parentUuid": "303103d2_9676f255",
+      "range": {
+        "startLine": 9850,
+        "startChar": 2,
+        "endLine": 9872,
+        "endChar": 3
+      },
+      "revId": "1722968c1a5e55bca50361fec28e1291104fb6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
