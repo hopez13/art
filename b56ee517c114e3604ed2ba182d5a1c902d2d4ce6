@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0f17452_6376bc7d",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-29T18:21:15Z",
+      "side": 1,
+      "message": "\u003d nullptr",
+      "range": {
+        "startLine": 44,
+        "startChar": 17,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "b56ee517c114e3604ed2ba182d5a1c902d2d4ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "502cb77a_e26e8a0d",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-29T18:21:15Z",
+      "side": 1,
+      "message": "\u003d nullptr",
+      "range": {
+        "startLine": 595,
+        "startChar": 17,
+        "endLine": 595,
+        "endChar": 30
+      },
+      "revId": "b56ee517c114e3604ed2ba182d5a1c902d2d4ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "303103d2_3652a6f3",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-29T18:21:15Z",
+      "side": 1,
+      "message": "Would be nice to have a ScopedAssertNoThreadSuspension.",
+      "range": {
+        "startLine": 840,
+        "startChar": 0,
+        "endLine": 840,
+        "endChar": 32
+      },
+      "revId": "b56ee517c114e3604ed2ba182d5a1c902d2d4ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
