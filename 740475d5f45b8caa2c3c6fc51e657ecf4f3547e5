@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0c68bd8_1f4f9ba4",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-29T10:41:27Z",
+      "side": 1,
+      "message": "Just a light suggestion: if I understand correctly,\n\n  previous-\u003eGetLifetimePosition() !\u003d position\n\nshould imply\n\n  previous-\u003eGetLifetimePosition() \u003c position\n\nhere? If so, maybe we could have and use something like\n\n  #DCHECK_IMPLIES(A, B) DCHECK(!(A) || (B))\n\n?",
+      "range": {
+        "startLine": 825,
+        "startChar": 16,
+        "endLine": 825,
+        "endChar": 58
+      },
+      "revId": "740475d5f45b8caa2c3c6fc51e657ecf4f3547e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
