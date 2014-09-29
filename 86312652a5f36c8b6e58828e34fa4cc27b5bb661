@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "502cb77a_f79c8a58",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-09-29T16:46:17Z",
+      "side": 1,
+      "message": "Can you also add Start (for any pass internal setup), Gate (to check whether it is worth doing the pass), and End (for any pass internal teardown).\n\nThough you might be able to get away without Start and End if the pattern is that the pass itself sets up internal data structures in Run.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 25
+      },
+      "revId": "86312652a5f36c8b6e58828e34fa4cc27b5bb661",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10ca3fde_c0bb62cd",
         "filename": "compiler/optimizing/optimization.h",
         "patchSetId": 2
