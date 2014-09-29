@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "10ca3fde_7bf0636d",
+        "filename": "test/083-compiler-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-29T20:15:54Z",
+      "side": 1,
+      "message": "Would you mind writing the test in a self-contained run-test? The bigger this test grows, the more difficult it will be to diagnose things (plus if one test fails, we\u0027ll loose coverage on the ones following).",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "1722968c1a5e55bca50361fec28e1291104fb6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "303103d2_9676f255",
         "filename": "test/083-compiler-regressions/src/Main.java",
         "patchSetId": 2
