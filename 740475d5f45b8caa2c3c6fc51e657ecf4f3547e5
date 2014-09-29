@@ -22,6 +22,30 @@
       "revId": "740475d5f45b8caa2c3c6fc51e657ecf4f3547e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10ca3fde_a017461d",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-29T10:59:10Z",
+      "side": 1,
+      "message": "Interesting suggestion. I think I\u0027d prefer having the `implies` in a comment. Then having another macro with the IMPLIES name would seem redundant in terms of documentation. If we were to have such a macro, I have a feeling that it would always deserve a comment.",
+      "parentUuid": "f0c68bd8_1f4f9ba4",
+      "range": {
+        "startLine": 825,
+        "startChar": 16,
+        "endLine": 825,
+        "endChar": 58
+      },
+      "revId": "740475d5f45b8caa2c3c6fc51e657ecf4f3547e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
