@@ -46,6 +46,30 @@
       "revId": "1722968c1a5e55bca50361fec28e1291104fb6ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90f63048_df48bb27",
+        "filename": "test/083-compiler-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9872,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-09-29T18:50:51Z",
+      "side": 1,
+      "message": "They do.  They contribute to the \"synchronization order\" (http://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4.4) just like lock acquisitions and releases.  This changed with the 2005 memory model revision.\n\nThe basic principle is that any code that has races only on volatiles and locks (i.e. that disallows simultaneous access to any other variables unless they are all read accesses) has sequentially consistent, i.e. interleaving semantics.  Your test code without the synchronized blocks satisfies that constraint.",
+      "parentUuid": "f0e76c92_059ed43d",
+      "range": {
+        "startLine": 9850,
+        "startChar": 2,
+        "endLine": 9872,
+        "endChar": 3
+      },
+      "revId": "1722968c1a5e55bca50361fec28e1291104fb6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
