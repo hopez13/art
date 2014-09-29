@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d0ec287c_81a9ba24",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-29T17:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ca3fde_bbbbfbcd",
+      "revId": "4eb319509fd4ec804701a1a83afa05c90853cb40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10ca3fde_5bfe4778",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2014-09-29T17:25:51Z",
       "side": 1,
       "message": "I guess you can now fill this for Arm64.\n\nI did this on my machine and could get a boot.oat that appeared to be OK. I didn\u0027t try to boot to GUI, though.",
+      "revId": "4eb319509fd4ec804701a1a83afa05c90853cb40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e76c92_05c93462",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-29T17:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ca3fde_5bfe4778",
       "revId": "4eb319509fd4ec804701a1a83afa05c90853cb40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
