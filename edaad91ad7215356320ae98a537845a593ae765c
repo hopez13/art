@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "10ca3fde_205236f3",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-09-29T11:02:34Z",
+      "side": 1,
+      "message": "My understanding is that signed-unsigned conversions are always well defined by the C++ standard (4.7-2, conv.integral). The same holds for negation of unsigned integers (5.3.1-8, expr.unary.op). An alternative could then be,\n\n  uint64_t abs_value \u003d (neg) ? -(uint64_t)value : value;\n\nIt may be worth doing this in a separate function (e.g. having a couple of abs functions mapping \"int32_t\" to \"uint32_t\" and \"int64_t\" to \"uint64_t\".",
+      "parentUuid": "103ddf9e_150113a2",
+      "revId": "edaad91ad7215356320ae98a537845a593ae765c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0c347c9_ffc71824",
         "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
         "patchSetId": 1
