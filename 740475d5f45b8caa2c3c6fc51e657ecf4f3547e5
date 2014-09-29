@@ -46,6 +46,30 @@
       "revId": "740475d5f45b8caa2c3c6fc51e657ecf4f3547e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e76c92_42df321c",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-09-29T11:07:54Z",
+      "side": 1,
+      "message": "Agreed, having this information in a comment is probably clearer.",
+      "parentUuid": "10ca3fde_a017461d",
+      "range": {
+        "startLine": 825,
+        "startChar": 16,
+        "endLine": 825,
+        "endChar": 58
+      },
+      "revId": "740475d5f45b8caa2c3c6fc51e657ecf4f3547e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
