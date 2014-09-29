@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "f0e76c92_c23b42be",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-29T11:06:42Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer not giving that option for now. I find that too many ways of disabling are confusing.",
+      "parentUuid": "10ca3fde_f5562208",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "dddb7e9db4026ced5cc66be53ad4ca836530811a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30d58379_b074bedf",
         "filename": "compiler/optimizing/optimization.h",
         "patchSetId": 1
