@@ -22,6 +22,30 @@
       "revId": "2bcfd85e3c7b747dcdc710ae988bc9b447d79b09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ec287c_44f060f5",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T07:35:26Z",
+      "side": 1,
+      "message": "Did you figure that out? I guess it\u0027s working because it doesn\u0027t matter whether we use movq or movl. Would you need to negl still with a movl?",
+      "parentUuid": "9032afd1_33b1daca",
+      "range": {
+        "startLine": 1994,
+        "startChar": 2,
+        "endLine": 1994,
+        "endChar": 6
+      },
+      "revId": "2bcfd85e3c7b747dcdc710ae988bc9b447d79b09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
