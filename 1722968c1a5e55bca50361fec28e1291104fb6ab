@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0ec287c_447bc063",
+        "filename": "test/083-compiler-regressions/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-30T10:46:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ca3fde_7bf0636d",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "1722968c1a5e55bca50361fec28e1291104fb6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "303103d2_9676f255",
         "filename": "test/083-compiler-regressions/src/Main.java",
         "patchSetId": 2
