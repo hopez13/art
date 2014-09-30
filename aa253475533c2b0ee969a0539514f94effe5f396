@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "100240f8_e4077084",
+        "filename": "runtime/arch/arm64/registers_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T21:09:13Z",
+      "side": 1,
+      "message": "Maybe I\u0027m a bit old fashioned, but I find it a lot more readable without the macros. Also, it\u0027s hard to see what cleanup is actually needed with this macro change.\n\nAny other reason you got rid of the standard number list?",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "aa253475533c2b0ee969a0539514f94effe5f396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
