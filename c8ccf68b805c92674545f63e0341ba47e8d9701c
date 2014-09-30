@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b00a5412_9ecfdd64",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-30T03:21:25Z",
+      "side": 1,
+      "message": "they did look nice though :-)",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "c8ccf68b805c92674545f63e0341ba47e8d9701c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b00a5412_bed2a10c",
+        "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-30T03:21:25Z",
+      "side": 1,
+      "message": "If this is needed for gc/allocator_type.h just add there?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "c8ccf68b805c92674545f63e0341ba47e8d9701c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
