@@ -16,6 +16,24 @@
       "revId": "4163c53ce38a0f1f88bf3e8d26de9914da38498b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ec287c_e4f6546f",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-09-30T11:07:02Z",
+      "side": 1,
+      "message": "I\u0027d rather have them documented separately. Given the \"the backend uses these as temporary registers\" comment for r16-r17, I think including them here is unnecessary.",
+      "parentUuid": "7029bc84_ce480328",
+      "revId": "4163c53ce38a0f1f88bf3e8d26de9914da38498b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
