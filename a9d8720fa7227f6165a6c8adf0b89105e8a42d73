@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0150830_33c8087f",
+        "filename": "test/123-compiler-regressions-mt/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-09-30T18:22:05Z",
+      "side": 1,
+      "message": "I would delete this synchronized block.  Values cannot be modified while we\u0027re reading it since we already saw state as 2.  It\u0027s also OK to move the prior accesses to values to before the synchronized blocks they are currently in, but it may be a better test without doing that.",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "a9d8720fa7227f6165a6c8adf0b89105e8a42d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
