@@ -46,6 +46,30 @@
       "revId": "4acef30cc6a48b5fe07d55db6b9cf0d093b326ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b05413b2_6c872fc5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T10:45:36Z",
+      "side": 1,
+      "message": "Yeah, the register allocator would need to know we need a register byte (we already do that in this file).\n\nSince requesting byte registers are annoying, I decided to go with doing a xor before moving the setcc result. See:\nhttps://android-review.googlesource.com/#/c/108513/",
+      "parentUuid": "508bd76f_253944e8",
+      "range": {
+        "startLine": 524,
+        "startChar": 9,
+        "endLine": 524,
+        "endChar": 42
+      },
+      "revId": "4acef30cc6a48b5fe07d55db6b9cf0d093b326ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
