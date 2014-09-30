@@ -46,6 +46,30 @@
       "revId": "2bcfd85e3c7b747dcdc710ae988bc9b447d79b09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0150830_28c8937e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-09-30T19:24:08Z",
+      "side": 1,
+      "message": "I think this movq in fact loads a 64-bit quantity (loads the next field as well), but it happens to work if the upper half is just ignored after that. In the use case in the JNI compiler, it\u0027s stored into a stack slot with a movl (see StoreRef).\n\n      0x005c11d9:               488B4708        movq    rax, [rdi + 8]\n      0x005c11dd:                   F7D8        neg     eax\n      0x005c11df:               89442410        mov     [rsp + 16], eax\n\nBut it should probably be a movl. If one tried to load a (64-bit) field from this ref using a movq, it\u0027d likely segfault.\n\nI will upload a CL.\n\nnegl is necessary for heap poisoning regardless.",
+      "parentUuid": "d0ec287c_44f060f5",
+      "range": {
+        "startLine": 1994,
+        "startChar": 2,
+        "endLine": 1994,
+        "endChar": 6
+      },
+      "revId": "2bcfd85e3c7b747dcdc710ae988bc9b447d79b09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
