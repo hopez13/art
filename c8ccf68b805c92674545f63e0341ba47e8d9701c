@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b00a5412_1efbcd8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2014-09-30T03:51:27Z",
+      "side": 1,
+      "message": "Does our GCC support them (with -std\u003dc++1y)? With Clang/libc++ you have full C++14 support.\n\nIf not, you could also use a user-defined literal (010101_b) if you want to keep them.",
+      "parentUuid": "d0150830_bfe97fbe",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "c8ccf68b805c92674545f63e0341ba47e8d9701c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b00a5412_bed2a10c",
         "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.h",
         "patchSetId": 2
