@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b00a5412_81bf8089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-30T14:47:21Z",
+      "side": 1,
+      "message": "GCC supports them just fine. I\u0027m just \"fixing\" pedantic warnings to make us compliant... :-)",
+      "parentUuid": "b00a5412_1efbcd8b",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "c8ccf68b805c92674545f63e0341ba47e8d9701c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b00a5412_bed2a10c",
         "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.h",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Ugh, so we were just missing the annotalysis before.. that\u0027s pretty bad.",
       "parentUuid": "d0150830_ffeff7c1",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "c8ccf68b805c92674545f63e0341ba47e8d9701c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "101b206c_f6b6fecf",
+        "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-30T14:47:21Z",
+      "side": 1,
+      "message": "No, heap.h pulls in enough; but I wanted to be more precise with the includes.",
+      "parentUuid": "d0150830_1f8f4bba",
       "range": {
         "startLine": 20,
         "startChar": 0,
