@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "101b206c_6798fadb",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-09-30T18:52:09Z",
+      "side": 1,
+      "message": "This should be target and GCC 4.9 specific, not a global C flag.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 24
+      },
+      "revId": "34d6dd967b3c542e5a607e8ef442819f9aa6db45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
