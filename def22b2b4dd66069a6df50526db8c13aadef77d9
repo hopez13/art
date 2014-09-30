@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7029bc84_91945e1a",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T15:55:14Z",
+      "side": 1,
+      "message": "Indeed, that\u0027s pretty ugly. It\u0027s a bit less ugly if you actually use x86::CodeGeneratorX86.",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "def22b2b4dd66069a6df50526db8c13aadef77d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e76c92_cb311d0f",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T15:55:14Z",
+      "side": 1,
+      "message": "const char* instead?",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "def22b2b4dd66069a6df50526db8c13aadef77d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ec287c_870d4add",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T15:55:14Z",
+      "side": 1,
+      "message": "Make it protected?",
+      "range": {
+        "startLine": 45,
+        "startChar": 15,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "def22b2b4dd66069a6df50526db8c13aadef77d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0ec287c_671246fd",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T15:55:14Z",
+      "side": 1,
+      "message": "and private?",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "def22b2b4dd66069a6df50526db8c13aadef77d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7029bc84_d19ae647",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-09-30T15:55:14Z",
+      "side": 1,
+      "message": "Please also add a GetPassName.",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 24
+      },
+      "revId": "def22b2b4dd66069a6df50526db8c13aadef77d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
