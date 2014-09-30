@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0150830_bfe97fbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-09-30T03:23:00Z",
+      "side": 1,
+      "message": "That\u0027s why I left \u0027em in code comments. :-)",
+      "parentUuid": "b00a5412_9ecfdd64",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "c8ccf68b805c92674545f63e0341ba47e8d9701c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b00a5412_bed2a10c",
         "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.h",
         "patchSetId": 2
