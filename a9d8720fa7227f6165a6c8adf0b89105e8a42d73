@@ -22,6 +22,30 @@
       "revId": "a9d8720fa7227f6165a6c8adf0b89105e8a42d73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70529c24_66e6cec4",
+        "filename": "test/123-compiler-regressions-mt/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-01T11:12:40Z",
+      "side": 1,
+      "message": "Done. I\u0027ll keep \"vs1 \u003d values\" inside the first synchronized block so that there\u0027s only one MONITOR_ENTER between that and \"vs2 \u003d values\".",
+      "parentUuid": "d0150830_33c8087f",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "a9d8720fa7227f6165a6c8adf0b89105e8a42d73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
