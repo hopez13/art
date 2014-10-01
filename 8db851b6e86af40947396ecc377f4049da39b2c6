@@ -22,6 +22,30 @@
       "revId": "8db851b6e86af40947396ecc377f4049da39b2c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70529c24_a68de63e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-01T09:26:11Z",
+      "side": 1,
+      "message": "Oops I forgot a line in the patch. Re-uploading.\n\nIn the tests I use this function to ensure the condition is materialized. NeedsMaterialization() returns true if a \u0027force materialization\u0027 has been required.\nI don\u0027t see how inserting an HConstant would make a difference in NeedsMaterialization(): The test \u0027GetNext() !\u003d user\u0027 is after the \u0027merge with if\u0027 test. I thought about using the result of the HCondition in another operation to have multiple uses (and thus force materialization), but I didn\u0027t want to rely on the implementation of NeedsMaterialization(). This is not ideal, but it makes the test more reliable.",
+      "parentUuid": "70529c24_c67b42af",
+      "range": {
+        "startLine": 1138,
+        "startChar": 7,
+        "endLine": 1138,
+        "endChar": 30
+      },
+      "revId": "8db851b6e86af40947396ecc377f4049da39b2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
