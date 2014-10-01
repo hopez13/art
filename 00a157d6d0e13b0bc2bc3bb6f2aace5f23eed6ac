@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f083ecc2_22df6e1d",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-01T10:06:24Z",
+      "side": 1,
+      "message": "Erf, just make Run public and use it, you can\u0027t make the TestCode method a friend of classes.",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 45
+      },
+      "revId": "00a157d6d0e13b0bc2bc3bb6f2aace5f23eed6ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
