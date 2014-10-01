@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "504f587e_88b3170d",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-01T14:35:59Z",
+      "side": 1,
+      "message": "Since the SSA checker knows it needs to do a reverse post order, how about having a Run method in both SSA and Graph checker and let them do (and decide which kind) the traversal?",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 35
+      },
+      "revId": "7e7ee46fe6448ca6829e4375891cbd64885d646f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
