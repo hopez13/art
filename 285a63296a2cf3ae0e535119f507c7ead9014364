@@ -70,6 +70,30 @@
       "revId": "285a63296a2cf3ae0e535119f507c7ead9014364",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f083ecc2_22652e8c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-01T12:35:24Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/109383/2.\n\nWhat should we do regarding `inst.Dominate(inst)\u0027?",
+      "parentUuid": "f083ecc2_222e8e32",
+      "range": {
+        "startLine": 469,
+        "startChar": 14,
+        "endLine": 469,
+        "endChar": 31
+      },
+      "revId": "285a63296a2cf3ae0e535119f507c7ead9014364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
