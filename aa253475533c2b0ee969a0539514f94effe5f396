@@ -46,6 +46,30 @@
       "revId": "aa253475533c2b0ee969a0539514f94effe5f396",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f083ecc2_22752ebe",
+        "filename": "runtime/arch/arm64/registers_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-01T08:49:52Z",
+      "side": 1,
+      "message": "So I can take out the macro if you prefer.",
+      "parentUuid": "70529c24_06515a24",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "aa253475533c2b0ee969a0539514f94effe5f396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
