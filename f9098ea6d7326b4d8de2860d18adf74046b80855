@@ -22,6 +22,30 @@
       "revId": "f9098ea6d7326b4d8de2860d18adf74046b80855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f05e8c2a_b08d203f",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-01T18:43:10Z",
+      "side": 0,
+      "message": "I thought we just used this code to transition from compiled code to interpreter, not for exception throwing?",
+      "parentUuid": "70529c24_666b6ee4",
+      "range": {
+        "startLine": 233,
+        "startChar": 43,
+        "endLine": 233,
+        "endChar": 54
+      },
+      "revId": "f9098ea6d7326b4d8de2860d18adf74046b80855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

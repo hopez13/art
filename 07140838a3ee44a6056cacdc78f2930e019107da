@@ -22,6 +22,30 @@
       "revId": "07140838a3ee44a6056cacdc78f2930e019107da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f05e8c2a_d0909458",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-01T18:43:10Z",
+      "side": 1,
+      "message": "comma operator with implicit conversion to a boolean. Thanks C!",
+      "parentUuid": "504f587e_2527aede",
+      "range": {
+        "startLine": 233,
+        "startChar": 42,
+        "endLine": 233,
+        "endChar": 44
+      },
+      "revId": "07140838a3ee44a6056cacdc78f2930e019107da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
