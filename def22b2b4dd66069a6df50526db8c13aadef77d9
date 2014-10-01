@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "504f587e_65712683",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-01T10:04:40Z",
+      "side": 1,
+      "message": "you can add FRIEND_TEST in the class.",
+      "parentUuid": "7029bc84_111cee0c",
+      "range": {
+        "startLine": 45,
+        "startChar": 15,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "def22b2b4dd66069a6df50526db8c13aadef77d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ec287c_671246fd",
         "filename": "compiler/optimizing/optimization.h",
         "patchSetId": 5
