@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70529c24_c67b42af",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-01T08:13:09Z",
+      "side": 1,
+      "message": "I guess you\u0027re only using this in your backend :) We shouldn\u0027t need this though, as currently a constant in between the condition and if will force a materialization.",
+      "range": {
+        "startLine": 1138,
+        "startChar": 7,
+        "endLine": 1138,
+        "endChar": 30
+      },
+      "revId": "8db851b6e86af40947396ecc377f4049da39b2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
