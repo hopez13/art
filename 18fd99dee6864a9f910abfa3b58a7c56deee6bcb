@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b066d410_2cd9ab86",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-01T16:35:30Z",
+      "side": 1,
+      "message": "I would recommend checking that invoke does not have MIR_IGNORE_CLINIT_CHECK flag but regardless you need a new memory version since it is invoke.",
+      "range": {
+        "startLine": 1472,
+        "startChar": 47,
+        "endLine": 1472,
+        "endChar": 79
+      },
+      "revId": "18fd99dee6864a9f910abfa3b58a7c56deee6bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d07188c8_62f7ac39",
+        "filename": "compiler/dex/local_value_numbering_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-01T16:35:30Z",
+      "side": 1,
+      "message": "acquired",
+      "range": {
+        "startLine": 416,
+        "startChar": 81,
+        "endLine": 416,
+        "endChar": 88
+      },
+      "revId": "18fd99dee6864a9f910abfa3b58a7c56deee6bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
