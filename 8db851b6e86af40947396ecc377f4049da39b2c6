@@ -46,6 +46,30 @@
       "revId": "8db851b6e86af40947396ecc377f4049da39b2c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70529c24_0616fa3d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-01T09:36:17Z",
+      "side": 1,
+      "message": "I\u0027m not a big fan of test-specific fields/data. I\u0027d avoid it if possible. The NeedsMaterialization will probably remain this way, as I don\u0027t think it should be smart about instructions in between not having side effects, and not generating any code.\n\nI don\u0027t understand why you\u0027re saying the constant wouldn\u0027t work. What\u0027s the \"merge with if test\"? NeedsMaterialization will return true for the following list of instructions:\n\ni0 \u003d HEqual\ni1 \u003d HConstant\nHIf i0",
+      "parentUuid": "70529c24_a68de63e",
+      "range": {
+        "startLine": 1138,
+        "startChar": 7,
+        "endLine": 1138,
+        "endChar": 30
+      },
+      "revId": "8db851b6e86af40947396ecc377f4049da39b2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
