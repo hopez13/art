@@ -22,6 +22,30 @@
       "revId": "aa253475533c2b0ee969a0539514f94effe5f396",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70529c24_06515a24",
+        "filename": "runtime/arch/arm64/registers_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-01T08:42:30Z",
+      "side": 1,
+      "message": "I added the macro to shorten the size of the code while I was at it. It spares about 100 lines of code.\n\nThe cleanup deals with the enum values for SP, XZR, and WZR. Before the patch we had\n\nSP \u003d 31\nXZR \u003d 32\nWZR \u003d 31\n\nThis would make translating the enum value to a vixl::Register annoying. After the change, the only special case is SP (enum value 32), otherwise the enum value for a register can be directly used as the register code for the vixl::Register.",
+      "parentUuid": "100240f8_e4077084",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "aa253475533c2b0ee969a0539514f94effe5f396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
