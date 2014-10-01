@@ -46,6 +46,30 @@
       "revId": "285a63296a2cf3ae0e535119f507c7ead9014364",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f083ecc2_222e8e32",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-01T12:17:00Z",
+      "side": 1,
+      "message": "Yeah, as discussed, we should fix the caller (the graph checker) to not call this method when dealng with phis and uses/inputs.",
+      "parentUuid": "504f587e_a5783e33",
+      "range": {
+        "startLine": 469,
+        "startChar": 14,
+        "endLine": 469,
+        "endChar": 31
+      },
+      "revId": "285a63296a2cf3ae0e535119f507c7ead9014364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
