@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "504f587e_48ebdf8a",
+        "filename": "compiler/dex/local_value_numbering.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-01T16:53:31Z",
+      "side": 1,
+      "message": "Sorry, misleading comment. This is an INVOKE, so we always need to do this.",
+      "parentUuid": "b066d410_2cd9ab86",
+      "range": {
+        "startLine": 1472,
+        "startChar": 47,
+        "endLine": 1472,
+        "endChar": 79
+      },
+      "revId": "18fd99dee6864a9f910abfa3b58a7c56deee6bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d07188c8_62f7ac39",
         "filename": "compiler/dex/local_value_numbering_test.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-01T16:35:30Z",
       "side": 1,
       "message": "acquired",
+      "range": {
+        "startLine": 416,
+        "startChar": 81,
+        "endLine": 416,
+        "endChar": 88
+      },
+      "revId": "18fd99dee6864a9f910abfa3b58a7c56deee6bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f083ecc2_85da042b",
+        "filename": "compiler/dex/local_value_numbering_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-01T16:53:31Z",
+      "side": 1,
+      "message": "No, \"acquire\" is correct. The longer \"an acquire operation\" wouldn\u0027t fit the 100 characters limit so I decided to use \"acquire\" as a noun. The English language has a long tradition of using verbs as nouns and vice versa.",
+      "parentUuid": "d07188c8_62f7ac39",
       "range": {
         "startLine": 416,
         "startChar": 81,
