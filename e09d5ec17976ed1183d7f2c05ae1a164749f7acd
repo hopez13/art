@@ -49,6 +49,42 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_27431a6d",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-10-02T05:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10cc0053_8b7d2d0d",
+      "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_49442176",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-10-02T05:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d07188c8_0e91375a",
+      "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30cf4449_af003523",
         "filename": "test/080-oom-throw/src/Main.java",
         "patchSetId": 2
@@ -66,6 +102,24 @@
         "endLine": 24,
         "endChar": 45
       },
+      "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_093e29e4",
+        "filename": "test/080-oom-throw/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-10-02T05:08:32Z",
+      "side": 1,
+      "message": "With 1022 the finalizer bug is 100% reproducible on 256Mb heap on host (default \"./run-test --host 080\")\n\nI had to keep allocated arrays in heap in order to leave only small amount of free heap for finalizeable instance test. Otherwise (with 256Mb heap) the \"finalizeable instance\" test failed with timeout, since GC pauses grows up to 30 seconds each (non-finalizeable instance test case have gc pauses 2-3 seconds on 256Mb heap).\n\nAfter that change in \"holder\", I had to make sure that heap have enough free space after array allocations, since they are not removed by GC after the arrays test case.\n\nThe idea is to leave enough free heap memory for correct throwing OutOfmemory exception, in case of 256Mb heap it is 256/2(number of arrays allocated)*2*2*1024 \u003d 128*4Kb \u003d ~512Kb will be free after array allocation. This is enough for next test case (instance and finalizeable instance).\n\nWith --gcstress heap setting the first array could not be allocated so other two instance test cases have enough memory too.",
+      "parentUuid": "30cf4449_af003523",
       "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -95,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_2d7a0daf",
+        "filename": "test/080-oom-throw/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-10-02T05:08:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ba0c9b_2a70bffb",
+      "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0ba0c9b_ed064141",
         "filename": "test/080-oom-throw/src/Main.java",
         "patchSetId": 2
@@ -112,6 +184,24 @@
         "endLine": 105,
         "endChar": 63
       },
+      "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_2943ed6c",
+        "filename": "test/080-oom-throw/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1039576
+      },
+      "writtenOn": "2014-10-02T05:08:32Z",
+      "side": 1,
+      "message": "Theoretically: yes, but practically - it does not happens.\n\nHopefully assigning holder static class member will extend its liveness (see next patchset)",
+      "parentUuid": "f0ba0c9b_ed064141",
       "revId": "e09d5ec17976ed1183d7f2c05ae1a164749f7acd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
