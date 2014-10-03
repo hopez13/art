@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90b9d0ac_8d7d450d",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-10-03T11:00:37Z",
+      "side": 1,
+      "message": "The change above seems to remove some spurious loads, but not all of them. I am still investigating why this happens.",
+      "revId": "be43a349d8e4bf2cda8140d5468526d7d0be6033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
