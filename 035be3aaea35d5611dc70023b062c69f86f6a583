@@ -81,6 +81,24 @@
       "revId": "035be3aaea35d5611dc70023b062c69f86f6a583",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900c7079_f2b6c6fd",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-03T09:50:34Z",
+      "side": 1,
+      "message": "Can we just put a\n\nCOMPILE_ASSERT(ptr_size \u003e\u003d sizeof(mirror::HeapReference\u003cmirror::Object\u003e, ptr_size_cannot_hold_a_heap_reference)\n\nto make sure we do hit this if/when we try to have a non-compressed pointer implementation someday?",
+      "parentUuid": "90b9d0ac_4d58adfc",
+      "revId": "035be3aaea35d5611dc70023b062c69f86f6a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
