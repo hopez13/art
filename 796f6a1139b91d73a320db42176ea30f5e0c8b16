@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10632029_9cc5e947",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-10-03T00:52:33Z",
+      "side": 1,
+      "message": "Should this be a macro too?  It is used here \u0026 below.",
+      "revId": "796f6a1139b91d73a320db42176ea30f5e0c8b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
