@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "900c7079_2ff7493a",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-03T05:32:49Z",
+      "side": 1,
+      "message": "we used to do include the value to do CHECK or DCHECK validation on the consuming it. I guess that is now gone?",
+      "range": {
+        "startLine": 456,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 16
+      },
+      "revId": "035be3aaea35d5611dc70023b062c69f86f6a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0fdac73_7b42b389",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-03T05:32:49Z",
+      "side": 1,
+      "message": "is there a better sizeof constant?\n\nsizeof(mirror::HeapReference\u003cmirror::Object\u003e)?",
+      "range": {
+        "startLine": 770,
+        "startChar": 2,
+        "endLine": 770,
+        "endChar": 43
+      },
+      "revId": "035be3aaea35d5611dc70023b062c69f86f6a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
