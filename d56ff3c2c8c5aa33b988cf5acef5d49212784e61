@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "50ee78c7_9362e4f7",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-10-03T18:27:34Z",
+      "side": 1,
+      "message": "Not needed any more.\n\nI followed your advice and removed all oat related code from elf_file.cc. Just forgot this line...",
+      "parentUuid": "70ae1c67_ba007923",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "d56ff3c2c8c5aa33b988cf5acef5d49212784e61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70ae1c67_fa06f140",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 13
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "agampe suggests just using the larger type such as  Elf64_Addr in cases like this.",
       "parentUuid": "70ae1c67_fa06f140",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 70
+      },
+      "revId": "d56ff3c2c8c5aa33b988cf5acef5d49212784e61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f1bca1_f1c242bb",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1051650
+      },
+      "writtenOn": "2014-10-03T18:27:34Z",
+      "side": 1,
+      "message": "Done.\n\nAll changed to uint64_t.",
+      "parentUuid": "706c5c15_dcbf6531",
       "range": {
         "startLine": 558,
         "startChar": 0,
