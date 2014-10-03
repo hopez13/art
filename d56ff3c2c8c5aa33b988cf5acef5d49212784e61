@@ -45,6 +45,30 @@
       "revId": "d56ff3c2c8c5aa33b988cf5acef5d49212784e61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706c5c15_dcbf6531",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-03T01:26:23Z",
+      "side": 1,
+      "message": "agampe suggests just using the larger type such as  Elf64_Addr in cases like this.",
+      "parentUuid": "70ae1c67_fa06f140",
+      "range": {
+        "startLine": 558,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 70
+      },
+      "revId": "d56ff3c2c8c5aa33b988cf5acef5d49212784e61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
