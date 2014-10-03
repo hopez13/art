@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_f3486827",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-03T09:53:37Z",
+      "side": 1,
+      "message": "Yes, that\u0027s gone. We could reintroduce these checks in OatWriter::WriteCodeMethodVisitor::VisitMethod() for absolute patches if we feel they are useful. For relative patches we\u0027d need to check in OatWriter::\u003cARCH\u003eRelativeCallPatcher::Patch(). Note that the values will not necessarily be unique.",
+      "parentUuid": "50c2f81e_13adf47c",
+      "revId": "035be3aaea35d5611dc70023b062c69f86f6a583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0fdac73_7b42b389",
         "filename": "compiler/dex/quick/codegen_util.cc",
         "patchSetId": 2
