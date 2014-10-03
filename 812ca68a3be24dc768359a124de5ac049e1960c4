@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bfc88a_52484aaa",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3222,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70529c24_264c568c",
+      "range": {
+        "startLine": 3222,
+        "startChar": 6,
+        "endLine": 3222,
+        "endChar": 8
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f083ecc2_020eea52",
         "filename": "runtime/debugger.cc",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "Why do we need this? Please add a comment.",
+      "range": {
+        "startLine": 3222,
+        "startChar": 46,
+        "endLine": 3223,
+        "endChar": 51
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_724d4eb9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3223,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f083ecc2_020eea52",
       "range": {
         "startLine": 3222,
         "startChar": 46,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_b6116ec2",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3227,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "504f587e_e57e36a1",
+      "range": {
+        "startLine": 3227,
+        "startChar": 4,
+        "endLine": 3227,
+        "endChar": 78
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f083ecc2_223e8ee4",
         "filename": "runtime/debugger.cc",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "Same comment than above: please add a comment to explain why we need this.",
+      "range": {
+        "startLine": 3241,
+        "startChar": 6,
+        "endLine": 3241,
+        "endChar": 80
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_561e0ad3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3241,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f083ecc2_223e8ee4",
       "range": {
         "startLine": 3241,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_10740af9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3263,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f083ecc2_4243926b",
+      "range": {
+        "startLine": 3263,
+        "startChar": 6,
+        "endLine": 3263,
+        "endChar": 80
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e76c92_08b94b50",
         "filename": "runtime/debugger.h",
         "patchSetId": 12
@@ -128,6 +248,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "We should comment each method to briefly describe what they do and why we need them (see my comments below). I propose a general comment here: \"Forced interpreter checkers for single-step support\"",
+      "range": {
+        "startLine": 541,
+        "startChar": 5,
+        "endLine": 541,
+        "endChar": 33
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_1242d288",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e76c92_08b94b50",
       "range": {
         "startLine": 541,
         "startChar": 5,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d0bfc88a_3247d699",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e76c92_28d40f7c",
+      "range": {
+        "startLine": 542,
+        "startChar": 14,
+        "endLine": 542,
+        "endChar": 49
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0ec287c_e73e56b0",
         "filename": "runtime/debugger.h",
         "patchSetId": 12
@@ -174,6 +342,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "// Indicates whether we need to force the use of instrumentation entrypoint when calling a method through the resolution trampoline. This allows to deoptimize the stack for debugging when we returned from the called method.",
+      "range": {
+        "startLine": 544,
+        "startChar": 14,
+        "endLine": 544,
+        "endChar": 56
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b9d0ac_30790ef2",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ec287c_e73e56b0",
       "range": {
         "startLine": 544,
         "startChar": 14,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_d08d1290",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7029bc84_119f4e6c",
+      "range": {
+        "startLine": 546,
+        "startChar": 14,
+        "endLine": 546,
+        "endChar": 48
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e76c92_c82b63ec",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 12
@@ -220,6 +436,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "I\u0027m going back to this to be sure we\u0027re on the same page. Does your change needs the \u0027called\u0027 method in the stack above the class initializer? If not, we should remove it.\n\nThe interpreter does this but it\u0027s a bug: we push the \u0027called\u0027 frame too early, before doing class initialization (this is being fixed by https://android-review.googlesource.com/92662). So I don\u0027t think reproducing the bug here is correct unless it\u0027s absolutely required for this change.",
+      "range": {
+        "startLine": 821,
+        "startChar": 4,
+        "endLine": 825,
+        "endChar": 40
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_7623061a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "I have tested it with this hack removed and your patch and it worked.",
+      "parentUuid": "f0e76c92_c82b63ec",
       "range": {
         "startLine": 821,
         "startChar": 4,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "d0bfc88a_9235621c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "504f587e_c5a9fa9e",
+      "range": {
+        "startLine": 838,
+        "startChar": 8,
+        "endLine": 838,
+        "endChar": 45
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "504f587e_259a0e7c",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 12
@@ -266,6 +530,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "A comment here is worth too. IIUC we need this to deoptimize the stack when we add a breakpoint in the \u0027caller\u0027 causing the class initialization, right?",
+      "range": {
+        "startLine": 840,
+        "startChar": 8,
+        "endLine": 840,
+        "endChar": 51
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_161882e1",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "504f587e_259a0e7c",
       "range": {
         "startLine": 840,
         "startChar": 8,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_f08a9675",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70529c24_c66222f9",
+      "range": {
+        "startLine": 846,
+        "startChar": 8,
+        "endLine": 846,
+        "endChar": 45
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0e76c92_88c55bcc",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 12
@@ -312,6 +624,30 @@
       "writtenOn": "2014-10-01T13:08:10Z",
       "side": 1,
       "message": "Please add to the comment this is only needed for debugging. I\u0027d say \"Force the use of interpreter when it is required by the debugger\".",
+      "range": {
+        "startLine": 670,
+        "startChar": 7,
+        "endLine": 670,
+        "endChar": 47
+      },
+      "revId": "812ca68a3be24dc768359a124de5ac049e1960c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_7dd43f4f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-03T17:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e76c92_88c55bcc",
       "range": {
         "startLine": 670,
         "startChar": 7,
