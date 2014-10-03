@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "30a8245b_59b94ff3",
+        "filename": "compiler/elf_fixup.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-03T01:20:40Z",
+      "side": 1,
+      "message": "I wasn\u0027t a fan of this change. ElfFile was trying to be the general code, the fixup and stripping were particular use cases.\n\nthere was some talk in the past of trying to share code between system/bin/linker and art for elf file work. bionic would have no desire to have stripping and fixup code.\n\ni assume the motivation is to avoid template explosion, so I can live with this for now.",
+      "parentUuid": "10807fc3_4bb4f4ba",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "80ab94d20abae4383f00bc631af96d8c92ad1680",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b076d3c3_6847878a",
         "filename": "compiler/elf_writer.cc",
         "patchSetId": 4
