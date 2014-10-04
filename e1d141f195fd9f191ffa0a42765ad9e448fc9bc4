@@ -163,6 +163,30 @@
       "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0268cf7_04986a4d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-04T20:50:15Z",
+      "side": 1,
+      "message": "Our idiom for that has been to make the constructor private and have a static Create method that can return null, not have an accessor to check if the constructor had a problem (and has no use for the rest of the objects life cycle)",
+      "parentUuid": "701a9cb5_69c30165",
+      "range": {
+        "startLine": 879,
+        "startChar": 4,
+        "endLine": 879,
+        "endChar": 56
+      },
+      "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
