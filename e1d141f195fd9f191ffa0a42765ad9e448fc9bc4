@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "701a9cb5_29a0e9ac",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-04T03:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0fdac73_06322a12",
+      "range": {
+        "startLine": 782,
+        "startChar": 2,
+        "endLine": 782,
+        "endChar": 10
+      },
+      "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0fdac73_e62e06ac",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "701a9cb5_29b909f5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-04T03:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0fdac73_466b92e3",
+      "range": {
+        "startLine": 865,
+        "startChar": 0,
+        "endLine": 866,
+        "endChar": 34
+      },
+      "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0fdac73_a67b5eaf",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2014-10-03T06:05:41Z",
       "side": 1,
       "message": "hmm I see. but why not just check in constructor and die...",
+      "range": {
+        "startLine": 879,
+        "startChar": 4,
+        "endLine": 879,
+        "endChar": 56
+      },
+      "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "701a9cb5_69c30165",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-04T03:21:24Z",
+      "side": 1,
+      "message": "Preparation for a day when we don\u0027t abort, but die gracefully. If you want me to remove it...",
+      "parentUuid": "f0fdac73_a67b5eaf",
       "range": {
         "startLine": 879,
         "startChar": 4,
