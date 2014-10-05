@@ -46,6 +46,30 @@
       "revId": "9ba33f8992c6ff4944a7c080b813793d6999294f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5017588b_053352ec",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-05T18:38:05Z",
+      "side": 1,
+      "message": "Sure, that sounds good. But that is why I was wondering why \"HasSideEffects\" doesn\u0027t already capture the \"CanThrow\" semantics. Anyway, if it is a future plan to add those flags in side effects class, then sounds good to me. Thanks for your answer :)",
+      "parentUuid": "50c2f81e_610d7eda",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "9ba33f8992c6ff4944a7c080b813793d6999294f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
