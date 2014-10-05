@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "701a9cb5_8cfdab46",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-05T04:06:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t throwers already be marked as having side effects? :)",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "9ba33f8992c6ff4944a7c080b813793d6999294f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
