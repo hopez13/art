@@ -69,6 +69,30 @@
       "revId": "94f3dcc6b082429048cc042afd498a3824b862ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b9d0ac_c1f0e672",
+        "filename": "test/etc/push-and-run-test-jar",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-06T19:14:44Z",
+      "side": 1,
+      "message": "This is being taken care of line 233 for the target. Note line 132 we\u0027re setting the pattern for finding the arch on the device.",
+      "parentUuid": "5017588b_4e89e702",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 1
+      },
+      "revId": "94f3dcc6b082429048cc042afd498a3824b862ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
