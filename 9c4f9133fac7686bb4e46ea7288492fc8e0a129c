@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bfc88a_e30ace8e",
+        "filename": "compiler/optimizing/constant_propagation_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-06T18:35:15Z",
+      "side": 1,
+      "message": "Cpplint was erroneously complaining about using old C-style casts here:\n\n  Using deprecated casting style.  Use static_cast\u003cbool\u003e(...) instead  [readability/casting] [4]\n\nBut I noticed that disabling cpplint on this line was no longer needed, since the return type of the function is now `void\u0027; indeed the template parameter\n\n  void(HGraph*)\n\nis no longer treated as a cast by cpplint.\n\nI\u0027ve uploaded a patch to prevent this false alarm here: https://android-review.googlesource.com/#/c/109945/.",
+      "parentUuid": "90b9d0ac_364106d3",
+      "range": {
+        "startLine": 33,
+        "startChar": 76,
+        "endLine": 33,
+        "endChar": 87
+      },
+      "revId": "9c4f9133fac7686bb4e46ea7288492fc8e0a129c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50c2f81e_7cf1a529",
         "filename": "compiler/optimizing/constant_propagation_test.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-06T15:14:55Z",
       "side": 1,
       "message": "So this works? Did you try forcing a failure and see what it does? I remember having problems when ASSERT_* were not called in a TEST method.",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 15
+      },
+      "revId": "9c4f9133fac7686bb4e46ea7288492fc8e0a129c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_a3d2960c",
+        "filename": "compiler/optimizing/constant_propagation_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-06T18:35:15Z",
+      "side": 1,
+      "message": "It does work. :)  For instance, if I turn the part you highlighted into ASSERT_FALSE, I get the following message:\n\n  art/compiler/optimizing/constant_propagation_test.cc:112: Failure\n  Value of: inst-\u003eIsIntConstant()\n    Actual: true\n  Expected: false",
+      "parentUuid": "50c2f81e_7cf1a529",
       "range": {
         "startLine": 112,
         "startChar": 4,
