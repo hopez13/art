@@ -22,6 +22,30 @@
       "revId": "94f3dcc6b082429048cc042afd498a3824b862ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_83caf2d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-06T18:10:52Z",
+      "side": 1,
+      "message": "Yeah I was planning on doing that in the next CL. Does gerrit behave correctly when files are being moved? That is, it only shows the difference with the old file?",
+      "parentUuid": "90b9d0ac_41895602",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "94f3dcc6b082429048cc042afd498a3824b862ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
