@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0d0a811_817abaac",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 3234,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-06T18:41:02Z",
+      "side": 1,
+      "message": "note we have been marking local changes with\n\n# BEGIN android-changed\n# END android-changed\n\ncan you report this upstream if you are going to change this?",
+      "range": {
+        "startLine": 3234,
+        "startChar": 0,
+        "endLine": 3234,
+        "endChar": 53
+      },
+      "revId": "50dd792f6fed9db418065e89acdad7e9fa234449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
