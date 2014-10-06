@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50c2f81e_47ce523e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-06T17:51:47Z",
+      "side": 1,
+      "message": "Could we pass a handle here instead?",
+      "range": {
+        "startLine": 540,
+        "startChar": 23,
+        "endLine": 540,
+        "endChar": 29
+      },
+      "revId": "5ad97daa3112ca626e3fbf2bf08971977344c3c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
