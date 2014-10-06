@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0cbec63_e84fe7fb",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T21:55:35Z",
+      "side": 1,
+      "message": "Should this just be check JNI?",
+      "range": {
+        "startLine": 2384,
+        "startChar": 17,
+        "endLine": 2384,
+        "endChar": 30
+      },
+      "revId": "c7044867396ff4761df211db467e10b0fe4cb3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10116099_17a8a46c",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2385,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T21:55:35Z",
+      "side": 1,
+      "message": "match. When a primitive array is \"got\" a copy may or may not be returned. If a copy is returned and then updated and then the operation aborted, no changes will be made to the original array. We warn as updating the copied version is unusual as had a copy not been given, the changes would have occurred in place.",
+      "range": {
+        "startLine": 2385,
+        "startChar": 58,
+        "endLine": 2385,
+        "endChar": 95
+      },
+      "revId": "c7044867396ff4761df211db467e10b0fe4cb3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0cbec63_a855df91",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2386,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T21:55:35Z",
+      "side": 1,
+      "message": "Releasing a copied primitive array with JNI_ABORT. The copy doesn\u0027t match the original array but because of the JNI_ABORT the original array won\u0027t be updated.",
+      "range": {
+        "startLine": 2386,
+        "startChar": 25,
+        "endLine": 2386,
+        "endChar": 53
+      },
+      "revId": "c7044867396ff4761df211db467e10b0fe4cb3e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
