@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10116099_69b30193",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "this deserves a comment",
+      "range": {
+        "startLine": 1540,
+        "startChar": 6,
+        "endLine": 1540,
+        "endChar": 74
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10116099_89991d0e",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "longer term it\u0027d be nice to either have 1 ABI or a arm_soft and arm_hard ABI. Ifdefs lead to bit rot.",
+      "range": {
+        "startLine": 309,
+        "startChar": 7,
+        "endLine": 309,
+        "endChar": 33
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10116099_2990e9da",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "Comment saying what I am",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30fbc487_60b2fade",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "what am I? Isn\u0027t ARM implied from the declaration location?",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30fbc487_00c17627",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "what am I? Its unforunate this class name is only 2/3 characters different from InRegStorageMapper.",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30fbc487_60895a03",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "for hard float shouldn\u0027t we just provide a hard float assembly routine?",
+      "range": {
+        "startLine": 94,
+        "startChar": 46,
+        "endLine": 94,
+        "endChar": 56
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10116099_c91155c2",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "I dislike this change. Its motivated by the fmod being the wrong soft/hard-ness, this should be fixed by changing that entrypoint. Runtime helpers are inherently using the quick ABI",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 25
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0cbec63_a510a870",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "without the C return variants this can all go",
+      "range": {
+        "startLine": 1368,
+        "startChar": 0,
+        "endLine": 1397,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30fbc487_205d92ec",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "why aren\u0027t we following the pattern of the other hard float ABIs?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0cbec63_8543a46a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-06T18:23:05Z",
+      "side": 1,
+      "message": "soft",
+      "range": {
+        "startLine": 65,
+        "startChar": 65,
+        "endLine": 65,
+        "endChar": 69
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
