@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "10116099_02b17f55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2014-10-07T22:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b988d9_eedc43f5",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "d9c53a825c400f8031dc0c3527439166c937d563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0b988d9_ee0a83bc",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "10e6c0ff_41a8b66d",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2014-10-07T22:22:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b988d9_ee0a83bc",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 12
+      },
+      "revId": "d9c53a825c400f8031dc0c3527439166c937d563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0b988d9_4e128ffc",
         "filename": "sigchainlib/sigchain_dummy.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-10-07T20:58:20Z",
       "side": 1,
       "message": "seems like an awkward word to use in this context",
+      "range": {
+        "startLine": 43,
+        "startChar": 31,
+        "endLine": 43,
+        "endChar": 40
+      },
+      "revId": "d9c53a825c400f8031dc0c3527439166c937d563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30fbc487_53f7d338",
+        "filename": "sigchainlib/sigchain_dummy.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2014-10-07T22:22:00Z",
+      "side": 1,
+      "message": "Done - s/preempted/exported/",
+      "parentUuid": "d0b988d9_4e128ffc",
       "range": {
         "startLine": 43,
         "startChar": 31,
