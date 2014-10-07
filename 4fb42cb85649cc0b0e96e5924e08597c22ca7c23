@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_70f78139",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T16:16:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bfc88a_b26e619c",
+      "range": {
+        "startLine": 461,
+        "startChar": 12,
+        "endLine": 462,
+        "endChar": 9
+      },
+      "revId": "4fb42cb85649cc0b0e96e5924e08597c22ca7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50c2f81e_197c2ea7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-07T14:01:23Z",
       "side": 1,
       "message": "Should\u0027t this block be put between the\n\n  if (destination.IsRegister()) { /* ... */ }\n\nand the\n\n  if (destination.IsStackSlot()) { /* ... */ }\n\nblocks?",
+      "range": {
+        "startLine": 357,
+        "startChar": 4,
+        "endLine": 369,
+        "endChar": 5
+      },
+      "revId": "4fb42cb85649cc0b0e96e5924e08597c22ca7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_552d8f82",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T16:16:48Z",
+      "side": 1,
+      "message": "Done, but why? Is it to consistently do Register/FpuRegister/StackSlot/DoubleStackSlot in that order?",
+      "parentUuid": "50c2f81e_197c2ea7",
       "range": {
         "startLine": 357,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_19818e88",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T16:16:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90b9d0ac_d08aed23",
+      "range": {
+        "startLine": 58,
+        "startChar": 11,
+        "endLine": 58,
+        "endChar": 21
+      },
+      "revId": "4fb42cb85649cc0b0e96e5924e08597c22ca7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b9d0ac_30110946",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_b02bb9ec",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T16:16:48Z",
+      "side": 1,
+      "message": "I moved kFpuRegister up in the list.\n\n5 cannot be used because it conflicts with how we encode constants in the location object. Comments were lacking though, so I added some.",
+      "parentUuid": "90b9d0ac_30110946",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 20
+      },
+      "revId": "4fb42cb85649cc0b0e96e5924e08597c22ca7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bfc88a_32011174",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2014-10-07T14:01:23Z",
       "side": 1,
       "message": "Maybe add LOG(FATAL) here?",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 14
+      },
+      "revId": "4fb42cb85649cc0b0e96e5924e08597c22ca7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_9501c7de",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T16:16:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bfc88a_32011174",
       "range": {
         "startLine": 206,
         "startChar": 4,
