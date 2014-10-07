@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90b390f9_b7b54855",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T19:31:10Z",
+      "side": 1,
+      "message": "Note that it\u0027s not necessarily coming from a mul-int. Optimizations can make constants appear after transforming the dex graph.",
+      "range": {
+        "startLine": 1113,
+        "startChar": 45,
+        "endLine": 1113,
+        "endChar": 46
+      },
+      "revId": "aa5e01aa406af83050f331038aa7150e65d73e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b390f9_77ebb038",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T19:31:10Z",
+      "side": 1,
+      "message": "Maybe add a dcheck that the location is in stack.",
+      "range": {
+        "startLine": 1081,
+        "startChar": 13,
+        "endLine": 1081,
+        "endChar": 14
+      },
+      "revId": "aa5e01aa406af83050f331038aa7150e65d73e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b007b451_4d1d6e8c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-07T19:31:10Z",
+      "side": 1,
+      "message": "DCHECK input is in stack.",
+      "range": {
+        "startLine": 1012,
+        "startChar": 13,
+        "endLine": 1012,
+        "endChar": 14
+      },
+      "revId": "aa5e01aa406af83050f331038aa7150e65d73e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
