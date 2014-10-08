@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0b4ccdf_a954094d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1846,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-10-08T18:13:40Z",
+      "side": 1,
+      "message": "This looks slightly different than Mir2Lir\u0027s BadOverlap().  Does it need to be?  If not, I\u0027d use BadOverlap.  If so, that means we have several flavors of bad overlap, so it might be worthwhile to add a new utility function (and probably rename BadOverlap() to something more specific.  I\u0027d prefer to push the overlap computation into a utility function - easier to read the code that way.",
+      "revId": "efcd5083f233b31b70b323a4969102339c9a54d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
