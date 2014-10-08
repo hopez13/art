@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_ec3b9e0f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-08T10:26:22Z",
+      "side": 1,
+      "message": "Nit: add one space to the indentation to align this line with the previous one.",
+      "range": {
+        "startLine": 1076,
+        "startChar": 0,
+        "endLine": 1076,
+        "endChar": 25
+      },
+      "revId": "aa5e01aa406af83050f331038aa7150e65d73e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b390f9_77ebb038",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 13,
         "endLine": 1081,
         "endChar": 14
+      },
+      "revId": "aa5e01aa406af83050f331038aa7150e65d73e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_2bf0b8f4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-08T10:26:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1007,
+        "startChar": 0,
+        "endLine": 1007,
+        "endChar": 25
       },
       "revId": "aa5e01aa406af83050f331038aa7150e65d73e42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
