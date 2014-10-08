@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bfc88a_be286df0",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "10116099_69b30193",
+      "range": {
+        "startLine": 1540,
+        "startChar": 6,
+        "endLine": 1540,
+        "endChar": 74
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10116099_89991d0e",
         "filename": "compiler/dex/quick/arm/arm_lir.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-06T18:23:05Z",
       "side": 1,
       "message": "longer term it\u0027d be nice to either have 1 ABI or a arm_soft and arm_hard ABI. Ifdefs lead to bit rot.",
+      "range": {
+        "startLine": 309,
+        "startChar": 7,
+        "endLine": 309,
+        "endChar": 33
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_5ec5b1c8",
+        "filename": "compiler/dex/quick/arm/arm_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Agree. It will make the code clean to only support 1 ABI. It seems there is no much performance regression with this patch. We can remove soft fp support in a later patch.",
+      "parentUuid": "10116099_89991d0e",
       "range": {
         "startLine": 309,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_42d4007d",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "10116099_2990e9da",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30fbc487_60b2fade",
         "filename": "compiler/dex/quick/arm/codegen_arm.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-06T18:23:05Z",
       "side": 1,
       "message": "what am I? Isn\u0027t ARM implied from the declaration location?",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_e2b88c4e",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "This portion of code follows arm64 and x86_64 implementation. Bill left comment saying that the code will be refactored in arm64 and x86 backend. So I just keep the code in a similar form to make the refactor work easier.\n\nInToRegStorageMapper and InToRegStorageMapping can be shared with all backends.",
+      "parentUuid": "30fbc487_60b2fade",
       "range": {
         "startLine": 36,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d0bfc88a_7ecaf5db",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Will add comment. The class name is copied from arm64 and x86 backend.",
+      "parentUuid": "30fbc487_00c17627",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30fbc487_60895a03",
         "filename": "compiler/dex/quick/arm/fp_arm.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-10-06T18:23:05Z",
       "side": 1,
       "message": "for hard float shouldn\u0027t we just provide a hard float assembly routine?",
+      "range": {
+        "startLine": 94,
+        "startChar": 46,
+        "endLine": 94,
+        "endChar": 56
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_0c494a29",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Will do. And all the other helper functions which takes floating point arguments or returns floating point value need assembly routine.",
+      "parentUuid": "30fbc487_60895a03",
       "range": {
         "startLine": 94,
         "startChar": 46,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_2c5206db",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Agree. At fist, I define this for performance consideration. But now I found that there are too many function calls need to be updated. Also, this change make the code a bit difficult to maintain. Sometimes it is not easy to tell whether it is calling to a C function or a Java method.",
+      "parentUuid": "10116099_c91155c2",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 25
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0cbec63_a510a870",
         "filename": "compiler/dex/quick/ralloc_util.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-10-06T18:23:05Z",
       "side": 1,
       "message": "without the C return variants this can all go",
+      "range": {
+        "startLine": 1368,
+        "startChar": 0,
+        "endLine": 1397,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_4c5752ca",
+        "filename": "compiler/dex/quick/ralloc_util.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "f0cbec63_a510a870",
       "range": {
         "startLine": 1368,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "50c2f81e_cc426203",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "The arm32 hard float ABI defined in aapcs is a bit more complicated than arm64. On arm64, all registers are 64-bit. While on arm32, we have different view of registers. The floating point registers can be regarded as 32-bit registers or 64-bit registers. And aapcs try to make best use of the registers and avoid holes in argument registers, so we have fpr_index and fpr_double_index to track the fp register status.\n\nSo I choose to implement the logic in C/C++ to make the code easier to read.\n\nAnd yes, there is another choice. We can regard all floating point registers as 64-bit just like arm64. In this way, the logic will be simple but left more holes in the argument registers.",
+      "parentUuid": "30fbc487_205d92ec",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0cbec63_8543a46a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2014-10-06T18:23:05Z",
       "side": 1,
       "message": "soft",
+      "range": {
+        "startLine": 65,
+        "startChar": 65,
+        "endLine": 65,
+        "endChar": 69
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_ec4b9e21",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-08T03:51:00Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "f0cbec63_8543a46a",
       "range": {
         "startLine": 65,
         "startChar": 65,
