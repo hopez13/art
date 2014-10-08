@@ -22,6 +22,30 @@
       "revId": "288a4a2bff0ba8840c6fa0dee3c7c9f1934fa530",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bfc88a_8860ca7d",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-08T07:55:31Z",
+      "side": 1,
+      "message": "Good question. Maybe in another change (this one just moves things over), but I think that our current use of this functionality does not make it worth polishing with either error messages/implementation.",
+      "parentUuid": "50c5985b_78fb9d8a",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 2
+      },
+      "revId": "288a4a2bff0ba8840c6fa0dee3c7c9f1934fa530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
