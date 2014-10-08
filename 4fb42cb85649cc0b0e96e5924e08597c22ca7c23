@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "90b9d0ac_30426989",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-08T09:53:10Z",
+      "side": 1,
+      "message": "Yes, it was just a matter of consistency. It seemed to me other parts of the code generators used that layout.",
+      "parentUuid": "d0bfc88a_552d8f82",
+      "range": {
+        "startLine": 357,
+        "startChar": 4,
+        "endLine": 369,
+        "endChar": 5
+      },
+      "revId": "4fb42cb85649cc0b0e96e5924e08597c22ca7c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b9d0ac_d08aed23",
         "filename": "compiler/optimizing/code_generator_x86_64.h",
         "patchSetId": 3
