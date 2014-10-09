@@ -22,6 +22,30 @@
       "revId": "db05e7c37c3b648e281a082da96016246f15154f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d087c827_e9bfd530",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-09T10:40:59Z",
+      "side": 1,
+      "message": "No, as `cmp\u0027 (ARM) and `cmpl\u0027 (x86 \u0026 x86-64) instructions cannot take more than one immediate value.  This CL is mostly a workaround, as I believe the right approach is to get rid of the (run-time) comparison altogether (see https://android-review.googlesource.com/#/c/109783/6).\n\nWithout this change, `InstructionCodeGenerator*::VisitIf\u0027 methods trigger an assertion when `cond\u0027 is an `art::HConstant\u0027.  For instance in the x86 codegen, it aborts with:\n\n  dex2oatd F 38247 38278 art/compiler/optimizing/locations.h:166] Check failed: IsStackSlot() || IsDoubleStackSlot()\n\ntriggered by this this statement:\n\n  __ cmpl(Address(ESP, lhs.GetStackIndex()), Immediate(0))\n\nin art/compiler/optimizing/code_generator_x86.cc:618.",
+      "parentUuid": "d0bfc88a_8693dbbf",
+      "range": {
+        "startLine": 663,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 73
+      },
+      "revId": "db05e7c37c3b648e281a082da96016246f15154f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
