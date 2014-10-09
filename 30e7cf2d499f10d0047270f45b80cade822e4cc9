@@ -22,6 +22,30 @@
       "revId": "30e7cf2d499f10d0047270f45b80cade822e4cc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07c14f2_c85f6f2e",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2014-10-09T12:49:53Z",
+      "side": 1,
+      "message": "I think we want to choose a naming scheme that can also be applied to the old BadOverlap as well.  In descriptive terms, the old BadOverlap() is a partial overlap, while the new IsIntersect() is either partial or full.\n\nPartiallyOverlaps() \u0026 Overlaps()\n\nPartiallyIntersects() and Intesects()\n\n\"Partially\" isn\u0027t my favorite prefix word, though.  Any other suggestions?",
+      "parentUuid": "f0992c84_a7933863",
+      "range": {
+        "startLine": 1501,
+        "startChar": 9,
+        "endLine": 1501,
+        "endChar": 20
+      },
+      "revId": "30e7cf2d499f10d0047270f45b80cade822e4cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
