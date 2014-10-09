@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09ee86b_f72ed8ab",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-09T13:27:54Z",
+      "side": 1,
+      "message": "!\u003d nullptr",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "0981bbbe6e6d192dee3817549183aa8cafb55be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d087c827_cc977f1d",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-09T13:27:54Z",
+      "side": 1,
+      "message": "Unnecessary?",
+      "range": {
+        "startLine": 1153,
+        "startChar": 1,
+        "endLine": 1153,
+        "endChar": 9
+      },
+      "revId": "0981bbbe6e6d192dee3817549183aa8cafb55be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
