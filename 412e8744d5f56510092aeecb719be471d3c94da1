@@ -46,6 +46,30 @@
       "revId": "412e8744d5f56510092aeecb719be471d3c94da1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70761c14_ac9a4746",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-09T22:49:30Z",
+      "side": 1,
+      "message": "Right, it\u0027s not a bug in this change. Thanks.",
+      "parentUuid": "b07c14f2_c82befeb",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 895,
+        "endChar": 38
+      },
+      "revId": "412e8744d5f56510092aeecb719be471d3c94da1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
