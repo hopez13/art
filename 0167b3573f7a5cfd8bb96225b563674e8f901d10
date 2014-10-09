@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09ee86b_54cfa2e9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-09T13:25:24Z",
+      "side": 1,
+      "message": "If you want to get rid of ManagedRegister and its subclasses in the optimizing compiler, may I suggest updating InvokeDexCallingConvention as well?",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 411,
+        "endChar": 57
+      },
+      "revId": "0167b3573f7a5cfd8bb96225b563674e8f901d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d087c827_6cde9370",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-09T13:25:24Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be `source\u0027 instead here? Oh, you fixed it in PS3.",
+      "range": {
+        "startLine": 514,
+        "startChar": 18,
+        "endLine": 514,
+        "endChar": 29
+      },
+      "revId": "0167b3573f7a5cfd8bb96225b563674e8f901d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d087c827_4c28ef74",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-09T13:25:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 363,
+        "startChar": 8,
+        "endLine": 364,
+        "endChar": 57
+      },
+      "revId": "0167b3573f7a5cfd8bb96225b563674e8f901d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d09ee86b_b70d3058",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-09T13:25:24Z",
+      "side": 1,
+      "message": "Suggestion: factor using\n\n  Location output \u003d locations-\u003eOut().As\u003cCpuRegister\u003e();\n\nas in compiler/optimizing/code_generator_x86.cc and compiler/optimizing/code_generator_arm.cc.",
+      "range": {
+        "startLine": 658,
+        "startChar": 10,
+        "endLine": 658,
+        "endChar": 44
+      },
+      "revId": "0167b3573f7a5cfd8bb96225b563674e8f901d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
