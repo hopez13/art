@@ -16,6 +16,24 @@
       "revId": "87ded59d35b3cf78acd7415ccfd932860bab2e01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10bfa0c3_722e5133",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-09T21:25:48Z",
+      "side": 1,
+      "message": "The most common values, by a long way, post change are 0, 1, and 3. CTZ has higher cost than a shift and post change there are as many shifts as there were with the change. As the number of operations is less and the common patterns trivially handled with this code I\u0027ve not done a benchmark analysis. I did analyze the encoded values.",
+      "parentUuid": "9081d019_2afc7f1b",
+      "revId": "87ded59d35b3cf78acd7415ccfd932860bab2e01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
