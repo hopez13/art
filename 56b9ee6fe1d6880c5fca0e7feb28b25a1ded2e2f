@@ -22,6 +22,30 @@
       "revId": "56b9ee6fe1d6880c5fca0e7feb28b25a1ded2e2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50c2f81e_85f74d38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-09T13:50:57Z",
+      "side": 1,
+      "message": "As discussed, it\u0027s to remove an unnecessary intermediate representation between Location and the different enums for registers. Location now knows what kind of register it has.\n\nFor example, before we used to go:\nenum -\u003e ManagedRegister -\u003e Location\n\nNow it\u0027s just:\nenum -\u003e Location.",
+      "parentUuid": "d087c827_0ce6f7c2",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "56b9ee6fe1d6880c5fca0e7feb28b25a1ded2e2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
