@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9081d019_2afc7f1b",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-10-09T21:05:17Z",
+      "side": 1,
+      "message": "Did you benchmark this to make sure that it is faster than using  CLZ/CTZ? How about something like this,so you can avoid the branch of the if statement.\n\nwhile (ref_offsets) {\n\nsize_t shift \u003d CTZ(ref_offsets)\n\nfield_offset +\u003d shift * sizeof(heap reference);\n\nref_offsets \u003e\u003e\u003d shift + 1;\n\nvisitor(this, MemberOffset(field_offset), kIsStatic);\n\nfield_offset +\u003d sizeof(sizeof(heap reference));\n\n}",
+      "revId": "87ded59d35b3cf78acd7415ccfd932860bab2e01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
