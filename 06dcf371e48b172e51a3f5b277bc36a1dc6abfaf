@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a8f091_e35e1a6b",
+        "filename": "compiler/dex/quick/arm64/codegen_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-09T16:11:52Z",
+      "side": 1,
+      "message": "do we need the flags? Could we be passing the flag as check_zero?",
+      "range": {
+        "startLine": 367,
+        "startChar": 53,
+        "endLine": 367,
+        "endChar": 63
+      },
+      "revId": "06dcf371e48b172e51a3f5b277bc36a1dc6abfaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508af82f_505252db",
+        "filename": "compiler/dex/quick/mips/codegen_mips.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-09T16:11:52Z",
+      "side": 1,
+      "message": "why change an unused private function? If this is tied into OVERRIDE-ing then can you add the attribute (and elsewhere if appropriate)",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 88
+      },
+      "revId": "06dcf371e48b172e51a3f5b277bc36a1dc6abfaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30974456_ef7a7d11",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-09T16:11:52Z",
+      "side": 1,
+      "message": "flags",
+      "range": {
+        "startLine": 865,
+        "startChar": 82,
+        "endLine": 865,
+        "endChar": 87
+      },
+      "revId": "06dcf371e48b172e51a3f5b277bc36a1dc6abfaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
