@@ -22,6 +22,30 @@
       "revId": "48c1ce0ca0fae3cad33a19efd39ce434b530fd83",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30974456_d245640d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4329,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-09T17:35:59Z",
+      "side": 1,
+      "message": "Your WaitIgnoringInterrupts obsoleted this comment a bit. That seems to be masking the interruptShouldThrow\u003dfalse. But even before, this seemed to be dealing with a very odd case, since it seems to be saying WTF, how did we get an exception if we said not to be interrupted.",
+      "parentUuid": "f0820c18_99106771",
+      "range": {
+        "startLine": 4317,
+        "startChar": 1,
+        "endLine": 4329,
+        "endChar": 5
+      },
+      "revId": "48c1ce0ca0fae3cad33a19efd39ce434b530fd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
