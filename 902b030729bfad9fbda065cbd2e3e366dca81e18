@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_17ea1409",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "^_^",
+      "parentUuid": "90a630d2_c22744a3",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 10
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0a174bc_204dca03",
         "filename": "compiler/dex/quick/arm/codegen_arm.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 34,
+        "startChar": 72,
+        "endLine": 34,
+        "endChar": 73
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_58079d3d",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "As this function is used to get next RegStorage, it need to update the status of the object. So it is not a const function.",
+      "parentUuid": "b0a174bc_204dca03",
       "range": {
         "startLine": 34,
         "startChar": 72,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_b7efe814",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a174bc_6053d2ac",
+      "range": {
+        "startLine": 40,
+        "startChar": 31,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a630d2_022e4c83",
         "filename": "compiler/dex/quick/arm/codegen_arm.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "const? Normally accessors should be const",
+      "range": {
+        "startLine": 47,
+        "startChar": 64,
+        "endLine": 47,
+        "endChar": 65
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90bf10de_f7f560e8",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "90a630d2_022e4c83",
       "range": {
         "startLine": 47,
         "startChar": 64,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_57e08c28",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "There is no lint warning here. Probably due to it is inside another class?",
+      "parentUuid": "b0a174bc_a040bacf",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 11
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a630d2_821b7c65",
         "filename": "compiler/dex/quick/arm/codegen_arm.h",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_d7fa5cd8",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Yes, uint32_t is better.",
+      "parentUuid": "90a630d2_821b7c65",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0a174bc_4050ce9d",
         "filename": "compiler/dex/quick/arm/codegen_arm.h",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "FINAL",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_982bf5a8",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a174bc_4050ce9d",
       "range": {
         "startLine": 55,
         "startChar": 29,
@@ -203,6 +371,48 @@
     },
     {
       "key": {
+        "uuid": "b0ba54ec_78114173",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a630d2_4225749e",
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d45c2e_560e5453",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a630d2_22227098",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d09c2886_61819688",
         "filename": "compiler/dex/quick/arm/codegen_arm.h",
         "patchSetId": 3
@@ -214,6 +424,24 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "const",
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_580e7d53",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d09c2886_61819688",
       "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -266,6 +494,54 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_97f4e4e9",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a174bc_a0b79a7c",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 81
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90bf10de_770a7049",
+        "filename": "compiler/dex/quick/arm/codegen_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d09c2886_417e9208",
+      "range": {
+        "startLine": 332,
+        "startChar": 30,
+        "endLine": 332,
+        "endChar": 31
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d09c2886_810b7a93",
         "filename": "compiler/dex/quick/arm/target_arm.cc",
         "patchSetId": 3
@@ -277,6 +553,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "create a \"static constexpr bool kArm32IsSoftFp\" and then rewrite the ifdefs here to be \"if (kArm....)\" so that we build both paths even though one is disabled.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 33
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d45c2e_362cf803",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d09c2886_810b7a93",
       "range": {
         "startLine": 107,
         "startChar": 0,
@@ -312,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "70d45c2e_1629fcf3",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a174bc_40a7ae48",
+      "range": {
+        "startLine": 726,
+        "startChar": 0,
+        "endLine": 726,
+        "endChar": 34
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a630d2_223950c6",
         "filename": "compiler/dex/quick/arm/target_arm.cc",
         "patchSetId": 3
@@ -323,6 +647,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "prefer uint32_t?",
+      "range": {
+        "startLine": 918,
+        "startChar": 8,
+        "endLine": 918,
+        "endChar": 11
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_58355df9",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a630d2_223950c6",
       "range": {
         "startLine": 918,
         "startChar": 8,
@@ -358,6 +706,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_3704f836",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a174bc_20a4aa41",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 932,
+        "endChar": 5
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a630d2_e2d92839",
         "filename": "compiler/dex/quick/arm/target_arm.cc",
         "patchSetId": 3
@@ -369,6 +741,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "as cur_fp_reg_ is signed then \"% 2\" can return -1 (e.g. -1 % 2 \u003d\u003d -1), prefer \"cur_fp_reg_ \u0026 1 \u003d\u003d 0\"",
+      "range": {
+        "startLine": 938,
+        "startChar": 10,
+        "endLine": 938,
+        "endChar": 25
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_3832a913",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "cur_fp_reg_ is uint32_t now.",
+      "parentUuid": "90a630d2_e2d92839",
       "range": {
         "startLine": 938,
         "startChar": 10,
@@ -404,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "70d45c2e_962bcca8",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "It is a place holder. As I want to Implement FlushIns() for long, double argument registers.\n\nAnd probably it can go to common code, as I don\u0027t see much architecture dependency here.\n\nI will remove the FlushIns() implementation in the derived class, as currently it just calls its parent implementation.",
+      "parentUuid": "d09c2886_01f76a39",
+      "range": {
+        "startLine": 1009,
+        "startChar": 1,
+        "endLine": 1009,
+        "endChar": 6
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d09c2886_e1c926e7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 3
@@ -415,6 +835,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "place on line above?",
+      "range": {
+        "startLine": 554,
+        "startChar": 10,
+        "endLine": 554,
+        "endChar": 20
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d45c2e_36899849",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d09c2886_e1c926e7",
       "range": {
         "startLine": 554,
         "startChar": 10,
@@ -450,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "70d45c2e_f6c440cf",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a174bc_a08e7aba",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 33
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a630d2_c2de241f",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
         "patchSetId": 3
@@ -461,6 +929,30 @@
       "writtenOn": "2014-10-10T03:39:01Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 33
+      },
+      "revId": "902b030729bfad9fbda065cbd2e3e366dca81e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d45c2e_d6c944e7",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:26:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a630d2_c2de241f",
       "range": {
         "startLine": 122,
         "startChar": 0,
