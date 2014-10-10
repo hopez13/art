@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_579bec4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-10T11:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90bf10de_d7d93c39",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0ba54ec_38eaa9b2",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-10T10:34:03Z",
       "side": 1,
       "message": "memset?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d45c2e_16121cc6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-10T11:35:46Z",
+      "side": 1,
+      "message": "I actually find a loop clearer. Also memset you need to know the datastructure size (that is do sizeof(bool) * GetNumberOfcoreRegisters()), and if ever change the definition of that data structure, we would not catch the misuse here.",
+      "parentUuid": "b0ba54ec_38eaa9b2",
       "range": {
         "startLine": 158,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_f770c081",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-10T11:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0ba54ec_98b1b5db",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 32
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0ba54ec_1895a514",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "90bf10de_b77a485e",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-10T11:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0ba54ec_1895a514",
+      "range": {
+        "startLine": 192,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 14
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90bf10de_573f6cac",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2014-10-10T10:34:03Z",
       "side": 1,
       "message": "This asserts (indirectly, through checks that happen during FromRegisterPair) that you always have a free register. Is that true?\n\n(similar for the other cases)",
+      "range": {
+        "startLine": 191,
+        "startChar": 19,
+        "endLine": 191,
+        "endChar": 32
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d45c2e_562f74fa",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-10T11:35:46Z",
+      "side": 1,
+      "message": "Yes, otherwise your location summary does not match what the underlying architecture can provide you. For example if your summary says you want three registers, but the architecture only has two, you have a problem.... I added a DCHECK.",
+      "parentUuid": "90bf10de_573f6cac",
       "range": {
         "startLine": 191,
         "startChar": 19,
