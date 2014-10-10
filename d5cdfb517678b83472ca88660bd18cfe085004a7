@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90bf10de_d7d93c39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-10T10:34:03Z",
+      "side": 1,
+      "message": "It\u0027s always nice to say a few words what exactly was clean-up. \n\n- good for history \n- easier to follow the evolution\n- easier to review since you know what to expect (at least for starters :) )",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_38eaa9b2",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-10T10:34:03Z",
+      "side": 1,
+      "message": "memset?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_98b1b5db",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-10T10:34:03Z",
+      "side": 1,
+      "message": "I think the comment at L174 is enough. Eventually you can push it before the if and change to \"DCHECK that a register...\"",
+      "range": {
+        "startLine": 178,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 32
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_1895a514",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-10T10:34:03Z",
+      "side": 1,
+      "message": "since these are fields I find \"Temporary\" a bit misleading. (i.e. What makes them temporary?)",
+      "range": {
+        "startLine": 192,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 14
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90bf10de_573f6cac",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-10T10:34:03Z",
+      "side": 1,
+      "message": "This asserts (indirectly, through checks that happen during FromRegisterPair) that you always have a free register. Is that true?\n\n(similar for the other cases)",
+      "range": {
+        "startLine": 191,
+        "startChar": 19,
+        "endLine": 191,
+        "endChar": 32
+      },
+      "revId": "d5cdfb517678b83472ca88660bd18cfe085004a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
