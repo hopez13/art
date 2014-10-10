@@ -22,6 +22,30 @@
       "revId": "7b96469a6180ea9480a3a5866a58a0f4bcfb9820",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a630d2_a5156a32",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-10T05:22:35Z",
+      "side": 1,
+      "message": "I thought I got a warning here, but was confused. Removed.",
+      "parentUuid": "d09c2886_813c9a09",
+      "range": {
+        "startLine": 1132,
+        "startChar": 17,
+        "endLine": 1132,
+        "endChar": 38
+      },
+      "revId": "7b96469a6180ea9480a3a5866a58a0f4bcfb9820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
