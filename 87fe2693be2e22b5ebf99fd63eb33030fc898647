@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d09ee86b_14c51aca",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:29:26Z",
+      "side": 1,
+      "message": "As it has been fixed by previous patch, I just left this unchanged without adding additional comments.",
+      "parentUuid": "d0bfc88a_be286df0",
+      "range": {
+        "startLine": 1540,
+        "startChar": 6,
+        "endLine": 1540,
+        "endChar": 74
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10116099_89991d0e",
         "filename": "compiler/dex/quick/arm/arm_lir.h",
         "patchSetId": 2
@@ -437,6 +461,30 @@
       "side": 1,
       "message": "I guess the choices are:\nAAPCS  - would make a future transition to hard float native easier, packs holes, more complex\nARM64 style - simpler\nDo Stuart or the other ARM folks have input?\nI\u0027m concerned about the stack usage with those approach, as well as the complexity.",
       "parentUuid": "50c2f81e_cc426203",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_180805c3",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-10T11:29:26Z",
+      "side": 1,
+      "message": "We\u0027ve discussed about it and we trend to follow AAPCS.",
+      "parentUuid": "d09c2886_81e01a53",
       "range": {
         "startLine": 24,
         "startChar": 0,
