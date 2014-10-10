@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70d45c2e_d6d38466",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-10-10T04:09:01Z",
+      "side": 1,
+      "message": "Why should not it be fixed for x86_64 as well? Did I miss anything?",
+      "range": {
+        "startLine": 1844,
+        "startChar": 14,
+        "endLine": 1844,
+        "endChar": 27
+      },
+      "revId": "d8c3e3608a7b47e82186e4f8118541ef06d9eab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0ba54ec_b8d8f983",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1848,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-10-10T04:09:01Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 1848,
+        "startChar": 13,
+        "endLine": 1848,
+        "endChar": 31
+      },
+      "revId": "d8c3e3608a7b47e82186e4f8118541ef06d9eab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
