@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70d45c2e_961cecd6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3270,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-10T11:21:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50c2f81e_dc09b953",
+      "range": {
+        "startLine": 3270,
+        "startChar": 10,
+        "endLine": 3270,
+        "endChar": 45
+      },
+      "revId": "a9ceeafb7508ae46d009251bac5a2ed864caf888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bfc88a_b8008523",
         "filename": "runtime/debugger.cc",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-06T14:40:25Z",
       "side": 1,
       "message": "IMO this only concerns resolution trampoline. We should create a dedicated version of IsForcedInterpreterNeededForCalling when we are in the resolution trampoline. \n\nI\u0027ll add a JDWP testcase for single-stepping out of class initializer.",
+      "range": {
+        "startLine": 3284,
+        "startChar": 10,
+        "endLine": 3292,
+        "endChar": 11
+      },
+      "revId": "a9ceeafb7508ae46d009251bac5a2ed864caf888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90bf10de_977f444e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3292,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-10T11:21:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bfc88a_b8008523",
       "range": {
         "startLine": 3284,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "70d45c2e_76327066",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3296,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-10T11:21:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90b9d0ac_1b018b73",
+      "range": {
+        "startLine": 3296,
+        "startChar": 78,
+        "endLine": 3296,
+        "endChar": 85
+      },
+      "revId": "a9ceeafb7508ae46d009251bac5a2ed864caf888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bfc88a_78220dcf",
         "filename": "runtime/debugger.cc",
         "patchSetId": 14
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-06T14:40:25Z",
       "side": 1,
       "message": "Same than above: it\u0027s only useful in the context of resolution trampoline, right? \n\nI\u0027ll add a JDWP testcase for that too.",
+      "range": {
+        "startLine": 3298,
+        "startChar": 8,
+        "endLine": 3298,
+        "endChar": 49
+      },
+      "revId": "a9ceeafb7508ae46d009251bac5a2ed864caf888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90bf10de_7765d0b8",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3298,
+      "author": {
+        "id": 1051274
+      },
+      "writtenOn": "2014-10-10T11:21:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bfc88a_78220dcf",
       "range": {
         "startLine": 3298,
         "startChar": 8,
