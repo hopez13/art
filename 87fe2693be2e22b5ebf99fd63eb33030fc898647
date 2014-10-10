@@ -497,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "d038a85e_61117673",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-10T15:13:39Z",
+      "side": 1,
+      "message": "I agree. I\u0027ll see about writing this in assembly.",
+      "parentUuid": "b0ba54ec_180805c3",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0cbec63_8543a46a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
