@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "d09c2886_81e01a53",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-10T03:42:05Z",
+      "side": 1,
+      "message": "I guess the choices are:\nAAPCS  - would make a future transition to hard float native easier, packs holes, more complex\nARM64 style - simpler\nDo Stuart or the other ARM folks have input?\nI\u0027m concerned about the stack usage with those approach, as well as the complexity.",
+      "parentUuid": "50c2f81e_cc426203",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0cbec63_8543a46a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
