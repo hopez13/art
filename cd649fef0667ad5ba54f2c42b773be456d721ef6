@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9042b0da_5ffa0b57",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3292,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-10T17:30:00Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s correct. I just hit this check during a new JDWP test I\u0027m writing. The resolution trampoline, as its name implies, not only deals with static method for class initialization: it is also used to resolve method on first access.\n\nI think we should just do the same in that case and check whether we need to force interpreter once the method is resolved.",
+      "range": {
+        "startLine": 3292,
+        "startChar": 2,
+        "endLine": 3292,
+        "endChar": 24
+      },
+      "revId": "cd649fef0667ad5ba54f2c42b773be456d721ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
