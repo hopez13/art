@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9042b0da_c5b72e7c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-13T14:38:53Z",
+      "side": 1,
+      "message": "This shows a nice bug when the output and input registers are the same.\nThe same issue happens on x86_64.",
+      "revId": "18efde5017369e005f1e8bcd3bbfb04e85053640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
