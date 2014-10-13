@@ -521,6 +521,30 @@
     },
     {
       "key": {
+        "uuid": "9042b0da_251b7a95",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-13T10:06:43Z",
+      "side": 1,
+      "message": "To follow aapcs would make us spend more time on re-writing the logic in assembly. But it also gives us some additional advantage, for example, we can make the trick to left fp registers un-touched and only update core registers and the stack when making a jni call.\n\nSo let\u0027s just use aapcs for fp argument registers as a starting point.",
+      "parentUuid": "d038a85e_61117673",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 1
+      },
+      "revId": "87fe2693be2e22b5ebf99fd63eb33030fc898647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0cbec63_8543a46a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
