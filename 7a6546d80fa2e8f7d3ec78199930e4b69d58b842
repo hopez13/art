@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10f960d6_720166a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-13T03:47:23Z",
+      "side": 1,
+      "message": "not sure I follow this. this seems to be making gtest and other debug stuff be protected by the ART_BUILD_*_DEBUG vars which seems fine, but the subject seems disconnected from that.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "7a6546d80fa2e8f7d3ec78199930e4b69d58b842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
