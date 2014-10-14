@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "502d9828_f8220d15",
+        "filename": "runtime/native_bridge_art_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-14T09:06:42Z",
+      "side": 1,
+      "message": "Make it const?",
+      "range": {
+        "startLine": 31,
+        "startChar": 27,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "c1e2e072719886ab523c90ad1976c4cc99b8cb1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "502d9828_981759b2",
+        "filename": "runtime/native_bridge_art_interface.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-14T09:06:42Z",
+      "side": 1,
+      "message": "should this be std::string as well (dir is a std::string)?",
+      "range": {
+        "startLine": 34,
+        "startChar": 53,
+        "endLine": 34,
+        "endChar": 54
+      },
+      "revId": "c1e2e072719886ab523c90ad1976c4cc99b8cb1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
