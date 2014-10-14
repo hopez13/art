@@ -16,6 +16,24 @@
       "revId": "18efde5017369e005f1e8bcd3bbfb04e85053640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9042b0da_88f7fb6a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-14T07:57:45Z",
+      "side": 1,
+      "message": "Indeed, thanks for spotting it. Will fix.",
+      "parentUuid": "9042b0da_c5b72e7c",
+      "revId": "18efde5017369e005f1e8bcd3bbfb04e85053640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
