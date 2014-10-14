@@ -22,6 +22,30 @@
       "revId": "565cd575dd13a771a31065a7228eef6ec9f8f7a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d086e864_b1882001",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T13:46:04Z",
+      "side": 1,
+      "message": "Thanks for spotting this one!  Yes, that would be a bug, especially since static evaluation of conditions has been normalized to either return 0 or 1.",
+      "parentUuid": "502d9828_9b3bd363",
+      "range": {
+        "startLine": 646,
+        "startChar": 44,
+        "endLine": 646,
+        "endChar": 45
+      },
+      "revId": "565cd575dd13a771a31065a7228eef6ec9f8f7a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
