@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "502d9828_fb56871e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T10:56:53Z",
+      "side": 1,
+      "message": "We cannot return yet, as we may need to generate a branch instruction to the \"false\" successor on line 687.",
+      "parentUuid": "502d9828_db6aabdf",
+      "range": {
+        "startLine": 647,
+        "startChar": 57,
+        "endLine": 647,
+        "endChar": 62
+      },
+      "revId": "73019221859eb8e7e6ae7cf0b6740c0f8d2258ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9042b0da_13d47c4d",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-14T10:24:22Z",
       "side": 1,
       "message": "Did you see this happening? It\u0027s probably a bug if we enter here with a long constant.",
+      "range": {
+        "startLine": 649,
+        "startChar": 19,
+        "endLine": 649,
+        "endChar": 33
+      },
+      "revId": "73019221859eb8e7e6ae7cf0b6740c0f8d2258ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b03df44e_097f71d9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T10:56:53Z",
+      "side": 1,
+      "message": "Yes, I guess it would probably be a bug.  I got rid of these cases.",
+      "parentUuid": "9042b0da_13d47c4d",
       "range": {
         "startLine": 649,
         "startChar": 19,
