@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b03df44e_293cb5b5",
+        "filename": "test/083-compiler-regressions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-14T08:18:50Z",
+      "side": 1,
+      "message": "In the future, I\u0027d really like to see those tests in a separate run-test. There\u0027s some things in this file that the optimizing compiler can\u0027t and can handle. For the ones that it can, having a dedicated test adds the benefit of testing all our compilers.\n\nAlso, a dedicated one easily tells us what is failing in case of a regression.",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "7cd01f5d496c384874ea8c21eafb2b6479833e6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
