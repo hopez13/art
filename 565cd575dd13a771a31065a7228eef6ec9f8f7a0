@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "502d9828_9b3bd363",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-14T13:18:35Z",
+      "side": 1,
+      "message": "Ins\u0027t it a bug if it\u0027s something different than 1 or 0? Maybe change this to compare with 1 and DCHECK that it\u0027s 0 in the else branch.",
+      "range": {
+        "startLine": 646,
+        "startChar": 44,
+        "endLine": 646,
+        "endChar": 45
+      },
+      "revId": "565cd575dd13a771a31065a7228eef6ec9f8f7a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
