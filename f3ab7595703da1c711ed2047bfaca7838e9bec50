@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "502d9828_db794bf6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T16:18:46Z",
+      "side": 1,
+      "message": "Suggestion: use an unnamed namespace for local helper routines instead of static functions.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "502d9828_18da69a0",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -140,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "502d9828_9b73d312",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T16:18:46Z",
+      "side": 1,
+      "message": "Use LoadFromOffset instead of Ldr (and likewise everywhere in this file)?",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 93,
+        "endChar": 10
+      },
+      "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b03df44e_0939b17b",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -209,6 +255,29 @@
     },
     {
       "key": {
+        "uuid": "502d9828_1b5fc368",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T16:18:46Z",
+      "side": 1,
+      "message": "Use StoreToOffset instead of Str (and likewise everywhere in this file)?",
+      "range": {
+        "startLine": 220,
+        "startChar": 5,
+        "endLine": 220,
+        "endChar": 8
+      },
+      "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "502d9828_38ae45f5",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -225,6 +294,29 @@
         "startChar": 58,
         "endLine": 242,
         "endChar": 66
+      },
+      "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b08b346f_50552c46",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T16:18:46Z",
+      "side": 1,
+      "message": "Have one argument per line here?",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 72
       },
       "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -554,6 +646,29 @@
     },
     {
       "key": {
+        "uuid": "b08b346f_1046c418",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T16:18:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be restricted to implementation (.cc) files?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b03df44e_a900c570",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 2
@@ -570,6 +685,29 @@
         "startChar": 10,
         "endLine": 125,
         "endChar": 14
+      },
+      "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b08b346f_d3892608",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-14T16:18:46Z",
+      "side": 1,
+      "message": "Maybe place each comparison on its own line for readability purpose?",
+      "range": {
+        "startLine": 216,
+        "startChar": 6,
+        "endLine": 217,
+        "endChar": 31
       },
       "revId": "f3ab7595703da1c711ed2047bfaca7838e9bec50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
