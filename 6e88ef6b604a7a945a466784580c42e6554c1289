@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901b9006_7156189e",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-15T03:18:21Z",
+      "side": 1,
+      "message": "you want SetUp I believe. it is automatically called before each test.\n\nand you need TearDown to cleanup, so valgrind won\u0027t complain about the leak.",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 17
+      },
+      "revId": "6e88ef6b604a7a945a466784580c42e6554c1289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
