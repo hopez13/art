@@ -22,6 +22,30 @@
       "revId": "35274252040670cec78b7abe8322e5dd9b24ee26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b064149b_28b4cbf3",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-15T05:43:53Z",
+      "side": 0,
+      "message": "I\u0027ll sanity check this. The source of runtime truth is supposed to be hwcap, the reason to get rid of the assembly was that we were placing it in libart as an unhidden symbol then only using it here for compiler testing. I could bring it back as inline assembly.",
+      "parentUuid": "70753c3d_b469e869",
+      "range": {
+        "startLine": 97,
+        "startChar": 47,
+        "endLine": 97,
+        "endChar": 52
+      },
+      "revId": "35274252040670cec78b7abe8322e5dd9b24ee26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
