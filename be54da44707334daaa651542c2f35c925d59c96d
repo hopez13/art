@@ -2,6 +2,167 @@
   "comments": [
     {
       "key": {
+        "uuid": "d06fc874_89eff914",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "How about:\n\nbool is_portable \u003d code !\u003d nullptr;\nif (is_portable) {\n...",
+      "range": {
+        "startLine": 108,
+        "startChar": 9,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_0a1bfb94",
+        "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "Can this be const ref instead?",
+      "range": {
+        "startLine": 28,
+        "startChar": 78,
+        "endLine": 28,
+        "endChar": 79
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_2a183f95",
+        "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 36,
+        "startChar": 56,
+        "endLine": 36,
+        "endChar": 68
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_a9f43de9",
+        "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 39,
+        "startChar": 57,
+        "endLine": 39,
+        "endChar": 69
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_490a6149",
+        "filename": "runtime/entrypoints/runtime_asm_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "2014",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_ca43a36d",
+        "filename": "runtime/entrypoints/runtime_asm_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "Why isn\u0027t this one void* (like the rest in this file)?",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_09046936",
+        "filename": "runtime/entrypoints/runtime_asm_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-15T07:56:50Z",
+      "side": 1,
+      "message": "const void* ?",
+      "range": {
+        "startLine": 75,
+        "startChar": 14,
+        "endLine": 75,
+        "endChar": 18
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "901b9006_11955cca",
         "filename": "runtime/profiler.cc",
         "patchSetId": 2
