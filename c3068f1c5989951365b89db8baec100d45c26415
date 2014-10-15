@@ -117,6 +117,30 @@
       "revId": "c3068f1c5989951365b89db8baec100d45c26415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "305824e5_d81dbdd5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-15T23:16:31Z",
+      "side": 1,
+      "message": "Sounds good to me. I only wrote that because your previous comment seemed to allude that it would only be possible as result of optimizations when it could be result of real code. Anyway, thanks for the answer :)",
+      "parentUuid": "f06a0c65_ed97a1a9",
+      "range": {
+        "startLine": 1172,
+        "startChar": 5,
+        "endLine": 1172,
+        "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
