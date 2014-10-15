@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f06a0c65_8d9ce5cf",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-15T23:12:55Z",
+      "side": 1,
+      "message": "When we allocate a register pair we only look at the blocked_register_pairs_. This is basically to keep it in sync with bloked_core_registers_. Otherwise we could allocate for example EAX_EDX when EAX is already allocated.\n\nObviously, we could just do extra tests during allocations but this way seems simpler, cleaner and also keeps things in a consistent state.",
+      "parentUuid": "901b9006_6f2f0ca9",
+      "range": {
+        "startLine": 117,
+        "startChar": 15,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_2c1ffbf7",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "const-wide/high16 v2, #ff\nmul-long v0, v0, v2\n\nI would guess that for this case the HGraph actually creates a constant node for second operand location. In fact, I bet that the TODO here is a functional problem since it will go to memory case which may not have updated location.",
       "parentUuid": "d06fc874_2c1ffbf7",
+      "range": {
+        "startLine": 1172,
+        "startChar": 5,
+        "endLine": 1172,
+        "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_ed97a1a9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-15T23:12:55Z",
+      "side": 1,
+      "message": "yea... I agree :) hence the TODO. I added the comment to get this kind of feedback.\n\nI\u0027ll fill the missing bits in a follow up CL.",
+      "parentUuid": "901b9006_af3524fc",
       "range": {
         "startLine": 1172,
         "startChar": 5,
