@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d06fc874_2c1ffbf7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-15T22:09:42Z",
+      "side": 1,
+      "message": "There\u0027s no code actually that can generate this yet... and there\u0027s no dex instruction for multiply a long with a literal. \n\nI wonder if we should bother. Left it as TODO since we might want to consider it for optimizations (?). same for other arches.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 5,
+        "endLine": 1172,
+        "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
