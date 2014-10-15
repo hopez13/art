@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901b9006_115d5ceb",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2014-10-15T01:09:03Z",
+      "side": 1,
+      "message": "I could also use this variable if hardcoding 0x00008000 wasn\u0027t acceptable. \n\n(on an aside, this really should be 32K, not 64K).",
+      "revId": "564bbb70bf2d860c9a1c2114c860328572fe2355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
