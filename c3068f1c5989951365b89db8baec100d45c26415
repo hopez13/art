@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "901b9006_6f2f0ca9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-15T22:16:23Z",
+      "side": 1,
+      "message": "A more complete explanation for this would be appreciated. Is it not enough to have the register blocked? Why do you also need to block the pair?",
+      "range": {
+        "startLine": 117,
+        "startChar": 15,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_2c1ffbf7",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -13,6 +36,30 @@
       "writtenOn": "2014-10-15T22:09:42Z",
       "side": 1,
       "message": "There\u0027s no code actually that can generate this yet... and there\u0027s no dex instruction for multiply a long with a literal. \n\nI wonder if we should bother. Left it as TODO since we might want to consider it for optimizations (?). same for other arches.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 5,
+        "endLine": 1172,
+        "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901b9006_af3524fc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-10-15T22:16:23Z",
+      "side": 1,
+      "message": "const-wide/high16 v2, #ff\nmul-long v0, v0, v2\n\nI would guess that for this case the HGraph actually creates a constant node for second operand location. In fact, I bet that the TODO here is a functional problem since it will go to memory case which may not have updated location.",
+      "parentUuid": "d06fc874_2c1ffbf7",
       "range": {
         "startLine": 1172,
         "startChar": 5,
