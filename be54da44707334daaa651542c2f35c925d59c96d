@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "901b9006_0c2223ce",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-15T10:17:11Z",
+      "side": 1,
+      "message": "Sounds good, will follow up.",
+      "parentUuid": "d06fc874_89eff914",
+      "range": {
+        "startLine": 108,
+        "startChar": 9,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f06a0c65_0a1bfb94",
         "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-15T07:56:50Z",
       "side": 1,
       "message": "Can this be const ref instead?",
+      "range": {
+        "startLine": 28,
+        "startChar": 78,
+        "endLine": 28,
+        "endChar": 79
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70753c3d_d447d498",
+        "filename": "runtime/entrypoints/interpreter/interpreter_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-15T10:17:11Z",
+      "side": 1,
+      "message": "The shorty code does lazy initialization, so no. But long-term, death to MethodHelpers.",
+      "parentUuid": "f06a0c65_0a1bfb94",
       "range": {
         "startLine": 28,
         "startChar": 78,
@@ -105,6 +153,30 @@
       "writtenOn": "2014-10-15T07:56:50Z",
       "side": 1,
       "message": "2014",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "be54da44707334daaa651542c2f35c925d59c96d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b064149b_885137d8",
+        "filename": "runtime/entrypoints/runtime_asm_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-15T10:17:11Z",
+      "side": 1,
+      "message": "This is a copy of code written in 2012.",
+      "parentUuid": "d06fc874_490a6149",
       "range": {
         "startLine": 2,
         "startChar": 17,
