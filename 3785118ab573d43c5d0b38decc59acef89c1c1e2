@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9069d076_471b2e66",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-15T10:25:47Z",
+      "side": 1,
+      "message": "input_in_register?",
+      "range": {
+        "startLine": 1149,
+        "startChar": 11,
+        "endLine": 1149,
+        "endChar": 29
+      },
+      "revId": "3785118ab573d43c5d0b38decc59acef89c1c1e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_679bd24d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-15T10:25:47Z",
+      "side": 1,
+      "message": "What about using a template here to abstract the location of the second operand?  Maybe something like this:\n\n  template \u003ctypename T\u003e\n  void LongMul(const Register\u0026 eax, const Register\u0026 edx,\n               const Register\u0026 in1_reg_hi, const Register\u0026 in1_reg_lo,\n               const T\u0026 in2_H, const T\u0026 in2_L) {\n    // input: in1 - 64 bits, in2 - 64 bits\n    // outut: in1\n    // formula: in1.hi : in1.lo \u003d (in1.lo * in2.hi + in1.hi * in2.lo)* 2^32 + in1.lo * in2.lo\n    // parts: in1.hi \u003d in1.lo * in2.hi + in1.hi * in2.lo + (in1.lo * in2.lo)[63:32]\n    // parts: in1.lo \u003d (in1.lo * in2.lo)[31:0]\n    __ movl(eax, in2_H);\n    // eax \u003c- in1.lo * in2.hi\n    __ imull(eax, in1_reg_lo);\n    // in1.hi \u003c- in1.hi * in2.lo\n    __ imull(in1_reg_hi, in2_L);\n    // in1.hi \u003c- in1.lo * in2.hi + in1.hi * in2.lo\n    __ addl(in1_reg_hi, eax);\n    // move in1_reg_lo to eax to prepare for double precision\n    __ movl(eax, in1_reg_lo);\n    // edx:eax \u003c- in1.lo * in2.lo\n    __ imull(in2_L);\n    // in1.hi \u003c- in2.hi * in1.lo +  in2.lo * in1.hi + (in1.lo * in2.lo)[63:32]\n    __ addl(in1_reg_hi, edx);\n    // in1.lo \u003c- (in1.lo * in2.lo)[31:0];\n    __ movl(in1_reg_lo, eax);\n  }",
+      "range": {
+        "startLine": 1163,
+        "startChar": 6,
+        "endLine": 1189,
+        "endChar": 31
+      },
+      "revId": "3785118ab573d43c5d0b38decc59acef89c1c1e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_6991655a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1941,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-15T10:25:47Z",
+      "side": 1,
+      "message": "If this is a trailing blank line, remove it.",
+      "revId": "3785118ab573d43c5d0b38decc59acef89c1c1e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_a7e30ae7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-15T10:25:47Z",
+      "side": 1,
+      "message": "If this method has no use in the x86_64 code generator, maybe use LOG(FATAL) and UNREACHABLE() here?",
+      "range": {
+        "startLine": 251,
+        "startChar": 2,
+        "endLine": 251,
+        "endChar": 40
+      },
+      "revId": "3785118ab573d43c5d0b38decc59acef89c1c1e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_27d07a04",
+        "filename": "test/411-optimizing-arith/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-15T10:25:47Z",
+      "side": 1,
+      "message": "Test",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 4
+      },
+      "revId": "3785118ab573d43c5d0b38decc59acef89c1c1e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
