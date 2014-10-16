@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f06a0c65_b07820ef",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T14:16:00Z",
+      "side": 1,
+      "message": "As discussed, sharing code between backends seems like a natural things to do, but, as the vixl example shows, often ends up being premature, or over-engineered. I\u0027m fine with trying to share as much once we have a stable product, but as long as we\u0027re building it, I\u0027d rather not block (or force unfortunate engineering decisions like mapping between art::Label and vixl::Label) individual backends for the sake of code sharing.",
+      "parentUuid": "9069d076_b0501e22",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 21
+      },
+      "revId": "db841f1c23eee67679dff191769d7e4ae4849c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_0f8ea939",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "We have down_cast in runtime/base/cast.h. However it uses static_cast.",
       "parentUuid": "d06fc874_0f8ea939",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 71
+      },
+      "revId": "db841f1c23eee67679dff191769d7e4ae4849c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_d00cb2e0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T14:16:00Z",
+      "side": 1,
+      "message": "Did not know about down_cast, thanks. Done.",
+      "parentUuid": "d06fc874_efa7959b",
       "range": {
         "startLine": 114,
         "startChar": 36,
