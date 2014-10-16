@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9069d076_509e823e",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-16T13:35:12Z",
+      "side": 1,
+      "message": "This assumes that art::Label objects cannot be copied or moved. This should be enforced by\n  DISALLOW_COPY_AND_ASSIGN(Label);\nin art::Label, but there are places (eg. GrowableArray) where memcpy is used to and bypasses the restriction.",
+      "revId": "a8a18f33e87ca091c334f53af95c865a94749917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
