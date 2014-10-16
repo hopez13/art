@@ -236,6 +236,29 @@
     },
     {
       "key": {
+        "uuid": "f06a0c65_90acfc81",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T11:17:15Z",
+      "side": 1,
+      "message": "Is this always true (or desirable) on ARM?",
+      "range": {
+        "startLine": 1168,
+        "startChar": 13,
+        "endLine": 1168,
+        "endChar": 30
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_0c2c7703",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
