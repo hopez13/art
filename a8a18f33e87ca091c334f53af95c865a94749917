@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9069d076_10dd6aee",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T14:14:26Z",
+      "side": 1,
+      "message": "You can use COMPILE_ASSERT for static checking:\n\n  COMPILE_ASSERT(SP \u003d\u003d 31, wrong_register_alias);\n\n(The second argument of the macro serves as an error message.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 21
+      },
+      "revId": "a8a18f33e87ca091c334f53af95c865a94749917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9069d076_509e823e",
         "filename": "compiler/utils/arm64/assembler_arm64.h",
         "patchSetId": 4
