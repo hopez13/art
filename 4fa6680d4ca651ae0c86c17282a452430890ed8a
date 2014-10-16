@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_d22d9a87",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_b2426666",
+      "range": {
+        "startLine": 1117,
+        "startChar": 9,
+        "endLine": 1117,
+        "endChar": 18
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_bbdd5f73",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_923de2e8",
+      "range": {
+        "startLine": 1117,
+        "startChar": 44,
+        "endLine": 1117,
+        "endChar": 47
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_12325213",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2014-10-16T16:45:25Z",
       "side": 1,
       "message": "Are you requesting R0 and R1 because you don\u0027t want the register allocator to use R15? R15 is the PC anyway, and will never be allocated.",
+      "range": {
+        "startLine": 1120,
+        "startChar": 38,
+        "endLine": 1120,
+        "endChar": 54
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_f2321ee7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "yea. I removed the constraint.",
+      "parentUuid": "d06fc874_12325213",
       "range": {
         "startLine": 1120,
         "startChar": 38,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f06a0c65_d3fb5e8c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "yea, thought the function can just drop the Byte prefix as it\u0027s more like RegisterLocationOrConstant.",
+      "parentUuid": "f06a0c65_7391525a",
+      "range": {
+        "startLine": 1121,
+        "startChar": 38,
+        "endLine": 1121,
+        "endChar": 60
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f06a0c65_93996689",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2014-10-16T16:45:25Z",
       "side": 1,
       "message": "On ARM, you want to avoid doing this too often, so I think we should require a register at input.",
+      "range": {
+        "startLine": 1162,
+        "startChar": 11,
+        "endLine": 1162,
+        "endChar": 24
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_723f0ead",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f06a0c65_93996689",
       "range": {
         "startLine": 1162,
         "startChar": 11,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_1225729f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "As discussed, this was to allow the stack case but we can have the input in the registers always to simply things and avoid moving stuff in the instruction.",
+      "parentUuid": "f06a0c65_338bda2a",
+      "range": {
+        "startLine": 1109,
+        "startChar": 19,
+        "endLine": 1109,
+        "endChar": 26
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9069d076_30850e63",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9069d076_9bd89b84",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "as above.",
+      "parentUuid": "9069d076_30850e63",
+      "range": {
+        "startLine": 1193,
+        "startChar": 10,
+        "endLine": 1193,
+        "endChar": 11
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f06a0c65_531bee65",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2014-10-16T16:45:25Z",
       "side": 1,
       "message": "Don\u0027t use TMP for inputs. The register allocator might decide to load the constant in a specific register already, so you don\u0027t need to load it in TMP. Just require a register.",
+      "range": {
+        "startLine": 1101,
+        "startChar": 24,
+        "endLine": 1101,
+        "endChar": 27
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_b3fa6a85",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T17:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f06a0c65_531bee65",
       "range": {
         "startLine": 1101,
         "startChar": 24,
