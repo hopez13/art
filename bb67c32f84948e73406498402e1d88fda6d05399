@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901b9006_cc52e15f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-16T06:37:27Z",
+      "side": 1,
+      "message": "In refactoring the runtime entrypoints, these image entrypoints look very error prone. Generally we\u0027re writing code of the form:\nif (entry_point \u003d\u003d linker-\u003eGet...Trampoline()) ...\nthis will be true in the image case but not in the runtime case. I will replace these with:\nif (linker-\u003eIs...Trampoline(entry_point)) ...\nwhere the Is... test can do the right thing by trampolines in the image and direct calls.",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 55
+      },
+      "revId": "bb67c32f84948e73406498402e1d88fda6d05399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
