@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f06a0c65_f09778a9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_cc1dffd5",
+      "range": {
+        "startLine": 1125,
+        "startChar": 27,
+        "endLine": 1125,
+        "endChar": 30
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9069d076_8ddf05e3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "I think instructions should request only what they really need to used. There\u0027s no point in asking for more if you know you won\u0027t use it. And this knowledge is at the codegen level. An allocator will need to have very specific knowledge about how an instruction might be implemented based on the type of operands to be able to optimize this.",
       "parentUuid": "9069d076_8ddf05e3",
+      "range": {
+        "startLine": 1129,
+        "startChar": 26,
+        "endLine": 1129,
+        "endChar": 27
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_8fdff9e2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "we clarified this offline. done.",
+      "parentUuid": "d06fc874_0f1b0995",
       "range": {
         "startLine": 1129,
         "startChar": 26,
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_4ffa6157",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "we clarified offline. done.",
+      "parentUuid": "f06a0c65_50c9a461",
+      "range": {
+        "startLine": 1135,
+        "startChar": 34,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_ec224315",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -224,6 +296,30 @@
       "writtenOn": "2014-10-16T08:38:13Z",
       "side": 1,
       "message": "Add a check that we\u0027re not using R15?",
+      "range": {
+        "startLine": 1167,
+        "startChar": 20,
+        "endLine": 1167,
+        "endChar": 29
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_0f222941",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "I think it\u0027s enough to add it to the int case where it\u0027s possible to get R15 (which I did). Here, there are no pairs with R15.",
+      "parentUuid": "d06fc874_ec224315",
       "range": {
         "startLine": 1167,
         "startChar": 20,
@@ -340,6 +436,78 @@
       "writtenOn": "2014-10-16T08:38:13Z",
       "side": 1,
       "message": "One argument per line please.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 42,
+        "endLine": 1121,
+        "endChar": 47
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_f038d679",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_2c293bf4",
+      "range": {
+        "startLine": 1121,
+        "startChar": 58,
+        "endLine": 1121,
+        "endChar": 61
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_b0325e94",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_0c2c7703",
+      "range": {
+        "startLine": 1121,
+        "startChar": 48,
+        "endLine": 1121,
+        "endChar": 56
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_2f1fedf7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "a bit overkill for this one but ok.",
+      "parentUuid": "9069d076_ade449b7",
       "range": {
         "startLine": 1121,
         "startChar": 42,
@@ -470,6 +638,30 @@
     },
     {
       "key": {
+        "uuid": "9069d076_f05f76ba",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_ccc41fd0",
+      "range": {
+        "startLine": 1098,
+        "startChar": 15,
+        "endLine": 1098,
+        "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9069d076_6df7316c",
         "filename": "test/411-optimizing-arith/info.txt",
         "patchSetId": 3
@@ -493,6 +685,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_af699d69",
+        "filename": "test/411-optimizing-arith/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "eh, maybe I\u0027d avoid having an extra one for div, mod etc... so I prefer putting them here in one place. unless you have a really strong opinion :)",
+      "parentUuid": "9069d076_6df7316c",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 27
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_8cce27ec",
         "filename": "test/411-optimizing-arith/src/Main.java",
         "patchSetId": 3
@@ -504,6 +720,30 @@
       "writtenOn": "2014-10-16T08:38:13Z",
       "side": 1,
       "message": "Add an int version. You don\u0027t want to have implicit conversions in play.",
+      "range": {
+        "startLine": 22,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_d05a72cd",
+        "filename": "test/411-optimizing-arith/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T16:24:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_8cce27ec",
       "range": {
         "startLine": 22,
         "startChar": 21,
