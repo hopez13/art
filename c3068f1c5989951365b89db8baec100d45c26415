@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d06fc874_0c1557ad",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer having this call in SetupBlockedRegisters (or SetupBlockedRegisters explicitly do it as it currently is).\n\nReason is that I dislike dissociating things: by dissociating it, you *must* call UpdateBlockedPairRegisters if you call SetupBlockedRegisters, so you have to duplicate it the pattern in other places where we call SetupBlockedRegisters.",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 28
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "901b9006_6f2f0ca9",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -42,6 +65,167 @@
         "startChar": 15,
         "endLine": 117,
         "endChar": 41
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_cc1dffd5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "Explain why we should not use R15.",
+      "range": {
+        "startLine": 1125,
+        "startChar": 27,
+        "endLine": 1125,
+        "endChar": 30
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_8ddf05e3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "This looks like register allocator-ish. If you need a register pair for the second input, just say so whether it\u0027s a constant or not.\n\nBy forcing the use of R8 and R9 you might do worth things like spilling, that you don\u0027t control at this level. It\u0027s the register allocator\u0027s job to do tricks like the one you just wrote.",
+      "range": {
+        "startLine": 1129,
+        "startChar": 26,
+        "endLine": 1129,
+        "endChar": 27
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_6c2f33fb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "What moves does it save? Looking at the code below, it seems operations can work with different registers.",
+      "range": {
+        "startLine": 1135,
+        "startChar": 34,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_ec224315",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "Add a check that we\u0027re not using R15?",
+      "range": {
+        "startLine": 1167,
+        "startChar": 20,
+        "endLine": 1167,
+        "endChar": 29
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_0c2c7703",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "By convention, Register should only be an int, so it\u0027s ok to just pass it by value.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 48,
+        "endLine": 1121,
+        "endChar": 56
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_2c293bf4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "Should you dcheck that eax \u003d\u003d EAX? and edx \u003d\u003d EDX?",
+      "range": {
+        "startLine": 1121,
+        "startChar": 58,
+        "endLine": 1121,
+        "endChar": 61
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_ade449b7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "One argument per line please.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 42,
+        "endLine": 1121,
+        "endChar": 47
       },
       "revId": "c3068f1c5989951365b89db8baec100d45c26415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -137,6 +321,75 @@
         "startChar": 5,
         "endLine": 1172,
         "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_ccc41fd0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "You probably want to do it now, as code in the wild can give you a constant. Or you can just change the requirements to have the second input be in a register.",
+      "range": {
+        "startLine": 1098,
+        "startChar": 15,
+        "endLine": 1098,
+        "endChar": 24
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_6df7316c",
+        "filename": "test/411-optimizing-arith/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "It\u0027s ok to just be a mult operation test.",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 27
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_8cce27ec",
+        "filename": "test/411-optimizing-arith/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T08:38:13Z",
+      "side": 1,
+      "message": "Add an int version. You don\u0027t want to have implicit conversions in play.",
+      "range": {
+        "startLine": 22,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 33
       },
       "revId": "c3068f1c5989951365b89db8baec100d45c26415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
