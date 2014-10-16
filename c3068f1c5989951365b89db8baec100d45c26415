@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_cf6ad1df",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:36:31Z",
+      "side": 1,
+      "message": "That\u0027s fine to keep UpdateBlockedPairRegisters. But it should be called by SetupBlockedRegisters.",
+      "parentUuid": "d06fc874_af42fd65",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 28
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "901b9006_6f2f0ca9",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
