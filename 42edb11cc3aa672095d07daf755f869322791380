@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f06a0c65_5311ae72",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Out of curiosity, why did you prevent the use of a stack-resident second operand for floats?",
+      "range": {
+        "startLine": 954,
+        "startChar": 28,
+        "endLine": 954,
+        "endChar": 59
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_72e06e29",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be TIMES_4?",
+      "range": {
+        "startLine": 1374,
+        "startChar": 65,
+        "endLine": 1374,
+        "endChar": 72
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_d0eb523a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1376,
+        "startChar": 60,
+        "endLine": 1376,
+        "endChar": 67
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_131b3695",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 77,
+        "endLine": 1522,
+        "endChar": 84
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_3318ba95",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1527,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1527,
+        "startChar": 55,
+        "endLine": 1527,
+        "endChar": 62
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_93108643",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Nit: I would have named this argument `phi\u0027, as in AddPhi.",
+      "range": {
+        "startLine": 366,
+        "startChar": 39,
+        "endLine": 366,
+        "endChar": 50
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_b06fbe1b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_EQ(instruction-\u003enext, nullptr);\n\nhere?",
+      "range": {
+        "startLine": 372,
+        "startChar": 35,
+        "endLine": 372,
+        "endChar": 36
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_708b867b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the template parameters of this bit_cast be swapped?",
+      "range": {
+        "startLine": 1382,
+        "startChar": 20,
+        "endLine": 1382,
+        "endChar": 34
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_33b43af4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1383,
+        "startChar": 17,
+        "endLine": 1383,
+        "endChar": 31
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_f3a462c2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1403,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1403,
+        "startChar": 20,
+        "endLine": 1403,
+        "endChar": 35
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_7235cef9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1404,
+        "startChar": 17,
+        "endLine": 1404,
+        "endChar": 32
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_5be30337",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "Nit: move this part of the comment in the \"else\" branch for the sake of symmetry with GetFloatEquivalent?",
+      "range": {
+        "startLine": 161,
+        "startChar": 65,
+        "endLine": 163,
+        "endChar": 39
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_52420a38",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-16T17:27:36Z",
+      "side": 1,
+      "message": "graph",
+      "range": {
+        "startLine": 191,
+        "startChar": 40,
+        "endLine": 191,
+        "endChar": 45
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
