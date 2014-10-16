@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_efa7959b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-16T13:05:16Z",
+      "side": 1,
+      "message": "We have down_cast in runtime/base/cast.h. However it uses static_cast.",
+      "parentUuid": "d06fc874_0f8ea939",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 71
+      },
+      "revId": "db841f1c23eee67679dff191769d7e4ae4849c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_2fd04d04",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 1
