@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d06fc874_923de2e8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "bot- \u003e not.",
+      "range": {
+        "startLine": 1117,
+        "startChar": 44,
+        "endLine": 1117,
+        "endChar": 47
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_b2426666",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "reference -\u003e reference manual",
+      "range": {
+        "startLine": 1117,
+        "startChar": 9,
+        "endLine": 1117,
+        "endChar": 18
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_12325213",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "Are you requesting R0 and R1 because you don\u0027t want the register allocator to use R15? R15 is the PC anyway, and will never be allocated.",
+      "range": {
+        "startLine": 1120,
+        "startChar": 38,
+        "endLine": 1120,
+        "endChar": 54
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_7391525a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "It\u0027s not really a byte register you want...",
+      "range": {
+        "startLine": 1121,
+        "startChar": 38,
+        "endLine": 1121,
+        "endChar": 60
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_93996689",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "On ARM, you want to avoid doing this too often, so I think we should require a register at input.",
+      "range": {
+        "startLine": 1162,
+        "startChar": 11,
+        "endLine": 1162,
+        "endChar": 24
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_338bda2a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "Don\u0027t use temps for moving inputs. If you want the inputs to be a register, just say so.",
+      "range": {
+        "startLine": 1109,
+        "startChar": 19,
+        "endLine": 1109,
+        "endChar": 26
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_30850e63",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "If you\u0027re doing moves in an instruction, something is fishy...",
+      "range": {
+        "startLine": 1193,
+        "startChar": 10,
+        "endLine": 1193,
+        "endChar": 11
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_531bee65",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-16T16:45:25Z",
+      "side": 1,
+      "message": "Don\u0027t use TMP for inputs. The register allocator might decide to load the constant in a specific register already, so you don\u0027t need to load it in TMP. Just require a register.",
+      "range": {
+        "startLine": 1101,
+        "startChar": 24,
+        "endLine": 1101,
+        "endChar": 27
+      },
+      "revId": "4fa6680d4ca651ae0c86c17282a452430890ed8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
