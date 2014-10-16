@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_af42fd65",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T10:14:28Z",
+      "side": 1,
+      "message": "I was thinking about it actually... The reason I didn\u0027t do it is that SetupBockedRegisters seems to be targeted to specially reserved registers, whereas this op you\u0027d like to call any time you block a core register. Having it there obscures things a bit imo...\n\nI don\u0027t have a strong preference though so if you want it there I can move it.",
+      "parentUuid": "d06fc874_0c1557ad",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 28
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "901b9006_6f2f0ca9",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -118,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "d06fc874_0f1b0995",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T10:14:28Z",
+      "side": 1,
+      "message": "I think instructions should request only what they really need to used. There\u0027s no point in asking for more if you know you won\u0027t use it. And this knowledge is at the codegen level. An allocator will need to have very specific knowledge about how an instruction might be implemented based on the type of operands to be able to optimize this.",
+      "parentUuid": "9069d076_8ddf05e3",
+      "range": {
+        "startLine": 1129,
+        "startChar": 26,
+        "endLine": 1129,
+        "endChar": 27
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_6c2f33fb",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -129,6 +177,30 @@
       "writtenOn": "2014-10-16T08:38:13Z",
       "side": 1,
       "message": "What moves does it save? Looking at the code below, it seems operations can work with different registers.",
+      "range": {
+        "startLine": 1135,
+        "startChar": 34,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_50c9a461",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T10:14:28Z",
+      "side": 1,
+      "message": "sorry, it doesn\u0027t save any move. I was in x86 mindset when writing the comment. I\u0027ll update.\n\nIt does however make the operation use less registers and possibly avoiding spills. The input cannot kDieFirst (otherwise the implementation would be over complicated) so if you want different regs you end up using 6 register + IP for the mul.",
+      "parentUuid": "d06fc874_6c2f33fb",
       "range": {
         "startLine": 1135,
         "startChar": 34,
