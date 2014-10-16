@@ -259,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "9069d076_30866e38",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T11:27:47Z",
+      "side": 1,
+      "message": "In this version is true. I clarified the RequiresRegister semantic with Nicholas, offline. I\u0027ll make a few updates in the code and this will go away.",
+      "parentUuid": "f06a0c65_90acfc81",
+      "range": {
+        "startLine": 1168,
+        "startChar": 13,
+        "endLine": 1168,
+        "endChar": 30
+      },
+      "revId": "c3068f1c5989951365b89db8baec100d45c26415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_0c2c7703",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
