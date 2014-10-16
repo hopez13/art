@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9069d076_ed7ec1db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T13:44:01Z",
+      "side": 1,
+      "message": "Sorry for this recurring comment: could you enumerate the bug you fixed?\n\nThe main reason I want a more detailed description is that I often find myself looking at history when trying to understand (the rationales of) a piece of code. I always find it harder when the comments are lacking (even if it\u0027s for small things.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "6e76252671c2aea743160509bff540bb50a2b313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06a0c65_509e843e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T13:44:01Z",
+      "side": 1,
+      "message": "is this a TODO or empty by purpose? either way, add a comment. (same in the other places)",
+      "range": {
+        "startLine": 833,
+        "startChar": 34,
+        "endLine": 833,
+        "endChar": 52
+      },
+      "revId": "6e76252671c2aea743160509bff540bb50a2b313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06fc874_4f94a14b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-16T13:44:01Z",
+      "side": 1,
+      "message": "for later: maybe we should rename (Is)Register to (Is)CoreRegister? When reading this condition the \"natural language\" implies that fp_register is not a register :P",
+      "range": {
+        "startLine": 104,
+        "startChar": 27,
+        "endLine": 104,
+        "endChar": 48
+      },
+      "revId": "6e76252671c2aea743160509bff540bb50a2b313",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
