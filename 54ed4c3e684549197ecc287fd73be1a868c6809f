@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70ca9cdf_c9427567",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-17T14:52:03Z",
+      "side": 1,
+      "message": "We need the shared mutator lock to call that method, but we\u0027re in the kNative state. I think you need the following:\n\n{\n  ScopedObjectAccess soa(self);\n  Dbg::PostThreadStart(soa.Self());\n}",
+      "range": {
+        "startLine": 412,
+        "startChar": 2,
+        "endLine": 412,
+        "endChar": 29
+      },
+      "revId": "54ed4c3e684549197ecc287fd73be1a868c6809f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
