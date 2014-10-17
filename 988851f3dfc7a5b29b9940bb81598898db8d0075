@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "309904fa_5c1bbd93",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T16:01:35Z",
+      "side": 1,
+      "message": "No, the instruction does xorq on the output at the beginning, so it should not be an input (test is in CL: https://android-review.googlesource.com/#/c/106209/).",
+      "parentUuid": "90d5507b_c76ffe1a",
+      "range": {
+        "startLine": 604,
+        "startChar": 32,
+        "endLine": 604,
+        "endChar": 50
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70ca9cdf_e9de511e",
         "filename": "compiler/optimizing/live_ranges_test.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-17T15:52:17Z",
       "side": 1,
       "message": "what triggered the change here?",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 13
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_1b0a1b48",
+        "filename": "compiler/optimizing/live_ranges_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T16:01:35Z",
+      "side": 1,
+      "message": "The return instruction requests its input to be in EAX. Because that\u0027s a physical register, the live range of the input ends at the beginning of the instruction, not the middle.",
+      "parentUuid": "70ca9cdf_e9de511e",
       "range": {
         "startLine": 76,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "309904fa_7c187996",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T16:01:35Z",
+      "side": 1,
+      "message": "The index of the input. I renamed the parameter.",
+      "parentUuid": "b0d09489_2be34538",
+      "range": {
+        "startLine": 452,
+        "startChar": 46,
+        "endLine": 452,
+        "endChar": 51
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70ca9cdf_69ea61b3",
         "filename": "compiler/optimizing/locations.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-17T15:52:17Z",
       "side": 1,
       "message": "I would add a comment on what this means with some examples and what effect will have. I think it\u0027s important since it\u0027s not immediate in what way they overlap. \ne.g. add eax, ebx:\na) input and output are the same, so you can say they overlap.\nb) there\u0027s no overlap wrt computation, input and output do not interfere during computation (they can share the same registers)\n\nSomething like ...\n\n// Specify if the output overlaps with input (temps included?): i.e. b) case above... \n// e.g. addition on x86: (add eax, ebx) ...",
+      "range": {
+        "startLine": 473,
+        "startChar": 7,
+        "endLine": 473,
+        "endChar": 23
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_7b015f26",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T16:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70ca9cdf_69ea61b3",
       "range": {
         "startLine": 473,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1096c0c9_9b1c6b92",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T16:01:35Z",
+      "side": 1,
+      "message": "No. If the output does not overlap, we can shift the interval\u0027s start so that it can re-use the register form an input.",
+      "parentUuid": "b0d09489_ebef6d13",
+      "range": {
+        "startLine": 221,
+        "startChar": 13,
+        "endLine": 221,
+        "endChar": 51
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70ca9cdf_89d99d3a",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2014-10-17T15:52:17Z",
       "side": 1,
       "message": "wrap in () or break as long lines will read easier.",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 41
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_5b1bc393",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T16:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70ca9cdf_89d99d3a",
       "range": {
         "startLine": 192,
         "startChar": 13,
