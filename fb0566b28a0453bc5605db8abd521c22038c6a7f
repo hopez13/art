@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "900710cb_9d7e03db",
+        "filename": "runtime/stack.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-17T07:23:23Z",
+      "side": 0,
+      "message": "Reorganizing and removing this field from TLS requires an oat file version bump to ensure oat files are rebuilt.",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 447,
+        "endChar": 32
+      },
+      "revId": "fb0566b28a0453bc5605db8abd521c22038c6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
