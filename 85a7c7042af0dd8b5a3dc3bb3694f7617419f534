@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9069d076_16048236",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T10:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d06fc874_72edcec8",
+      "range": {
+        "startLine": 244,
+        "startChar": 2,
+        "endLine": 244,
+        "endChar": 25
+      },
+      "revId": "85a7c7042af0dd8b5a3dc3bb3694f7617419f534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9069d076_bb2b1fa8",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9069d076_7607fe3d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T10:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9069d076_bb2b1fa8",
+      "range": {
+        "startLine": 1147,
+        "startChar": 19,
+        "endLine": 1147,
+        "endChar": 20
+      },
+      "revId": "85a7c7042af0dd8b5a3dc3bb3694f7617419f534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9069d076_5b11c372",
         "filename": "test/411-optimizing-arith/src/Main.java",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2014-10-16T17:28:40Z",
       "side": 1,
       "message": "Personal preference but I\u0027d remove the methods that have TODOs here. Either you\u0027re going to do it in another CL, or just create a new test.",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 11
+      },
+      "revId": "85a7c7042af0dd8b5a3dc3bb3694f7617419f534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9069d076_d61caa92",
+        "filename": "test/411-optimizing-arith/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T10:29:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9069d076_5b11c372",
       "range": {
         "startLine": 42,
         "startChar": 7,
