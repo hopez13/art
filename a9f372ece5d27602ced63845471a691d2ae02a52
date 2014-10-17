@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "900710cb_1db6735f",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "I think it hurts readability to be doing this everywhere. the one line description is useful, I can look at a man page to see what the details are.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 37
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900710cb_5d290bf3",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "we haven\u0027t typically use multi-line comments at end of line",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 62
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900710cb_bdc4a7ce",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "GPR is a pretty clear and concise term",
+      "range": {
+        "startLine": 52,
+        "startChar": 20,
+        "endLine": 52,
+        "endChar": 46
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90bc7033_8fd9953a",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "i\u0027d rather make const values that are more readable than add comments (as the guide says, \"Or alternatively, constants or self-describing variables\")",
+      "range": {
+        "startLine": 80,
+        "startChar": 55,
+        "endLine": 80,
+        "endChar": 60
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900710cb_7dc32fc1",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "this seems wrong. what does the RI do? shouldn\u0027t it be a JNI_ERR?",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 28
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900710cb_bdeb073b",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "doesn\u0027t you IDE tell you this stuff?",
+      "range": {
+        "startLine": 150,
+        "startChar": 59,
+        "endLine": 150,
+        "endChar": 69
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "509e78d1_ed4b0574",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "there is already a comment above this. if you want, improve that. don\u0027t add two more comments.",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 62
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900710cb_1dddd397",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "please stop.",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 20
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "509e78d1_cd50c923",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-17T06:55:37Z",
+      "side": 1,
+      "message": "I think we need to have a team discussion about this before introducing this as some new style. we either should do it consistently, or not at all.",
+      "range": {
+        "startLine": 360,
+        "startChar": 38,
+        "endLine": 360,
+        "endChar": 45
+      },
+      "revId": "a9f372ece5d27602ced63845471a691d2ae02a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
