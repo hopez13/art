@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0d09489_0be00128",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T15:19:24Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "a52c84633b1b56dd9ebd04c5660f4b6c03ecf279",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d09489_4beaf909",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-17T15:19:24Z",
+      "side": 1,
+      "message": "if non null -\u003e if enabled.",
+      "range": {
+        "startLine": 63,
+        "startChar": 26,
+        "endLine": 63,
+        "endChar": 29
+      },
+      "revId": "a52c84633b1b56dd9ebd04c5660f4b6c03ecf279",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
