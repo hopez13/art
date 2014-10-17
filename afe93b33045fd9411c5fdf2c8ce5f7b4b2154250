@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "309904fa_bca7619c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2395,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-10-17T20:00:57Z",
+      "side": 1,
+      "message": "is there a reason why this check isn\u0027t in ResumeAllForDebugger? the reason i gave +1 rather than +2 was that i was expecting someone who works more on art to complain about the race here. or am i missing something?",
+      "revId": "afe93b33045fd9411c5fdf2c8ce5f7b4b2154250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
