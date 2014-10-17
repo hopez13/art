@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90d5507b_c76ffe1a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T15:52:17Z",
+      "side": 1,
+      "message": "kNoOutputOverlap?",
+      "range": {
+        "startLine": 604,
+        "startChar": 32,
+        "endLine": 604,
+        "endChar": 50
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70ca9cdf_e9de511e",
+        "filename": "compiler/optimizing/live_ranges_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T15:52:17Z",
+      "side": 1,
+      "message": "what triggered the change here?",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 13
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d09489_2be34538",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T15:52:17Z",
+      "side": 1,
+      "message": "is this the index of the input or the register?",
+      "range": {
+        "startLine": 452,
+        "startChar": 46,
+        "endLine": 452,
+        "endChar": 51
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70ca9cdf_69ea61b3",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T15:52:17Z",
+      "side": 1,
+      "message": "I would add a comment on what this means with some examples and what effect will have. I think it\u0027s important since it\u0027s not immediate in what way they overlap. \ne.g. add eax, ebx:\na) input and output are the same, so you can say they overlap.\nb) there\u0027s no overlap wrt computation, input and output do not interfere during computation (they can share the same registers)\n\nSomething like ...\n\n// Specify if the output overlaps with input (temps included?): i.e. b) case above... \n// e.g. addition on x86: (add eax, ebx) ...",
+      "range": {
+        "startLine": 473,
+        "startChar": 7,
+        "endLine": 473,
+        "endChar": 23
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d09489_ebef6d13",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T15:52:17Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be non-negated?",
+      "range": {
+        "startLine": 221,
+        "startChar": 13,
+        "endLine": 221,
+        "endChar": 51
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70ca9cdf_89d99d3a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-17T15:52:17Z",
+      "side": 1,
+      "message": "wrap in () or break as long lines will read easier.",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 41
+      },
+      "revId": "988851f3dfc7a5b29b9940bb81598898db8d0075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
