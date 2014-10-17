@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9069d076_bb8ebfba",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-17T09:16:33Z",
+      "side": 1,
+      "message": "Note that this also disables relative calls for --compile-pic. Allowing relative calls requires deeper rewrite of this function.",
+      "revId": "d6dee676acdd1ab0aa4e5ba6834ee7c40a6dd8ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
