@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "101de04d_03848e98",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-10-20T23:14:13Z",
+      "side": 1,
+      "message": "might want to use +\u003d instead of :\u003d --- iirc bdc prefers that style so he doesn\u0027t have to worry about where he adds additional +\u003d lines for any given variable.",
+      "revId": "61521ad6c9a0ce6f972933fc66d8f9e61bf06c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
