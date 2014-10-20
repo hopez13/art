@@ -187,6 +187,30 @@
       "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30474440_8ff5f9e9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-20T02:54:04Z",
+      "side": 1,
+      "message": "Which means that you cannot allocate on the stack, having more runtime overhead...\n\nBut I\u0027ll change it to that.",
+      "parentUuid": "f0268cf7_04986a4d",
+      "range": {
+        "startLine": 879,
+        "startChar": 4,
+        "endLine": 879,
+        "endChar": 56
+      },
+      "revId": "e1d141f195fd9f191ffa0a42765ad9e448fc9bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
