@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "30202482_6422aa99",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-20T22:52:14Z",
+      "side": 1,
+      "message": "Can you fix this comment also? It\u0027s not accurate. I think it should just be deleted.",
+      "revId": "4c3ac5cfdcfee2e4e6e39e5cc36c2e951e62420f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d09ee86b_54116244",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -83,6 +100,30 @@
       "side": 1,
       "message": "Agreed, this would be useful.",
       "parentUuid": "d09ee86b_54116244",
+      "range": {
+        "startLine": 622,
+        "startChar": 19,
+        "endLine": 622,
+        "endChar": 29
+      },
+      "revId": "4c3ac5cfdcfee2e4e6e39e5cc36c2e951e62420f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30202482_273fd4ad",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-20T22:52:14Z",
+      "side": 1,
+      "message": "This case can certainly happen. If it\u0027s an abstract class/interface that have static fields, loaded but not linked yet. And gc happens.\nHowever in that case, all static fields should just be null. So I guess it\u0027s a not real crash in production. But it\u0027s better to get rid of the assertion error and skip some useless visits anyway.",
+      "parentUuid": "10e6c0ff_10ea7208",
       "range": {
         "startLine": 622,
         "startChar": 19,
