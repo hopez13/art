@@ -16,6 +16,24 @@
       "revId": "61521ad6c9a0ce6f972933fc66d8f9e61bf06c6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30202482_ea2ca389",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-20T23:17:42Z",
+      "side": 1,
+      "message": "actually, that is enh\u0027s preference. but I agree, its a little safer than assuming you are first to set it, though that is pretty clear here that no ones else has messed with it since CLEAR_VARS",
+      "parentUuid": "101de04d_03848e98",
+      "revId": "61521ad6c9a0ce6f972933fc66d8f9e61bf06c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
