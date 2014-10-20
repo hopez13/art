@@ -46,6 +46,30 @@
       "revId": "50dd792f6fed9db418065e89acdad7e9fa234449",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30474440_c038ae7a",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 3234,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-20T19:09:09Z",
+      "side": 1,
+      "message": "We pulled from https://code.google.com/p/google-styleguide/ so can report there or try to reach them internally (or see if they have a fix upstream or internally already)",
+      "parentUuid": "d0bfc88a_b2e981be",
+      "range": {
+        "startLine": 3234,
+        "startChar": 0,
+        "endLine": 3234,
+        "endChar": 53
+      },
+      "revId": "50dd792f6fed9db418065e89acdad7e9fa234449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
