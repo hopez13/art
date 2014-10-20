@@ -209,6 +209,53 @@
     },
     {
       "key": {
+        "uuid": "30474440_35dd3298",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-20T18:23:14Z",
+      "side": 1,
+      "message": "Is there actually a reason?",
+      "parentUuid": "309904fa_e23b0262",
+      "range": {
+        "startLine": 142,
+        "startChar": 42,
+        "endLine": 142,
+        "endChar": 45
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b02c147c_8847b799",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-20T18:23:14Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 148,
+        "startChar": 98,
+        "endLine": 148,
+        "endChar": 102
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f064ccc9_60b1a655",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 8
@@ -271,6 +318,29 @@
         "startChar": 86,
         "endLine": 1122,
         "endChar": 88
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30474440_40e03e29",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-20T18:23:14Z",
+      "side": 1,
+      "message": "Roll that into the subq above, maybe?",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 78
       },
       "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -381,6 +451,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "When is that not the case?",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b02c147c_8b6a51de",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-20T18:23:14Z",
+      "side": 1,
+      "message": "This is included in the assembly files...",
+      "parentUuid": "f064ccc9_208ece8b",
       "range": {
         "startLine": 20,
         "startChar": 12,
