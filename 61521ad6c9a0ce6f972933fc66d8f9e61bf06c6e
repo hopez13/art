@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30202482_ca00c772",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2014-10-20T23:35:14Z",
+      "side": 1,
+      "message": "The reason why I think this is the case is there are number of executables that want to build the same file and at some point .o file could be empty or corrupted by different build thread.",
+      "parentUuid": "70261c9e_2c7c17a7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "61521ad6c9a0ce6f972933fc66d8f9e61bf06c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "101de04d_03848e98",
         "filename": "build/Android.executable.mk",
         "patchSetId": 1
