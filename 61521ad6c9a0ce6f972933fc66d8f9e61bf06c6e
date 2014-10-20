@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "70261c9e_2c7c17a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-20T23:19:31Z",
+      "side": 1,
+      "message": "relative paths are a problem when code is moved.\n\nusing the library solves the other users cc vs cpp annoyance as well.\n\nbut i\u0027m not sure this explains the build issues we\u0027ve seen, the relative path to code itself doesn\u0027t obviously cause a build race to me.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "61521ad6c9a0ce6f972933fc66d8f9e61bf06c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "101de04d_03848e98",
         "filename": "build/Android.executable.mk",
         "patchSetId": 1
