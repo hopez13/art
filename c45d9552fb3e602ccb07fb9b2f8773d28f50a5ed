@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0492c4e_b9f5a0e9",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "The naming reflects art::Runtime::Current() and the load is of art::Runtime::instance_, renaming would I think have similar confusion so leaving as is.",
+      "parentUuid": "1096c0c9_a1701a81",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309904fa_821f9ef5",
         "filename": "runtime/arch/arm/asm_support_arm.S",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "High level comment on this macro?",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 6
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3072e491_0e801fce",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_821f9ef5",
       "range": {
         "startLine": 48,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f0492c4e_79041838",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "the \\name is being bound to the argument of DEF_ENTRY. Comment added.",
+      "parentUuid": "309904fa_026aae5c",
+      "range": {
+        "startLine": 62,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 16
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f064ccc9_20e08e51",
         "filename": "runtime/arch/arm/asm_support_arm.S",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 74,
+        "startChar": 1,
+        "endLine": 74,
+        "endChar": 6
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3072e491_ee5123d7",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f064ccc9_20e08e51",
       "range": {
         "startLine": 74,
         "startChar": 1,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3072e491_0e573fca",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_c25fe6ba",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 6
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f064ccc9_20a7ae1b",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "Can this name be macro-ified?",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 35
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3072e491_4ed057d7",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Not that I\u0027m aware of.",
+      "parentUuid": "f064ccc9_20a7ae1b",
       "range": {
         "startLine": 33,
         "startChar": 9,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f0492c4e_590e7453",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f064ccc9_00a2aa0b",
+      "range": {
+        "startLine": 38,
+        "startChar": 24,
+        "endLine": 38,
+        "endChar": 28
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1096c0c9_01570eca",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 8
@@ -174,6 +342,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "stop -\u003e top",
+      "range": {
+        "startLine": 64,
+        "startChar": 24,
+        "endLine": 64,
+        "endChar": 28
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3072e491_6edd13ee",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1096c0c9_01570eca",
       "range": {
         "startLine": 64,
         "startChar": 24,
@@ -233,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "3072e491_0e1c9f0c",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "The choice of ebx (got_reg) and ecx (temp_reg) is arbitrary as the GOT isn\u0027t used below. I\u0027ll change to ebx for consistency.",
+      "parentUuid": "30474440_35dd3298",
+      "range": {
+        "startLine": 142,
+        "startChar": 42,
+        "endLine": 142,
+        "endChar": 45
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b02c147c_8847b799",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 8
@@ -244,6 +460,30 @@
       "writtenOn": "2014-10-20T18:23:14Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 148,
+        "startChar": 98,
+        "endLine": 148,
+        "endChar": 102
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "106fa0ad_42e02c29",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b02c147c_8847b799",
       "range": {
         "startLine": 148,
         "startChar": 98,
@@ -279,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "106fa0ad_220a5048",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f064ccc9_60b1a655",
+      "range": {
+        "startLine": 918,
+        "startChar": 16,
+        "endLine": 918,
+        "endChar": 40
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309904fa_4253d6ab",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 8
@@ -290,6 +554,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 939,
+        "startChar": 16,
+        "endLine": 939,
+        "endChar": 38
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "106fa0ad_a21ca091",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_4253d6ab",
       "range": {
         "startLine": 939,
         "startChar": 16,
@@ -325,6 +613,30 @@
     },
     {
       "key": {
+        "uuid": "f0492c4e_f9c2c85f",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Its the return address. There\u0027s a notion of this in the quick back end and in the callee save frames. I\u0027ll add a comment.",
+      "parentUuid": "f064ccc9_80aebaf2",
+      "range": {
+        "startLine": 1122,
+        "startChar": 86,
+        "endLine": 1122,
+        "endChar": 88
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30474440_40e03e29",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 8
@@ -336,6 +648,30 @@
       "writtenOn": "2014-10-20T18:23:14Z",
       "side": 1,
       "message": "Roll that into the subq above, maybe?",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 78
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0492c4e_59aaf493",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30474440_40e03e29",
       "range": {
         "startLine": 68,
         "startChar": 4,
@@ -371,6 +707,30 @@
     },
     {
       "key": {
+        "uuid": "106fa0ad_a243c06d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_824dde05",
+      "range": {
+        "startLine": 75,
+        "startChar": 24,
+        "endLine": 75,
+        "endChar": 28
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f064ccc9_a079fef6",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 8
@@ -382,6 +742,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "stop -\u003e top",
+      "range": {
+        "startLine": 190,
+        "startChar": 24,
+        "endLine": 190,
+        "endChar": 28
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0492c4e_b906800c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f064ccc9_a079fef6",
       "range": {
         "startLine": 190,
         "startChar": 24,
@@ -510,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "3072e491_2ea79b1b",
+        "filename": "runtime/entrypoints/quick/quick_instrumentation_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f064ccc9_408bc27a",
+      "range": {
+        "startLine": 32,
+        "startChar": 48,
+        "endLine": 32,
+        "endChar": 49
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309904fa_22840a99",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 8
@@ -533,6 +941,30 @@
     },
     {
       "key": {
+        "uuid": "106fa0ad_22c97063",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_22840a99",
+      "range": {
+        "startLine": 337,
+        "startChar": 40,
+        "endLine": 337,
+        "endChar": 43
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1096c0c9_61f45266",
         "filename": "runtime/stack.cc",
         "patchSetId": 8
@@ -544,6 +976,30 @@
       "writtenOn": "2014-10-20T17:47:27Z",
       "side": 1,
       "message": "Do we check at some point that the method is a stub?",
+      "range": {
+        "startLine": 529,
+        "startChar": 26,
+        "endLine": 529,
+        "endChar": 27
+      },
+      "revId": "c45d9552fb3e602ccb07fb9b2f8773d28f50a5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "106fa0ad_62d36813",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-20T22:51:06Z",
+      "side": 1,
+      "message": "We don\u0027t, nor is it true in the case of the Java stack dump fault handler. We do sanity check the PC lies within the ArtMethod.",
+      "parentUuid": "1096c0c9_61f45266",
       "range": {
         "startLine": 529,
         "startChar": 26,
