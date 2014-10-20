@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f064ccc9_e0acd682",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-20T15:27:40Z",
+      "side": 1,
+      "message": "To avoid missing suspend checks, this should be\n\n  ldr rSUSPEND, [rSELF, #THREAD_SUSPEND_TRIGGER_OFFSET]",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 58
+      },
+      "revId": "3e98b191f4c4020882650648054d3906dc8429be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_5e365127",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-20T15:27:40Z",
+      "side": 1,
+      "message": "This should also be ldr, though that\u0027s useful only if the code that runs during suspension decides to suspend the thread on the next suspend point as well.",
+      "range": {
+        "startLine": 876,
+        "startChar": 4,
+        "endLine": 876,
+        "endChar": 58
+      },
+      "revId": "3e98b191f4c4020882650648054d3906dc8429be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309904fa_825dde37",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-20T15:27:40Z",
+      "side": 1,
+      "message": "Should be ldr, see comments for arm.",
+      "revId": "3e98b191f4c4020882650648054d3906dc8429be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f064ccc9_204c0e3a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-10-20T15:27:40Z",
+      "side": 1,
+      "message": "Should be ldr, see comments for arm.",
+      "range": {
+        "startLine": 1342,
+        "startChar": 4,
+        "endLine": 1342,
+        "endChar": 55
+      },
+      "revId": "3e98b191f4c4020882650648054d3906dc8429be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
