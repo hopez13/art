@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "309904fa_c538d07a",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T10:32:40Z",
+      "side": 1,
+      "message": "No just doubling. double constants are associated with long constants.",
+      "parentUuid": "1096c0c9_64c1c027",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 63
+      },
+      "revId": "659702f589e1cb786d4ddcea81f25f05d40c8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309904fa_45f7606b",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-21T10:24:56Z",
       "side": 1,
       "message": "nit, personal preference:\n\nI would add wrappers to this. Maybe it\u0027s just me but I always forget the direction of the cast.\n\nHow about adding int_to_float or something like that. Same for the others .",
+      "range": {
+        "startLine": 144,
+        "startChar": 44,
+        "endLine": 144,
+        "endChar": 68
+      },
+      "revId": "659702f589e1cb786d4ddcea81f25f05d40c8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f064ccc9_c34c3cc0",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T10:32:40Z",
+      "side": 1,
+      "message": "Thing about something like this is that what kind of conversion is it? A bit_cast or a static_cast?\n\nI\u0027ll keep it this way for now, as it\u0027s consistent to what ART already does. We might have to train our brain to just read it properly :)",
+      "parentUuid": "309904fa_45f7606b",
       "range": {
         "startLine": 144,
         "startChar": 44,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1096c0c9_446204b3",
+        "filename": "test/410-floats/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T10:32:40Z",
+      "side": 1,
+      "message": "Remember that these tests are testing very low-level code, in this case the register allocator and the code generator. So they are simple, but they expose cases that a register allocator has to handle properly. Regression tests can also often end up being simple, yet obscure, like these ones.",
+      "parentUuid": "309904fa_055718ca",
+      "range": {
+        "startLine": 101,
+        "startChar": 21,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "659702f589e1cb786d4ddcea81f25f05d40c8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1096c0c9_e4deb01e",
         "filename": "test/410-floats/src/Main.java",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "309904fa_65229c42",
+        "filename": "test/410-floats/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T10:32:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1096c0c9_e4deb01e",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 2
+      },
+      "revId": "659702f589e1cb786d4ddcea81f25f05d40c8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1096c0c9_04e47ced",
         "filename": "test/410-floats/src/Main.java",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2014-10-21T10:24:56Z",
       "side": 1,
       "message": "trailing spaces",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 2
+      },
+      "revId": "659702f589e1cb786d4ddcea81f25f05d40c8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309904fa_851fa8f5",
+        "filename": "test/410-floats/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T10:32:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1096c0c9_04e47ced",
       "range": {
         "startLine": 123,
         "startChar": 0,
