@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5633af0_2cc2fb61",
+        "filename": "test/125-gc-and-classloading/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-21T23:23:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_85188897",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "fa5c9bcde4f4a0253d3c2afb35c98510db3eef4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f064ccc9_03b2b4dd",
         "filename": "test/125-gc-and-classloading/src/Main.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "151b126c_79353f80",
+        "filename": "test/125-gc-and-classloading/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-21T23:23:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f064ccc9_03b2b4dd",
+      "range": {
+        "startLine": 22,
+        "startChar": 24,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "fa5c9bcde4f4a0253d3c2afb35c98510db3eef4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309904fa_a543c46d",
         "filename": "test/125-gc-and-classloading/src/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-10-21T07:53:20Z",
       "side": 1,
       "message": "takes long. -\u003e takes a long time.",
+      "range": {
+        "startLine": 67,
+        "startChar": 75,
+        "endLine": 67,
+        "endChar": 79
+      },
+      "revId": "fa5c9bcde4f4a0253d3c2afb35c98510db3eef4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "150232f8_cf136dca",
+        "filename": "test/125-gc-and-classloading/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-21T23:23:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309904fa_a543c46d",
       "range": {
         "startLine": 67,
         "startChar": 75,
