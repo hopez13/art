@@ -93,6 +93,30 @@
       "revId": "8134888bcabd6f9cdd2e5001855e79b94c0c6286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_81aebef2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-21T07:45:04Z",
+      "side": 1,
+      "message": "I got your idea after I read your modification on quick_entrypoints_cc_arm.cc. So you mean we\u0027d better to tweak the ABI a bit to make the algorithm simpler.",
+      "parentUuid": "309904fa_2255ea47",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 77
+      },
+      "revId": "8134888bcabd6f9cdd2e5001855e79b94c0c6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
