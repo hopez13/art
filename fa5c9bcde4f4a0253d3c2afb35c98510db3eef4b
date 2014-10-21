@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "309904fa_85188897",
+        "filename": "test/125-gc-and-classloading/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T07:53:20Z",
+      "side": 1,
+      "message": "classloading -\u003e class loading",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "fa5c9bcde4f4a0253d3c2afb35c98510db3eef4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f064ccc9_03b2b4dd",
+        "filename": "test/125-gc-and-classloading/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T07:53:20Z",
+      "side": 1,
+      "message": "an -\u003e a",
+      "range": {
+        "startLine": 22,
+        "startChar": 24,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "fa5c9bcde4f4a0253d3c2afb35c98510db3eef4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309904fa_a543c46d",
+        "filename": "test/125-gc-and-classloading/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T07:53:20Z",
+      "side": 1,
+      "message": "takes long. -\u003e takes a long time.",
+      "range": {
+        "startLine": 67,
+        "startChar": 75,
+        "endLine": 67,
+        "endChar": 79
+      },
+      "revId": "fa5c9bcde4f4a0253d3c2afb35c98510db3eef4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
