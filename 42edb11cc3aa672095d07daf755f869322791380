@@ -474,6 +474,30 @@
     },
     {
       "key": {
+        "uuid": "f064ccc9_4e3f73ac",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T12:08:41Z",
+      "side": 1,
+      "message": "As discussed, this works today, but should be cleaned up. I\u0027ll do the bit_cast clean up in another CL.",
+      "parentUuid": "1096c0c9_84a40c44",
+      "range": {
+        "startLine": 1382,
+        "startChar": 20,
+        "endLine": 1382,
+        "endChar": 34
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f06a0c65_33b43af4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
