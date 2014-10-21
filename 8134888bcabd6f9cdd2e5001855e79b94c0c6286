@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "309904fa_0270eefb",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-21T02:17:15Z",
+      "side": 1,
+      "message": "Consider prototype like \"void foo(float a, double b)\", ignoring method reference and this.\n\nIf it is soft-float, the argument registers would be \"a(r0), b(r1/r2)\". This is fine.\n\nBut if it is hard-float and we do not align doubles, the argument register would be \"a(s0), b(s1/s2)\". This can work. But when moving b to a promoted d-register, for example d8. We will need \"vmov s16, s1 ;  vmov s17, s2\". For some reason, this is much slower than \"vmov d8, d1\". So if we align doubles to put b in (s2/s3), we can get better performance.",
+      "parentUuid": "106fa0ad_0270f4fb",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 98
+      },
+      "revId": "8134888bcabd6f9cdd2e5001855e79b94c0c6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3072e491_69b18d55",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-21T01:02:47Z",
       "side": 1,
       "message": "Remove this and just compute based off of fpr_index_.",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 77
+      },
+      "revId": "8134888bcabd6f9cdd2e5001855e79b94c0c6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309904fa_2255ea47",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-21T02:17:15Z",
+      "side": 1,
+      "message": "This depends on how we define the ABI. For function prototype like \"void foo(float a, double b, float c);\".\n\nNow the argument registers would be \"a(s0), b(s2/s3\u003dd1), c(s1)\".\n\nWe could remove this unless we define ABI to use argument registers like \"a(s0), b(s2/s3\u003dd1), c(s4)\"",
+      "parentUuid": "3072e491_69b18d55",
       "range": {
         "startLine": 427,
         "startChar": 0,
