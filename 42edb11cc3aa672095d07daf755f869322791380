@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "309904fa_85d7a874",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T11:35:06Z",
+      "side": 1,
+      "message": "Yeah, maybe in the future, but I did not want to complicate the register allocator more.",
+      "parentUuid": "f064ccc9_6388d07d",
+      "range": {
+        "startLine": 954,
+        "startChar": 28,
+        "endLine": 954,
+        "endChar": 59
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06fc874_72e06e29",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "This seems to be the opposite of what the implementation in runtime/base/casts.h says.  Or am I looking at the wrong function?",
       "parentUuid": "b0d09489_28f06ba3",
+      "range": {
+        "startLine": 1382,
+        "startChar": 20,
+        "endLine": 1382,
+        "endChar": 34
+      },
+      "revId": "42edb11cc3aa672095d07daf755f869322791380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_84a40c44",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T11:35:06Z",
+      "side": 1,
+      "message": "Greatness, we have two bit_cast implementations..... I was looking at the one in utils.h (intuitively the one used here otherwise we would get compiler warnings, but this is sooooo wrong).",
+      "parentUuid": "309904fa_850888c5",
       "range": {
         "startLine": 1382,
         "startChar": 20,
