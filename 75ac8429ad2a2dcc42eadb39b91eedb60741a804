@@ -22,6 +22,30 @@
       "revId": "75ac8429ad2a2dcc42eadb39b91eedb60741a804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f064ccc9_63da90a1",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T10:03:57Z",
+      "side": 1,
+      "message": "I actually like not having to think about precedence rules, so in binary operation cases, I often add parentehsis for readability (and in the new patchset I changed the expression right after to also have parens.",
+      "parentUuid": "309904fa_a55744cb",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 14
+      },
+      "revId": "75ac8429ad2a2dcc42eadb39b91eedb60741a804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
