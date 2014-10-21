@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1096c0c9_2155ea47",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "Should this instruction just be local to the optimization and not pollute this .h file?",
+      "range": {
+        "startLine": 1697,
+        "startChar": 6,
+        "endLine": 1697,
+        "endChar": 15
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f064ccc9_239ed83d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "What\u0027s a reg number for a store phi? Reg numbers are for DEX registers.",
+      "range": {
+        "startLine": 1699,
+        "startChar": 44,
+        "endLine": 1699,
+        "endChar": 54
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_815cfe72",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "How can it be a HInvoke?",
+      "range": {
+        "startLine": 1748,
+        "startChar": 34,
+        "endLine": 1748,
+        "endChar": 41
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309904fa_6589bc48",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "So I guess it\u0027s flow sensitive?",
+      "range": {
+        "startLine": 1748,
+        "startChar": 45,
+        "endLine": 1748,
+        "endChar": 54
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f064ccc9_0389d403",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1756,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "Why this change? The node already longs to the graph, which as an arena allocator.",
+      "range": {
+        "startLine": 1756,
+        "startChar": 20,
+        "endLine": 1756,
+        "endChar": 34
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_615ff267",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "Is this flow sensitive? Can it be a HStorePhi?",
+      "range": {
+        "startLine": 1795,
+        "startChar": 5,
+        "endLine": 1795,
+        "endChar": 13
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_a1473a99",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-21T08:19:56Z",
+      "side": 1,
+      "message": "I think this belongs to another phase. SSA building should not care about optimizations.",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "f558d3490a49bc4ac3aeb076f03fabeffc708556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
