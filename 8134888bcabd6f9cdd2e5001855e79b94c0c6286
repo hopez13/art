@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "106fa0ad_0270f4fb",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-21T01:02:47Z",
+      "side": 1,
+      "message": "Its not clear this is necessary, it feels like kQuickSoftFloatAbi.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 98
+      },
+      "revId": "8134888bcabd6f9cdd2e5001855e79b94c0c6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3072e491_69b18d55",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-21T01:02:47Z",
+      "side": 1,
+      "message": "Remove this and just compute based off of fpr_index_.",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 77
+      },
+      "revId": "8134888bcabd6f9cdd2e5001855e79b94c0c6286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
