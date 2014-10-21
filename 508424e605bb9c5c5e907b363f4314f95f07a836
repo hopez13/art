@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "151b126c_532144c8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-10-21T21:07:51Z",
+      "side": 1,
+      "message": "RHS operand can be in memory.  Is this something that can be handled?  It would be good if constant values ended up in memory.",
+      "revId": "508424e605bb9c5c5e907b363f4314f95f07a836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
