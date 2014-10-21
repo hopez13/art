@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5f16652_268a02f8",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-21T17:49:49Z",
+      "side": 1,
+      "message": "false\n\nie ART_TARGET_CLANG is either true or false, but never empty",
+      "revId": "ee638f984c5c0e812efd97ea4ac51a6ab40df088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75fb6e34_1e8aadf7",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-21T17:49:49Z",
+      "side": 1,
+      "message": "Workaround GCC for MIPS being broken. For MIPS you can\u0027t compile with GCC at -O1 nor can you enable -fstrict-aliasing.\nTODO: fix GCC for MIPS.",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 58
+      },
+      "revId": "ee638f984c5c0e812efd97ea4ac51a6ab40df088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
