@@ -16,6 +16,24 @@
       "revId": "afe93b33045fd9411c5fdf2c8ce5f7b4b2154250",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1096c0c9_643c60b7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2395,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-21T09:49:10Z",
+      "side": 1,
+      "message": "I used the same pattern than for resuming one thread. But yes, I guess a race with suspend count is possible here so it\u0027d be safer to have that logic in ResumeAllForDebugger.\n\nWe should probably do the same for ThreadList::Resume, it\u0027s not only used by debugger though.",
+      "parentUuid": "309904fa_bca7619c",
+      "revId": "afe93b33045fd9411c5fdf2c8ce5f7b4b2154250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
