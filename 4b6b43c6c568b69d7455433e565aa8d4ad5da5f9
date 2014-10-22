@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "351e565a_d4ed3cca",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-22T10:06:42Z",
+      "side": 1,
+      "message": "Surround with parenthesis?",
+      "range": {
+        "startLine": 524,
+        "startChar": 28,
+        "endLine": 524,
+        "endChar": 64
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d53a5ac4_51a7149f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-22T10:06:42Z",
+      "side": 1,
+      "message": "Why not using VRegA_22C since you already use VRegB_22c and VRegC_22c?",
+      "range": {
+        "startLine": 872,
+        "startChar": 30,
+        "endLine": 872,
+        "endChar": 35
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d53a5ac4_718b38ff",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-22T10:06:42Z",
+      "side": 1,
+      "message": "Also indicate it\u0027s only dedicated for int and reference array.",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 145,
+        "endChar": 16
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
