@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "150232f8_b0b2be08",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-22T04:47:16Z",
+      "side": 1,
+      "message": "I\u0027d prefer to change this to +\u003d to avoid separating the clang logic over the file.",
+      "range": {
+        "startLine": 219,
+        "startChar": 16,
+        "endLine": 219,
+        "endChar": 17
+      },
+      "revId": "bafb265d090a41f38e7bee3fc71362f19f72d305",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "150232f8_90a102b5",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-22T04:47:16Z",
+      "side": 1,
+      "message": "similarly +\u003d",
+      "range": {
+        "startLine": 228,
+        "startChar": 18,
+        "endLine": 228,
+        "endChar": 20
+      },
+      "revId": "bafb265d090a41f38e7bee3fc71362f19f72d305",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
