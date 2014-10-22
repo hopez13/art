@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_f4ff183b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T10:46:43Z",
+      "side": 1,
+      "message": "No that\u0027s OK, it\u0027s just a pattern I\u0027m not usually using. But it\u0027s fine, as I can see unnamed namespaces are encouraged in the style guide.",
+      "parentUuid": "351e565a_7459c8fe",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 9
+      },
+      "revId": "0e81f3537625d6ee113dada11a811782e9bd1cd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d53a5ac4_f1f048a6",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 7
