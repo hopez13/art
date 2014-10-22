@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "d53a5ac4_513a7470",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "This function seems to be a special case of BuildFillArrayData.  Why a dedicated routine?",
+      "range": {
+        "startLine": 552,
+        "startChar": 20,
+        "endLine": 552,
+        "endChar": 42
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d53a5ac4_51a7149f",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -89,6 +112,29 @@
         "startChar": 30,
         "endLine": 872,
         "endChar": 35
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d53a5ac4_d1b2e4db",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_LE(number_of_vreg_arguments, 5)\n\n?",
+      "range": {
+        "startLine": 877,
+        "startChar": 15,
+        "endLine": 877,
+        "endChar": 39
       },
       "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -160,6 +206,132 @@
         "startChar": 5,
         "endLine": 145,
         "endChar": 16
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_9239fcc6",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "Maybe document this attribute.",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 29
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_b4776043",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "Add\n\n  DCHECK(location.IsConstant());\n\nas in code_generator_x86.cc?",
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_744308e0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_b4eac0ae",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "This is probably a nit-picking issue, but shouldn\u0027t we try to keep this list sorted?  Suggestions:\n- sort using alphabetical order on node name;\n- sort using alphabetical order on super class name, then on node name.",
+      "range": {
+        "startLine": 510,
+        "startChar": 2,
+        "endLine": 510,
+        "endChar": 26
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_122e2c80",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "Do you whether it is a problem with the test or with the Quick compiler?",
+      "range": {
+        "startLine": 288,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 15
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d53a5ac4_f156089d",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T11:35:20Z",
+      "side": 1,
+      "message": "Or use `-d\u0027 instead?",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 7
       },
       "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
