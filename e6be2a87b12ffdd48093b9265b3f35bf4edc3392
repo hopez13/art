@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "354c968a_7e5ad1cd",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-22T18:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7529ae84_f719526c",
+      "range": {
+        "startLine": 217,
+        "startChar": 60,
+        "endLine": 217,
+        "endChar": 71
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3533b6f6_3285a8e9",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 1
@@ -72,6 +96,54 @@
     },
     {
       "key": {
+        "uuid": "354c968a_9e1fcdf5",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-22T18:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3533b6f6_3285a8e9",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 56
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354c968a_de25454b",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-22T18:44:36Z",
+      "side": 1,
+      "message": "We\u0027ve generally avoided reference member variables due to the confusion on ownership.",
+      "parentUuid": "7529ae84_37f7daa1",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 56
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "153072e8_31100842",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2014-10-22T16:43:28Z",
       "side": 1,
       "message": "This defeats the nullptr \"optimization,\" doesn\u0027t it? In that case CompilerOptions could use a reference instead.",
+      "range": {
+        "startLine": 1240,
+        "startChar": 72,
+        "endLine": 1240,
+        "endChar": 88
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354c968a_9ef10d78",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-22T18:44:36Z",
+      "side": 1,
+      "message": "The nullptr change is a requirement rather than an optimization, as we don\u0027t have a sensible verbose_methods_ for compiler tests.",
+      "parentUuid": "153072e8_31100842",
       "range": {
         "startLine": 1240,
         "startChar": 72,
