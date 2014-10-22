@@ -34,6 +34,24 @@
       "revId": "508424e605bb9c5c5e907b363f4314f95f07a836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "150232f8_f006068a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-10-22T11:40:31Z",
+      "side": 1,
+      "message": "It is good to load constants from memory when you don\u0027t have any spare registers to keep them in.  It may avoid 1 instruction by avoiding a separate load.  This also allows you to compute with something that is already in memory that has been spilled.",
+      "parentUuid": "151b126c_532144c8",
+      "revId": "508424e605bb9c5c5e907b363f4314f95f07a836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
