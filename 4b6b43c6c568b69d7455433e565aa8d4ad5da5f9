@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "d53a5ac4_7160d82e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T13:33:51Z",
+      "side": 1,
+      "message": "Oh right, I didn\u0027t see one used GetIntConstant while the other used GetLongConstant, sorry.\n\nI guess the current code is simpler and faster (no need to check a Boolean value at each iteration), so you should probably keep it as-is.",
+      "parentUuid": "351e565a_f4b7185c",
+      "range": {
+        "startLine": 552,
+        "startChar": 20,
+        "endLine": 552,
+        "endChar": 42
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d53a5ac4_51a7149f",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Things would be very broken if not (we assume the verifier already ran). In general, when it comes to instruction format, we trust the instruction is of the correct shape.",
       "parentUuid": "d53a5ac4_d1b2e4db",
+      "range": {
+        "startLine": 877,
+        "startChar": 15,
+        "endLine": 877,
+        "endChar": 39
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_747b08ed",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T13:33:51Z",
+      "side": 1,
+      "message": "Alright.",
+      "parentUuid": "f5359ed2_f2328864",
       "range": {
         "startLine": 877,
         "startChar": 15,
@@ -425,6 +473,30 @@
     },
     {
       "key": {
+        "uuid": "f5359ed2_727b38ed",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T13:33:51Z",
+      "side": 1,
+      "message": "Agreed. :)",
+      "parentUuid": "351e565a_14ecd44d",
+      "range": {
+        "startLine": 510,
+        "startChar": 2,
+        "endLine": 510,
+        "endChar": 26
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_122e2c80",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 4
@@ -507,6 +579,30 @@
       "side": 1,
       "message": "I made it consistent with test line 27 and 37.",
       "parentUuid": "d53a5ac4_f156089d",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_b288807c",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-22T13:33:51Z",
+      "side": 1,
+      "message": "Fair enough.  I believe we should change lines 23 and 37 as well (maybe in another CL), as the tested path is searched with `find\u0027 right after.",
+      "parentUuid": "f5359ed2_72c458cf",
       "range": {
         "startLine": 31,
         "startChar": 5,
