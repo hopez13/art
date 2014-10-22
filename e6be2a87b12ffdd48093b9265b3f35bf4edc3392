@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7529ae84_f719526c",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-22T16:43:28Z",
+      "side": 1,
+      "message": "!empty()?",
+      "range": {
+        "startLine": 217,
+        "startChar": 60,
+        "endLine": 217,
+        "endChar": 71
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3533b6f6_3285a8e9",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-22T16:43:28Z",
+      "side": 1,
+      "message": "Simplify to range-based loop?",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 56
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "153072e8_31100842",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-22T16:43:28Z",
+      "side": 1,
+      "message": "This defeats the nullptr \"optimization,\" doesn\u0027t it? In that case CompilerOptions could use a reference instead.",
+      "range": {
+        "startLine": 1240,
+        "startChar": 72,
+        "endLine": 1240,
+        "endChar": 88
+      },
+      "revId": "e6be2a87b12ffdd48093b9265b3f35bf4edc3392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
