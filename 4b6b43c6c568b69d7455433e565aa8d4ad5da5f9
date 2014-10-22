@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_f4b7185c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "Because it calls GetLongConstant instead of GetIntConstant. I could templatize it even further with a boolean, would you prefer that?",
+      "parentUuid": "d53a5ac4_513a7470",
+      "range": {
+        "startLine": 552,
+        "startChar": 20,
+        "endLine": 552,
+        "endChar": 42
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d53a5ac4_51a7149f",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -130,6 +154,30 @@
       "writtenOn": "2014-10-22T11:35:20Z",
       "side": 1,
       "message": "Maybe add\n\n  DCHECK_LE(number_of_vreg_arguments, 5)\n\n?",
+      "range": {
+        "startLine": 877,
+        "startChar": 15,
+        "endLine": 877,
+        "endChar": 39
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_f2328864",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "Things would be very broken if not (we assume the verifier already ran). In general, when it comes to instruction format, we trust the instruction is of the correct shape.",
+      "parentUuid": "d53a5ac4_d1b2e4db",
       "range": {
         "startLine": 877,
         "startChar": 15,
@@ -236,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "f5359ed2_f2b7285c",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5359ed2_9239fcc6",
+      "range": {
+        "startLine": 181,
+        "startChar": 18,
+        "endLine": 181,
+        "endChar": 29
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "351e565a_b4776043",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -247,6 +319,24 @@
       "writtenOn": "2014-10-22T11:35:20Z",
       "side": 1,
       "message": "Add\n\n  DCHECK(location.IsConstant());\n\nas in code_generator_x86.cc?",
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_d22f84f8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351e565a_b4776043",
       "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -270,6 +360,24 @@
     },
     {
       "key": {
+        "uuid": "f5359ed2_b22c0005",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "351e565a_744308e0",
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "351e565a_b4eac0ae",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -281,6 +389,30 @@
       "writtenOn": "2014-10-22T11:35:20Z",
       "side": 1,
       "message": "This is probably a nit-picking issue, but shouldn\u0027t we try to keep this list sorted?  Suggestions:\n- sort using alphabetical order on node name;\n- sort using alphabetical order on super class name, then on node name.",
+      "range": {
+        "startLine": 510,
+        "startChar": 2,
+        "endLine": 510,
+        "endChar": 26
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_14ecd44d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "Sure. Let\u0027s compete on who does this first :-)\n\nStrong preference would be suggestion 1).",
+      "parentUuid": "351e565a_b4eac0ae",
       "range": {
         "startLine": 510,
         "startChar": 2,
@@ -316,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_f4e03854",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "With Quick. The interpreter works fine for example. I\u0027ll file a bug.",
+      "parentUuid": "f5359ed2_122e2c80",
+      "range": {
+        "startLine": 288,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 15
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d53a5ac4_f156089d",
         "filename": "test/etc/default-build",
         "patchSetId": 4
@@ -327,6 +483,30 @@
       "writtenOn": "2014-10-22T11:35:20Z",
       "side": 1,
       "message": "Or use `-d\u0027 instead?",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 7
+      },
+      "revId": "4b6b43c6c568b69d7455433e565aa8d4ad5da5f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_72c458cf",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:00:55Z",
+      "side": 1,
+      "message": "I made it consistent with test line 27 and 37.",
+      "parentUuid": "d53a5ac4_f156089d",
       "range": {
         "startLine": 31,
         "startChar": 5,
