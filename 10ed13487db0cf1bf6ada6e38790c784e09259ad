@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5359ed2_922fbca7",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T07:40:43Z",
+      "side": 1,
+      "message": "I\u0027d avoid magic constants like this. If you must have one, then I suggest a kImpossibleVR constexpr.",
+      "range": {
+        "startLine": 870,
+        "startChar": 18,
+        "endLine": 870,
+        "endChar": 21
+      },
+      "revId": "10ed13487db0cf1bf6ada6e38790c784e09259ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
