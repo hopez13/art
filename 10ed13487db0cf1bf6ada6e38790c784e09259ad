@@ -22,6 +22,30 @@
       "revId": "10ed13487db0cf1bf6ada6e38790c784e09259ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151b126c_0d0ba54b",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-10-22T11:38:40Z",
+      "side": 1,
+      "message": "Where would this constant be defined?  Here, or in mir_graph.h, or some dex .h file?",
+      "parentUuid": "f5359ed2_922fbca7",
+      "range": {
+        "startLine": 870,
+        "startChar": 18,
+        "endLine": 870,
+        "endChar": 21
+      },
+      "revId": "10ed13487db0cf1bf6ada6e38790c784e09259ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
