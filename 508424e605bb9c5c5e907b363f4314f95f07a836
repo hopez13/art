@@ -52,6 +52,24 @@
       "revId": "508424e605bb9c5c5e907b363f4314f95f07a836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_149054d8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-22T11:52:28Z",
+      "side": 1,
+      "message": "This is currently done like this because the lack of RegisterOrMemory (which simplifies things in the allocator). Long term we should probably add it (for the reasons you also mentioned).",
+      "parentUuid": "150232f8_f006068a",
+      "revId": "508424e605bb9c5c5e907b363f4314f95f07a836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
