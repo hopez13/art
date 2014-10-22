@@ -22,6 +22,30 @@
       "revId": "deb48a0b5bd1da4d5dce64454d2ff44e3fca875a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7529ae84_91ac5efc",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-22T08:02:34Z",
+      "side": 1,
+      "message": "Probably not necessary, but I like to have things stored in named, expressive variables. If you don\u0027t mind I\u0027ll commit. In the end I hope that I can remove all the output when the bug becomes clear.",
+      "parentUuid": "351e565a_147974b8",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 4
+      },
+      "revId": "deb48a0b5bd1da4d5dce64454d2ff44e3fca875a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
