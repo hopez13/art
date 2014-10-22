@@ -46,6 +46,30 @@
       "revId": "10ed13487db0cf1bf6ada6e38790c784e09259ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_92be9c34",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-22T13:02:29Z",
+      "side": 1,
+      "message": "I\u0027ll leave it to Bill or Vladimir for this kind of decision. I don\u0027t know if Quick already uses similar magic constants.",
+      "parentUuid": "151b126c_0d0ba54b",
+      "range": {
+        "startLine": 870,
+        "startChar": 18,
+        "endLine": 870,
+        "endChar": 21
+      },
+      "revId": "10ed13487db0cf1bf6ada6e38790c784e09259ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
