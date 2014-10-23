@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7597ee02_8102fce0",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-23T14:43:09Z",
+      "side": 1,
+      "message": "Alternatively, can we not pass raw objects but always handles?",
+      "range": {
+        "startLine": 45,
+        "startChar": 51,
+        "endLine": 45,
+        "endChar": 57
+      },
+      "revId": "e2d628b5b0a1b9c29c173f3cbad3ef6cb6c24d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
