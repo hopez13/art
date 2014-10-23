@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5359ed2_fbe02354",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-23T16:43:17Z",
+      "side": 1,
+      "message": "Is it always the same pattern when calling a runtime helper? If yes, we should move that to a helper.",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_9bac77fc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2042,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-23T16:43:17Z",
+      "side": 1,
+      "message": "Not really reader friendly. I\u0027d rename to \"class_reg\" which has more meaning.",
+      "range": {
+        "startLine": 2042,
+        "startChar": 11,
+        "endLine": 2042,
+        "endChar": 13
+      },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_1b7ac7e5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2108,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-23T16:43:17Z",
+      "side": 1,
+      "message": "This should be shared to each backend with a helper to avoid duplicating this code. I believe it\u0027s also the same in Quick compiler?",
+      "range": {
+        "startLine": 2106,
+        "startChar": 4,
+        "endLine": 2108,
+        "endChar": 50
+      },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
