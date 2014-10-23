@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b58de6f4_15b37ee1",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-23T23:05:27Z",
+      "side": 1,
+      "message": "Usually you would expect inactive intervals to be first moved from active set at some point, so the start of any inactive interval should be before the current interval being processed during linear scan, but it\u0027s inactive since it\u0027s in a hole at the current instruction position. Basically any interval starting after the current instruction is in unhandled set. I found it a little surprising during some debugging to see inactive intervals that start after the current instruction being processed. And I found those are fixed intervals, and they start in inactive set instead of unhandled. So I added some comment to make it clear. Or should it be stated with more clarity?\n\nI saw some algorithm that adds fixed intervals to unhandled set first, so you don\u0027t need to process them (like doing intersecting with the current interval) until they really start. I think the way we do it is fine but just want to make it clear with some comment.",
+      "parentUuid": "f5359ed2_e6a8869a",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 9
+      },
+      "revId": "74111ffb81fe1151daaf24c12a565c1fe231e40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7597ee02_217528f7",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-23T17:41:26Z",
       "side": 1,
       "message": "I don\u0027t understand the change in this file.",
+      "range": {
+        "startLine": 418,
+        "startChar": 28,
+        "endLine": 418,
+        "endChar": 29
+      },
+      "revId": "74111ffb81fe1151daaf24c12a565c1fe231e40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9592a210_a834bad4",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-23T23:05:27Z",
+      "side": 1,
+      "message": "The old artificial intervals break this rule:\n// Thanks to SSA, a non-split interval starting in a hole of an\n// inactive interval should never intersect with that inactive interval.\n\nSo I tuned the intervals somewhat to make it work with that rule (add a split). I changed it to non-temp interval since I added an assertion somewhere that temp intervals don\u0027t have holes (well, that\u0027s my understanding from the code, they have a single range) so they won\u0027t be added to inactive set.\n\nSo basically I just try to work around some assertions.",
+      "parentUuid": "7597ee02_217528f7",
       "range": {
         "startLine": 418,
         "startChar": 28,
