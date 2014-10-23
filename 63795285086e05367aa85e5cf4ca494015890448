@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "351e565a_7d352b80",
+        "filename": "test/414-optimizing-arith2/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-23T15:01:30Z",
+      "side": 1,
+      "message": "I\u0027d remove the last sentence as well as additional. Just say \"Tests for basic arithmetic operations\".",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "63795285086e05367aa85e5cf4ca494015890448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_3d2fb32e",
+        "filename": "test/414-optimizing-arith2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-23T15:01:30Z",
+      "side": 1,
+      "message": "I suggest calling this one $opt$NegLong and the other  one $opt$NegInt, so you avoid Java\u0027s potential implicit conversions.",
+      "range": {
+        "startLine": 133,
+        "startChar": 19,
+        "endLine": 133,
+        "endChar": 22
+      },
+      "revId": "63795285086e05367aa85e5cf4ca494015890448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
