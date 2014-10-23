@@ -22,6 +22,30 @@
       "revId": "2e49e3d81a20ec550c951cd4912402ae7d5dadb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_78ed594d",
+        "filename": "runtime/native_bridge_art_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-23T11:06:35Z",
+      "side": 1,
+      "message": "It is well defined in this context. I updated and explicitly mentioned that we refer to the mount namespace to avoid confusions.",
+      "parentUuid": "351e565a_fa426136",
+      "range": {
+        "startLine": 123,
+        "startChar": 40,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "2e49e3d81a20ec550c951cd4912402ae7d5dadb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
