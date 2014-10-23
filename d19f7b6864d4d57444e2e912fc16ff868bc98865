@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b58de6f4_c3ac88fd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-23T06:46:17Z",
+      "side": 1,
+      "message": "// TODO: assert that no fix up is necessary.",
+      "revId": "d19f7b6864d4d57444e2e912fc16ff868bc98865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b58de6f4_8380c05a",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-23T06:46:17Z",
+      "side": 1,
+      "message": "in arguments to the left of out arguments (error_msg)",
+      "range": {
+        "startLine": 33,
+        "startChar": 23,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "d19f7b6864d4d57444e2e912fc16ff868bc98865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b58de6f4_637b3ced",
+        "filename": "runtime/elf_file_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-23T06:46:17Z",
+      "side": 1,
+      "message": "Can we lose the default arguments, and explicitly pass nullptr. The out argument error_msg is now to the left of an in argument requested_base.",
+      "range": {
+        "startLine": 42,
+        "startChar": 74,
+        "endLine": 42,
+        "endChar": 84
+      },
+      "revId": "d19f7b6864d4d57444e2e912fc16ff868bc98865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b58de6f4_437ab8e6",
+        "filename": "runtime/elf_file_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-23T06:46:17Z",
+      "side": 1,
+      "message": "periods at the end of comments. Some more detail and mention of PIC would be good.",
+      "range": {
+        "startLine": 212,
+        "startChar": 45,
+        "endLine": 212,
+        "endChar": 46
+      },
+      "revId": "d19f7b6864d4d57444e2e912fc16ff868bc98865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9592a210_c24d6404",
+        "filename": "runtime/elf_file_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-23T06:46:17Z",
+      "side": 1,
+      "message": "I guess this is following existing convention, void may be more appropriate.",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 9
+      },
+      "revId": "d19f7b6864d4d57444e2e912fc16ff868bc98865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9592a210_0254ac92",
+        "filename": "runtime/elf_file_impl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-23T06:46:17Z",
+      "side": 1,
+      "message": "* const",
+      "range": {
+        "startLine": 213,
+        "startChar": 9,
+        "endLine": 213,
+        "endChar": 11
+      },
+      "revId": "d19f7b6864d4d57444e2e912fc16ff868bc98865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
