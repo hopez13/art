@@ -22,6 +22,30 @@
       "revId": "e2d628b5b0a1b9c29c173f3cbad3ef6cb6c24d2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_dd6aff58",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-23T15:07:26Z",
+      "side": 1,
+      "message": "Good point. Having the use of Handle here make things easier. But it does nothing for the caller.\n\nMost of the time, the object is not used after the call (\"registry-\u003eAdd(obj-\u003eGetClass())\" for instance) so having a handle as parameter adds a constraint. But there are still a few places where it\u0027s not like this, like in a loop.\n\nI could add an alternative InternalAdd function taking a Handle instead for such cases.",
+      "parentUuid": "7597ee02_8102fce0",
+      "range": {
+        "startLine": 45,
+        "startChar": 51,
+        "endLine": 45,
+        "endChar": 57
+      },
+      "revId": "e2d628b5b0a1b9c29c173f3cbad3ef6cb6c24d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
