@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7597ee02_1ec2cd61",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-23T11:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9592a210_c2a24438",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "df35a16629d8a630f906642384fc8719824b070c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f583dec2_89453a75",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-23T07:00:47Z",
       "side": 1,
       "message": "Perhaps,\n\nkQuickFloatArgumentsAreBackFilled",
+      "range": {
+        "startLine": 63,
+        "startChar": 24,
+        "endLine": 63,
+        "endChar": 52
+      },
+      "revId": "df35a16629d8a630f906642384fc8719824b070c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_d8fc4549",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-23T11:10:13Z",
+      "side": 1,
+      "message": "I changed it to kQuickDoubleRegAlignedFloatBackFilled. Because if it is false, we won\u0027t back fill float and also doubles won\u0027t be aligned.",
+      "parentUuid": "f583dec2_89453a75",
       "range": {
         "startLine": 63,
         "startChar": 24,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_5a3a7570",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-23T11:10:13Z",
+      "side": 1,
+      "message": "I will try to see if it can be reproduced by a simple case.",
+      "parentUuid": "f583dec2_a94a7e7f",
+      "range": {
+        "startLine": 255,
+        "startChar": 8,
+        "endLine": 255,
+        "endChar": 84
+      },
+      "revId": "df35a16629d8a630f906642384fc8719824b070c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b58de6f4_a35dc46f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-23T07:00:47Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 292,
+        "startChar": 65,
+        "endLine": 293,
+        "endChar": 53
+      },
+      "revId": "df35a16629d8a630f906642384fc8719824b070c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7597ee02_1e264de2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-23T11:10:13Z",
+      "side": 1,
+      "message": "On 32-bit soft-float, the high_half of split long is always the first stack argument. On 64-bit, there will never be a split long. But there will still be a split long in current defined arm32 hard-float as I didn\u0027t change the algorithm for gpr arguments.\n\nBut we won\u0027t know the stack index for its high half, unless we parsed the shorty. For example, \"void foo(int a, double b, long c)\"\n\nsoft-float:\nR0 - ArtMethod\nR1 - this        - stack[0]   \u003c- stack_args, current implementation\nR2 - a           - stack[4]\nR3 - b low_half  - stack[8]\nNA - b high_half - stack[12]  \u003c- stack_args, original implementation, the high_half of split long/double is always on this position.\n...\n\nhard-float:\nR0 - ArtMethod\nR1 - this        - stack[0]  \u003c- stack_args points here\nR2 - a           - stack[4]\nS0 - b low_half  - stack[8]\nS1 - b high_half - stack[12]\nR3 - c low_half  - stack[16]\nNA - c high_half - stack[20] \u003c- the stack index of the high_half of split long need to be calculated by the shorty.\n\nIn the original implementation :\n1. soft-float : stack_args points to stack[12], stack_index only increases when visit an argument on stack.\n2. hard-float : stack_args points to stack[0], stack_index always increases when visit an argument.\n\nIn current implementation :\nI always use the hard-float logic for stack_args and stack_index to make the logic simple. \n\nSee the related change in StackArgumentStartFromShorty() and VisitArguments() on stack_args_ and stack_index_. I think current implementation is much clean and simple.",
+      "parentUuid": "b58de6f4_a35dc46f",
       "range": {
         "startLine": 292,
         "startChar": 65,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_9a1fedf5",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-23T11:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b58de6f4_c35a4875",
+      "range": {
+        "startLine": 426,
+        "startChar": 50,
+        "endLine": 426,
+        "endChar": 51
+      },
+      "revId": "df35a16629d8a630f906642384fc8719824b070c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9592a210_429074d9",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2014-10-23T07:00:47Z",
       "side": 1,
       "message": "Only used with floating point argument back filling. Next available double register indexed in terms of singles, may be behind fpr_index.",
+      "range": {
+        "startLine": 427,
+        "startChar": 34,
+        "endLine": 427,
+        "endChar": 77
+      },
+      "revId": "df35a16629d8a630f906642384fc8719824b070c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7597ee02_be84f930",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-23T11:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9592a210_429074d9",
       "range": {
         "startLine": 427,
         "startChar": 34,
