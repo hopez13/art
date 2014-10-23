@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "351e565a_fa426136",
+        "filename": "runtime/native_bridge_art_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-23T07:52:09Z",
+      "side": 1,
+      "message": "namespace? is name-space well defined in this context?\n\nAlso, comma after name-space.",
+      "range": {
+        "startLine": 123,
+        "startChar": 40,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "2e49e3d81a20ec550c951cd4912402ae7d5dadb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
