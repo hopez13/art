@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7597ee02_1e9bad7f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-23T12:46:14Z",
+      "side": 1,
+      "message": "down_cast (applied in PS11).",
+      "range": {
+        "startLine": 710,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 20
+      },
+      "revId": "58e39af0cbcd0c4479c9ad58a861fb5065b63022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7597ee02_1e008d6f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-23T12:46:14Z",
+      "side": 1,
+      "message": "This isn\u0027t right, there is only one input for HNot. I fixed it in PS11 and it passes codegen_test now.",
+      "range": {
+        "startLine": 1016,
+        "startChar": 23,
+        "endLine": 1016,
+        "endChar": 24
+      },
+      "revId": "58e39af0cbcd0c4479c9ad58a861fb5065b63022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
