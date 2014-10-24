@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5359ed2_c1d1ec0b",
+        "filename": "runtime/entrypoints/quick/quick_instrumentation_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-24T16:46:00Z",
+      "side": 1,
+      "message": "After repo sync\u0027ing, I noticed this check breaks JDWP tests (19). We do want to use the QuickToInterpreterBridge if the method is deoptimized by the debugger (for breakpoint especially).",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 84
+      },
+      "revId": "6f3dbbadf4ce66982eb3d400e0a74cb73eb034f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
