@@ -22,6 +22,30 @@
       "revId": "d8acce51108f87cd3e4a8b9e6ab65e1edc5f1983",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5359ed2_e1dd1098",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-24T15:11:16Z",
+      "side": 1,
+      "message": "I just tried - it\u0027s kind of not working for 32-bit versions of the registers, so I\u0027ll delay improving the infrastructure in another CL.",
+      "parentUuid": "7529ae84_e422b340",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 1
+      },
+      "revId": "d8acce51108f87cd3e4a8b9e6ab65e1edc5f1983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
