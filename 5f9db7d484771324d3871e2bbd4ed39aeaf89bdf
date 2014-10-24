@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "35a1f65e_f6e1402f",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-24T01:28:14Z",
+      "side": 1,
+      "message": "Two of something is bad, please don\u0027t do this.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 50
+      },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9592a210_beeab0ae",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-24T01:28:14Z",
+      "side": 1,
+      "message": "remove this and place logic that\u0027s dependent on the runtime in the compiler driver (to be known as interface)",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 39
+      },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_fbe02354",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -65,6 +111,46 @@
         "endLine": 2108,
         "endChar": 50
       },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5717ac8_b96adf85",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2016,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-24T01:28:14Z",
+      "side": 1,
+      "message": "FINAL? and below",
+      "range": {
+        "startLine": 2016,
+        "startChar": 16,
+        "endLine": 2016,
+        "endChar": 17
+      },
+      "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35a1f65e_eb539d63",
+        "filename": "compiler/utils/arm/constants_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-24T01:28:14Z",
+      "side": 1,
+      "message": "Describe why the numbering on the principal that arbitrary constants deserve some explanation.",
       "revId": "5f9db7d484771324d3871e2bbd4ed39aeaf89bdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

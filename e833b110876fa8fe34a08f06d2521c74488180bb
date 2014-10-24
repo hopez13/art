@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35a1f65e_abafd5ef",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-24T01:28:14Z",
+      "side": 0,
+      "message": "We should remove LoadCurrentMethod, I understand its necessary due to the current quick entrypoints. Its always possible to load the current method from the referring caller, and we do that for more entrypoints now. Here be dragons wrt inlining.",
+      "range": {
+        "startLine": 126,
+        "startChar": 7,
+        "endLine": 126,
+        "endChar": 24
+      },
+      "revId": "e833b110876fa8fe34a08f06d2521c74488180bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
