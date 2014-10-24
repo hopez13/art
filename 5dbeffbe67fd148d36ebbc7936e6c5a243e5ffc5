@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "351e565a_23a1d407",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-24T17:48:40Z",
+      "side": 1,
+      "message": "DCHECK(first.Equals(locations-\u003eOut()));\n\nand you can do it just above the switch to get rid of the other checks.",
+      "range": {
+        "startLine": 1367,
+        "startChar": 6,
+        "endLine": 1367,
+        "endChar": 55
+      },
+      "revId": "5dbeffbe67fd148d36ebbc7936e6c5a243e5ffc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
