@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7580cec4_000b474b",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-25T23:08:45Z",
+      "side": 1,
+      "message": "I believe the intent was to reserve space for argument words in the callee save frame, however, given the Method* is at the bottom this looks broken. Should we move the Method* to be at offset 24 with space for a0 to a3 below. This would also require adjusting the callee save frame sizes. I think there\u0027s inherently a collision between the Method* and a0 as things are.",
+      "range": {
+        "startLine": 109,
+        "startChar": 44,
+        "endLine": 109,
+        "endChar": 73
+      },
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5d6dada_25e1c6a8",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-25T23:08:45Z",
+      "side": 1,
+      "message": "Having the SETUP_REFS_ONLY.. include argument space would mean we could avoid these operations.",
+      "range": {
+        "startLine": 555,
+        "startChar": 4,
+        "endLine": 556,
+        "endChar": 24
+      },
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95e0e2b0_f85365aa",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-25T23:08:45Z",
+      "side": 1,
+      "message": "Remove the TODO? Also, need to add kMips in compiler_driver.cc to the list of architectures supporting generic JNI.",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 900,
+        "endChar": 38
+      },
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
