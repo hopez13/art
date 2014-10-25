@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7580cec4_1dc5f445",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-10-25T01:53:48Z",
+      "side": 1,
+      "message": "This applies to both gcc and clang.",
+      "parentUuid": "956b82dc_4b6f251c",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 49
+      },
+      "revId": "7d5ed832e7fcf0b87ca28326efab8da189226432",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5594aafe_b750989f",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-25T00:21:19Z",
       "side": 1,
       "message": "Can we avoid placing hacks throughout this file.",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 50
+      },
+      "revId": "7d5ed832e7fcf0b87ca28326efab8da189226432",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95e0e2b0_d5198c6c",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-10-25T01:53:48Z",
+      "side": 1,
+      "message": "This enables larger frame size only for clang.\nI guess this is what Brian wants.",
+      "parentUuid": "5594aafe_b750989f",
       "range": {
         "startLine": 305,
         "startChar": 0,
