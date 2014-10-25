@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d5d6dada_45e64ac2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-25T23:13:02Z",
+      "side": 1,
+      "message": "the tests generally refer to this as default",
+      "range": {
+        "startLine": 12,
+        "startChar": 16,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "3731d48c471b3f88a0adaeedcfd606f6e914b5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95e0e2b0_b84ddd04",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-25T23:13:02Z",
+      "side": 1,
+      "message": "clear at the end of the macro",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 18
+      },
+      "revId": "3731d48c471b3f88a0adaeedcfd606f6e914b5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7580cec4_bdc160ba",
         "filename": "build/Android.oat.mk",
         "patchSetId": 1
@@ -18,6 +64,29 @@
         "startChar": 2,
         "endLine": 39,
         "endChar": 6
+      },
+      "revId": "3731d48c471b3f88a0adaeedcfd606f6e914b5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7580cec4_2008c34b",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-25T23:13:02Z",
+      "side": 1,
+      "message": "clear at the end of the macro",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 18
       },
       "revId": "3731d48c471b3f88a0adaeedcfd606f6e914b5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
