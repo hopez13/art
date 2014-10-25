@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7580cec4_bdc160ba",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-25T08:55:14Z",
+      "side": 1,
+      "message": "more readable without endif instead of else? not as logical though...",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 6
+      },
+      "revId": "3731d48c471b3f88a0adaeedcfd606f6e914b5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5d6dada_85d99238",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-25T08:55:14Z",
+      "side": 1,
+      "message": "WS",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 2
+      },
+      "revId": "3731d48c471b3f88a0adaeedcfd606f6e914b5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
