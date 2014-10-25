@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "95e0e2b0_98b579f5",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-25T09:09:16Z",
+      "side": 1,
+      "message": "the context which is missing is that we the host historical is clang, target gcc.\n\nit would be better to do all the frame-larger-than here.\n\nI\u0027m guessing we should use to 1728 for gcc on both host/target and the larger value for clang, depending on ART_HOST_CLANG/ART_TARGET_CLANG.\n\nalso when doing so update the above comment with a bug number tracking the revert. (I found the CL about refactoring dex2oat, but I guess there was no bug yet https://googleplex-android-review.git.corp.google.com/560948)",
+      "parentUuid": "7580cec4_1dc5f445",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 49
+      },
+      "revId": "7d5ed832e7fcf0b87ca28326efab8da189226432",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5594aafe_b750989f",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
