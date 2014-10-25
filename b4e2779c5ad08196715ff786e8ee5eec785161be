@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "f55e7e2a_b44d0d05",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2014-10-25T23:51:14Z",
+      "side": 1,
+      "message": "I agree. Does moving Method* require changing architecture independent code?",
+      "parentUuid": "7580cec4_000b474b",
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5d6dada_25e1c6a8",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 556,
         "endChar": 24
       },
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f55e7e2a_d45081a0",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2014-10-25T23:51:14Z",
+      "side": 1,
+      "message": "I was worry about the $a0 slot (Method*) being cobbler. Also, the SP was being passed into the function in the previous version of this file.",
+      "parentUuid": "d5d6dada_25e1c6a8",
       "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
