@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95b9c2ac_67a7d29f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-27T17:09:50Z",
+      "side": 1,
+      "message": "Removed, unused after the Create refactoring.",
+      "parentUuid": "b58de6f4_07959548",
+      "range": {
+        "startLine": 797,
+        "startChar": 20,
+        "endLine": 797,
+        "endChar": 21
+      },
+      "revId": "b168798f7625f7bc4d9d7a4fdf3b94a8ae9048f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35a1f65e_b06d00a2",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-24T00:01:23Z",
       "side": 1,
       "message": "hold as a member variable self_ ?",
+      "range": {
+        "startLine": 863,
+        "startChar": 29,
+        "endLine": 863,
+        "endChar": 46
+      },
+      "revId": "b168798f7625f7bc4d9d7a4fdf3b94a8ae9048f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95b9c2ac_07acd67e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-27T17:09:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a1f65e_b06d00a2",
       "range": {
         "startLine": 863,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3533b6f6_679c89ce",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-27T17:09:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a1f65e_b0bf40a2",
+      "range": {
+        "startLine": 878,
+        "startChar": 23,
+        "endLine": 878,
+        "endChar": 24
+      },
+      "revId": "b168798f7625f7bc4d9d7a4fdf3b94a8ae9048f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9592a210_4b7408c3",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-24T00:01:23Z",
       "side": 1,
       "message": "given the references into the heap, can you add a self-\u003eStartAssertNoThreadSuspension to the constructor and self-\u003eEndAssert... to the destructor.",
+      "range": {
+        "startLine": 879,
+        "startChar": 0,
+        "endLine": 881,
+        "endChar": 40
+      },
+      "revId": "b168798f7625f7bc4d9d7a4fdf3b94a8ae9048f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95b9c2ac_a795ca17",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-27T17:09:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9592a210_4b7408c3",
       "range": {
         "startLine": 879,
         "startChar": 0,
