@@ -34,6 +34,24 @@
       "revId": "d000480134b7b00895fbfd142f1d1e18d9cfa6e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "956b82dc_16614dad",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2014-10-27T21:37:29Z",
+      "side": 1,
+      "message": "this particular line - no, I was looking if we need to disable EnsureFront when app is running on valgrind and came across this..",
+      "parentUuid": "5594aafe_5ca054ab",
+      "revId": "d000480134b7b00895fbfd142f1d1e18d9cfa6e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
