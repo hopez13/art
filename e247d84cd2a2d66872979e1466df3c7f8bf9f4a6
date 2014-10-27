@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "15ccf252_6ba7a19f",
+        "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-27T10:25:29Z",
+      "side": 1,
+      "message": "I agree. It looks like tlab_fast_path_array_length_threshold does not depend on any dynamic value, so could just be set at compile time.",
+      "parentUuid": "5594aafe_f709409a",
+      "revId": "e247d84cd2a2d66872979e1466df3c7f8bf9f4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "956b82dc_864a1480",
         "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.cc",
         "patchSetId": 1
