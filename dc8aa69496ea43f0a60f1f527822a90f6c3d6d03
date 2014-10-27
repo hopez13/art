@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5359ed2_674a5083",
+        "filename": "runtime/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-27T10:35:49Z",
+      "side": 1,
+      "message": "Do we have uses of bit vetor without arena? Hopefully that was just in tests?",
+      "range": {
+        "startLine": 326,
+        "startChar": 14,
+        "endLine": 326,
+        "endChar": 16
+      },
+      "revId": "dc8aa69496ea43f0a60f1f527822a90f6c3d6d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
