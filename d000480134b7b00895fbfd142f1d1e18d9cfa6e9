@@ -16,6 +16,24 @@
       "revId": "d000480134b7b00895fbfd142f1d1e18d9cfa6e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5594aafe_5ca054ab",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-10-27T21:35:24Z",
+      "side": 1,
+      "message": "Good catch, but why are you bringing this up now? Did this cause issues somewhere?",
+      "parentUuid": "d5bfba8a_6f4805f9",
+      "revId": "d000480134b7b00895fbfd142f1d1e18d9cfa6e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
