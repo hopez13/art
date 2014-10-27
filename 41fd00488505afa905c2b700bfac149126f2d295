@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_0e85df96",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:49:29Z",
+      "side": 1,
+      "message": "Actually, we still need it if we want to use the register aliases like \u0027ETR\u0027 and co. Do you think it would be better to duplicate the aliases or use register codes directly to avoid the dependency?",
+      "parentUuid": "351e565a_2e1bfb16",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 39
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75244ea4_fd2ff8f7",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 2
