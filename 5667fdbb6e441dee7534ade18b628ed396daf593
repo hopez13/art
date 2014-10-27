@@ -22,6 +22,30 @@
       "revId": "5667fdbb6e441dee7534ade18b628ed396daf593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_ae102bbe",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-10-27T11:06:36Z",
+      "side": 1,
+      "message": "Sorry that I am not familiar with optimizing compiler and didn\u0027t take care of it. Seems we need something like QuickCompiler::CanCompileMethod() to filter out the invocations with unsupported shorty. And it does regress unless we ignore the markers or support hard float arm32 in optimizing compiler.",
+      "parentUuid": "15ccf252_cbf015a7",
+      "range": {
+        "startLine": 236,
+        "startChar": 6,
+        "endLine": 236,
+        "endChar": 21
+      },
+      "revId": "5667fdbb6e441dee7534ade18b628ed396daf593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
