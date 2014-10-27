@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "15ccf252_0b7a9d5e",
+        "filename": "disassembler/disassembler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "5594aafe_0cb37fe1",
+      "range": {
+        "startLine": 42,
+        "startChar": 45,
+        "endLine": 42,
+        "endChar": 52
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "956b82dc_fd8b5f77",
         "filename": "disassembler/disassembler_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-24T20:32:21Z",
       "side": 1,
       "message": "This is reusing vixl\u0027s buffer? Why not just use a std::string?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15ccf252_4b70a580",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "The visitors do not print directly, but store their output in this buffer, which is printed later.\nSo \u0027Disassembler::VisitLoadLiteral(instr)\u0027 hasn\u0027t printed anything, and the output would be garbled if we did print the literal now.\nThere is still work going on in VIXL around the disassembler.",
+      "parentUuid": "956b82dc_fd8b5f77",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_2e1bfb16",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Deleted. It is not necessary any more.",
+      "parentUuid": "956b82dc_dde0db54",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 39
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75244ea4_fd2ff8f7",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-24T20:32:21Z",
       "side": 1,
       "message": "FINAL",
+      "range": {
+        "startLine": 29,
+        "startChar": 24,
+        "endLine": 29,
+        "endChar": 25
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_0e003f9d",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75244ea4_fd2ff8f7",
       "range": {
         "startLine": 29,
         "startChar": 24,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "351e565a_eefce348",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "75244ea4_7dc9a8e3",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 56
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5594aafe_cccef767",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 2
@@ -134,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "351e565a_8e356f83",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5594aafe_cccef767",
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75244ea4_bd2980f4",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 2
@@ -145,6 +283,24 @@
       "writtenOn": "2014-10-24T20:32:21Z",
       "side": 1,
       "message": "OVERRIDE?",
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_6e3a1371",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75244ea4_bd2980f4",
       "revId": "41fd00488505afa905c2b700bfac149126f2d295",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "15ccf252_6b90012c",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75244ea4_1d33d46a",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 6
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "956b82dc_7d80af59",
         "filename": "runtime/arch/arm64/registers_arm64.h",
         "patchSetId": 2
@@ -185,6 +365,30 @@
       "writtenOn": "2014-10-24T20:32:21Z",
       "side": 1,
       "message": "I\u0027d just redeclare for the disassembler.",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 56
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_8e0c4fdf",
+        "filename": "runtime/arch/arm64/registers_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-27T10:43:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "956b82dc_7d80af59",
       "range": {
         "startLine": 191,
         "startChar": 0,
