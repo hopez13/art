@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "7580cec4_130de354",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-27T15:39:23Z",
+      "side": 1,
+      "message": "The callee save layouts are all architecture dependent. They are declared in runtime.cc. There was an attempt to fold the outgoings are into the frame set up that this change causes to mean we have two areas in the stack reserved for outgoing arguments. My preference is for one, but perhaps that should be clean-up work.",
+      "parentUuid": "f55e7e2a_b44d0d05",
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5d6dada_25e1c6a8",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 1
@@ -78,6 +96,24 @@
       "side": 1,
       "message": "I was worry about the $a0 slot (Method*) being cobbler. Also, the SP was being passed into the function in the previous version of this file.",
       "parentUuid": "d5d6dada_25e1c6a8",
+      "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7580cec4_333fbfe0",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-27T15:39:23Z",
+      "side": 1,
+      "message": "Agreed, we\u0027ve cleaned it up now so that the called function isn\u0027t initialzing state in the caller. There\u0027s still little bits of assembly to tidy like this.",
+      "parentUuid": "f55e7e2a_d45081a0",
       "revId": "b4e2779c5ad08196715ff786e8ee5eec785161be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
