@@ -22,6 +22,30 @@
       "revId": "dc8aa69496ea43f0a60f1f527822a90f6c3d6d03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5db2605_76d9c835",
+        "filename": "runtime/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-27T15:32:44Z",
+      "side": 1,
+      "message": "Seems like OatWriter uses one with MallocAllocator, but that\u0027s all a quick search could find.",
+      "parentUuid": "f5359ed2_674a5083",
+      "range": {
+        "startLine": 326,
+        "startChar": 14,
+        "endLine": 326,
+        "endChar": 16
+      },
+      "revId": "dc8aa69496ea43f0a60f1f527822a90f6c3d6d03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
