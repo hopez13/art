@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d5d6dada_2b4d1588",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-27T17:17:00Z",
+      "side": 1,
+      "message": "I thought a little more. Actually adding to inactive may generate better code since it tries to avoid assigning to a register that might be blocked later. Another way to think of fixed interval is it begins with a hole (even though its official start position is later). Then it makes sense it\u0027s in inactive first.\nThe statements in added comment are still accurate.",
+      "parentUuid": "f5359ed2_c12c4c06",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 9
+      },
+      "revId": "74111ffb81fe1151daaf24c12a565c1fe231e40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_81c404d0",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "writtenOn": "2014-10-24T14:54:56Z",
       "side": 1,
       "message": "So you\u0027re doing this to ensure all inactive pass the DCHECK line 611?\n\nI think I\u0027d prefer a dedicated loop for that.",
+      "range": {
+        "startLine": 617,
+        "startChar": 8,
+        "endLine": 617,
+        "endChar": 16
+      },
+      "revId": "74111ffb81fe1151daaf24c12a565c1fe231e40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35cf3649_12008c6f",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-27T17:17:00Z",
+      "side": 1,
+      "message": "It\u0027s the assert on line 623. debug version will try to verify that an SSA value starting in a hole of an inactive interal won\u0027t intersect. Non-debug version will just skip the intersection completely as an optimization due to the SSA property.",
+      "parentUuid": "f5359ed2_81c404d0",
       "range": {
         "startLine": 617,
         "startChar": 8,
@@ -177,6 +225,30 @@
       "writtenOn": "2014-10-24T14:54:56Z",
       "side": 1,
       "message": "Maybe change the call sites that use the constructor and make them use this factory method? Then you can make the constructor private.",
+      "range": {
+        "startLine": 162,
+        "startChar": 23,
+        "endLine": 162,
+        "endChar": 35
+      },
+      "revId": "74111ffb81fe1151daaf24c12a565c1fe231e40e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5d6dada_2bc2f561",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-10-27T17:17:00Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "351e565a_8359c801",
       "range": {
         "startLine": 162,
         "startChar": 23,
