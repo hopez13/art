@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15ccf252_cbf015a7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-27T10:28:50Z",
+      "side": 1,
+      "message": "I appreciate the effort, but obviously it is not enough, as we need to add the same logic when compiling calls.\n\nAlso, when writing tests for this code, I made sure we did not regress so there is a special marker in the Java code that will ensure we compile the code with optimizing. Tests with those markers will also fail.",
+      "range": {
+        "startLine": 236,
+        "startChar": 6,
+        "endLine": 236,
+        "endChar": 21
+      },
+      "revId": "5667fdbb6e441dee7534ade18b628ed396daf593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
