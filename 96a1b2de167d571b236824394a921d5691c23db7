@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5d6dada_0054b092",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-27T15:30:49Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 12
+      },
+      "revId": "96a1b2de167d571b236824394a921d5691c23db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7580cec4_1308834b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-27T15:30:49Z",
+      "side": 1,
+      "message": "Note, I held off cleaning these up to be UNIMPLEMENTED(FATAL), but we should switch them over at some point for consistency.",
+      "range": {
+        "startLine": 563,
+        "startChar": 6,
+        "endLine": 563,
+        "endChar": 36
+      },
+      "revId": "96a1b2de167d571b236824394a921d5691c23db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5d6dada_a050449f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-27T15:30:49Z",
+      "side": 1,
+      "message": "add in:\n(instruction_set \u003d\u003d kThumb2 \u0026\u0026 kArm32QuickCodeUseSoftFloat)\nas this change removes soft float support",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 35
+      },
+      "revId": "96a1b2de167d571b236824394a921d5691c23db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
