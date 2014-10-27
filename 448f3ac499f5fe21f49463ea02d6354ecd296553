@@ -45,6 +45,30 @@
       "revId": "448f3ac499f5fe21f49463ea02d6354ecd296553",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "351e565a_2e69bb66",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-27T17:35:24Z",
+      "side": 1,
+      "message": "Yeah, I also thought about getting rid of the *_REGISTERS_CODE_ITEM aliases.  Might do it in another CL.",
+      "parentUuid": "7597ee02_92fc8cd4",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "448f3ac499f5fe21f49463ea02d6354ecd296553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
