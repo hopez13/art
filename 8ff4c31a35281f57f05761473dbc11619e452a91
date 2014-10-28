@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "953e22e9_e5b29209",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:26:53Z",
+      "side": 1,
+      "message": "I\u0027d prefer this to be \"it-\u003ecompiled_method_-\u003eGetInstructionSet()\" as in the past we\u0027ve had mixed ARM and Thumb2.",
+      "range": {
+        "startLine": 691,
+        "startChar": 8,
+        "endLine": 691,
+        "endChar": 24
+      },
+      "revId": "8ff4c31a35281f57f05761473dbc11619e452a91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
