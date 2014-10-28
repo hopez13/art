@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "953e22e9_c584ae9d",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "I discussed this with Brian offline, basically it just prints whether the image header is PIC or not in a debug build.\n\nI can rip out this code but then nothing will exercise the image header\u0027s PIC field at all, and I was advised by Andreas to leave the field in the image header. Should I then remove the field in ImageHeader as well?",
+      "parentUuid": "f5359ed2_9c06aa0e",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 97
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5bfba8a_bd8b9726",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -106,6 +130,30 @@
       "writtenOn": "2014-10-28T03:40:23Z",
       "side": 1,
       "message": "even more confused, why twice?",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 1
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_e4bc4eaf",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "This is in a separate function (overloaded). Only one of the Patch functions gets called per run (depending on command line arguments).\n\nI apologize if I have misunderstood this remark.",
+      "parentUuid": "d5bfba8a_bd8b9726",
       "range": {
         "startLine": 244,
         "startChar": 0,
@@ -141,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "b5396603_09787130",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "Can you elaborate please? \n\nIt is just as persistent as anything else in the dex cache (and if we are worried about a symlink pointing to a /system oat file that no longer exists, that won\u0027t happen since every time there is an OTA the dex cache gets wiped IIUC). Except to avoid changing the code to load boot.art/boot.oat from separate paths, we made a symlink here instead.",
+      "parentUuid": "75ae0e67_8998dd4e",
+      "range": {
+        "startLine": 290,
+        "startChar": 53,
+        "endLine": 290,
+        "endChar": 60
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_a585be65",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -152,6 +224,30 @@
       "writtenOn": "2014-10-28T10:30:54Z",
       "side": 1,
       "message": "pic -\u003e PIC",
+      "range": {
+        "startLine": 365,
+        "startChar": 78,
+        "endLine": 365,
+        "endChar": 81
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_c49e723c",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "I originally intentionally left this lowercase to emphasize the *not*, I apologize if there\u0027s some style this is violating.\n\nCan you elaborate why this should or should not be lower case for future reference?",
+      "parentUuid": "55abca56_a585be65",
       "range": {
         "startLine": 365,
         "startChar": 78,
@@ -187,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "b5396603_a95345ab",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "I don\u0027t understand. It\u0027s logically const here, i.e. this function does not mutate the ElfFile in any way.\n\nFrom what I understand Ian thinks the code base should be const as much as possible.",
+      "parentUuid": "75ae0e67_6975616f",
+      "range": {
+        "startLine": 377,
+        "startChar": 38,
+        "endLine": 377,
+        "endChar": 43
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_45608a2e",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -198,6 +318,30 @@
       "writtenOn": "2014-10-28T10:30:54Z",
       "side": 1,
       "message": "fie -\u003e file",
+      "range": {
+        "startLine": 379,
+        "startChar": 36,
+        "endLine": 379,
+        "endChar": 39
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_04997a51",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "Good catch :)",
+      "parentUuid": "55abca56_45608a2e",
       "range": {
         "startLine": 379,
         "startChar": 36,
@@ -233,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "75436e81_e4956e17",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "See 365",
+      "parentUuid": "75ae0e67_097aad5e",
+      "range": {
+        "startLine": 398,
+        "startChar": 81,
+        "endLine": 398,
+        "endChar": 84
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_3c2e9e80",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -244,6 +412,30 @@
       "writtenOn": "2014-10-28T10:30:54Z",
       "side": 1,
       "message": "FD -\u003e file descriptor (here and other places below). I don\u0027t think it\u0027s obvious FD means file descriptor, at least in the error messages.",
+      "range": {
+        "startLine": 408,
+        "startChar": 85,
+        "endLine": 408,
+        "endChar": 87
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_847aaa5c",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "The only way it can go down this path is if someone uses --output-oat-fd (fd is in the command line).\n\nThat being said, this is a good point and while I can\u0027t think of anything else that FD could stand for, it\u0027s better to avoid 2 letter acronyms.",
+      "parentUuid": "f5359ed2_3c2e9e80",
       "range": {
         "startLine": 408,
         "startChar": 85,
@@ -279,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "953e22e9_65d32297",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "I can only guess that this was originally here so that the person could write \u0027const bool debug \u003d true\u0027 (instead of doing #define kIsDebugBuild true or using patchoatd)",
+      "parentUuid": "55abca56_256f8e1d",
+      "range": {
+        "startLine": 908,
+        "startChar": 2,
+        "endLine": 908,
+        "endChar": 7
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ae0e67_896d3da2",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -302,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "953e22e9_c5b78e5c",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "Ian asked to get rid of this in an earlier PS",
+      "parentUuid": "75ae0e67_896d3da2",
+      "range": {
+        "startLine": 1225,
+        "startChar": 19,
+        "endLine": 1225,
+        "endChar": 21
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_fc3ff6a9",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -313,6 +553,30 @@
       "writtenOn": "2014-10-28T10:30:54Z",
       "side": 1,
       "message": "Should that be LOG(DEBUG) instead? (here and other places).",
+      "range": {
+        "startLine": 1244,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 14
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953e22e9_85e7466d",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "I apologize, in my rush to get this CL out the door, I didn\u0027t take the time to learn the differences between LOG and ALOG so I wasn\u0027t sure if the log functions do any extra filtering. \n\nBriefly looking at LogMessageData it seems like it can set any minimum logging level programatically, so it\u0027s not obvious what the minimum logging level is at runtime.\n\nI\u0027ll have to take a look at that more closely. With that in mind, is it even right to wrap it in a \u0027if (kIsDebugBuild)\u0027 if the other parts of the runtime is already filtering out logs above a certain severity?",
+      "parentUuid": "f5359ed2_fc3ff6a9",
       "range": {
         "startLine": 1244,
         "startChar": 10,
@@ -371,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "953e22e9_45925ebe",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "Good catch, I think we will need to add this rule to the linter",
+      "parentUuid": "55abca56_a55a9e73",
+      "range": {
+        "startLine": 44,
+        "startChar": 24,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ae0e67_695ec1e9",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 3
@@ -382,6 +670,30 @@
       "writtenOn": "2014-10-28T10:30:54Z",
       "side": 1,
       "message": "Too much indentation.",
+      "range": {
+        "startLine": 79,
+        "startChar": 6,
+        "endLine": 79,
+        "endChar": 13
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5396603_6905bd7f",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "Surprised linter didn\u0027t catch this.",
+      "parentUuid": "75ae0e67_695ec1e9",
       "range": {
         "startLine": 79,
         "startChar": 6,
@@ -463,6 +775,30 @@
     },
     {
       "key": {
+        "uuid": "953e22e9_c5a5ce14",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "This probably needs a larger comment block in general (around line 133?) about what the structure is supposed to look like.\n\nIf I had to guess, the offset between every field must be 32bits (i.e. the fields could be smaller but with padding in between).\n\nDoes that seem right?",
+      "parentUuid": "75ae0e67_e9495129",
+      "range": {
+        "startLine": 170,
+        "startChar": 15,
+        "endLine": 170,
+        "endChar": 16
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_bc396ec6",
         "filename": "runtime/oat.cc",
         "patchSetId": 3
@@ -474,6 +810,30 @@
       "writtenOn": "2014-10-28T10:30:54Z",
       "side": 1,
       "message": "Wouldn\u0027t it be simpler to be 0 or 1? instead of true or false.",
+      "range": {
+        "startLine": 476,
+        "startChar": 35,
+        "endLine": 476,
+        "endChar": 42
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953e22e9_e5ac52fd",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-28T16:59:01Z",
+      "side": 1,
+      "message": "Sorry, this code is basically from Andreas\u0027 earlier patchset, except that I moved it from OatFile into OatHeader.\n\nI imagine it would still need a string matching of some sort since something could be storing \"01..\" or \"10..\" etc instead of just \"0\" and \"1\"",
+      "parentUuid": "f5359ed2_bc396ec6",
       "range": {
         "startLine": 476,
         "startChar": 35,
