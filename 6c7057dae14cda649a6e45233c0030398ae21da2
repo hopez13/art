@@ -92,6 +92,29 @@
       "revId": "6c7057dae14cda649a6e45233c0030398ae21da2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_0843878e",
+        "filename": "test/415-optimizing-arith-neg/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-10-28T15:07:54Z",
+      "side": 1,
+      "message": "I wonder if there\u0027s an easy way to have this and its friends in a base class so that we stop copy pasting it everywhere.\n\nAlso... this is the assert behavior, not the expect one (which will log but continue)",
+      "range": {
+        "startLine": 33,
+        "startChar": 21,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "6c7057dae14cda649a6e45233c0030398ae21da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
