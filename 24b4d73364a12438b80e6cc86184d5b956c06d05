@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "354d76af_fcf4e968",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-28T15:40:59Z",
+      "side": 1,
+      "message": "It does not. I need to fix that in other places as well.\nShould I fix it everywhere in this patch, or should I make a separate patch?",
+      "parentUuid": "55abca56_6b21d5c8",
+      "range": {
+        "startLine": 991,
+        "startChar": 50,
+        "endLine": 991,
+        "endChar": 54
+      },
+      "revId": "24b4d73364a12438b80e6cc86184d5b956c06d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d76af_fc46a918",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-28T15:29:16Z",
       "side": 1,
       "message": "This isn\u0027t really unexpected for float and double.",
+      "range": {
+        "startLine": 997,
+        "startChar": 21,
+        "endLine": 997,
+        "endChar": 31
+      },
+      "revId": "24b4d73364a12438b80e6cc86184d5b956c06d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d76af_5ce6bdc1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-10-28T15:40:59Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "354d76af_fc46a918",
       "range": {
         "startLine": 997,
         "startChar": 21,
