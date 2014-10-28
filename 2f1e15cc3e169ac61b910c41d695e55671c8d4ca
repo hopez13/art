@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "953e22e9_bf9ed73a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T01:32:55Z",
+      "side": 1,
+      "message": "Comment to explain why we think this is safe. For example, we could be removing files not associated with the forked process, ... If we\u0027re in those conditions should we remove the files first and then relocate? Why doesn\u0027t patchoat and other tools remove files on failure? Where is the file locking?",
+      "range": {
+        "startLine": 448,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 56
+      },
+      "revId": "2f1e15cc3e169ac61b910c41d695e55671c8d4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953e22e9_ff985f4f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T01:32:55Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 48
+      },
+      "revId": "2f1e15cc3e169ac61b910c41d695e55671c8d4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
