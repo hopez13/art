@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "354d76af_9c81658c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T16:34:49Z",
+      "side": 1,
+      "message": "It should be the same for doubles or floats.",
+      "parentUuid": "354d76af_dc064db8",
+      "range": {
+        "startLine": 1066,
+        "startChar": 53,
+        "endLine": 1066,
+        "endChar": 57
+      },
+      "revId": "6c7057dae14cda649a6e45233c0030398ae21da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_c8532f64",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
