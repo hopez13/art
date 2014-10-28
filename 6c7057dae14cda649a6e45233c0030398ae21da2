@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "d5bfba8a_43795ab7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T23:08:17Z",
+      "side": 1,
+      "message": "The values of 0 and 0xFFFF...FF are special and can be generated using instructions. In the past I\u0027ve preferred using RIP addressing and having literals at the end of code. This requires assembler support which is worth getting in early so that you don\u0027t generate awkward patterns like this. On x86-32 there\u0027s no PIC addressing. For 32-bit immediates on integer code its not a problem, but for SSE we could materialize a PC value (we have such a mechanism in the quick assembler the PC is always the PC of the start of the method so the value can be computed once and shared) or place the constant into regular registers and move to an SSE register.",
+      "parentUuid": "55abca56_eba8659a",
+      "range": {
+        "startLine": 1016,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 60
+      },
+      "revId": "6c7057dae14cda649a6e45233c0030398ae21da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "953e22e9_e52f32a6",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
