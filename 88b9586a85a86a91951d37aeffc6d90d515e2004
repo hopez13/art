@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "75436e81_e401ee28",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:23:33Z",
+      "side": 1,
+      "message": "rather than replicate this logic can we hoist to gen_common.cc?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_441c2290",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:23:33Z",
+      "side": 1,
+      "message": "Here is the replicated version.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953e22e9_85c2a65f",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:23:33Z",
+      "side": 1,
+      "message": "period at the end of comments",
+      "range": {
+        "startLine": 33,
+        "startChar": 30,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953e22e9_25bd9adf",
+        "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:23:33Z",
+      "side": 1,
+      "message": "period at the end of comments",
+      "range": {
+        "startLine": 99,
+        "startChar": 30,
+        "endLine": 99,
+        "endChar": 34
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_3c58def7",
         "filename": "test/027-arithmetic/src/Main.java",
         "patchSetId": 1
@@ -18,6 +110,52 @@
         "startChar": 16,
         "endLine": 161,
         "endChar": 29
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_44f702f2",
+        "filename": "test/027-arithmetic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:23:33Z",
+      "side": 1,
+      "message": "As these values are all compile time constants, its possible to compute the result for all the expectEquals without generating a divide. Move these from variables to static fields would solve the problem.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 28
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75436e81_24fc76d2",
+        "filename": "test/027-arithmetic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:23:33Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 34
       },
       "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
