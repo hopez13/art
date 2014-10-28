@@ -95,6 +95,52 @@
     },
     {
       "key": {
+        "uuid": "b5396603_065e9e6a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:18:02Z",
+      "side": 1,
+      "message": "// TODO: xorps out, [RIP:...] // value at RIP is 0x80 00 00 00",
+      "range": {
+        "startLine": 1016,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 60
+      },
+      "revId": "6c7057dae14cda649a6e45233c0030398ae21da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953e22e9_e52f32a6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T15:18:02Z",
+      "side": 1,
+      "message": "// TODO: xorpd out, [RIP:...] // value at RIP is 0x80 00 00 00 00 00 00 00",
+      "range": {
+        "startLine": 1026,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 60
+      },
+      "revId": "6c7057dae14cda649a6e45233c0030398ae21da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_0843878e",
         "filename": "test/415-optimizing-arith-neg/src/Main.java",
         "patchSetId": 1
