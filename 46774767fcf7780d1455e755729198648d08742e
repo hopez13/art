@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5bfba8a_9d8ed337",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-28T03:40:23Z",
+      "side": 1,
+      "message": "These were supposed to match the local var names\n\nlocation \u003d \nsystem_filename \u003d \n\n(and below)\n\nbut they clearly already bit rotted.",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5594aafe_5ad85481",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-28T03:40:23Z",
+      "side": 1,
+      "message": "I find it odd to do have all this and run code that seems to do nothing?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 97
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5bfba8a_bd8b9726",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-28T03:40:23Z",
+      "side": 1,
+      "message": "even more confused, why twice?",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 1
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5bfba8a_7d0bdf15",
+        "filename": "runtime/elf_file.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-28T03:40:23Z",
+      "side": 1,
+      "message": "in general, optional arguments aren\u0027t probably worth the confusion when there are so few callers.",
+      "range": {
+        "startLine": 46,
+        "startChar": 60,
+        "endLine": 46,
+        "endChar": 97
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5bfba8a_3d156732",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-28T03:40:23Z",
+      "side": 1,
+      "message": "why this one in this case? This is only used when reinterpretting existing mmap\u0027d pages.",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
