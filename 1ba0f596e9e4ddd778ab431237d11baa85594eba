@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_69ec81a1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T10:37:18Z",
+      "side": 1,
+      "message": "Yes, we should add R3. But currently we\u0027ll fail if we go beyond, so we\u0027ll know an entry point requires more than 3 arguments.",
+      "parentUuid": "55abca56_8513e2ca",
+      "range": {
+        "startLine": 44,
+        "startChar": 63,
+        "endLine": 44,
+        "endChar": 73
+      },
+      "revId": "1ba0f596e9e4ddd778ab431237d11baa85594eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_5c3f22df",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_09e14da8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T10:37:18Z",
+      "side": 1,
+      "message": "Good point.It works today because double operations stay in double land. But won\u0027t once we do float -\u003e double conversions for example. Will fix in another CL and add a DCHECK.",
+      "parentUuid": "f5359ed2_5c3f22df",
+      "range": {
+        "startLine": 275,
+        "startChar": 16,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "1ba0f596e9e4ddd778ab431237d11baa85594eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_e506568a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-10-28T04:47:55Z",
       "side": 1,
       "message": "S24 ~ S31 ?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 37
+      },
+      "revId": "1ba0f596e9e4ddd778ab431237d11baa85594eba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_a5337e35",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T10:37:18Z",
+      "side": 1,
+      "message": "Yes, thanks for spotting it. Will do in another CL.",
+      "parentUuid": "55abca56_e506568a",
       "range": {
         "startLine": 312,
         "startChar": 0,
