@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "55abca56_2879a3b8",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-28T12:16:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55abca56_88321712",
+      "range": {
+        "startLine": 316,
+        "startChar": 34,
+        "endLine": 316,
+        "endChar": 52
+      },
+      "revId": "914a30821d99f5c9e80578312109bf2ac70e9015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_7c5e66e9",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-28T11:01:13Z",
       "side": 1,
       "message": "As discussed, I wouldn\u0027t use this if defined, but just two emit32s and add a comment that this is for aligning reasons.",
+      "range": {
+        "startLine": 687,
+        "startChar": 12,
+        "endLine": 687,
+        "endChar": 19
+      },
+      "revId": "914a30821d99f5c9e80578312109bf2ac70e9015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_29b76980",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-28T12:16:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5359ed2_7c5e66e9",
       "range": {
         "startLine": 687,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_09b2ad8f",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-28T12:16:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55abca56_28444373",
+      "range": {
+        "startLine": 691,
+        "startChar": 32,
+        "endLine": 691,
+        "endChar": 50
+      },
+      "revId": "914a30821d99f5c9e80578312109bf2ac70e9015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_c8380ff6",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-28T11:01:13Z",
       "side": 1,
       "message": "High32Bits.",
+      "range": {
+        "startLine": 692,
+        "startChar": 30,
+        "endLine": 692,
+        "endChar": 32
+      },
+      "revId": "914a30821d99f5c9e80578312109bf2ac70e9015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_4853bf31",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-28T12:16:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55abca56_c8380ff6",
       "range": {
         "startLine": 692,
         "startChar": 30,
