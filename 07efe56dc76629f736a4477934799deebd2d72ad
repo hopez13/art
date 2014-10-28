@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "953e22e9_7f19efe4",
+        "filename": "runtime/gc/allocator/rosalloc-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-10-28T02:58:46Z",
+      "side": 1,
+      "message": "The ALWAYS_INLINE needs to be on the declaration.",
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
