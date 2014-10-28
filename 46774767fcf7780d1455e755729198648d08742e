@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_cfab3595",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "Yeah, so the symlink is from /data to /system, correct?\n\nMy understanding is that we want to be compile PIC only in the future, so this symlink will not be needed: we will use just one boot image, the one in /system.",
+      "parentUuid": "b5396603_09787130",
+      "range": {
+        "startLine": 290,
+        "startChar": 53,
+        "endLine": 290,
+        "endChar": 60
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_a585be65",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -260,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "55abca56_0b8b81ad",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "because you\u0027re using PIC in other places. So it\u0027s just for consistency.",
+      "parentUuid": "75436e81_c49e723c",
+      "range": {
+        "startLine": 365,
+        "startChar": 78,
+        "endLine": 365,
+        "endChar": 81
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ae0e67_6975616f",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -295,6 +343,30 @@
       "side": 1,
       "message": "I don\u0027t understand. It\u0027s logically const here, i.e. this function does not mutate the ElfFile in any way.\n\nFrom what I understand Ian thinks the code base should be const as much as possible.",
       "parentUuid": "75ae0e67_6975616f",
+      "range": {
+        "startLine": 377,
+        "startChar": 38,
+        "endLine": 377,
+        "endChar": 43
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_cb84899d",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "From the C++ style guide:\n\n\"So if you choose const T* rather than const T\u0026, do so for a concrete reason; otherwise it will likely confuse readers by making them look for an explanation that doesn\u0027t exist.\"\n\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Reference_Arguments\n\nI personally agree wih the \"confusion\" comment.",
+      "parentUuid": "b5396603_a95345ab",
       "range": {
         "startLine": 377,
         "startChar": 38,
@@ -542,6 +614,30 @@
     },
     {
       "key": {
+        "uuid": "55abca56_8b7e9105",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "But there must be some reason. If it ends up taking longer than expected, a co-worker might look at this code and not understand why we should get rid of it. Having the context helps.",
+      "parentUuid": "953e22e9_c5b78e5c",
+      "range": {
+        "startLine": 1225,
+        "startChar": 19,
+        "endLine": 1225,
+        "endChar": 21
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_fc3ff6a9",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -577,6 +673,30 @@
       "side": 1,
       "message": "I apologize, in my rush to get this CL out the door, I didn\u0027t take the time to learn the differences between LOG and ALOG so I wasn\u0027t sure if the log functions do any extra filtering. \n\nBriefly looking at LogMessageData it seems like it can set any minimum logging level programatically, so it\u0027s not obvious what the minimum logging level is at runtime.\n\nI\u0027ll have to take a look at that more closely. With that in mind, is it even right to wrap it in a \u0027if (kIsDebugBuild)\u0027 if the other parts of the runtime is already filtering out logs above a certain severity?",
       "parentUuid": "f5359ed2_fc3ff6a9",
+      "range": {
+        "startLine": 1244,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 14
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_6fa6c1cc",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "The logging framework is prior my time, so I\u0027m also unfamiliar with it. I just find it akward to have a kIsDebugBuild and DEBUG logging option, but they may just be unrelated.",
+      "parentUuid": "953e22e9_85e7466d",
       "range": {
         "startLine": 1244,
         "startChar": 10,
@@ -799,6 +919,30 @@
     },
     {
       "key": {
+        "uuid": "354d76af_5c487da6",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "Sure, but the idea is that this is a a class representing data in a file, where we need to be careful about the layout (contrary to regular C++ objects where we usually don\u0027t care about the layout of the object).",
+      "parentUuid": "953e22e9_c5a5ce14",
+      "range": {
+        "startLine": 170,
+        "startChar": 15,
+        "endLine": 170,
+        "endChar": 16
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_bc396ec6",
         "filename": "runtime/oat.cc",
         "patchSetId": 3
@@ -834,6 +978,30 @@
       "side": 1,
       "message": "Sorry, this code is basically from Andreas\u0027 earlier patchset, except that I moved it from OatFile into OatHeader.\n\nI imagine it would still need a string matching of some sort since something could be storing \"01..\" or \"10..\" etc instead of just \"0\" and \"1\"",
       "parentUuid": "f5359ed2_bc396ec6",
+      "range": {
+        "startLine": 476,
+        "startChar": 35,
+        "endLine": 476,
+        "endChar": 42
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_0b1941e5",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-28T17:46:33Z",
+      "side": 1,
+      "message": "Probably. Andreas may give us some context here.",
+      "parentUuid": "953e22e9_e5ac52fd",
       "range": {
         "startLine": 476,
         "startChar": 35,
