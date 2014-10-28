@@ -638,6 +638,30 @@
     },
     {
       "key": {
+        "uuid": "75436e81_521ce48f",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-28T18:46:43Z",
+      "side": 1,
+      "message": "the cleanup lambda is next to unintelligible, I don\u0027t think this needs explanation.",
+      "parentUuid": "55abca56_8b7e9105",
+      "range": {
+        "startLine": 1225,
+        "startChar": 19,
+        "endLine": 1225,
+        "endChar": 21
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_fc3ff6a9",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
