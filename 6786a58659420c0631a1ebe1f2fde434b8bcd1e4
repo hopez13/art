@@ -22,6 +22,30 @@
       "revId": "6786a58659420c0631a1ebe1f2fde434b8bcd1e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5594aafe_cb21f3ca",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T15:27:16Z",
+      "side": 1,
+      "message": "Agreed, this is something of a pre-existing condition rather than something this change adds. The method verifier checks string indices in VerifyInstruction:\n\n    case Instruction::kVerifyRegBString:\n      result \u003d result \u0026\u0026 CheckStringIndex(inst-\u003eVRegB());\n\nso the exception should never occur, in which case this can be a GetWithoutChecks (which has a bounds DCHECK).",
+      "parentUuid": "55abca56_2e2e8b80",
+      "range": {
+        "startLine": 205,
+        "startChar": 15,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "6786a58659420c0631a1ebe1f2fde434b8bcd1e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
