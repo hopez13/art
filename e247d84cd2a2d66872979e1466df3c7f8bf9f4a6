@@ -51,6 +51,70 @@
       "revId": "e247d84cd2a2d66872979e1466df3c7f8bf9f4a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_44fc1fd3",
+        "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:55:54Z",
+      "side": 1,
+      "message": "Also, macros debug terribly. Prefer static functions and templating.",
+      "parentUuid": "956b82dc_864a1480",
+      "revId": "e247d84cd2a2d66872979e1466df3c7f8bf9f4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_9a984908",
+        "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:55:54Z",
+      "side": 1,
+      "message": "length",
+      "range": {
+        "startLine": 130,
+        "startChar": 42,
+        "endLine": 130,
+        "endChar": 47
+      },
+      "revId": "e247d84cd2a2d66872979e1466df3c7f8bf9f4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_ba9b8d03",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:55:54Z",
+      "side": 1,
+      "message": "why is this fashion catching on? Did our compiler tool chains break and forget to inline things? I\u0027m tempted to remove all ALWAYS_INLINEs to stop them turding the codebase up.",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 15
+      },
+      "revId": "e247d84cd2a2d66872979e1466df3c7f8bf9f4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
