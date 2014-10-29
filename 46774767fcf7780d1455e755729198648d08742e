@@ -662,6 +662,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_2fa1a907",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T09:47:53Z",
+      "side": 1,
+      "message": "Don\u0027t underestime the c++ readability of your co-workers (that I don\u0027t have). But thanks, you just provided the only thing I\u0027m asking which is that the lambda below is unintelligible.",
+      "parentUuid": "75436e81_521ce48f",
+      "range": {
+        "startLine": 1225,
+        "startChar": 19,
+        "endLine": 1225,
+        "endChar": 21
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5359ed2_fc3ff6a9",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
