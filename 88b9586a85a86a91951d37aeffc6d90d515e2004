@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "55abca56_6ebd63de",
+        "filename": "compiler/dex/quick/arm/fp_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-10-29T01:55:51Z",
+      "side": 1,
+      "message": "Thanks. I found that there was no floating point OpKind. Can I just add a method like HandleEasyFloatingPointDiv() and then calls to backend GenEasyDivXXX functions? I just don\u0027t want to mess up unfamiliar backends.",
+      "parentUuid": "75436e81_e401ee28",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "88b9586a85a86a91951d37aeffc6d90d515e2004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75436e81_441c2290",
         "filename": "compiler/dex/quick/arm64/fp_arm64.cc",
         "patchSetId": 1
