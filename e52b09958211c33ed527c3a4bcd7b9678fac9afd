@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "354d76af_420c16de",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "Do you really need to pass the input type? It ca be deducted from the input already.",
+      "range": {
+        "startLine": 280,
+        "startChar": 71,
+        "endLine": 280,
+        "endChar": 81
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_ba1f19f5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "Conversion -\u003e TypeConversion?",
+      "range": {
+        "startLine": 478,
+        "startChar": 4,
+        "endLine": 478,
+        "endChar": 14
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d76af_22110af8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "As suggested, I\u0027d get rid of the input type.",
+      "range": {
+        "startLine": 1750,
+        "startChar": 30,
+        "endLine": 1750,
+        "endChar": 40
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_5a5aa5cd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "I\u0027d just keep the second check.",
+      "range": {
+        "startLine": 1755,
+        "startChar": 7,
+        "endLine": 1755,
+        "endChar": 11
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_1a642d90",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "I was told the preferred way is no virtual when you already override, but use the OVERRIDE annotation instead.",
+      "range": {
+        "startLine": 1766,
+        "startChar": 2,
+        "endLine": 1766,
+        "endChar": 9
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d76af_82161eee",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "This should just return true, because if you enter here, the input between `this` and `other` is known to be the same. Which is another argument for just getting rid of input_type_.",
+      "range": {
+        "startLine": 1768,
+        "startChar": 18,
+        "endLine": 1768,
+        "endChar": 30
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_d938e3f5",
         "filename": "test/418-optimizing-type-conversion/src/Main.java",
         "patchSetId": 1
@@ -40,6 +178,29 @@
         "startLine": 36,
         "startChar": 4,
         "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_d97d43a5",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T14:19:53Z",
+      "side": 1,
+      "message": "Just thought about this, the \u0027optimizing\u0027 in the name is probably too much now.",
+      "range": {
+        "startLine": 338,
+        "startChar": 6,
+        "endLine": 338,
         "endChar": 16
       },
       "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
