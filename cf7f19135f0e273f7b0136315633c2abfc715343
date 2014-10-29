@@ -34,6 +34,24 @@
       "revId": "cf7f19135f0e273f7b0136315633c2abfc715343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_e010b8bf",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-29T17:09:23Z",
+      "side": 1,
+      "message": "Actually, what it was doing before is just ignoring that it was under Valgrind...",
+      "parentUuid": "35665637_b7c7224f",
+      "revId": "cf7f19135f0e273f7b0136315633c2abfc715343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
