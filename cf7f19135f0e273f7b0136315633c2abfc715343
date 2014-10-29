@@ -16,6 +16,24 @@
       "revId": "cf7f19135f0e273f7b0136315633c2abfc715343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35665637_b7c7224f",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-29T17:07:24Z",
+      "side": 1,
+      "message": "This should have also failed before, because of the LOG(FATAL).\n\nI am in the process of cleaning up Valgrind support for RosAlloc. Just trying to implement the proper solution...",
+      "parentUuid": "956b82dc_fd958d16",
+      "revId": "cf7f19135f0e273f7b0136315633c2abfc715343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
