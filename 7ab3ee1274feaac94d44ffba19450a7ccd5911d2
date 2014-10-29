@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5bfba8a_6359fefe",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T00:43:17Z",
+      "side": 1,
+      "message": "generally this has been done by if then else if, and nesting. It looks strange be repeatedly testing the same variable without an else. I understand this is Brian\u0027s style :-/",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "7ab3ee1274feaac94d44ffba19450a7ccd5911d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5594aafe_4b4de486",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T00:43:17Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "7ab3ee1274feaac94d44ffba19450a7ccd5911d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5594aafe_ab58284b",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T00:43:17Z",
+      "side": 1,
+      "message": "either default, optimizing or interpreter.",
+      "revId": "7ab3ee1274feaac94d44ffba19450a7ccd5911d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
