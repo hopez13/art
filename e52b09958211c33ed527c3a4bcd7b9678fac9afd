@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_1a3d0d56",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Yes, this was also my assumption but I wasn\u0027t sure.\nDone.",
+      "parentUuid": "354d76af_420c16de",
+      "range": {
+        "startLine": 280,
+        "startChar": 71,
+        "endLine": 280,
+        "endChar": 81
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ae0e67_ba1f19f5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-29T14:19:53Z",
       "side": 1,
       "message": "Conversion -\u003e TypeConversion?",
+      "range": {
+        "startLine": 478,
+        "startChar": 4,
+        "endLine": 478,
+        "endChar": 14
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_1ab2ed8f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ae0e67_ba1f19f5",
       "range": {
         "startLine": 478,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_3ab7a980",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "354d76af_22110af8",
+      "range": {
+        "startLine": 1750,
+        "startChar": 30,
+        "endLine": 1750,
+        "endChar": 40
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ae0e67_5a5aa5cd",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-29T14:19:53Z",
       "side": 1,
       "message": "I\u0027d just keep the second check.",
+      "range": {
+        "startLine": 1755,
+        "startChar": 7,
+        "endLine": 1755,
+        "endChar": 11
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_d9ab0395",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ae0e67_5a5aa5cd",
       "range": {
         "startLine": 1755,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "55abca56_f9a83f9a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ae0e67_1a642d90",
+      "range": {
+        "startLine": 1766,
+        "startChar": 2,
+        "endLine": 1766,
+        "endChar": 9
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d76af_82161eee",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2014-10-29T14:19:53Z",
       "side": 1,
       "message": "This should just return true, because if you enter here, the input between `this` and `other` is known to be the same. Which is another argument for just getting rid of input_type_.",
+      "range": {
+        "startLine": 1768,
+        "startChar": 18,
+        "endLine": 1768,
+        "endChar": 30
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d76af_62695266",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "354d76af_82161eee",
       "range": {
         "startLine": 1768,
         "startChar": 18,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_7a9681da",
+        "filename": "test/418-optimizing-type-conversion/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Fixed in PS2.",
+      "parentUuid": "354d76af_a2fcfa47",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 20
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_f9359ffc",
         "filename": "test/418-optimizing-type-conversion/src/Main.java",
         "patchSetId": 1
@@ -232,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "75ae0e67_1a8bcdad",
+        "filename": "test/418-optimizing-type-conversion/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Fixed in PS2.",
+      "parentUuid": "75ae0e67_fa6a7158",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 21
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55abca56_d97d43a5",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -243,6 +435,30 @@
       "writtenOn": "2014-10-29T14:19:53Z",
       "side": 1,
       "message": "Just thought about this, the \u0027optimizing\u0027 in the name is probably too much now.",
+      "range": {
+        "startLine": 338,
+        "startChar": 6,
+        "endLine": 338,
+        "endChar": 16
+      },
+      "revId": "e52b09958211c33ed527c3a4bcd7b9678fac9afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_ba7b9914",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-10-29T15:06:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55abca56_d97d43a5",
       "range": {
         "startLine": 338,
         "startChar": 6,
