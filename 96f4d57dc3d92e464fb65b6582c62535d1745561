@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55abca56_6e96c3da",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-10-29T12:02:44Z",
+      "side": 1,
+      "message": "does this push directory contents correctly ? (i.e, is this recursive)",
+      "revId": "96f4d57dc3d92e464fb65b6582c62535d1745561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_2e90cbd8",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-10-29T12:02:44Z",
+      "side": 1,
+      "message": "on some devices \"dalvikvm\" is a symlink and i worry that the symlink might be to \"/system/bin/dalvikvm64\". Do we ever use the symlink or do we explicitly call out to dalvikvm64 etc. ?",
+      "revId": "96f4d57dc3d92e464fb65b6582c62535d1745561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
