@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "154a3299_64f79bf2",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:49:32Z",
+      "side": 1,
+      "message": "I think duplication would be preferable. If we want to disassemble more widely, such as in debuggerd, it\u0027d be nice to avoid a libart dependency.",
+      "parentUuid": "351e565a_0e85df96",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 39
+      },
+      "revId": "41fd00488505afa905c2b700bfac149126f2d295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75244ea4_fd2ff8f7",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 2
