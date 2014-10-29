@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "154a3299_0402172c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:09:03Z",
+      "side": 1,
+      "message": "virtual because it will be overridden? or is this just a mistake and you meant to add OVERRIDE?",
+      "range": {
+        "startLine": 2028,
+        "startChar": 2,
+        "endLine": 2028,
+        "endChar": 9
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_9a81698c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:09:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2032,
+        "startChar": 2,
+        "endLine": 2032,
+        "endChar": 9
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_da7be113",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2034,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:09:03Z",
+      "side": 1,
+      "message": "seems to be common code, factor out?",
+      "range": {
+        "startLine": 2034,
+        "startChar": 2,
+        "endLine": 2034,
+        "endChar": 47
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_c4078f3d",
+        "filename": "compiler/utils/arm/constants_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:09:03Z",
+      "side": 1,
+      "message": "4 bit option for the DMB instruction.",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 50,
+        "endChar": 35
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_ba842d9c",
+        "filename": "compiler/utils/arm/constants_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:09:03Z",
+      "side": 1,
+      "message": "Order and values follows those of the ARM Architecture Reference Manual.",
+      "range": {
+        "startLine": 51,
+        "startChar": 3,
+        "endLine": 51,
+        "endChar": 82
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
