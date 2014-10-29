@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "354d76af_82f1fefc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T11:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "154a3299_0402172c",
+      "range": {
+        "startLine": 2028,
+        "startChar": 2,
+        "endLine": 2028,
+        "endChar": 9
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95570241_9a81698c",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-29T06:09:03Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2032,
+        "startChar": 2,
+        "endLine": 2032,
+        "endChar": 9
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55abca56_ee5393aa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T11:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95570241_9a81698c",
       "range": {
         "startLine": 2032,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "55abca56_4ea8a71d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2034,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T11:45:32Z",
+      "side": 1,
+      "message": "Good catch. I\u0027m still unsure about this, as not all instructions require a dex pc. If we end up having more instructions that need it than not need it, we\u0027ll probably add it to the base HInstruction class.",
+      "parentUuid": "95570241_da7be113",
+      "range": {
+        "startLine": 2034,
+        "startChar": 2,
+        "endLine": 2034,
+        "endChar": 47
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "154a3299_c4078f3d",
         "filename": "compiler/utils/arm/constants_arm.h",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "354d76af_02ecce22",
+        "filename": "compiler/utils/arm/constants_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T11:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "154a3299_c4078f3d",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 50,
+        "endChar": 35
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95570241_ba842d9c",
         "filename": "compiler/utils/arm/constants_arm.h",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2014-10-29T06:09:03Z",
       "side": 1,
       "message": "Order and values follows those of the ARM Architecture Reference Manual.",
+      "range": {
+        "startLine": 51,
+        "startChar": 3,
+        "endLine": 51,
+        "endChar": 82
+      },
+      "revId": "0be2b63296b2484ea0244d334e01649a0a3954d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d76af_e2e8c210",
+        "filename": "compiler/utils/arm/constants_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-29T11:45:32Z",
+      "side": 1,
+      "message": "Done. Much better, thanks.",
+      "parentUuid": "95570241_ba842d9c",
       "range": {
         "startLine": 51,
         "startChar": 3,
