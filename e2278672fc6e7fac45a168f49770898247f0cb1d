@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95570241_5ad35196",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:45:34Z",
+      "side": 1,
+      "message": "Or could equally be being used to ensure we\u0027re saving all the registers to aid debugging. This looks brittle.",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 84
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_1ac9d9e4",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:45:34Z",
+      "side": 1,
+      "message": "This makes no sense to me. Why are we implementing visitors with iterators?",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 2
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_c47aefaa",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:45:34Z",
+      "side": 1,
+      "message": "why are you making this virtual? Do you plan to override with a sub-class which isn\u0027t a quick frame?",
+      "range": {
+        "startLine": 453,
+        "startChar": 2,
+        "endLine": 453,
+        "endChar": 10
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_446fffed",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T06:45:34Z",
+      "side": 1,
+      "message": "I think this is where the abstraction you are trying to create has fallen apart. The \"quick frame\" is really holding the state of the stack visitor when traversing frames. Setting a PC is a quick frame is entirely a fiction, its just updating information for iteration, whereas the setting the return PC is actually modifying the frame. Setting the dex PC within a shadow frame actually modifies that dex pc. The change is breaking apart StackVisitor and introduce 3 new types but I\u0027m not sure its gaining any clarity. The reason visitor didn\u0027t group a quick method\u0027s sp with its PC is that logically one belongs to the former, the context belongs all over the stack. While previously the WalkStack function captured the idiosyncrasies of this, now the logic is distributed and so tracking bugs requires looking at the StackVisitor, the iterator and the quick frame. It seems the QuickFrame should really be owned by the stack visitor and hidden as its state, but your change is trying to promote the reverse and exposing this. I want to see what I can do with what you\u0027re trying to do, but on the face of it I\u0027m opposed to making the change as is.",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 20
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
