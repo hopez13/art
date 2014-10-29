@@ -34,6 +34,213 @@
       "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_f0336634",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "I thought the issue was about reading uninitialized memory. The memory with or without valgrind must be zeroed. Can you improve the comment.",
+      "range": {
+        "startLine": 375,
+        "startChar": 1,
+        "endLine": 376,
+        "endChar": 73
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55dfa60_3bbdbadf",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "why Do?",
+      "range": {
+        "startLine": 377,
+        "startChar": 14,
+        "endLine": 377,
+        "endChar": 16
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_64ce7bc0",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "I think something terrible went wrong here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 29,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95570241_ba56ed9b",
+        "filename": "runtime/gc/space/dlmalloc_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "yes.. no, this is horrible",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 4
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55dfa60_1bb6f6ff",
+        "filename": "runtime/gc/space/rosalloc_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "and another one, what fun.. please don\u0027t do this.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 4
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_a4d88382",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "no",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55dfa60_fbb22209",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "still needed? Would be nice to lose a parameter.",
+      "range": {
+        "startLine": 32,
+        "startChar": 73,
+        "endLine": 32,
+        "endChar": 94
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_c4de6f6b",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure putting our URL shortened bug names is clear, I prefer to write the word \"bug\". Its not particularly long and at least in commit messages his some amount of automation with it.",
+      "range": {
+        "startLine": 1124,
+        "startChar": 5,
+        "endLine": 1124,
+        "endChar": 7
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "154a3299_84dd8773",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-29T05:45:46Z",
+      "side": 1,
+      "message": "warn?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 10,
+        "endLine": 1126,
+        "endChar": 11
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
