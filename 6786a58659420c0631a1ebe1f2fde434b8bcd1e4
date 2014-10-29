@@ -46,6 +46,30 @@
       "revId": "6786a58659420c0631a1ebe1f2fde434b8bcd1e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ae0e67_55cef6bf",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-29T15:47:21Z",
+      "side": 1,
+      "message": "Right, we should fail verification with a hard failure (see MethodVerifier::CheckStringIndex). Since the verification fail, we shouldn\u0027t execute the method and end up here. Using GetWithoutChecks would avoid the cost of checking index again.\n\nActually we do the same for class, method and field resolution where we always test the index validity at runtime when accessing the DEX cache. I believe we could do the same change.\n\nI\u0027ll file a bug to track that.",
+      "parentUuid": "5594aafe_cb21f3ca",
+      "range": {
+        "startLine": 205,
+        "startChar": 15,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "6786a58659420c0631a1ebe1f2fde434b8bcd1e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
