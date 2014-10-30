@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b5d5e601_83e640bf",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-30T07:32:32Z",
+      "side": 1,
+      "message": "if nothing really needs it in the end, we can remove it.",
+      "parentUuid": "953e22e9_c584ae9d",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 97
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5bfba8a_bd8b9726",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -567,6 +591,30 @@
     },
     {
       "key": {
+        "uuid": "d5d09a11_87900adb",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-30T07:32:32Z",
+      "side": 1,
+      "message": "yes we have done this const bool debug thing elsewhere, as well as in frameworks code, to make it easier to reenable.",
+      "parentUuid": "953e22e9_65d32297",
+      "range": {
+        "startLine": 908,
+        "startChar": 2,
+        "endLine": 908,
+        "endChar": 7
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ae0e67_896d3da2",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 3
@@ -745,6 +793,30 @@
       "side": 1,
       "message": "The logging framework is prior my time, so I\u0027m also unfamiliar with it. I just find it akward to have a kIsDebugBuild and DEBUG logging option, but they may just be unrelated.",
       "parentUuid": "953e22e9_85e7466d",
+      "range": {
+        "startLine": 1244,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 14
+      },
+      "revId": "46774767fcf7780d1455e755729198648d08742e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5d5e601_e3f46c69",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-30T07:32:32Z",
+      "side": 1,
+      "message": "LOG(DEBUG) (and ALOGD) are never meant to be checked in. We grepped and removed them all once. that is more of an Android style thing.\n\nIf anything, shouldn\u0027t this be (debug), not (kIsDebugBuild) to match the rest?",
+      "parentUuid": "75ae0e67_6fa6c1cc",
       "range": {
         "startLine": 1244,
         "startChar": 10,
