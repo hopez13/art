@@ -46,6 +46,30 @@
       "revId": "542917c8cb9b05e296f73e0343fc37fbe5d7f691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15bf92c3_13a1acb2",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2498,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-30T18:56:37Z",
+      "side": 1,
+      "message": "It feels brittle. The Get.. methods in the visitor are intended for other visitors and not for external use. Clearly this one was made public. I worry that we could inadvertently break this code by changes in the stack visitor and so would prefer a local cache.",
+      "parentUuid": "75dfee23_e16d40a1",
+      "range": {
+        "startLine": 2498,
+        "startChar": 27,
+        "endLine": 2498,
+        "endChar": 50
+      },
+      "revId": "542917c8cb9b05e296f73e0343fc37fbe5d7f691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
