@@ -22,6 +22,30 @@
       "revId": "542917c8cb9b05e296f73e0343fc37fbe5d7f691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75dfee23_e16d40a1",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2498,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-10-30T18:48:44Z",
+      "side": 1,
+      "message": "The thread is suspended by the debugger. The visitor terminates at the frame we\u0027re looking for (that\u0027s the job of the FindFrameVisitor). Otherwise we return an error.\n\nI can get back to the previous version if doing it that way is a problem. Both visitors has similar functionality, except access \u0027this\u0027 object.",
+      "parentUuid": "b5d5e601_2f1c758f",
+      "range": {
+        "startLine": 2498,
+        "startChar": 27,
+        "endLine": 2498,
+        "endChar": 50
+      },
+      "revId": "542917c8cb9b05e296f73e0343fc37fbe5d7f691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
