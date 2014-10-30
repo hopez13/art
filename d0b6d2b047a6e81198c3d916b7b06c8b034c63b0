@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "15f87289_11c9cce4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-30T20:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5d5e601_60e7726e",
+      "range": {
+        "startLine": 1167,
+        "startChar": 6,
+        "endLine": 1167,
+        "endChar": 30
+      },
+      "revId": "d0b6d2b047a6e81198c3d916b7b06c8b034c63b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5d09a11_849008db",
         "filename": "test/117-nopatchoat/src/Main.java",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I think even\n\nboolean executable_correct \u003d (isPic()) ?\n                              hasExecutableOat() \u003d\u003d true :\n                              hasExecutableOat() \u003d\u003d isDex2OatEnabled());\n\nmight be better. assigning and overwriting is not very clear.",
       "parentUuid": "d5d09a11_849008db",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "d0b6d2b047a6e81198c3d916b7b06c8b034c63b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5267ef7_b9d1cbde",
+        "filename": "test/117-nopatchoat/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-10-30T20:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d09a11_e488f47d",
       "range": {
         "startLine": 19,
         "startChar": 4,
