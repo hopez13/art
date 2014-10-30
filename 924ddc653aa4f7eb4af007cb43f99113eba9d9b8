@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5d5e601_f4bfc0a0",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-30T20:34:09Z",
+      "side": 1,
+      "message": "It\u0027s easy to be more aggressive here and try to use value ranges for the phi operands.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 1
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
