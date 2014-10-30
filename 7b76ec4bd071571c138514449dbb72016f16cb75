@@ -22,6 +22,30 @@
       "revId": "7b76ec4bd071571c138514449dbb72016f16cb75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e9f6cf_9f94d74e",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-30T16:52:57Z",
+      "side": 1,
+      "message": "Yes, this was a quick fix to get us back building and green testing again.\n\nI have to think a bit more about how we\u0027re going to do this. Ideally it\u0027s Optimizing, but because of how we\u0027re bringing up arm64 it can\u0027t be Optimizing for arm64.",
+      "parentUuid": "d5d09a11_356a08df",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 52
+      },
+      "revId": "7b76ec4bd071571c138514449dbb72016f16cb75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
