@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15631229_7c260de3",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-30T01:18:37Z",
+      "side": 1,
+      "message": "It looks we no longer indirectly call GetInterfaceMethodIfProxy() via MethodHelper::GetMethod() at several call sites (GetReturnType(), GetDeclaringClass()) around here.\n\nAnd that\u0027s ok because we don\u0027t expect proxy methods appear in any of those call sites, as I see DCHECK(!IsProxyMethod()) in ArtMethod::GetReturnType()?",
+      "range": {
+        "startLine": 295,
+        "startChar": 42,
+        "endLine": 295,
+        "endChar": 45
+      },
+      "revId": "ded66a01f81812e0129d17c3d08d5eda18433062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
