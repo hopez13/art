@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5cbde63_6864b791",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-10-30T07:20:37Z",
+      "side": 1,
+      "message": "\"symbol\" -\u003e \"mapping symbol\" to be a bit clearer.\n\ntechnically we should have a lot more \"mapping symbols\" such as $d before literally pool and other data and $a for any arm code to be confirming, but apparently that isn\u0027t as necessary  to make disassemblers happy.",
+      "range": {
+        "startLine": 689,
+        "startChar": 35,
+        "endLine": 689,
+        "endChar": 41
+      },
+      "revId": "a4044b383d1a2724c13518668cd784dbd48701d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
