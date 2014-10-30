@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "55402a75_fafa2053",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-30T00:51:55Z",
+      "side": 1,
+      "message": "What was the valgrind issue that motivates this change?\n\nThis kCheckZeroMemory has nothing to do with valgrind, I think. RosAlloc has to return zero memory, it zero memory, either at the allocation time or free time, and we current check that we return zero memory from the Alloc routines in the debug build.",
+      "parentUuid": "154a3299_f0336634",
+      "range": {
+        "startLine": 375,
+        "startChar": 1,
+        "endLine": 376,
+        "endChar": 73
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d55dfa60_3bbdbadf",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 4
@@ -71,6 +95,30 @@
       "writtenOn": "2014-10-29T05:45:46Z",
       "side": 1,
       "message": "why Do?",
+      "range": {
+        "startLine": 377,
+        "startChar": 14,
+        "endLine": 377,
+        "endChar": 16
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55402a75_daf7646b",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-30T00:51:55Z",
+      "side": 1,
+      "message": "If we keep this function, how about \"Should\" instead of \"Do\"?",
+      "parentUuid": "d55dfa60_3bbdbadf",
       "range": {
         "startLine": 377,
         "startChar": 14,
@@ -122,6 +170,53 @@
         "startChar": 0,
         "endLine": 142,
         "endChar": 4
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55402a75_9a42fcd6",
+        "filename": "runtime/gc/space/dlmalloc_space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-30T00:51:55Z",
+      "side": 1,
+      "message": "It seems that the param lists are identical except the allocator (rosalloc/mspace) and the low_memory_mode param between DlMallocSpace and RosAllocSpace.\n\nHow about the following approach?\n\n1) Retain the original constructor param list style, as opposed to the struct.\n2) Add the low_memory_mode param to DlMallocSpace which we will ignore for now.\n3) As ValgrindMallocSpace is parameterized with the AllocatorType, we have no problem passing the allocator param of different types (void* vs RosAlloc*) through ValgrindMallocSpace to the constructors.",
+      "parentUuid": "95570241_ba56ed9b",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 4
+      },
+      "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55402a75_3a780831",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-10-30T00:51:55Z",
+      "side": 1,
+      "message": "Should this be allocator::RosAlloc* instead?",
+      "range": {
+        "startLine": 38,
+        "startChar": 50,
+        "endLine": 38,
+        "endChar": 55
       },
       "revId": "07efe56dc76629f736a4477934799deebd2d72ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
