@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5d5e601_8042b6d6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-30T04:03:17Z",
+      "side": 1,
+      "message": "I know it\u0027s an optimization, but readability is lower because of that. We normally don\u0027t load too many oat files, so I think it\u0027s OK to go for readability and just put !oat_file-\u003eIsPic()",
+      "range": {
+        "startLine": 1167,
+        "startChar": 6,
+        "endLine": 1167,
+        "endChar": 30
+      },
+      "revId": "d0b6d2b047a6e81198c3d916b7b06c8b034c63b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5d09a11_849008db",
+        "filename": "test/117-nopatchoat/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-10-30T04:03:17Z",
+      "side": 1,
+      "message": "Readability. I think it\u0027s better to split up the computation into the branches of an if-else, i.e,\n\n boolean executable_correct;\n if (isPic()) {\n   executable_correct \u003d hasExecutableOat() \u003d\u003d true;\n } else {\n   executable_correct \u003d hasExecutableOat() \u003d\u003d isDex2OatEnabled();\n }",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "d0b6d2b047a6e81198c3d916b7b06c8b034c63b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
