@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5d5e601_2f1c758f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2498,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-10-30T18:39:27Z",
+      "side": 1,
+      "message": "ugh, looks like I should make GetThisObject protected :-)\nIt seems weird to be assuming where the visitor terminates and be reading it here. Can you cache the value like before?",
+      "range": {
+        "startLine": 2498,
+        "startChar": 27,
+        "endLine": 2498,
+        "endChar": 50
+      },
+      "revId": "542917c8cb9b05e296f73e0343fc37fbe5d7f691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
