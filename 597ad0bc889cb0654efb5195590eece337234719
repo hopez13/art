@@ -16,6 +16,24 @@
       "revId": "597ad0bc889cb0654efb5195590eece337234719",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_c00f3e1f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1055300
+      },
+      "writtenOn": "2014-10-31T10:40:49Z",
+      "side": 1,
+      "message": "There is inclusion of avx2 -\u003e ... -\u003e ssse3. You can find it in instruction_set.h file of this patch",
+      "parentUuid": "756c4e15_59dd2770",
+      "revId": "597ad0bc889cb0654efb5195590eece337234719",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
