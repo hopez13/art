@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5a166bc_e30a4c11",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:49:49Z",
+      "side": 1,
+      "message": "Note that this isn\u0027t something I\u0027m changing, it\u0027s already there.",
+      "parentUuid": "95570241_5ad35196",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 84
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95570241_1ac9d9e4",
         "filename": "runtime/stack.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-29T06:45:34Z",
       "side": 1,
       "message": "This makes no sense to me. Why are we implementing visitors with iterators?",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 2
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_831a605f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:49:49Z",
+      "side": 1,
+      "message": "The visitor just helps the instrumentation case (all the checks above). Without the checks, we don\u0027t really need the visitor.\n\nSo I believe the instrumentation case can be handled in StackVisitor, would you prefer to see it there?",
+      "parentUuid": "95570241_1ac9d9e4",
       "range": {
         "startLine": 553,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f5975e5c_857ee49e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:49:49Z",
+      "side": 1,
+      "message": "No, I wasn\u0027t aware of the convention \"virtual -\u003e tell intent of overloading in subclasses\".",
+      "parentUuid": "154a3299_c47aefaa",
+      "range": {
+        "startLine": 453,
+        "startChar": 2,
+        "endLine": 453,
+        "endChar": 10
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "154a3299_446fffed",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-29T06:45:34Z",
       "side": 1,
       "message": "I think this is where the abstraction you are trying to create has fallen apart. The \"quick frame\" is really holding the state of the stack visitor when traversing frames. Setting a PC is a quick frame is entirely a fiction, its just updating information for iteration, whereas the setting the return PC is actually modifying the frame. Setting the dex PC within a shadow frame actually modifies that dex pc. The change is breaking apart StackVisitor and introduce 3 new types but I\u0027m not sure its gaining any clarity. The reason visitor didn\u0027t group a quick method\u0027s sp with its PC is that logically one belongs to the former, the context belongs all over the stack. While previously the WalkStack function captured the idiosyncrasies of this, now the logic is distributed and so tracking bugs requires looking at the StackVisitor, the iterator and the quick frame. It seems the QuickFrame should really be owned by the stack visitor and hidden as its state, but your change is trying to promote the reverse and exposing this. I want to see what I can do with what you\u0027re trying to do, but on the face of it I\u0027m opposed to making the change as is.",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 20
+      },
+      "revId": "e2278672fc6e7fac45a168f49770898247f0cb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_e557f01a",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:49:49Z",
+      "side": 1,
+      "message": "That comment is a lot to grasp. I\u0027ll try to decompose it in simple questions:\n- Are you saying these three fields should be const?\n- What do you mean by ownership in \"quick frame should be owned by visitor\"?\n- I don\u0027t understand how you\u0027re using \"distributed\": what is distributed? Obviously creating abstractions distribute things because the code is not in one place anymore.\n- So I\u0027m unsure if you\u0027re actually against creating frame abstractions make things too complicated?",
+      "parentUuid": "154a3299_446fffed",
       "range": {
         "startLine": 579,
         "startChar": 0,
