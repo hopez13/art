@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b5a166bc_6092b262",
+        "filename": "compiler/compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T10:36:12Z",
+      "side": 1,
+      "message": "This is plain heuristic. Bill may have some history.",
+      "parentUuid": "f5975e5c_22302e09",
+      "range": {
+        "startLine": 87,
+        "startChar": 85,
+        "endLine": 87,
+        "endChar": 92
+      },
+      "revId": "20be14da017f5d7e77beb1c4c855a589caa3256b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5975e5c_e26ec6f0",
         "filename": "test/418-const-string/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-31T10:34:18Z",
       "side": 1,
       "message": "is it \"may\" or \"will\"? For testing we should try to know for sure.",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "20be14da017f5d7e77beb1c4c855a589caa3256b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_408fae34",
+        "filename": "test/418-const-string/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T10:36:12Z",
+      "side": 1,
+      "message": "You never know what the compiler will end up doing. In 6 months from now, will we have made it so that there is no slow path anymore? Can be.",
+      "parentUuid": "f5975e5c_e26ec6f0",
       "range": {
         "startLine": 19,
         "startChar": 19,
