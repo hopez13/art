@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "f5975e5c_62b51653",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "But why do we want that order?",
+      "range": {
+        "startLine": 22,
+        "startChar": 44,
+        "endLine": 22,
+        "endChar": 54
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_43057833",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "If we don\u0027t handle overflow , are we correct?",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_22bf0e33",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "ditto for underflow",
+      "range": {
+        "startLine": 46,
+        "startChar": 22,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5d5e601_f4bfc0a0",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -18,6 +87,720 @@
         "startChar": 0,
         "endLine": 55,
         "endChar": 1
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_61a3d60f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Agree, the reverse post order is not helping here.",
+      "parentUuid": "b5d5e601_f4bfc0a0",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 1
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_c174e2fc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "I don\u0027t see the \u0027+ c\u0027 here.",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_2186ee70",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "All these is checks smell like you need a visitor. You\u0027ll also handle IsSub, IsMul, etc.",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_e1648643",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "be critical -\u003e be no critical",
+      "range": {
+        "startLine": 115,
+        "startChar": 20,
+        "endLine": 115,
+        "endChar": 21
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_c1698219",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 119,
+        "startChar": 20,
+        "endLine": 119,
+        "endChar": 21
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_415e926b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Do you need this method? The method above can itself do the, e.g. IsLessThan calls.",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_e14da6b9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Lots of Is checks -\u003e change to a visitor.",
+      "range": {
+        "startLine": 218,
+        "startChar": 24,
+        "endLine": 218,
+        "endChar": 29
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_4037ae23",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "constant_ -\u003e constant.",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 75
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_412d72fe",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 30
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_212a6ee8",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_820a5a8d",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_c1e62271",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "HasArrayLength -\u003e IsRelativeToArrayLength?",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_62075687",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 47,
+        "startChar": 17,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_e1c806e3",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Add a comment on what useful means in this context.",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 15
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_421452b2",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Why static (here and below) ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_22114ec2",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Use the ? ternary operator (here and below) ?",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 13
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_021f6acd",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": ": returns ....",
+      "range": {
+        "startLine": 79,
+        "startChar": 30,
+        "endLine": 79,
+        "endChar": 31
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_e3d24c64",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "ternary operator?",
+      "range": {
+        "startLine": 89,
+        "startChar": 15,
+        "endLine": 89,
+        "endChar": 25
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_03ce50be",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": ": returns ...",
+      "range": {
+        "startLine": 95,
+        "startChar": 25,
+        "endLine": 95,
+        "endChar": 30
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_e1f1262d",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Ternary operator?",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 14
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_a1eb1e37",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "return this?",
+      "range": {
+        "startLine": 113,
+        "startChar": 13,
+        "endLine": 113,
+        "endChar": 23
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_63df5c68",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Please explain why you take the upper limit.",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 20
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_61de3695",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Why the lower limit.",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_02c40acd",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 138,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 14
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_41db32a3",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 139,
+        "startChar": 6,
+        "endLine": 139,
+        "endChar": 15
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_c2cd02f1",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Add a comment on what it means in this context.",
+      "range": {
+        "startLine": 161,
+        "startChar": 7,
+        "endLine": 161,
+        "endChar": 15
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_823dba05",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "If we templatize the one for GVN, could you use that instead?",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 19
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_84102872",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "These linear dominator lookup scare me a bit. Did you consider adding a ValueRange object in instructions where it makes sense? And then add a NarrowingRangeInstruction whenever a branch + comparison is done?",
+      "range": {
+        "startLine": 303,
+        "startChar": 13,
+        "endLine": 303,
+        "endChar": 29
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_e5d25064",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "Note that you can also express this in DEX if that\u0027s easier, but that\u0027s up to you.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_03b890ee",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "To make it clearer at the call site, I\u0027d just avoid the default values.",
+      "range": {
+        "startLine": 31,
+        "startChar": 34,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_a2043e84",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T15:16:33Z",
+      "side": 1,
+      "message": "The logic of going from checked instruction to real isntruction could probably be moved to the top ComputeHashCode and Equals function.\n\nBut why do you need it in your case?",
+      "range": {
+        "startLine": 1952,
+        "startChar": 9,
+        "endLine": 1952,
+        "endChar": 24
       },
       "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
