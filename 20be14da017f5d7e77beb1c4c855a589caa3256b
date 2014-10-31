@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b5a166bc_40f56e61",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T12:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5a166bc_406e8e9d",
+      "range": {
+        "startLine": 276,
+        "startChar": 17,
+        "endLine": 276,
+        "endChar": 25
+      },
+      "revId": "20be14da017f5d7e77beb1c4c855a589caa3256b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5975e5c_e26ec6f0",
         "filename": "test/418-const-string/src/Main.java",
         "patchSetId": 2
@@ -130,6 +154,30 @@
       "writtenOn": "2014-10-31T12:17:47Z",
       "side": 1,
       "message": "As this test contains a single literal string, I suppose dx translates this line into a const-string Dex instruction.  What about exercising const-string/jumbo as well, by either creating a lot of literal strings (more than 2^16 I suppose) or using Smali?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "20be14da017f5d7e77beb1c4c855a589caa3256b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_62ee36c7",
+        "filename": "test/418-const-string/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-10-31T12:22:10Z",
+      "side": 1,
+      "message": "The const-string-jumbo case is covered in the test 056-const-string-jumbo.",
+      "parentUuid": "d59c1a86_01fd2a7f",
       "range": {
         "startLine": 26,
         "startChar": 4,
