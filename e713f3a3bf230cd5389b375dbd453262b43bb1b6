@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15b23212_84a6ec1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-02T11:10:04Z",
+      "side": 1,
+      "message": "how does this compare with the RI?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15b23212_a4a0c804",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-02T11:10:04Z",
+      "side": 1,
+      "message": "and is always created and never declared (what the function is asking for).",
+      "range": {
+        "startLine": 493,
+        "startChar": 59,
+        "endLine": 493,
+        "endChar": 60
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
