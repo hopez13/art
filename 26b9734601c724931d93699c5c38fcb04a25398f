@@ -22,6 +22,30 @@
       "revId": "26b9734601c724931d93699c5c38fcb04a25398f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5c5fa79_3c6e1d9d",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-02T10:56:15Z",
+      "side": 1,
+      "message": "In general I agree but it depends on the case as it may be useful to know what the parameters are in lieu of our sparse documentation. I\u0027ve added ATTRIBUTE_UNUSED to mark parameters rather than having lots of UNUSED. This is also preferential as a compiler feature may have more checking (such as being able to check if an unused thing is really used). I\u0027ve marked a large number of cases as ATTRIBUTE_UNUSED or removed the argument, but I haven\u0027t fully cleared out UNUSED as I expect this to be something to come back to in a different change.",
+      "parentUuid": "1594f24f_3ffbcf24",
+      "range": {
+        "startLine": 694,
+        "startChar": 2,
+        "endLine": 698,
+        "endChar": 16
+      },
+      "revId": "26b9734601c724931d93699c5c38fcb04a25398f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
