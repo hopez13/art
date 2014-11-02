@@ -45,6 +45,75 @@
       "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_06065e0f",
+        "filename": "test/126-miranda-multidex/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-02T16:54:38Z",
+      "side": 1,
+      "message": "Add a comment why no-verify.",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_e60a5a11",
+        "filename": "test/126-miranda-multidex/src/MirandaClass2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-02T16:54:38Z",
+      "side": 1,
+      "message": "No copyright.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_07453a72",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-02T16:54:38Z",
+      "side": 1,
+      "message": "Remove the x (to be consistent with the check line 235).",
+      "range": {
+        "startLine": 237,
+        "startChar": 11,
+        "endLine": 237,
+        "endChar": 12
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
