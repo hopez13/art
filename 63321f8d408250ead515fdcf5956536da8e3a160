@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15b23212_e496d0af",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-02T11:06:19Z",
+      "side": 1,
+      "message": "whitespace, done.",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 1
+      },
+      "revId": "63321f8d408250ead515fdcf5956536da8e3a160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5c5fa79_fc58a5fd",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-02T11:06:19Z",
+      "side": 1,
+      "message": "Note, this kind of thing looks odd. I\u0027m adding a name so the enum gets caught by generate-operator-out.py but then declaring it private so that the script ignores it. This is to make sure we\u0027re pairing \"};\" properly as otherwise the \"};\" will close the class and we\u0027ll generate the wrong operator outs.\nPreviously we\u0027d done a similar thing by breaking the \"{\" onto a new line and marking that NOLINT. This breaks after this change as \"};\" is no longer required to be at the start of the line, ie classes with enums can be nested.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 97
+      },
+      "revId": "63321f8d408250ead515fdcf5956536da8e3a160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5c5fa79_dc5de1eb",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-02T11:06:19Z",
+      "side": 1,
+      "message": "Note,  I failed to get the ostream operator working here as kind is nested twice in private regions and friend-ing wasn\u0027t enough to be able to let the ostream operator see the enum.",
+      "range": {
+        "startLine": 387,
+        "startChar": 45,
+        "endLine": 387,
+        "endChar": 62
+      },
+      "revId": "63321f8d408250ead515fdcf5956536da8e3a160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
