@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "35b576f8_9143c63b",
+        "filename": "test/126-miranda-multidex/src/MirandaClass2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T16:48:34Z",
+      "side": 1,
+      "message": "The files all come from the other miranda test, so this file is missing a copyright there. As it *is* copied, I wasn\u0027t sure that adding a new one is the right thing to do.",
+      "parentUuid": "95bf02de_f7fc4085",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_07453a72",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
