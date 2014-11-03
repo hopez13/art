@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5975e5c_a2b0bed6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-03T15:29:34Z",
+      "side": 1,
+      "message": "Yes, I also initially thought about this, but I also thought it might be a bit costly to reserve one register (or two) for this purpose.  The new patch set implements this strategy.\n\nI also tried to play with the stack to work around this issue -- which would be a better solution IMHO, as it requires fewer and more local changes -- but I haven\u0027t succeeded so far.",
+      "parentUuid": "b5aec691_1b2fff7f",
+      "range": {
+        "startLine": 547,
+        "startChar": 9,
+        "endLine": 547,
+        "endChar": 23
+      },
+      "revId": "c24025e387148b0a4ee57358ddce800daf1695a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75dfee23_61acd080",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-10-30T18:19:09Z",
       "side": 1,
       "message": "We need the same fix(es) for the moves and exchanges in the parallel move resolver (used when we do linear scan register allocation).",
+      "range": {
+        "startLine": 2007,
+        "startChar": 5,
+        "endLine": 2007,
+        "endChar": 28
+      },
+      "revId": "c24025e387148b0a4ee57358ddce800daf1695a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_6854d793",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2007,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-03T15:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75dfee23_61acd080",
       "range": {
         "startLine": 2007,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d59c1a86_c152a2db",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2487,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-03T15:29:34Z",
+      "side": 1,
+      "message": "Right; I got rid of this.",
+      "parentUuid": "b5aec691_5b109742",
+      "range": {
+        "startLine": 2487,
+        "startChar": 22,
+        "endLine": 2487,
+        "endChar": 49
+      },
+      "revId": "c24025e387148b0a4ee57358ddce800daf1695a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75dfee23_a1b5f8c6",
         "filename": "test/419-large-frame/src/Main.java",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-10-30T18:19:09Z",
       "side": 1,
       "message": "check the result?",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "c24025e387148b0a4ee57358ddce800daf1695a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d59c1a86_8a0b8f4a",
+        "filename": "test/419-large-frame/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-03T15:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75dfee23_a1b5f8c6",
       "range": {
         "startLine": 22,
         "startChar": 9,
