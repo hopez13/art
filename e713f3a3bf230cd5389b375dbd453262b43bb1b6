@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "95bf02de_f76fa09c",
+        "filename": "test/126-miranda-multidex/src/MirandaClass2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-03T16:49:23Z",
+      "side": 1,
+      "message": "Then the other one should be fixed as well.",
+      "parentUuid": "35b576f8_9143c63b",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_07453a72",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
