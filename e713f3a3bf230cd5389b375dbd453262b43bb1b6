@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "35b576f8_91106672",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T16:19:11Z",
+      "side": 1,
+      "message": "I don\u0027t know, I haven\u0027t looked at the RI for this.",
+      "parentUuid": "15b23212_84a6ec1d",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15b23212_a4a0c804",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-02T11:10:04Z",
       "side": 1,
       "message": "and is always created and never declared (what the function is asking for).",
+      "range": {
+        "startLine": 493,
+        "startChar": 59,
+        "endLine": 493,
+        "endChar": 60
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35b576f8_11457672",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T16:19:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15b23212_a4a0c804",
       "range": {
         "startLine": 493,
         "startChar": 59,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d5c5fa79_423d68b0",
+        "filename": "test/126-miranda-multidex/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T16:19:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5a166bc_06065e0f",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5a166bc_e60a5a11",
         "filename": "test/126-miranda-multidex/src/MirandaClass2.java",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "15b23212_0af783f2",
+        "filename": "test/126-miranda-multidex/src/MirandaClass2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T16:19:11Z",
+      "side": 1,
+      "message": "Copied (and a bit extended) from the original MirandaTest. I am not sure what copyright to apply. Suggestions?",
+      "parentUuid": "b5a166bc_e60a5a11",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_07453a72",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2014-11-02T16:54:38Z",
       "side": 1,
       "message": "Remove the x (to be consistent with the check line 235).",
+      "range": {
+        "startLine": 237,
+        "startChar": 11,
+        "endLine": 237,
+        "endChar": 12
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35b576f8_f149ea8d",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T16:19:11Z",
+      "side": 1,
+      "message": "I believe adding \"x\" is a safety measure for corner cases, and run-test itself uses it heavily. We should probably be consistent, but follow-up CL.",
+      "parentUuid": "d59c1a86_07453a72",
       "range": {
         "startLine": 237,
         "startChar": 11,
