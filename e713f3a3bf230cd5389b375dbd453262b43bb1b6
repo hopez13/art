@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "95bf02de_f7fc4085",
+        "filename": "test/126-miranda-multidex/src/MirandaClass2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-03T16:23:26Z",
+      "side": 1,
+      "message": "Not sure I understand. The regular copyright 2014 will do.",
+      "parentUuid": "15b23212_0af783f2",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_07453a72",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "I believe adding \"x\" is a safety measure for corner cases, and run-test itself uses it heavily. We should probably be consistent, but follow-up CL.",
       "parentUuid": "d59c1a86_07453a72",
+      "range": {
+        "startLine": 237,
+        "startChar": 11,
+        "endLine": 237,
+        "endChar": 12
+      },
+      "revId": "e713f3a3bf230cd5389b375dbd453262b43bb1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_28adaff6",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-03T16:23:26Z",
+      "side": 1,
+      "message": "What corner cases? It looks like it\u0027s only used when command line parsing.",
+      "parentUuid": "35b576f8_f149ea8d",
       "range": {
         "startLine": 237,
         "startChar": 11,
