@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d5c5fa79_4d37d923",
+        "filename": "test/126-miranda-multidex/src/MirandaAbstract.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5975e5c_6b64d105",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "b34b550618deff0d092e95e2ea9d44f4dec2ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95bf02de_d75edcbe",
         "filename": "test/126-miranda-multidex/src/MirandaClass.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-03T17:59:13Z",
       "side": 1,
       "message": "Why is that commented?",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "b34b550618deff0d092e95e2ea9d44f4dec2ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5c5fa79_0d356180",
+        "filename": "test/126-miranda-multidex/src/MirandaClass.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:25:06Z",
+      "side": 1,
+      "message": "Copied from original. Removed.",
+      "parentUuid": "95bf02de_d75edcbe",
       "range": {
         "startLine": 25,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d5c5fa79_ed390d7c",
+        "filename": "test/126-miranda-multidex/src/MirandaClass.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:25:06Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "95bf02de_b7636889",
+      "range": {
+        "startLine": 30,
+        "startChar": 21,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "b34b550618deff0d092e95e2ea9d44f4dec2ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95bf02de_97686464",
         "filename": "test/126-miranda-multidex/src/MirandaClass.java",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-03T17:59:13Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 35,
+        "startChar": 21,
+        "endLine": 35,
+        "endChar": 28
+      },
+      "revId": "b34b550618deff0d092e95e2ea9d44f4dec2ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15b23212_35174068",
+        "filename": "test/126-miranda-multidex/src/MirandaClass.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:25:06Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "95bf02de_97686464",
       "range": {
         "startLine": 35,
         "startChar": 21,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "15b23212_35e98013",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:25:06Z",
+      "side": 1,
+      "message": "Yes. Verify-none disables compilation. See CompilerOptions::IsCompilationEnabled.\n\nI felt that this nesting is the right thing to do (ignore verify-none if not testing interpreter), but am open to arguments for restructuring.",
+      "parentUuid": "95bf02de_37787831",
+      "range": {
+        "startLine": 240,
+        "startChar": 56,
+        "endLine": 240,
+        "endChar": 62
+      },
+      "revId": "b34b550618deff0d092e95e2ea9d44f4dec2ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95bf02de_17757439",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2014-11-03T17:59:13Z",
       "side": 1,
       "message": "Use DEX_VERIFY instead? (which unfortunately looks unused :()",
+      "range": {
+        "startLine": 241,
+        "startChar": 11,
+        "endLine": 241,
+        "endChar": 15
+      },
+      "revId": "b34b550618deff0d092e95e2ea9d44f4dec2ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5c5fa79_0d4321e1",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:25:06Z",
+      "side": 1,
+      "message": "Wasn\u0027t used before, so I went with FLAGS instead. Done.",
+      "parentUuid": "95bf02de_17757439",
       "range": {
         "startLine": 241,
         "startChar": 11,
