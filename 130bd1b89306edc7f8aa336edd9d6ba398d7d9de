@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55d10a3e_3514f0b1",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-03T19:17:53Z",
+      "side": 1,
+      "message": "could we get this on the LHS of the target so that make cleans it up?",
+      "range": {
+        "startLine": 199,
+        "startChar": 46,
+        "endLine": 199,
+        "endChar": 68
+      },
+      "revId": "130bd1b89306edc7f8aa336edd9d6ba398d7d9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15b23212_501ada8f",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-03T19:17:53Z",
+      "side": 1,
+      "message": "\u0026\u0026 false",
+      "range": {
+        "startLine": 199,
+        "startChar": 68,
+        "endLine": 199,
+        "endChar": 76
+      },
+      "revId": "130bd1b89306edc7f8aa336edd9d6ba398d7d9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
