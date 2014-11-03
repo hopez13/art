@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95bf02de_77b6f0d2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-03T16:42:22Z",
+      "side": 1,
+      "message": "Add a TODO that we should revisit this with a new ABI. Combination of linear scan + quick ABI may break things.",
+      "range": {
+        "startLine": 345,
+        "startChar": 25,
+        "endLine": 345,
+        "endChar": 30
+      },
+      "revId": "a35db8bc1cc7c3627afa5e2f2bd8c71e91a43d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d44e2e_96dcec75",
+        "filename": "runtime/arch/arm/registers_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-03T16:42:22Z",
+      "side": 1,
+      "message": "Does this work with the current ABI? Is S24 caller-saved?",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 7
+      },
+      "revId": "a35db8bc1cc7c3627afa5e2f2bd8c71e91a43d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
