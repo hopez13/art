@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d59c1a86_c773d2da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-03T07:28:40Z",
+      "side": 1,
+      "message": "./test/run-test -Xcompiler-option --gen-gdb-info --gdb 002",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "a3f4ad1ca8fca110f346bf58ca8760a6e6951950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5a166bc_c6287676",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-03T07:28:40Z",
+      "side": 1,
+      "message": "gdbclient /system/bin/dalvikvm32\n\nUsage of gdbclient has been updated which uses \u0027--exact\u0027 to resolve pid. See : https://android-review.googlesource.com/#/c/112686/",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "a3f4ad1ca8fca110f346bf58ca8760a6e6951950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
