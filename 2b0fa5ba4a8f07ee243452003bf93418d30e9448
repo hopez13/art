@@ -22,6 +22,30 @@
       "revId": "2b0fa5ba4a8f07ee243452003bf93418d30e9448",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35b576f8_03ad2d2c",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-03T18:30:38Z",
+      "side": 1,
+      "message": "The other set is contingent on $ZYGOTE being empty. Currently yes it means it will be double-set, but I wanted to be safe (rather than sorry).",
+      "parentUuid": "95bf02de_57076c86",
+      "range": {
+        "startLine": 241,
+        "startChar": 20,
+        "endLine": 241,
+        "endChar": 30
+      },
+      "revId": "2b0fa5ba4a8f07ee243452003bf93418d30e9448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
