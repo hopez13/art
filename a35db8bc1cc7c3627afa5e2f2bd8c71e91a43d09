@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95bf02de_97b62481",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-03T18:48:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95bf02de_77b6f0d2",
+      "range": {
+        "startLine": 345,
+        "startChar": 25,
+        "endLine": 345,
+        "endChar": 30
+      },
+      "revId": "a35db8bc1cc7c3627afa5e2f2bd8c71e91a43d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d44e2e_96dcec75",
         "filename": "runtime/arch/arm/registers_arm.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-03T16:42:22Z",
       "side": 1,
       "message": "Does this work with the current ABI? Is S24 caller-saved?",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 7
+      },
+      "revId": "a35db8bc1cc7c3627afa5e2f2bd8c71e91a43d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_eb3341eb",
+        "filename": "runtime/arch/arm/registers_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-03T18:48:08Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to break the current ABI, as all run-tests pass after this change.  However, I\u0027m not sure I haven\u0027t broken the ABI. I gathered the following information from the code:\n\n* In compiler/optimizing/code_generator_arm.hh, registers S0 to S15 are marked as parameter FPU registers; and in compiler/optimizing/code_generator_arm.cc, registers S16 to S23 are already blocked (by art::CodeGeneratorARM::SetupBlockedRegisters).  I haven\u0027t seen other requirements about S registers, but I haven\u0027t looked everywhere.  I picked S24 as it seemed to be the first available S register.\n\n* Regarding Quick, compiler/dex/quick/arm/arm_lir.h reads:\n\n  Floating pointer registers\n  s0-s31\n  d0-d15, where d0\u003d{s0,s1}, d1\u003d{s2,s3}, ... , d15\u003d{s30,s31}\n \n  s16-s31 (d8-d15) preserved across C calls\n  s0-s15 (d0-d7) trashed across C calls\n \n  s0-s15/d0-d7 used as codegen temp/scratch\n  s16-s31/d8-d31 can be used for promotion.\n\nand also defines this:\n\n  // First FP callee save.\n  #define ARM_FP_CALLEE_SAVE_BASE 16\n\nThis suggest that S24 is callee-save.  Can we use it in the optimizing compiler?",
+      "parentUuid": "75d44e2e_96dcec75",
       "range": {
         "startLine": 90,
         "startChar": 2,
