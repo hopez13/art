@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5975e5c_f6d20864",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-04T12:53:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure why I needed to increment the offset by 2 words, whereas I only decremented the stack pointer by 1 word.",
+      "range": {
+        "startLine": 2472,
+        "startChar": 18,
+        "endLine": 2472,
+        "endChar": 35
+      },
+      "revId": "3b2c31f791c18905f5fd0e0e86446c90cf55c02a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
