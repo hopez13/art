@@ -22,6 +22,30 @@
       "revId": "ec4582f7078cb6fb896f36f8c38823ab9a9188ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d44e2e_3cecd922",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2510,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-04T16:51:27Z",
+      "side": 1,
+      "message": "Right.  But I think I should add\n\n  DCHECK(tmp_reg \u003d\u003d R5 || tmp_reg \u003d\u003d R6);\n\nbefore\n\n  Pop(tmp_reg);\n\nthen.",
+      "parentUuid": "75d44e2e_395e2b6b",
+      "range": {
+        "startLine": 2510,
+        "startChar": 14,
+        "endLine": 2510,
+        "endChar": 16
+      },
+      "revId": "ec4582f7078cb6fb896f36f8c38823ab9a9188ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
