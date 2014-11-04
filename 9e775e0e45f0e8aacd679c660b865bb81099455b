@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e07212_919f3c69",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "How about\n\nstart +\u003d ::art::gc::space::kDefaultValgrindRedZoneBytes;\n\ninstead, like line 2099?",
+      "range": {
+        "startLine": 1923,
+        "startChar": 12,
+        "endLine": 1923,
+        "endChar": 91
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d9ae6e_4805a333",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1927,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "I think we need to a dd the red zone size to obj_size in these CHECK_*.",
+      "range": {
+        "startLine": 1927,
+        "startChar": 19,
+        "endLine": 1927,
+        "endChar": 27
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d9ae6e_1d347f1c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2102,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Since the variable is called obj_size which suggests a true object size that does not include the red zone, can you add valgrind_modifier to it inside the following CHECK_*, as opposed to defining obj_size to include the red zone? Or, create another variable that stands for obj_size + valgrind_modifier?",
+      "range": {
+        "startLine": 2102,
+        "startChar": 39,
+        "endLine": 2102,
+        "endChar": 59
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_4e3a530d",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "I\u0027m still not clear on what this means exactly and why we do not check zero memory under valgrind. Can you explain?",
+      "range": {
+        "startLine": 375,
+        "startChar": 5,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_95684664",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Can we reorder the param list to match the constructor\u0027s? I think it\u0027d be less error-prone that way.",
+      "range": {
+        "startLine": 149,
+        "startChar": 43,
+        "endLine": 152,
+        "endChar": 64
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_91473c98",
+        "filename": "runtime/gc/space/rosalloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Instead of disabling the check for the valgrind case, would the following work\n\n  size_t size_by_ptr \u003d rosalloc_-\u003eUsableSize(reinterpret_cast\u003cuint8_t*\u003e(obj_ptr) - kDefaultValgrindRedZoneBytes)\n\n?",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_75d27ae3",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "It might compile fine as is, but should this be \"allocator::RosAlloc*\" instead?",
+      "range": {
+        "startLine": 80,
+        "startChar": 50,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_51079486",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "2 spaces -\u003e 1 space.",
+      "range": {
+        "startLine": 83,
+        "startChar": 41,
+        "endLine": 83,
+        "endChar": 42
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d9ae6e_a841a7d5",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Can we reorder the param list to match the constructor\u0027s? I think it\u0027d be less error-prone that way.",
+      "range": {
+        "startLine": 172,
+        "startChar": 43,
+        "endLine": 174,
+        "endChar": 64
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d9ae6e_e857af1a",
+        "filename": "runtime/gc/space/space_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Why is this always the case?",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_f469ceea",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Why do we need this extra namespace?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_14869a70",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "I think we can assume bytes_allocated param is always non-null (unlike usable_size). So we don\u0027t need to check its nullness.",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_a23c5e5a",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Why not do the same for both cases (either of line 44 or line 46)?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d9ae6e_a879a7f2",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Remove this commented-out code?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_f5f54a31",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Remove this commented-out code?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_d5236e19",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "inline?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 6
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_e096aaaf",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "Similarly, why not doing the same for both cases?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_02750a6f",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:21:59Z",
+      "side": 1,
+      "message": "If we call S::AllocationSize() here instead, can the following if statement be removed?",
+      "range": {
+        "startLine": 165,
+        "startChar": 27,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
