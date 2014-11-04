@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f533de7c_055f54bc",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1873,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-04T23:47:57Z",
+      "side": 1,
+      "message": "One more thing about modularity:\n\nSince the ValgrindMallocSpace thing now requires internal changes in the rosalloc allocator code (this CL), if we use RosAlloc from code other than ValgrindMallocSpace and we run it on valgrind, this additional code would not make sense.\n\nHow about passing in a bool parameter (something like \"running_with_ valgrind_malloc_space\") to the RosAlloc constructor, and act accordingly in Verify() and Run::Verify(), rather than directly checking RUNNING_ON_VALGRIND in Verify() and Run::Verify()?",
+      "range": {
+        "startLine": 1873,
+        "startChar": 7,
+        "endLine": 1873,
+        "endChar": 26
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e07212_919f3c69",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 5
