@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5975e5c_8bb8354d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-04T11:24:12Z",
+      "side": 1,
+      "message": "which class are you referring to? (code wise). Is it check-\u003eGetLoadClass(). Better add a (d)check if so. Same in the others.",
+      "range": {
+        "startLine": 2203,
+        "startChar": 2,
+        "endLine": 2203,
+        "endChar": 37
+      },
+      "revId": "ae73147f559e9bac3cec55628bf775e04877a282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d44e2e_19e92f13",
+        "filename": "test/420-const-class/expected.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-04T11:24:12Z",
+      "side": 1,
+      "message": "hmm, should you see the Hello first?",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "ae73147f559e9bac3cec55628bf775e04877a282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
