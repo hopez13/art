@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95f462d2_ef2ea181",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-04T11:26:44Z",
+      "side": 1,
+      "message": "At runtime, the input is not null. I\u0027ll improve the comment in another CL.",
+      "parentUuid": "f5975e5c_8bb8354d",
+      "range": {
+        "startLine": 2203,
+        "startChar": 2,
+        "endLine": 2203,
+        "endChar": 37
+      },
+      "revId": "ae73147f559e9bac3cec55628bf775e04877a282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d44e2e_19e92f13",
         "filename": "test/420-const-class/expected.txt",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-04T11:24:12Z",
       "side": 1,
       "message": "hmm, should you see the Hello first?",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "ae73147f559e9bac3cec55628bf775e04877a282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d44e2e_b9f0fbf7",
+        "filename": "test/420-const-class/expected.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-04T11:26:44Z",
+      "side": 1,
+      "message": "No, doing Foo.class does not initialize the class.",
+      "parentUuid": "75d44e2e_19e92f13",
       "range": {
         "startLine": 12,
         "startChar": 6,
