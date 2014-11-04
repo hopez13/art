@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e07212_7f85b795",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-04T23:08:21Z",
+      "side": 1,
+      "message": "I seriously dislike this extern coupling. Thinking about a \"standalone\" header.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 69
+      },
+      "revId": "81c3886b5ff3786b1c58707d5b9a761f08b390c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
