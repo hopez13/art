@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15b23212_a933f468",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-04T09:42:22Z",
+      "side": 1,
+      "message": "Make it static?",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 35
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55d10a3e_3702ab2d",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-04T09:42:22Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 399,
+        "startChar": 24,
+        "endLine": 399,
+        "endChar": 48
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5e59e1c_8cb6fbcf",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-04T09:42:22Z",
+      "side": 1,
+      "message": "It looks like if you provide event_list_ as a parameter, you can remove it from JdwpState and make it local to the cc file.",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 1
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5e59e1c_ccabe367",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-04T09:42:22Z",
+      "side": 1,
+      "message": "Since you\u0027re here, capitalize.",
+      "range": {
+        "startLine": 539,
+        "startChar": 25,
+        "endLine": 539,
+        "endChar": 26
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55d10a3e_97105f72",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-04T09:42:22Z",
+      "side": 1,
+      "message": "We could try variadic templates to factor this out. Something like this maybe:\n\n template \u003ctypename T, typename... R\u003e\n static void FindMatches(ModBasket\u0026 basket, std::vector\u003cJdwpEvent*\u003e* match_list, T t, R... r) {\n   FindMatchingEvents(t, basket, match_list);\n   if (sizeof...(r)) {\n     FindMatch(basket, match_list, r);\n   }\n }\n template \u003ctypename... T\u003e\n static bool FindMatches(ModBasket\u0026 basket, std::vector\u003cJdwpEvent*\u003e* match_list, size_t event_list_size, T... t) {\n   MutexLock...\n   reserve...\n   FindMatches(basked, match_list, t);\n   return match_list-\u003eempty();\n }\n\nThen it should be a \"simple\"\n\n std::vector\u003cJdwpEvent*\u003e match_list;\n if (!FindMatches(basked, \u0026match_list, event_list_size_,\n                  is_mod ? EK_FIELD_MODIFICATION : EK_F...)) {\n   return;\n }\n\nDisclaimer: Untested, don\u0027t know if it compiles, but should according to some google-ing.",
+      "range": {
+        "startLine": 910,
+        "startChar": 2,
+        "endLine": 923,
+        "endChar": 3
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
