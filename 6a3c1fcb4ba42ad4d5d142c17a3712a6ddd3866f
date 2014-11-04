@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5975e5c_abb65980",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-04T10:28:24Z",
+      "side": 1,
+      "message": "I guess some DCHECK_EQ() wasn\u0027t happy. See also the commit message.",
+      "parentUuid": "f5975e5c_2b4ec9ff",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 72
+      },
+      "revId": "6a3c1fcb4ba42ad4d5d142c17a3712a6ddd3866f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95f462d2_0f30c508",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
