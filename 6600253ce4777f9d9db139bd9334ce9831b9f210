@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5975e5c_36e99013",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-11-04T13:09:27Z",
+      "side": 1,
+      "message": "UNUSED(os, tid, prefix, current_method) ? or is that not supported on __APPLE__",
+      "range": {
+        "startLine": 1168,
+        "startChar": 3,
+        "endLine": 1168,
+        "endChar": 4
+      },
+      "revId": "6600253ce4777f9d9db139bd9334ce9831b9f210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5975e5c_16f7acf2",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2014-11-04T13:09:27Z",
+      "side": 1,
+      "message": "Isn\u0027t this going to break too ?",
+      "revId": "6600253ce4777f9d9db139bd9334ce9831b9f210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
