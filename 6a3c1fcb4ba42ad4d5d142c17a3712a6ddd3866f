@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "75d44e2e_d6238419",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-04T10:32:31Z",
+      "side": 1,
+      "message": "Just chatted with Vladimir. Looks like it\u0027s because those are enums and used with ostream, so we need to handle signedness.",
+      "parentUuid": "f5975e5c_abb65980",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 72
+      },
+      "revId": "6a3c1fcb4ba42ad4d5d142c17a3712a6ddd3866f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95f462d2_0f30c508",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
