@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f533de7c_e869e7ea",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "their",
+      "range": {
+        "startLine": 186,
+        "startChar": 28,
+        "endLine": 186,
+        "endChar": 31
+      },
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_85a6d61d",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "// TODO: vixl is clean wrt -Wshadow.",
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_288fcf35",
+        "filename": "compiler/utils/array_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "where\u0027s the shadow here? array_ !\u003d array, oh its the function names.. I can\u0027t see an array() function, presumably renamed for consistency.",
+      "range": {
+        "startLine": 76,
+        "startChar": 29,
+        "endLine": 76,
+        "endChar": 33
+      },
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_a8dd1f23",
+        "filename": "runtime/gc/allocator/dlmalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "seems weird these are GCC with Android\u0027s transition to clang/LLVM",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 11
+      },
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_689f1739",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "if unused just remove, seems useful to have around so add the declaration to mem_map.h.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 4
+      },
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_e85807fe",
+        "filename": "runtime/native/java_lang_ref_Reference.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "For consistency we should have header files that are named after the .cc files rather than dumping everything in one uber header.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_684dd734",
+        "filename": "runtime/native/native_register_methods.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T00:28:49Z",
+      "side": 1,
+      "message": "isn\u0027t this a system header by now? \u003cjni.h\u003e",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "bbd36c0463ca505eece09fa440b7ea3d50ef88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
