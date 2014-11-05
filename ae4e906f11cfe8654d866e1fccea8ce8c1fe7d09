@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "357f3623_205e126b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "Could you add a comment to explain the intent here. I know its existing logic, but its hard code to fathom.",
+      "range": {
+        "startLine": 452,
+        "startChar": 6,
+        "endLine": 452,
+        "endChar": 22
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5572ea58_f6a696a1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "// TODO: migrate to command line option",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 20
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75752e3d_9d73afdb",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 979,
+        "startChar": 9,
+        "endLine": 979,
+        "endChar": 30
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75752e3d_fd57531a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "why not a member variable?",
+      "range": {
+        "startLine": 1039,
+        "startChar": 50,
+        "endLine": 1039,
+        "endChar": 66
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5572ea58_b689ee04",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "I know the code below is intention revealing, but its intentions are somewhat difficult to fathom. Could we add a very brief synopsis to all these functions?",
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75752e3d_1dec9f22",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 1200,
+        "startChar": 39,
+        "endLine": 1200,
+        "endChar": 40
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75752e3d_5de22735",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 1204,
+        "startChar": 15,
+        "endLine": 1204,
+        "endChar": 16
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5572ea58_d66fda9c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-05T22:23:53Z",
+      "side": 1,
+      "message": "place this comment next to the appropriate bits of code?",
+      "range": {
+        "startLine": 1501,
+        "startChar": 2,
+        "endLine": 1561,
+        "endChar": 4
+      },
+      "revId": "ae4e906f11cfe8654d866e1fccea8ce8c1fe7d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
