@@ -25,6 +25,75 @@
     },
     {
       "key": {
+        "uuid": "d5217a32_99843bee",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "At build time, I would avoid adding the zero check if the second input is a non-zero constant.",
+      "range": {
+        "startLine": 542,
+        "startChar": 24,
+        "endLine": 542,
+        "endChar": 37
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_78ee01c7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "These will be unused on non-debug build. I\u0027d avoid defining them.",
+      "range": {
+        "startLine": 1405,
+        "startChar": 14,
+        "endLine": 1405,
+        "endChar": 15
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_98abd568",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "As discussed, you can just compare if second is -1 and then do a neg on first. This saves you a cmp + jmp.",
+      "range": {
+        "startLine": 1414,
+        "startChar": 9,
+        "endLine": 1414,
+        "endChar": 13
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b516c6da_78c5a144",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -71,6 +140,75 @@
     },
     {
       "key": {
+        "uuid": "7530ce7e_f65d40eb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "This DCHECK looks wrong (the constant must always be 0??).",
+      "range": {
+        "startLine": 1472,
+        "startChar": 33,
+        "endLine": 1472,
+        "endChar": 46
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5217a32_b97edf4f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "rax and rdx are unused in non-debug builds.",
+      "range": {
+        "startLine": 1331,
+        "startChar": 18,
+        "endLine": 1331,
+        "endChar": 21
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_766130ad",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "same comment about using neg",
+      "range": {
+        "startLine": 1339,
+        "startChar": 9,
+        "endLine": 1339,
+        "endChar": 13
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5217a32_19990b52",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -94,6 +232,29 @@
     },
     {
       "key": {
+        "uuid": "7530ce7e_366bb88d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1386,
+        "startChar": 90,
+        "endLine": 1386,
+        "endChar": 101
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7530ce7e_1699dc51",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -110,6 +271,75 @@
         "startChar": 4,
         "endLine": 1393,
         "endChar": 49
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_f88f7107",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "This looks wrong.",
+      "range": {
+        "startLine": 1398,
+        "startChar": 13,
+        "endLine": 1398,
+        "endChar": 14
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5217a32_794a871f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "Does this still work now that we do support int divisions? What happens if y is 0, isn\u0027t the constant folder crashing?",
+      "range": {
+        "startLine": 1702,
+        "startChar": 66,
+        "endLine": 1702,
+        "endChar": 67
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5217a32_d95873fe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-05T11:44:54Z",
+      "side": 1,
+      "message": "I was told we should not put virtual here, but use OVERRIDE instead.",
+      "range": {
+        "startLine": 1718,
+        "startChar": 2,
+        "endLine": 1718,
+        "endChar": 9
       },
       "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
