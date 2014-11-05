@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7530ce7e_19334f19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b516c6da_d8694deb",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5217a32_99843bee",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-05T11:44:54Z",
       "side": 1,
       "message": "At build time, I would avoid adding the zero check if the second input is a non-zero constant.",
+      "range": {
+        "startLine": 542,
+        "startChar": 24,
+        "endLine": 542,
+        "endChar": 37
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5217a32_d99153ba",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "d5217a32_99843bee",
       "range": {
         "startLine": 542,
         "startChar": 24,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d5217a32_b9a01f05",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1405,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b516c6da_78ee01c7",
+      "range": {
+        "startLine": 1405,
+        "startChar": 14,
+        "endLine": 1405,
+        "endChar": 15
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b516c6da_98abd568",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-05T11:44:54Z",
       "side": 1,
       "message": "As discussed, you can just compare if second is -1 and then do a neg on first. This saves you a cmp + jmp.",
+      "range": {
+        "startLine": 1414,
+        "startChar": 9,
+        "endLine": 1414,
+        "endChar": 13
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_165ebc6a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b516c6da_98abd568",
       "range": {
         "startLine": 1414,
         "startChar": 9,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d5217a32_59a6a320",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "b516c6da_78c5a144",
+      "range": {
+        "startLine": 1417,
+        "startChar": 43,
+        "endLine": 1417,
+        "endChar": 47
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7530ce7e_76b370e1",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-11-05T11:28:06Z",
       "side": 1,
       "message": "Use `testl\u0027 instead of `cmpl\u0027 to generate shorter code? I.e.:\n\n  __ testl(obj.As\u003cRegister\u003e(), obj.As\u003cRegister\u003e());",
+      "range": {
+        "startLine": 1467,
+        "startChar": 4,
+        "endLine": 1467,
+        "endChar": 46
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_18db45a4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "test does a logical AND. 0 \u0026 anything \u003d 0 so I don\u0027t think it\u0027s possible or correct to use it here.",
+      "parentUuid": "7530ce7e_76b370e1",
       "range": {
         "startLine": 1467,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7530ce7e_365bb87b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "it was wrong.\n\nNow that the builder doesn\u0027t generate the check for non-zero constant it\u0027s better to leave the assertion here.",
+      "parentUuid": "7530ce7e_f65d40eb",
+      "range": {
+        "startLine": 1472,
+        "startChar": 33,
+        "endLine": 1472,
+        "endChar": 46
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5217a32_b97edf4f",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-11-05T11:44:54Z",
       "side": 1,
       "message": "rax and rdx are unused in non-debug builds.",
+      "range": {
+        "startLine": 1331,
+        "startChar": 18,
+        "endLine": 1331,
+        "endChar": 21
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_9642cc88",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5217a32_b97edf4f",
       "range": {
         "startLine": 1331,
         "startChar": 18,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "7530ce7e_b647c897",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7530ce7e_766130ad",
+      "range": {
+        "startLine": 1339,
+        "startChar": 9,
+        "endLine": 1339,
+        "endChar": 13
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5217a32_19990b52",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2014-11-05T11:28:06Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1342,
+        "startChar": 43,
+        "endLine": 1342,
+        "endChar": 47
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_763a900d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "d5217a32_19990b52",
       "range": {
         "startLine": 1342,
         "startChar": 43,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "d5217a32_19b02b52",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7530ce7e_366bb88d",
+      "range": {
+        "startLine": 1386,
+        "startChar": 90,
+        "endLine": 1386,
+        "endChar": 101
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7530ce7e_1699dc51",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "d5217a32_39adeff6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "7530ce7e_1699dc51",
+      "range": {
+        "startLine": 1393,
+        "startChar": 4,
+        "endLine": 1393,
+        "endChar": 49
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b516c6da_f88f7107",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -289,6 +577,30 @@
       "writtenOn": "2014-11-05T11:44:54Z",
       "side": 1,
       "message": "This looks wrong.",
+      "range": {
+        "startLine": 1398,
+        "startChar": 13,
+        "endLine": 1398,
+        "endChar": 14
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_3634181d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "same comment.",
+      "parentUuid": "b516c6da_f88f7107",
       "range": {
         "startLine": 1398,
         "startChar": 13,
@@ -371,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "d5217a32_b979fff2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5217a32_d95873fe",
+      "range": {
+        "startLine": 1718,
+        "startChar": 2,
+        "endLine": 1718,
+        "endChar": 9
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b516c6da_9873d5db",
         "filename": "test/417-optimizing-arith-div/src/Main.java",
         "patchSetId": 2
@@ -382,6 +718,30 @@
       "writtenOn": "2014-11-05T11:28:06Z",
       "side": 1,
       "message": "Maybe also add division-by-zero tests where the divisor (0) is not a literal?",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 25
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_f89691af",
+        "filename": "test/417-optimizing-arith-div/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-05T16:53:55Z",
+      "side": 1,
+      "message": "I don\u0027t think this will be a literal. The generated code is in optDiv and 0 is just an argument.\n\nHowever, fair point!. I\u0027ll add another test for literals.",
+      "parentUuid": "b516c6da_9873d5db",
       "range": {
         "startLine": 71,
         "startChar": 6,
