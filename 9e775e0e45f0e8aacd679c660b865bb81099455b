@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "15e07212_c53e1ee2",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1873,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "f533de7c_055f54bc",
+      "range": {
+        "startLine": 1873,
+        "startChar": 7,
+        "endLine": 1873,
+        "endChar": 26
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e07212_919f3c69",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "How about\n\nstart +\u003d ::art::gc::space::kDefaultValgrindRedZoneBytes;\n\ninstead, like line 2099?",
+      "range": {
+        "startLine": 1923,
+        "startChar": 12,
+        "endLine": 1923,
+        "endChar": 91
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_bb3c535a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "start is a void*, so that doesn\u0027t work directly. I need to change its type...",
+      "parentUuid": "15e07212_919f3c69",
       "range": {
         "startLine": 1923,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f533de7c_6557409a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1927,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Yes, will do.",
+      "parentUuid": "75d9ae6e_4805a333",
+      "range": {
+        "startLine": 1927,
+        "startChar": 19,
+        "endLine": 1927,
+        "endChar": 27
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d9ae6e_1d347f1c",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Since the variable is called obj_size which suggests a true object size that does not include the red zone, can you add valgrind_modifier to it inside the following CHECK_*, as opposed to defining obj_size to include the red zone? Or, create another variable that stands for obj_size + valgrind_modifier?",
+      "range": {
+        "startLine": 2102,
+        "startChar": 39,
+        "endLine": 2102,
+        "endChar": 59
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_25172268",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2102,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "75d9ae6e_1d347f1c",
       "range": {
         "startLine": 2102,
         "startChar": 39,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "35e3b620_9b1d17d3",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "I will check again, but last time it failed. I think the issue is the protection status of the page.",
+      "parentUuid": "15e07212_4e3a530d",
+      "range": {
+        "startLine": 375,
+        "startChar": 5,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_95684664",
         "filename": "runtime/gc/space/dlmalloc_space.cc",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Can we reorder the param list to match the constructor\u0027s? I think it\u0027d be less error-prone that way.",
+      "range": {
+        "startLine": 149,
+        "startChar": 43,
+        "endLine": 152,
+        "endChar": 64
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_c5d2cc92",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Sure, this was to keep the API change the smallest...",
+      "parentUuid": "35e3b620_95684664",
       "range": {
         "startLine": 149,
         "startChar": 43,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f533de7c_c5ebac36",
+        "filename": "runtime/gc/space/rosalloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Likely.",
+      "parentUuid": "15e07212_91473c98",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_75d27ae3",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "It might compile fine as is, but should this be \"allocator::RosAlloc*\" instead?",
+      "range": {
+        "startLine": 80,
+        "startChar": 50,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_253a82ba",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "35e3b620_75d27ae3",
       "range": {
         "startLine": 80,
         "startChar": 50,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "15e07212_a5e2f2e2",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Yes, see comment for dlmalloc_space.",
+      "parentUuid": "75d9ae6e_a841a7d5",
+      "range": {
+        "startLine": 172,
+        "startChar": 43,
+        "endLine": 174,
+        "endChar": 64
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d9ae6e_e857af1a",
         "filename": "runtime/gc/space/space_test.h",
         "patchSetId": 5
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "35e3b620_bb9b33d6",
+        "filename": "runtime/gc/space/space_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "I guess we do not trigger an OOM (that\u0027s the only way I could see this violated), or know when we do and do not have the usable_size output? I\u0027ll constrain the check a bit more.",
+      "parentUuid": "75d9ae6e_e857af1a",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e07212_f469ceea",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 5
@@ -266,6 +506,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Why do we need this extra namespace?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533de7c_25893880",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Just to keep implementation details \"private.\"",
+      "parentUuid": "15e07212_f469ceea",
       "range": {
         "startLine": 30,
         "startChar": 10,
@@ -312,6 +576,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Why not do the same for both cases (either of line 44 or line 46)?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e3b620_3b5e236b",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "Line 46 doesn\u0027t work with RosAlloc, as we won\u0027t detect overflow (as usable_size almost always \u003e num_bytes). The other case is the \"traditional\" one used for dlmalloc before.",
+      "parentUuid": "f533de7c_a23c5e5a",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -427,6 +715,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "If we call S::AllocationSize() here instead, can the following if statement be removed?",
+      "range": {
+        "startLine": 165,
+        "startChar": 27,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e07212_65540a94",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-05T00:08:28Z",
+      "side": 1,
+      "message": "I don\u0027t think so. For one, dlmalloc needs the adjustment to ptr for AllocationSize, as it needs the start of the chunk. Also, I wanted to clearly separate the cases: for dlmalloc, it is not correct to UNDEFINE allocation_size, as that will UNDEFINE dlmalloc metadata.",
+      "parentUuid": "f533de7c_02750a6f",
       "range": {
         "startLine": 165,
         "startChar": 27,
