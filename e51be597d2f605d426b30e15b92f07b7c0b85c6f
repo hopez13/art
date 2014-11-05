@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b516c6da_d8694deb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:28:06Z",
+      "side": 1,
+      "message": "input",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_78c5a144",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:28:06Z",
+      "side": 1,
+      "message": "has",
+      "range": {
+        "startLine": 1417,
+        "startChar": 43,
+        "endLine": 1417,
+        "endChar": 47
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_76b370e1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:28:06Z",
+      "side": 1,
+      "message": "Use `testl\u0027 instead of `cmpl\u0027 to generate shorter code? I.e.:\n\n  __ testl(obj.As\u003cRegister\u003e(), obj.As\u003cRegister\u003e());",
+      "range": {
+        "startLine": 1467,
+        "startChar": 4,
+        "endLine": 1467,
+        "endChar": 46
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5217a32_19990b52",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:28:06Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1342,
+        "startChar": 43,
+        "endLine": 1342,
+        "endChar": 47
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7530ce7e_1699dc51",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:28:06Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1393,
+        "startChar": 4,
+        "endLine": 1393,
+        "endChar": 49
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b516c6da_9873d5db",
+        "filename": "test/417-optimizing-arith-div/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:28:06Z",
+      "side": 1,
+      "message": "Maybe also add division-by-zero tests where the divisor (0) is not a literal?",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 25
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
