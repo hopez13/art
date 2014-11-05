@@ -324,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "7530ce7e_d6e604c3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-05T11:56:05Z",
+      "side": 1,
+      "message": "Good question.  We should have a test for this case.",
+      "parentUuid": "d5217a32_794a871f",
+      "range": {
+        "startLine": 1702,
+        "startChar": 66,
+        "endLine": 1702,
+        "endChar": 67
+      },
+      "revId": "e51be597d2f605d426b30e15b92f07b7c0b85c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5217a32_d95873fe",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
