@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "15131213_53862471",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:28:59Z",
+      "side": 1,
+      "message": "Actually, we don\u0027t have this one :-) So using 0u instead.",
+      "parentUuid": "950702cb_37a6f81f",
+      "range": {
+        "startLine": 167,
+        "startChar": 11,
+        "endLine": 167,
+        "endChar": 13
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15131213_33e1e857",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 3
