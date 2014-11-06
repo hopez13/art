@@ -39,6 +39,24 @@
       "revId": "8510a3ba8ed7f0642f5a980aff25a0bb06f10c60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5b7a64b_50cf4c63",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-06T08:04:25Z",
+      "side": 1,
+      "message": "I have uploaded a WIP change to add an ARM64 instruction set features that can test this:\nhttps://android-review.googlesource.com/113321\nI\u0027ll try to get that finished and merged asap, then we can just make this change depend upon that \"feature\".",
+      "parentUuid": "d5217a32_19db4ba4",
+      "revId": "8510a3ba8ed7f0642f5a980aff25a0bb06f10c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
