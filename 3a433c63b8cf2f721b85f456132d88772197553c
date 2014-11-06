@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35165601_54ad6cf5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 96,
+        "startChar": 97,
+        "endLine": 96,
+        "endChar": 107
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_f7cda0f0",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 109,
+        "startChar": 105,
+        "endLine": 109,
+        "endChar": 108
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15131213_f3cdb0f0",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Why limiting to constants? You could use a ValueBound.",
+      "range": {
+        "startLine": 196,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 11
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_b47a00e7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 201,
+        "startChar": 95,
+        "endLine": 201,
+        "endChar": 100
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_14de5493",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Why do you need this? The VisitBoundsCheck should do it.",
+      "range": {
+        "startLine": 213,
+        "startChar": 29,
+        "endLine": 213,
+        "endChar": 42
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_d71dfcd1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 220,
+        "startChar": 29,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_3733986b",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Not sure I understand the comment.",
+      "range": {
+        "startLine": 53,
+        "startChar": 37,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15131213_13b5cc53",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Do we get this case today?",
+      "range": {
+        "startLine": 97,
+        "startChar": 25,
+        "endLine": 97,
+        "endChar": 31
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_b49160bb",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "bigger -\u003e greatest",
+      "range": {
+        "startLine": 117,
+        "startChar": 44,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_9496e4ae",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "smaller -\u003e lowest",
+      "range": {
+        "startLine": 130,
+        "startChar": 44,
+        "endLine": 130,
+        "endChar": 51
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_d4a05c06",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "Remove \u0027stuffs\u0027.",
+      "range": {
+        "startLine": 202,
+        "startChar": 56,
+        "endLine": 202,
+        "endChar": 62
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_34a6f01f",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "I don\u0027t understand the comment.",
+      "range": {
+        "startLine": 225,
+        "startChar": 28,
+        "endLine": 225,
+        "endChar": 39
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_d4797cf2",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:09:02Z",
+      "side": 1,
+      "message": "I could not find where in the bounds check elimination do we know that (max i) is equal to array length?",
+      "range": {
+        "startLine": 265,
+        "startChar": 19,
+        "endLine": 265,
+        "endChar": 21
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
