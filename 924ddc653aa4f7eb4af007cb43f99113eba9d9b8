@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "15131213_93955cce",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T13:37:48Z",
+      "side": 1,
+      "message": "Sounds good, thanks!",
+      "parentUuid": "75752e3d_c3e2b4e4",
+      "range": {
+        "startLine": 22,
+        "startChar": 44,
+        "endLine": 22,
+        "endChar": 54
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5a166bc_43057833",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -214,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "950702cb_1782d48e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T13:37:48Z",
+      "side": 1,
+      "message": "Should we just extend the SSA form? I\u0027m thinking in the lines of a BoundsConversion(instruction) that would be used in place of the instruction in uses dominated by a bounds condition.\n\nIt might actually be simpler and avoid the maps.",
+      "parentUuid": "75752e3d_83b34ce0",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 1
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_c174e2fc",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -249,6 +297,30 @@
       "side": 1,
       "message": "At line 67 below it tries to detect this pattern.",
       "parentUuid": "d59c1a86_c174e2fc",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_5411ecc0",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T13:37:48Z",
+      "side": 1,
+      "message": "Yeah, I did not realize the comment applied to the whole method. Maybe put the comment on the method itself?",
+      "parentUuid": "5572ea58_fc33d5ea",
       "range": {
         "startLine": 58,
         "startChar": 32,
@@ -1412,6 +1484,30 @@
     },
     {
       "key": {
+        "uuid": "950702cb_97fa641e",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T13:37:48Z",
+      "side": 1,
+      "message": "Sure, if that makes your life simpler. But do we really need a map? With extended SSA and the range in the instruction itself, maybe we can avoid it.",
+      "parentUuid": "75752e3d_d57eeb50",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 19
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_84102872",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 1
@@ -1506,6 +1602,30 @@
     },
     {
       "key": {
+        "uuid": "35165601_b41e80ce",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T13:37:48Z",
+      "side": 1,
+      "message": "For example look at codegen_test.",
+      "parentUuid": "755e0ed1_29304909",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5a166bc_03b890ee",
         "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
         "patchSetId": 1
@@ -1588,6 +1708,30 @@
       "side": 1,
       "message": "Currently we have two array.length instructions, both take in a null check instruction (Actually when we build HArrayLength instruction for Instruction::ARRAY_LENGTH in builder.cc, we seem to miss a null check). And they are treated as different values since they have different inputs. The second null check may be gvn\u0027ed but then still the two array length instructions have different inputs, one with a null check and the other with an array. This change peels off that null check instruction so gvn will be able to rewrite the second array.length to the first array.length. So the two array.length instructions are treated as the same as long as they correspond to the same array value.\n\nThis does cut off the dependency between the array length instruction and the null check instruction, do you see that as a problem? such as for possible code motion.",
       "parentUuid": "f5975e5c_a2043e84",
+      "range": {
+        "startLine": 1952,
+        "startChar": 9,
+        "endLine": 1952,
+        "endChar": 24
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_f418f8e3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T13:37:48Z",
+      "side": 1,
+      "message": "(I fixed the missing null check on the array length, so it should not be a problem anymore).\n\nI think better code motion/gvn will require these \"from checked to unchecked\" decoding, but I\u0027d like to understand if bounds checks elimination really needs it.",
+      "parentUuid": "b564069b_cb0ba9c5",
       "range": {
         "startLine": 1952,
         "startChar": 9,
