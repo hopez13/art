@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "950702cb_d7a05c06",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15131213_d31d14d2",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 18
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35165601_74c228bf",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "950702cb_37a6f81f",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:21:12Z",
+      "side": 1,
+      "message": "As discussed, replaced with UINTPTR_MIN instead.",
+      "parentUuid": "35165601_74c228bf",
+      "range": {
+        "startLine": 167,
+        "startChar": 11,
+        "endLine": 167,
+        "endChar": 13
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15131213_33e1e857",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-11-06T14:10:15Z",
       "side": 1,
       "message": "Does UINTPTR_MAX have a special meaning? (I guess it\u0027s meant to represent an invalid address, but why not use 0/nullptr?)",
+      "range": {
+        "startLine": 226,
+        "startChar": 9,
+        "endLine": 226,
+        "endChar": 20
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_77b07053",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T14:21:12Z",
+      "side": 1,
+      "message": "Yes, it\u0027s to represent an invalid address. 0 is a valid return value for this method (see line 206).",
+      "parentUuid": "15131213_33e1e857",
       "range": {
         "startLine": 226,
         "startChar": 9,
