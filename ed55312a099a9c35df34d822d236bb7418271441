@@ -93,6 +93,30 @@
       "revId": "ed55312a099a9c35df34d822d236bb7418271441",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95bc6233_8f39957d",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-06T08:16:49Z",
+      "side": 1,
+      "message": "I wonder this is ancient pre-ARMv5 code. Its also odd its not thumb2.",
+      "parentUuid": "d5b25a5b_f12e482f",
+      "range": {
+        "startLine": 176,
+        "startChar": 25,
+        "endLine": 176,
+        "endChar": 27
+      },
+      "revId": "ed55312a099a9c35df34d822d236bb7418271441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
