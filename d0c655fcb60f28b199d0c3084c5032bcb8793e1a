@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "950702cb_9a4729ea",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-06T16:57:07Z",
+      "side": 1,
+      "message": "Why adding them back to the graph instead of just generating the code with a common function that you share with HParallelMove?",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 67
+      },
+      "revId": "d0c655fcb60f28b199d0c3084c5032bcb8793e1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_77f50a62",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2549,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-06T16:57:07Z",
+      "side": 1,
+      "message": "from the readability perspective this will benefit of some in between comments explaining each step.\n\n(same in the other places)",
+      "range": {
+        "startLine": 2525,
+        "startChar": 0,
+        "endLine": 2549,
+        "endChar": 17
+      },
+      "revId": "d0c655fcb60f28b199d0c3084c5032bcb8793e1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_5a20f137",
+        "filename": "test/422-instanceof/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-06T16:57:07Z",
+      "side": 1,
+      "message": "worth adding tests against interfaces.",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "d0c655fcb60f28b199d0c3084c5032bcb8793e1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
