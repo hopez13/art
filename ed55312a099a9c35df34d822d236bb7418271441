@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5b7a64b_9001b4e0",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-06T08:08:38Z",
+      "side": 1,
+      "message": "seems this is missing .cfi to bump the stack and restore the registers.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 22
+      },
+      "revId": "ed55312a099a9c35df34d822d236bb7418271441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5b7a64b_d0fb3c88",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-06T08:08:38Z",
+      "side": 1,
+      "message": "why doesn\u0027t this just pop into pc? We had a similar question on a recent cferris CL in ART.",
+      "range": {
+        "startLine": 176,
+        "startChar": 25,
+        "endLine": 176,
+        "endChar": 27
+      },
+      "revId": "ed55312a099a9c35df34d822d236bb7418271441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
