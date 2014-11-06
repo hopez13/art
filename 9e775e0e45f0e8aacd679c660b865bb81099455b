@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "755e0ed1_868a8aa7",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-06T00:14:08Z",
+      "side": 1,
+      "message": "The original meaning of kCheckZeroMemory was that we check we always return zeroed memory for allocation requests.\n\nAs RosAlloc::Run::FreeSlot() always zeroes the slot (see the memset call), we should have all slots zeroed including the red zones.",
+      "parentUuid": "35e3b620_9b1d17d3",
+      "range": {
+        "startLine": 375,
+        "startChar": 5,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_95684664",
         "filename": "runtime/gc/space/dlmalloc_space.cc",
         "patchSetId": 5
@@ -331,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "755e0ed1_262ab6e8",
+        "filename": "runtime/gc/space/rosalloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-06T00:14:08Z",
+      "side": 1,
+      "message": "Can you make that change?",
+      "parentUuid": "f533de7c_c5ebac36",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_75d27ae3",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 5
@@ -366,6 +414,30 @@
       "side": 1,
       "message": "Yes.",
       "parentUuid": "35e3b620_75d27ae3",
+      "range": {
+        "startLine": 80,
+        "startChar": 50,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b564069b_0b8f8135",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-06T00:14:08Z",
+      "side": 1,
+      "message": "Can you change it from void* to allocator::RosAlloc*?",
+      "parentUuid": "15e07212_253a82ba",
       "range": {
         "startLine": 80,
         "startChar": 50,
@@ -495,6 +567,30 @@
     },
     {
       "key": {
+        "uuid": "755e0ed1_26bf1633",
+        "filename": "runtime/gc/space/space_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-06T00:14:08Z",
+      "side": 1,
+      "message": "I think Alloc() could round up the requested bytes (bytes) by some alignment, or do a page granularity allocation, in which cases it could be usable_size \u003e bytes. RosAlloc does that. So, I wondered why you added this check.",
+      "parentUuid": "35e3b620_bb9b33d6",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e07212_f469ceea",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 5
@@ -612,6 +708,30 @@
     },
     {
       "key": {
+        "uuid": "755e0ed1_e696deaf",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-06T00:14:08Z",
+      "side": 1,
+      "message": "I think line 44 would be a more strict check against an overrun for dlmalloc as well?",
+      "parentUuid": "35e3b620_3b5e236b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d9ae6e_a879a7f2",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 5
@@ -623,6 +743,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Remove this commented-out code?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "555bcae0_658c2691",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-06T00:14:08Z",
+      "side": 1,
+      "message": "Do you mean to want to keep the commented-out code?",
+      "parentUuid": "75d9ae6e_a879a7f2",
       "range": {
         "startLine": 64,
         "startChar": 0,
