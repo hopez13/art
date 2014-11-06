@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "95bc6233_ef15c1e3",
+        "filename": "compiler/dex/quick/arm64/assemble_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-06T08:05:37Z",
+      "side": 1,
+      "message": "The style in ART is to not use ints as bools, so the current style is correct.",
+      "parentUuid": "b5e9662d_60171267",
+      "range": {
+        "startLine": 995,
+        "startChar": 14,
+        "endLine": 995,
+        "endChar": 88
+      },
+      "revId": "8510a3ba8ed7f0642f5a980aff25a0bb06f10c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5217a32_19db4ba4",
         "filename": "runtime/globals.h",
         "patchSetId": 1
