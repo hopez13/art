@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "55f02a0f_66cf2464",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "This is not the case. Gtests fail in the checking code. I will leave this for a follow-up CL.",
+      "parentUuid": "755e0ed1_868a8aa7",
+      "range": {
+        "startLine": 375,
+        "startChar": 5,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_95684664",
         "filename": "runtime/gc/space/dlmalloc_space.cc",
         "patchSetId": 5
@@ -379,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "d5b25a5b_b1e680c1",
+        "filename": "runtime/gc/space/rosalloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755e0ed1_262ab6e8",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_75d27ae3",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 5
@@ -450,6 +498,30 @@
     },
     {
       "key": {
+        "uuid": "b5b7a64b_10c5c445",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "The whole template parameter is unnecessary and removed.",
+      "parentUuid": "b564069b_0b8f8135",
+      "range": {
+        "startLine": 80,
+        "startChar": 50,
+        "endLine": 80,
+        "endChar": 55
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15e07212_51079486",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 5
@@ -461,6 +533,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "2 spaces -\u003e 1 space.",
+      "range": {
+        "startLine": 83,
+        "startChar": 41,
+        "endLine": 83,
+        "endChar": 42
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5b7a64b_70d25011",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15e07212_51079486",
       "range": {
         "startLine": 83,
         "startChar": 41,
@@ -579,6 +675,30 @@
       "side": 1,
       "message": "I think Alloc() could round up the requested bytes (bytes) by some alignment, or do a page granularity allocation, in which cases it could be usable_size \u003e bytes. RosAlloc does that. So, I wondered why you added this check.",
       "parentUuid": "35e3b620_bb9b33d6",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95bc6233_0ff8055a",
+        "filename": "runtime/gc/space/space_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "This was a sanity check during \"upbringing\". Also note that it only says \u003e\u003d, so covers your case. I\u0027ll remove this again.",
+      "parentUuid": "755e0ed1_26bf1633",
       "range": {
         "startLine": 70,
         "startChar": 6,
@@ -732,6 +852,30 @@
     },
     {
       "key": {
+        "uuid": "95bc6233_8f1075f5",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "Does it actually matter for dlmalloc, I am wondering? Does it ever supply memory that\u0027s larger than what\u0027s requested?",
+      "parentUuid": "755e0ed1_e696deaf",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d9ae6e_a879a7f2",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 5
@@ -779,6 +923,30 @@
     },
     {
       "key": {
+        "uuid": "d5b25a5b_d1e504b5",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "No, will be removed.",
+      "parentUuid": "555bcae0_658c2691",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_f5f54a31",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 5
@@ -790,6 +958,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Remove this commented-out code?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5b25a5b_11f82c5a",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e3b620_f5f54a31",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -825,6 +1017,30 @@
     },
     {
       "key": {
+        "uuid": "d5b25a5b_31fbb05a",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e3b620_d5236e19",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 6
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_e096aaaf",
         "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
         "patchSetId": 5
@@ -836,6 +1052,30 @@
       "writtenOn": "2014-11-04T23:21:59Z",
       "side": 1,
       "message": "Similarly, why not doing the same for both cases?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5b25a5b_f115a8e3",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-06T08:08:47Z",
+      "side": 1,
+      "message": "The original code used usable_size here, so I wanted to keep that code path.\n\nPlease note that it allows testing \"over-provisioning,\" where we grow an array after the fact. It didn\u0027t work immediately with RosAlloc, so I split up the paths.",
+      "parentUuid": "35e3b620_e096aaaf",
       "range": {
         "startLine": 143,
         "startChar": 0,
