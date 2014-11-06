@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "950702cb_faf0e5f8",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-06T14:39:45Z",
+      "side": 1,
+      "message": "Yes, after reading a bit more about uintptr_t, 0u seems to be the best choice here.",
+      "parentUuid": "15131213_53862471",
+      "range": {
+        "startLine": 167,
+        "startChar": 11,
+        "endLine": 167,
+        "endChar": 13
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15131213_33e1e857",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 3
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "Yes, it\u0027s to represent an invalid address. 0 is a valid return value for this method (see line 206).",
       "parentUuid": "15131213_33e1e857",
+      "range": {
+        "startLine": 226,
+        "startChar": 9,
+        "endLine": 226,
+        "endChar": 20
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_bacdcdc3",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-06T14:39:45Z",
+      "side": 1,
+      "message": "Oh, right; thanks for pointing that out!",
+      "parentUuid": "950702cb_77b07053",
       "range": {
         "startLine": 226,
         "startChar": 9,
