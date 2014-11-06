@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15131213_d31d14d2",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-06T14:10:15Z",
+      "side": 1,
+      "message": "Maybe declare `block\u0027 this way instead of using UNUSED in the body of the method:\n\n  uintptr_t GetAddressOf(HBasicBlock* block  ATTRIBUTE_UNUSED) const OVERRIDE { // ...\n\n?",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 18
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35165601_74c228bf",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-06T14:10:15Z",
+      "side": 1,
+      "message": "nullptr?",
+      "range": {
+        "startLine": 167,
+        "startChar": 11,
+        "endLine": 167,
+        "endChar": 13
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15131213_33e1e857",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-06T14:10:15Z",
+      "side": 1,
+      "message": "Does UINTPTR_MAX have a special meaning? (I guess it\u0027s meant to represent an invalid address, but why not use 0/nullptr?)",
+      "range": {
+        "startLine": 226,
+        "startChar": 9,
+        "endLine": 226,
+        "endChar": 20
+      },
+      "revId": "868ec16ebd4dd5658eb39239acff53b77aa72fec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
