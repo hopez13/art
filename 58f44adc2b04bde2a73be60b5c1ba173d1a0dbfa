@@ -48,6 +48,53 @@
     },
     {
       "key": {
+        "uuid": "35165601_9457041c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T09:22:19Z",
+      "side": 1,
+      "message": "Agree, the negl could probably be done on a slow path, so you\u0027d get something like:\n__ cmpl(second_reg, Immediate(-1))\n__ j(kNotEqual, slow_path)\n__ cdq\n__ idivl\n__ Bind(slow_path-\u003eexit)",
+      "parentUuid": "75752e3d_aecc3743",
+      "range": {
+        "startLine": 1425,
+        "startChar": 0,
+        "endLine": 1428,
+        "endChar": 25
+      },
+      "revId": "58f44adc2b04bde2a73be60b5c1ba173d1a0dbfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15131213_f33e50e1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T09:22:19Z",
+      "side": 1,
+      "message": "We might still after optimizations, so you have to check the value of the constant here.",
+      "range": {
+        "startLine": 1476,
+        "startChar": 29,
+        "endLine": 1476,
+        "endChar": 34
+      },
+      "revId": "58f44adc2b04bde2a73be60b5c1ba173d1a0dbfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "357f3623_4c959f47",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -64,6 +111,29 @@
         "startChar": 0,
         "endLine": 1355,
         "endChar": 21
+      },
+      "revId": "58f44adc2b04bde2a73be60b5c1ba173d1a0dbfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "950702cb_5730cc09",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1403,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-06T09:22:19Z",
+      "side": 1,
+      "message": "Same comment as x86.",
+      "range": {
+        "startLine": 1403,
+        "startChar": 25,
+        "endLine": 1403,
+        "endChar": 28
       },
       "revId": "58f44adc2b04bde2a73be60b5c1ba173d1a0dbfa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
