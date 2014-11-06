@@ -22,6 +22,29 @@
       "revId": "146cbeab4c8b21ee1680119325ba5d9dcffff1b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15131213_f3693019",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-06T14:31:55Z",
+      "side": 1,
+      "message": "If the full 64-bit register is used, then we probably want to use `negq\u0027 here.",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 11
+      },
+      "revId": "146cbeab4c8b21ee1680119325ba5d9dcffff1b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
