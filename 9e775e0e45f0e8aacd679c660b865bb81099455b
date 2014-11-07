@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "15c152c3_d87eb950",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-07T00:39:03Z",
+      "side": 1,
+      "message": "I understood your plan. Can you leave a TODO comment?",
+      "parentUuid": "55f02a0f_66cf2464",
+      "range": {
+        "startLine": 375,
+        "startChar": 5,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_95684664",
         "filename": "runtime/gc/space/dlmalloc_space.cc",
         "patchSetId": 5
@@ -864,6 +888,30 @@
       "side": 1,
       "message": "Does it actually matter for dlmalloc, I am wondering? Does it ever supply memory that\u0027s larger than what\u0027s requested?",
       "parentUuid": "755e0ed1_e696deaf",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15c152c3_381a6d61",
+        "filename": "runtime/gc/space/valgrind_malloc_space-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-07T00:39:03Z",
+      "side": 1,
+      "message": "I think it rounds up the request size by 8 bytes.",
+      "parentUuid": "95bc6233_8f1075f5",
       "range": {
         "startLine": 43,
         "startChar": 0,
