@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "d54eda55_a6a1fc8c",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-07T03:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15c152c3_d87eb950",
+      "range": {
+        "startLine": 375,
+        "startChar": 5,
+        "endLine": 375,
+        "endChar": 86
+      },
+      "revId": "9e775e0e45f0e8aacd679c660b865bb81099455b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e3b620_95684664",
         "filename": "runtime/gc/space/dlmalloc_space.cc",
         "patchSetId": 5
