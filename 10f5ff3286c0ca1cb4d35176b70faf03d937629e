@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15c152c3_18ee91c5",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-07T00:40:01Z",
+      "side": 1,
+      "message": "I think it\u0027s ok and better to reject if it\u0027s not aligned as it\u0027s threshold should be a multiple of the page size.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 3
+      },
+      "revId": "10f5ff3286c0ca1cb4d35176b70faf03d937629e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5491e4e_e13e90e1",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-07T00:40:01Z",
+      "side": 1,
+      "message": "Does this const matter?",
+      "range": {
+        "startLine": 1482,
+        "startChar": 54,
+        "endLine": 1482,
+        "endChar": 59
+      },
+      "revId": "10f5ff3286c0ca1cb4d35176b70faf03d937629e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15c152c3_189cd141",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-07T00:40:01Z",
+      "side": 1,
+      "message": "Good. Thanks.",
+      "range": {
+        "startLine": 2183,
+        "startChar": 0,
+        "endLine": 2187,
+        "endChar": 5
+      },
+      "revId": "10f5ff3286c0ca1cb4d35176b70faf03d937629e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5491e4e_61b62001",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-11-07T00:40:01Z",
+      "side": 1,
+      "message": "Remove this code? I understand it\u0027s WIP.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "10f5ff3286c0ca1cb4d35176b70faf03d937629e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
