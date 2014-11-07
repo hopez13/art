@@ -2,6 +2,109 @@
   "comments": [
     {
       "key": {
+        "uuid": "d5697aa3_1f1a0b61",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-07T16:57:40Z",
+      "side": 1,
+      "message": "HandleDef() should be after all HandleLiveInUse().",
+      "range": {
+        "startLine": 955,
+        "startChar": 6,
+        "endLine": 955,
+        "endChar": 34
+      },
+      "revId": "c41fe827550fac1bc8dd18cf5c5fdad3a51fc752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5697aa3_3f17cf39",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-07T16:57:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "c41fe827550fac1bc8dd18cf5c5fdad3a51fc752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "956382c3_3d99970b",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-07T16:57:40Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "c41fe827550fac1bc8dd18cf5c5fdad3a51fc752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5697aa3_1f43eb3c",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-07T16:57:40Z",
+      "side": 1,
+      "message": "BUG: This can be true also when nullptr \u003d\u003d nullptr.",
+      "range": {
+        "startLine": 542,
+        "startChar": 25,
+        "endLine": 542,
+        "endChar": 41
+      },
+      "revId": "c41fe827550fac1bc8dd18cf5c5fdad3a51fc752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7578ce6f_1c95bd48",
+        "filename": "compiler/dex/mir_optimization_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-07T16:57:40Z",
+      "side": 1,
+      "message": "This is a hack. I\u0027d rather PrepareDiamond() and then swap(fallthrough, taken) for that particular block.",
+      "range": {
+        "startLine": 181,
+        "startChar": 42,
+        "endLine": 181,
+        "endChar": 43
+      },
+      "revId": "c41fe827550fac1bc8dd18cf5c5fdad3a51fc752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5809a7b_04447872",
         "filename": "compiler/dex/mir_optimization_test.cc",
         "patchSetId": 2
