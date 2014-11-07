@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5697aa3_7f30670a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-07T15:55:30Z",
+      "side": 1,
+      "message": "The fix to the index should have been part of the previous patch, and it should use \u0027RequiresRegister()\u0027.",
+      "revId": "7b71e153b4d029904335951f0d4195040b628cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
