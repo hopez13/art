@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "956382c3_1dc8535d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T15:39:17Z",
+      "side": 1,
+      "message": "Just realized: isn\u0027t that expecting the input 0 to be a register? How will it work with the RegisterOrConstant asked above?",
+      "range": {
+        "startLine": 1070,
+        "startChar": 42,
+        "endLine": 1070,
+        "endChar": 57
+      },
+      "revId": "fb4e5fac5fbaf9171a38aeb4bc082f3c2b3122dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
