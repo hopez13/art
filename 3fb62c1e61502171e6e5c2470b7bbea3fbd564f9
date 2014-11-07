@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "956382c3_dd2edb2f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "Do you really hit this case?",
+      "range": {
+        "startLine": 734,
+        "startChar": 20,
+        "endLine": 734,
+        "endChar": 29
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5697aa3_7f5ea732",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "I think you need some kind of FALLTHROUGH_INTENDED macro here and below.",
+      "range": {
+        "startLine": 735,
+        "startChar": 32,
+        "endLine": 735,
+        "endChar": 33
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7578ce6f_5c33b517",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "for readability, I\u0027d prefer a new line here.",
+      "range": {
+        "startLine": 736,
+        "startChar": 20,
+        "endLine": 736,
+        "endChar": 29
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5697aa3_bfbcbfe3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "Do you need this? You\u0027ve handled all the cases.",
+      "range": {
+        "startLine": 744,
+        "startChar": 4,
+        "endLine": 744,
+        "endChar": 11
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "956382c3_fd339f98",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "Remove extra line.",
+      "range": {
+        "startLine": 815,
+        "startChar": 34,
+        "endLine": 815,
+        "endChar": 38
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "956382c3_1d293326",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "Why can\u0027t you just ask a temp in the locations builder?",
+      "range": {
+        "startLine": 824,
+        "startChar": 28,
+        "endLine": 824,
+        "endChar": 33
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7578ce6f_7c30710a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-07T16:14:28Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 1050,
+        "startChar": 91,
+        "endLine": 1050,
+        "endChar": 102
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
