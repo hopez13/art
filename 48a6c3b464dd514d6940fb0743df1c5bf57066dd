@@ -16,6 +16,24 @@
       "revId": "48a6c3b464dd514d6940fb0743df1c5bf57066dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1b3f6c_93bb5cb4",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-11-08T01:26:22Z",
+      "side": 1,
+      "message": "Yes, we don\u0027t have a gcc-only cflags variable yet. So the current way to set something differently is to set the gcc value in LOCAL_CFLAGS and then overwrite it with clang value in LOCAL_CLANG_CFLAGS.",
+      "parentUuid": "da152730_bfc4dfca",
+      "revId": "48a6c3b464dd514d6940fb0743df1c5bf57066dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
