@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5594aafe_89b8dcf0",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-11-08T00:19:31Z",
+      "side": 1,
+      "message": "Okay, please take a look of patch set 4.\nI set the same frame size limit for both host and target now, and the difference is between gcc and clang. We can use b/17444504 to keep track of dex2oat and future refactoring of these art functions or stack frame limit.",
+      "parentUuid": "95e0e2b0_98b579f5",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 49
+      },
+      "revId": "7d5ed832e7fcf0b87ca28326efab8da189226432",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5594aafe_b750989f",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
