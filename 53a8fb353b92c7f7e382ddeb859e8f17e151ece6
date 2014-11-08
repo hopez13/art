@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da152730_cdeb69b6",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-08T19:26:12Z",
+      "side": 1,
+      "message": "note, we now static_assert in the header that rs_rX86_SP_32.GetRegNum \u003d\u003d rs_rX86_SP_64.GetRegNum.",
+      "range": {
+        "startLine": 680,
+        "startChar": 49,
+        "endLine": 680,
+        "endChar": 63
+      },
+      "revId": "53a8fb353b92c7f7e382ddeb859e8f17e151ece6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
