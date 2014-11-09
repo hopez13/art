@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9af64f48_9f8c7343",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-09T14:15:27Z",
+      "side": 1,
+      "message": "So this is apparently not enough, as the test requires eg /system/framework/sconscrypt.jar, and this rule only builds the intemediate jar. I\u0027m going to look at the non-phony rule that does install these jars. But maybe you know already?",
+      "range": {
+        "startLine": 67,
+        "startChar": 52,
+        "endLine": 67,
+        "endChar": 73
+      },
+      "revId": "5bae9a286d6321655d2f817b5d099eef755097cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
