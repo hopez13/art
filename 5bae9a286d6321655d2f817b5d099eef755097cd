@@ -22,6 +22,30 @@
       "revId": "5bae9a286d6321655d2f817b5d099eef755097cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151dd24d_06101c70",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-11-09T22:15:48Z",
+      "side": 1,
+      "message": "I\u0027m thinking the test should use use the files and helpers from CommonRuntimeTest and not have have its own hardwared list of jar dependencies, like this:\n\nhttps://android-review.googlesource.com/113777\n\nif that is not working, all CommonRuntimeTest setups should fail.",
+      "parentUuid": "9af64f48_9f8c7343",
+      "range": {
+        "startLine": 67,
+        "startChar": 52,
+        "endLine": 67,
+        "endChar": 73
+      },
+      "revId": "5bae9a286d6321655d2f817b5d099eef755097cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
