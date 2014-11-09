@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baf15352_e353ec5f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 6,
+        "endLine": 1288,
+        "endChar": 31
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baf15352_834ae0a3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "Fwiw, when is the code your emitting not native? This naming isn\u0027t conveying any meaning.",
+      "range": {
+        "startLine": 276,
+        "startChar": 19,
+        "endLine": 276,
+        "endChar": 25
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151dd24d_86f6ccf3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "unnecessary, consider use of FINAL",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151dd24d_a6fbc8da",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2649,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "There\u0027s no point doing this comparison if the type is known to be abstract as you can\u0027t have an instance of an abstract or interface type.",
+      "range": {
+        "startLine": 2647,
+        "startChar": 0,
+        "endLine": 2649,
+        "endChar": 35
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151dd24d_66e9d012",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "unnecessary, consider use of FINAL",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 9
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151dd24d_46ecd423",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "unnecessary, consider used of FINAL",
+      "range": {
+        "startLine": 291,
+        "startChar": 2,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baf15352_2372f403",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2345,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "prefer ATTRIBUTE_UNUSED on the argument",
+      "range": {
+        "startLine": 2345,
+        "startChar": 4,
+        "endLine": 2345,
+        "endChar": 10
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "151dd24d_26dfd868",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:53:25Z",
+      "side": 1,
+      "message": "check cast may throw an exception, instanceof is pretty much atomic.",
+      "range": {
+        "startLine": 2350,
+        "startChar": 13,
+        "endLine": 2350,
+        "endChar": 64
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
