@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "baf15352_4344d895",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-09T19:55:28Z",
+      "side": 1,
+      "message": "This is only necessary for the disassembler? Move into the disassembler\u0027s makefile? Looking at the x86 disassembler there doesn\u0027t seem to be a good reason for its large frame size.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 63
+      },
+      "revId": "48a6c3b464dd514d6940fb0743df1c5bf57066dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da152730_bfc4dfca",
         "filename": "build/Android.executable.mk",
         "patchSetId": 4
