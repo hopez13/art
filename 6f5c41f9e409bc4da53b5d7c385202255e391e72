@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a0563fe_7cf5392d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T11:29:06Z",
+      "side": 1,
+      "message": "It\u0027s passed to CanAccessTypeWithoutChecks. But otherwise, yes, it\u0027s unused for now.",
+      "parentUuid": "baf15352_e353ec5f",
+      "range": {
+        "startLine": 1288,
+        "startChar": 6,
+        "endLine": 1288,
+        "endChar": 31
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baf15352_834ae0a3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "3a0563fe_1c04f583",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T11:29:06Z",
+      "side": 1,
+      "message": "Yeah, this naming was taken from past Dart naming.",
+      "parentUuid": "baf15352_834ae0a3",
+      "range": {
+        "startLine": 276,
+        "startChar": 19,
+        "endLine": 276,
+        "endChar": 25
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa358bd2_3230108b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T11:29:06Z",
+      "side": 1,
+      "message": "Will clean up in another CL. Your suggestion about FINAL is to add it to the declaration of the class? Do we get warnings when using virtual in a FINAL class?",
+      "parentUuid": "151dd24d_86f6ccf3",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151dd24d_a6fbc8da",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-09T19:53:25Z",
       "side": 1,
       "message": "There\u0027s no point doing this comparison if the type is known to be abstract as you can\u0027t have an instance of an abstract or interface type.",
+      "range": {
+        "startLine": 2647,
+        "startChar": 0,
+        "endLine": 2649,
+        "endChar": 35
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9af64f48_5f3b8b72",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T11:29:06Z",
+      "side": 1,
+      "message": "Yes. I wanted to have at first a simple fast path case and then fall back. But all these simple decisions will be (re-)considered once we have greater code coverage and start profiling.",
+      "parentUuid": "151dd24d_a6fbc8da",
       "range": {
         "startLine": 2647,
         "startChar": 0,
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "9af64f48_3f30c78a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T11:29:06Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "baf15352_2372f403",
+      "range": {
+        "startLine": 2345,
+        "startChar": 4,
+        "endLine": 2345,
+        "endChar": 10
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151dd24d_26dfd868",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -174,6 +294,30 @@
       "writtenOn": "2014-11-09T19:53:25Z",
       "side": 1,
       "message": "check cast may throw an exception, instanceof is pretty much atomic.",
+      "range": {
+        "startLine": 2350,
+        "startChar": 13,
+        "endLine": 2350,
+        "endChar": 64
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9af64f48_ff293f29",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T11:29:06Z",
+      "side": 1,
+      "message": "So we agree instanceof (assuming the class is loaded) cannot be debugged at the DEX level when in runtime, right?\n\nOtherwise, yes, a checkcast location can be debugged.",
+      "parentUuid": "151dd24d_26dfd868",
       "range": {
         "startLine": 2350,
         "startChar": 13,
