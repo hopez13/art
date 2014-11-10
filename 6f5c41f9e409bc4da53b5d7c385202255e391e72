@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "1a497f7c_634a42a7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2649,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-10T19:08:54Z",
+      "side": 1,
+      "message": "The point isn\u0027t that you need profiling to support this decision or not, the point is that this comparison is known false in the case of an abstract/interface class. Why not squirrel away the argument in the builder and then make this code conditional? This is exactly what you are doing for IsClassFinal.",
+      "parentUuid": "9af64f48_5f3b8b72",
+      "range": {
+        "startLine": 2647,
+        "startChar": 0,
+        "endLine": 2649,
+        "endChar": 35
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151dd24d_66e9d012",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
