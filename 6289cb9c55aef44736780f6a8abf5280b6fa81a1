@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a309fe8_2e9b07d7",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2014-11-10T07:40:55Z",
+      "side": 1,
+      "message": "Future revisions of the A53 can be expected to not have the erratum.\nI think this should be more specific.",
+      "revId": "6289cb9c55aef44736780f6a8abf5280b6fa81a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
