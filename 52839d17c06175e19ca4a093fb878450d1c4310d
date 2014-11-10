@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a0563fe_fc294929",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-10T10:48:05Z",
+      "side": 1,
+      "message": "Nit: why R12 instead of IP?",
+      "range": {
+        "startLine": 1180,
+        "startChar": 61,
+        "endLine": 1180,
+        "endChar": 64
+      },
+      "revId": "52839d17c06175e19ca4a093fb878450d1c4310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
