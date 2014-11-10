@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba8dd3f4_c0831e28",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T21:49:26Z",
+      "side": 1,
+      "message": "SHouldn\u0027t you get the Low32bits?",
+      "range": {
+        "startLine": 1411,
+        "startChar": 32,
+        "endLine": 1411,
+        "endChar": 43
+      },
+      "revId": "13b2a5005e362f0b546983114997503ebe544d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_c1832228",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T21:49:26Z",
+      "side": 1,
+      "message": "Low32Bits?",
+      "range": {
+        "startLine": 1338,
+        "startChar": 48,
+        "endLine": 1338,
+        "endChar": 62
+      },
+      "revId": "13b2a5005e362f0b546983114997503ebe544d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_80551613",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T21:49:26Z",
+      "side": 1,
+      "message": "movl?",
+      "range": {
+        "startLine": 1338,
+        "startChar": 15,
+        "endLine": 1338,
+        "endChar": 19
+      },
+      "revId": "13b2a5005e362f0b546983114997503ebe544d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_81551a13",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T21:49:26Z",
+      "side": 1,
+      "message": "Low32Bits?",
+      "range": {
+        "startLine": 1339,
+        "startChar": 48,
+        "endLine": 1339,
+        "endChar": 62
+      },
+      "revId": "13b2a5005e362f0b546983114997503ebe544d05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
