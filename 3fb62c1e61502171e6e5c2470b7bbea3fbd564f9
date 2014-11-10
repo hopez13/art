@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "fa358bd2_b2708078",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-10T10:59:55Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "3a0563fe_3c30d18a",
+      "range": {
+        "startLine": 744,
+        "startChar": 4,
+        "endLine": 744,
+        "endChar": 11
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "956382c3_fd339f98",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "So what\u0027s the consequences of using a vixl reg? vixl is going to spill and restore it, right?",
       "parentUuid": "d5697aa3_5f3d63b0",
+      "range": {
+        "startLine": 824,
+        "startChar": 28,
+        "endLine": 824,
+        "endChar": 33
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9af64f48_3fc7a724",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-10T10:59:55Z",
+      "side": 1,
+      "message": "No additional instructions are generated here.\nVIXL reserves a couple of registers for local use (eg. to generate constants when they cannot be encoded in the immediate field). These registers are not given to the register allocator.\nRequiring a register this way does not add  spilling/restoring. It just forbids VIXL from using them while the scope is active so we can use them as a local temporary. If we requested all of VIXL temps and then tried to generate\n   \u0027add x0, x0, \u003cvalue not encodable in imm field\u003e\u0027\nVIXL would fire an assert.",
+      "parentUuid": "3a0563fe_1c35157b",
       "range": {
         "startLine": 824,
         "startChar": 28,
