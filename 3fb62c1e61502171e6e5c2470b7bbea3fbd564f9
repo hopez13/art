@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "3a0563fe_3c30d18a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T10:39:57Z",
+      "side": 1,
+      "message": "Yeah, just change default to case kPrimVoid.",
+      "parentUuid": "956382c3_3d82778f",
+      "range": {
+        "startLine": 744,
+        "startChar": 4,
+        "endLine": 744,
+        "endChar": 11
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "956382c3_fd339f98",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "We can. When the use of the temp is very local using a VIXL reg allows not to require a temp from the allocator and can decrease a little the register pressure. I just got used to do this in v8.",
       "parentUuid": "956382c3_1d293326",
+      "range": {
+        "startLine": 824,
+        "startChar": 28,
+        "endLine": 824,
+        "endChar": 33
+      },
+      "revId": "3fb62c1e61502171e6e5c2470b7bbea3fbd564f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a0563fe_1c35157b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T10:39:57Z",
+      "side": 1,
+      "message": "So what\u0027s the consequences of using a vixl reg? vixl is going to spill and restore it, right?",
+      "parentUuid": "d5697aa3_5f3d63b0",
       "range": {
         "startLine": 824,
         "startChar": 28,
