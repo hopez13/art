@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "fa83cbc2_a2ea9e09",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-10T20:04:44Z",
+      "side": 1,
+      "message": "This is a bit paranoid: when we take pointer to the invoke stub, are we sure it points right to the stub and not to a different compiler (GCC/clang) generated stub that would dispatch it to the invoke stub while trashing IP?\n\nAnd I think we\u0027re safe because the compiler needs to ensure that pointers to the function always compare equal and that would not be possible if it was returning pointers to extra stubs.",
+      "parentUuid": "5a4f777e_a876d342",
+      "range": {
+        "startLine": 1180,
+        "startChar": 61,
+        "endLine": 1180,
+        "endChar": 64
+      },
+      "revId": "52839d17c06175e19ca4a093fb878450d1c4310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a0563fe_1ced154e",
         "filename": "test/423-invoke-interface/src/Main.java",
         "patchSetId": 3
