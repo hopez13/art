@@ -22,6 +22,30 @@
       "revId": "52839d17c06175e19ca4a093fb878450d1c4310d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa358bd2_325490c3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-10T10:58:40Z",
+      "side": 1,
+      "message": "Hmmm, good point. I just used the number used in Quick and did not realize that was IP.\n\nAndreas, Ian: Are we certain the call through IMT will not trash IP?",
+      "parentUuid": "3a0563fe_fc294929",
+      "range": {
+        "startLine": 1180,
+        "startChar": 61,
+        "endLine": 1180,
+        "endChar": 64
+      },
+      "revId": "52839d17c06175e19ca4a093fb878450d1c4310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
