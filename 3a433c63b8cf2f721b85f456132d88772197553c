@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7aaefb66_2649d6ad",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "35165601_54ad6cf5",
+      "range": {
+        "startLine": 96,
+        "startChar": 97,
+        "endLine": 96,
+        "endChar": 107
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "950702cb_f7cda0f0",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-06T14:09:02Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 109,
+        "startChar": 105,
+        "endLine": 109,
+        "endChar": 108
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaefb66_86376a20",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "950702cb_f7cda0f0",
       "range": {
         "startLine": 109,
         "startChar": 105,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a4f777e_d673e451",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "I was feeling it\u0027s not particularly useful. Constant is useful since it\u0027s easy to check it\u0027s \u003e\u003d0. For non-constant, accessing array[i] again will not need bounds-check due to gvn. Accessing array[i+1] still need bounds-check due to upper bound can\u0027t be guaranteed. Accessing array[i-1] still need bounds-check unless we also can prove i\u003e0. I can write a such a case but it\u0027s sort of artificial. So I decided to save some work here.",
+      "parentUuid": "15131213_f3cdb0f0",
+      "range": {
+        "startLine": 196,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 11
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35165601_b47a00e7",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-06T14:09:02Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 201,
+        "startChar": 95,
+        "endLine": 201,
+        "endChar": 100
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaefb66_69d24163",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "35165601_b47a00e7",
       "range": {
         "startLine": 201,
         "startChar": 95,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5aabf756_a5fe1ec3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Good point. I removed it and put HandleArrayAccess stuffs under VisitBoundsCheck.",
+      "parentUuid": "35165601_14de5493",
+      "range": {
+        "startLine": 213,
+        "startChar": 29,
+        "endLine": 213,
+        "endChar": 42
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "950702cb_d71dfcd1",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-11-06T14:09:02Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 220,
+        "startChar": 29,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aabf756_052932b2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "950702cb_d71dfcd1",
       "range": {
         "startLine": 220,
         "startChar": 29,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "5a4f777e_16517ca0",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "I deleted the method.",
+      "parentUuid": "950702cb_3733986b",
+      "range": {
+        "startLine": 53,
+        "startChar": 37,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15131213_13b5cc53",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2014-11-06T14:09:02Z",
       "side": 1,
       "message": "Do we get this case today?",
+      "range": {
+        "startLine": 97,
+        "startChar": 25,
+        "endLine": 97,
+        "endChar": 31
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aabf756_65558610",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Yes. That\u0027s how\n// int[] array \u003d new array[10];\n// for (int i\u003d0; i\u003c10; i++) { array[i] \u003d 10; }\nworks.",
+      "parentUuid": "15131213_13b5cc53",
       "range": {
         "startLine": 97,
         "startChar": 25,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "7aaefb66_c99b354a",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "35165601_b49160bb",
+      "range": {
+        "startLine": 117,
+        "startChar": 44,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35165601_9496e4ae",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2014-11-06T14:09:02Z",
       "side": 1,
       "message": "smaller -\u003e lowest",
+      "range": {
+        "startLine": 130,
+        "startChar": 44,
+        "endLine": 130,
+        "endChar": 51
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaefb66_e998714f",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "35165601_9496e4ae",
       "range": {
         "startLine": 130,
         "startChar": 44,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "5aabf756_25e6aefa",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "35165601_d4a05c06",
+      "range": {
+        "startLine": 202,
+        "startChar": 56,
+        "endLine": 202,
+        "endChar": 62
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35165601_34a6f01f",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 2
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "5a4f777e_56edb44c",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "I deleted this method.",
+      "parentUuid": "35165601_34a6f01f",
+      "range": {
+        "startLine": 225,
+        "startChar": 28,
+        "endLine": 225,
+        "endChar": 39
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35165601_d4797cf2",
         "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
         "patchSetId": 2
@@ -289,6 +577,30 @@
       "writtenOn": "2014-11-06T14:09:02Z",
       "side": 1,
       "message": "I could not find where in the bounds check elimination do we know that (max i) is equal to array length?",
+      "range": {
+        "startLine": 265,
+        "startChar": 19,
+        "endLine": 265,
+        "endChar": 21
+      },
+      "revId": "3a433c63b8cf2f721b85f456132d88772197553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aaefb66_c90255a8",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:40:51Z",
+      "side": 1,
+      "message": "It\u0027s the ValueBound::LessThanOrEqual() where it checks for constant array length of a NEW_ARRAY.",
+      "parentUuid": "35165601_d4797cf2",
       "range": {
         "startLine": 265,
         "startChar": 19,
