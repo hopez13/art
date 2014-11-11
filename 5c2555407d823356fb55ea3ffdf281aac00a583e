@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da88c7e4_e4f194a6",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-11T12:43:07Z",
+      "side": 1,
+      "message": "I guess this needs to be StoreRefDisp() for refs.",
+      "range": {
+        "startLine": 485,
+        "startChar": 6,
+        "endLine": 485,
+        "endChar": 17
+      },
+      "revId": "5c2555407d823356fb55ea3ffdf281aac00a583e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
