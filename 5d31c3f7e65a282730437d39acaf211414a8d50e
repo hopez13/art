@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba8dd3f4_0637de02",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:40:08Z",
+      "side": 1,
+      "message": "Maybe add a DCHECK on invoke_type here?",
+      "revId": "5d31c3f7e65a282730437d39acaf211414a8d50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_47e642fb",
+        "filename": "test/425-invoke-super/smali/invokesuper.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:40:08Z",
+      "side": 1,
+      "message": "Why 2 instead of 1?",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "5d31c3f7e65a282730437d39acaf211414a8d50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_e7caf658",
+        "filename": "test/425-invoke-super/smali/subclass.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:40:08Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 12
+      },
+      "revId": "5d31c3f7e65a282730437d39acaf211414a8d50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_c619f698",
+        "filename": "test/425-invoke-super/smali/superclass.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:40:08Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 12
+      },
+      "revId": "5d31c3f7e65a282730437d39acaf211414a8d50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
