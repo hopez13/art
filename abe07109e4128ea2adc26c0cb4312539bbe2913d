@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fae74b92_c2db42a0",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-11-11T01:08:55Z",
+      "side": 0,
+      "message": "if we need to add something to make this work now, it should affect all the CommonRuntimeTest subclasses",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 74
+      },
+      "revId": "abe07109e4128ea2adc26c0cb4312539bbe2913d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
