@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_6391fcb4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:06:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba8dd3f4_23e8d43d",
+      "range": {
+        "startLine": 1412,
+        "startChar": 29,
+        "endLine": 1412,
+        "endChar": 38
+      },
+      "revId": "5e4a511cf83a340953f58be3d5ce2d81032a2645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba8dd3f4_83f3e030",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-11T17:18:31Z",
       "side": 1,
       "message": "static_cast\u003cint32_t\u003e?",
+      "range": {
+        "startLine": 1339,
+        "startChar": 29,
+        "endLine": 1339,
+        "endChar": 30
+      },
+      "revId": "5e4a511cf83a340953f58be3d5ce2d81032a2645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_839680ac",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:06:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba8dd3f4_83f3e030",
       "range": {
         "startLine": 1339,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fa83cbc2_859764d1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:06:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa83cbc2_65ab401e",
+      "range": {
+        "startLine": 1340,
+        "startChar": 95,
+        "endLine": 1340,
+        "endChar": 101
+      },
+      "revId": "5e4a511cf83a340953f58be3d5ce2d81032a2645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba8dd3f4_c3c1e8b9",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-11T17:16:10Z",
       "side": 1,
       "message": "#if defined(__aarch64__)\nTEST(CodegenTest, DISABLED_Int...) {\n#else\nTEST(CodegenTest, Int...) {\n#endif",
+      "range": {
+        "startLine": 365,
+        "startChar": 24,
+        "endLine": 365,
+        "endChar": 25
+      },
+      "revId": "5e4a511cf83a340953f58be3d5ce2d81032a2645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_03dfd08f",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:06:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba8dd3f4_c3c1e8b9",
       "range": {
         "startLine": 365,
         "startChar": 24,
