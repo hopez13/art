@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "7a80bbc4_f9c7f34d",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Somehow, the compilation fails with this change.  I will keep the original code.  Same for other DCHECK(xxx !\u003d nullptr).  Thanks!",
+      "parentUuid": "5a4f777e_bf1287c2",
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a4c838a_6e2460db",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 2157,
         "endChar": 59
       },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a80bbc4_39e6cbfa",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a4c838a_6e2460db",
       "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "9a6bafdc_fa15a52d",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a497f7c_98448112",
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a497f7c_d84af91f",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 2
@@ -88,6 +142,24 @@
         "endLine": 2166,
         "endChar": 38
       },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7db79e_04de006b",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a497f7c_d84af91f",
       "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "5a7db79e_e4e0a42d",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a497f7c_588de912",
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4f777e_ff2fdffb",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 2
@@ -203,6 +293,24 @@
         "endLine": 2193,
         "endChar": 12
       },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a80bbc4_59d70703",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2193,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a4f777e_df2c230a",
       "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -255,6 +363,24 @@
     },
     {
       "key": {
+        "uuid": "7a80bbc4_b9365bd2",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a4c838a_cb858667",
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a4c838a_abab6ae5",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 2
@@ -295,6 +421,24 @@
         "endLine": 63,
         "endChar": 3
       },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7db79e_842450dc",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "I will remove this comment, and add a comment before line 70.  Ex: The value at targets[i] is a basic block id, instead of a dex offset.\n(Basically, we get rid of dex offsets and use basic block ids in the switch targets[].  Thus, we don\u0027t need to look up basic block id from using FindBlock() later on at InsertCaseLabel().)  Thanks!",
+      "parentUuid": "1a497f7c_388c6dc6",
       "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -364,6 +508,24 @@
         "endLine": 109,
         "endChar": 8
       },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a80bbc4_d9ca3759",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2014-11-11T22:01:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a497f7c_58a609a5",
       "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
