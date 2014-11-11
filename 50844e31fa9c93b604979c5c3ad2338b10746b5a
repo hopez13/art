@@ -22,6 +22,63 @@
       "revId": "50844e31fa9c93b604979c5c3ad2338b10746b5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_85f3e430",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:28:17Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_EQ(instruction.Opcode(), Instruction::CHECK_CAST);\n\n?",
+      "revId": "50844e31fa9c93b604979c5c3ad2338b10746b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_672ca68d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:28:17Z",
+      "side": 1,
+      "message": "Add\n\n  DCHECK(instruction_-\u003eIsCheckCast());\n\n?",
+      "revId": "50844e31fa9c93b604979c5c3ad2338b10746b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_e6e0ba2d",
+        "filename": "test/424-checkcast/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T18:28:17Z",
+      "side": 1,
+      "message": "Nit: gotten.",
+      "range": {
+        "startLine": 46,
+        "startChar": 35,
+        "endLine": 46,
+        "endChar": 38
+      },
+      "revId": "50844e31fa9c93b604979c5c3ad2338b10746b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
