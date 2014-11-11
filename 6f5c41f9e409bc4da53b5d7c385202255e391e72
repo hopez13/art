@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_60bd728e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-11T09:54:04Z",
+      "side": 1,
+      "message": "Yes, but I did not want to think too much about it. Oh well, I just did.",
+      "parentUuid": "1a497f7c_634a42a7",
+      "range": {
+        "startLine": 2647,
+        "startChar": 0,
+        "endLine": 2649,
+        "endChar": 35
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151dd24d_66e9d012",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
