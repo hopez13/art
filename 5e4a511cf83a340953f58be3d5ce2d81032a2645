@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa83cbc2_65ab401e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-11T17:16:10Z",
+      "side": 1,
+      "message": "Line too long :)",
+      "range": {
+        "startLine": 1340,
+        "startChar": 95,
+        "endLine": 1340,
+        "endChar": 101
+      },
+      "revId": "5e4a511cf83a340953f58be3d5ce2d81032a2645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_c3c1e8b9",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-11T17:16:10Z",
+      "side": 1,
+      "message": "#if defined(__aarch64__)\nTEST(CodegenTest, DISABLED_Int...) {\n#else\nTEST(CodegenTest, Int...) {\n#endif",
+      "range": {
+        "startLine": 365,
+        "startChar": 24,
+        "endLine": 365,
+        "endChar": 25
+      },
+      "revId": "5e4a511cf83a340953f58be3d5ce2d81032a2645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
