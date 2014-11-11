@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "5a4f777e_c4da13f5",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T07:35:53Z",
+      "side": 1,
+      "message": "host builds lack SSSE3, so I think this needs to remain. Perhaps default to true ifdef HAVE_ANDROID_OS",
+      "parentUuid": "7ac51b23_d43f54aa",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "6289cb9c55aef44736780f6a8abf5280b6fa81a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4f777e_31824bda",
         "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
         "patchSetId": 5
