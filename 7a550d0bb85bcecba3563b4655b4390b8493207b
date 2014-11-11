@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a4f777e_bf1287c2",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 2156,
+        "startChar": 2,
+        "endLine": 2156,
+        "endChar": 8
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4c838a_6e2460db",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "Prefer something like \"succ_bb_itr\" to be less ambiguous.",
+      "range": {
+        "startLine": 2157,
+        "startChar": 51,
+        "endLine": 2157,
+        "endChar": 59
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a497f7c_98448112",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "not needed, place the \"SuccessorBlockInfo*\" to line 2171.",
+      "range": {
+        "startLine": 2158,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 43
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a497f7c_d84af91f",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "++i, ++iterator",
+      "range": {
+        "startLine": 2166,
+        "startChar": 22,
+        "endLine": 2166,
+        "endChar": 38
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4c838a_6b68d217",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2172,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 2172,
+        "startChar": 4,
+        "endLine": 2172,
+        "endChar": 10
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_5f215311",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 2184,
+        "startChar": 8,
+        "endLine": 2184,
+        "endChar": 14
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a497f7c_588de912",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 2186,
+        "startChar": 8,
+        "endLine": 2186,
+        "endChar": 14
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_ff2fdffb",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 2191,
+        "startChar": 6,
+        "endLine": 2191,
+        "endChar": 12
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_df2c230a",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2193,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 2193,
+        "startChar": 6,
+        "endLine": 2193,
+        "endChar": 12
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a497f7c_38c7cd24",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2225,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 2225,
+        "startChar": 2,
+        "endLine": 2225,
+        "endChar": 8
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4c838a_cb858667",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 2237,
+        "startChar": 2,
+        "endLine": 2237,
+        "endChar": 8
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4c838a_abab6ae5",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a497f7c_388c6dc6",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "I don\u0027t parse this comment. In the general code there\u0027s nothing specific to x86 about using \"basic block ids, instead of dex offests\". Could you clarify this.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 3
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4c838a_6e3100e0",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "similarly",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 3
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a4c838a_6b7d72dd",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_NE",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 8
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a497f7c_58a609a5",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T00:02:49Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 8
+      },
+      "revId": "7a550d0bb85bcecba3563b4655b4390b8493207b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
