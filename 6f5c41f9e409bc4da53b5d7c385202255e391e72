@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1acc1f53_4b5ae5f4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-11T15:49:14Z",
+      "side": 1,
+      "message": "There\u0027s no warning about using virtual in a FINAL currently (fwiw we should just s/FINAL/final/g now all the C++ compilers support it) but there are warnings about missing implementations of methods. It also improves devirtualization, which is also improved by losing the virtual keyword when not necessary.",
+      "parentUuid": "fa358bd2_3230108b",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "6f5c41f9e409bc4da53b5d7c385202255e391e72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "151dd24d_a6fbc8da",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
