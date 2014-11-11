@@ -34,6 +34,29 @@
       "revId": "6289cb9c55aef44736780f6a8abf5280b6fa81a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a80bbc4_56a1148a",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000428
+      },
+      "writtenOn": "2014-11-11T02:03:01Z",
+      "side": 1,
+      "message": "This seems to be too conservative. We should set the default to match the instruction set features defined in the x86/x86_64 NDK.\n\nAccording to the NDK supported ABIs, it has \"MMX, SSE/2/3, SSSE3\" for x86 and \"MMX, SSE/2/3, SSSE3, SSE4.1, SSE4.2, POPCNT\" for x86_64.",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "6289cb9c55aef44736780f6a8abf5280b6fa81a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
