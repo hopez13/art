@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "5a4f777e_d9e79540",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:35:17Z",
+      "side": 1,
+      "message": "I had some thoughts on the extended SSA form. Let\u0027s have some discussion about it.",
+      "parentUuid": "950702cb_1782d48e",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 1
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_c174e2fc",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "Yeah, I did not realize the comment applied to the whole method. Maybe put the comment on the method itself?",
       "parentUuid": "5572ea58_fc33d5ea",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aabf756_05de12e6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:35:17Z",
+      "side": 1,
+      "message": "I moved the comment down to where it better applies.",
+      "parentUuid": "35165601_5411ecc0",
       "range": {
         "startLine": 58,
         "startChar": 32,
@@ -1508,6 +1556,30 @@
     },
     {
       "key": {
+        "uuid": "5a4f777e_d65d246d",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:35:17Z",
+      "side": 1,
+      "message": "I changed to use ArenaSafeMap.",
+      "parentUuid": "950702cb_97fa641e",
+      "range": {
+        "startLine": 211,
+        "startChar": 6,
+        "endLine": 211,
+        "endChar": 19
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d59c1a86_84102872",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 1
@@ -1732,6 +1804,30 @@
       "side": 1,
       "message": "(I fixed the missing null check on the array length, so it should not be a problem anymore).\n\nI think better code motion/gvn will require these \"from checked to unchecked\" decoding, but I\u0027d like to understand if bounds checks elimination really needs it.",
       "parentUuid": "b564069b_cb0ba9c5",
+      "range": {
+        "startLine": 1952,
+        "startChar": 9,
+        "endLine": 1952,
+        "endChar": 24
+      },
+      "revId": "924ddc653aa4f7eb4af007cb43f99113eba9d9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_76443096",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-11T23:35:17Z",
+      "side": 1,
+      "message": "It\u0027s not needed anymore. Thanks for fixing the missing null check for array length.",
+      "parentUuid": "35165601_f418f8e3",
       "range": {
         "startLine": 1952,
         "startChar": 9,
