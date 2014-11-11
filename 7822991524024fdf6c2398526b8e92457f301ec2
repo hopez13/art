@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1acc1f53_8e01bb2b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5325,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-11T17:02:48Z",
+      "side": 1,
+      "message": "Disambiguate. The fields *array* is ordered by name, but the respective offsets are ordered by type (modulo gap filling).",
+      "range": {
+        "startLine": 5324,
+        "startChar": 4,
+        "endLine": 5325,
+        "endChar": 44
+      },
+      "revId": "7822991524024fdf6c2398526b8e92457f301ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_87fe5d7a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5335,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-11T17:02:48Z",
+      "side": 1,
+      "message": "HeapReference",
+      "range": {
+        "startLine": 5335,
+        "startChar": 62,
+        "endLine": 5335,
+        "endChar": 70
+      },
+      "revId": "7822991524024fdf6c2398526b8e92457f301ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_47f8658c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5361,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-11T17:02:48Z",
+      "side": 1,
+      "message": "sizeof(HeapReference)",
+      "range": {
+        "startLine": 5361,
+        "startChar": 27,
+        "endLine": 5361,
+        "endChar": 28
+      },
+      "revId": "7822991524024fdf6c2398526b8e92457f301ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acc1f53_eeab9f96",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5362,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-11T17:02:48Z",
+      "side": 1,
+      "message": "You could also check here that: a) the field has a size \u003c HeapReference, b) it doesn\u0027t overlap with the refs.",
+      "range": {
+        "startLine": 5362,
+        "startChar": 8,
+        "endLine": 5362,
+        "endChar": 9
+      },
+      "revId": "7822991524024fdf6c2398526b8e92457f301ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4f777e_e7c7514e",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-11T17:02:48Z",
+      "side": 1,
+      "message": "sizeof(HeapReference)?",
+      "range": {
+        "startLine": 408,
+        "startChar": 59,
+        "endLine": 408,
+        "endChar": 60
+      },
+      "revId": "7822991524024fdf6c2398526b8e92457f301ec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
