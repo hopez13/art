@@ -46,6 +46,30 @@
       "revId": "5c2555407d823356fb55ea3ffdf281aac00a583e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1acc1f53_0ede2be6",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-11T17:24:42Z",
+      "side": 1,
+      "message": "Agreed. Would explain the arm64 failure, which is pretty specific about this.",
+      "parentUuid": "da88c7e4_a4470c16",
+      "range": {
+        "startLine": 485,
+        "startChar": 6,
+        "endLine": 485,
+        "endChar": 17
+      },
+      "revId": "5c2555407d823356fb55ea3ffdf281aac00a583e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
