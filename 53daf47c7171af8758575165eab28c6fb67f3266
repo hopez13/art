@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_a0761a43",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T10:41:17Z",
+      "side": 1,
+      "message": "Sure, movl makes more sense here.  However, as all registers are 64-bit wide, I think movq just works as well; it\u0027s just that high bits are uselessly moved.",
+      "parentUuid": "da88c7e4_417712fc",
+      "range": {
+        "startLine": 1332,
+        "startChar": 15,
+        "endLine": 1332,
+        "endChar": 19
+      },
+      "revId": "53daf47c7171af8758575165eab28c6fb67f3266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da88c7e4_e18bc67b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-11T10:27:19Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1334,
+        "startChar": 15,
+        "endLine": 1334,
+        "endChar": 19
+      },
+      "revId": "53daf47c7171af8758575165eab28c6fb67f3266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_c0731e52",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-11T10:41:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da88c7e4_e18bc67b",
       "range": {
         "startLine": 1334,
         "startChar": 15,
