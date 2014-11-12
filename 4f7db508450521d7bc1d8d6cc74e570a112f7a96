@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da88c7e4_ea071b3f",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-12T08:33:04Z",
+      "side": 1,
+      "message": "To me this logic should be opposite. we should iterate over shorty up to the end and increment in_position up to it is needed. input parameter \"count\" is not needed. Instead (taking into account that now it is constructed by shorty but is used by RegLocations) it makes sense to keep the number of parsed input VR\u0027s and probably add the DCHECK to get function to check the input VRs correspond to shorty.",
+      "range": {
+        "startLine": 836,
+        "startChar": 19,
+        "endLine": 836,
+        "endChar": 40
+      },
+      "revId": "4f7db508450521d7bc1d8d6cc74e570a112f7a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_487893b3",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-12T08:33:04Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with it. Just to clarify to me: I thought that this method is for input args for compiled method. It is not clear to me what will change with inlining here?",
+      "range": {
+        "startLine": 923,
+        "startChar": 7,
+        "endLine": 923,
+        "endChar": 12
+      },
+      "revId": "4f7db508450521d7bc1d8d6cc74e570a112f7a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
