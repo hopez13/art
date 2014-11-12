@@ -95,6 +95,29 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_46bac665",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "weird indentation",
+      "range": {
+        "startLine": 559,
+        "startChar": 6,
+        "endLine": 559,
+        "endChar": 7
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba8dd3f4_263a225e",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -118,6 +141,52 @@
     },
     {
       "key": {
+        "uuid": "fa83cbc2_8878db66",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "This is wrong.",
+      "range": {
+        "startLine": 855,
+        "startChar": 9,
+        "endLine": 855,
+        "endChar": 20
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_a6a8721b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "You need to say that it will call for long division. Otherwise the live registers will not be saved.",
+      "range": {
+        "startLine": 1646,
+        "startChar": 73,
+        "endLine": 1646,
+        "endChar": 80
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba8dd3f4_463f264d",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -134,6 +203,75 @@
         "startChar": 55,
         "endLine": 1660,
         "endChar": 61
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_4882d3da",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "This should only be used on slow paths.\n\nAlso, you won\u0027t get any live registers saved, as the register allocator only records the set on instructions that that kCallOnSlowPath.",
+      "range": {
+        "startLine": 1697,
+        "startChar": 16,
+        "endLine": 1697,
+        "endChar": 33
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_268c62c6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "InvokeRuntime already calls RecordPcInfo.",
+      "range": {
+        "startLine": 1699,
+        "startChar": 16,
+        "endLine": 1699,
+        "endChar": 28
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_469166d9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1700,
+        "startChar": 16,
+        "endLine": 1700,
+        "endChar": 36
       },
       "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -187,6 +325,29 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_e6851a99",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "Same comments as the ones in arm backend.",
+      "range": {
+        "startLine": 1683,
+        "startChar": 16,
+        "endLine": 1683,
+        "endChar": 33
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da88c7e4_8adc4f27",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -198,6 +359,52 @@
       "writtenOn": "2014-11-12T10:53:28Z",
       "side": 1,
       "message": "Maybe add\n\n  DCHECK_EQ(type, Primitive::kPrimLong);\n\n?",
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_485973fa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "Don\u0027t give a default value, make all callers pass it. Otherwise it is confusing to have a dex pc that does not match the actual pc of the div instruction.",
+      "range": {
+        "startLine": 1748,
+        "startChar": 86,
+        "endLine": 1748,
+        "endChar": 92
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_e608ba9a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1759,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T11:02:17Z",
+      "side": 1,
+      "message": "The long operation is atomic, so you don\u0027t need an environment.\n\n(An environment is only for instructions at which the debugger could inspect the stack).",
+      "range": {
+        "startLine": 1759,
+        "startChar": 7,
+        "endLine": 1759,
+        "endChar": 23
+      },
       "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
