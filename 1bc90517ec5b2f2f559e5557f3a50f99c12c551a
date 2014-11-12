@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da88c7e4_754a10a7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T19:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1369,
+        "startChar": 11,
+        "endLine": 1369,
+        "endChar": 36
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_14f5c460",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T19:41:52Z",
+      "side": 1,
+      "message": "no needed, in.GetConstant() below already has the check",
+      "range": {
+        "startLine": 1371,
+        "startChar": 12,
+        "endLine": 1371,
+        "endChar": 35
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_b4f17875",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T19:41:52Z",
+      "side": 1,
+      "message": "I find it more readable to use \u0027lsb \u003c 32\u0027.",
+      "range": {
+        "startLine": 215,
+        "startChar": 8,
+        "endLine": 215,
+        "endChar": 14
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_8b21b514",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T19:41:52Z",
+      "side": 1,
+      "message": "if you want to check the range then width is in between 1 to (32-lsb).Your check dies not exactly test for this.",
+      "range": {
+        "startLine": 216,
+        "startChar": 25,
+        "endLine": 216,
+        "endChar": 30
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_35448895",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T19:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 270,
+        "startChar": 18,
+        "endLine": 270,
+        "endChar": 29
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
