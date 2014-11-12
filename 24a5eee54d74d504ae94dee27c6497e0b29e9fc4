@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da88c7e4_d5c19cb9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "If on multiple lines, arguments should be indented the same.\nAlso, one argument per line please.",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_eb9e41f3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 316,
+        "startChar": 13,
+        "endLine": 316,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_1464e4bd",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "Alternatively, we could use vreg, as this is the terminonolgy being used elsewhere in the optimizing.",
+      "range": {
+        "startLine": 569,
+        "startChar": 45,
+        "endLine": 569,
+        "endChar": 59
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_0b9cc5f8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "Use ternary operator ?:  ?",
+      "range": {
+        "startLine": 580,
+        "startChar": 13,
+        "endLine": 580,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_95f31431",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "resulst -\u003e result",
+      "range": {
+        "startLine": 1689,
+        "startChar": 33,
+        "endLine": 1689,
+        "endChar": 40
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_f5e14058",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 10
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_15df0490",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T18:42:21Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 11
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
