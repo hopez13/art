@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da88c7e4_356d6827",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da88c7e4_d5c19cb9",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa83cbc2_eb9e41f3",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-12T18:42:21Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 316,
+        "startChar": 13,
+        "endLine": 316,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_55726c04",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa83cbc2_eb9e41f3",
       "range": {
         "startLine": 316,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "da88c7e4_f5562052",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba8dd3f4_1464e4bd",
+      "range": {
+        "startLine": 569,
+        "startChar": 45,
+        "endLine": 569,
+        "endChar": 59
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa83cbc2_0b9cc5f8",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-12T18:42:21Z",
       "side": 1,
       "message": "Use ternary operator ?:  ?",
+      "range": {
+        "startLine": 580,
+        "startChar": 13,
+        "endLine": 580,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_ab1279c2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "I\u0027d need to use casts and due to size lines it looks horrible :)",
+      "parentUuid": "fa83cbc2_0b9cc5f8",
       "range": {
         "startLine": 580,
         "startChar": 13,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "da88c7e4_1554e447",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da88c7e4_95f31431",
+      "range": {
+        "startLine": 1689,
+        "startChar": 33,
+        "endLine": 1689,
+        "endChar": 40
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da88c7e4_f5e14058",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "da88c7e4_b560982a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da88c7e4_f5e14058",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 10
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da88c7e4_15df0490",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2014-11-12T18:42:21Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 11
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_d55d1c6d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T20:03:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da88c7e4_15df0490",
       "range": {
         "startLine": 127,
         "startChar": 2,
