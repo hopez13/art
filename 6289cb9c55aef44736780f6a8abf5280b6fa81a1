@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "fa83cbc2_6891d7b4",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-11-12T14:10:12Z",
+      "side": 1,
+      "message": "The erratum affects Cortex-A53 core revisions up to r0p4, namely: r0p0, r0p1, r0p2, r0p3, r0p4. We could go for is_a53_le_r0p4. If, on the other hand, we want to follow gcc/clang, then we should introduce a dedicated flag, e.g. -mfix-cortex-a53-835769, which would default to true, unless it can be proven that the target is not an A53 revision \u003c\u003d r0p4.",
+      "parentUuid": "5a4f777e_a5da7ef3",
+      "revId": "6289cb9c55aef44736780f6a8abf5280b6fa81a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ac51b23_d43f54aa",
         "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
         "patchSetId": 5
