@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa83cbc2_2b82e9e2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-12T17:19:09Z",
+      "side": 1,
+      "message": "I wonder if it\u0027s not better to use some templates here. It might eliminate some redundancy form other functions as well. \n\nThe same applies for other backends too.",
+      "range": {
+        "startLine": 2860,
+        "startChar": 18,
+        "endLine": 2860,
+        "endChar": 35
+      },
+      "revId": "9574c4b5f5ef039d694ac12c97e25ca02eca83c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
