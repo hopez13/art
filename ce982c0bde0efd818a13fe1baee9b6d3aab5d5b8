@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3aa8035b_24455271",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-12T01:04:29Z",
+      "side": 1,
+      "message": "the use of \"_reg\" here is ambiguous, dalvik vs machine vs.. perhaps use a typedef for uint16_t to \"dalvik_reg_t\" make the code more intention revealing. Or maybe just first_dalvik_reg, ..",
+      "range": {
+        "startLine": 546,
+        "startChar": 45,
+        "endLine": 546,
+        "endChar": 52
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3aa8035b_6424aadb",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-12T01:04:29Z",
+      "side": 1,
+      "message": "why are we referring to these as dex_offsets? the term dex offset comes from Dalvik where these were addresses in memory. Currently these should be dex PCs, namely offsets from the start of code items. Quick lacks this clean up but there\u0027s no need to bring over the convention to optimizing.",
+      "range": {
+        "startLine": 549,
+        "startChar": 45,
+        "endLine": 549,
+        "endChar": 55
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aabf756_6e5ec3c0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-12T01:04:29Z",
+      "side": 1,
+      "message": "perhaps evidence that you should do:\ns/dex_offset/dex_pc/g\nbut not necessarily in this change.",
+      "range": {
+        "startLine": 1766,
+        "startChar": 17,
+        "endLine": 1766,
+        "endChar": 24
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
