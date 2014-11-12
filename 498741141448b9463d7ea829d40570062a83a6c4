@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa83cbc2_887d3be0",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-12T14:27:13Z",
+      "side": 1,
+      "message": "This also needs an update:\n\n        if (loc.ref) {\n          StoreRefDisp(TargetPtrReg(kSp), SRegOffset(loc.s_reg_low), loc.reg,\n                       kNotVolatile);\n        } else {\n          Store32Disp(TargetPtrReg(kSp), SRegOffset(loc.s_reg_low), loc.reg);\n        }",
+      "range": {
+        "startLine": 428,
+        "startChar": 8,
+        "endLine": 428,
+        "endChar": 75
+      },
+      "revId": "498741141448b9463d7ea829d40570062a83a6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_895f81e2",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-12T14:27:13Z",
+      "side": 1,
+      "message": "Bad indentation, line too long.",
+      "revId": "498741141448b9463d7ea829d40570062a83a6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
