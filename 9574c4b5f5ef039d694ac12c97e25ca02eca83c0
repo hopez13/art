@@ -22,6 +22,30 @@
       "revId": "9574c4b5f5ef039d694ac12c97e25ca02eca83c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_15270455",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T17:53:12Z",
+      "side": 1,
+      "message": "As discussed, it is tempting. But the scope of this is limited (and, or, xor), so it\u0027s not like the need will grow later. Also, the use of assemblers do not help here.",
+      "parentUuid": "fa83cbc2_2b82e9e2",
+      "range": {
+        "startLine": 2860,
+        "startChar": 18,
+        "endLine": 2860,
+        "endChar": 35
+      },
+      "revId": "9574c4b5f5ef039d694ac12c97e25ca02eca83c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
