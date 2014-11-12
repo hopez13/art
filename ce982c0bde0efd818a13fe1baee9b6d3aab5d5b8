@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ba8dd3f4_2663028c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "assembly :)",
+      "range": {
+        "startLine": 10,
+        "startChar": 19,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3aa8035b_24455271",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -72,6 +95,115 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_263a225e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "It this change OK with respect to the current ABI?",
+      "range": {
+        "startLine": 44,
+        "startChar": 75,
+        "endLine": 44,
+        "endChar": 77
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_463f264d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "It is strange that this pair is made of two non-consecutive registers.  Is this a requirement of the instruction set?  Or is it because you reuse the first register of the operands\u0027 pairs?  Maybe add a comment line about this.",
+      "range": {
+        "startLine": 1660,
+        "startChar": 55,
+        "endLine": 1660,
+        "endChar": 61
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba8dd3f4_86b0ce85",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 39,
+        "startChar": 78,
+        "endLine": 39,
+        "endChar": 81
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_aa3913c6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "Good catch!",
+      "range": {
+        "startLine": 661,
+        "startChar": 8,
+        "endLine": 661,
+        "endChar": 31
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_8adc4f27",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_EQ(type, Primitive::kPrimLong);\n\n?",
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aabf756_6e5ec3c0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -89,6 +221,80 @@
         "endLine": 1766,
         "endChar": 24
       },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_28abcf6c",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "Nit: add a newline here (there are two blank lines between methods in this file).",
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_aa227398",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "Nit: add a newline.",
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da88c7e4_0a16ff39",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "This method is usually not directly called by methods generating instructions; maybe add another overloaded EmitRex64 method calling\n\n  EmitOptionalRex(false, true, false, false, false);\n\n?",
+      "range": {
+        "startLine": 1238,
+        "startChar": 2,
+        "endLine": 1238,
+        "endChar": 17
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_6888f704",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-12T10:53:28Z",
+      "side": 1,
+      "message": "Nit: add a newline.",
       "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
