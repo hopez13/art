@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a4d63af_a2823a8d",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-12T18:57:11Z",
+      "side": 1,
+      "message": "Probably not super-important, but is find implemented such that \"\" is a good fast-path? Else a check for nullptr might be better than using \"\" by default.",
+      "range": {
+        "startLine": 697,
+        "startChar": 8,
+        "endLine": 697,
+        "endChar": 73
+      },
+      "revId": "3fcd22051f5ac12f0825204b534912af38f02c61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
