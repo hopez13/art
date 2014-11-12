@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ba8dd3f4_a64dd208",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-12T10:45:18Z",
+      "side": 1,
+      "message": "Yeah I guess it started out as naming like others do, and then when creating instructions that needed it, it naturally got named \u0027dex_pc\u0027. I agree se should rename it here.",
+      "parentUuid": "3aa8035b_6424aadb",
+      "range": {
+        "startLine": 549,
+        "startChar": 45,
+        "endLine": 549,
+        "endChar": 55
+      },
+      "revId": "ce982c0bde0efd818a13fe1baee9b6d3aab5d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aabf756_6e5ec3c0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
