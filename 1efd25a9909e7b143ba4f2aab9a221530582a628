@@ -474,6 +474,30 @@
       "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_7a2b9972",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:29:59Z",
+      "side": 1,
+      "message": "Isn\u0027t sarl_fn a local function? So the problem is that you\u0027re passing it to the driver and gcc complains about the type because it\u0027s a function type and you can\u0027t use a subtype for a parameter?\n\nThank you c++. I\u0027d suggest to just drop the types then.",
+      "parentUuid": "7adfdb23_812e3cb9",
+      "range": {
+        "startLine": 275,
+        "startChar": 20,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
