@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "9adacf31_a28b407c",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:24:22Z",
+      "side": 1,
+      "message": "My reply was on ngeoffray\u0027s comment. AssemblerTest is *not* a factory. It\u0027s an abstract base class providing infrastructure for sub-classes that test an actual assembler.",
+      "parentUuid": "7adfdb23_612930b2",
+      "range": {
+        "startLine": 42,
+        "startChar": 62,
+        "endLine": 42,
+        "endChar": 87
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_5b26e3ab",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 1
