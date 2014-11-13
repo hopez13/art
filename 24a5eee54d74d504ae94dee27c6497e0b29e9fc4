@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "fab4abdf_dab825eb",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T09:55:49Z",
+      "side": 1,
+      "message": "What casts?\n\nsecond \u003d (type \u003d\u003d Primitive::kPrimtInt)\n  ? GetIntConstant(...)\n  : GetLongConstant(...)\n\nBut it\u0027s fine if you don\u0027t find it more readable.",
+      "parentUuid": "fa83cbc2_ab1279c2",
+      "range": {
+        "startLine": 580,
+        "startChar": 13,
+        "endLine": 580,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da88c7e4_95f31431",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
