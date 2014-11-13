@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "3ae9e3cf_9caea5a8",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:09:24Z",
+      "side": 1,
+      "message": "Since we\u0027re using the thumb2 assembler, this code will probably not be used. I\u0027m fine keeping it, but we should probably also test it in an assembler test.",
+      "range": {
+        "startLine": 211,
+        "startChar": 21,
+        "endLine": 211,
+        "endChar": 25
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba8dd3f4_b4f17875",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 5
@@ -59,6 +82,30 @@
       "writtenOn": "2014-11-12T19:41:52Z",
       "side": 1,
       "message": "I find it more readable to use \u0027lsb \u003c 32\u0027.",
+      "range": {
+        "startLine": 215,
+        "startChar": 8,
+        "endLine": 215,
+        "endChar": 14
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_dbd4b3fa",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:09:24Z",
+      "side": 1,
+      "message": "Not for me :-) The check tells me that lsb must fit in 5 bits, which is what you\u0027re testing for. The max 5 bits number does not help me understand that.",
+      "parentUuid": "ba8dd3f4_b4f17875",
       "range": {
         "startLine": 215,
         "startChar": 8,
