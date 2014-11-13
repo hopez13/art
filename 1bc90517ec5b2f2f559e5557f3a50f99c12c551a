@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "3ae9e3cf_3c5f51e4",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T11:26:37Z",
+      "side": 1,
+      "message": "OK, then this changes my mind, and I agree it makes it more readable.",
+      "parentUuid": "1ae6dfff_7be39fb1",
+      "range": {
+        "startLine": 215,
+        "startChar": 8,
+        "endLine": 215,
+        "endChar": 14
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa83cbc2_8b21b514",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 5
