@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da2b67c1_2963cd3d",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-11-13T12:50:21Z",
+      "side": 1,
+      "message": "you can\u0027t omit the instruction entirely?  In fact, the noop IS xchg rax,rax",
+      "range": {
+        "startLine": 885,
+        "startChar": 32,
+        "endLine": 885,
+        "endChar": 35
+      },
+      "revId": "3086a6024f14558152beef972a68f16481137edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a1a7bb5_8c05ab81",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-11-13T12:50:21Z",
+      "side": 1,
+      "message": "Possibly because GCC never specialized for that case, since it is probably never generated?",
+      "range": {
+        "startLine": 457,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 90
+      },
+      "revId": "3086a6024f14558152beef972a68f16481137edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
