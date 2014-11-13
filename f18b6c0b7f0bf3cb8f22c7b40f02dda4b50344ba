@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fab4abdf_7d91d3d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T17:42:49Z",
+      "side": 1,
+      "message": "I meant, \"don\u0027t forget to check (and fix) the implementation of art::arm::Thumb2Assembler::sbfx as it does not always produce the expected results\".  It\u0027s gone in PS2 anyway.  :)",
+      "parentUuid": "fab4abdf_9d9ea7f2",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 4
+      },
+      "revId": "f18b6c0b7f0bf3cb8f22c7b40f02dda4b50344ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab4abdf_5db5ef72",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2014-11-13T17:41:45Z",
       "side": 1,
       "message": "Yes, would be nice to know why the shell around it is necessary.",
+      "parentUuid": "fab4abdf_5db5ef72",
+      "range": {
+        "startLine": 403,
+        "startChar": 14,
+        "endLine": 403,
+        "endChar": 17
+      },
+      "revId": "f18b6c0b7f0bf3cb8f22c7b40f02dda4b50344ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_3d211b13",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T17:42:49Z",
+      "side": 1,
+      "message": "I am using the same strategy as in AssemblerTest::Objdump and AssemblerTest::DisassembleBinary to let AssemblerTest::GetAssemblerCommand contain arguments and be used with Exec, by encaspulating the whole shell command line in a single string passed to /bin/sh.  Otherwise (i.e. before this change), the shell would complain that is cannot find a file (a program) named \"/path/to/as -mthumb\".\n\nShould I add this explanation to one (or possibly all) of these methods?",
       "parentUuid": "fab4abdf_5db5ef72",
       "range": {
         "startLine": 403,
