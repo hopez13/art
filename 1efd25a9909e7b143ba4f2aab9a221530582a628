@@ -522,6 +522,30 @@
       "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5adcd72f_c0de8092",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:40:28Z",
+      "side": 1,
+      "message": "You should never be able to use a subtype as a parameter type in a sound type system (you know, contravariant input types). I know you\u0027re used to Dart, where that\u0027s maybe possible... ;-)",
+      "parentUuid": "fab4abdf_7a2b9972",
+      "range": {
+        "startLine": 275,
+        "startChar": 20,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
