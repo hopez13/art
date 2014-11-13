@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_3ba677a4",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-13T10:21:44Z",
+      "side": 1,
+      "message": "If AssemblerTest is a factory, it should be renamed. But if we don\u0027t rename the AssemblerTest itself, this really should be X86_64AssemblerTest.",
+      "parentUuid": "3ae9e3cf_1ca295b8",
+      "range": {
+        "startLine": 42,
+        "startChar": 62,
+        "endLine": 42,
+        "endChar": 87
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_5b26e3ab",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 1
