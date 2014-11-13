@@ -358,6 +358,30 @@
     },
     {
       "key": {
+        "uuid": "3ae9e3cf_1c053504",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-13T10:27:21Z",
+      "side": 1,
+      "message": "Suggestion: Don\u0027t typedef it here. Use the full expression as the AssemblerX86_64Test base class below and add a member typedef called \"Base\", \"BaseTest\" or similar.",
+      "parentUuid": "9adacf31_a28b407c",
+      "range": {
+        "startLine": 42,
+        "startChar": 62,
+        "endLine": 42,
+        "endChar": 87
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_5b26e3ab",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 1
