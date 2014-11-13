@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac5b75b_159274e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-13T18:22:30Z",
+      "side": 1,
+      "message": "arraystore",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac5b75b_9866b9c7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-13T18:22:30Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the notion of type be richer? If the array is known to be an Object[] (commonly used in Collections) then the check isn\u0027t necessary either. We have a verifier helper for this in quick that uses the safe cast set iirc.",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 63,
+        "endChar": 69
+      },
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
