@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "fab4abdf_fa92492a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-13T11:16:14Z",
+      "side": 1,
+      "message": "both side of ?: must produce the same type (or be able to implicitly convert from one to anoter). In this case HIntConstant and HLongConstant don\u0027t \"share\" much, so you need to cast them to HInstruction.",
+      "parentUuid": "fab4abdf_dab825eb",
+      "range": {
+        "startLine": 580,
+        "startChar": 13,
+        "endLine": 580,
+        "endChar": 15
+      },
+      "revId": "24a5eee54d74d504ae94dee27c6497e0b29e9fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da88c7e4_95f31431",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
