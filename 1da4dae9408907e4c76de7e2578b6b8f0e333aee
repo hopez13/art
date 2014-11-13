@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ac2c357_3d4bd389",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T19:34:21Z",
+      "side": 1,
+      "message": "Maybe refactor? The loop is repeated a couple of times...",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "1da4dae9408907e4c76de7e2578b6b8f0e333aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
