@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "3ae9e3cf_bc92815b",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:26:35Z",
+      "side": 1,
+      "message": "Sorry, I wasn\u0027t clear enough. The condition is not the problem (it\u0027s local). It\u0027s the templating.",
+      "parentUuid": "9adacf31_82771cfb",
+      "range": {
+        "startLine": 644,
+        "startChar": 18,
+        "endLine": 644,
+        "endChar": 51
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab4abdf_3ac0415a",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 1
