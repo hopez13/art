@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_7be39fb1",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-13T11:21:54Z",
+      "side": 1,
+      "message": "either one is good :). I just follow the spec here which mentions that lsb should be 0 \u003c\u003d lsb \u003c\u003d 31 (not that lsb is 5 bits)",
+      "parentUuid": "1ae6dfff_dbd4b3fa",
+      "range": {
+        "startLine": 215,
+        "startChar": 8,
+        "endLine": 215,
+        "endChar": 14
+      },
+      "revId": "1bc90517ec5b2f2f559e5557f3a50f99c12c551a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa83cbc2_8b21b514",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 5
