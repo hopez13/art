@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9adacf31_02acecfc",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:10:56Z",
+      "side": 1,
+      "message": "I prefer to have it here. Once we have more assembler tests, it is nice to just override that function in the one you\u0027re working on and just have that impacted.",
+      "parentUuid": "1ae6dfff_fb1faf4a",
+      "range": {
+        "startLine": 245,
+        "startChar": 15,
+        "endLine": 245,
+        "endChar": 48
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab4abdf_ba60d1f3",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-13T09:46:53Z",
       "side": 1,
       "message": "add a kDeleteIntermediatesOnSizeMismatch if you really want this.",
+      "range": {
+        "startLine": 644,
+        "startChar": 18,
+        "endLine": 644,
+        "endChar": 51
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adacf31_227810ee",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:10:56Z",
+      "side": 1,
+      "message": "I like OOP. :-)\n\nI\u0027d do it through a template parameter. The whole point of this is that a specific assembler test can decide what it wants...",
+      "parentUuid": "fab4abdf_ba60d1f3",
       "range": {
         "startLine": 644,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5adcd72f_00c228bd",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fab4abdf_3ac0415a",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ae9e3cf_1c50d520",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9adacf31_427d14dd",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:10:56Z",
+      "side": 1,
+      "message": "It makes the function declarations/definitions below a lot more readable...",
+      "parentUuid": "3ae9e3cf_1c50d520",
+      "range": {
+        "startLine": 42,
+        "startChar": 62,
+        "endLine": 42,
+        "endChar": 87
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_5b26e3ab",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2014-11-13T09:46:53Z",
       "side": 1,
       "message": "Why isn\u0027t that just X86_64AssemblerTest?",
+      "range": {
+        "startLine": 275,
+        "startChar": 20,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7adfdb23_412434db",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T10:10:56Z",
+      "side": 1,
+      "message": "Because I did not want to templatize AssemblerTest over the type of the subclass. As AssemblerTest has the generic infrastructure to create an assembler object and call the given function, you only know at that point that it\u0027s an AssemblerTest...",
+      "parentUuid": "1ae6dfff_5b26e3ab",
       "range": {
         "startLine": 275,
         "startChar": 20,
