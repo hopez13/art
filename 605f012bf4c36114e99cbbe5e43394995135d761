@@ -25,6 +25,131 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_9eba1942",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Do not do typecheck an array store?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ae9e3cf_ff207b3a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(index.IsRegister()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ae9e3cf_bf26f355",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2337,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(value.IsConstant()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_5d9b2fd5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2341,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(index.IsRegister()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_bedef590",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2345,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(value.IsConstant()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ae9e3cf_9f29372b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(value.IsConstant()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_fed87da5",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-13T18:27:36Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(index.IsRegister()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac5b75b_9866b9c7",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
