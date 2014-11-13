@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_9bf14ba8",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:17:16Z",
+      "side": 1,
+      "message": "I\u0027d strongly suggest not cluttering the code with development concerns. If you want to keep files around, just comment out the lines here (or add a variable for a one line change).",
+      "parentUuid": "9adacf31_227810ee",
+      "range": {
+        "startLine": 644,
+        "startChar": 18,
+        "endLine": 644,
+        "endChar": 51
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab4abdf_3ac0415a",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 1
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "3ae9e3cf_1ca295b8",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:17:16Z",
+      "side": 1,
+      "message": "So does FactoryForInstantiatedFactoryAssemblerTest? :-)",
+      "parentUuid": "9adacf31_427d14dd",
+      "range": {
+        "startLine": 42,
+        "startChar": 62,
+        "endLine": 42,
+        "endChar": 87
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_5b26e3ab",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 1
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "Because I did not want to templatize AssemblerTest over the type of the subclass. As AssemblerTest has the generic infrastructure to create an assembler object and call the given function, you only know at that point that it\u0027s an AssemblerTest...",
       "parentUuid": "1ae6dfff_5b26e3ab",
+      "range": {
+        "startLine": 275,
+        "startChar": 20,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_5bf8a38c",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:17:16Z",
+      "side": 1,
+      "message": "I don\u0027t understand. This method only takes a AssemblerX86_64Test.",
+      "parentUuid": "7adfdb23_412434db",
       "range": {
         "startLine": 275,
         "startChar": 20,
