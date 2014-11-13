@@ -117,6 +117,30 @@
       "revId": "f18b6c0b7f0bf3cb8f22c7b40f02dda4b50344ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7adfdb23_44c0c25a",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T17:46:46Z",
+      "side": 1,
+      "message": "A short comment would be nice to remind us, as it wasn\u0027t obvious (when I wrote it, I wasn\u0027t thinking about necessary assembler arguments, e.g., arm32 vs thumb2).",
+      "parentUuid": "fab4abdf_3d211b13",
+      "range": {
+        "startLine": 403,
+        "startChar": 14,
+        "endLine": 403,
+        "endChar": 17
+      },
+      "revId": "f18b6c0b7f0bf3cb8f22c7b40f02dda4b50344ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
