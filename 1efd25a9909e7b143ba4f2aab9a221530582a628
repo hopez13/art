@@ -546,6 +546,30 @@
       "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ae9e3cf_9cca2558",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-13T10:46:13Z",
+      "side": 1,
+      "message": "Of course it is. But this is probably not the right forum for discussing type system :-)\n\nAnyway, I view this as the main reason you need this type. And I find having this type not helpful. Hence my suggestion to just drop the type in the driver_fn.",
+      "parentUuid": "5adcd72f_c0de8092",
+      "range": {
+        "startLine": 275,
+        "startChar": 20,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "1efd25a9909e7b143ba4f2aab9a221530582a628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
