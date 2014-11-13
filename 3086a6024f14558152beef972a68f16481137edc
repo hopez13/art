@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7adfdb23_0d5b3d41",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T23:29:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7adfdb23_e439cec5",
+      "range": {
+        "startLine": 856,
+        "startChar": 0,
+        "endLine": 861,
+        "endChar": 51
+      },
+      "revId": "3086a6024f14558152beef972a68f16481137edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ac2c357_34f3f032",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-13T18:02:32Z",
       "side": 1,
       "message": "DISALLOW_COPY_AND_ASSIGN?",
+      "range": {
+        "startLine": 862,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 2
+      },
+      "revId": "3086a6024f14558152beef972a68f16481137edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7adfdb23_2dbb99ec",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T23:29:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ac2c357_34f3f032",
       "range": {
         "startLine": 862,
         "startChar": 0,
@@ -106,6 +154,30 @@
       "writtenOn": "2014-11-13T18:02:32Z",
       "side": 1,
       "message": "reminds me of utils.h: \"bool IsInt(sizeof(T) * 8 , value)\"\nmove to a common helper?",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "3086a6024f14558152beef972a68f16481137edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ac2c357_834f2882",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-13T23:29:59Z",
+      "side": 1,
+      "message": "Added IsInt32 and IsInt64 to utils.h and removed this.",
+      "parentUuid": "7adfdb23_24d73604",
       "range": {
         "startLine": 34,
         "startChar": 11,
