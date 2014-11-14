@@ -46,6 +46,76 @@
       "revId": "72a122c33dadde5661a39aaa0a10bc1dbff16ce6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a256ff1_aaba0f41",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-14T03:33:17Z",
+      "side": 1,
+      "message": "I think we could just remove all of these, see comments below.",
+      "parentUuid": "7a1a7bb5_00db3afa",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 74
+      },
+      "revId": "72a122c33dadde5661a39aaa0a10bc1dbff16ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da2b67c1_aca4eb18",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-14T03:33:17Z",
+      "side": 1,
+      "message": "The ART_DEFAULT_INSTRUCTION_SET_FEATURES define is no longer used.",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 437,
+        "endChar": 141
+      },
+      "revId": "72a122c33dadde5661a39aaa0a10bc1dbff16ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a256ff1_6ad1378b",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-14T03:33:17Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 108
+      },
+      "revId": "72a122c33dadde5661a39aaa0a10bc1dbff16ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
