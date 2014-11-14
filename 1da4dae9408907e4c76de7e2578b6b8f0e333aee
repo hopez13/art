@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da9e076c_348dbe14",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-14T00:18:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac5b75b_c90f814f",
+      "range": {
+        "startLine": 586,
+        "startChar": 23,
+        "endLine": 586,
+        "endChar": 33
+      },
+      "revId": "1da4dae9408907e4c76de7e2578b6b8f0e333aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ac2c357_3d4bd389",
         "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "baa313b2_96baec41",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-14T00:18:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ac2c357_3d4bd389",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "1da4dae9408907e4c76de7e2578b6b8f0e333aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7adfdb23_f2335012",
         "filename": "runtime/arch/instruction_set.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2014-11-13T19:45:47Z",
       "side": 1,
       "message": "i found this a bit out of place in this header. it is ISA specific in some ways, but that seems orthogonal.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 96
+      },
+      "revId": "1da4dae9408907e4c76de7e2578b6b8f0e333aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa990b84_5526beab",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-14T00:18:23Z",
+      "side": 1,
+      "message": "agreed, I just move the file around this code, this code was always in instruction_set.h.",
+      "parentUuid": "7adfdb23_f2335012",
       "range": {
         "startLine": 178,
         "startChar": 0,
