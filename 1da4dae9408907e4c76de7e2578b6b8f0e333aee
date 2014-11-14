@@ -140,6 +140,30 @@
       "revId": "1da4dae9408907e4c76de7e2578b6b8f0e333aee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da9e076c_25d74604",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-14T00:34:08Z",
+      "side": 1,
+      "message": "Sorry for the late comment. I put this here because this is somewhat arch-specific and I wanted to be able to easily include this in other files (e.g., quick_trampoline_entrypoints.cc).\n\nWe can move this to the arch-specific files now and do conditional includes in the callers.",
+      "parentUuid": "fa990b84_5526beab",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 96
+      },
+      "revId": "1da4dae9408907e4c76de7e2578b6b8f0e333aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
