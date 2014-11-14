@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a8a1730_ede8c5bb",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Maybe turn these into compile-time assertions using static_assert?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 54
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_445fe4e2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Don\u0027t forget to #undef it at the end of the file.",
+      "range": {
+        "startLine": 254,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 25
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a8a1730_cdbea9a5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Maybe add DCHECK(out.IsRegister())?",
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_03831462",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t live registers be saved before the call to InvokeRuntime and restored after?",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 425,
+        "endChar": 81
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_84cc8c47",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this line be\n\n  DCHECK(constant-\u003eIsDoubleConstant());\n\ninstead?",
+      "range": {
+        "startLine": 683,
+        "startChar": 4,
+        "endLine": 683,
+        "endChar": 72
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a8a1730_8d9bc14a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(source.IsStackSlot() || source.IsDoubleStackSlot());\n\n?",
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_84e3acb0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "`cls\u0027 is input 1, not 0.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 46,
+        "endLine": 1057,
+        "endChar": 47
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a8a1730_ad631db6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Maybe recall in a comment that TypeCheckSlowPathARM64 is not yet implemented?",
+      "range": {
+        "startLine": 1060,
+        "startChar": 62,
+        "endLine": 1060,
+        "endChar": 86
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_643a205f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T18:17:20Z",
+      "side": 1,
+      "message": "Does using `min_size` here produces the expected results for byte-to-short and byte-to-char conversions? (Check with test/422-type-conversion).",
+      "range": {
+        "startLine": 1989,
+        "startChar": 77,
+        "endLine": 1989,
+        "endChar": 85
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
