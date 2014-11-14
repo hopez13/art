@@ -282,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_e1db829f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-14T13:50:32Z",
+      "side": 1,
+      "message": "Yes, maybe; but I find them useful as documentation as well, especially within long if/switch statements (\"which branch/case I\u0027m in?\").",
+      "parentUuid": "fab4abdf_03b6b4fb",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac5b75b_9866b9c7",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
