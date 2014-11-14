@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dab9a7d9_8219db1e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-14T18:20:58Z",
+      "side": 1,
+      "message": "I disagree. The search space is really large, and timing this, with that number of iterations the SignExtension test is still faster than all the other actual tests.",
+      "parentUuid": "3ae9e3cf_4278b665",
+      "range": {
+        "startLine": 41,
+        "startChar": 24,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "851df20225593b10e698a760ac3cd5243620700b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_e112a2c3",
         "filename": "runtime/utils.h",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1a941f50_2b8d5914",
+        "filename": "runtime/utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-14T18:20:58Z",
+      "side": 1,
+      "message": "I hope that\u0027s what the compiler puts in there. :-)",
+      "parentUuid": "1ae6dfff_e112a2c3",
+      "range": {
+        "startLine": 120,
+        "startChar": 37,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "851df20225593b10e698a760ac3cd5243620700b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_01106eb9",
         "filename": "runtime/utils.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2014-11-14T12:55:13Z",
       "side": 1,
       "message": "Just 64?",
+      "range": {
+        "startLine": 127,
+        "startChar": 46,
+        "endLine": 127,
+        "endChar": 53
+      },
+      "revId": "851df20225593b10e698a760ac3cd5243620700b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dab9a7d9_c202f3a7",
+        "filename": "runtime/utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-14T18:20:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "1ae6dfff_01106eb9",
       "range": {
         "startLine": 127,
         "startChar": 46,
