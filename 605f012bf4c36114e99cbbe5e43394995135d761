@@ -300,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "5a8a1730_2d03ade8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-14T16:47:25Z",
+      "side": 1,
+      "message": "Kind of agree with Nicolas here. There\u0027s a lot of redundancy in our DCHECKs and it many cases the ratio between benefit and code cluttering is not great...\n\nI wonder if some clever defines (like a trivial dsl) in the beginning of the method would help :)",
+      "parentUuid": "1ae6dfff_e1db829f",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ac5b75b_9866b9c7",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
