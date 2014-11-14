@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ae9e3cf_4278b665",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T12:55:13Z",
+      "side": 1,
+      "message": "I suggest removing this, the tests are being run on every commit anyway.",
+      "range": {
+        "startLine": 41,
+        "startChar": 24,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "851df20225593b10e698a760ac3cd5243620700b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_e112a2c3",
+        "filename": "runtime/utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T12:55:13Z",
+      "side": 1,
+      "message": "? Why not 32?",
+      "range": {
+        "startLine": 120,
+        "startChar": 37,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "851df20225593b10e698a760ac3cd5243620700b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae6dfff_01106eb9",
+        "filename": "runtime/utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T12:55:13Z",
+      "side": 1,
+      "message": "Just 64?",
+      "range": {
+        "startLine": 127,
+        "startChar": 46,
+        "endLine": 127,
+        "endChar": 53
+      },
+      "revId": "851df20225593b10e698a760ac3cd5243620700b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
