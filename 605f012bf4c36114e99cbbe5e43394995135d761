@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_61e8523f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac5b75b_159274e2",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ae9e3cf_ff207b3a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -59,6 +83,24 @@
       "writtenOn": "2014-11-13T18:27:36Z",
       "side": 1,
       "message": "Maybe add\n\n  DCHECK(index.IsRegister()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_a3aee8a7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ae9e3cf_ff207b3a",
       "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "fab4abdf_c3abdc96",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ae9e3cf_bf26f355",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab4abdf_5d9b2fd5",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -93,6 +153,24 @@
       "writtenOn": "2014-11-13T18:27:36Z",
       "side": 1,
       "message": "Maybe add\n\n  DCHECK(index.IsRegister()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_e3b8e0ea",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fab4abdf_5d9b2fd5",
       "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -116,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "3ae9e3cf_02d86efa",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae6dfff_bedef590",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ae9e3cf_9f29372b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -133,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "1ae6dfff_a1e17a59",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ae9e3cf_9f29372b",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_fed87da5",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -144,6 +258,24 @@
       "writtenOn": "2014-11-13T18:27:36Z",
       "side": 1,
       "message": "Maybe add\n\n  DCHECK(index.IsRegister()) \u003c\u003c value;\n\n?",
+      "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fab4abdf_03b6b4fb",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-14T13:45:35Z",
+      "side": 1,
+      "message": "Done. Although we may be going overboard with these checks. They are already in the Location methods. I used to add them here as well because the stack trace given by DCHECK is (or used to) not be available.",
+      "parentUuid": "1ae6dfff_fed87da5",
       "revId": "605f012bf4c36114e99cbbe5e43394995135d761",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
