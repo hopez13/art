@@ -22,6 +22,30 @@
       "revId": "72a122c33dadde5661a39aaa0a10bc1dbff16ce6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7adfdb23_deb1fad5",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-14T03:31:23Z",
+      "side": 1,
+      "message": "Yes, as the commit message states, I would also prefer that. But I wanted to leave that for tomorrow. This is mainly for the generic breakage.",
+      "parentUuid": "7a1a7bb5_00db3afa",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 74
+      },
+      "revId": "72a122c33dadde5661a39aaa0a10bc1dbff16ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
