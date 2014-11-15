@@ -22,6 +22,30 @@
       "revId": "bc12b07ac5a8a36095f55d19ce3f61b400570f51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abf2fde_fa1b05de",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2014-11-15T05:18:07Z",
+      "side": 1,
+      "message": "I considered that. It\u0027s up to you guys. Keep in mind that SANITIZE_HOST will be on by default at some point (the sooner the better).",
+      "parentUuid": "9abf2fde_7a549591",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 57
+      },
+      "revId": "bc12b07ac5a8a36095f55d19ce3f61b400570f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
