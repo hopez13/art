@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "9aa64fd2_c28184df",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:54:18Z",
+      "side": 1,
+      "message": "Ok. Done for this and other macros in this file.",
+      "parentUuid": "9aa64fd2_02a1ac8b",
+      "range": {
+        "startLine": 254,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 25
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_e05ec2e5",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
