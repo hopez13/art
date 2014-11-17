@@ -516,6 +516,30 @@
       "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_df95dba1",
+        "filename": "test/417-optimizing-arith-div/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T11:54:26Z",
+      "side": 1,
+      "message": "FYI: Just to be sure there is no implicit conversions during overload resolution, I have named these functions expectIntEquals, expectLongEquals, etc. in my tests.",
+      "parentUuid": "9aa64fd2_9f9073d8",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
