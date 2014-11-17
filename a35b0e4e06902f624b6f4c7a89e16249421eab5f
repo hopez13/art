@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "baa153bc_e0a5a297",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a8a1730_ede8c5bb",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 54
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_e077e273",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_ddc16b10",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Changed to a switch.",
+      "parentUuid": "baa153bc_e077e273",
+      "range": {
+        "startLine": 56,
+        "startChar": 40,
+        "endLine": 56,
+        "endChar": 42
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aa857a2_bd81ffdf",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "I don\u0027t understand this. Why are you returning a CPU register from a floating point?",
+      "range": {
+        "startLine": 140,
+        "startChar": 50,
+        "endLine": 140,
+        "endChar": 61
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_9dcbe32e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "vixl::CPURegister is the base class for vixl::Register and vixl::FPRegister. This allows simplifiying code paths that don\u0027t need to make a distinction between core and fp registers.\nSee for example VisitInstanceFieldGet().",
+      "parentUuid": "5aa857a2_bd81ffdf",
       "range": {
         "startLine": 140,
         "startChar": 50,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "baa153bc_c0aa9e67",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "This is a .cc file. Do we really need it?",
+      "parentUuid": "1ae6dfff_445fe4e2",
+      "range": {
+        "startLine": 254,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 25
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_e05ec2e5",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 10
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_1dd8f3fa",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa153bc_e05ec2e5",
       "range": {
         "startLine": 272,
         "startChar": 2,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "9aa64fd2_1f21033d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Removed here and for other slow paths.\nAlso removed it in the arm codegen. Let me now if you prefer me to restore them.",
+      "parentUuid": "9aa64fd2_ffe3ffb2",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_8067f6c3",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -174,6 +318,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "You need a parallel move here (I changed the other backends to do so, you can take a look at how they do it).",
+      "range": {
+        "startLine": 283,
+        "startChar": 19,
+        "endLine": 283,
+        "endChar": 29
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_a01d5a09",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Ok. Replaced with a breakpoint and a TODO for now. Parallel moves will come in my next patch.",
+      "parentUuid": "baa153bc_8067f6c3",
       "range": {
         "startLine": 283,
         "startChar": 19,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_1defd393",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aa857a2_7d9c9742",
+      "range": {
+        "startLine": 303,
+        "startChar": 2,
+        "endLine": 303,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_4071ee7a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -220,6 +412,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 325,
+        "startChar": 2,
+        "endLine": 325,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_800376ac",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa153bc_4071ee7a",
       "range": {
         "startLine": 325,
         "startChar": 2,
@@ -249,6 +465,24 @@
     },
     {
       "key": {
+        "uuid": "9aa64fd2_5f642bbe",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a8a1730_cdbea9a5",
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_206eea9e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -260,6 +494,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 372,
+        "startChar": 2,
+        "endLine": 372,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_6000729f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa153bc_206eea9e",
       "range": {
         "startLine": 372,
         "startChar": 2,
@@ -295,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_fd0e67d8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aa857a2_1d935331",
+      "range": {
+        "startLine": 402,
+        "startChar": 2,
+        "endLine": 402,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9aa64fd2_3fdba7fb",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -306,6 +588,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_dd13abfc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa64fd2_3fdba7fb",
       "range": {
         "startLine": 421,
         "startChar": 2,
@@ -365,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_9de523ef",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fab4abdf_03831462",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 425,
+        "endChar": 81
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_4048ce26",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -388,6 +718,47 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_9d1d230a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa153bc_4048ce26",
+      "range": {
+        "startLine": 454,
+        "startChar": 2,
+        "endLine": 454,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_3f71677c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Added a TODO here.",
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_2045ca0c",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -399,6 +770,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "Isn\u0027t this dead code while you\u0027re not supporting the regalloc? I\u0027d just do UNIMPLEMENTED for now.",
+      "range": {
+        "startLine": 605,
+        "startChar": 27,
+        "endLine": 605,
+        "endChar": 43
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_9f675395",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Reverted.",
+      "parentUuid": "baa153bc_2045ca0c",
       "range": {
         "startLine": 605,
         "startChar": 27,
@@ -434,6 +829,30 @@
     },
     {
       "key": {
+        "uuid": "baa153bc_0036468a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Reverted.",
+      "parentUuid": "5aa857a2_3d716f7c",
+      "range": {
+        "startLine": 611,
+        "startChar": 27,
+        "endLine": 611,
+        "endChar": 46
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_84cc8c47",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -445,6 +864,30 @@
       "writtenOn": "2014-11-14T18:17:20Z",
       "side": 1,
       "message": "Shouldn\u0027t this line be\n\n  DCHECK(constant-\u003eIsDoubleConstant());\n\ninstead?",
+      "range": {
+        "startLine": 683,
+        "startChar": 4,
+        "endLine": 683,
+        "endChar": 72
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_ff59bfff",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "It should. Fixed.",
+      "parentUuid": "1ae6dfff_84cc8c47",
       "range": {
         "startLine": 683,
         "startChar": 4,
@@ -474,6 +917,24 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_1dd2330c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "The checks are performed down the call chain by `GetStackIndex()`. Added the check for clarity.",
+      "parentUuid": "5a8a1730_8d9bc14a",
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_a0cb1a2e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -485,6 +946,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "Replace with Is64BitsType(type).",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 761,
+        "endChar": 83
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_1d0a33bf",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa153bc_a0cb1a2e",
       "range": {
         "startLine": 761,
         "startChar": 0,
@@ -520,6 +1005,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_fd35477e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa64fd2_1fefc393",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 787,
+        "endChar": 83
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_84e3acb0",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -531,6 +1040,30 @@
       "writtenOn": "2014-11-14T18:17:20Z",
       "side": 1,
       "message": "`cls\u0027 is input 1, not 0.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 46,
+        "endLine": 1057,
+        "endChar": 47
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_40bfaea1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Fixed!",
+      "parentUuid": "1ae6dfff_84e3acb0",
       "range": {
         "startLine": 1057,
         "startChar": 46,
@@ -566,6 +1099,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_fda0a789",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "I added a TODO in the slow path.\nThis will be implemented in the incoming patch adding support for the parallel move resolver and reg allocation.",
+      "parentUuid": "5a8a1730_ad631db6",
+      "range": {
+        "startLine": 1060,
+        "startChar": 62,
+        "endLine": 1060,
+        "endChar": 86
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_40db2efa",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -577,6 +1134,30 @@
       "writtenOn": "2014-11-17T10:18:03Z",
       "side": 1,
       "message": "I guess you just want an fatal here, right? Having this check with the condition line 1214 makes it kind of funny :-). I\u0027d just do LOG(FATAL) \u003c\u003c \"Divisions by ....\"",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1217,
+        "endChar": 97
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_5f6aeb5d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa153bc_40db2efa",
       "range": {
         "startLine": 1217,
         "startChar": 0,
@@ -612,6 +1193,30 @@
     },
     {
       "key": {
+        "uuid": "5aa857a2_5d279b53",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Yes. Eventually I\u0027d like something similar to:\n  __ Unreachable();\nthat would take care of generating a breakpoint and comments for debugging.",
+      "parentUuid": "5aa857a2_9d5883f9",
+      "range": {
+        "startLine": 1243,
+        "startChar": 28,
+        "endLine": 1243,
+        "endChar": 32
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9aa64fd2_1f0a23bf",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -635,6 +1240,30 @@
     },
     {
       "key": {
+        "uuid": "9aa64fd2_1f746339",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa64fd2_1f0a23bf",
+      "range": {
+        "startLine": 1977,
+        "startChar": 17,
+        "endLine": 1977,
+        "endChar": 19
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_643a205f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -646,6 +1275,30 @@
       "writtenOn": "2014-11-14T18:17:20Z",
       "side": 1,
       "message": "Does using `min_size` here produces the expected results for byte-to-short and byte-to-char conversions? (Check with test/422-type-conversion).",
+      "range": {
+        "startLine": 1989,
+        "startChar": 77,
+        "endLine": 1989,
+        "endChar": 85
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_bfc69724",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-17T14:39:20Z",
+      "side": 1,
+      "message": "Yes I think so.\nThe tests are not running for me right now so I can\u0027t double check, but I will as soon as possible.",
+      "parentUuid": "1ae6dfff_643a205f",
       "range": {
         "startLine": 1989,
         "startChar": 77,
