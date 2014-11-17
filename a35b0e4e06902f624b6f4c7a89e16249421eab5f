@@ -25,6 +25,75 @@
     },
     {
       "key": {
+        "uuid": "baa153bc_e077e273",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "I think this is trying to be too clever. I\u0027d much prefer a switch here, or the negative (!float \u0026\u0026 !double \u0026\u0026 !ref).",
+      "range": {
+        "startLine": 56,
+        "startChar": 40,
+        "endLine": 56,
+        "endChar": 42
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_bd81ffdf",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. Why are you returning a CPU register from a floating point?",
+      "range": {
+        "startLine": 140,
+        "startChar": 50,
+        "endLine": 140,
+        "endChar": 61
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_9d8643f4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 146,
+        "startChar": 20,
+        "endLine": 146,
+        "endChar": 31
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_445fe4e2",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -41,6 +110,121 @@
         "startChar": 8,
         "endLine": 254,
         "endChar": 25
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_e05ec2e5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 10
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_ffe3ffb2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 279,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_8067f6c3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "You need a parallel move here (I changed the other backends to do so, you can take a look at how they do it).",
+      "range": {
+        "startLine": 283,
+        "startChar": 19,
+        "endLine": 283,
+        "endChar": 29
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_7d9c9742",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove virtual.",
+      "range": {
+        "startLine": 303,
+        "startChar": 2,
+        "endLine": 303,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_4071ee7a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 325,
+        "startChar": 2,
+        "endLine": 325,
+        "endChar": 9
       },
       "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -65,6 +249,75 @@
     },
     {
       "key": {
+        "uuid": "baa153bc_206eea9e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 372,
+        "startChar": 2,
+        "endLine": 372,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_1d935331",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 402,
+        "startChar": 2,
+        "endLine": 402,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_3fdba7fb",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab4abdf_03831462",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -81,6 +334,99 @@
         "startChar": 4,
         "endLine": 425,
         "endChar": 81
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_604bd225",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Yes, please save them (though it won\u0027t change anything today as you haven\u0027t enabled the linear scan regalloc)",
+      "parentUuid": "fab4abdf_03831462",
+      "range": {
+        "startLine": 424,
+        "startChar": 4,
+        "endLine": 425,
+        "endChar": 81
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_4048ce26",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 454,
+        "startChar": 2,
+        "endLine": 454,
+        "endChar": 9
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_2045ca0c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Isn\u0027t this dead code while you\u0027re not supporting the regalloc? I\u0027d just do UNIMPLEMENTED for now.",
+      "range": {
+        "startLine": 605,
+        "startChar": 27,
+        "endLine": 605,
+        "endChar": 43
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_3d716f7c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 611,
+        "startChar": 27,
+        "endLine": 611,
+        "endChar": 46
       },
       "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -128,6 +474,52 @@
     },
     {
       "key": {
+        "uuid": "baa153bc_a0cb1a2e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Replace with Is64BitsType(type).",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 761,
+        "endChar": 83
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_1fefc393",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 787,
+        "startChar": 0,
+        "endLine": 787,
+        "endChar": 83
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae6dfff_84e3acb0",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -167,6 +559,75 @@
         "startChar": 62,
         "endLine": 1060,
         "endChar": 86
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_40db2efa",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "I guess you just want an fatal here, right? Having this check with the condition line 1214 makes it kind of funny :-). I\u0027d just do LOG(FATAL) \u003c\u003c \"Divisions by ....\"",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1217,
+        "endChar": 97
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa857a2_9d5883f9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "Is the TODO still relevant?",
+      "range": {
+        "startLine": 1243,
+        "startChar": 28,
+        "endLine": 1243,
+        "endChar": 32
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_1f0a23bf",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-17T10:18:03Z",
+      "side": 1,
+      "message": "DCHECK instead. today, we should not be in such a situation.",
+      "range": {
+        "startLine": 1977,
+        "startChar": 17,
+        "endLine": 1977,
+        "endChar": 19
       },
       "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
