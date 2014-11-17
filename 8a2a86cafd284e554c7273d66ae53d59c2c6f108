@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa64fd2_c2c62426",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-17T15:42:11Z",
+      "side": 1,
+      "message": "Why not FRAME_SIZE_REFS_AND_ARGS_CALLEE_SAVE-4+16?",
+      "range": {
+        "startLine": 1119,
+        "startChar": 10,
+        "endLine": 1119,
+        "endChar": 12
+      },
+      "revId": "8a2a86cafd284e554c7273d66ae53d59c2c6f108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
