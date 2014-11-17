@@ -2,6 +2,236 @@
   "comments": [
     {
       "key": {
+        "uuid": "baa153bc_e03a426e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Generate",
+      "range": {
+        "startLine": 1761,
+        "startChar": 34,
+        "endLine": 1761,
+        "endChar": 43
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_7f6daf73",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1870,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1870,
+        "startChar": 6,
+        "endLine": 1870,
+        "endChar": 15
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_3f772742",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1930,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1930,
+        "startChar": 6,
+        "endLine": 1930,
+        "endChar": 15
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_ff3f7f4d",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 16
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_a0343a7f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1714,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Gen?",
+      "range": {
+        "startLine": 1714,
+        "startChar": 37,
+        "endLine": 1714,
+        "endChar": 40
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_bf39f76a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 1792,
+        "startChar": 6,
+        "endLine": 1792,
+        "endChar": 9
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_802a561c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1818,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Is it required to always use RCX for the second operand here?",
+      "range": {
+        "startLine": 1818,
+        "startChar": 55,
+        "endLine": 1818,
+        "endChar": 58
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_7f548f91",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "rdx?",
+      "range": {
+        "startLine": 1819,
+        "startChar": 70,
+        "endLine": 1819,
+        "endChar": 73
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa64fd2_9f3e334f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "rdx:rax?",
+      "range": {
+        "startLine": 1819,
+        "startChar": 20,
+        "endLine": 1819,
+        "endChar": 27
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa153bc_60275254",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1840,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T10:48:11Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 1840,
+        "startChar": 6,
+        "endLine": 1840,
+        "endChar": 9
+      },
+      "revId": "3484d9cdeea49fbc4be4138a7b0be38b00df1a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aa857a2_1dffd3c1",
         "filename": "test/417-optimizing-arith-div/src/Main.java",
         "patchSetId": 5
