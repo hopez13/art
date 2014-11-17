@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9aa64fd2_02a1ac8b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-17T14:47:55Z",
+      "side": 1,
+      "message": "Yes, this is part of our C++ guidelines:\n- #define macros right before you use them, and #undef them right after.",
+      "parentUuid": "baa153bc_c0aa9e67",
+      "range": {
+        "startLine": 254,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 25
+      },
+      "revId": "a35b0e4e06902f624b6f4c7a89e16249421eab5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa153bc_e05ec2e5",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
