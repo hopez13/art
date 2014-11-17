@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a42cfda_652ae21f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-17T23:21:25Z",
+      "side": 1,
+      "message": "without the IsZygote I think the code below becomes a little cryptic, add an explanation",
+      "revId": "a1e4910a4b14496494d40c7caad01b560e86ef15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
