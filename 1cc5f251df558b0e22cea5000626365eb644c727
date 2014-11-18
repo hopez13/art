@@ -22,6 +22,30 @@
       "revId": "1cc5f251df558b0e22cea5000626365eb644c727",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3afc83c4_2734d4fa",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-18T14:51:23Z",
+      "side": 1,
+      "message": "Thanks Calin! I\u0027ll fix this in another CL.",
+      "parentUuid": "f5359ed2_589735ad",
+      "range": {
+        "startLine": 1385,
+        "startChar": 6,
+        "endLine": 1385,
+        "endChar": 85
+      },
+      "revId": "1cc5f251df558b0e22cea5000626365eb644c727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
