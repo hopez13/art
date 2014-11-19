@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad56f7b_ed6ca12c",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "see arm64 comments",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 94
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_cd76fdfe",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "Update the comment for what the parameter of InvalidReg means. What happens in the vase that val_reg is known non-null (e.g. \"this\")? TODO? Perhaps refactor the InvalidReg case into a bulk card mark helper rather than overloading this function.",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 73
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_ed9ae1d0",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "only necessary if the target array is an object array",
+      "range": {
+        "startLine": 497,
+        "startChar": 5,
+        "endLine": 497,
+        "endChar": 52
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_6d86f173",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "This just looks messy I\u0027d leave it to the bulk card mark.",
+      "range": {
+        "startLine": 523,
+        "startChar": 5,
+        "endLine": 525,
+        "endChar": 7
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_4d832d62",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "again only necessary for object arrays",
+      "range": {
+        "startLine": 533,
+        "startChar": 6,
+        "endLine": 533,
+        "endChar": 52
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_cd71dd00",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "see arm64 comments",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 94
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_0d549547",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T19:52:54Z",
+      "side": 1,
+      "message": "see arm64 comments",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 94
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
