@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad56f7b_caf263fb",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-19T18:15:26Z",
+      "side": 1,
+      "message": "If self \u003d\u003d null it can just mean this is a pthread that\u0027s not attached to ART. I think the test you are after is:\n\nif (Runtime::Current() !\u003d nullptr \u0026\u0026 Runtime::Current()-\u003eIsStarted()) {\n  ... code below that tries to do a fancy dump ...\n}\nInvokeUserSignalHandler",
+      "range": {
+        "startLine": 180,
+        "startChar": 7,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "98932505232f2874fde8d145b88c883b07c9b6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
