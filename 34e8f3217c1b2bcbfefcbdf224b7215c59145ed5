@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9abc8f33_8f099522",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-19T18:05:00Z",
+      "side": 1,
+      "message": "I would drop the *Set* from the name. I was confused at first (given the contextual view of 20 lines) and wasn\u0027t sure what the *Set* refers to.",
+      "range": {
+        "startLine": 394,
+        "startChar": 20,
+        "endLine": 394,
+        "endChar": 32
+      },
+      "revId": "34e8f3217c1b2bcbfefcbdf224b7215c59145ed5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abc8f33_0fac85ae",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
