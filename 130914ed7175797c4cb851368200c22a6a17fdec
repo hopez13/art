@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7af35b1b_3e19a96b",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-19T08:33:21Z",
+      "side": 1,
+      "message": "This isn\u0027t really fixing no-relocate tests, right? Ins\u0027t it more about doing the right thing when it comes to cross-compilation?\n\nFYI, optimizing now needs the same \u0027fix\u0027.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 76
+      },
+      "revId": "130914ed7175797c4cb851368200c22a6a17fdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
