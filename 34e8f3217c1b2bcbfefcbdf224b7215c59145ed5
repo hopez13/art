@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7aa19b0b_6e238f9f",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-19T18:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abc8f33_8f099522",
+      "range": {
+        "startLine": 394,
+        "startChar": 20,
+        "endLine": 394,
+        "endChar": 32
+      },
+      "revId": "34e8f3217c1b2bcbfefcbdf224b7215c59145ed5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abc8f33_0fac85ae",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-19T17:51:18Z",
       "side": 1,
       "message": "What do you mean?",
+      "range": {
+        "startLine": 223,
+        "startChar": 15,
+        "endLine": 223,
+        "endChar": 51
+      },
+      "revId": "34e8f3217c1b2bcbfefcbdf224b7215c59145ed5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abc8f33_ef0e6126",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-19T18:11:18Z",
+      "side": 1,
+      "message": "That we could make the AddSorted method understand that safepoints must be placed first or last when they share the same position. I have improved the comments.",
+      "parentUuid": "9abc8f33_0fac85ae",
       "range": {
         "startLine": 223,
         "startChar": 15,
