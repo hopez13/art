@@ -22,6 +22,30 @@
       "revId": "98932505232f2874fde8d145b88c883b07c9b6da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ff64148_a80edf9f",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2014-11-20T20:26:49Z",
+      "side": 1,
+      "message": "Does this mean that it\u0027s possible for ART to have started, but the pthread has not been attached yet?\n\nIf so, then this could still do a null pointer dereference.",
+      "parentUuid": "9ad56f7b_caf263fb",
+      "range": {
+        "startLine": 180,
+        "startChar": 7,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "98932505232f2874fde8d145b88c883b07c9b6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
