@@ -22,6 +22,23 @@
       "revId": "04764d98aa8833485c6da2afa3d26c4c5e69a062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a3d1b9e_4ef2337a",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-20T11:35:11Z",
+      "side": 1,
+      "message": "Actually I\u0027ll refactor this into a platform-dependent UnconditionalMarkGCCard() and implement the branch-over in platform-independent MarkGCCard().",
+      "revId": "04764d98aa8833485c6da2afa3d26c4c5e69a062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
