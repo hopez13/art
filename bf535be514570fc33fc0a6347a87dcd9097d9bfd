@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f0251f8_db045386",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-20T22:21:17Z",
+      "side": 1,
+      "message": "this code for ARM, ARM64 and MIPS is identical except for the thread register which can be computed from TargetReg(kSelf), remove the duplication by placing in Mir2Lir and overriding on x86?",
+      "range": {
+        "startLine": 291,
+        "startChar": 69,
+        "endLine": 298,
+        "endChar": 24
+      },
+      "revId": "bf535be514570fc33fc0a6347a87dcd9097d9bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
