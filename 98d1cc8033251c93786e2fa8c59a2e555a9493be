@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ad56f7b_bca135b6",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-11-20T00:04:01Z",
+      "side": 1,
+      "message": "retrocode review, what was this supposed to do?",
+      "range": {
+        "startLine": 648,
+        "startChar": 0,
+        "endLine": 650,
+        "endChar": 5
+      },
+      "revId": "98d1cc8033251c93786e2fa8c59a2e555a9493be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d97e1025_60ddfa2b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 14
