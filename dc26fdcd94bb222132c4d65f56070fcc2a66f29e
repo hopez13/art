@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a1dff4d_c30ef626",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T16:43:20Z",
+      "side": 1,
+      "message": "Left-over from a different try at refactoring. I removed NeedsStripping.",
+      "parentUuid": "ba5313fc_d0287cb1",
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa32ebd1_ea2d87be",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2014-11-20T09:41:29Z",
       "side": 1,
       "message": "not sure how important performance is here, but fallocate + fadvise(SEQUENTIAL) is usually the norm for large copies.",
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfec397c_618eb611",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T16:43:20Z",
+      "side": 1,
+      "message": "Follow-up patches to this are welcome. But this usually only happens during pre-opting, so I don\u0027t see it as critical.",
+      "parentUuid": "fa32ebd1_ea2d87be",
       "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dfec397c_4183b2e7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1323,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T16:43:20Z",
+      "side": 1,
+      "message": "Yes.\n\nBeing able to have symbols for everything now, we might want to reconsider this.",
+      "parentUuid": "fa32ebd1_2a107f6c",
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba5eb3fb_aca01b89",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -64,6 +118,30 @@
       "writtenOn": "2014-11-20T05:13:15Z",
       "side": 1,
       "message": "patches?",
+      "range": {
+        "startLine": 1688,
+        "startChar": 30,
+        "endLine": 1688,
+        "endChar": 35
+      },
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1dff4d_0319ee6a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T16:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba5eb3fb_aca01b89",
       "range": {
         "startLine": 1688,
         "startChar": 30,
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "dfec397c_019daa3d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T16:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad56f7b_a6d1235f",
+      "range": {
+        "startLine": 1693,
+        "startChar": 24,
+        "endLine": 1693,
+        "endChar": 37
+      },
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da69a7a3_382a801e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -110,6 +212,30 @@
       "writtenOn": "2014-11-20T05:13:15Z",
       "side": 1,
       "message": "// When given --host, finish early without stripping.",
+      "range": {
+        "startLine": 1732,
+        "startChar": 2,
+        "endLine": 1732,
+        "endChar": 25
+      },
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffe73d92_c290e256",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T16:43:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da69a7a3_382a801e",
       "range": {
         "startLine": 1732,
         "startChar": 2,
