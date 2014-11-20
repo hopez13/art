@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7a3d1b9e_8e041b09",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-20T10:42:55Z",
+      "side": 1,
+      "message": "Updated comments and moved to the Mir2Lir::MarkGCCard() declaration.",
+      "parentUuid": "9ad56f7b_cd76fdfe",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 73
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ad56f7b_ed9ae1d0",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2014-11-19T19:52:54Z",
       "side": 1,
       "message": "only necessary if the target array is an object array",
+      "range": {
+        "startLine": 497,
+        "startChar": 5,
+        "endLine": 497,
+        "endChar": 52
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a3d1b9e_ae547715",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-20T10:42:55Z",
+      "side": 1,
+      "message": "As checked by \"if (info-\u003eargs[0].ref)\" above.",
+      "parentUuid": "9ad56f7b_ed9ae1d0",
       "range": {
         "startLine": 497,
         "startChar": 5,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "fa32ebd1_aaa62fc9",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-20T10:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad56f7b_6d86f173",
+      "range": {
+        "startLine": 523,
+        "startChar": 5,
+        "endLine": 525,
+        "endChar": 7
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ad56f7b_4d832d62",
         "filename": "compiler/dex/quick/gen_common.cc",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2014-11-19T19:52:54Z",
       "side": 1,
       "message": "again only necessary for object arrays",
+      "range": {
+        "startLine": 533,
+        "startChar": 6,
+        "endLine": 533,
+        "endChar": 52
+      },
+      "revId": "495bbaedf4be37c07f39a98b11e45b317e02f5de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa32ebd1_ea44a776",
+        "filename": "compiler/dex/quick/gen_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-20T10:42:55Z",
+      "side": 1,
+      "message": "As checked by the if() above.",
+      "parentUuid": "9ad56f7b_4d832d62",
       "range": {
         "startLine": 533,
         "startChar": 6,
