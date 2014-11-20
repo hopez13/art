@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba5eb3fb_aca01b89",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-11-20T05:13:15Z",
+      "side": 1,
+      "message": "patches?",
+      "range": {
+        "startLine": 1688,
+        "startChar": 30,
+        "endLine": 1688,
+        "endChar": 35
+      },
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_a6d1235f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-11-20T05:13:15Z",
+      "side": 1,
+      "message": "finish early without stripping.\n\n(make it clear this is the only reason we bail early)",
+      "range": {
+        "startLine": 1693,
+        "startChar": 24,
+        "endLine": 1693,
+        "endChar": 37
+      },
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da69a7a3_382a801e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-11-20T05:13:15Z",
+      "side": 1,
+      "message": "// When given --host, finish early without stripping.",
+      "range": {
+        "startLine": 1732,
+        "startChar": 2,
+        "endLine": 1732,
+        "endChar": 25
+      },
+      "revId": "dc26fdcd94bb222132c4d65f56070fcc2a66f29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
