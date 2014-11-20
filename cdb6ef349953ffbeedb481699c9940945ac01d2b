@@ -22,6 +22,30 @@
       "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffe73d92_4883d3e7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1871,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-20T19:08:50Z",
+      "side": 1,
+      "message": "I\u0027m not deep enough in the code. But does this take Java semantics (preserved by dex) into account, i.e., is y in the right range when this is called? y is implicitly masked by 0x1f...\n\nThis has an impact here as you are not ensuring that y is non-negative, which is required in C/C++.",
+      "parentUuid": "9ff64148_8547867d",
+      "range": {
+        "startLine": 1871,
+        "startChar": 4,
+        "endLine": 1871,
+        "endChar": 49
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
