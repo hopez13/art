@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f448158_8f5b153f",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-21T10:30:42Z",
+      "side": 1,
+      "message": "This generates more ldr/str for split long(ignoring arm soft-float), but it really make things easier and fits all targets.",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_512394d4",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-21T10:30:42Z",
+      "side": 1,
+      "message": "How about \"GetNextReg(char type)\"?",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_4604f2ef",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-21T10:30:42Z",
+      "side": 1,
+      "message": "How about const char* or std::string?",
+      "range": {
+        "startLine": 1786,
+        "startChar": 22,
+        "endLine": 1786,
+        "endChar": 36
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
