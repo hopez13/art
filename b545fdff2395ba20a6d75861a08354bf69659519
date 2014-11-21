@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f448158_cf2d9d04",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-21T14:09:27Z",
+      "side": 1,
+      "message": "This is inherited from 32bit ARM.  What if class-\u003estatus_ \u003e kStatusInitialized ? Shouldn\u0027t it be B(ne, ...) ?",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_0fee054a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-21T14:09:27Z",
+      "side": 1,
+      "message": "Hans: Do we always have a \"dmb ish st\" before setting the class status to initialised? If so this relaxed order should be sufficient.",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_efb9814e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-21T14:09:27Z",
+      "side": 1,
+      "message": "Would it be worth moving  this logic in VisitSuspend? (following-\u003eIsGoto() ?)\n\nThere are currently 3 places where we decide to add/remove Suspend Checks:\n* HGoto\n* HSuspendCheck\n* instruction_simplifier.cc",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
