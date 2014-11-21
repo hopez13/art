@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3a79c4_b1b760f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-21T10:55:13Z",
+      "side": 1,
+      "message": "This was deliberate. But if you want to run or re-run the pass later, we can relax the condition.",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_6f2d9187",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-21T10:55:13Z",
+      "side": 1,
+      "message": "SplitBlock() was never meant to be used that late. But, as with the NCE pass, we can relax the condition. Then the removal of the DCHECK is the right thing to do, we don\u0027t want to update it for every extended insn.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_06af1a77",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-21T10:55:13Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_71045809",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-21T10:55:13Z",
+      "side": 1,
+      "message": "Can you elaborate on the failure case? As I see it, you just replaced this bit with a slower version that writes MIR::bb in all moved insns twice and needs to look for a predecessor in RemoveMIRList(). (OTOH it\u0027s a bit more readable.)",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 23
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
