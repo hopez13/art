@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f448158_6f47d17e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-21T09:12:49Z",
+      "side": 1,
+      "message": "Explain the magic constant and put it in a kFoobar variable.",
+      "range": {
+        "startLine": 2135,
+        "startChar": 55,
+        "endLine": 2135,
+        "endChar": 59
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_b1e9a017",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-21T09:12:49Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 2179,
+        "startChar": 10,
+        "endLine": 2179,
+        "endChar": 12
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_c678e2b2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-21T09:12:49Z",
+      "side": 1,
+      "message": "Can this really happen? Don\u0027t the instructions and inputs have the same type?",
+      "range": {
+        "startLine": 2092,
+        "startChar": 24,
+        "endLine": 2092,
+        "endChar": 37
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ff64148_8547867d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -162,6 +231,76 @@
         "startChar": 4,
         "endLine": 1871,
         "endChar": 49
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_a685e630",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1871,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-21T09:12:49Z",
+      "side": 1,
+      "message": "Yes, please follow Dex spec.",
+      "parentUuid": "df151930_59a84396",
+      "range": {
+        "startLine": 1871,
+        "startChar": 4,
+        "endLine": 1871,
+        "endChar": 49
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_ef3aa1e9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1874,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-21T09:12:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1874,
+        "startChar": 10,
+        "endLine": 1874,
+        "endChar": 18
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_cf37dd01",
+        "filename": "test/429-optimizing-arith-shifts/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-21T09:12:49Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 7
       },
       "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
