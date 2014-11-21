@@ -73,6 +73,54 @@
     },
     {
       "key": {
+        "uuid": "7f526d24_46eab288",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-21T11:21:44Z",
+      "side": 1,
+      "message": "Yes, that\u0027s great you\u0027ve removed the assumption that 64-bit register is always 32-bit pairs in all these places, so that we can also remove the redundant source code in int_arm.cc and utility_arm.cc which has TODO comment talking about this.",
+      "parentUuid": "9f448158_0faf2577",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_86454a10",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-21T11:21:44Z",
+      "side": 1,
+      "message": "It is something could do, but I don\u0027t it is critical.",
+      "parentUuid": "df3a79c4_11a2acb6",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_512394d4",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
@@ -108,6 +156,30 @@
       "side": 1,
       "message": "This is an interface to implement by each arch, so in the case of \"char type\" each architecture will need to parse this char. So I prefer to do it in common code and provide only required information. That was my intent.",
       "parentUuid": "df3a79c4_512394d4",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_8fbaf5ad",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-21T11:21:44Z",
+      "side": 1,
+      "message": "I think parse the char is more clean. And we parse char or PrimitiveType directly to map in registers in all other places, such as trampoline , jni compiler, optimising compiler.",
+      "parentUuid": "7f526d24_c6990252",
       "range": {
         "startLine": 1777,
         "startChar": 25,
