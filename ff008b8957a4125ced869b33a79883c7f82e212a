@@ -240,6 +240,30 @@
     },
     {
       "key": {
+        "uuid": "ff5e5d2a_8d0e85a0",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-21T17:26:06Z",
+      "side": 1,
+      "message": "Do we really have to make it that complicated? Isn\u0027t a simple enum enough? That allows a nice simple switch in the callee.",
+      "parentUuid": "9f448158_4f776d77",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_4604f2ef",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
