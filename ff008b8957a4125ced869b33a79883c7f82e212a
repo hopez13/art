@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_8f931530",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-21T11:29:02Z",
+      "side": 1,
+      "message": "I think I\u0027ve already done it in this patch :)\nMay be there are other places?",
+      "parentUuid": "7f526d24_46eab288",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_512394d4",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "I think parse the char is more clean. And we parse char or PrimitiveType directly to map in registers in all other places, such as trampoline , jni compiler, optimising compiler.",
       "parentUuid": "7f526d24_c6990252",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_4f776d77",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-21T11:29:02Z",
+      "side": 1,
+      "message": "Potentially I\u0027m ok with that. But instead of char I would suggest to pass some class as ArgumentType with constructor ArgumentType(char type) and implement getters there for fp, wide and ref. What do you think?",
+      "parentUuid": "9f448158_8fbaf5ad",
       "range": {
         "startLine": 1777,
         "startChar": 25,
