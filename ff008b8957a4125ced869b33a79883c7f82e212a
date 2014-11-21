@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_0faf2577",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-21T11:06:29Z",
+      "side": 1,
+      "message": "By the way the similar pattern can be met in several other places (everywhere we should handle split long). They are LoadArg, LoadArgDirect and GenDalvikArgs. If we decide to fix this we should fix that places as well.",
+      "parentUuid": "df3a79c4_11a2acb6",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 31
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_512394d4",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
