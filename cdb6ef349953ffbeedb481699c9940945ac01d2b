@@ -46,6 +46,54 @@
       "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa32ebd1_0d9f55f0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1871,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-21T00:22:23Z",
+      "side": 1,
+      "message": "Maybe. I don\u0027t have a strong preference. I tried to match the Java spec here.",
+      "parentUuid": "9ff64148_8547867d",
+      "range": {
+        "startLine": 1871,
+        "startChar": 4,
+        "endLine": 1871,
+        "endChar": 49
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa32ebd1_edb92171",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1871,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-21T00:22:23Z",
+      "side": 1,
+      "message": "It doesn\u0027t. C++ has undefined behaviour when the shift count is out of range. I figured it after uploading but didn\u0027t have time to fix it:)",
+      "parentUuid": "ffe73d92_4883d3e7",
+      "range": {
+        "startLine": 1871,
+        "startChar": 4,
+        "endLine": 1871,
+        "endChar": 49
+      },
+      "revId": "cdb6ef349953ffbeedb481699c9940945ac01d2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
