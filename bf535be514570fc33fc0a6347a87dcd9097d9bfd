@@ -22,6 +22,30 @@
       "revId": "bf535be514570fc33fc0a6347a87dcd9097d9bfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_b1852031",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-21T10:12:28Z",
+      "side": 1,
+      "message": "ARM64 is a bit different, it allocates wide temps and uses card table offset for 8-byte pointers. (There\u0027s also the TODO comment and As32BitReg() which seem unnecessary.)\n\nI\u0027ll keep this as is for the moment.",
+      "parentUuid": "1f0251f8_db045386",
+      "range": {
+        "startLine": 291,
+        "startChar": 69,
+        "endLine": 298,
+        "endChar": 24
+      },
+      "revId": "bf535be514570fc33fc0a6347a87dcd9097d9bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
