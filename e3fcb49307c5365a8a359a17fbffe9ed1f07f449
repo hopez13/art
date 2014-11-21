@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3a79c4_11cbcc2e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-21T12:21:33Z",
+      "side": 1,
+      "message": "I plan to remove the runtime call once I figure out why my assembly doesn\u0027t work on negatives :)",
+      "range": {
+        "startLine": 2160,
+        "startChar": 20,
+        "endLine": 2160,
+        "endChar": 29
+      },
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
