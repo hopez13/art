@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f9ed122_84468cef",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-11-22T04:25:23Z",
+      "side": 1,
+      "message": "this is an in/out argument so it should appear on the RHS of the argument list and be a pointer not reference type",
+      "range": {
+        "startLine": 281,
+        "startChar": 32,
+        "endLine": 281,
+        "endChar": 54
+      },
+      "revId": "f4ab528beed192a6c78e495c9f83ce3a6aff4fc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
