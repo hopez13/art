@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "da69a7a3_1fa5ab13",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "I rewrote this logic so this part is gone.",
+      "parentUuid": "fa33cb7c_45b6bcfc",
+      "range": {
+        "startLine": 121,
+        "startChar": 17,
+        "endLine": 121,
+        "endChar": 27
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aff77b8_88a037ae",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "I\u0027m having a hard time associating this comment with the \u003c\u003d 0 check...",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 83
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_f60e2e26",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "I rewrote the overflow logic and it\u0027s easier to understand. Even better, it can now eliminate bounds-check for some increment-by-more-than-1 cases in addition to i++ cases. I added some test cases for that.",
+      "parentUuid": "5aff77b8_88a037ae",
       "range": {
         "startLine": 125,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9ad56f7b_3640c62f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "I changed to pick this instead. It\u0027s probably not that important which range to pick if we can\u0027t narrow. Picking this may allow further chances to narrow this monotonic range.",
+      "parentUuid": "fa33cb7c_65966054",
+      "range": {
+        "startLine": 137,
+        "startChar": 42,
+        "endLine": 137,
+        "endChar": 47
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aff77b8_4816bf3a",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 154,
+        "startChar": 43,
+        "endLine": 154,
+        "endChar": 48
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fad66b81_a4775e74",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Same, now pick this.",
+      "parentUuid": "5aff77b8_4816bf3a",
       "range": {
         "startLine": 154,
         "startChar": 43,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "da69a7a3_6287ec36",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3afc83c4_c7098021",
+      "range": {
+        "startLine": 157,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 13
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aff77b8_68405b30",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "This method is only true for loop phis. Should you check that first?",
+      "range": {
+        "startLine": 174,
+        "startChar": 38,
+        "endLine": 174,
+        "endChar": 42
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_16ce623c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Added a phi-\u003eIsInLoop() test to quickly skip non-loop phis. Is that what you mean?",
+      "parentUuid": "5aff77b8_68405b30",
       "range": {
         "startLine": 174,
         "startChar": 38,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "fad66b81_64a6064f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Changed. At some point during the coding I probably wanted to distinguish between returning ValueBound::Max() and this boolean value, but looks like it\u0027s not necessary now.",
+      "parentUuid": "fa33cb7c_85936461",
+      "range": {
+        "startLine": 203,
+        "startChar": 22,
+        "endLine": 203,
+        "endChar": 26
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa33cb7c_050af414",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "Aren\u0027t they all conditions? Should you check IsCondition instead and then ask for GetCondition?",
+      "range": {
+        "startLine": 320,
+        "startChar": 18,
+        "endLine": 320,
+        "endChar": 28
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad56f7b_36544691",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Thanks. That simplifies it a lot.",
+      "parentUuid": "fa33cb7c_050af414",
       "range": {
         "startLine": 320,
         "startChar": 18,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "fad66b81_dfe5ffed",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "ok. Added some handling similarly to VisitAdd().",
+      "parentUuid": "fa33cb7c_252378a0",
+      "range": {
+        "startLine": 357,
+        "startChar": 67,
+        "endLine": 357,
+        "endChar": 75
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa33cb7c_e5459074",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 4
@@ -243,6 +459,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "Shouldn\u0027t that be the name of the function? And it should be static? There\u0027s no notion of lower and upper in a ValueBound, so the name is confusing.\n\nHow about:\nstatic ValueBound Max(ValueBound one, ValueBound two)\n\n?",
+      "range": {
+        "startLine": 68,
+        "startChar": 44,
+        "endLine": 68,
+        "endChar": 52
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da69a7a3_cd546917",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "If we use Max, it\u0027s not accurate when the two bounds are not comparable. Putting narrow lower bound in the name will tolerate that case since it\u0027s allowable to pick even the lowest of the two. It\u0027s just that picking the greatest of the two gives better result. I\u0027ll change it to static and add some comment.",
+      "parentUuid": "fa33cb7c_e5459074",
       "range": {
         "startLine": 68,
         "startChar": 44,
@@ -301,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "fad66b81_711a478e",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "I have some cases where a stack ValueBound value is reassigned, such as:\nValueBound upper \u003d ...\nif (xxx) {\n  upper \u003d ...;\n}\nuse upper;\nSo I can\u0027t keep instruction_ const. Or do you have a better solution?",
+      "parentUuid": "fa33cb7c_c5440c77",
+      "range": {
+        "startLine": 100,
+        "startChar": 15,
+        "endLine": 100,
+        "endChar": 16
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3afc83c4_0784382f",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 4
@@ -347,6 +611,30 @@
     },
     {
       "key": {
+        "uuid": "da69a7a3_4d6a195e",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5aff77b8_487a3fac",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 23
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa33cb7c_056e74f4",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 4
@@ -358,6 +646,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "Coud you please make most of this class private to the implementation? I plan on moving all visitors to .cc files, so optimizations can only have a Run method.\n\nI actually think most of this file can go to the .cc. And we should have one .h with all the optimizations.",
+      "range": {
+        "startLine": 208,
+        "startChar": 6,
+        "endLine": 208,
+        "endChar": 28
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1e355a_037c98a4",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Done. The .h file is really small now. Please check if I did what you expected.",
+      "parentUuid": "fa33cb7c_056e74f4",
       "range": {
         "startLine": 208,
         "startChar": 6,
@@ -393,6 +705,30 @@
     },
     {
       "key": {
+        "uuid": "fad66b81_11402b61",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Ok, I changed it to use instruction id.",
+      "parentUuid": "5aff77b8_c854ef16",
+      "range": {
+        "startLine": 222,
+        "startChar": 24,
+        "endLine": 222,
+        "endChar": 36
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3afc83c4_67640c08",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 4
@@ -404,6 +740,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "Please put high-level comments on all those non-visitor functions.",
+      "range": {
+        "startLine": 243,
+        "startChar": 7,
+        "endLine": 243,
+        "endChar": 22
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba5eb3fb_78b6c1fc",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3afc83c4_67640c08",
       "range": {
         "startLine": 243,
         "startChar": 7,
@@ -439,6 +799,30 @@
     },
     {
       "key": {
+        "uuid": "ba5eb3fb_5823bd9e",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Since ArenaSafeMap has a std::map, I want to make sure it\u0027s destructed correctly. So I use a std::vector and unique_ptr for it. Any better ideas?",
+      "parentUuid": "5aff77b8_884ef784",
+      "range": {
+        "startLine": 256,
+        "startChar": 5,
+        "endLine": 256,
+        "endChar": 7
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3afc83c4_275e1432",
         "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
         "patchSetId": 4
@@ -462,6 +846,30 @@
     },
     {
       "key": {
+        "uuid": "ba5eb3fb_78932130",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3afc83c4_275e1432",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa33cb7c_857a84a9",
         "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
         "patchSetId": 4
@@ -473,6 +881,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "This is probably too low-level. Maybe add a helper: CheckInstructionIsInGraph?",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 11
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f1e355a_c3858030",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "Added a IsRemoved(HInstruction*) helper.",
+      "parentUuid": "fa33cb7c_857a84a9",
       "range": {
         "startLine": 126,
         "startChar": 2,
@@ -519,6 +951,30 @@
       "writtenOn": "2014-11-18T15:35:47Z",
       "side": 1,
       "message": "Wow, very nice that you wrote that direclty in C++! :) But wouldn\u0027t it have been easier to write it in DEX instructions?",
+      "range": {
+        "startLine": 662,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 15
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba5eb3fb_d818ad1b",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-11-22T08:47:53Z",
+      "side": 1,
+      "message": "I need to assert some IR nodes are eliminated. Does that require doing what I did?\nIt\u0027s not that bad. I seem to be more familiar with this IR than DEX instructions.",
+      "parentUuid": "5aff77b8_88c95788",
       "range": {
         "startLine": 662,
         "startChar": 0,
