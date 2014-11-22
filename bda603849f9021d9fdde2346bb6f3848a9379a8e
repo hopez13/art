@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df151930_3c17bdb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-11-22T01:56:39Z",
+      "side": 1,
+      "message": "Thank you! :)",
+      "parentUuid": "df3a79c4_b1b760f9",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_6f2d9187",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-21T10:55:13Z",
       "side": 1,
       "message": "SplitBlock() was never meant to be used that late. But, as with the NCE pass, we can relax the condition. Then the removal of the DCHECK is the right thing to do, we don\u0027t want to update it for every extended insn.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff101d40_ddef9fc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-11-22T01:56:39Z",
+      "side": 1,
+      "message": "Thank you! :)",
+      "parentUuid": "9f448158_6f2d9187",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "bf0a2512_129dfc3d",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-11-22T01:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f526d24_06af1a77",
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_71045809",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2014-11-21T10:55:13Z",
       "side": 1,
       "message": "Can you elaborate on the failure case? As I see it, you just replaced this bit with a slower version that writes MIR::bb in all moved insns twice and needs to look for a predecessor in RemoveMIRList(). (OTOH it\u0027s a bit more readable.)",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 23
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0a2512_5255b4bf",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-11-22T01:56:39Z",
+      "side": 1,
+      "message": "So the main issue is that the instruction links are not correctly created. Namely, there is no link from the old last instruction to the throw instruction (via next ptr).\n\nHowever, there is also another issue not really visible here - which is that the code assumes the overwrite of kMirOpCheck MIR is safe and that the bookkeeping done is all that needs updated. But that may not be the case (imagine we add a prev field to MIR). For that reason, it is preferred to use the utility methods because they will update all that needs updated when two blocks get merged like this. :)\n\nFinally, I also think it is a bit more readable as well :)",
+      "parentUuid": "df3a79c4_71045809",
       "range": {
         "startLine": 808,
         "startChar": 0,
