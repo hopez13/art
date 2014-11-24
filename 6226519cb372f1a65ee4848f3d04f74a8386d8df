@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f526d24_8fa43d47",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T15:49:58Z",
+      "side": 1,
+      "message": "Add a comment why this needs to be in ECX.",
+      "range": {
+        "startLine": 2147,
+        "startChar": 55,
+        "endLine": 2147,
+        "endChar": 58
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_18e529ee",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T15:49:58Z",
+      "side": 1,
+      "message": "What\u0027s \u0027we\u0027? Please replace.",
+      "range": {
+        "startLine": 2212,
+        "startChar": 8,
+        "endLine": 2212,
+        "endChar": 10
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_3ab46578",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T15:49:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2224,
+        "startChar": 8,
+        "endLine": 2224,
+        "endChar": 10
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_6f9341e8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T15:49:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2236,
+        "startChar": 8,
+        "endLine": 2236,
+        "endChar": 10
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_f8c94564",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T15:49:58Z",
+      "side": 1,
+      "message": "I thought x86_64 removed the requirements of byte registers? It did for other instructions. Add a comment (and maybe book chapter?) if it does require RCX.",
+      "range": {
+        "startLine": 2039,
+        "startChar": 38,
+        "endLine": 2039,
+        "endChar": 60
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_2f8d49c2",
+        "filename": "test/431-optimizing-arith-shifts/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T15:49:58Z",
+      "side": 1,
+      "message": "Full sentences please (here and below): Capital letter first and period at the end.",
+      "range": {
+        "startLine": 55,
+        "startChar": 7,
+        "endLine": 55,
+        "endChar": 11
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
