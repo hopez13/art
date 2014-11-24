@@ -264,6 +264,30 @@
     },
     {
       "key": {
+        "uuid": "df3a79c4_b45f4e64",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T04:11:55Z",
+      "side": 1,
+      "message": "simple switch will not be enough, you need a bit more complex thing basing on pair \u003cwide, fp\u003e. Why don\u0027t we like my approach? It does not seem complex to me. And it seems to me operating on fp, wide, ref semantic a bit more natural for GetNextReg than accepting char. Let\u0027s do in this way. I will upload my case and if it seems complex to both of you I will re-implement in in your way.",
+      "parentUuid": "ff5e5d2a_8d0e85a0",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_4604f2ef",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
