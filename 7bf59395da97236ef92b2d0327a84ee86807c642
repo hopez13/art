@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f448158_7841d5d7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "I don\u0027t think you need the const here.",
+      "range": {
+        "startLine": 253,
+        "startChar": 2,
+        "endLine": 253,
+        "endChar": 7
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_c51b3a8f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "If you need these casts, why not making everything int64_t instead of int, then?",
+      "range": {
+        "startLine": 314,
+        "startChar": 16,
+        "endLine": 314,
+        "endChar": 23
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_ba02992d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "Please avoid too many stl magic. Can\u0027t you allocate the arena with the allocator and then put it in maps_?",
+      "range": {
+        "startLine": 372,
+        "startChar": 32,
+        "endLine": 372,
+        "endChar": 36
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_7a1e6188",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "Why don\u0027t you get the range of right instead?",
+      "range": {
+        "startLine": 454,
+        "startChar": 23,
+        "endLine": 454,
+        "endChar": 45
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_8551b228",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "Can\u0027t you just replace this with phi-\u003eIsLoopHeaderPhi? And then add a DCHECK that it has exactly two inputs?",
+      "range": {
+        "startLine": 549,
+        "startChar": 8,
+        "endLine": 549,
+        "endChar": 49
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_d851e1a2",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_fa113173",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "private DISALLOW...",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 2
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_2550c61e",
+        "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "You could move this to optimizing_unit_test.h",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_d89a01fd",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:59:04Z",
+      "side": 1,
+      "message": "You can call it bce :-)",
+      "range": {
+        "startLine": 201,
+        "startChar": 25,
+        "endLine": 201,
+        "endChar": 29
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
