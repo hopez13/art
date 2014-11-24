@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7f526d24_cf68f564",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-24T15:34:26Z",
+      "side": 1,
+      "message": "thanks! done.",
+      "parentUuid": "ff5e5d2a_9331060e",
+      "range": {
+        "startLine": 1842,
+        "startChar": 67,
+        "endLine": 1842,
+        "endChar": 69
+      },
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f5d6134_ad24a94f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2014-11-21T18:32:49Z",
       "side": 1,
       "message": "I\u0027d be tempted to have this as a uint32_t as the shift value is always a uint32_t.",
+      "range": {
+        "startLine": 1885,
+        "startChar": 19,
+        "endLine": 1885,
+        "endChar": 26
+      },
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_1a676198",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-24T15:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f5d6134_ad24a94f",
       "range": {
         "startLine": 1885,
         "startChar": 19,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_380ead27",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-24T15:34:26Z",
+      "side": 1,
+      "message": "good point. done",
+      "parentUuid": "9f5d6134_ed54e194",
+      "range": {
+        "startLine": 1137,
+        "startChar": 19,
+        "endLine": 1137,
+        "endChar": 24
+      },
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff5e5d2a_73a332be",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 5
@@ -105,6 +177,24 @@
       "writtenOn": "2014-11-21T18:32:49Z",
       "side": 1,
       "message": "count",
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_fa6b7d5e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-24T15:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5e5d2a_73a332be",
       "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -128,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "7f526d24_af75b93a",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-24T15:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf586542_ae85c330",
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f5d6134_0db9756e",
         "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
         "patchSetId": 5
@@ -139,6 +247,30 @@
       "writtenOn": "2014-11-21T18:32:49Z",
       "side": 1,
       "message": "count",
+      "range": {
+        "startLine": 415,
+        "startChar": 35,
+        "endLine": 415,
+        "endChar": 36
+      },
+      "revId": "e3fcb49307c5365a8a359a17fbffe9ed1f07f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_981eb94e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-24T15:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f5d6134_0db9756e",
       "range": {
         "startLine": 415,
         "startChar": 35,
