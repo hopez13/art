@@ -288,6 +288,30 @@
     },
     {
       "key": {
+        "uuid": "df151930_7faac719",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-24T07:06:57Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand the necessity of the pair. If the enum is ref/int/long/float/double, it covers all combinations (and not more, i.e., your parameters have meaningless combinations).",
+      "parentUuid": "df3a79c4_b45f4e64",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_4604f2ef",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
