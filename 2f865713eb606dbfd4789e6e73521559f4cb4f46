@@ -823,6 +823,30 @@
     },
     {
       "key": {
+        "uuid": "df3a79c4_851e5285",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:42:08Z",
+      "side": 1,
+      "message": "Since ArenaSafeMap and GrowableArray are used in an arena environment, you should not care about destruction (it\u0027s a bug in these data structures if you have to care). So I\u0027d just go with GrowableArray.",
+      "parentUuid": "ba5eb3fb_5823bd9e",
+      "range": {
+        "startLine": 256,
+        "startChar": 5,
+        "endLine": 256,
+        "endChar": 7
+      },
+      "revId": "2f865713eb606dbfd4789e6e73521559f4cb4f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3afc83c4_275e1432",
         "filename": "compiler/optimizing/bounds_check_elimination_test.cc",
         "patchSetId": 4
