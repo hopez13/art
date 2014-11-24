@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3a79c4_374b6078",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T10:12:35Z",
+      "side": 1,
+      "message": "I\u0027m unfamiliar with this pattern but have seen it before. Why don\u0027t we change the CHECK macro instead?",
+      "range": {
+        "startLine": 212,
+        "startChar": 8,
+        "endLine": 212,
+        "endChar": 17
+      },
+      "revId": "90675a77fa03850ebd46280e60b0ff54b8d5eb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
