@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f448158_38dfcde2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:30:04Z",
+      "side": 1,
+      "message": "No need any more, the compiler falls back to interpreter and there is no quick frame to deal with at runtime.",
+      "range": {
+        "startLine": 634,
+        "startChar": 10,
+        "endLine": 634,
+        "endChar": 21
+      },
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_cf2d9d04",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -13,6 +36,24 @@
       "writtenOn": "2014-11-21T14:09:27Z",
       "side": 1,
       "message": "This is inherited from 32bit ARM.  What if class-\u003estatus_ \u003e kStatusInitialized ? Shouldn\u0027t it be B(ne, ...) ?",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_2f6c2929",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:30:04Z",
+      "side": 1,
+      "message": "I don\u0027t understand. If it\u0027s greater or equal it\u0027s initialized, so nothing to do.",
+      "parentUuid": "9f448158_cf2d9d04",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -47,6 +88,47 @@
       "writtenOn": "2014-11-21T14:09:27Z",
       "side": 1,
       "message": "Would it be worth moving  this logic in VisitSuspend? (following-\u003eIsGoto() ?)\n\nThere are currently 3 places where we decide to add/remove Suspend Checks:\n* HGoto\n* HSuspendCheck\n* instruction_simplifier.cc",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_780e75da",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:30:04Z",
+      "side": 1,
+      "message": "So the logic in the backends should be where to place these suspend checks. instruciton_simplifier will just remove them from the graph.\n\nA backend could as well decide not to do anything and generate the suspend checks where it sees them.",
+      "parentUuid": "9f448158_efb9814e",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_8f831d62",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:30:04Z",
+      "side": 1,
+      "message": "We\u0027re not using counters on arm anymore. Can we get rid of this as well for arm64?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 71
+      },
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
