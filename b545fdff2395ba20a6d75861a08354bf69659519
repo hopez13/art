@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "7f526d24_7acc21c8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-24T16:39:46Z",
+      "side": 1,
+      "message": "What I meant here is - if class-\u003estatus_ has a random, higher than kStatusInitialized value we should not go through. Thus for every !\u003d kStatusInitialized value of class-\u003estatus_ we should go to slow_path-\u003eGetEntryLabel().\n\n__ B(ne, slow_path-\u003eGetEntryLabel()",
+      "parentUuid": "7f526d24_2f6c2929",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_0fee054a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -129,6 +147,24 @@
         "endLine": 47,
         "endChar": 71
       },
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_f86b855e",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-24T16:39:46Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "7f526d24_8f831d62",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
