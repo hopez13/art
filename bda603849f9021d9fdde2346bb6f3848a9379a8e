@@ -175,6 +175,30 @@
       "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_75d68009",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-24T11:10:25Z",
+      "side": 1,
+      "message": "About \"there is no link from the old last instruction to the throw instruction (via next ptr)\"... The old last instruction was been dead and has been completely replaced, so there\u0027s no reason to have that link.\n\nBut the other two reasons are compelling.",
+      "parentUuid": "bf0a2512_5255b4bf",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 23
+      },
+      "revId": "bda603849f9021d9fdde2346bb6f3848a9379a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
