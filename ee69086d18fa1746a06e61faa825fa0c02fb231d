@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "df3a79c4_b7851031",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T10:40:02Z",
+      "side": 1,
+      "message": "After thinking about this a bit more we need to do more things here. For example let\u0027s 3 is index of input VR which is wide and should be split. The question is where 4-th VR should be handled. Three possible ways: bulk copy, mapped to memory and mapped to physical.\n\nWith the current code it will be handled in part of the code responsible for physical mapping.\n\nIf we adjust lat_mapped_in and implement GetMaxMappedIn as it is in arm64 right now then we should understand where it should be handled. It seems to me that it would be too complex. A lot of code for corner case. Any thought on this?\nI\u0027m still thinking myself how to do that better.",
+      "parentUuid": "7f526d24_0c13bb4d",
+      "range": {
+        "startLine": 811,
+        "startChar": 10,
+        "endLine": 811,
+        "endChar": 41
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_4cbf73d6",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 2
