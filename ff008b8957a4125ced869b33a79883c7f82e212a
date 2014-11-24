@@ -312,6 +312,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_55d13c5c",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T07:30:07Z",
+      "side": 1,
+      "message": "I\u0027m sorry too Andreas, I do not follow your point :)\n\nSo, my point is that we can introduce the enum (pretty the same as char but makes more sense in terms of semantic of GetNextReg). But inside of GetNextReg you are not actually interested in any of these types. You are interested in attributes of this type. It means that inside implementation each arch will need to use comparison to (long or double) or comparison to (float or double). That was I named as pair.\n\nTo me it is a question of taste :) Please look into my patch set 2 and if it is not ok, let me know and I will update it to use enum.",
+      "parentUuid": "df151930_7faac719",
+      "range": {
+        "startLine": 1777,
+        "startChar": 25,
+        "endLine": 1777,
+        "endChar": 87
+      },
+      "revId": "ff008b8957a4125ced869b33a79883c7f82e212a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_4604f2ef",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
