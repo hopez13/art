@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "7f526d24_8faafddf",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2039,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T16:17:26Z",
+      "side": 1,
+      "message": "Well... that\u0027s because it was meant for instructions requiring a specific byte register or constant :-) This is the first use of requesting a register or constant that isn\u0027t necessarily byte. You can rename it if you want.",
+      "parentUuid": "7f526d24_6fc6a1db",
+      "range": {
+        "startLine": 2039,
+        "startChar": 38,
+        "endLine": 2039,
+        "endChar": 60
+      },
+      "revId": "6226519cb372f1a65ee4848f3d04f74a8386d8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_2f8d49c2",
         "filename": "test/431-optimizing-arith-shifts/src/Main.java",
         "patchSetId": 7
