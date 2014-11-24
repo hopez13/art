@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df3a79c4_f7115873",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "Will do, it makes me thinking is that we need a method returning the first in mem mapping after last register mapped. Because we do not have an information about wideness here otherwise.",
+      "parentUuid": "7f526d24_0c13bb4d",
+      "range": {
+        "startLine": 811,
+        "startChar": 10,
+        "endLine": 811,
+        "endChar": 41
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_4cbf73d6",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-24T08:59:53Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_55fa5cd6",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "7f526d24_4cbf73d6",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "7f526d24_2c2797a9",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "df7199c8_b9089fc5",
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_b2387e10",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2014-11-24T08:59:53Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 52
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_f5083051",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "9f448158_b2387e10",
       "range": {
         "startLine": 114,
         "startChar": 0,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "9f448158_35efd818",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "bf0a2512_1f650405",
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_d7053439",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 2
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_15f4d4e6",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "I think arm64 is ok. I will think a bit more about this in the new patch set. This should be re-worked taking into account all your comments about this stuff.",
+      "parentUuid": "df3a79c4_d7053439",
+      "range": {
+        "startLine": 1336,
+        "startChar": 7,
+        "endLine": 1336,
+        "endChar": 21
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_2c0e7727",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 2
@@ -139,6 +271,30 @@
       "writtenOn": "2014-11-24T08:59:53Z",
       "side": 1,
       "message": "It would be better to add some comments here. It is counting v-reg rather than shorty.\nAs we changed the input from RegLocation to shorty, it becomes not so obvious.",
+      "range": {
+        "startLine": 1801,
+        "startChar": 10,
+        "endLine": 1801,
+        "endChar": 24
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_d70e5453",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-24T09:23:34Z",
+      "side": 1,
+      "message": "I can add a comment. It actually means the last VR mapped to physical register.",
+      "parentUuid": "7f526d24_2c0e7727",
       "range": {
         "startLine": 1801,
         "startChar": 10,
