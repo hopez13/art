@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "9f448158_b82a9de8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-24T17:28:46Z",
+      "side": 1,
+      "message": "Can we have something greater than kStatusInitialized?",
+      "parentUuid": "7f526d24_7acc21c8",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_0fee054a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
