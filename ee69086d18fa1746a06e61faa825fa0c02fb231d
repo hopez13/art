@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f526d24_0c13bb4d",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "Probably adjust the value of last_mapped_in is better, since we do not want to rely on RegLocation.",
+      "range": {
+        "startLine": 811,
+        "startChar": 10,
+        "endLine": 811,
+        "endChar": 41
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_4cbf73d6",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df7199c8_b9089fc5",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "Should we add some TODO/TUNING comments here, so that we know this can be improved later?",
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_b2387e10",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 52
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0a2512_1f650405",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "Should we add some TODO/TUNING comments here, so that we know this can be improved later?",
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_d7053439",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "This is not the max mapped in v-reg index or number. I know this is taken from x86_64 backend. But I think the implementation in arm64 backend looks better.\nWould you please take a look at https://android-review.googlesource.com/#/c/99350/ which fixes the counting issue of max_mapped_in_?\nOr would you please add more verbose comment on this variable if you want to keep this implementation?",
+      "range": {
+        "startLine": 1336,
+        "startChar": 7,
+        "endLine": 1336,
+        "endChar": 21
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_2c0e7727",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-24T08:59:53Z",
+      "side": 1,
+      "message": "It would be better to add some comments here. It is counting v-reg rather than shorty.\nAs we changed the input from RegLocation to shorty, it becomes not so obvious.",
+      "range": {
+        "startLine": 1801,
+        "startChar": 10,
+        "endLine": 1801,
+        "endChar": 24
+      },
+      "revId": "ee69086d18fa1746a06e61faa825fa0c02fb231d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
