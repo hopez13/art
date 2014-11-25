@@ -22,6 +22,30 @@
       "revId": "90675a77fa03850ebd46280e60b0ff54b8d5eb79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f3e41e9_62a2f8b7",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-25T19:50:25Z",
+      "side": 1,
+      "message": "I think it\u0027s additional overhead, and we have a limited amount of places where this can happen.",
+      "parentUuid": "df3a79c4_374b6078",
+      "range": {
+        "startLine": 212,
+        "startChar": 8,
+        "endLine": 212,
+        "endChar": 17
+      },
+      "revId": "90675a77fa03850ebd46280e60b0ff54b8d5eb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
