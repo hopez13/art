@@ -70,6 +70,30 @@
       "revId": "7ae063bf396534bc3022cbc3a681c5302e864db8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcc1153_b435e619",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-25T17:26:27Z",
+      "side": 1,
+      "message": "The CL is mostly to keep the current state of all boot classpath classes being at least verified. To keep the status quo, it\u0027s fine to use the debug version: we have pre-opted targets on the build server that will execute dex2oatd to create the boot image (and as we\u0027re [mostly] deterministic, that will be exactly as on device).",
+      "parentUuid": "df3a79c4_8b5b01f6",
+      "range": {
+        "startLine": 1699,
+        "startChar": 21,
+        "endLine": 1699,
+        "endChar": 26
+      },
+      "revId": "7ae063bf396534bc3022cbc3a681c5302e864db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
