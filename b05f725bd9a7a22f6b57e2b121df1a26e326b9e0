@@ -22,6 +22,30 @@
       "revId": "b05f725bd9a7a22f6b57e2b121df1a26e326b9e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_baa7394b",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2014-11-25T07:55:22Z",
+      "side": 1,
+      "message": "In both loops below (for stack and reg arguments) we are starting from the first parameter and iterates by the size of the argument. split wide we\u0027d like to handle in reg handling part. So consider the cases:\n1) no split of last wide arg. Then no problem at all. In the loop below we are iterating from the beginning up to the end (if bulk did not copied) or till the last mapped (if bulk did its job).\n2) last wide is split. In the loop for stack we sill iterate from the beginning up to the end (if bulk did not copied) and split will be skipped because we increment iterator by argument size and we will not consider high part (for the low part valid register will be reported). Or up to the last mapped. split will be skipped as well.\n\nNow in the reg part we will iterate up to the last mapped (which is low part) and will handle high part there.\n\nSo everything seems correct to me.",
+      "parentUuid": "7f526d24_3ab46978",
+      "range": {
+        "startLine": 820,
+        "startChar": 82,
+        "endLine": 820,
+        "endChar": 91
+      },
+      "revId": "b05f725bd9a7a22f6b57e2b121df1a26e326b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
