@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f4a5199_e14ba2ef",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-25T23:51:12Z",
+      "side": 1,
+      "message": "Could you put this into $(ART_HOST_DEBUG_CFLAGS) and so on? That way the change would be a bit more localized and \"global.\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "3f4bf84d33f7c0aa07348732e3b480e53e86d742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
