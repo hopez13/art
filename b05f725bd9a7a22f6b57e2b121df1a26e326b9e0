@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f526d24_3ab46978",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-25T07:02:54Z",
+      "side": 1,
+      "message": "This is a bit different with the original code, and it is better since it avoids duplicated copy.\n\nBut I think the correct algorithm should be :\n  first_after_last_mapped_in +\u003d adjust;\n  regs_left_to_pass_via_stack -\u003d adjust;\n  regs_left_to_pass_via_stack \u003d GenDalvikArgsBulkCopy(info, first_after_last_mapped_in, regs_left_to_pass_via_stack);\n\nOtherwise, first_after_last_mapped_in + regs_left_to_pass_via_stack will be wrong which is used by the below loop which handles the stack arguments. But maybe we need to find a better name for first_after_last_mapped_in, for example, stack_map_start.",
+      "range": {
+        "startLine": 820,
+        "startChar": 82,
+        "endLine": 820,
+        "endChar": 91
+      },
+      "revId": "b05f725bd9a7a22f6b57e2b121df1a26e326b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
