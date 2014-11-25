@@ -118,6 +118,30 @@
       "revId": "7ae063bf396534bc3022cbc3a681c5302e864db8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcc1153_1f417366",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-25T17:35:05Z",
+      "side": 1,
+      "message": "Sure, it\u0027s possible. I\u0027m mostly following frameworks/ traditions here, which ignore some errors and hope that the device still boots.\n\nWhat I really wanted is a *build* breakage, so somebody actively notices and fixes the problem *before* it normally hits a device. I thought it\u0027s fine to do this on the host, as we have (somewhat) continuous testing there, and we won\u0027t pay the price in -eng, -userdebug or old devices.",
+      "parentUuid": "df3a79c4_ab45a50f",
+      "range": {
+        "startLine": 1699,
+        "startChar": 21,
+        "endLine": 1699,
+        "endChar": 26
+      },
+      "revId": "7ae063bf396534bc3022cbc3a681c5302e864db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
