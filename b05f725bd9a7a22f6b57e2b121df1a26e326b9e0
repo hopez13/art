@@ -46,6 +46,53 @@
       "revId": "b05f725bd9a7a22f6b57e2b121df1a26e326b9e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_7a9301e8",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-25T08:15:09Z",
+      "side": 1,
+      "message": "The problem is not on the high part split register. There is problem with the last stack register.\n\nFor example, we have the map like, 012(register/stack) 3(high part of 2) 456(stack). first_after_last_mapped_in \u003d 3, regs_left_to_pass_via_stack \u003d 4, adjust \u003d 1. It is correct without adjustment.\n\nAfter GenDalvikArgsBulkCopy(info, 3+1, 4-1), if we copied nothing in the function, regs_left_to_pass_via_stack becomes **3**. It will introduce bug in the next loop. See below comments.",
+      "parentUuid": "7f526d24_baa7394b",
+      "range": {
+        "startLine": 820,
+        "startChar": 82,
+        "endLine": 820,
+        "endChar": 91
+      },
+      "revId": "b05f725bd9a7a22f6b57e2b121df1a26e326b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_45d06a88",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2014-11-25T08:15:09Z",
+      "side": 1,
+      "message": "Continue with the comments in line 820.\n\nThis will be 6. We know register 3 will be handled in the next loop and regs_left_to_pass_via_stack was reduced by one. But in this loop, we cover registers 012345. register 6 is missed.",
+      "range": {
+        "startLine": 832,
+        "startChar": 13,
+        "endLine": 832,
+        "endChar": 69
+      },
+      "revId": "b05f725bd9a7a22f6b57e2b121df1a26e326b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
