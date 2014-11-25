@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f448158_84a09489",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "which one? I couldn\u0027t find it.",
+      "range": {
+        "startLine": 11,
+        "startChar": 16,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_e4ef60c2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "Since they are of different type, you don\u0027t need this.",
+      "range": {
+        "startLine": 2306,
+        "startChar": 64,
+        "endLine": 2306,
+        "endChar": 80
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_5d2d1bbc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 2370,
+        "startChar": 64,
+        "endLine": 2370,
+        "endChar": 80
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_a4e958be",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 913,
+        "startChar": 64,
+        "endLine": 913,
+        "endChar": 80
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_46bc1492",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "Document what this enum means, as well as the individual values.",
+      "range": {
+        "startLine": 1366,
+        "startChar": 7,
+        "endLine": 1366,
+        "endChar": 11
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_8648cc26",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1378,
+        "startChar": 2,
+        "endLine": 1378,
+        "endChar": 9
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_a645c80f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T22:08:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1385,
+        "startChar": 2,
+        "endLine": 1385,
+        "endChar": 9
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
