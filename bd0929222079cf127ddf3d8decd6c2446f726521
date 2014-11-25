@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f526d24_f5cf0237",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-25T14:31:41Z",
+      "side": 1,
+      "message": "looks like a good candidate for switch.",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 272,
+        "endChar": 7
+      },
+      "revId": "bd0929222079cf127ddf3d8decd6c2446f726521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_4031788f",
         "filename": "compiler/utils/x86/assembler_x86.cc",
         "patchSetId": 3
@@ -13,6 +36,30 @@
       "writtenOn": "2014-11-25T12:55:17Z",
       "side": 1,
       "message": "Worth adding an assembler test with int8 values?",
+      "range": {
+        "startLine": 1327,
+        "startChar": 8,
+        "endLine": 1327,
+        "endChar": 17
+      },
+      "revId": "bd0929222079cf127ddf3d8decd6c2446f726521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_49c4056f",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-25T14:31:41Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "df3a79c4_4031788f",
       "range": {
         "startLine": 1327,
         "startChar": 8,
