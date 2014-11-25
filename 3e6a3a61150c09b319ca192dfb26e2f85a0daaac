@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df3a79c4_053f02fc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "nit: move that field initialization to the new line and either put the other one on the same line or indent them the same way,",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 86
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_1e2cf187",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 10
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_de3d49b2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "Do we have a kFooBar instead?",
+      "range": {
+        "startLine": 77,
+        "startChar": 21,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_fe400d32",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "*table -\u003e table[0].",
+      "range": {
+        "startLine": 77,
+        "startChar": 14,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_1ee511ee",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "Can that be int32_t for the entry itself?",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 15
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_40d61857",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "I dont\u0027 think this helps readability in the C++ case. I find it much more readable to have a GetEntryAt.",
+      "range": {
+        "startLine": 86,
+        "startChar": 25,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_c538da11",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "How can it be negative?",
+      "range": {
+        "startLine": 284,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 9
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_a535d619",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "I\u0027d just get rid of this test.",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 40
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_9e37c1d0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "do we have a MAX_INT16 or something?",
+      "range": {
+        "startLine": 310,
+        "startChar": 26,
+        "endLine": 310,
+        "endChar": 31
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3a79c4_80cc00c9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "Add a comment why starting a 1.",
+      "range": {
+        "startLine": 311,
+        "startChar": 28,
+        "endLine": 311,
+        "endChar": 29
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_fec92d64",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "MAX_INT16?",
+      "range": {
+        "startLine": 876,
+        "startChar": 21,
+        "endLine": 876,
+        "endChar": 26
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_dec66954",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T10:27:45Z",
+      "side": 1,
+      "message": "Can we have backward branches in a switch?",
+      "range": {
+        "startLine": 882,
+        "startChar": 4,
+        "endLine": 882,
+        "endChar": 30
+      },
+      "revId": "3e6a3a61150c09b319ca192dfb26e2f85a0daaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
