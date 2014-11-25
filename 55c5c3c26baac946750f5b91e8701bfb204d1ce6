@@ -22,6 +22,30 @@
       "revId": "55c5c3c26baac946750f5b91e8701bfb204d1ce6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_fee24d5c",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-25T12:43:17Z",
+      "side": 0,
+      "message": "Yes, when the value fitted in an 8-bit integer, the stack pointer would be moved by only one byte (instead of four).  Hence the new \"forced\" 32-bit (4-byte) immediate pushl instruction.",
+      "parentUuid": "df3a79c4_a093842f",
+      "range": {
+        "startLine": 1324,
+        "startChar": 2,
+        "endLine": 1324,
+        "endChar": 7
+      },
+      "revId": "55c5c3c26baac946750f5b91e8701bfb204d1ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
