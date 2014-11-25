@@ -22,6 +22,30 @@
       "revId": "3f4bf84d33f7c0aa07348732e3b480e53e86d742",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_c66b245f",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-25T23:57:21Z",
+      "side": 1,
+      "message": "This sounds much better. Done. ART_USE_PORTABLE_COMPILER pre-dates art_cflags?",
+      "parentUuid": "1f4a5199_e14ba2ef",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "3f4bf84d33f7c0aa07348732e3b480e53e86d742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
