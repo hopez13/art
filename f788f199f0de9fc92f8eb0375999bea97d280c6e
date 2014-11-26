@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_44d06c88",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1825,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-11-26T11:05:55Z",
+      "side": 1,
+      "message": "Agreed. BTW, we have a kIsTargetBuild to know if we\u0027re building for the target or not.",
+      "parentUuid": "1fa5f182_c9dfb565",
+      "range": {
+        "startLine": 1825,
+        "startChar": 14,
+        "endLine": 1825,
+        "endChar": 34
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_840e54d7",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 2
