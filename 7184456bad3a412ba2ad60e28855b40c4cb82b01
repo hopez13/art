@@ -22,6 +22,30 @@
       "revId": "7184456bad3a412ba2ad60e28855b40c4cb82b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2f3db3_b693a061",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-26T09:37:47Z",
+      "side": 1,
+      "message": "The only user of this list is just above: DumpThreadList. The map stores the names of threads when they get unregistered in ThreadList. It\u0027s a std::string, so memory management is not an issue.\n\nFrom test failures it seems that we get the same tid being unregistered twice. (Can happen if you attach - detach - re-attach - detach a thread, I think.)\n\nThe issue is with Put. In SafeMap, you cannot Put the same key twice.",
+      "parentUuid": "5f404975_fdb7c7f7",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 738,
+        "endChar": 70
+      },
+      "revId": "7184456bad3a412ba2ad60e28855b40c4cb82b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
