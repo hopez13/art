@@ -94,6 +94,29 @@
       "revId": "7184456bad3a412ba2ad60e28855b40c4cb82b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_e6a0a005",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T09:50:42Z",
+      "side": 1,
+      "message": "Please add that SafeMap does not support Put with an existing entry.",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 738,
+        "endChar": 70
+      },
+      "revId": "7184456bad3a412ba2ad60e28855b40c4cb82b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
