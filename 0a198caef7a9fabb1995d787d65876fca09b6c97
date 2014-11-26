@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df027941_b4542e94",
+        "filename": "build/Android.common_utils.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-11-26T18:34:16Z",
+      "side": 1,
+      "message": "Sorry, I was following the style of Android.build.mk\n\nShould it be prefixed there with ART_ as well?",
+      "parentUuid": "1fa5f182_c6556448",
+      "range": {
+        "startLine": 17,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_69d1e15c",
         "filename": "build/Android.executable.mk",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ff581d71_143b6cbd",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-11-26T18:34:16Z",
+      "side": 1,
+      "message": "Yes, good catch, I originally called this build-art-cmdline-executable but then noticed it would be more useful as a general-purpose executable builder function. Need to rename local vars to match.",
+      "parentUuid": "1fa5f182_69d1e15c",
+      "range": {
+        "startLine": 140,
+        "startChar": 10,
+        "endLine": 140,
+        "endChar": 17
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_8441b4da",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-11-26T10:22:59Z",
       "side": 1,
       "message": "Move it to art/tools?",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df027941_14989aff",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-11-26T18:34:16Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand.\n\nThe existing convention I tried my best to follow was:\n\n* each binary gets its own top level directory (dex2oat, patchoat, oatdump, and now imgdiag)\n* each test goes into the same directory as what its testing, with _test.cc as the file suffix\n\nCan you elaborate the ask please?",
+      "parentUuid": "9f448158_8441b4da",
       "range": {
         "startLine": 76,
         "startChar": 2,
