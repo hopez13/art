@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3f663537_779d8a6f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1825,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-26T10:12:57Z",
+      "side": 1,
+      "message": "Yes, the intent is to have as small an impact when there\u0027s no output requested. But even just getting the pointer is a sequence of loads. And I can\u0027t change the signature of this method, as it\u0027s set for parallel compilation. That\u0027s why I went with debug-build. If you prefer to remove that, that\u0027s fine with me.\n\nI don\u0027t think we have a host flag, do we? (It would be unfair to key it off being x86(-64)...)",
+      "parentUuid": "9f448158_046ca476",
+      "range": {
+        "startLine": 1825,
+        "startChar": 14,
+        "endLine": 1825,
+        "endChar": 34
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_840e54d7",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 2
