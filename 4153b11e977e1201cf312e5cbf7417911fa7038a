@@ -46,6 +46,30 @@
       "revId": "4153b11e977e1201cf312e5cbf7417911fa7038a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_5b7286d6",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T21:59:30Z",
+      "side": 1,
+      "message": "It was a nit. Replace the || by \u0026\u0026. I find it more readable than the double ternary operator.",
+      "parentUuid": "5fee89c7_f3488827",
+      "range": {
+        "startLine": 172,
+        "startChar": 24,
+        "endLine": 172,
+        "endChar": 25
+      },
+      "revId": "4153b11e977e1201cf312e5cbf7417911fa7038a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
