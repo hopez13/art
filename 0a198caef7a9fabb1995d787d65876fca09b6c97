@@ -263,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "1f633129_56db327b",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T19:06:57Z",
+      "side": 1,
+      "message": "Not sure I follow. There are many other reasons for a tool to bitrot even if it builds. We should not force everyone to build all tools under the android tree.\n\nSo if you don\u0027t want the tool to bitrot, you can add a test that is part of our test infrastructure, and have make understand that for running the test, it needs to build the tool.",
+      "parentUuid": "ff581d71_b4b6005d",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_a635c819",
         "filename": "imgdiag/imgdiag_test.cc",
         "patchSetId": 1
