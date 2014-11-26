@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f404975_fdb7c7f7",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T09:33:54Z",
+      "side": 1,
+      "message": "This confuses me. Are key/value pairs leaked out of the internal data structure, and users of the map assume that pair they fetched is always in it?",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 738,
+        "endChar": 70
+      },
+      "revId": "7184456bad3a412ba2ad60e28855b40c4cb82b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
