@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "3f4d55af_3095d0a2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-11-26T01:22:25Z",
+      "side": 1,
+      "message": "It\u0027s probably unflushed store buffers and outstanding loads rather than caches.  And this isn\u0027t the place to teach people about memory ordering.  Maybe just delete that part of the comment, leaving\n// Even if the initialized flag is set, we need to ensure consistent ...\n\nThat\u0027s not part of the proposed change, but while we\u0027re touching this comment ...",
+      "range": {
+        "startLine": 818,
+        "startChar": 73,
+        "endLine": 818,
+        "endChar": 79
+      },
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_0fee054a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -107,6 +130,24 @@
       "writtenOn": "2014-11-21T14:09:27Z",
       "side": 1,
       "message": "Hans: Do we always have a \"dmb ish st\" before setting the class status to initialised? If so this relaxed order should be sufficient.",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f572141_dad00106",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-11-26T01:22:25Z",
+      "side": 1,
+      "message": "AFAICT, we effectively set the initialized flag using a Java volatile store.  That\u0027s overkill, but it\u0027ll do, and it\u0027s not performance critical.  I suspect just a dmb st would not be correct because loads in the initialization code could see stores in code that follows the initialization.  You probably need a full dmb.  Thus the comment looks wrong to me, but the code looks correct.\n\nTheoretically an acquire load should be cheaper.  You might know whether it is in practice.\n\nThis may not be the best way to do the initialization check due to the barrier/ordering costs.  We\u0027ve been discussing some possible alternatives. But that\u0027s a separate issue.",
+      "parentUuid": "9f448158_0fee054a",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
