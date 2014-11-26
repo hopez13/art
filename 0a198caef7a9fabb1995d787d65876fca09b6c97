@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "5f692905_045fc02d",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-11-26T18:47:51Z",
+      "side": 1,
+      "message": "Actually I am more worried about the \"not something we are going to ship\". Since I haven\u0027t done anything special to the makefiles , it will always be built right now. \n\nIf this is a highly desirable goal then:\n\nHow do you recommend filtering it to not \"always ship\"? We could filter by target variant, or it could only build with NDEBUG\u003dfalse (but then that version will be slower since its less optimized). Or..?\n\n------\n\nAs for moving it under tools, that seems straight forward and happy to move imgdiag and oatdump into art/tools if nobody else has an objection with that.",
+      "parentUuid": "5f404975_e0455c0f",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_a635c819",
         "filename": "imgdiag/imgdiag_test.cc",
         "patchSetId": 1
