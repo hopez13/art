@@ -96,6 +96,24 @@
     },
     {
       "key": {
+        "uuid": "9f448158_2478c8e9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-26T12:01:19Z",
+      "side": 1,
+      "message": "It seems not, I do not know why the first time I have looked at this I was under the impression that there can be other states \u003e kStatusInitialized.",
+      "parentUuid": "9f448158_b82a9de8",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f4d55af_3095d0a2",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -113,6 +131,24 @@
         "endLine": 818,
         "endChar": 79
       },
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_048dc48f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-26T12:01:19Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "3f4d55af_3095d0a2",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -148,6 +184,24 @@
       "side": 1,
       "message": "AFAICT, we effectively set the initialized flag using a Java volatile store.  That\u0027s overkill, but it\u0027ll do, and it\u0027s not performance critical.  I suspect just a dmb st would not be correct because loads in the initialization code could see stores in code that follows the initialization.  You probably need a full dmb.  Thus the comment looks wrong to me, but the code looks correct.\n\nTheoretically an acquire load should be cheaper.  You might know whether it is in practice.\n\nThis may not be the best way to do the initialization check due to the barrier/ordering costs.  We\u0027ve been discussing some possible alternatives. But that\u0027s a separate issue.",
       "parentUuid": "9f448158_0fee054a",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f633129_f31b708e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-26T12:01:19Z",
+      "side": 1,
+      "message": "Thanks Hans! Will remove the comments. For now, the Dmb(Domain, Read) is cheaper than the load-acquire.",
+      "parentUuid": "9f572141_dad00106",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
