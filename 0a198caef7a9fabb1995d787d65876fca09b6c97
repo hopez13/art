@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "5f404975_40e530b8",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T18:51:12Z",
+      "side": 1,
+      "message": "The tool can just be a build rule, that you invoke. Existing rules do not need to depend on it.",
+      "parentUuid": "5f692905_045fc02d",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_a635c819",
         "filename": "imgdiag/imgdiag_test.cc",
         "patchSetId": 1
