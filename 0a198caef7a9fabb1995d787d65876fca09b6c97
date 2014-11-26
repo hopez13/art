@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5f404975_40bc1092",
+        "filename": "build/Android.common_utils.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T18:41:10Z",
+      "side": 1,
+      "message": "What Android.build.mk ?\n\nThe name being pretty generic, it\u0027s prone to clashes with other .mk helpers.",
+      "parentUuid": "df027941_b4542e94",
+      "range": {
+        "startLine": 17,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_69d1e15c",
         "filename": "build/Android.executable.mk",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I\u0027m not sure I understand.\n\nThe existing convention I tried my best to follow was:\n\n* each binary gets its own top level directory (dex2oat, patchoat, oatdump, and now imgdiag)\n* each test goes into the same directory as what its testing, with _test.cc as the file suffix\n\nCan you elaborate the ask please?",
       "parentUuid": "9f448158_8441b4da",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_e0455c0f",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T18:41:10Z",
+      "side": 1,
+      "message": "Sure :)\n\nThe imgdiag is not something we are going to ship, so I find it cleaner to have it under a tools directory. (oatdump should somewhat also be there, but it\u0027s closely related to dex2oat, so....).",
+      "parentUuid": "df027941_14989aff",
       "range": {
         "startLine": 76,
         "startChar": 2,
