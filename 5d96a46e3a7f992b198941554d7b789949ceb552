@@ -45,6 +45,54 @@
       "revId": "5d96a46e3a7f992b198941554d7b789949ceb552",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2f3db3_56ba14e7",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-26T09:24:37Z",
+      "side": 1,
+      "message": "I can actually put it at the CHECK. I had \"developed\" it separately when looking for the naming (which requires having the whole if block).",
+      "parentUuid": "5f404975_dd5beb3d",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "5d96a46e3a7f992b198941554d7b789949ceb552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff2f3db3_36bf90d7",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-26T09:24:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f448158_64ea5089",
+      "range": {
+        "startLine": 75,
+        "startChar": 18,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "5d96a46e3a7f992b198941554d7b789949ceb552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
