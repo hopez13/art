@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_046ca476",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1825,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T10:07:27Z",
+      "side": 1,
+      "message": "Yeah, we should definitely not do it, so it\u0027s not about lower-end, it\u0027s about that we don\u0027t want to do it on device.",
+      "parentUuid": "1fa5f182_269f98c1",
+      "range": {
+        "startLine": 1825,
+        "startChar": 14,
+        "endLine": 1825,
+        "endChar": 34
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_840e54d7",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 2
@@ -64,6 +88,29 @@
         "startChar": 35,
         "endLine": 707,
         "endChar": 63
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_e4688064",
+        "filename": "tools/analyze-init-failures.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T10:07:27Z",
+      "side": 1,
+      "message": "2014",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
       },
       "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
