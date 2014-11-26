@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa5f182_269f98c1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1825,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-11-26T09:53:54Z",
+      "side": 1,
+      "message": "I believe we won\u0027t use the output file for on-device compilation, will we? I think we\u0027d just use the tool on the host to increase pre-initialization coverage. In that case, the test below should be enough.",
+      "range": {
+        "startLine": 1825,
+        "startChar": 14,
+        "endLine": 1825,
+        "endChar": 34
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_840e54d7",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-11-26T09:53:54Z",
+      "side": 1,
+      "message": "std::ostream const*",
+      "range": {
+        "startLine": 253,
+        "startChar": 2,
+        "endLine": 253,
+        "endChar": 15
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_469094b2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-11-26T09:53:54Z",
+      "side": 1,
+      "message": "What if the file can\u0027t be created (wrong path, no permission, ...)? We should at least print a warning.",
+      "range": {
+        "startLine": 707,
+        "startChar": 35,
+        "endLine": 707,
+        "endChar": 63
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_042b8421",
+        "filename": "tools/analyze-init-failures.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-11-26T09:53:54Z",
+      "side": 1,
+      "message": "This comment is out-of-sync with this file.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 69
+      },
+      "revId": "f788f199f0de9fc92f8eb0375999bea97d280c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
