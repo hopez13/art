@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f404975_60402cd2",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-26T21:52:01Z",
+      "side": 1,
+      "message": "How about (kIsDebugBuild || (gAborting \u003d\u003d 0)) ? FATAL : ERROR.",
+      "range": {
+        "startLine": 172,
+        "startChar": 24,
+        "endLine": 172,
+        "endChar": 25
+      },
+      "revId": "4153b11e977e1201cf312e5cbf7417911fa7038a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
