@@ -22,6 +22,30 @@
       "revId": "4153b11e977e1201cf312e5cbf7417911fa7038a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fee89c7_f3488827",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-11-26T21:55:18Z",
+      "side": 1,
+      "message": "This would make this always fatal on first try, which changes the semantics. I\u0027m not deep enough into this to understand whether this should actually be a CHECK...",
+      "parentUuid": "5f404975_60402cd2",
+      "range": {
+        "startLine": 172,
+        "startChar": 24,
+        "endLine": 172,
+        "endChar": 25
+      },
+      "revId": "4153b11e977e1201cf312e5cbf7417911fa7038a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
