@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff581d71_602ca689",
+        "filename": "imgdiag/imgdiag_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-11-26T00:36:37Z",
+      "side": 1,
+      "message": "This test is failing right now on host because we don\u0027t have permissions to read /proc/kpagestats but it passes fine on device (since it adb roots first).\n\nDo we want to petition the build team to add grant our tests extra permissions? Make this test device-only? Something else?",
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
