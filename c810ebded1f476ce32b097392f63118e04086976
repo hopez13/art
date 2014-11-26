@@ -70,6 +70,30 @@
       "revId": "c810ebded1f476ce32b097392f63118e04086976",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_18976451",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-11-26T14:03:41Z",
+      "side": 1,
+      "message": "It follows the Quick convention for stack layout at least (with Method* at sp[0]). Currently we either have Quick frame (compiled code and native/proxy) or Shadow frame (interpreter).",
+      "parentUuid": "9f448158_04ba6442",
+      "range": {
+        "startLine": 129,
+        "startChar": 16,
+        "endLine": 129,
+        "endChar": 29
+      },
+      "revId": "c810ebded1f476ce32b097392f63118e04086976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
