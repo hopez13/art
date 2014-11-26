@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "df7199c8_621ecc88",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1010669
+      },
+      "writtenOn": "2014-11-26T01:01:40Z",
+      "side": 1,
+      "message": "The existing code clobbered v0 (but not v1) in the exception case.\nIf that is okay, this nop could be safely dropped, with some comment about v0 getting harmlessly clobbered.\n\nWhen performance isn\u0027t critical, I prefer not dropping half of a sometime-2-opcode macro into a delay slot.\n\nCode is much easier to maintain in reorder mode.  Is it important to be using noreorder mode throughout this module?",
+      "parentUuid": "ff581d71_c0401233",
+      "revId": "ee91e4737566acc06270c9957303519ef3cb5c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f572141_171374ff",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 1
@@ -65,6 +83,24 @@
         "endLine": 1238,
         "endChar": 26
       },
+      "revId": "ee91e4737566acc06270c9957303519ef3cb5c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fb9e1ac_aa182f93",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1010669
+      },
+      "writtenOn": "2014-11-26T01:01:40Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you want done.\n\nI was puzzled at this instance of saving $f0/$f1 using +4 and +0 offsets into their stack area, whereas everywhere else the code has been using +0 and +4.  It didn\u0027t look to me like it mattered here.",
+      "parentUuid": "3f4d55af_859aa8ce",
       "revId": "ee91e4737566acc06270c9957303519ef3cb5c8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
