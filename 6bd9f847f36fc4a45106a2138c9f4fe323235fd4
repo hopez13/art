@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_8493f4e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "There was a test against IsRegister() instead of IsRegisterPair() for a register pair. I removed the comment since the fix was minor anyway.",
+      "parentUuid": "9f448158_84a09489",
+      "range": {
+        "startLine": 11,
+        "startChar": 16,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_e4ef60c2",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-25T22:08:03Z",
       "side": 1,
       "message": "Since they are of different type, you don\u0027t need this.",
+      "range": {
+        "startLine": 2306,
+        "startChar": 64,
+        "endLine": 2306,
+        "endChar": 80
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_e905d138",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2306,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "indeed. done.",
+      "parentUuid": "9f448158_e4ef60c2",
       "range": {
         "startLine": 2306,
         "startChar": 64,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5f404975_3dff6f78",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f404975_5d2d1bbc",
+      "range": {
+        "startLine": 2370,
+        "startChar": 64,
+        "endLine": 2370,
+        "endChar": 80
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_a4e958be",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-11-25T22:08:03Z",
       "side": 1,
       "message": "No need.",
+      "range": {
+        "startLine": 913,
+        "startChar": 64,
+        "endLine": 913,
+        "endChar": 80
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_ddd00b06",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f448158_a4e958be",
       "range": {
         "startLine": 913,
         "startChar": 64,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5f404975_dde92bbe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fa5f182_46bc1492",
+      "range": {
+        "startLine": 1366,
+        "startChar": 7,
+        "endLine": 1366,
+        "endChar": 11
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_8648cc26",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_c42a1cea",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fa5f182_8648cc26",
+      "range": {
+        "startLine": 1378,
+        "startChar": 2,
+        "endLine": 1378,
+        "endChar": 9
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_a645c80f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2014-11-25T22:08:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1385,
+        "startChar": 2,
+        "endLine": 1385,
+        "endChar": 9
+      },
+      "revId": "6bd9f847f36fc4a45106a2138c9f4fe323235fd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_3da00f88",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-26T11:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fa5f182_a645c80f",
       "range": {
         "startLine": 1385,
         "startChar": 2,
