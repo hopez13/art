@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f147587_c4ef7e90",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-27T15:23:39Z",
+      "side": 1,
+      "message": "looking at this:\n- the destination is a double stack location\n- the source is a quickParam: (reg + stack slot)\n- movl will only move one word (the register)\n\nDon\u0027t you need to move the stack part as well?",
+      "range": {
+        "startLine": 661,
+        "startChar": 6,
+        "endLine": 665,
+        "endChar": 64
+      },
+      "revId": "3171b5c89cedca1ebbb47512dc69710258c86f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
