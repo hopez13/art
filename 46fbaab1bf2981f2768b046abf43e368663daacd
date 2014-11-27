@@ -22,6 +22,30 @@
       "revId": "46fbaab1bf2981f2768b046abf43e368663daacd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f633129_f65fde62",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-27T12:57:23Z",
+      "side": 1,
+      "message": "Yes it is. position is the lifetime start of the block. Here position is odd, which means just doing + 1 will lead you to the first instruction of the block.",
+      "parentUuid": "1f633129_567852ea",
+      "range": {
+        "startLine": 913,
+        "startChar": 48,
+        "endLine": 913,
+        "endChar": 66
+      },
+      "revId": "46fbaab1bf2981f2768b046abf43e368663daacd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
