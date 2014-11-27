@@ -1,0 +1,389 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f448158_b2b75ef9",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Nit: mixing non-doxygen comments with doxygen tags?",
+      "range": {
+        "startLine": 175,
+        "startChar": 2,
+        "endLine": 175,
+        "endChar": 4
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_52c1520e",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "4 repetitions, that\u0027s almost asking for a helper function.",
+      "range": {
+        "startLine": 965,
+        "startChar": 0,
+        "endLine": 970,
+        "endChar": 7
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_49af6528",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Helper function?",
+      "range": {
+        "startLine": 1201,
+        "startChar": 0,
+        "endLine": 1208,
+        "endChar": 7
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f526d24_29b42978",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Missing comment?",
+      "range": {
+        "startLine": 1341,
+        "startChar": 6,
+        "endLine": 1341,
+        "endChar": 8
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f633129_569fb2bf",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Not extending to if-cc (non-Z) yet?",
+      "range": {
+        "startLine": 532,
+        "startChar": 24,
+        "endLine": 532,
+        "endChar": 42
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_834bc275",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Don\u0027t compare bool to \"false\", use \"!\" instead.",
+      "range": {
+        "startLine": 532,
+        "startChar": 66,
+        "endLine": 532,
+        "endChar": 75
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_3bcb422f",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Always false. You can DCHECK() that but it should not be part of the condition.",
+      "range": {
+        "startLine": 532,
+        "startChar": 6,
+        "endLine": 532,
+        "endChar": 20
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_7b466af2",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "I\u0027d prefer \"if (...) return false\";",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 49
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_63c95684",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Are you not extending this to (ft_tk !\u003d nullptr) \u0026\u0026 (ft_tk \u003d\u003d tk_ft || ft_tk \u003d\u003d tk_tk) yet?\n\nOnce extended, to make this readable it should really be\n  BasicBlock* ft_next \u003d (ft_tk !\u003d nullptr) ? ft_tk : ft_ft;\n  BasicBlock* tk_next \u003d (tk_tk !\u003d nullptr) ? tk_tk : tk_ft;\n  bool cond_join \u003d (ft_next \u003d\u003d tk_next);",
+      "range": {
+        "startLine": 562,
+        "startChar": 19,
+        "endLine": 562,
+        "endChar": 79
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_7b3c2a69",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "This is messy and allows GOTO only in the taken branch. Create a SelectKind(BasicBlock*) overload, use it to get kinds for both branches and then check they are the same and not kSelectNone.",
+      "range": {
+        "startLine": 575,
+        "startChar": 8,
+        "endLine": 585,
+        "endChar": 74
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_1b2bde21",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Simplify using the tk_next suggested above.",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 599,
+        "endChar": 7
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f633129_7673ce11",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "You\u0027re starting to overwrite *mir straight away? Since you introduced the GenSelectGate() I thought you would create a new MIR, intialize it and ask GenSelectGate() whether it\u0027s OK to use it.",
+      "range": {
+        "startLine": 609,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 78
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_c33aeae9",
+        "filename": "compiler/dex/mir_optimization_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f633129_96514aa4",
+        "filename": "compiler/dex/mir_optimization_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "These should be ASSERT_EQ(). The loops below MUST NOT be executed if the sizes differ. (Could read beyond the end of mirs_ or crash on the DCHECK() in MIRGraph::GetBasicBlock().)",
+      "range": {
+        "startLine": 941,
+        "startChar": 0,
+        "endLine": 942,
+        "endChar": 52
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_9b5b4ef6",
+        "filename": "compiler/dex/mir_optimization_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "This is repeated in all select tests for \"success\". Move the array to the base class SelectOptimizationTest.",
+      "range": {
+        "startLine": 975,
+        "startChar": 0,
+        "endLine": 983,
+        "endChar": 4
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_a3787eb1",
+        "filename": "compiler/dex/mir_optimization_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "This is the same as the bbs in PrepareDiamond(). Move that one out of PrepareDiamond() and reuse here.",
+      "range": {
+        "startLine": 1134,
+        "startChar": 0,
+        "endLine": 1142,
+        "endChar": 4
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f404975_63467680",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T12:41:57Z",
+      "side": 1,
+      "message": "Don\u0027t compare bools to \"false\" or \"true\", use \"!\" in this case.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 28,
+        "endLine": 1211,
+        "endChar": 37
+      },
+      "revId": "47e5cfb289b9751350f5f106bc75ace18c712c8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
