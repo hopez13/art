@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1f633129_7931ff8f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-27T15:48:09Z",
+      "side": 1,
+      "message": "nit: there\u0027s already some repetition with this constants. You could use a static constexpr to avoid it.",
+      "range": {
+        "startLine": 1612,
+        "startChar": 37,
+        "endLine": 1612,
+        "endChar": 55
+      },
+      "revId": "95e06d0d661a17822cfd7dfca71eccc4ce597744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f17698b_25f48e32",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
