@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f17698b_88375702",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-11-27T18:23:32Z",
+      "side": 1,
+      "message": "I\u0027m rewriting that. These opcodes should not generate suspend checks in leaf methods when I\u0027m done.",
+      "range": {
+        "startLine": 1234,
+        "startChar": 40,
+        "endLine": 1234,
+        "endChar": 82
+      },
+      "revId": "3afe360be6224c9d5283a597a2a61dffc290ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
