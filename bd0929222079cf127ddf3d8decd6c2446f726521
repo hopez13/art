@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fa5f182_e3b6525e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-27T11:47:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f526d24_f5cf0237",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 272,
+        "endChar": 7
+      },
+      "revId": "bd0929222079cf127ddf3d8decd6c2446f726521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3a79c4_4031788f",
         "filename": "compiler/utils/x86/assembler_x86.cc",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2014-11-25T14:31:41Z",
       "side": 1,
       "message": "+1",
+      "parentUuid": "df3a79c4_4031788f",
+      "range": {
+        "startLine": 1327,
+        "startChar": 8,
+        "endLine": 1327,
+        "endChar": 17
+      },
+      "revId": "bd0929222079cf127ddf3d8decd6c2446f726521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_89a30dbd",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-27T11:47:42Z",
+      "side": 1,
+      "message": "Actually, the original implementation of pushl was correct and moved the stack pointer by four bytes on x86 even in the case of an 8-bit immediate value.  I added a test for LoadLongConstant in compiler/utils/x86/assembler_x86_test.cc.",
       "parentUuid": "df3a79c4_4031788f",
       "range": {
         "startLine": 1327,
