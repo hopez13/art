@@ -22,6 +22,30 @@
       "revId": "3171b5c89cedca1ebbb47512dc69710258c86f7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f147587_4436ee89",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-27T15:33:26Z",
+      "side": 1,
+      "message": "The DCHECK below checks that the quick parameter stack location is the same as the destination. That\u0027s because the only case we can have such a move is when moving a quick parameter location to its stack slot, and the caller has already put the high part in the stack slot.",
+      "parentUuid": "3f147587_c4ef7e90",
+      "range": {
+        "startLine": 661,
+        "startChar": 6,
+        "endLine": 665,
+        "endChar": 64
+      },
+      "revId": "3171b5c89cedca1ebbb47512dc69710258c86f7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
