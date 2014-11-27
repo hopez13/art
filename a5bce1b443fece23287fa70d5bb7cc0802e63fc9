@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f448158_9be58ebb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-11-27T11:53:39Z",
+      "side": 1,
+      "message": "Isn\u0027t that the same TODO as the one in assemblers? Since you\u0027re not touching the stack in the following code, the TODO is a bit confusing, so I suggest removing it.",
+      "range": {
+        "startLine": 1626,
+        "startChar": 13,
+        "endLine": 1626,
+        "endChar": 17
+      },
+      "revId": "a5bce1b443fece23287fa70d5bb7cc0802e63fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
