@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "9f448158_d8967c21",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-28T13:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f448158_38dfcde2",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_cf2d9d04",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -155,6 +173,24 @@
     },
     {
       "key": {
+        "uuid": "5f404975_401ed087",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-28T13:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f448158_048dc48f",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f448158_0fee054a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -202,6 +238,24 @@
       "side": 1,
       "message": "Thanks Hans! Will remove the comments. For now, the Dmb(Domain, Read) is cheaper than the load-acquire.",
       "parentUuid": "9f572141_dad00106",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f448158_388108d6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-28T13:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f633129_f31b708e",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -278,6 +332,24 @@
       "side": 1,
       "message": "Will do.",
       "parentUuid": "7f526d24_8f831d62",
+      "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f633129_33bcc891",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-11-28T13:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f448158_f86b855e",
       "revId": "b545fdff2395ba20a6d75861a08354bf69659519",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
