@@ -22,6 +22,24 @@
       "revId": "3afe360be6224c9d5283a597a2a61dffc290ef1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffcbbd63_6273f611",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-11-28T15:59:49Z",
+      "side": 1,
+      "message": "This is good news. I noticed that if-then-else blocks are often compiled as DEX code containing backward branches (despite there are no \"real\" backward jumps in the original Java code). This means that leaf methods containing one or more if-then-else statements contain multiple suspend checks and are not recognised as leaf methods. It will be interesting to see how many more methods are detected as true-leaves once your work is finished.",
+      "parentUuid": "5f17698b_88375702",
+      "revId": "3afe360be6224c9d5283a597a2a61dffc290ef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
