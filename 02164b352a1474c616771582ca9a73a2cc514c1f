@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f17698b_cb6ca9a7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2164,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-11-28T16:27:11Z",
+      "side": 1,
+      "message": "Going through further tests I found out that this is still not completely correct (from an error before this patch), for example for conversion from byte to char ((byte)-1 yields (char)255 instead of (char)65535). We can fix that here or in an the next incoming patch, as you prefer.",
+      "revId": "02164b352a1474c616771582ca9a73a2cc514c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
