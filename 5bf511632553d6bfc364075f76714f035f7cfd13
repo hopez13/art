@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f17698b_08508750",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-28T14:37:20Z",
+      "side": 1,
+      "message": "if [ ! -f $test_jar ];\nthen\n   echo \"Before running build $test_jar\"\n   exit\nfi",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 8
+      },
+      "revId": "5bf511632553d6bfc364075f76714f035f7cfd13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f147587_aa404b31",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-11-28T14:37:20Z",
+      "side": 1,
+      "message": "Hmm, why? I think we should run all of them.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "5bf511632553d6bfc364075f76714f035f7cfd13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
