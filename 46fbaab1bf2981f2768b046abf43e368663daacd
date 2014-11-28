@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1f633129_7cc60d29",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-11-28T11:09:17Z",
+      "side": 1,
+      "message": "Nit: it\u0027s just a matter of taste, but I would write it\n\n  position % 2 \u003d\u003d 0\n\ninstead. :-)",
+      "range": {
+        "startLine": 891,
+        "startChar": 9,
+        "endLine": 891,
+        "endChar": 28
+      },
+      "revId": "46fbaab1bf2981f2768b046abf43e368663daacd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f633129_567852ea",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
