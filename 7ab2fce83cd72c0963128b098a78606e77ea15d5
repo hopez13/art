@@ -22,6 +22,30 @@
       "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_cdecddd0",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-01T18:02:29Z",
+      "side": 0,
+      "message": "Do you want me to insert artificial GOTO insn on fall-through to loop heads without if-cc/z? (Its only purpose would be to hold the MIR_IGNORE_SUSPEND_CHECK.)",
+      "parentUuid": "dfb999d9_b9937f61",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 24
+      },
+      "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
