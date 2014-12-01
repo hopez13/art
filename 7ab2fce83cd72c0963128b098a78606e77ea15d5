@@ -70,6 +70,30 @@
       "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_50e092de",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-01T19:18:03Z",
+      "side": 0,
+      "message": "But any code that needs to know about suspend points presumably wants to know about the new fall-through case.",
+      "parentUuid": "dfb999d9_39c12f10",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 24
+      },
+      "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
