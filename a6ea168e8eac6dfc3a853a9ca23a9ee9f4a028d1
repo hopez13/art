@@ -2,6 +2,188 @@
   "comments": [
     {
       "key": {
+        "uuid": "ff82dd17_0aa09b87",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "GenDalvikArgs",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_2423d2d5",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "of the first",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_8d174137",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "information",
+      "range": {
+        "startLine": 767,
+        "startChar": 19,
+        "endLine": 767,
+        "endChar": 20
+      },
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_e4fffabd",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "remaining",
+      "range": {
+        "startLine": 769,
+        "startChar": 30,
+        "endLine": 769,
+        "endChar": 31
+      },
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_041ed686",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "handle.",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_2aa55f98",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "// instead of /* */?",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_4aaa9367",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "remaining",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_cd214998",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "optimal",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_4428cead",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "Now handle any remaining VRs mapped to the stack.",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f76ed13_266d96f7",
+        "filename": "compiler/dex/quick/mir_to_lir-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-01T11:08:19Z",
+      "side": 1,
+      "message": "I\u0027d replace this nested ternary-if with something a bit clearer.",
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f8d0d44_8e11fb74",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 4
