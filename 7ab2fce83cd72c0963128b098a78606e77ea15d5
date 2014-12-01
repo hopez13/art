@@ -118,6 +118,30 @@
       "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_67130c4d",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-01T19:41:21Z",
+      "side": 0,
+      "message": "I\u0027m worried about back-edges like this:\n\n  const v0, #0\n  goto :loop_head\n  :top\n  add-int/lit8 v0, v0, #1\n  // fall-through back-edge here: insert a \"goto :loop_head\"\n  :loop_head\n  const v1, #100\n  if-ge v0, v1, :exit\n  [loop body]\n  goto :top                // not a back-edge\n  :exit",
+      "parentUuid": "bfaea591_dbc3c7c1",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 24
+      },
+      "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
