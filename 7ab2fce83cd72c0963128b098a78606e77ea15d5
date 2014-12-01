@@ -94,6 +94,30 @@
       "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfaea591_dbc3c7c1",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-01T19:28:03Z",
+      "side": 0,
+      "message": "I get what you mean - you are worried about back-edges that are gotos. Yes, please do what you said because you are right :)",
+      "parentUuid": "5f8a0930_50e092de",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 24
+      },
+      "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
