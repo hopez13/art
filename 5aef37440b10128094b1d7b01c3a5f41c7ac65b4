@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5f8a0930_70e58eed",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-01T19:27:16Z",
+      "side": 1,
+      "message": "MIR is very close to the dalvik instruction and as such embedding the type in the opcode seems cleaner to me. Otherwise we\u0027re going to mix two different approaches which can lead to confusion.",
+      "parentUuid": "bfaea591_7bb9db6d",
+      "range": {
+        "startLine": 902,
+        "startChar": 2,
+        "endLine": 902,
+        "endChar": 3
+      },
+      "revId": "5aef37440b10128094b1d7b01c3a5f41c7ac65b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffcbbd63_629a16d2",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
