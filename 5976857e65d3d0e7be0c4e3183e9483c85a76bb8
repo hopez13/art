@@ -22,6 +22,30 @@
       "revId": "5976857e65d3d0e7be0c4e3183e9483c85a76bb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_cad92301",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-01T11:50:07Z",
+      "side": 1,
+      "message": "I also feel it\u0027s a bit over-engineering. I think I\u0027d prefer an iterator that would iterate over both phis and instructions, but often you have to do things slightly differently.\n\nLet\u0027s keep it as it is for now, I don\u0027t think it\u0027s that bad.",
+      "parentUuid": "5f8a0930_8df2e1a9",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 7
+      },
+      "revId": "5976857e65d3d0e7be0c4e3183e9483c85a76bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
