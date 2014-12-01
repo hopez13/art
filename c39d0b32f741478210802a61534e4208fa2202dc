@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fab4d9e_8165bc06",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3246,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-01T22:47:17Z",
+      "side": 1,
+      "message": "If this were:\nm-\u003eIsImageClass()\nthen I think the code would be more intention revealing and it clearer of where we\u0027d need to fix the API were we to provide image classes with a loader.",
+      "range": {
+        "startLine": 3246,
+        "startChar": 9,
+        "endLine": 3246,
+        "endChar": 57
+      },
+      "revId": "c39d0b32f741478210802a61534e4208fa2202dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fab4d9e_61abd098",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3259,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-01T22:47:17Z",
+      "side": 1,
+      "message": "I wonder if this kind of logic would be best hidden in the class linker?",
+      "range": {
+        "startLine": 3259,
+        "startChar": 8,
+        "endLine": 3259,
+        "endChar": 51
+      },
+      "revId": "c39d0b32f741478210802a61534e4208fa2202dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff99fd83_679dd06f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3293,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-01T22:47:17Z",
+      "side": 1,
+      "message": "I think the cleanest style here would be to make this:\nclass_linker-\u003eIsCompiledImageMethod(m)\nand then embed MayBe... into ClassLinker as IsCompiledImageMethod. It\u0027d be nice to avoid exposing the debugger to inner notions of oat files.",
+      "range": {
+        "startLine": 3293,
+        "startChar": 12,
+        "endLine": 3293,
+        "endChar": 44
+      },
+      "revId": "c39d0b32f741478210802a61534e4208fa2202dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
