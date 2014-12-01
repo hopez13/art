@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f17698b_6be015df",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-01T18:21:16Z",
+      "side": 1,
+      "message": "Since this can\u0027t be expressed with the existing flags, use DF_FORMAT_EXTENDED and implement in MIRGraph::HandleExtended() and MIRGraph::DataFlowSSAFormatExtended().",
+      "range": {
+        "startLine": 902,
+        "startChar": 2,
+        "endLine": 902,
+        "endChar": 3
+      },
+      "revId": "5aef37440b10128094b1d7b01c3a5f41c7ac65b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffcbbd63_629a16d2",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-01T18:21:16Z",
+      "side": 1,
+      "message": "Bad indentation.",
+      "revId": "5aef37440b10128094b1d7b01c3a5f41c7ac65b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
