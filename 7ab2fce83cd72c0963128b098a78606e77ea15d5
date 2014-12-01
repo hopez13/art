@@ -46,6 +46,30 @@
       "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb999d9_39c12f10",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-01T19:14:02Z",
+      "side": 0,
+      "message": "Nope. No need to insert any new instructions. The whole point is that on instructions that already exist, we already overload the meaning to represent the suspend check semantics. If those instructions are kept, we want to make sure that they are clearly marked when they do not represent this double meaning.",
+      "parentUuid": "ff82dd17_cdecddd0",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 24
+      },
+      "revId": "7ab2fce83cd72c0963128b098a78606e77ea15d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
