@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f8d0d44_8e11fb74",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-01T06:28:56Z",
+      "side": 1,
+      "message": "I would prefer has_stack_mapped_",
+      "range": {
+        "startLine": 1330,
+        "startChar": 2,
+        "endLine": 1330,
+        "endChar": 24
+      },
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfaea591_584b3d76",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-01T06:28:56Z",
+      "side": 1,
+      "message": "account for it",
+      "range": {
+        "startLine": 1336,
+        "startChar": 31,
+        "endLine": 1337,
+        "endChar": 56
+      },
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f8d0d44_ae0eb751",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-01T06:28:56Z",
+      "side": 1,
+      "message": "HasStackMapped ?\nHasArgumentsOnStack?",
+      "range": {
+        "startLine": 1799,
+        "startChar": 11,
+        "endLine": 1799,
+        "endChar": 29
+      },
+      "revId": "a6ea168e8eac6dfc3a853a9ca23a9ee9f4a028d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
