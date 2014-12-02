@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff82dd17_50e96440",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-02T17:46:03Z",
+      "side": 1,
+      "message": "Alright; I reverted this.  Iy wasn\u0027t a huge gain of lines anyway.",
+      "parentUuid": "3f70f517_ca904757",
+      "range": {
+        "startLine": 1026,
+        "startChar": 8,
+        "endLine": 1026,
+        "endChar": 22
+      },
+      "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f70f517_2aa8fb95",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "You could create a (shared) kFooBar constant with a meaningful name.",
       "parentUuid": "3f70f517_2aa8fb95",
+      "range": {
+        "startLine": 1574,
+        "startChar": 36,
+        "endLine": 1574,
+        "endChar": 46
+      },
+      "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_aadf8b8c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-02T17:46:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff82dd17_50f9648e",
       "range": {
         "startLine": 1574,
         "startChar": 36,
