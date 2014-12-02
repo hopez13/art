@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1fb25112_04a3fcbe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5945,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-02T17:28:11Z",
+      "side": 1,
+      "message": "Sorry, my bad. This whole section isn\u0027t really true, as we allow \"mixed\" compilation: the boot.oat may be pic, and the app may be non-pic. Then the app still makes direct calls into boot.oat code.\n\nFor boot classpath classes, this test needs to be that we are running in a \"full-pic\" environment, that is, all loaded oat files are PIC. I still think the added complexity is justified, as it will allow halfway decent debugging speeds...",
+      "range": {
+        "startLine": 5929,
+        "startChar": 0,
+        "endLine": 5945,
+        "endChar": 1
+      },
+      "revId": "d8e18d8a2b211c14f415f81e3f8b24c17d8948f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfba25ec_7b65bb03",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
