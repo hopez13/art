@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3f70f517_ca904757",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-02T13:59:55Z",
+      "side": 1,
+      "message": "I actually did not mind having the duplication. Macros tend to make things less readable. Up to you.",
+      "range": {
+        "startLine": 1026,
+        "startChar": 8,
+        "endLine": 1026,
+        "endChar": 22
+      },
+      "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f70f517_2aa8fb95",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2014-12-02T13:43:12Z",
       "side": 1,
       "message": "worth a comment why this is 0x7fff...\n\nsame in the other place.",
+      "range": {
+        "startLine": 1574,
+        "startChar": 36,
+        "endLine": 1574,
+        "endChar": 46
+      },
+      "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_50f9648e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-02T13:59:55Z",
+      "side": 1,
+      "message": "You could create a (shared) kFooBar constant with a meaningful name.",
+      "parentUuid": "3f70f517_2aa8fb95",
       "range": {
         "startLine": 1574,
         "startChar": 36,
