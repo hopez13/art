@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff82dd17_30bf90d7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-02T12:10:57Z",
+      "side": 1,
+      "message": "Could you rename this? HasNonNaturalLoops is more revealing (or smth equiv)\n\nFindNaturalLoops makes me thing this should return true if you have natural loops (e.g. i would expect based on name to be false if you don\u0027t have any loops).",
+      "range": {
+        "startLine": 227,
+        "startChar": 14,
+        "endLine": 227,
+        "endChar": 30
+      },
+      "revId": "62c2bd3261ecc12385e311e97e40af5e778b3f34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
