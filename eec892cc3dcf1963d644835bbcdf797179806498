@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f70f517_ad05e539",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-02T19:12:17Z",
+      "side": 1,
+      "message": "Add a comment on why it can throw and a TODO that we can optimize this.",
+      "range": {
+        "startLine": 1673,
+        "startChar": 7,
+        "endLine": 1673,
+        "endChar": 15
+      },
+      "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_cd02212f",
+        "filename": "test/435-new-instance/smali/instance.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-02T19:12:17Z",
+      "side": 1,
+      "message": "As discussed, can we somehow have a full Java test case instead?",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
