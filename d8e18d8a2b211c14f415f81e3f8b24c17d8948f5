@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3f70f517_aa522b5c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5945,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-02T18:14:18Z",
+      "side": 1,
+      "message": "I see. I think we can test only the method\u0027s oat file is PIC iff the method can\u0027t be called from outside this oat file. I especially think about private methods. We\u0027d avoid a full deopt for these.\n\nOtherwise, we test all loaded oat files are PIC.",
+      "parentUuid": "1fb25112_04a3fcbe",
+      "range": {
+        "startLine": 5929,
+        "startChar": 0,
+        "endLine": 5945,
+        "endChar": 1
+      },
+      "revId": "d8e18d8a2b211c14f415f81e3f8b24c17d8948f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfba25ec_7b65bb03",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
