@@ -117,6 +117,52 @@
       "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fb25112_240958c9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-02T17:58:23Z",
+      "side": 1,
+      "message": "// TODO: use a slow path and avoid branch-over.",
+      "range": {
+        "startLine": 1584,
+        "startChar": 9,
+        "endLine": 1584,
+        "endChar": 24
+      },
+      "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffc01d6a_2383982c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-02T17:58:23Z",
+      "side": 1,
+      "message": "float comparisons on x86 set unsigned flags, so less-than is CF\u003d1. By comparing with MAX_INT as float and the appropriate \u003c or \u003e, you can then use subtract with borrow (SBB) to adjust the unorderered result (MIN_INT - 0x8000000) to MAX_INT - 0x7FFFFFF. This can avoid the branch over too. Something like this here:\n\nhttp://git.codehaus.org/gitweb.cgi?p\u003dmrp.git;a\u003dblob;f\u003drvm/src/org/jikesrvm/compilers/baseline/ia32/BaselineCompilerImpl.java#l1826\n\nI see this is a literal bring over of the quick code that I whinged at Intel was sub-optimal at the time. The general issue is how to compare with a float constant? The best way is to place it in a literal pool at the end of the code and RIP encode the loading. I don\u0027t think the Intel assemblers support PC relative literals yet - something they lack compared to ARM.",
+      "range": {
+        "startLine": 1586,
+        "startChar": 9,
+        "endLine": 1588,
+        "endChar": 25
+      },
+      "revId": "c4d85f8b63bf1d0ecd4deec633ac05541778855a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
