@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff82dd17_f3ffc2bd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-02T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f70f517_ad05e539",
+      "range": {
+        "startLine": 1673,
+        "startChar": 7,
+        "endLine": 1673,
+        "endChar": 15
+      },
+      "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f70f517_cd02212f",
         "filename": "test/435-new-instance/smali/instance.smali",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-02T19:12:17Z",
       "side": 1,
       "message": "As discussed, can we somehow have a full Java test case instead?",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_0d1ef986",
+        "filename": "test/435-new-instance/smali/instance.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-02T19:47:21Z",
+      "side": 1,
+      "message": "Now that I think about it I\u0027m not so sure anymore:\n- we can add a full Java test which verifies that newInstance() will throw an InstantiationException\n- what I don\u0027t think is possible is to generate a test that verifies the optimizing regression (that we unsafely removed dead new-instance calls).\n\nI\u0027ll expand the test info comment to cover this.",
+      "parentUuid": "3f70f517_cd02212f",
       "range": {
         "startLine": 16,
         "startChar": 1,
