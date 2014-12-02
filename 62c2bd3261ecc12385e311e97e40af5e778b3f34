@@ -46,6 +46,30 @@
       "revId": "62c2bd3261ecc12385e311e97e40af5e778b3f34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_4a41b765",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-02T12:25:45Z",
+      "side": 1,
+      "message": "Renamed to AnalyzeNaturalLoops.",
+      "parentUuid": "3f70f517_4a28d7ad",
+      "range": {
+        "startLine": 227,
+        "startChar": 14,
+        "endLine": 227,
+        "endChar": 30
+      },
+      "revId": "62c2bd3261ecc12385e311e97e40af5e778b3f34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
