@@ -94,6 +94,30 @@
       "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f8d0d44_d43474ff",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-03T04:35:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure I\u0027m following the pattern of semi-hiding the hash. Perhaps we can completely hide it and rely on the \"pure\" attribute to remove the ComputeModifiedUtf8Hash recomputation in findLoadedClass.",
+      "parentUuid": "3fe39520_ec610b36",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
