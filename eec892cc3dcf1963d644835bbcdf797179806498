@@ -93,6 +93,30 @@
       "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_93176637",
+        "filename": "test/435-new-instance/smali/instance.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T08:59:33Z",
+      "side": 1,
+      "message": "Why not? Here\u0027s the trick (in pseudo command line):\n\n# javac Main.class ClassForCompilation.class (where class is concrete)\n# javac ClassForExecution.class (where class is abstract)\n# jar Main.class ClassForExecution.class -o foo.jar\n# java -cp foo.jar Main",
+      "parentUuid": "3f70f517_0d1ef986",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
