@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "5f8a0930_96967252",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:52:02Z",
+      "side": 1,
+      "message": "Please add this as a comment in the code, to explain the int64_t casts.",
+      "parentUuid": "9fa641d2_423b34bd",
+      "range": {
+        "startLine": 314,
+        "startChar": 16,
+        "endLine": 314,
+        "endChar": 23
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_ba02992d",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "ff82dd17_33a5da98",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:52:02Z",
+      "side": 1,
+      "message": "At this point, I\u0027d rather either use the current ValueSet in gvn.h or build our own. If STL starts being in the way, let\u0027s not force us to use it.\n\nSo I\u0027d really appreciate a follow-up cleanup CL that removes this :-)",
+      "parentUuid": "3f971556_72c91084",
+      "range": {
+        "startLine": 372,
+        "startChar": 32,
+        "endLine": 372,
+        "endChar": 36
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_7a1e6188",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "We first try to detect array_length_c format, or a constant. If not, we try to use the range of right, down at line 461 below.\nI\u0027ll rename it to DetectValueBoundFromValue. Maybe it makes it more clear.",
       "parentUuid": "7f526d24_7a1e6188",
+      "range": {
+        "startLine": 454,
+        "startChar": 23,
+        "endLine": 454,
+        "endChar": 45
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_6daf6d76",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:52:02Z",
+      "side": 1,
+      "message": "But isn\u0027t the map already containing the bound? The input has already been visited, so it should be there, right?",
+      "parentUuid": "df87d927_8f2ad91a",
       "range": {
         "startLine": 454,
         "startChar": 23,
