@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ffc75c4_44634eb9",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T18:22:35Z",
+      "side": 1,
+      "message": "Please add a comment here on why we are doing this.",
+      "range": {
+        "startLine": 502,
+        "startChar": 7,
+        "endLine": 502,
+        "endChar": 22
+      },
+      "revId": "f68f83c1710757d7fada275c907c7c52b4b0a453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_85b8226c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T18:22:35Z",
+      "side": 1,
+      "message": "You need to tell locations that there will be a call.",
+      "range": {
+        "startLine": 1444,
+        "startChar": 0,
+        "endLine": 1444,
+        "endChar": 68
+      },
+      "revId": "f68f83c1710757d7fada275c907c7c52b4b0a453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_e45a3af2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T18:22:35Z",
+      "side": 1,
+      "message": "If this passes, we\u0027re missing a check in InvokeRuntime. I think the check should be instruction-\u003eGetLocations()-\u003eMayCall() in case the instruction is not a bounds check, zero check, null check, ...",
+      "range": {
+        "startLine": 1638,
+        "startChar": 20,
+        "endLine": 1638,
+        "endChar": 33
+      },
+      "revId": "f68f83c1710757d7fada275c907c7c52b4b0a453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_414602f2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T18:22:35Z",
+      "side": 1,
+      "message": "Need to say that locations will call.",
+      "range": {
+        "startLine": 1409,
+        "startChar": 10,
+        "endLine": 1409,
+        "endChar": 19
+      },
+      "revId": "f68f83c1710757d7fada275c907c7c52b4b0a453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_a45442c5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T18:22:35Z",
+      "side": 1,
+      "message": "I\u0027d remove this part. This is not relevant for the HGraph. Implementation details of the code generator might actually use it.",
+      "range": {
+        "startLine": 2014,
+        "startChar": 14,
+        "endLine": 2014,
+        "endChar": 28
+      },
+      "revId": "f68f83c1710757d7fada275c907c7c52b4b0a453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
