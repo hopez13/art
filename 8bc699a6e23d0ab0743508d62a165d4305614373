@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "ff82dd17_533b2e60",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-03T11:39:43Z",
+      "side": 1,
+      "message": "do we want to increase the number of branches here as well?",
+      "range": {
+        "startLine": 367,
+        "startChar": 6,
+        "endLine": 367,
+        "endChar": 13
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_b33d4ab3",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -225,6 +248,29 @@
         "startChar": 7,
         "endLine": 957,
         "endChar": 15
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f70f517_2daf3529",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-03T11:39:43Z",
+      "side": 1,
+      "message": "shouldn\u0027t you start at 0?",
+      "range": {
+        "startLine": 958,
+        "startChar": 45,
+        "endLine": 958,
+        "endChar": 46
       },
       "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
