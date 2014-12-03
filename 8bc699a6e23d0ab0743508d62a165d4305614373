@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_ae30978d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff82dd17_5327aea7",
+      "range": {
+        "startLine": 87,
+        "startChar": 26,
+        "endLine": 87,
+        "endChar": 27
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_732cb289",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-03T09:13:53Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 91,
+        "startChar": 34,
+        "endLine": 91,
+        "endChar": 35
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd68940_10d7cacd",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff82dd17_732cb289",
       "range": {
         "startLine": 91,
         "startChar": 34,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bf0865ac_c8f3cf31",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_366dbef7",
+      "range": {
+        "startLine": 96,
+        "startChar": 40,
+        "endLine": 96,
+        "endChar": 41
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_56724ad6",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-03T09:13:53Z",
       "side": 1,
       "message": "Yo can remove the TODO :)",
+      "range": {
+        "startLine": 337,
+        "startChar": 5,
+        "endLine": 337,
+        "endChar": 9
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fe09112_ce3be370",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "No, it\u0027s not complete, as the sparse switch is gonna go into a follow-up CL. I\u0027ll update.",
+      "parentUuid": "5f8a0930_56724ad6",
       "range": {
         "startLine": 337,
         "startChar": 5,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_ee369f8a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure. If we increase it, should it be increased by 1 or the number of cases?\n\nQuick doesn\u0027t count them as branches, but registers that there are switches (just a boolean flag), and favors compilation.",
+      "parentUuid": "5f8a0930_56316a8f",
+      "range": {
+        "startLine": 367,
+        "startChar": 6,
+        "endLine": 367,
+        "endChar": 13
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_b33d4ab3",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -152,6 +272,30 @@
       "writtenOn": "2014-12-03T09:13:53Z",
       "side": 1,
       "message": "Say that you\u0027re talking about using \"size_t\" instead. Why don\u0027t you just start i at 0?",
+      "range": {
+        "startLine": 372,
+        "startChar": 36,
+        "endLine": 372,
+        "endChar": 63
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd68940_1046aa1a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Starting at 1 definitely avoids an addition.",
+      "parentUuid": "ff82dd17_b33d4ab3",
       "range": {
         "startLine": 372,
         "startChar": 36,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "5fd68940_f0bb1e99",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_767746c5",
+      "range": {
+        "startLine": 377,
+        "startChar": 31,
+        "endLine": 377,
+        "endChar": 42
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_967bd2ad",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -198,6 +366,30 @@
       "writtenOn": "2014-12-03T09:13:53Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 383,
+        "startChar": 31,
+        "endLine": 383,
+        "endChar": 42
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0865ac_a8165bb3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_967bd2ad",
       "range": {
         "startLine": 383,
         "startChar": 31,
@@ -233,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_8e1cbb0b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f70f517_8d402932",
+      "range": {
+        "startLine": 391,
+        "startChar": 55,
+        "endLine": 391,
+        "endChar": 56
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_d33abeb7",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -244,6 +460,30 @@
       "writtenOn": "2014-12-03T09:13:53Z",
       "side": 1,
       "message": "(*number_of_blocks)++;",
+      "range": {
+        "startLine": 392,
+        "startChar": 29,
+        "endLine": 392,
+        "endChar": 40
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0865ac_6831835e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff82dd17_d33abeb7",
       "range": {
         "startLine": 392,
         "startChar": 29,
@@ -279,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_4e281323",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_1651a226",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 15
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f70f517_2daf3529",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -302,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_6e2bcf21",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "No. In a packed switch, they table entry 0 is the starting key. This is documented in the branch computation, but I\u0027ll add another comment here.",
+      "parentUuid": "3f70f517_2daf3529",
+      "range": {
+        "startLine": 958,
+        "startChar": 45,
+        "endLine": 958,
+        "endChar": 46
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f70f517_cd3a21b8",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -313,6 +601,30 @@
       "writtenOn": "2014-12-03T09:13:53Z",
       "side": 1,
       "message": "Shouldn\u0027t that comment be line 988?",
+      "range": {
+        "startLine": 970,
+        "startChar": 0,
+        "endLine": 970,
+        "endChar": 64
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0865ac_48e0ff53",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T16:30:19Z",
+      "side": 1,
+      "message": "No. Line 988 is the default / fall-through case when all cases have been tested.",
+      "parentUuid": "3f70f517_cd3a21b8",
       "range": {
         "startLine": 970,
         "startChar": 0,
