@@ -49,6 +49,53 @@
     },
     {
       "key": {
+        "uuid": "3f70f517_0dffd977",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:28:47Z",
+      "side": 1,
+      "message": "A new static mutex is not free, it pollutes the binary. Can\u0027t we use an existing compiler-related one?",
+      "parentUuid": "1fe09112_ebbb3199",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_f65b363d",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:28:47Z",
+      "side": 1,
+      "message": "Can\u0027t you have a VisitConstant? And move this VisitInstruction to a PrintInstruction?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 36
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f8d0d44_74466080",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 2
@@ -106,6 +153,29 @@
         "startChar": 0,
         "endLine": 79,
         "endChar": 34
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_f3d0a205",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:28:47Z",
+      "side": 1,
+      "message": "If you need a mutable, I think I\u0027d prefer to drop the constness at call sites.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 9
       },
       "revId": "376615782badca065b68e3c6327002de9e29684c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
