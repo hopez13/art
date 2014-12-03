@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfb999d9_5fe083de",
+        "filename": "runtime/barrier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-03T03:51:53Z",
+      "side": 1,
+      "message": "while (count_ !\u003d 0 \u0026\u0026 !timed_out) {\n?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 20
+      },
+      "revId": "8f6170505b7a8f4478535b5e91f7efb5d390752c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfc5197a_330f689f",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-03T03:51:53Z",
+      "side": 1,
+      "message": "move comment down to just before \"class Barrier {\\n\"...",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "8f6170505b7a8f4478535b5e91f7efb5d390752c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
