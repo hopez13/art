@@ -118,6 +118,30 @@
       "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff82dd17_93c92666",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T09:21:45Z",
+      "side": 1,
+      "message": "It looks like this is just because we want to save the ComputeModifiedUtf8Hash being computed twice. I suggest either\n1) Do the computation twice an don\u0027t bother.\n2) Moving the logic of LookupClass; if (null) FindClassInPathClassLoader to ClassLinker.",
+      "parentUuid": "7f8d0d44_d43474ff",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
