@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfb999d9_7faf0776",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-03T03:56:58Z",
+      "side": 1,
+      "message": "shouldn\u0027t you be able to friend a function? VMClassLoader is already a Java class, its unfortunate to overload its meaning.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
