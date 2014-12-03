@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfef85fe_59f0d7a1",
+        "filename": "runtime/mirror/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T01:52:25Z",
+      "side": 1,
+      "message": "Maybe make that static in the cc file?",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 1
+      },
+      "revId": "1fa42d0a8071a0e70960b7e254bf5e35a5b009a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
