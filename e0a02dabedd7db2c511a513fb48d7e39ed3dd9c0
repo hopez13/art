@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfef85fe_16e7bc43",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T00:29:20Z",
+      "side": 1,
+      "message": "This breaks the optimizing tests for 003. Quick isn\u0027t broken because it inlines the trivial super-call.",
+      "range": {
+        "startLine": 830,
+        "startChar": 8,
+        "endLine": 830,
+        "endChar": 81
+      },
+      "revId": "e0a02dabedd7db2c511a513fb48d7e39ed3dd9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
