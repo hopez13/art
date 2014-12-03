@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ffc75c4_24917259",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-03T17:00:36Z",
+      "side": 1,
+      "message": "This is using the longer range but needs to use the shorter:\n\n  is_prefix \u003d std::equal(combined_chars + num_chars - length,\n                         combined_chars + num_chars,\n                         combined_chars + it-\u003efirst);",
+      "revId": "88f21ca9e1c48d75346577b48dc143c02f57fa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
