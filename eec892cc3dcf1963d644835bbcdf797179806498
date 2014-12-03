@@ -117,6 +117,30 @@
       "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_f60896c6",
+        "filename": "test/435-new-instance/smali/instance.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-03T11:48:33Z",
+      "side": 1,
+      "message": "You\u0027re right, my bad. I was thinking in calling newInstance via reflection and not using the javac/jar \"magic\". I\u0027ll do  it later in a follow up CL.",
+      "parentUuid": "ff82dd17_93176637",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "eec892cc3dcf1963d644835bbcdf797179806498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
