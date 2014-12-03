@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df38b95e_c18082d4",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:56:21Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3f70f517_8db3c9de",
+      "range": {
+        "startLine": 139,
+        "startChar": 40,
+        "endLine": 139,
+        "endChar": 48
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_93b3e6de",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-03T10:10:43Z",
       "side": 1,
       "message": "Is this for correctness or optimization? Please add a comment.\n\nIf for correctness, do we have a test to cover it?",
+      "range": {
+        "startLine": 141,
+        "startChar": 69,
+        "endLine": 141,
+        "endChar": 70
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff33bd7c_626c1678",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:56:21Z",
+      "side": 1,
+      "message": "Added comment \"for correctness, just return ...\".\nI have OverflowArrayBoundsElimination and UnderflowArrayBoundsElimination to cover it.",
+      "parentUuid": "ff82dd17_93b3e6de",
       "range": {
         "startLine": 141,
         "startChar": 69,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bf3dc54e_c3c88883",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:56:21Z",
+      "side": 1,
+      "message": "It\u0027s used at line 482 and similar places.",
+      "parentUuid": "ff82dd17_f3ba62ae",
+      "range": {
+        "startLine": 153,
+        "startChar": 15,
+        "endLine": 153,
+        "endChar": 30
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f70f517_edba7dae",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-03T10:10:43Z",
       "side": 1,
       "message": "extra space.",
+      "range": {
+        "startLine": 635,
+        "startChar": 43,
+        "endLine": 635,
+        "endChar": 44
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff33bd7c_68f397b0",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:56:21Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "3f70f517_edba7dae",
       "range": {
         "startLine": 635,
         "startChar": 43,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ff33bd7c_889a9b44",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:56:21Z",
+      "side": 1,
+      "message": "As commented elsewhere for when we generate ranges, right now the algorithm only generates ranges under certain circumstances. So we need to check for existing range and make sure they are for the same array_length plus matching some other patterns.",
+      "parentUuid": "ff82dd17_738112d5",
+      "range": {
+        "startLine": 642,
+        "startChar": 71,
+        "endLine": 642,
+        "endChar": 76
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_1389b607",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2014-12-03T10:10:43Z",
       "side": 1,
       "message": "OVERRIDE.",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff33bd7c_e871e783",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:56:21Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ff82dd17_1389b607",
       "range": {
         "startLine": 28,
         "startChar": 10,
