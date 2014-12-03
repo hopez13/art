@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "bf0865ac_513e66ae",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:55:32Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5f8a0930_96967252",
+      "range": {
+        "startLine": 314,
+        "startChar": 16,
+        "endLine": 314,
+        "endChar": 23
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_ba02992d",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "5fd68940_36819e8b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:55:32Z",
+      "side": 1,
+      "message": "I\u0027ll follow up on it with Vladimir.",
+      "parentUuid": "ff82dd17_33a5da98",
+      "range": {
+        "startLine": 372,
+        "startChar": 32,
+        "endLine": 372,
+        "endChar": 36
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f526d24_7a1e6188",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -250,6 +298,30 @@
       "side": 1,
       "message": "But isn\u0027t the map already containing the bound? The input has already been visited, so it should be there, right?",
       "parentUuid": "df87d927_8f2ad91a",
+      "range": {
+        "startLine": 454,
+        "startChar": 23,
+        "endLine": 454,
+        "endChar": 45
+      },
+      "revId": "7bf59395da97236ef92b2d0327a84ee86807c642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd68940_81ca4a57",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-03T22:55:32Z",
+      "side": 1,
+      "message": "The approach I used don\u0027t keep value range for all values. So those pure computations/comparisons not related to array indexing won\u0027t carry the (memory) overhead of calculating ranges.\n\nI added this comment to class ValueRange.\n * Currently a ValueRange may be generated as a result of the following:\n * comparisons related to array bounds, array bounds check, add/sub on top\n * of an existing value range, or a loop phi corresponding to an\n * incrementing/decrementing array index (MonotonicValueRange).",
+      "parentUuid": "3f70f517_6daf6d76",
       "range": {
         "startLine": 454,
         "startChar": 23,
