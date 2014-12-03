@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_ebbb3199",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T04:39:28Z",
+      "side": 1,
+      "message": "I\u0027d be fine with it, but I wanted a minimal change. I\u0027ll let Nicolas decide...",
+      "parentUuid": "dfb999d9_df965321",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f8d0d44_74466080",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2014-12-03T04:33:07Z",
       "side": 1,
       "message": "compare and contrast output_ and oss_ in some comments?\nmutable?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fe09112_0b467d1a",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T04:39:28Z",
+      "side": 1,
+      "message": "The comments for DumpGraph and Finalizable are trying to do that, I\u0027ll extend.\n\noss_ had to be mutable because the whole class is used in a const context somewhere (I didn\u0027t want to heap-allocate, so it\u0027s not a pointer like output_).",
+      "parentUuid": "dfb999d9_ff93172e",
       "range": {
         "startLine": 78,
         "startChar": 0,
