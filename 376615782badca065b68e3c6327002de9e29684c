@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "1fe09112_b10d982b",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T17:29:45Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a reasonable one exposed anywhere. I can try to refactor the compiler driver to expose its stats lock.\n\nIs a 100 or so B really that unreasonable?",
+      "parentUuid": "3f70f517_0dffd977",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_f65b363d",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "5f8a0930_f65b363d",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 36
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fe09112_71ae10aa",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T17:29:45Z",
+      "side": 1,
+      "message": "Currently the printer is a visitor that\u0027s forwarding everything here. So I used this setup as VisitConstant will mean all the things around (the rest of the output) has to be duplicated.\n\nI can refactor some more, but I don\u0027t think it becomes more readable that way.",
+      "parentUuid": "3f70f517_ed727d4f",
       "range": {
         "startLine": 183,
         "startChar": 0,
@@ -195,6 +243,30 @@
       "writtenOn": "2014-12-03T09:28:47Z",
       "side": 1,
       "message": "If you need a mutable, I think I\u0027d prefer to drop the constness at call sites.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fd68940_3039a614",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T17:29:45Z",
+      "side": 1,
+      "message": "I\u0027ll look into it.",
+      "parentUuid": "ff82dd17_f3d0a205",
       "range": {
         "startLine": 79,
         "startChar": 2,
