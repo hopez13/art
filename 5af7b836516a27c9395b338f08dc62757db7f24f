@@ -46,6 +46,30 @@
       "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb999d9_3f8e6f10",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-03T04:28:54Z",
+      "side": 1,
+      "message": "Perhaps just make the member functions public then?",
+      "parentUuid": "5fd68940_ada9bd73",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
