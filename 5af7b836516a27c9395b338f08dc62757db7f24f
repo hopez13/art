@@ -70,6 +70,30 @@
       "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fe39520_ec610b36",
+        "filename": "runtime/native/java_lang_VMClassLoader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-03T04:31:08Z",
+      "side": 1,
+      "message": "That\u0027s what they were, and I disliked it. They expose the hash of the descriptor, something I hadn\u0027t checked on in my closure CL. Personally I believe that \"outside\" of class-linker that functionality should not be exposed.\n\nWe use it here as an optimization, and that\u0027s why I introduced this friend (even though I dislike friend classes).\n\nIf you think it\u0027s too horrible I can live with that...",
+      "parentUuid": "dfb999d9_3f8e6f10",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "5af7b836516a27c9395b338f08dc62757db7f24f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
