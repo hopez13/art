@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ff82dd17_b32d4a05",
+        "filename": "test/435-try-finally-without-catch/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T12:12:18Z",
+      "side": 1,
+      "message": "Yes :)",
+      "parentUuid": "ff82dd17_33223a19",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "6c70b549fdd00eaac8e4746b79f89bec43445619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_13f45632",
         "filename": "test/435-try-finally-without-catch/src/Main.java",
         "patchSetId": 3
