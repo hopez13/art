@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "7f47cdec_728dc08e",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-03T22:24:51Z",
+      "side": 1,
+      "message": "Let\u0027s discuss this more tomorrow?\n\nI\u0027m wondering if we might want to somehow get rid of the reuse case as it sounds error-prone to use.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 85
+      },
+      "revId": "8f6170505b7a8f4478535b5e91f7efb5d390752c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfc5197a_330f689f",
         "filename": "runtime/barrier.h",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 0,
         "endLine": 27,
         "endChar": 39
+      },
+      "revId": "8f6170505b7a8f4478535b5e91f7efb5d390752c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f47cdec_6de0812d",
+        "filename": "runtime/barrier_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-03T22:24:51Z",
+      "side": 1,
+      "message": "\"num_threads + 1\" (spaces around the + operator) ? \n\nWhy isn\u0027t this \"num_threads\" (why +1)?",
+      "range": {
+        "startLine": 64,
+        "startChar": 18,
+        "endLine": 64,
+        "endChar": 31
       },
       "revId": "8f6170505b7a8f4478535b5e91f7efb5d390752c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
