@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "5f8a0930_56316a8f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-03T11:49:21Z",
+      "side": 1,
+      "message": "I thought about it, but wasn\u0027t sure. Should we increase it by the number of switch cases? What does Quick do?",
+      "parentUuid": "ff82dd17_533b2e60",
+      "range": {
+        "startLine": 367,
+        "startChar": 6,
+        "endLine": 367,
+        "endChar": 13
+      },
+      "revId": "8bc699a6e23d0ab0743508d62a165d4305614373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_b33d4ab3",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
