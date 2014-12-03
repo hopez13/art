@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f47cdec_7855a18d",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-03T23:25:24Z",
+      "side": 1,
+      "message": "Why change the behavior?\n\nIt seems we used to always resolve the type, but now we don\u0027t if kMovingCollector \u003d\u003d true, which is the default case.\n\nI\u0027m not sure why kMovingCollector matters here or why simply passing true to GetType() won\u0027t work for moving GC to fulfill the TODO.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 72
+      },
+      "revId": "08f1f50d6c2e8f247b8f5f19711d75a792851c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f44c9e8_7731305e",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-03T23:25:24Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 231,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 72
+      },
+      "revId": "08f1f50d6c2e8f247b8f5f19711d75a792851c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
