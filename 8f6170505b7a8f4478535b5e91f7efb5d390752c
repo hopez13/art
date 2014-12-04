@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1f4ed10c_015d0ec0",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-04T00:57:30Z",
+      "side": 1,
+      "message": "In my mind the question is whether any existing clients violate the newly stated rules.  The problem is that the reuse case with only Pass() calls and a single Increment() seems entirely fine and appropriate for the context in which it\u0027s used.  Maybe that should be a separate interface for aesthetic reasons.  I wouldn\u0027t have written this this way to start with.  But I don\u0027t see a real argument that this is wrong.",
+      "parentUuid": "7f47cdec_728dc08e",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 85
+      },
+      "revId": "8f6170505b7a8f4478535b5e91f7efb5d390752c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfc5197a_330f689f",
         "filename": "runtime/barrier.h",
         "patchSetId": 1
