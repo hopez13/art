@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5fff69b8_48c7df50",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T11:54:59Z",
+      "side": 1,
+      "message": "I actually faced a case where `instruction` was null when building the boot image.  Is it legitimate?",
+      "parentUuid": "5f8a0930_dc3499ff",
+      "range": {
+        "startLine": 502,
+        "startChar": 6,
+        "endLine": 502,
+        "endChar": 17
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_27ea940b",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-04T11:13:58Z",
       "side": 1,
       "message": "I\u0027d drop.",
+      "range": {
+        "startLine": 504,
+        "startChar": 66,
+        "endLine": 504,
+        "endChar": 70
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_8745c873",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T11:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_27ea940b",
       "range": {
         "startLine": 504,
         "startChar": 66,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_673becef",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T11:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fff69b8_48159f2c",
+      "range": {
+        "startLine": 507,
+        "startChar": 35,
+        "endLine": 507,
+        "endChar": 61
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_1c47017f",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_4738f0f0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T11:54:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_1c47017f",
+      "range": {
+        "startLine": 1620,
+        "startChar": 36,
+        "endLine": 1620,
+        "endChar": 55
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_e8d56bfb",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2014-12-04T11:22:13Z",
       "side": 1,
       "message": "if the tests previously pass, does it mean that our assembler tests can\u0027t catch this kind error?",
+      "range": {
+        "startLine": 675,
+        "startChar": 4,
+        "endLine": 675,
+        "endChar": 13
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_c8a4ef9d",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T11:54:59Z",
+      "side": 1,
+      "message": "I would not call that an error, as setting a REX.W prefix here is not a requirement, but an option.  When present, it changes the size of the integer operand (dst) from default doubleword (32-bit) to quadword (64-bit).\n\nI choose to implement this with a boolean flag on the existing instruction generator (as I did with other x86-64 SSE type conversion instructions) to factor common code, but we can also do it the Quick way, by implementing it as a new method.",
+      "parentUuid": "5fff69b8_e8d56bfb",
       "range": {
         "startLine": 675,
         "startChar": 4,
