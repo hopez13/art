@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df38b95e_873cca05",
+        "filename": "runtime/barrier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-04T03:48:38Z",
+      "side": 1,
+      "message": "1000*1000*timeout_ms is probably int by int multiplication, I think one of them need to be cast to an uint64_t to avoid integer overflow if MS \u003e 2200?",
+      "revId": "0f034eec4c4b40ebad927c8f33f21f9c5cc30493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
