@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ffc75c4_6a185366",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "could you add a more detailed description on:\n- why we want this\n- how it works\n\nit helps others get the context",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 72
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_4a15972c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "any reason you changed this?",
+      "range": {
+        "startLine": 17,
+        "startChar": 9,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_a7b336de",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "should it be abstract then?",
+      "range": {
+        "startLine": 35,
+        "startChar": 65,
+        "endLine": 36,
+        "endChar": 11
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_e7bd3ea9",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "indentation issue, here and in the other places. Make sure you indent in sync with the first param.",
+      "range": {
+        "startLine": 61,
+        "startChar": 21,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_8b66f198",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "You could name it LogVisualiser. (It\u0027s not really a visualizer though). Also, you should use VERBOSE or even DEBUG for logging since this will produce a lot of text.",
+      "range": {
+        "startLine": 76,
+        "startChar": 39,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_07940a17",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "What\u0027s the benefit of having a before and an after? This will basically duplicate a lot since after(i)\u003dbefore(i-1)",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 75
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_677cee58",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "always use brackets, here and everywhere else.",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 298,
+        "endChar": 4
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_aadf6b17",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "I think this is useful enough to have on a separate if, i.e. even if you dump passes in the logs, having the visualizer could help a lot.",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 31
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_c76202b4",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "use \"Type* pointer\" here and everywhere else.",
+      "range": {
+        "startLine": 56,
+        "startChar": 15,
+        "endLine": 56,
+        "endChar": 37
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_8bb8316c",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "why did you need to add this special cases?",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_c74be221",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "does this counting serve any functional purpose? I think they will be more of a annoyance when you add test incrementally and you want to group them in logical way.",
+      "range": {
+        "startLine": 8,
+        "startChar": 20,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_0746ca1a",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "Here\u0027s an idea: it would be cool if you could achieve this via annotations instead of arbitrary comments.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 57
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_4ac7d750",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "no need. You can just say: \"The *check lines* begin with ...\"",
+      "range": {
+        "startLine": 19,
+        "startChar": 86,
+        "endLine": 19,
+        "endChar": 95
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_6755cec0",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "I wouldn\u0027t bother to make this configurable.",
+      "range": {
+        "startLine": 20,
+        "startChar": 41,
+        "endLine": 20,
+        "endChar": 59
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_6b9e15f4",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "double space",
+      "range": {
+        "startLine": 27,
+        "startChar": 62,
+        "endLine": 27,
+        "endChar": 64
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_6af3b3b0",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:04:18Z",
+      "side": 1,
+      "message": "Document what this file does. In a similar way as you did in  checker.py.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
