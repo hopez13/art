@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "bf16a5da_f831b1e2",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-04T06:42:27Z",
+      "side": 1,
+      "message": "Ningsheng, this comment is not about necessarily maintaining the ssa (because I think you already have logic to do that), but to allow regeneration in case we need it. One way to test it is to mark the pass as having \"dirtied\" the CFG and it will run the post-opts (just for testing because preferred approach is still to maintain in pass to prevent useless work). Therefore, you do not worry about the previous multiply\u0027s ssa. As long as you express the new semantics via the methods Vmarko recommended, you should be fine. Just make sure you remove the multiply and replace the add with the multiply-add. Then if ssa needs regenerated, as long as you express the semantics you already captured via the definition, then it will just work automatically. Vmarko will likely reply if he has anything else to add (or if he disagrees with me :)).",
+      "parentUuid": "9fb3a1f9_e6f2b078",
+      "range": {
+        "startLine": 902,
+        "startChar": 2,
+        "endLine": 902,
+        "endChar": 3
+      },
+      "revId": "5aef37440b10128094b1d7b01c3a5f41c7ac65b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffcbbd63_629a16d2",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
