@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ffc75c4_0a943f16",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:16:56Z",
+      "side": 1,
+      "message": "You should include this header first, as it defined the interface of this implementation file (graph_visualizer.cc).  (See the Google C++ Style Guide.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "8d20c740f18435fdd0c7c04764d02718dacd7c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_6b085598",
+        "filename": "compiler/optimizing/ssa_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:16:56Z",
+      "side": 1,
+      "message": "Replace with:\n\n  #include \u003ccinttypes\u003e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "8d20c740f18435fdd0c7c04764d02718dacd7c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
