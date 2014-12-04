@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f4ed10c_01042eee",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-04T00:41:13Z",
+      "side": 1,
+      "message": "Resolution can trigger GC and so that un-handlerized arguments are prone to corruption. This code is a debug feature.",
+      "parentUuid": "7f47cdec_7855a18d",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 72
+      },
+      "revId": "08f1f50d6c2e8f247b8f5f19711d75a792851c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f44c9e8_7731305e",
         "filename": "runtime/mirror/object.cc",
         "patchSetId": 1
