@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fff69b8_88aef777",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T12:49:04Z",
+      "side": 1,
+      "message": "HandleDef() must be after all the HandleLiveInUse().",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 34
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_68b4dbc6",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T12:49:04Z",
+      "side": 1,
+      "message": "HandleDef() must be after all the HandleLiveInUse().",
+      "range": {
+        "startLine": 975,
+        "startChar": 6,
+        "endLine": 976,
+        "endChar": 38
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_9cadb1ae",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T12:49:04Z",
+      "side": 1,
+      "message": "Disassemble based on vA, vB, vC, arg[0].",
+      "range": {
+        "startLine": 1409,
+        "startChar": 8,
+        "endLine": 1409,
+        "endChar": 62
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_87c82882",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T12:49:04Z",
+      "side": 1,
+      "message": "Use a local ScopedArenaAllocator and ScopedArenaSafeMap\u003c\u003e.",
+      "range": {
+        "startLine": 1721,
+        "startChar": 2,
+        "endLine": 1721,
+        "endChar": 25
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_fc1eb54e",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T12:49:04Z",
+      "side": 1,
+      "message": "This is a bit restrictive, there are insns that we know will not throw, such as IGET/IPUT with MIR_IGNORE_NULL_CHECK.",
+      "range": {
+        "startLine": 1778,
+        "startChar": 11,
+        "endLine": 1778,
+        "endChar": 67
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
