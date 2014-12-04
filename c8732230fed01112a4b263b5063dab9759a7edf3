@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f8a0930_c7276253",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T18:41:20Z",
+      "side": 1,
+      "message": "Move this logic to SwitchTable?",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 91
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_e7245e51",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T18:41:20Z",
+      "side": 1,
+      "message": "Aha, you\u0027re starting from 0 now :-) Do you still need the larger type?",
+      "range": {
+        "startLine": 386,
+        "startChar": 22,
+        "endLine": 386,
+        "endChar": 23
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_0b0fa19e",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +82,30 @@
       "writtenOn": "2014-12-04T18:36:44Z",
       "side": 1,
       "message": "I don\u0027t think so. For one, we were trying hard to not abort for compiler errors anymore (there\u0027s an open bug about this somewhere). Also, a DCHECK wouldn\u0027t protect us in practice if something ever slips through (and it\u0027s usually apps that would trigger this, as we have full control over framework and such). So I feel that punting is the right thing to do.",
+      "parentUuid": "5fff69b8_0b0fa19e",
+      "range": {
+        "startLine": 969,
+        "startChar": 30,
+        "endLine": 970,
+        "endChar": 14
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_cbcaa9db",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T18:41:20Z",
+      "side": 1,
+      "message": "I think I\u0027d also prefer a DCHECK.",
       "parentUuid": "5fff69b8_0b0fa19e",
       "range": {
         "startLine": 969,
@@ -136,6 +206,29 @@
         "startChar": 20,
         "endLine": 982,
         "endChar": 37
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_abcf6de9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T18:41:20Z",
+      "side": 1,
+      "message": "DCHECK?",
+      "range": {
+        "startLine": 989,
+        "startChar": 8,
+        "endLine": 989,
+        "endChar": 12
       },
       "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
