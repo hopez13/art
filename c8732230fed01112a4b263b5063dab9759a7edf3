@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5fff69b8_2bc49dc9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:44:06Z",
+      "side": 1,
+      "message": "Agree. The only reason I suggested *D*CHECK is that it might help us discover slips in the verifier.",
+      "parentUuid": "5f2da928_7b6277fe",
+      "range": {
+        "startLine": 969,
+        "startChar": 30,
+        "endLine": 970,
+        "endChar": 14
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_07096ac8",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "5fff69b8_8bd4b17c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:44:06Z",
+      "side": 1,
+      "message": "interesting :) The setup is similar and I\u0027d expect to get a complain here as well. I wonder why you don\u0027t.\n\n(I\u0027m ok with not having it if it\u0027s not needed)",
+      "parentUuid": "1f7c112d_ae80b7d2",
+      "range": {
+        "startLine": 976,
+        "startChar": 47,
+        "endLine": 976,
+        "endChar": 58
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_ab164db3",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -201,6 +249,30 @@
       "side": 1,
       "message": "Nicolas, your opinion? I like the clean separation, as the setup and some key parameters are different.\n\nNote: I was thinking about a function pointer to unify this more, but we\u0027re not very happy with lambdas and such.\n\nAlso note: if we ever implement optimized versions, these will become significantly different (packed is a table lookup, sparse can be optimized to a binary search at runtime).",
       "parentUuid": "5fff69b8_ab164db3",
+      "range": {
+        "startLine": 982,
+        "startChar": 20,
+        "endLine": 982,
+        "endChar": 37
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_0bc1e1b9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T18:44:06Z",
+      "side": 1,
+      "message": "Good point with the optimizations! Let\u0027s keep them separate then.",
+      "parentUuid": "7f750d3d_3128aaf0",
       "range": {
         "startLine": 982,
         "startChar": 20,
