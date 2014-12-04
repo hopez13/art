@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "5fff69b8_ae277bde",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T23:11:58Z",
+      "side": 1,
+      "message": "OK, I see. As discussed, we can probably find a generic way to express the code below, and not make it just work for Sub.",
+      "parentUuid": "ff33bd7c_889a9b44",
+      "range": {
+        "startLine": 642,
+        "startChar": 71,
+        "endLine": 642,
+        "endChar": 76
+      },
+      "revId": "cf00c0e14d0b3a099023972785d4bc8f37a2baf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff82dd17_1389b607",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 8
