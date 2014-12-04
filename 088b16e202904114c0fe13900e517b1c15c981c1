@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f4ed10c_8af6136d",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T06:08:30Z",
+      "side": 1,
+      "message": "The lower-casing is here for simplicity. Clean-up will be in a follow-up CL that moves name-to-var from run-test and fixes the other lower-case parts in this file, too.",
+      "range": {
+        "startLine": 149,
+        "startChar": 39,
+        "endLine": 149,
+        "endChar": 47
+      },
+      "revId": "088b16e202904114c0fe13900e517b1c15c981c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
