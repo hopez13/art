@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "9f1ba106_d7035c00",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-04T07:49:44Z",
+      "side": 1,
+      "message": "Razvan, thanks for your clarification and the way to test. I was worrying that regenerating SSA based on original use/def v regs would be a problem. After rethinking it, I think it is OK, as I have excluded the cases which have potential issue. I will make another patchset.:-)",
+      "parentUuid": "bf16a5da_f831b1e2",
+      "range": {
+        "startLine": 902,
+        "startChar": 2,
+        "endLine": 902,
+        "endChar": 3
+      },
+      "revId": "5aef37440b10128094b1d7b01c3a5f41c7ac65b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffcbbd63_629a16d2",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 1
