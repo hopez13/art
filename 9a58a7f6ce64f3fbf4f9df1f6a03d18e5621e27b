@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fff69b8_e8f32b4a",
+        "filename": "compiler/dex/quick/arm/target_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "As long as the kArm32CodeUseSoftFloat constant exists, we should preserve the functionality:\n\n  if (kArm32CodeUseSoftFloat) {\n    return Mir2Lir::GenDalvikArgsBulkCopy(...);\n  }\n\nAlso add an appropriate TODO for hard-float ABI. The old code contains this:\n\n      /*\n       * TODO: Improve by adding block copy for large number of arguments.  This\n       * should be done, if possible, as a target-depending helper.  For now, just\n       * copy a Dalvik vreg at a time.\n       */",
+      "range": {
+        "startLine": 941,
+        "startChar": 2,
+        "endLine": 941,
+        "endChar": 15
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_e8fe8b79",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_c8218f15",
+        "filename": "compiler/dex/quick/arm64/target_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "Please add an appropriate TODO here. The old code contains this:\n\n      /*\n       * TODO: Improve by adding block copy for large number of arguments.  This\n       * should be done, if possible, as a target-depending helper.  For now, just\n       * copy a Dalvik vreg at a time.\n       */",
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_48f0ffa1",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "Extra \"first\".",
+      "range": {
+        "startLine": 762,
+        "startChar": 31,
+        "endLine": 762,
+        "endChar": 36
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_a727a4de",
+        "filename": "compiler/dex/quick/mips/target_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 127,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 11
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_0838c7bd",
+        "filename": "compiler/dex/quick/mips/target_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "arraysize(coreArgMappingToPhysicalReg)",
+      "range": {
+        "startLine": 127,
+        "startChar": 46,
+        "endLine": 128,
+        "endChar": 35
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_e71d9c8a",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "I don\u0027t like the extra heap allocations by the std::string. You can initialize cur_ to the shorty and keep two booleans (initialized_ and pending_this_) to provide the same functionality.",
+      "range": {
+        "startLine": 1792,
+        "startChar": 8,
+        "endLine": 1792,
+        "endChar": 28
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_a89c1374",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "ArenaSafeMap\u003cint, RegStorage\u003e",
+      "range": {
+        "startLine": 1816,
+        "startChar": 6,
+        "endLine": 1816,
+        "endChar": 31
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_3c6d9df7",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "m2l (as in slow paths)",
+      "range": {
+        "startLine": 48,
+        "startChar": 46,
+        "endLine": 48,
+        "endChar": 48
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_6712cc79",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-04T13:53:26Z",
+      "side": 1,
+      "message": "size_t and arraysize",
+      "range": {
+        "startLine": 2424,
+        "startChar": 0,
+        "endLine": 2425,
+        "endChar": 36
+      },
+      "revId": "9a58a7f6ce64f3fbf4f9df1f6a03d18e5621e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
