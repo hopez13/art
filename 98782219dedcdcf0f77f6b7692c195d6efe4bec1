@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f4ed10c_2f5fd12d",
+        "filename": "runtime/barrier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-04T02:17:27Z",
+      "side": 1,
+      "message": "Sounds good to me.  Will do.  It\u0027s not a lot shorter, but the exercise did expose a bug.",
+      "parentUuid": "df219932_59ca235a",
+      "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f4ed10c_04eafc87",
         "filename": "runtime/barrier_test.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2014-12-04T01:39:02Z",
       "side": 1,
       "message": "Does this make the test timing dependent?\n\nMaybe we don\u0027t need wait_forever_barrier?",
+      "range": {
+        "startLine": 72,
+        "startChar": 42,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f4ed10c_648740a2",
+        "filename": "runtime/barrier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-04T02:17:27Z",
+      "side": 1,
+      "message": "If this times out too soon before the other threads get a chance to advance, then this vacuously succeeds.  I decided not to include a count1 check here to avoid timing dependent failures.  Alternatively, we could check count1 and wait again while it doesn\u0027t have the right number.  Failure would manifest as a hung process.  Is that OK?  Is there a timeout on gtests as a whole?",
+      "parentUuid": "1f4ed10c_04eafc87",
       "range": {
         "startLine": 72,
         "startChar": 42,
