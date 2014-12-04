@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df0d19eb_19632bba",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T23:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_c7276253",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 91
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_e7245e51",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-04T18:41:20Z",
       "side": 1,
       "message": "Aha, you\u0027re starting from 0 now :-) Do you still need the larger type?",
+      "range": {
+        "startLine": 386,
+        "startChar": 22,
+        "endLine": 386,
+        "endChar": 23
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff081ddb_3ae38163",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T23:58:56Z",
+      "side": 1,
+      "message": "Actually for sparse-switch you do. The size field is still 16b, but the payload is twice that.",
+      "parentUuid": "5f8a0930_e7245e51",
       "range": {
         "startLine": 386,
         "startChar": 22,
@@ -155,6 +203,30 @@
       "side": 1,
       "message": "Thing is, there\u0027s plenty of places in the compiler where we expect the verifier has run. And these might be DCHECK. I don\u0027t have a very strong opinion. Seen as a single ART entity, the compiler does expect the verifier to have done its job correctly, hence the preference for the DCHECK.",
       "parentUuid": "5f2da928_7b6277fe",
+      "range": {
+        "startLine": 969,
+        "startChar": 30,
+        "endLine": 970,
+        "endChar": 14
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0225b9_1b62fffc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T23:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_0a467f1a",
       "range": {
         "startLine": 969,
         "startChar": 30,
@@ -333,6 +405,30 @@
     },
     {
       "key": {
+        "uuid": "ff081ddb_5dd10f07",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T23:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_eabb2399",
+      "range": {
+        "startLine": 982,
+        "startChar": 20,
+        "endLine": 982,
+        "endChar": 37
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_abcf6de9",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -344,6 +440,30 @@
       "writtenOn": "2014-12-04T18:41:20Z",
       "side": 1,
       "message": "DCHECK?",
+      "range": {
+        "startLine": 989,
+        "startChar": 8,
+        "endLine": 989,
+        "endChar": 12
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff081ddb_bdfe6b78",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T23:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fff69b8_abcf6de9",
       "range": {
         "startLine": 989,
         "startChar": 8,
@@ -391,6 +511,30 @@
       "side": 1,
       "message": "Will remove the comment.",
       "parentUuid": "3ffc75c4_ea71e383",
+      "range": {
+        "startLine": 213,
+        "startChar": 20,
+        "endLine": 213,
+        "endChar": 25
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df0d19eb_39870fa3",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T23:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f750d3d_d1c5a6cd",
       "range": {
         "startLine": 213,
         "startChar": 20,
