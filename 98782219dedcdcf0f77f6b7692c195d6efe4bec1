@@ -81,6 +81,30 @@
       "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff1c9dfc_039514a1",
+        "filename": "runtime/barrier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-04T05:47:32Z",
+      "side": 1,
+      "message": "Yes, I suppose this succeeds even if it times out too soon. Then why have wait_forever_barrier at all? To exercise Increment() with timeout in this test?",
+      "parentUuid": "1f4ed10c_648740a2",
+      "range": {
+        "startLine": 72,
+        "startChar": 42,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
