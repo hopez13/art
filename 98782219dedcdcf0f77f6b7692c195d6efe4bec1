@@ -16,6 +16,29 @@
       "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f4ed10c_04eafc87",
+        "filename": "runtime/barrier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-04T01:39:02Z",
+      "side": 1,
+      "message": "Does this make the test timing dependent?\n\nMaybe we don\u0027t need wait_forever_barrier?",
+      "range": {
+        "startLine": 72,
+        "startChar": 42,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
