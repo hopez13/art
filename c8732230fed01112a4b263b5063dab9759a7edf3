@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_0a467f1a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T18:45:14Z",
+      "side": 1,
+      "message": "Thing is, there\u0027s plenty of places in the compiler where we expect the verifier has run. And these might be DCHECK. I don\u0027t have a very strong opinion. Seen as a single ART entity, the compiler does expect the verifier to have done its job correctly, hence the preference for the DCHECK.",
+      "parentUuid": "5f2da928_7b6277fe",
+      "range": {
+        "startLine": 969,
+        "startChar": 30,
+        "endLine": 970,
+        "endChar": 14
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_07096ac8",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
