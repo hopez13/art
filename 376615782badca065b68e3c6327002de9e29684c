@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "1f4ed10c_3e0f059f",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T00:17:58Z",
+      "side": 1,
+      "message": "I checked, the one that would have been reasonable (compiler driver\u0027s stats lock) is only there in a debug build.",
+      "parentUuid": "1fe09112_b10d982b",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_f65b363d",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "7f47cdec_137ebed9",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T00:17:58Z",
+      "side": 1,
+      "message": "I\u0027ve refactored, take a look.",
+      "parentUuid": "1fe09112_71ae10aa",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 36
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f8d0d44_74466080",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 2
@@ -179,6 +227,24 @@
       "writtenOn": "2014-12-03T04:33:07Z",
       "side": 1,
       "message": "LOCKS_EXCLUDED(dump_mutex)",
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f47cdec_738dc28e",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T00:17:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f8d0d44_74466080",
       "revId": "376615782badca065b68e3c6327002de9e29684c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -267,6 +333,30 @@
       "side": 1,
       "message": "I\u0027ll look into it.",
       "parentUuid": "ff82dd17_f3d0a205",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f4ed10c_be1b15db",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T00:17:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd68940_3039a614",
       "range": {
         "startLine": 79,
         "startChar": 2,
