@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_470fd04f",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T11:28:51Z",
+      "side": 1,
+      "message": "How about adding an instance field to OptimizingCompiler then?",
+      "parentUuid": "1f4ed10c_3e0f059f",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 60
+      },
+      "revId": "376615782badca065b68e3c6327002de9e29684c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_f65b363d",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
