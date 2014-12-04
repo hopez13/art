@@ -48,6 +48,75 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_ca3187e3",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Place both arguments on the same line.",
+      "range": {
+        "startLine": 304,
+        "startChar": 43,
+        "endLine": 305,
+        "endChar": 59
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_e7961e21",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "We usually use curly braces with control flow statements, even around single-line statements.",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 322,
+        "endChar": 50
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_ab3acd5a",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 48
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_a7b336de",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 5
@@ -64,6 +133,29 @@
         "startChar": 65,
         "endLine": 36,
         "endChar": 11
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_0a1f9f4c",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Nit: remove space.",
+      "range": {
+        "startLine": 42,
+        "startChar": 31,
+        "endLine": 42,
+        "endChar": 32
       },
       "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -186,6 +278,52 @@
     },
     {
       "key": {
+        "uuid": "5f8a0930_e76ffe98",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Add braces around statements.",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 304,
+        "endChar": 72
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_8ae4aff2",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Replace with:\n\n  #include \u003ccinttypes\u003e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_c76202b4",
         "filename": "compiler/optimizing/pretty_printer.h",
         "patchSetId": 5
@@ -225,6 +363,29 @@
         "startChar": 6,
         "endLine": 56,
         "endChar": 13
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_6aca935a",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Add copyright header (see other files).",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 30
       },
       "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -347,6 +508,75 @@
     },
     {
       "key": {
+        "uuid": "5fff69b8_4b9b5902",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Nit: do you really need parens around the return value?",
+      "range": {
+        "startLine": 103,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 93
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_a7cfb637",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Nit: I think you don\u0027t need this `\\\u0027 here.",
+      "range": {
+        "startLine": 255,
+        "startChar": 87,
+        "endLine": 255,
+        "endChar": 88
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_0ba56141",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 256,
+        "startChar": 89,
+        "endLine": 256,
+        "endChar": 90
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_6af3b3b0",
         "filename": "tools/checker_test.py",
         "patchSetId": 5
@@ -363,6 +593,52 @@
         "startChar": 0,
         "endLine": 20,
         "endChar": 0
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_caa4e79d",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "Nit: could fit on a single line; up to you. :)",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 57
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_2b813d8b",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T18:09:00Z",
+      "side": 1,
+      "message": "So you are allowed to reassign a variable to capture a(nother) part of the string?  Sounds a bit risky to me, as one could easily reuse a variable name by mistake.",
+      "range": {
+        "startLine": 234,
+        "startChar": 37,
+        "endLine": 234,
+        "endChar": 46
       },
       "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
