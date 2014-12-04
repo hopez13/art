@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f8a0930_1c51c126",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T11:31:41Z",
+      "side": 1,
+      "message": "I was thinking about something along the lines of:\n\nHandleInstruction(HInstruction* instruction) {\n  output_ \u003c\u003c instruction-\u003eDebugName();\n  output_ \u003c\u003c instruction-\u003eAccept(this);\n  .... // all generic printing.\n}",
+      "range": {
+        "startLine": 186,
+        "startChar": 7,
+        "endLine": 186,
+        "endChar": 23
+      },
+      "revId": "146f3312be76a26f1220175e094be34b8bed792a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_0719d896",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T11:31:41Z",
+      "side": 1,
+      "message": "What\u0027s an \u0026\u0026 ? Is that a string and additional?",
+      "range": {
+        "startLine": 186,
+        "startChar": 68,
+        "endLine": 186,
+        "endChar": 70
+      },
+      "revId": "146f3312be76a26f1220175e094be34b8bed792a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
