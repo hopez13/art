@@ -45,6 +45,29 @@
       "revId": "146f3312be76a26f1220175e094be34b8bed792a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_bc142d33",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-04T12:21:59Z",
+      "side": 1,
+      "message": "Is this r-value reference really needed here?",
+      "range": {
+        "startLine": 186,
+        "startChar": 68,
+        "endLine": 186,
+        "endChar": 70
+      },
+      "revId": "146f3312be76a26f1220175e094be34b8bed792a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
