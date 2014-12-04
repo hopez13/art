@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f8a0930_dc3499ff",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T11:22:13Z",
+      "side": 1,
+      "message": "this should be a dcheck",
+      "range": {
+        "startLine": 502,
+        "startChar": 6,
+        "endLine": 502,
+        "endChar": 17
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_27ea940b",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -64,6 +87,29 @@
         "startChar": 36,
         "endLine": 1620,
         "endChar": 55
+      },
+      "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_e8d56bfb",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-04T11:22:13Z",
+      "side": 1,
+      "message": "if the tests previously pass, does it mean that our assembler tests can\u0027t catch this kind error?",
+      "range": {
+        "startLine": 675,
+        "startChar": 4,
+        "endLine": 675,
+        "endChar": 13
       },
       "revId": "8694b31adb271bcfb2f6648e1be5912360c22591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
