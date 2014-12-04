@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff81fd4c_32bbd0b5",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-04T21:47:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f750d3d_8e993bde",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 65
+      },
+      "revId": "53cfb80a0fa7cc3ffe5babb70f494843b6e88df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f750d3d_cec503ce",
         "filename": "compiler/dex/quick/x86/utility_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-04T18:00:36Z",
       "side": 1,
       "message": "rather than compute this and then clear it, would it be cleaner here to:\nCHECK(!cu_-\u003etarget64 || !store_method_addr_)\nthen in the AnalyzeBB code set store_method_addr_ to be !cu_-\u003etarget64 with an explanation that x86-64 supports RIP addressing? Perhaps just a TODO.",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 31
+      },
+      "revId": "53cfb80a0fa7cc3ffe5babb70f494843b6e88df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff81fd4c_d2884406",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-04T21:47:22Z",
+      "side": 1,
+      "message": "Done, but adds more ifs to replace one extra store",
+      "parentUuid": "7f750d3d_cec503ce",
       "range": {
         "startLine": 971,
         "startChar": 4,
