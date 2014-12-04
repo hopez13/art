@@ -22,6 +22,30 @@
       "revId": "5e4d513eee15211985b3a711fb689b964f48b39f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_4b691966",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-04T17:32:39Z",
+      "side": 1,
+      "message": "Bleh :-) We\u0027ll probably soon not be ABI compliant anyway, and ARM is working on it.",
+      "parentUuid": "7f750d3d_0e70eb77",
+      "range": {
+        "startLine": 151,
+        "startChar": 48,
+        "endLine": 151,
+        "endChar": 62
+      },
+      "revId": "5e4d513eee15211985b3a711fb689b964f48b39f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
