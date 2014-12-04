@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df219932_59ca235a",
+        "filename": "runtime/barrier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-04T01:29:54Z",
+      "side": 1,
+      "message": "Is NanoTime too inaccurate to use here? It would make the code a lot simpler.",
+      "revId": "98782219dedcdcf0f77f6b7692c195d6efe4bec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
