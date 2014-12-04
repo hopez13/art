@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f2da928_7b6277fe",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T18:36:44Z",
+      "side": 1,
+      "message": "I don\u0027t think so. For one, we were trying hard to not abort for compiler errors anymore (there\u0027s an open bug about this somewhere). Also, a DCHECK wouldn\u0027t protect us in practice if something ever slips through (and it\u0027s usually apps that would trigger this, as we have full control over framework and such). So I feel that punting is the right thing to do.",
+      "parentUuid": "5fff69b8_0b0fa19e",
+      "range": {
+        "startLine": 969,
+        "startChar": 30,
+        "endLine": 970,
+        "endChar": 14
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_07096ac8",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-04T18:26:17Z",
       "side": 1,
       "message": "static_cast?",
+      "range": {
+        "startLine": 976,
+        "startChar": 47,
+        "endLine": 976,
+        "endChar": 58
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f7c112d_ae80b7d2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T18:36:44Z",
+      "side": 1,
+      "message": "This one works without. Do you want it for consistency?",
+      "parentUuid": "5f8a0930_07096ac8",
       "range": {
         "startLine": 976,
         "startChar": 47,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7f750d3d_3128aaf0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T18:36:44Z",
+      "side": 1,
+      "message": "Nicolas, your opinion? I like the clean separation, as the setup and some key parameters are different.\n\nNote: I was thinking about a function pointer to unify this more, but we\u0027re not very happy with lambdas and such.\n\nAlso note: if we ever implement optimized versions, these will become significantly different (packed is a table lookup, sparse can be optimized to a binary search at runtime).",
+      "parentUuid": "5fff69b8_ab164db3",
+      "range": {
+        "startLine": 982,
+        "startChar": 20,
+        "endLine": 982,
+        "endChar": 37
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_ea71e383",
         "filename": "compiler/optimizing/builder.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-04T18:26:17Z",
       "side": 1,
       "message": "I\u0027d avoid introducing such ordering, even if it implies some repetition. Or better, you can remove the entire comment.",
+      "range": {
+        "startLine": 213,
+        "startChar": 20,
+        "endLine": 213,
+        "endChar": 25
+      },
+      "revId": "c8732230fed01112a4b263b5063dab9759a7edf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f750d3d_d1c5a6cd",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-04T18:36:44Z",
+      "side": 1,
+      "message": "Will remove the comment.",
+      "parentUuid": "3ffc75c4_ea71e383",
       "range": {
         "startLine": 213,
         "startChar": 20,
