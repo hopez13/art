@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f133113_b3b978f4",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2014-12-05T10:29:46Z",
+      "side": 0,
+      "message": "I think it would be worth documenting your requirements here or below. The ones that caused you to leave the shell unspecified e.g.\n\n# This script is used on host and device. It uses a common subset shell dialect that should work on the host (e.g. bash), and Android (e.g. mksh). \n\nI\u0027ve only used e.g. because typically the device shell is mksh but can also be other things depending on OEM, I think. On host, it\u0027s equally fluid.\n\nhttp://stackoverflow.com/questions/11950131/android-adb-shell-ash-or-ksh",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "b510c82ebaf11cf6f4f215f6237ee6a44861ef10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
