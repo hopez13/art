@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f78ad6f_19414f35",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-05T19:12:50Z",
+      "side": 1,
+      "message": "This will break inlining attempts. Make conditional on not being optimizing compiler.",
+      "range": {
+        "startLine": 2201,
+        "startChar": 2,
+        "endLine": 2202,
+        "endChar": 58
+      },
+      "revId": "ab972ef472001fa113d54486d7592979e33480b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
