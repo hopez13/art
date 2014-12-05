@@ -70,6 +70,30 @@
       "revId": "e3f67e94610f785aa20147a2c5dab1bae52a8b96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfe9452d_0328d0ac",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-05T14:13:43Z",
+      "side": 1,
+      "message": "While I agree that avoiding side effects is definitely good, I don\u0027t want to change the signature.  The purpose of this is to allow general analysis for ANY purpose.  It is not there just to compute store_method_address, and the routines are overriden to compute more information in a derived class.",
+      "parentUuid": "dfe43953_616d56a0",
+      "range": {
+        "startLine": 905,
+        "startChar": 2,
+        "endLine": 905,
+        "endChar": 6
+      },
+      "revId": "e3f67e94610f785aa20147a2c5dab1bae52a8b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
