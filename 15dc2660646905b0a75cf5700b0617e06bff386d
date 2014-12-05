@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffad7dfd_7287f86f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Nit: extra `.\u0027.",
+      "range": {
+        "startLine": 610,
+        "startChar": 37,
+        "endLine": 610,
+        "endChar": 38
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f133113_b31cd8d6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we add a DCHECK for that?",
+      "range": {
+        "startLine": 614,
+        "startChar": 5,
+        "endLine": 614,
+        "endChar": 41
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f133113_f3cf70e8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t `loc_2` and `loc_1\u0027 be swapped in those lines?",
+      "range": {
+        "startLine": 935,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 46
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb2795b_5432a211",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Is there any reason why you kept this empty `else\u0027 statement?",
+      "range": {
+        "startLine": 1541,
+        "startChar": 6,
+        "endLine": 1543,
+        "endChar": 5
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7dfd_72a8981a",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Nit: put each Boolean statement on its own line (either break a line before or after \u0026\u0026).",
+      "range": {
+        "startLine": 72,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 65
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f133113_73f3607e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 68
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7dfd_d2b8646d",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-05T16:18:29Z",
+      "side": 1,
+      "message": "Wow! Great job. :)",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 45
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
