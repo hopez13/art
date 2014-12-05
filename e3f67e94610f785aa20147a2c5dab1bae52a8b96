@@ -94,6 +94,30 @@
       "revId": "e3f67e94610f785aa20147a2c5dab1bae52a8b96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fbc8133_353b98f0",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-05T16:08:32Z",
+      "side": 1,
+      "message": "If there is a use-case in a derived class that\u0027s not part of AOSP we have no means to test or maintain its correctness - such things are treated as though they don\u0027t exist and this is certainly not a justification for a -1.\nAs I explained above, the code is able to serve multiple purposes if you return a tuple to cover other conditions. For the up-stream AOSP code this code is clearly more optimal as we avoid a traversal of the IR on x86-64, as well as terminating early on x86 as soon as one base of code ptr is encountered.",
+      "parentUuid": "bfe9452d_0328d0ac",
+      "range": {
+        "startLine": 905,
+        "startChar": 2,
+        "endLine": 905,
+        "endChar": 6
+      },
+      "revId": "e3f67e94610f785aa20147a2c5dab1bae52a8b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
