@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f78ad6f_5c1c9587",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1604,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-05T19:41:01Z",
+      "side": 1,
+      "message": "Templatizing this would make the change smaller, as you don\u0027t need to make it a member function.",
+      "range": {
+        "startLine": 1604,
+        "startChar": 0,
+        "endLine": 1604,
+        "endChar": 86
+      },
+      "revId": "2801f9d36fc3dfb4b892386fc0c54cc0bbd9d8c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
