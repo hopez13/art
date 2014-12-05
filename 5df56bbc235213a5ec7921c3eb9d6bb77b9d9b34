@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6fb1ad_f32cb0c2",
+        "filename": "runtime/arch/arm/portable_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-12-05T19:24:36Z",
+      "side": 1,
+      "message": "SUSPEND_CHECK_INTERVAL was set 1000. A \"mov\" then worked fine. Now that SUSPEND_CHECK_INTERVAL is 997, a literal pool load is needed. Note that this line does not appear inside a \"#ifdef ARM_R4_SUSPEND_FLAG...#endif\". Changing 1000 to 997 thus causes a compilation error.",
+      "revId": "5df56bbc235213a5ec7921c3eb9d6bb77b9d9b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4ef955_f1f3c8fe",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-12-05T19:24:36Z",
+      "side": 1,
+      "message": "This update was made for consistency, to make sure that - in the case ARM_R4_SUSPEND_FLAG is defined - we wouldn\u0027t encounter a compilation error.",
+      "revId": "5df56bbc235213a5ec7921c3eb9d6bb77b9d9b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f6fb1ad_13120c78",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2014-12-05T19:24:36Z",
+      "side": 1,
+      "message": "Same.",
+      "revId": "5df56bbc235213a5ec7921c3eb9d6bb77b9d9b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
