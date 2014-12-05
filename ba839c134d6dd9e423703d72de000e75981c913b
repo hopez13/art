@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfb2795b_710c18da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_6a185366",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 72
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_4a15972c",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "any reason you changed this?",
+      "range": {
+        "startLine": 17,
+        "startChar": 9,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_4b84799b",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Sry, Eclipse did that. It\u0027s fixed in patchset 6",
+      "parentUuid": "3ffc75c4_4a15972c",
       "range": {
         "startLine": 17,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ffad7dfd_925c1cc6",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_ca3187e3",
+      "range": {
+        "startLine": 304,
+        "startChar": 43,
+        "endLine": 305,
+        "endChar": 59
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_e7961e21",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-04T18:09:00Z",
       "side": 1,
       "message": "We usually use curly braces with control flow statements, even around single-line statements.",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 322,
+        "endChar": 50
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb2795b_d135047d",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_e7961e21",
       "range": {
         "startLine": 319,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ffad7dfd_f2612884",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fff69b8_ab3acd5a",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 48
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_a7b336de",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "should it be abstract then?",
+      "range": {
+        "startLine": 35,
+        "startChar": 65,
+        "endLine": 36,
+        "endChar": 11
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb2795b_51363425",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "We don\u0027t need NULL checks every time DumpGraph is called this way. I added a comment which explains this.",
+      "parentUuid": "5f8a0930_a7b336de",
       "range": {
         "startLine": 35,
         "startChar": 65,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "1f133113_139b0c03",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_0a1f9f4c",
+      "range": {
+        "startLine": 42,
+        "startChar": 31,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_e7bd3ea9",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "indentation issue, here and in the other places. Make sure you indent in sync with the first param.",
+      "range": {
+        "startLine": 61,
+        "startChar": 21,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_8a870ff2",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5f8a0930_e7bd3ea9",
       "range": {
         "startLine": 61,
         "startChar": 21,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "ffad7dfd_f5d59249",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "True, but the output is only enabled when the --dump-passes flag is passed to dex2oat so it would be awkward if it didn\u0027t do anything unless it was paired with another flag that changes the verbosity (there doesn\u0027t seem to be one, btw). And either way, different flag-hidden stats in dex2oat.cc are being printed to LOG(INFO) too, so I\u0027d just leave it like this.",
+      "parentUuid": "5fff69b8_8b66f198",
+      "range": {
+        "startLine": 76,
+        "startChar": 39,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_07940a17",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
@@ -220,6 +436,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "What\u0027s the benefit of having a before and an after? This will basically duplicate a lot since after(i)\u003dbefore(i-1)",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 75
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_67186e18",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re right. The reason is that it enables you to address both the state before and after a pass with the same name, rather than having to know which pass came before (which will change over time). But I\u0027ve now changed it to wrap one dump with both the name of the pass before and after.",
+      "parentUuid": "5f8a0930_07940a17",
       "range": {
         "startLine": 223,
         "startChar": 4,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_8a802fd3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_677cee58",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 298,
+        "endChar": 4
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_aadf6b17",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
@@ -266,6 +530,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "I think this is useful enough to have on a separate if, i.e. even if you dump passes in the logs, having the visualizer could help a lot.",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 31
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ffc75c4_6a6613cb",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "The first branch should really be invoked just by tests, the other one only manually. Do you think they would ever be used simultaneously? That would involve storing a list of the visualizers. Or do you just mean that setting kIsVisualizerEnabled\u003dtrue would completely override the --dump-passes flag?",
+      "parentUuid": "3ffc75c4_aadf6b17",
       "range": {
         "startLine": 300,
         "startChar": 11,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "3ffc75c4_4a6357b9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_e76ffe98",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 304,
+        "endChar": 72
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_8ae4aff2",
         "filename": "compiler/optimizing/pretty_printer.h",
         "patchSetId": 5
@@ -312,6 +624,30 @@
       "writtenOn": "2014-12-04T18:09:00Z",
       "side": 1,
       "message": "Replace with:\n\n  #include \u003ccinttypes\u003e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f8a0930_27374689",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_8ae4aff2",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -370,6 +706,54 @@
     },
     {
       "key": {
+        "uuid": "dfb2795b_944b6a87",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_c76202b4",
+      "range": {
+        "startLine": 56,
+        "startChar": 15,
+        "endLine": 56,
+        "endChar": 37
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fff69b8_6b31755e",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "The pretty printer only prints the names of the instructions + inputs + outputs. It\u0027s good to have the values of constants in the test output though. When you have five different IntConstant instructions in your graph, you want to use their value to distinguish between them. Unfortunately, the *Constant instructions don\u0027t have a single GetValue() method (because the return type is different in each case), so it is necessary to cast \u0027instruction\u0027 to the correct type and print each one accordingly.",
+      "parentUuid": "5fff69b8_8bb8316c",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_6aca935a",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 5
@@ -381,6 +765,30 @@
       "writtenOn": "2014-12-04T18:09:00Z",
       "side": 1,
       "message": "Add copyright header (see other files).",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 30
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f133113_b3ee984a",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_6aca935a",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -416,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "5fff69b8_ebc565cd",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Yeah, I know. They\u0027re just temporary, don\u0027t worry. Right now they\u0027re there because dx sorts the methods by name so they then appear in a different order in the HGraph dump and that messes up the flow of the matching (the engine matches the CHECK lines consecutively, so all the checks for IntAddition1 get checked on output after IntNegation). I\u0027ll fix this in my next CL by grouping the checks and allowing an arbitrary order of the groups while still having a strict order within each group",
+      "parentUuid": "5f8a0930_c74be221",
+      "range": {
+        "startLine": 8,
+        "startChar": 20,
+        "endLine": 8,
+        "endChar": 24
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_0746ca1a",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 5
@@ -427,6 +859,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "Here\u0027s an idea: it would be cool if you could achieve this via annotations instead of arbitrary comments.",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 57
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f133113_d3ed144e",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Yeah, but that would make it source language dependent. It would be nice to have the option of using this on more than just Java -\u003e HGraph",
+      "parentUuid": "5f8a0930_0746ca1a",
       "range": {
         "startLine": 15,
         "startChar": 2,
@@ -462,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "1f133113_33e3a863",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_4ac7d750",
+      "range": {
+        "startLine": 19,
+        "startChar": 86,
+        "endLine": 19,
+        "endChar": 95
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_6755cec0",
         "filename": "tools/checker.py",
         "patchSetId": 5
@@ -473,6 +953,30 @@
       "writtenOn": "2014-12-04T18:04:18Z",
       "side": 1,
       "message": "I wouldn\u0027t bother to make this configurable.",
+      "range": {
+        "startLine": 20,
+        "startChar": 41,
+        "endLine": 20,
+        "endChar": 59
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f133113_13e02c53",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Left configurable (for now) but rephrased",
+      "parentUuid": "5f8a0930_6755cec0",
       "range": {
         "startLine": 20,
         "startChar": 41,
@@ -508,6 +1012,30 @@
     },
     {
       "key": {
+        "uuid": "dfb2795b_b4678e18",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fff69b8_6b9e15f4",
+      "range": {
+        "startLine": 27,
+        "startChar": 62,
+        "endLine": 27,
+        "endChar": 64
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_4b9b5902",
         "filename": "tools/checker.py",
         "patchSetId": 5
@@ -519,6 +1047,30 @@
       "writtenOn": "2014-12-04T18:09:00Z",
       "side": 1,
       "message": "Nit: do you really need parens around the return value?",
+      "range": {
+        "startLine": 103,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 93
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7dfd_95f9a6e3",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fff69b8_4b9b5902",
       "range": {
         "startLine": 103,
         "startChar": 11,
@@ -554,6 +1106,30 @@
     },
     {
       "key": {
+        "uuid": "dfb2795b_f47116d2",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_a7cfb637",
+      "range": {
+        "startLine": 255,
+        "startChar": 87,
+        "endLine": 255,
+        "endChar": 88
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_0ba56141",
         "filename": "tools/checker.py",
         "patchSetId": 5
@@ -565,6 +1141,30 @@
       "writtenOn": "2014-12-04T18:09:00Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 256,
+        "startChar": 89,
+        "endLine": 256,
+        "endChar": 90
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7dfd_d5f32eff",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fff69b8_0ba56141",
       "range": {
         "startLine": 256,
         "startChar": 89,
@@ -600,6 +1200,30 @@
     },
     {
       "key": {
+        "uuid": "1f133113_133e6cad",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_6af3b3b0",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_caa4e79d",
         "filename": "tools/checker_test.py",
         "patchSetId": 5
@@ -623,6 +1247,30 @@
     },
     {
       "key": {
+        "uuid": "dfb2795b_f1df6816",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_caa4e79d",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 57
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_2b813d8b",
         "filename": "tools/checker_test.py",
         "patchSetId": 5
@@ -634,6 +1282,30 @@
       "writtenOn": "2014-12-04T18:09:00Z",
       "side": 1,
       "message": "So you are allowed to reassign a variable to capture a(nother) part of the string?  Sounds a bit risky to me, as one could easily reuse a variable name by mistake.",
+      "range": {
+        "startLine": 234,
+        "startChar": 37,
+        "endLine": 234,
+        "endChar": 46
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffad7dfd_b2884005",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-05T16:23:24Z",
+      "side": 1,
+      "message": "You are probably right. I can forbid it in the future but right now you wouldn\u0027t be allowed to reuse a variable anywhere in the same file. Once I add grouping of check lines (usually by method), I can have a separate variable store for each one and not allowing reassignment would make perfect sense.",
+      "parentUuid": "5fff69b8_2b813d8b",
       "range": {
         "startLine": 234,
         "startChar": 37,
