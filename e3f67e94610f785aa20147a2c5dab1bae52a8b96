@@ -22,6 +22,30 @@
       "revId": "e3f67e94610f785aa20147a2c5dab1bae52a8b96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0225b9_8181808d",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2014-12-05T01:26:34Z",
+      "side": 1,
+      "message": "Its be possible to change the return type to a tuple... Avoiding side-effects makes it obvious what the code is computing and when the computation can terminate (ie immediately on x86-64 and when an instruction requiring the code base ptr is found on x86).",
+      "parentUuid": "bfe9452d_80da16f3",
+      "range": {
+        "startLine": 905,
+        "startChar": 2,
+        "endLine": 905,
+        "endChar": 6
+      },
+      "revId": "e3f67e94610f785aa20147a2c5dab1bae52a8b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
