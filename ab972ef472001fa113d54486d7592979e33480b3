@@ -22,6 +22,24 @@
       "revId": "ab972ef472001fa113d54486d7592979e33480b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f78ad6f_39b1abd6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-05T19:16:47Z",
+      "side": 1,
+      "message": "Wouldn\u0027t inlining just use the verification results for the method being compiled? Either way if inlining requires this then the person implementing it can add conditionals to prevent the verification results being removed.",
+      "parentUuid": "7f78ad6f_19414f35",
+      "revId": "ab972ef472001fa113d54486d7592979e33480b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
