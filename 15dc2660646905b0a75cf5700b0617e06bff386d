@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_c32a4894",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T16:00:35Z",
+      "side": 1,
+      "message": "just to be more precise about my previous question: :)\n\nyou mentioned that it *should* save power. I just wonder if the save is important enough to make us think about optimizations (e.g. as you suggested, to enhance Location with extra info).",
+      "parentUuid": "64974203_fe3cc105",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_61cb30b4",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
