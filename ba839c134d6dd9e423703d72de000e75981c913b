@@ -566,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_4355d813",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T16:19:42Z",
+      "side": 1,
+      "message": "Yea, I think I omitted the fact that we can\u0027t use the same visualizer. It\u0027s fine to have it like this.",
+      "parentUuid": "3ffc75c4_6a6613cb",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 31
+      },
+      "revId": "ba839c134d6dd9e423703d72de000e75981c913b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_e76ffe98",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 5
