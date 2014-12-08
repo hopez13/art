@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "845d1634_5c4b99fa",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-08T19:53:49Z",
+      "side": 0,
+      "message": "I think using count here incorrect since sorted_entries.size() \u003c\u003d count",
+      "revId": "52222d132e500235aeaa427e2f4139dc20ed9288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
