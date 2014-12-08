@@ -97,6 +97,76 @@
     },
     {
       "key": {
+        "uuid": "64974203_fe3cc105",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T15:42:22Z",
+      "side": 1,
+      "message": "it would be interesting to see some numbers if any are available (i.e. how much do you save?).",
+      "parentUuid": "84927610_5f1a8be2",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_61cb30b4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T15:42:22Z",
+      "side": 1,
+      "message": "nit: i\u0027d prefer to have this at the top. I find it hard to read cause || implies to me that both can be valid...\n\nMaybe you could use xor? might also help you simplify other if(...) {DCHECK()...} patterns.",
+      "range": {
+        "startLine": 580,
+        "startChar": 4,
+        "endLine": 580,
+        "endChar": 56
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_be5f196a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T15:42:22Z",
+      "side": 1,
+      "message": "nit: just a matter of preference but I think most of the code in art uses is_reg1/loc1 etc... style. For me loc1 reads better but I don\u0027t really care.",
+      "range": {
+        "startLine": 594,
+        "startChar": 7,
+        "endLine": 594,
+        "endChar": 15
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffad7dfd_7287f86f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -184,6 +254,52 @@
         "startChar": 5,
         "endLine": 614,
         "endChar": 41
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_5e4cd5c2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T15:42:22Z",
+      "side": 1,
+      "message": "prefer 2 DCHECKS. In case of error it will better reveal the culprit.",
+      "range": {
+        "startLine": 889,
+        "startChar": 2,
+        "endLine": 889,
+        "endChar": 52
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_7e519159",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T15:42:22Z",
+      "side": 1,
+      "message": "does it worth using the xor \"trick\" and remove the need for a temp?\n\n(x \u003d x^y, y \u003d x^y, x \u003d x^y)",
+      "range": {
+        "startLine": 905,
+        "startChar": 4,
+        "endLine": 905,
+        "endChar": 47
       },
       "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -532,6 +648,30 @@
       "writtenOn": "2014-12-05T16:18:29Z",
       "side": 1,
       "message": "Wow! Great job. :)",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 45
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_7eed1149",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-08T15:42:22Z",
+      "side": 1,
+      "message": "btw, just a head up that I added REM_FLOAT tests to this list in https://android-review.googlesource.com/#/c/118233/ :)",
+      "parentUuid": "ffad7dfd_d2b8646d",
       "range": {
         "startLine": 300,
         "startChar": 0,
