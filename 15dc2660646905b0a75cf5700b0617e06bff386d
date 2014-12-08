@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_1fc5e31b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Thinking about it now, the type is actually only useful when moving from a constant or between two (core of fp) registers. We have 32bit move instructions that are preferable to the 64bit variants. In other situations the Locations will contain all the information we need.\n\nThis function was required in this patch because `MoveLocation()` was built to require the type as an argument to use 32bit moves when possible. I think this was when there was no FP support yet, and before this the type was always available. So now we could make that argument optional. If that\u0027s ok with you I\u0027ll look at refactoring that in another patch.",
+      "parentUuid": "a48dbaf4_e0ebc2b1",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffad7dfd_7287f86f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-05T16:18:29Z",
       "side": 1,
       "message": "Nit: extra `.\u0027.",
+      "range": {
+        "startLine": 610,
+        "startChar": 37,
+        "endLine": 610,
+        "endChar": 38
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_3fca272d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ffad7dfd_7287f86f",
       "range": {
         "startLine": 610,
         "startChar": 37,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_dfce9b3f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "We can. Done.",
+      "parentUuid": "1f133113_b31cd8d6",
+      "range": {
+        "startLine": 614,
+        "startChar": 5,
+        "endLine": 614,
+        "endChar": 41
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f133113_f3cf70e8",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-05T16:18:29Z",
       "side": 1,
       "message": "Shouldn\u0027t `loc_2` and `loc_1\u0027 be swapped in those lines?",
+      "range": {
+        "startLine": 935,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 46
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_40caae2d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "1f133113_f3cf70e8",
       "range": {
         "startLine": 935,
         "startChar": 4,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "64974203_5e5cd5f4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Detailed the comment.",
+      "parentUuid": "64974203_5ef8558c",
+      "range": {
+        "startLine": 1541,
+        "startChar": 6,
+        "endLine": 1543,
+        "endChar": 5
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_bfe2b7d1",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "64974203_7e6191a3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2137,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84927610_bfe2b7d1",
+      "range": {
+        "startLine": 2137,
+        "startChar": 2,
+        "endLine": 2137,
+        "endChar": 8
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_7fac2f7e",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 2
@@ -175,6 +319,30 @@
       "writtenOn": "2014-12-08T10:15:06Z",
       "side": 1,
       "message": "Remove virtual (here and below).",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 9
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_e0ce623f",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84927610_7fac2f7e",
       "range": {
         "startLine": 147,
         "startChar": 2,
@@ -234,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_c0d55eca",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Fixed following Nicolas\u0027s suggestion.",
+      "parentUuid": "a48dbaf4_c0e23ed3",
+      "range": {
+        "startLine": 72,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 65
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f133113_73f3607e",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -245,6 +437,30 @@
       "writtenOn": "2014-12-05T16:18:29Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 68
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_bfd5d7ca",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T13:34:50Z",
+      "side": 1,
+      "message": "Now moved to a previous test. See comment above.",
+      "parentUuid": "1f133113_73f3607e",
       "range": {
         "startLine": 76,
         "startChar": 10,
