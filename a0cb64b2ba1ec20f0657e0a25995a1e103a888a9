@@ -206,6 +206,351 @@
       "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_40294e72",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Why the $001?",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_1f24039b",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Personal opinion, but I find it more logical to move the checking code above the method. But I won\u0027t mind if you think it\u0027s better this way.",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_7e08b11d",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "What is that for? The Const42 above did not need it.",
+      "range": {
+        "startLine": 39,
+        "startChar": 27,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_e03d02b2",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Do you need to specify those here (Const1 and Const2). The fact that they are still in the graph are not relevant for what you\u0027re checking: you just want to know if you are returning 3.",
+      "range": {
+        "startLine": 66,
+        "startChar": 18,
+        "endLine": 66,
+        "endChar": 24
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_3f29c773",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Why is that not called Const3?",
+      "range": {
+        "startLine": 68,
+        "startChar": 18,
+        "endLine": 68,
+        "endChar": 21
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_003b46bd",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "I think the (unsaid rule) for comments is below 80 columns.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 1
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_fe13614d",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Are those fields? Why are they capital case?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_a037facd",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Why do you pre-define fields here but not in other classes below?",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 9
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_5fd12b12",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "General nit (it applies for the methods below): thanks for the comment, but it will also help to have them close to where the code is. For example, when reading the code below, what do all the \u0027if/elif\u0027 correspond to?\n\nSo this top-level comment should be divided into a good mix of top-level comment, and inline comment",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_9f37b3ce",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "What\u0027s an environment?",
+      "range": {
+        "startLine": 158,
+        "startChar": 40,
+        "endLine": 158,
+        "endChar": 43
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_1e0ded2c",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Expand the comment by saying where it will find it.",
+      "range": {
+        "startLine": 172,
+        "startChar": 46,
+        "endLine": 172,
+        "endChar": 53
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_bf34f7c9",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Why are you making a copy and not in-place update?",
+      "range": {
+        "startLine": 184,
+        "startChar": 12,
+        "endLine": 184,
+        "endChar": 16
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_7fd66f0d",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "nit: avoid abbreviations, don\u0027t assume you readers must know them.",
+      "range": {
+        "startLine": 229,
+        "startChar": 36,
+        "endLine": 229,
+        "endChar": 39
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_be1dd95b",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "Please make the following a helper method.",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 5
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_1fdba334",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:52:06Z",
+      "side": 1,
+      "message": "features",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
