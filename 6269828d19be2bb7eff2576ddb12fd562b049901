@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64974203_c113247c",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-08T16:32:16Z",
+      "side": 1,
+      "message": "Careful here; shouldn\u0027t you handle long and floating-point (float \u0026 double) values differently?  I think you still need to actually record PC information for long values.",
+      "range": {
+        "startLine": 502,
+        "startChar": 68,
+        "endLine": 502,
+        "endChar": 88
+      },
+      "revId": "6269828d19be2bb7eff2576ddb12fd562b049901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
