@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84927610_5f2a8b6c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "Do you think we could drop the two subclasses? I think I\u0027d prefer having a check whether we\u0027re outputing for c1, or whether we\u0027re outputing pretty print. This would avoid the ugly std::unique_ptr we have to do when creating the visualizer.",
+      "range": {
+        "startLine": 312,
+        "startChar": 26,
+        "endLine": 312,
+        "endChar": 35
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_3f12274e",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "In general, we avoid using stl in the opt compiler. Can that be a char*?",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_3ea309b5",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "Remove virtual.",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_a0205a8c",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "add OVERRIDE",
+      "range": {
+        "startLine": 67,
+        "startChar": 81,
+        "endLine": 67,
+        "endChar": 86
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_df169b40",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "DISALLOW_COPY_AND_ASSIGN",
+      "range": {
+        "startLine": 72,
+        "startChar": 18,
+        "endLine": 72,
+        "endChar": 19
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_ff135f4d",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "range": {
+        "startLine": 84,
+        "startChar": 81,
+        "endLine": 84,
+        "endChar": 86
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_602a526d",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "Remove virtual",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_c01d5e5b",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "DISALLOW_COPY_AND_ASSIGN",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 2
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_9f20138d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T09:27:16Z",
+      "side": 1,
+      "message": "Not a big fan of this. At this level, we shouldn\u0027t care about internal details of the visualizer. I feel the code below, complexifies more than helps.\n\nIf you need to know names of previous pass, you can keep it in the visualizer.",
+      "range": {
+        "startLine": 213,
+        "startChar": 14,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
