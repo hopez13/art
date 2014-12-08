@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_df877ba1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T13:41:31Z",
+      "side": 1,
+      "message": "Why are 32bits moves preferables to 64bits?\n\nShould we have a bit in Location telling whether you should use 32bits?",
+      "parentUuid": "84927610_1fc5e31b",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffad7dfd_7287f86f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
