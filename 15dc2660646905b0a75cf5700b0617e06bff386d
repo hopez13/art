@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_2379b4b6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T16:05:44Z",
+      "side": 1,
+      "message": "I\u0027ll ask around to see what I can find about this.",
+      "parentUuid": "a48dbaf4_c32a4894",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_61cb30b4",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_22ec501c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T16:05:44Z",
+      "side": 1,
+      "message": "Done. Also using this in a DCHECK below.",
+      "parentUuid": "64974203_61cb30b4",
+      "range": {
+        "startLine": 580,
+        "startChar": 4,
+        "endLine": 580,
+        "endChar": 56
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_be5f196a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -179,6 +227,30 @@
       "writtenOn": "2014-12-08T15:42:22Z",
       "side": 1,
       "message": "nit: just a matter of preference but I think most of the code in art uses is_reg1/loc1 etc... style. For me loc1 reads better but I don\u0027t really care.",
+      "range": {
+        "startLine": 594,
+        "startChar": 7,
+        "endLine": 594,
+        "endChar": 15
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_a32dc4ae",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T16:05:44Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "64974203_be5f196a",
       "range": {
         "startLine": 594,
         "startChar": 7,
@@ -308,6 +380,30 @@
     },
     {
       "key": {
+        "uuid": "64974203_01034c36",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T16:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64974203_5e4cd5c2",
+      "range": {
+        "startLine": 889,
+        "startChar": 2,
+        "endLine": 889,
+        "endChar": 52
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_7e519159",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -319,6 +415,30 @@
       "writtenOn": "2014-12-08T15:42:22Z",
       "side": 1,
       "message": "does it worth using the xor \"trick\" and remove the need for a temp?\n\n(x \u003d x^y, y \u003d x^y, x \u003d x^y)",
+      "range": {
+        "startLine": 905,
+        "startChar": 4,
+        "endLine": 905,
+        "endChar": 47
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_6119f0a3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-08T16:05:44Z",
+      "side": 1,
+      "message": "No.\nThis is useful when short on registers. When we have a temp I think using \u0027mov\u0027 makes things easier for hardware register renaming.",
+      "parentUuid": "64974203_7e519159",
       "range": {
         "startLine": 905,
         "startChar": 4,
