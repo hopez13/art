@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a48dbaf4_e0ebc2b1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T10:15:06Z",
+      "side": 1,
+      "message": "When does it actually matter what type a move is? Don\u0027t you reference the same register, whether you\u0027re an X or W? (or S and D?)",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffad7dfd_7287f86f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -94,6 +117,76 @@
     },
     {
       "key": {
+        "uuid": "64974203_5ef8558c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T10:15:06Z",
+      "side": 1,
+      "message": "The comment is a good enough reason for me :). though it could be improved.",
+      "parentUuid": "dfb2795b_5432a211",
+      "range": {
+        "startLine": 1541,
+        "startChar": 6,
+        "endLine": 1543,
+        "endChar": 5
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_bfe2b7d1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T10:15:06Z",
+      "side": 1,
+      "message": "Trend is to put ATTRIBUTE_UNUSED on the parameter instead.",
+      "range": {
+        "startLine": 2137,
+        "startChar": 2,
+        "endLine": 2137,
+        "endChar": 8
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_7fac2f7e",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T10:15:06Z",
+      "side": 1,
+      "message": "Remove virtual (here and below).",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 9
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffad7dfd_72a8981a",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -105,6 +198,30 @@
       "writtenOn": "2014-12-05T16:18:29Z",
       "side": 1,
       "message": "Nit: put each Boolean statement on its own line (either break a line before or after \u0026\u0026).",
+      "range": {
+        "startLine": 72,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 65
+      },
+      "revId": "15dc2660646905b0a75cf5700b0617e06bff386d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_c0e23ed3",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-08T10:15:06Z",
+      "side": 1,
+      "message": "Actually, we can put a if (kX86_64 || kArm64) return true line 66, and make this loop not look at the instruction set.",
+      "parentUuid": "ffad7dfd_72a8981a",
       "range": {
         "startLine": 72,
         "startChar": 10,
