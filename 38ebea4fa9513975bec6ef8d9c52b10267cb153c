@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c488eee4_507d9ad8",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-08T20:41:39Z",
+      "side": 1,
+      "message": "DCHECK that obj1 and obj2 aren\u0027t null or the cleared ref here?",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 10
+      },
+      "revId": "38ebea4fa9513975bec6ef8d9c52b10267cb153c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c488eee4_dbe54b34",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-08T20:41:39Z",
+      "side": 1,
+      "message": "I think this should be with the barrier since the cleared ref obj is now a real moving object. Otherwise, the equality test in IsClearedJniWeakGlobal() call would go wrong.",
+      "range": {
+        "startLine": 156,
+        "startChar": 39,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "38ebea4fa9513975bec6ef8d9c52b10267cb153c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "846b56dc_2bfd1113",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-08T20:41:39Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 192,
+        "startChar": 64,
+        "endLine": 192,
+        "endChar": 68
+      },
+      "revId": "38ebea4fa9513975bec6ef8d9c52b10267cb153c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
