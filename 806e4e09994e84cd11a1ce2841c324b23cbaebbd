@@ -22,6 +22,24 @@
       "revId": "806e4e09994e84cd11a1ce2841c324b23cbaebbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845d1634_bcbe1532",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-08T20:04:27Z",
+      "side": 1,
+      "message": "I\u0027ll just delete the checks since we already check there to not insert these.",
+      "parentUuid": "c488eee4_30b1f6d5",
+      "revId": "806e4e09994e84cd11a1ce2841c324b23cbaebbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
