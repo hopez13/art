@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_e56992db",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Refactored",
+      "parentUuid": "84927610_5f2a8b6c",
+      "range": {
+        "startLine": 312,
+        "startChar": 26,
+        "endLine": 312,
+        "endChar": 35
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_3f12274e",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-08T09:27:16Z",
       "side": 1,
       "message": "In general, we avoid using stl in the opt compiler. Can that be a char*?",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04ccc652_ab1a6908",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "It could but I\u0027d have to do a strdup(method_name.cstr()) and then delete the char* later (the method name is returned by utils.cc/PrettyMethod as a std::string) because I need to keep it until the visualizer is destroyed. I think it\u0027s cleaner this way, isn\u0027t it?",
+      "parentUuid": "84927610_3f12274e",
       "range": {
         "startLine": 49,
         "startChar": 7,
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "04ccc652_4b5f45c2",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Ack, not needed any more",
+      "parentUuid": "64974203_3ea309b5",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_66302a8c",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Ack, not needed any more",
+      "parentUuid": "a48dbaf4_a0205a8c",
+      "range": {
+        "startLine": 67,
+        "startChar": 81,
+        "endLine": 67,
+        "endChar": 86
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_df169b40",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2014-12-08T09:27:16Z",
       "side": 1,
       "message": "DISALLOW_COPY_AND_ASSIGN",
+      "range": {
+        "startLine": 72,
+        "startChar": 18,
+        "endLine": 72,
+        "endChar": 19
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_86352e7d",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Ack, not needed any more",
+      "parentUuid": "84927610_df169b40",
       "range": {
         "startLine": 72,
         "startChar": 18,
@@ -163,6 +283,54 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_262a221a",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Ack, not needed any more",
+      "parentUuid": "84927610_ff135f4d",
+      "range": {
+        "startLine": 84,
+        "startChar": 81,
+        "endLine": 84,
+        "endChar": 86
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_4555de13",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Ack, not needed any more",
+      "parentUuid": "a48dbaf4_602a526d",
+      "range": {
+        "startLine": 84,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a48dbaf4_c01d5e5b",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 9
@@ -174,6 +342,30 @@
       "writtenOn": "2014-12-08T09:27:16Z",
       "side": 1,
       "message": "DISALLOW_COPY_AND_ASSIGN",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 2
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04ccc652_6b64818d",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Ack, not needed any more",
+      "parentUuid": "a48dbaf4_c01d5e5b",
       "range": {
         "startLine": 85,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "04ccc652_0b693d64",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done. Still need two calls to DumpGraph though",
+      "parentUuid": "84927610_9f20138d",
+      "range": {
+        "startLine": 213,
+        "startChar": 14,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a48dbaf4_40294e72",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 9
@@ -220,6 +436,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "Why the $001?",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_5fa7eb9a",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "To ensure that the methods appear in the same order in the output (we talked about this, methods get sorted by dx). I will get rid of this once I start matching groups of check lines independently. So for example, currently line 58 is matched on output left after matching line 42. But IntAddition would appear earlier in the output than IntNegation without the $00x.",
+      "parentUuid": "a48dbaf4_40294e72",
       "range": {
         "startLine": 24,
         "startChar": 21,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_5f8e0b15",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "I don\u0027t feel strongly about this either. Swapped...",
+      "parentUuid": "84927610_1f24039b",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_7e08b11d",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 9
@@ -266,6 +530,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "What is that for? The Const42 above did not need it.",
+      "range": {
+        "startLine": 39,
+        "startChar": 27,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_9ecedd6c",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "That defines a new variable which matches the ID of the instruction which replaced the Neg. Const42 on line 38 does not need it because it is the same ID as on line 33.",
+      "parentUuid": "64974203_7e08b11d",
       "range": {
         "startLine": 39,
         "startChar": 27,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_1fb163d5",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "True, this is overtesting. Fixed here and elsewhere",
+      "parentUuid": "a48dbaf4_e03d02b2",
+      "range": {
+        "startLine": 66,
+        "startChar": 18,
+        "endLine": 66,
+        "endChar": 24
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_3f29c773",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 9
@@ -312,6 +624,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "Why is that not called Const3?",
+      "range": {
+        "startLine": 68,
+        "startChar": 18,
+        "endLine": 68,
+        "endChar": 21
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_bfc1572c",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84927610_3f29c773",
       "range": {
         "startLine": 68,
         "startChar": 18,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_ff2a7fe5",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done. So comments under 80 but rest under 100?!",
+      "parentUuid": "a48dbaf4_003b46bd",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 1
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_fe13614d",
         "filename": "tools/checker.py",
         "patchSetId": 9
@@ -358,6 +718,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "Are those fields? Why are they capital case?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_009ee6f8",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "That\u0027s supposed to be an enum. I\u0027m not a Python guru so please suggest something else, but docs online seem to agree that this is a fairly standard way of writing them up until 3.4 when the Enum class was introduced. Since I\u0027m not using this in any complicated code, I went with the more compatible solution.",
+      "parentUuid": "64974203_fe13614d",
       "range": {
         "startLine": 52,
         "startChar": 2,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_a0aa9a0b",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "a48dbaf4_a037facd",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 9
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_5fd12b12",
         "filename": "tools/checker.py",
         "patchSetId": 9
@@ -404,6 +812,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "General nit (it applies for the methods below): thanks for the comment, but it will also help to have them close to where the code is. For example, when reading the code below, what do all the \u0027if/elif\u0027 correspond to?\n\nSo this top-level comment should be divided into a good mix of top-level comment, and inline comment",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_df2d3b00",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84927610_5fd12b12",
       "range": {
         "startLine": 126,
         "startChar": 4,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_3f19c7e9",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Renamed to varValues",
+      "parentUuid": "84927610_9f37b3ce",
+      "range": {
+        "startLine": 158,
+        "startChar": 40,
+        "endLine": 158,
+        "endChar": 43
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64974203_1e0ded2c",
         "filename": "tools/checker.py",
         "patchSetId": 9
@@ -450,6 +906,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "Expand the comment by saying where it will find it.",
+      "range": {
+        "startLine": 172,
+        "startChar": 46,
+        "endLine": 172,
+        "endChar": 53
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_9e101dc3",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Comment expanded and inlined",
+      "parentUuid": "64974203_1e0ded2c",
       "range": {
         "startLine": 172,
         "startChar": 46,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "a48dbaf4_20b76a7c",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Because it should remain unchanged if the matching fails half-way and has to be repeated. All variable definitions should be discarded. I\u0027ve added a comment about this.",
+      "parentUuid": "84927610_bf34f7c9",
+      "range": {
+        "startLine": 184,
+        "startChar": 12,
+        "endLine": 184,
+        "endChar": 16
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_7fd66f0d",
         "filename": "tools/checker.py",
         "patchSetId": 9
@@ -496,6 +1000,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "nit: avoid abbreviations, don\u0027t assume you readers must know them.",
+      "range": {
+        "startLine": 229,
+        "startChar": 36,
+        "endLine": 229,
+        "endChar": 39
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64974203_be0399aa",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84927610_7fd66f0d",
       "range": {
         "startLine": 229,
         "startChar": 36,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "84927610_5f460bf4",
+        "filename": "tools/checker.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64974203_be1dd95b",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 5
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84927610_1fdba334",
         "filename": "tools/checker_test.py",
         "patchSetId": 9
@@ -542,6 +1094,30 @@
       "writtenOn": "2014-12-08T09:52:06Z",
       "side": 1,
       "message": "features",
+      "range": {
+        "startLine": 17,
+        "startChar": 42,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "a0cb64b2ba1ec20f0657e0a25995a1e103a888a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a48dbaf4_a0be1a32",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-09T14:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84927610_1fdba334",
       "range": {
         "startLine": 17,
         "startChar": 42,
