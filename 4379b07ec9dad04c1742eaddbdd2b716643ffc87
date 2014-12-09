@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24a1ca5e_7fe74bba",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-09T10:29:40Z",
+      "side": 1,
+      "message": "Yes. Thanks!",
+      "parentUuid": "5fff69b8_88aef777",
+      "range": {
+        "startLine": 968,
+        "startChar": 6,
+        "endLine": 968,
+        "endChar": 34
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fff69b8_68b4dbc6",
         "filename": "compiler/dex/mir_dataflow.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-04T12:49:04Z",
       "side": 1,
       "message": "HandleDef() must be after all the HandleLiveInUse().",
+      "range": {
+        "startLine": 975,
+        "startChar": 6,
+        "endLine": 976,
+        "endChar": 38
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a1ca5e_1fdc07f2",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-09T10:29:40Z",
+      "side": 1,
+      "message": "Done. Thanks!",
+      "parentUuid": "5fff69b8_68b4dbc6",
       "range": {
         "startLine": 975,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "043046e8_4ec653db",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-09T10:29:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a0930_9cadb1ae",
+      "range": {
+        "startLine": 1409,
+        "startChar": 8,
+        "endLine": 1409,
+        "endChar": 62
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ffc75c4_87c82882",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "e45ed22a_eddbc1a7",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-09T10:29:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ffc75c4_87c82882",
+      "range": {
+        "startLine": 1721,
+        "startChar": 2,
+        "endLine": 1721,
+        "endChar": 25
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a0930_fc1eb54e",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2014-12-04T12:49:04Z",
       "side": 1,
       "message": "This is a bit restrictive, there are insns that we know will not throw, such as IGET/IPUT with MIR_IGNORE_NULL_CHECK.",
+      "range": {
+        "startLine": 1778,
+        "startChar": 11,
+        "endLine": 1778,
+        "endChar": 67
+      },
+      "revId": "4379b07ec9dad04c1742eaddbdd2b716643ffc87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45ed22a_adb4a942",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1778,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-09T10:29:40Z",
+      "side": 1,
+      "message": "Agree. I created a method to check whether an MIR may throw. Code logic is somewhat similar to CombineBlocks().",
+      "parentUuid": "5f8a0930_fc1eb54e",
       "range": {
         "startLine": 1778,
         "startChar": 11,
