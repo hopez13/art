@@ -16,6 +16,29 @@
       "revId": "7522c741d9660a56da2dd6a8e20b8cdf01a6c333",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_a5814a8d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4448,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-09T21:50:38Z",
+      "side": 1,
+      "message": "We clearly say we don\u0027t support anything else than dlmalloc here. Is there similar support with jemalloc?",
+      "range": {
+        "startLine": 4448,
+        "startChar": 4,
+        "endLine": 4448,
+        "endChar": 87
+      },
+      "revId": "7522c741d9660a56da2dd6a8e20b8cdf01a6c333",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
