@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44ab1e57_a524de17",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-09T20:58:19Z",
+      "side": 1,
+      "message": "This is VLOG(compiler) in Quick, and also somewhat better factored IMHO (there\u0027s an out parameter for the error message, and one print statement in the caller). Should we make this consistent, as you\u0027re already cleaning up?",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 13
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
