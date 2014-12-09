@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c488eee4_4f140b37",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4444,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-09T18:52:27Z",
+      "side": 1,
+      "message": "I think we should probably use a different HeapChunkCallback for native dump? Casting random non heap native memory to Object* and then examining it seems not correct. This would also remove the need for the heap bitmap lock here.",
+      "revId": "7522c741d9660a56da2dd6a8e20b8cdf01a6c333",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
