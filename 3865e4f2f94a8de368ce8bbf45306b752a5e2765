@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84927610_426e346e",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-09T10:43:57Z",
+      "side": 1,
+      "message": "Already checked above. (Remove code, add comment.)",
+      "range": {
+        "startLine": 1656,
+        "startChar": 16,
+        "endLine": 1656,
+        "endChar": 51
+      },
+      "revId": "3865e4f2f94a8de368ce8bbf45306b752a5e2765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04ccc652_abe58934",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-09T10:43:57Z",
+      "side": 1,
+      "message": "Style: remove extra \"()\" around opt_flags, explicitly compare with 0.",
+      "range": {
+        "startLine": 1661,
+        "startChar": 49,
+        "endLine": 1661,
+        "endChar": 87
+      },
+      "revId": "3865e4f2f94a8de368ce8bbf45306b752a5e2765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84927610_02702c45",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-09T10:43:57Z",
+      "side": 1,
+      "message": "Already checked above.",
+      "range": {
+        "startLine": 1661,
+        "startChar": 8,
+        "endLine": 1661,
+        "endChar": 45
+      },
+      "revId": "3865e4f2f94a8de368ce8bbf45306b752a5e2765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04ccc652_4bf2e5fd",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-09T10:43:57Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to check this. If we know that the class is initialized, the lookup should never throw.",
+      "range": {
+        "startLine": 1668,
+        "startChar": 0,
+        "endLine": 1669,
+        "endChar": 69
+      },
+      "revId": "3865e4f2f94a8de368ce8bbf45306b752a5e2765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
