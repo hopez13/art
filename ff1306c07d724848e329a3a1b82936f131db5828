@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a48dbaf4_c3d24889",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-09T10:23:14Z",
+      "side": 1,
+      "message": "For the time being, could we avoid this complexity, and just do 64bits moves?",
+      "range": {
+        "startLine": 578,
+        "startChar": 43,
+        "endLine": 578,
+        "endChar": 59
+      },
+      "revId": "ff1306c07d724848e329a3a1b82936f131db5828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
