@@ -70,6 +70,30 @@
       "revId": "79950ccf32523d9151265a892194527527101fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "840c3679_cfecbd9a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T13:24:00Z",
+      "side": 1,
+      "message": "I actually agree with the LOG(INFO) -\u003e VLOG(compiler). Passing the string message around we don\u0027t need.",
+      "parentUuid": "44eebec7_6d2af51a",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 13
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
