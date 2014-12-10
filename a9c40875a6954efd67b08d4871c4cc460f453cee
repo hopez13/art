@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "a4d5ba01_29039503",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-10T20:33:42Z",
+      "side": 1,
+      "message": "But user non-daemon threads are presumably dead.  System daemon threads should have been interrupted, and should no longer be in this state.  So this addresses the user daemon thread case?",
+      "parentUuid": "44179e8b_c8602fed",
+      "revId": "a9c40875a6954efd67b08d4871c4cc460f453cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_0d7411be",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
