@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "44179e8b_c8602fed",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-10T17:50:41Z",
+      "side": 1,
+      "message": "If a java thread does a condition variable waits, it counts as suspended. The wait increments the contenders until it finishes. So if any java threads are stuck in wait when the runtime shuts down we get SIGABRT which seems un-necessarily harsh.",
+      "parentUuid": "c402ae41_3197b0b2",
+      "revId": "a9c40875a6954efd67b08d4871c4cc460f453cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_0d7411be",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 151,
         "endChar": 12
       },
+      "revId": "a9c40875a6954efd67b08d4871c4cc460f453cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44179e8b_48a39fb3",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-10T17:50:41Z",
+      "side": 1,
+      "message": "No longer necessary",
+      "parentUuid": "44eebec7_0d7411be",
       "revId": "a9c40875a6954efd67b08d4871c4cc460f453cee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
