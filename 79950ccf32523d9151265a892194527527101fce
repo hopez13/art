@@ -46,6 +46,30 @@
       "revId": "79950ccf32523d9151265a892194527527101fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44eebec7_6d2af51a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T13:19:09Z",
+      "side": 1,
+      "message": "Yes, I also think it\u0027s a bit better, though I prefer to do it in a follow up. \n\nCompared to quick the skip_message must be threaded to more methods which makes it a bit messier. This is why I avoided doing it in the first place.",
+      "parentUuid": "44eebec7_6d24b59c",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 13
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
