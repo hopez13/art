@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "44eebec7_8d84819e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-10T14:26:46Z",
+      "side": 1,
+      "message": "I think it would be better to use three `if\u0027 statements here; i.e.:\n\n  if (src_cst-\u003eIsIntConstant()) {\n    temp \u003d temps.AcquireW()\n  } else if (src_cst-\u003eIsLongConstant()) {\n    temp \u003d temps.AcquireX();\n  } else if (src_cst-\u003eIsFloatConstant()) {\n    temp \u003d temps.AcquireS();\n  } else {\n    DCHECK(src_cst-\u003eIsDoubleConstant());\n    temp \u003d temps.AcquireD();\n  }\n\nYou might even want to wrap this in a separate method; it\u0027s up to you. :)",
+      "range": {
+        "startLine": 866,
+        "startChar": 6,
+        "endLine": 871,
+        "endChar": 7
+      },
+      "revId": "5a989d4fcbf9446d5d8f5abbc02127c6ec42d722",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4fdf273_f206c8bb",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 7
