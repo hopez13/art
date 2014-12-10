@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "44eebec7_0d7a515c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T12:02:10Z",
+      "side": 1,
+      "message": "based on the dcheck bellow, this two args creates a redundancy. i.e. is it \"enable_c1visualizer \u003d (c1_ouput !\u003d nullptr)\"?",
+      "range": {
+        "startLine": 272,
+        "startChar": 34,
+        "endLine": 273,
+        "endChar": 59
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "840c3679_6f883105",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T12:02:10Z",
+      "side": 1,
+      "message": "You can assert this. Check -j property in dex2oat. Having the comment is useful but asserting it will reduce debugging time when you forget about it.",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 64
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_6dc79575",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 10
@@ -41,6 +87,29 @@
         "startChar": 15,
         "endLine": 221,
         "endChar": 24
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "840c3679_ef9b814d",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T12:02:10Z",
+      "side": 1,
+      "message": "what\u0027s the case when you don\u0027t want the constants to be printed?",
+      "range": {
+        "startLine": 29,
+        "startChar": 41,
+        "endLine": 29,
+        "endChar": 72
       },
       "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
