@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44eebec7_4da3b9b3",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "As discussed, let\u0027s try to use the c1visualizer format for file-checker.",
+      "range": {
+        "startLine": 270,
+        "startChar": 18,
+        "endLine": 270,
+        "endChar": 34
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44eebec7_6dc79575",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "Do the Dump before the Check: if the check fails, you want to see the dump.",
+      "range": {
+        "startLine": 221,
+        "startChar": 15,
+        "endLine": 221,
+        "endChar": 24
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44eebec7_ed91c55e",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "And this?",
+      "range": {
+        "startLine": 292,
+        "startChar": 44,
+        "endLine": 292,
+        "endChar": 56
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "840c3679_4fcc4d98",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "Do you need this? If yes, add a comment.",
+      "range": {
+        "startLine": 292,
+        "startChar": 22,
+        "endLine": 292,
+        "endChar": 30
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44eebec7_cd8e893c",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "This means the test can only work when testing for host. We might want to add flags to this tool to tell whether we\u0027re compiling for target or host.",
+      "range": {
+        "startLine": 297,
+        "startChar": 46,
+        "endLine": 297,
+        "endChar": 62
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4fdf273_d260e4ec",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "Do you need this?",
+      "range": {
+        "startLine": 299,
+        "startChar": 33,
+        "endLine": 299,
+        "endChar": 44
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44eebec7_2d03cd03",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-10T10:05:25Z",
+      "side": 1,
+      "message": "Do you need the print? Can we use the return value instead to notify failure?",
+      "range": {
+        "startLine": 324,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 11
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
