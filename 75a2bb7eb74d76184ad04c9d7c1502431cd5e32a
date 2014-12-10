@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4fdf273_d5b72ef4",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-10T19:44:21Z",
+      "side": 1,
+      "message": "true for iget-* instructions which return a value.",
+      "range": {
+        "startLine": 260,
+        "startChar": 58,
+        "endLine": 260,
+        "endChar": 63
+      },
+      "revId": "75a2bb7eb74d76184ad04c9d7c1502431cd5e32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
