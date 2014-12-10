@@ -94,6 +94,30 @@
       "revId": "79950ccf32523d9151265a892194527527101fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44eebec7_8d6f6166",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T13:48:25Z",
+      "side": 1,
+      "message": "done, LOG(INFO) -\u003e VLOG(compiler)",
+      "parentUuid": "840c3679_cfecbd9a",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 13
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
