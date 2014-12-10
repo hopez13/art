@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "840c3679_6f14b1b2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2014-12-10T14:48:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eebec7_8d84819e",
+      "range": {
+        "startLine": 866,
+        "startChar": 6,
+        "endLine": 871,
+        "endChar": 7
+      },
+      "revId": "5a989d4fcbf9446d5d8f5abbc02127c6ec42d722",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4fdf273_f206c8bb",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 7
