@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "e4fdf273_922adce4",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T16:28:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4fdf273_f2efe88b",
+      "range": {
+        "startLine": 226,
+        "startChar": 23,
+        "endLine": 226,
+        "endChar": 26
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_4dbc595e",
         "filename": "compiler/optimizing/optimizing_compiler_stats.h",
         "patchSetId": 2
@@ -178,6 +202,24 @@
       "writtenOn": "2014-12-10T14:06:40Z",
       "side": 1,
       "message": "Maybe add\n\n  #include \u003csstream\u003e\n  #include \u003cstring\u003e\n\nfor `std::ostringstream\u0027 and `std::string\u0027?",
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4fdf273_b22d6001",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T16:28:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eebec7_4dbc595e",
       "revId": "79950ccf32523d9151265a892194527527101fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -207,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "e4fdf273_521994e8",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T16:28:19Z",
+      "side": 1,
+      "message": "since AtomicInteger is not POD its default ctor will be called an initialized it to 0. So it\u0027s not needed to do it manually.\n\nhttp://en.cppreference.com/w/cpp/language/default_initialization",
+      "parentUuid": "e4fdf273_92f93c56",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4fdf273_92f2dc75",
         "filename": "compiler/optimizing/optimizing_compiler_stats.h",
         "patchSetId": 2
@@ -218,6 +284,30 @@
       "writtenOn": "2014-12-10T14:06:40Z",
       "side": 1,
       "message": "int -\u003e MethodCompilationStat?",
+      "range": {
+        "startLine": 48,
+        "startChar": 18,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "79950ccf32523d9151265a892194527527101fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "840c3679_afdb39a8",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-10T16:28:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4fdf273_92f2dc75",
       "range": {
         "startLine": 48,
         "startChar": 18,
