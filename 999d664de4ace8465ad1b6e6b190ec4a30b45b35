@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "84819619_c7911e5f",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2014-12-11T10:46:24Z",
+      "side": 1,
+      "message": "NOP is non-emitting, so we shouldn\u0027t stop on it.",
+      "range": {
+        "startLine": 139,
+        "startChar": 34,
+        "endLine": 139,
+        "endChar": 57
+      },
+      "revId": "999d664de4ace8465ad1b6e6b190ec4a30b45b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a6f6d1_a801bf78",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
