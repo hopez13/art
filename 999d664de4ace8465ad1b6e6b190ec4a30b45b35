@@ -46,6 +46,30 @@
       "revId": "999d664de4ace8465ad1b6e6b190ec4a30b45b35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c0926a_20e6ee3f",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-11T06:36:49Z",
+      "side": 1,
+      "message": "(FYI: I\u0027m normally all for well-structured code. But this has only one caller and likely needs to be cherry-picked into the release branch, and so the smaller the better...)",
+      "parentUuid": "24b54af8_1c1b5510",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 38
+      },
+      "revId": "999d664de4ace8465ad1b6e6b190ec4a30b45b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
