@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84a6f6d1_a801bf78",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-11T05:52:15Z",
+      "side": 1,
+      "message": "Is there a bigger reason to put this into mir2lir? At this point in time I think the smaller the changes the better, so a static function close to the caller is the better solution right now.",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 38
+      },
+      "revId": "999d664de4ace8465ad1b6e6b190ec4a30b45b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
