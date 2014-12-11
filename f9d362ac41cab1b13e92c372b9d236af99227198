@@ -22,6 +22,30 @@
       "revId": "f9d362ac41cab1b13e92c372b9d236af99227198",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4085aac_b1292227",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-11T23:58:46Z",
+      "side": 1,
+      "message": "I removed ValueBound::Create().",
+      "parentUuid": "840c3679_6fdb1134",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 49
+      },
+      "revId": "f9d362ac41cab1b13e92c372b9d236af99227198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
