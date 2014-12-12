@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "247f0a23_ece6cbbc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-12T19:07:05Z",
+      "side": 1,
+      "message": "good point. removed.",
+      "parentUuid": "e497b25c_c512acfe",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44731e24_e8034ba9",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-12T11:06:06Z",
       "side": 1,
       "message": "Add a comment that you are normalizing valueBounds with ConstantInt instructions",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247f0a23_6c217b38",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-12T19:07:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44731e24_e8034ba9",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e46a5265_aae0af9f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-12T19:07:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44731e24_0830a78a",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44731e24_2835637b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-12T11:06:06Z",
       "side": 1,
       "message": "Nit: one argument per line.",
+      "range": {
+        "startLine": 303,
+        "startChar": 22,
+        "endLine": 303,
+        "endChar": 36
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247f0a23_8cdb87fb",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2014-12-12T19:07:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44731e24_2835637b",
       "range": {
         "startLine": 303,
         "startChar": 22,
