@@ -139,6 +139,24 @@
     },
     {
       "key": {
+        "uuid": "84eef632_df6d1b71",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-12T19:51:02Z",
+      "side": 0,
+      "message": "looking at http://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Vertical_Whitespace I think this is beyond the intention of improving readability. I agree about keeping things terse within declarations. looking at an internal version of the logging.h code for example, while they sometimes omit whitespace between related method definitions that aren\u0027t individually commented, most declarations have whitespace, and always before a comment.",
+      "parentUuid": "247f0a23_4c07df8a",
+      "revId": "6b1497421c7c81cb9bf2ce077f1ef3d8ac24cfcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e46a5265_2a511fa5",
         "filename": "runtime/gc/reference_queue.h",
         "patchSetId": 1
