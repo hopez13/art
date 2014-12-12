@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "e497b25c_880ddb5c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T15:23:39Z",
+      "side": 1,
+      "message": "Because I read from top to bottom and before reaching this line and realizing that the last instruction is a return I wasn\u0027t sure why it gets special treatment.\n\nHmm, what\u0027s the case when this can be an HIf?",
+      "parentUuid": "44731e24_a83cf304",
+      "range": {
+        "startLine": 761,
+        "startChar": 3,
+        "endLine": 761,
+        "endChar": 31
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_6557609c",
         "filename": "test/437-inline/src/Main.java",
         "patchSetId": 2
