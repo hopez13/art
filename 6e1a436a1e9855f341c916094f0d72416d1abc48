@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c421ce32_799fe73c",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-12-12T17:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44731e24_e8d50bca",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 2
+      },
+      "revId": "6e1a436a1e9855f341c916094f0d72416d1abc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84f436d2_2fb5c93d",
         "filename": "compiler/compiler.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-12T10:53:19Z",
       "side": 1,
       "message": "You can remove this.",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "6e1a436a1e9855f341c916094f0d72416d1abc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c421ce32_b9833fdf",
+        "filename": "compiler/compiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-12-12T17:25:05Z",
+      "side": 1,
+      "message": "Done\n\n(and the related code/data.)",
+      "parentUuid": "84f436d2_2fb5c93d",
       "range": {
         "startLine": 36,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a4169ada_d8e14da7",
+        "filename": "compiler/compiler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-12-12T17:25:05Z",
+      "side": 1,
+      "message": "Done\n\n(and the other bitcode-related stuff.)",
+      "parentUuid": "44731e24_28e723bb",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 25
+      },
+      "revId": "6e1a436a1e9855f341c916094f0d72416d1abc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84f436d2_0fb20556",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-12T10:53:19Z",
       "side": 1,
       "message": "Remove?",
+      "range": {
+        "startLine": 145,
+        "startChar": 15,
+        "endLine": 145,
+        "endChar": 21
+      },
+      "revId": "6e1a436a1e9855f341c916094f0d72416d1abc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4169ada_f8e691bc",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-12-12T17:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f436d2_0fb20556",
       "range": {
         "startLine": 145,
         "startChar": 15,
