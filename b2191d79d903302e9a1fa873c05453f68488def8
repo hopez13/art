@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e497b25c_c512acfe",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T11:06:06Z",
+      "side": 1,
+      "message": "Do you need this here? Seems like you\u0027re always initializing anyway.",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44731e24_e8034ba9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T11:06:06Z",
+      "side": 1,
+      "message": "Add a comment that you are normalizing valueBounds with ConstantInt instructions",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44731e24_0830a78a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T11:06:06Z",
+      "side": 1,
+      "message": "Personal preference, but I find it error prone to set it here. I suggest setting to true whenever you know it\u0027s true (even if that means duplicating the assignment).",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44731e24_2835637b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T11:06:06Z",
+      "side": 1,
+      "message": "Nit: one argument per line.",
+      "range": {
+        "startLine": 303,
+        "startChar": 22,
+        "endLine": 303,
+        "endChar": 36
+      },
+      "revId": "b2191d79d903302e9a1fa873c05453f68488def8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
