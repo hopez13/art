@@ -121,6 +121,24 @@
     },
     {
       "key": {
+        "uuid": "247f0a23_4c07df8a",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-12T18:56:38Z",
+      "side": 0,
+      "message": "Style guide says \"Minimize use of vertical whitespace.\" I don\u0027t think its more readable, especially if there is comments before the decl.",
+      "parentUuid": "6475823d_1117ae6b",
+      "revId": "6b1497421c7c81cb9bf2ce077f1ef3d8ac24cfcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e46a5265_2a511fa5",
         "filename": "runtime/gc/reference_queue.h",
         "patchSetId": 1
