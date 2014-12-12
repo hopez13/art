@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44731e24_48461fa2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Let\u0027s say I was lazy and expecting you to find more tests to write :-)",
+      "parentUuid": "e497b25c_0530948a",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44731e24_0846e7f2",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-12T12:15:58Z",
       "side": 1,
       "message": "Is it not_used or don\u0027t use? If it\u0027s really the later explain why.",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 16
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f436d2_32640eff",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "It\u0027s the latter, added a comment.",
+      "parentUuid": "44731e24_0846e7f2",
       "range": {
         "startLine": 957,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "84f436d2_12610aef",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f436d2_af453995",
+      "range": {
+        "startLine": 255,
+        "startChar": 33,
+        "endLine": 255,
+        "endChar": 43
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_a54448e7",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-12T12:15:58Z",
       "side": 1,
       "message": "Could you add an explicit comment for this method:\n\"Move this instruction before cursor instruction\"",
+      "range": {
+        "startLine": 685,
+        "startChar": 19,
+        "endLine": 685,
+        "endChar": 29
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e497b25c_c5a06c02",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Done. Also renamed the instruction `InsertBefore` to notify the instruction is not in the graph.",
+      "parentUuid": "e497b25c_a54448e7",
       "range": {
         "startLine": 685,
         "startChar": 19,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "84f436d2_72b17603",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f436d2_f2ca06af",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 693,
+        "endChar": 0
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44731e24_88a0172f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2014-12-12T12:15:58Z",
       "side": 1,
       "message": "previous_",
+      "range": {
+        "startLine": 695,
+        "startChar": 22,
+        "endLine": 695,
+        "endChar": 35
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f436d2_52ae72a3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44731e24_88a0172f",
       "range": {
         "startLine": 695,
         "startChar": 22,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "84f436d2_32bbeee5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e497b25c_85738454",
+      "range": {
+        "startLine": 701,
+        "startChar": 19,
+        "endLine": 701,
+        "endChar": 29
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_85a14434",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "44731e24_a83cf304",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Why do you think it will make things clearer? Note that in follow-up CLs last can also be an HIf.",
+      "parentUuid": "e497b25c_85a14434",
+      "range": {
+        "startLine": 761,
+        "startChar": 3,
+        "endLine": 761,
+        "endChar": 31
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_6557609c",
         "filename": "test/437-inline/src/Main.java",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2014-12-12T12:15:58Z",
       "side": 1,
       "message": "add tests for:\n- wide/object returns \n- no return",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f436d2_d2a82294",
+        "filename": "test/437-inline/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T14:19:36Z",
+      "side": 1,
+      "message": "Done (but not that I cannot just have a $opt$inline$ReturnObject() method, as it would require a call or field access, and we don\u0027t inline those yet.",
+      "parentUuid": "e497b25c_6557609c",
       "range": {
         "startLine": 18,
         "startChar": 21,
