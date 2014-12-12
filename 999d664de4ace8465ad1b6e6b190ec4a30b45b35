@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a4ba1aec_fbd0ab11",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-12T01:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84819619_c7911e5f",
+      "range": {
+        "startLine": 139,
+        "startChar": 34,
+        "endLine": 139,
+        "endChar": 57
+      },
+      "revId": "999d664de4ace8465ad1b6e6b190ec4a30b45b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a6f6d1_a801bf78",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "(FYI: I\u0027m normally all for well-structured code. But this has only one caller and likely needs to be cherry-picked into the release branch, and so the smaller the better...)",
       "parentUuid": "24b54af8_1c1b5510",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 38
+      },
+      "revId": "999d664de4ace8465ad1b6e6b190ec4a30b45b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c54e7a_9ccf69ec",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2014-12-12T01:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c0926a_20e6ee3f",
       "range": {
         "startLine": 668,
         "startChar": 4,
