@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "e497b25c_6831770a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-12T15:33:56Z",
+      "side": 1,
+      "message": "So today we only inline graphs of three blocks, so you\u0027ll only get a return. As soon as we do more, we\u0027ll have to handle an HIf in the first body block.",
+      "parentUuid": "e497b25c_880ddb5c",
+      "range": {
+        "startLine": 761,
+        "startChar": 3,
+        "endLine": 761,
+        "endChar": 31
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_6557609c",
         "filename": "test/437-inline/src/Main.java",
         "patchSetId": 2
