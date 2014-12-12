@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "844276da_ff73dfd5",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eebec7_4da3b9b3",
+      "range": {
+        "startLine": 270,
+        "startChar": 18,
+        "endLine": 270,
+        "endChar": 34
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_0d7a515c",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-10T12:02:10Z",
       "side": 1,
       "message": "based on the dcheck bellow, this two args creates a redundancy. i.e. is it \"enable_c1visualizer \u003d (c1_ouput !\u003d nullptr)\"?",
+      "range": {
+        "startLine": 272,
+        "startChar": 34,
+        "endLine": 273,
+        "endChar": 59
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "844276da_9f7893b4",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Ack, n/a any more",
+      "parentUuid": "44eebec7_0d7a515c",
       "range": {
         "startLine": 272,
         "startChar": 34,
@@ -95,6 +143,54 @@
     },
     {
       "key": {
+        "uuid": "2451caa8_5c0d3d59",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "That\u0027s a good idea but it will become redundant with https://android-review.googlesource.com/#/c/117222/. I added the check into OptimizingCompiler::Init so the driver isn\u0027t passed all the way to the visualizer.",
+      "parentUuid": "840c3679_6f883105",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 64
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "844276da_1f17a36b",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Yep, I\u0027m aware of it. The thread-safety changes should be compatible with patchset 11.",
+      "parentUuid": "44eebec7_6dcb15e2",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 64
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_6dc79575",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 10
@@ -118,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "2451caa8_bcf001f2",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eebec7_6dc79575",
+      "range": {
+        "startLine": 221,
+        "startChar": 15,
+        "endLine": 221,
+        "endChar": 24
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_8db12165",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 10
@@ -129,6 +249,30 @@
       "writtenOn": "2014-12-10T15:07:41Z",
       "side": 1,
       "message": "Nit: If the list of arguments does not fit on a single line, then put one per line.",
+      "range": {
+        "startLine": 294,
+        "startChar": 30,
+        "endLine": 296,
+        "endChar": 50
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2451caa8_dc186da3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eebec7_8db12165",
       "range": {
         "startLine": 294,
         "startChar": 30,
@@ -188,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "2451caa8_dc3f0ddc",
+        "filename": "compiler/optimizing/pretty_printer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Yep, this is now removed and Checker uses the c1 format. The pretty printer could be removed once the existing gtests are replaced.",
+      "parentUuid": "e4fdf273_d27e2402",
+      "range": {
+        "startLine": 29,
+        "startChar": 41,
+        "endLine": 29,
+        "endChar": 72
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_ed91c55e",
         "filename": "tools/checker.py",
         "patchSetId": 10
@@ -234,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "c438ee5e_212e0eaa",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "840c3679_4fcc4d98",
+      "range": {
+        "startLine": 292,
+        "startChar": 22,
+        "endLine": 292,
+        "endChar": 30
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44eebec7_cd8e893c",
         "filename": "tools/checker.py",
         "patchSetId": 10
@@ -257,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "844276da_9f4f3385",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Could be added but i wouldn\u0027t put it here unless we have an actual use for it?",
+      "parentUuid": "44eebec7_cd8e893c",
+      "range": {
+        "startLine": 297,
+        "startChar": 46,
+        "endLine": 297,
+        "endChar": 62
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4fdf273_d260e4ec",
         "filename": "tools/checker.py",
         "patchSetId": 10
@@ -268,6 +484,30 @@
       "writtenOn": "2014-12-10T10:05:25Z",
       "side": 1,
       "message": "Do you need this?",
+      "range": {
+        "startLine": 299,
+        "startChar": 33,
+        "endLine": 299,
+        "endChar": 44
+      },
+      "revId": "14fdf07201d2ac9b31072ced9d7a6be87d027c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2451caa8_1c2ed5a9",
+        "filename": "tools/checker.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-12T17:32:56Z",
+      "side": 1,
+      "message": "Yep, doesn\u0027t work without it.",
+      "parentUuid": "e4fdf273_d260e4ec",
       "range": {
         "startLine": 299,
         "startChar": 33,
