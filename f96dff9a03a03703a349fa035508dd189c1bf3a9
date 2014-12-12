@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e497b25c_0530948a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "Easier and more beneficial to list them here instead of cross-referring the test.",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44731e24_0846e7f2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "Is it not_used or don\u0027t use? If it\u0027s really the later explain why.",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 16
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f436d2_af453995",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "most outer?\n\nAlso it might be good to explain what outer means via an example",
+      "range": {
+        "startLine": 255,
+        "startChar": 33,
+        "endLine": 255,
+        "endChar": 43
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e497b25c_a54448e7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "Could you add an explicit comment for this method:\n\"Move this instruction before cursor instruction\"",
+      "range": {
+        "startLine": 685,
+        "startChar": 19,
+        "endLine": 685,
+        "endChar": 29
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f436d2_f2ca06af",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "double new line",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 693,
+        "endChar": 0
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44731e24_88a0172f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "previous_",
+      "range": {
+        "startLine": 695,
+        "startChar": 22,
+        "endLine": 695,
+        "endChar": 35
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e497b25c_85738454",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "block_",
+      "range": {
+        "startLine": 701,
+        "startChar": 19,
+        "endLine": 701,
+        "endChar": 29
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e497b25c_85a14434",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "moving the DCHECK that last is a return right after declaration will make things clearer (on why it needs special treatment)",
+      "range": {
+        "startLine": 761,
+        "startChar": 3,
+        "endLine": 761,
+        "endChar": 31
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e497b25c_6557609c",
+        "filename": "test/437-inline/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-12T12:15:58Z",
+      "side": 1,
+      "message": "add tests for:\n- wide/object returns \n- no return",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "f96dff9a03a03703a349fa035508dd189c1bf3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
