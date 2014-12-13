@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "a4d05a89_dce6ad6a",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-13T00:25:02Z",
+      "side": 1,
+      "message": "Old code was broken, see EnqueuePendingReference.",
+      "parentUuid": "c4b2ae5b_209eb4f8",
+      "revId": "9e2094f921b63582e84d65849b1c5c6dc4d22b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84bc3633_e392fae4",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 2
@@ -42,6 +60,24 @@
         "endLine": 115,
         "endChar": 25
       },
+      "revId": "9e2094f921b63582e84d65849b1c5c6dc4d22b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bc3633_63b28a57",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-13T00:25:02Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "84bc3633_e392fae4",
       "revId": "9e2094f921b63582e84d65849b1c5c6dc4d22b44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
