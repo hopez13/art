@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4b2ae5b_209eb4f8",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-13T00:24:13Z",
+      "side": 1,
+      "message": "Is this a circular linked list? The old code seems to suggest otherwise.",
+      "range": {
+        "startLine": 105,
+        "startChar": 11,
+        "endLine": 105,
+        "endChar": 23
+      },
+      "revId": "9e2094f921b63582e84d65849b1c5c6dc4d22b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bc3633_e392fae4",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-13T00:24:13Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 115,
+        "startChar": 13,
+        "endLine": 115,
+        "endChar": 25
+      },
+      "revId": "9e2094f921b63582e84d65849b1c5c6dc4d22b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
