@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24c46ad1_18033537",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3279,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-15T22:54:20Z",
+      "side": 1,
+      "message": "I think we should surround this with a loop in case of a spurious wakeup.",
+      "range": {
+        "startLine": 3279,
+        "startChar": 0,
+        "endLine": 3279,
+        "endChar": 31
+      },
+      "revId": "f1b122f8b712682634076ee04ac889bb3d01aab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
