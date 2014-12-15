@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4adf2fd_35c55a4a",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "844276da_5f068b47",
+      "range": {
+        "startLine": 250,
+        "startChar": 5,
+        "endLine": 250,
+        "endChar": 7
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "844276da_7f034f36",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-12T16:49:24Z",
       "side": 1,
       "message": "Shouldn\u0027t this be an `else\u0027 statement with a DCHECK instead?",
+      "range": {
+        "startLine": 577,
+        "startChar": 10,
+        "endLine": 577,
+        "endChar": 46
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "641ca21f_b9183ba2",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Yes, Done.",
+      "parentUuid": "844276da_7f034f36",
       "range": {
         "startLine": 577,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "641ca21f_59e64740",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "844276da_1f000327",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_4817d36a",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-12T15:23:57Z",
       "side": 1,
       "message": "line too long",
+      "range": {
+        "startLine": 95,
+        "startChar": 97,
+        "endLine": 95,
+        "endChar": 105
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "641ca21f_b9f15bfa",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e497b25c_4817d36a",
       "range": {
         "startLine": 95,
         "startChar": 97,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "24162a01_173bf6bd",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Then your fix to properly remove instructions out of dead blocks would kick in, wouldn\u0027t it?",
+      "parentUuid": "844276da_ff1d1f90",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 3
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2451caa8_fc1d2990",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2014-12-12T16:49:24Z",
       "side": 1,
       "message": "Will the inlined instructions be properly (re)numbered? In particular, could it be possible to have two instructions having the same number after inlining?",
+      "range": {
+        "startLine": 740,
+        "startChar": 4,
+        "endLine": 745,
+        "endChar": 26
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4adf2fd_f5dab22e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Do you mean have a different instruction id? Yes because when we try inlining, we give a the last id of the graph as a base to construct new ids in the new graph.\n\nThat reminded me that we probably want a DCHECK that we don\u0027t overflow when creating an id :-). Done.",
+      "parentUuid": "2451caa8_fc1d2990",
       "range": {
         "startLine": 740,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "641ca21f_79006328",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2451caa8_3cfdd1c5",
+      "range": {
+        "startLine": 748,
+        "startChar": 4,
+        "endLine": 752,
+        "endChar": 5
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e497b25c_a8277fd6",
         "filename": "test/437-inline/src/Main.java",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2014-12-12T15:23:57Z",
       "side": 1,
       "message": "trailing space",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "537a012e8a6a45e4894b56c08013d86ef789d4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24162a01_77386abf",
+        "filename": "test/437-inline/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T14:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e497b25c_a8277fd6",
       "range": {
         "startLine": 34,
         "startChar": 0,
