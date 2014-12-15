@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4adf2fd_7511a2c5",
+        "filename": "compiler/optimizing/dead_code_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T18:35:46Z",
+      "side": 1,
+      "message": "Good point. This is in testing code though, and will fail pretty quickly if we can\u0027t build SSA, so we save on extra checking code.",
+      "parentUuid": "a453fafb_50280ced",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a453fafb_700ef0a5",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "24162a01_372ef2fb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T18:35:46Z",
+      "side": 1,
+      "message": "You mean intrinsics? This won\u0027t be done at this level, but at codegen. The inlining code here is meant to inline methods with code items.",
+      "parentUuid": "04c126c3_06cc7c44",
+      "range": {
+        "startLine": 91,
+        "startChar": 53,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a453fafb_b01e98d2",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "24162a01_172bf6eb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T18:35:46Z",
+      "side": 1,
+      "message": "Yes, we don\u0027t optimize methods with try blocks yet.",
+      "parentUuid": "a453fafb_b01e98d2",
+      "range": {
+        "startLine": 101,
+        "startChar": 17,
+        "endLine": 101,
+        "endChar": 28
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a453fafb_d0131cc9",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -105,6 +177,30 @@
       "writtenOn": "2014-12-15T17:57:24Z",
       "side": 1,
       "message": "As a future approach, it might make sense to estimate the number of blocks before building the graph.",
+      "range": {
+        "startLine": 137,
+        "startChar": 6,
+        "endLine": 137,
+        "endChar": 65
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4adf2fd_951ec6d2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T18:35:46Z",
+      "side": 1,
+      "message": "By estimate, you mean running over it and find the number of branches? Yeah, we could do this by steps. On the other hand, I don\u0027t think this limit will stay long. The instruction size is already a good indicator. As soon as we support control flow, there\u0027s no reason to keep this limit.",
+      "parentUuid": "a453fafb_d0131cc9",
       "range": {
         "startLine": 137,
         "startChar": 6,
@@ -151,6 +247,30 @@
       "writtenOn": "2014-12-15T17:57:24Z",
       "side": 1,
       "message": "To me it makes sense to move inliner to be first one in this graph. Constant Folding and dead code elimination have more of an effect when looking at the whole graph with inlined code.",
+      "range": {
+        "startLine": 206,
+        "startChar": 11,
+        "endLine": 206,
+        "endChar": 18
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24162a01_f7cabadc",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T18:35:46Z",
+      "side": 1,
+      "message": "The idea is to run simple (and cheap) optimizations first, to help find more inlining heuristics (code size, null checks, etc). But this will be driven by numbers.",
+      "parentUuid": "a453fafb_302b88ec",
       "range": {
         "startLine": 206,
         "startChar": 11,
