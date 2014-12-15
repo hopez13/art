@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f404975_9d3de3b3",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-15T10:38:56Z",
+      "side": 1,
+      "message": "I can\u0027t because it\u0027s also used in jdwp_handler.cc. I plan to make JdwpEvent a class with a destructor doing this.",
+      "parentUuid": "15b23212_a933f468",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 35
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55d10a3e_3702ab2d",
         "filename": "runtime/jdwp/jdwp_event.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-04T09:42:22Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 399,
+        "startChar": 24,
+        "endLine": 399,
+        "endChar": 48
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa5f182_49f505e6",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-15T10:38:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55d10a3e_3702ab2d",
       "range": {
         "startLine": 399,
         "startChar": 24,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4adf2fd_b29320ec",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-15T10:38:56Z",
+      "side": 1,
+      "message": "I\u0027d prefer keeping it this way. I don\u0027t see the value of making it static here.",
+      "parentUuid": "f5e59e1c_8cb6fbcf",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 533,
+        "endChar": 1
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5e59e1c_ccabe367",
         "filename": "runtime/jdwp/jdwp_event.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9f448158_e49ac0fc",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-15T10:38:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e59e1c_ccabe367",
+      "range": {
+        "startLine": 539,
+        "startChar": 25,
+        "endLine": 539,
+        "endChar": 26
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55d10a3e_97105f72",
         "filename": "runtime/jdwp/jdwp_event.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2014-11-04T09:42:22Z",
       "side": 1,
       "message": "We could try variadic templates to factor this out. Something like this maybe:\n\n template \u003ctypename T, typename... R\u003e\n static void FindMatches(ModBasket\u0026 basket, std::vector\u003cJdwpEvent*\u003e* match_list, T t, R... r) {\n   FindMatchingEvents(t, basket, match_list);\n   if (sizeof...(r)) {\n     FindMatch(basket, match_list, r);\n   }\n }\n template \u003ctypename... T\u003e\n static bool FindMatches(ModBasket\u0026 basket, std::vector\u003cJdwpEvent*\u003e* match_list, size_t event_list_size, T... t) {\n   MutexLock...\n   reserve...\n   FindMatches(basked, match_list, t);\n   return match_list-\u003eempty();\n }\n\nThen it should be a \"simple\"\n\n std::vector\u003cJdwpEvent*\u003e match_list;\n if (!FindMatches(basked, \u0026match_list, event_list_size_,\n                  is_mod ? EK_FIELD_MODIFICATION : EK_F...)) {\n   return;\n }\n\nDisclaimer: Untested, don\u0027t know if it compiles, but should according to some google-ing.",
+      "range": {
+        "startLine": 910,
+        "startChar": 2,
+        "endLine": 923,
+        "endChar": 3
+      },
+      "revId": "edf8aade4469176bf35d14ee1929006fe3f3d4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "641ca21f_164dbc39",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2014-12-15T10:38:56Z",
+      "side": 1,
+      "message": "I agree the code is redundant. However, I don\u0027t think the variadic template helps for the case of location events above (breakpoint, single-step, ...) because it\u0027s dynamic. Except for this case, we certainly can make it smaller.",
+      "parentUuid": "55d10a3e_97105f72",
       "range": {
         "startLine": 910,
         "startChar": 2,
