@@ -737,6 +737,30 @@
     },
     {
       "key": {
+        "uuid": "2420ea81_aa9b8bdb",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-12-15T23:39:07Z",
+      "side": 1,
+      "message": "Actually I now remember another subtlety here.\n\nread advances the file offset and also reads from the last set file offset, so e.g. ReadFully will work fully the first time, and the second, third, ... time it will just always read 0 bytes.\n\nNot sure if that\u0027s desirable behavior or not.\n\npread on the other hand will never touch the current file offset.",
+      "parentUuid": "44231e8e_eb2e652b",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 57
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47b325e_62d9b606",
         "filename": "runtime/base/unix_file/fd_file.h",
         "patchSetId": 1
