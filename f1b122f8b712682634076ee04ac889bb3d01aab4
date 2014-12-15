@@ -22,6 +22,24 @@
       "revId": "f1b122f8b712682634076ee04ac889bb3d01aab4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c46ad1_d8287d72",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3279,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-15T23:08:04Z",
+      "side": 1,
+      "message": "I\u0027ll add a boolean for spurious wakeups.",
+      "parentUuid": "24c46ad1_18033537",
+      "revId": "f1b122f8b712682634076ee04ac889bb3d01aab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
