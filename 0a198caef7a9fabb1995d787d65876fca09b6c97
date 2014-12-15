@@ -405,6 +405,30 @@
     },
     {
       "key": {
+        "uuid": "641ca21f_763870bf",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T07:41:36Z",
+      "side": 1,
+      "message": "This wasn\u0027t about not making it visible by make. It was to avoid polluting the top-level dir with tools-like executables. But I wasn\u0027t aware that tools was originally meant for scripts not needing Makefiles.",
+      "parentUuid": "e47b325e_82707a76",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fa5f182_a635c819",
         "filename": "imgdiag/imgdiag_test.cc",
         "patchSetId": 1
