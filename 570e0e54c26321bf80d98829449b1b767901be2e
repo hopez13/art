@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24162a01_f43f5849",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-15T07:35:18Z",
+      "side": 1,
+      "message": "Thist returns a string while being called IsValid. How about calling it GetValidationErrorMessage or GetValidationErrorDetails?",
+      "range": {
+        "startLine": 138,
+        "startChar": 23,
+        "endLine": 138,
+        "endChar": 39
+      },
+      "revId": "570e0e54c26321bf80d98829449b1b767901be2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
