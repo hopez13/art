@@ -22,6 +22,30 @@
       "revId": "16e4721cab311f1a3fbb24f9988bf6f0104c8104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64782270_3c66f9c1",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-15T16:12:47Z",
+      "side": 1,
+      "message": "I don\u0027t think so. I think that was a hack for the interpreter and got removed. Would you like me to move this to macros.h?",
+      "parentUuid": "24162a01_345a70c6",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 673,
+        "endChar": 13
+      },
+      "revId": "16e4721cab311f1a3fbb24f9988bf6f0104c8104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
