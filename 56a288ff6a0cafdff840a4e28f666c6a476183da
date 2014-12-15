@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a453fafb_50280ced",
+        "filename": "compiler/optimizing/dead_code_elimination_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you check the result of the \"try\". If not expect to fail, maybe add a dcheck.",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a453fafb_700ef0a5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "Eventually, the caching system from Quick that Vmarko made will be useful as well.",
+      "range": {
+        "startLine": 72,
+        "startChar": 24,
+        "endLine": 72,
+        "endChar": 37
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04c126c3_06cc7c44",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "This message is correct now but I imagine at some point we will also want more compiler generated methods as well (which won\u0027t have code item)",
+      "range": {
+        "startLine": 91,
+        "startChar": 53,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a453fafb_b01e98d2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "What if the caller is inside try block? Does it work because you don\u0027t handle exceptions? (namely you don\u0027t need environment)",
+      "range": {
+        "startLine": 101,
+        "startChar": 17,
+        "endLine": 101,
+        "endChar": 28
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a453fafb_d0131cc9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "As a future approach, it might make sense to estimate the number of blocks before building the graph.",
+      "range": {
+        "startLine": 137,
+        "startChar": 6,
+        "endLine": 137,
+        "endChar": 65
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a453fafb_102e84fb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "I like that the IR allows doing this :)",
+      "range": {
+        "startLine": 717,
+        "startChar": 6,
+        "endLine": 717,
+        "endChar": 63
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a453fafb_302b88ec",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2014-12-15T17:57:24Z",
+      "side": 1,
+      "message": "To me it makes sense to move inliner to be first one in this graph. Constant Folding and dead code elimination have more of an effect when looking at the whole graph with inlined code.",
+      "range": {
+        "startLine": 206,
+        "startChar": 11,
+        "endLine": 206,
+        "endChar": 18
+      },
+      "revId": "56a288ff6a0cafdff840a4e28f666c6a476183da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
