@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "2420ea81_47e690e9",
+        "filename": "build/Android.common_utils.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-12-15T22:10:09Z",
+      "side": 1,
+      "message": "I renamed all of those to ART_COMMON_ ... in patch set 2. Rename back ?",
+      "parentUuid": "24c46ad1_a45be2fc",
+      "range": {
+        "startLine": 17,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c79ed5_850d02e0",
         "filename": "build/Android.common_utils.mk",
         "patchSetId": 1
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "2420ea81_87a6c89c",
+        "filename": "build/Android.common_utils.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-12-15T22:10:09Z",
+      "side": 1,
+      "message": "Yes, it\u0027s used by the new build multi executable macro. It converts a string like target into TARGET.\n\nLeave as-is or replace with a pure makefile version?",
+      "parentUuid": "44c79ed5_850d02e0",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 73
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24c46ad1_e455dac6",
         "filename": "build/Android.executable.mk",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "writtenOn": "2014-12-13T01:15:44Z",
       "side": 1,
       "message": "the tabs seem out of place here.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 6
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "846356c3_6cab5f12",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-12-15T22:10:09Z",
+      "side": 1,
+      "message": "This part of the change got completely rewritten in PS2 (and no tabs). PTAL.",
+      "parentUuid": "24c46ad1_e455dac6",
       "range": {
         "startLine": 105,
         "startChar": 0,
@@ -202,6 +274,30 @@
       "side": 1,
       "message": "unresolved?",
       "parentUuid": "ff581d71_143b6cbd",
+      "range": {
+        "startLine": 140,
+        "startChar": 10,
+        "endLine": 140,
+        "endChar": 17
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44231e8e_ab0d4ddf",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-12-15T22:10:09Z",
+      "side": 1,
+      "message": "Fixed in PS#2.",
+      "parentUuid": "e47b325e_22508ed3",
       "range": {
         "startLine": 140,
         "startChar": 10,
@@ -545,6 +641,30 @@
       "writtenOn": "2014-12-13T01:15:44Z",
       "side": 1,
       "message": "isn\u0027t this just a special case of the above now?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 57
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44231e8e_eb2e652b",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2014-12-15T22:10:09Z",
+      "side": 1,
+      "message": "One calls read the other calls pread.\n\nDo you want me to do something like:\n\n  if (offset \u003d\u003d 0) call read \n  else call pread\n\n?",
+      "parentUuid": "e47b325e_42ccb245",
       "range": {
         "startLine": 197,
         "startChar": 0,
