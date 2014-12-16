@@ -22,6 +22,30 @@
       "revId": "959ffdf65f280ee90b7944a8dd610564e7f99e69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "211e1c5a_d4e9bcb9",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Executor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1053354
+      },
+      "writtenOn": "2014-12-16T10:23:40Z",
+      "side": 1,
+      "message": "Normally I use the timeout command to set timeouts, when calling \u0027adb shell dalvikvm ...\u0027, so I could just do the same when creating the host dex2oat command (in Executor.verifyOnHost(String)), and then report a dex2oat timeout appropriately. \n\nIf dex2oat loops infinitely on the target, the aforementioned dalvikvm timeout will catch that, but it will be indistinguishable from a regular timeout of the VM\u0027s execution.",
+      "parentUuid": "64782270_9fa61f9d",
+      "range": {
+        "startLine": 122,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 45
+      },
+      "revId": "959ffdf65f280ee90b7944a8dd610564e7f99e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
