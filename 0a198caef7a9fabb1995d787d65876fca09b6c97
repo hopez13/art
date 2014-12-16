@@ -761,6 +761,30 @@
     },
     {
       "key": {
+        "uuid": "c1ec607c_a1edde94",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-16T04:07:36Z",
+      "side": 1,
+      "message": "right, so maybe just rename PreadFully which makes it clearer (at least to people that understand pread(2) that this doesn\u0027t advance the offset).",
+      "parentUuid": "2420ea81_aa9b8bdb",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 57
+      },
+      "revId": "0a198caef7a9fabb1995d787d65876fca09b6c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e47b325e_62d9b606",
         "filename": "runtime/base/unix_file/fd_file.h",
         "patchSetId": 1
