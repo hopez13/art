@@ -22,6 +22,23 @@
       "revId": "407d77f344cfbdbbfb50531c5f0766bc0892e2fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "211e1c5a_941b440d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-12-16T11:22:19Z",
+      "side": 0,
+      "message": "If we do not plan to use the quick_callee_saved_registers reglist, you can remove it from code_generator_arm64.h.",
+      "revId": "407d77f344cfbdbbfb50531c5f0766bc0892e2fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
