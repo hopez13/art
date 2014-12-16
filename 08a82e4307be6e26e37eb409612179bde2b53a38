@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e1d164e3_b26180f1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "I know LLVM uses this pattern, but I\u0027m a bit hesitant in using it. It confuses even senior c++ people I know, and you always have to remember which scope the local variable is in. I find it much more readable to have a IsIntConstant/AsIntConstant.\n\nAlternatively, too many uses of As* is a good indicator you need a visitor. Or that this one needs a refactoring :)",
+      "range": {
+        "startLine": 169,
+        "startChar": 16,
+        "endLine": 169,
+        "endChar": 68
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "017758c2_13dacc2e",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "The else if is a bit off: we are checking the input count, otherwise the kind? We should probably refactor this method and use a proper visitor. For now, it works for me if you just do an if.",
+      "range": {
+        "startLine": 169,
+        "startChar": 6,
+        "endLine": 169,
+        "endChar": 13
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "414f907e_8561c2f1",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 16
@@ -25,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "017758c2_d3c3f445",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the reason it was there in the first place :)",
+      "parentUuid": "414f907e_8561c2f1",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 21
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1dbec04_7007900f",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 16
@@ -36,6 +106,121 @@
       "writtenOn": "2014-12-16T21:38:17Z",
       "side": 1,
       "message": "Not sure if you have the time but:\n\nIf this could be an enum instead to be: before/during/after that would allow us to dump while debugging during an optimization and not have your naming system put \"before\"/\"after\" wrongly so.\n\nAnother solution that would be even more practical for when we are debugging the compiler would be to be able to pass a suffix to be able to differentiate different moments in a given optimization.\n\nSo instead of the enum, it would just perhaps simpler to have:\n\nvoid DumpGraph(const char* pass_name, char* suffix \u003d nullptr);\n\nand then you can call it with \"(before)\" or \"(after)\" in optimizing_compiler.cc as a second parameter.",
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "017758c2_73fea079",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "Please add the TODO message as a \u0027\u003c\u003c\u0027 that the c1visualizer currently only works single-threaded (to help out someone new trying it).",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 12
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217a9caa_94648402",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "Any reason for the re-ordering?",
+      "range": {
+        "startLine": 298,
+        "startChar": 30,
+        "endLine": 298,
+        "endChar": 35
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "017758c2_f3e950b9",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "I think the checker should be aware of those ids. Seems silly to repeat them here. This can be done in a next CL though.",
+      "range": {
+        "startLine": 25,
+        "startChar": 24,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1d164e3_12c64c7a",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "Why 3 brackets? Can we drop one (or two)?",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1d164e3_72c1d860",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "Is that order the one in the graph?  Can we be more flexible at this level?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 48
+      },
       "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -81,6 +266,98 @@
         "startChar": 63,
         "endLine": 37,
         "endChar": 76
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217a9caa_74c1a860",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "starting -\u003e start",
+      "range": {
+        "startLine": 218,
+        "startChar": 32,
+        "endLine": 218,
+        "endChar": 40
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1d164e3_32cb5081",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "This confuses more than helps. \u0027headAndTail\u0027  I understand, \"List pop\" I don\u0027t.",
+      "range": {
+        "startLine": 267,
+        "startChar": 4,
+        "endLine": 267,
+        "endChar": 12
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1d164e3_d2af649d",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "Missing \u0027.\u0027. (here and below).",
+      "range": {
+        "startLine": 278,
+        "startChar": 48,
+        "endLine": 278,
+        "endChar": 55
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217a9caa_34cb3081",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-16T22:19:48Z",
+      "side": 1,
+      "message": "I can\u0027t parse this.",
+      "range": {
+        "startLine": 421,
+        "startChar": 5,
+        "endLine": 421,
+        "endChar": 44
       },
       "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
