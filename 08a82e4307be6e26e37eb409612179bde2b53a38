@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "414f907e_8561c2f1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-16T20:49:36Z",
+      "side": 1,
+      "message": "I think i prefer the is_enabled approach. Is more revealing :)",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 21
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217a9caa_d4dd1c75",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-16T20:49:36Z",
+      "side": 1,
+      "message": "do mention the command line flag",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 36
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217a9caa_94e7a43d",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-16T20:49:36Z",
+      "side": 1,
+      "message": "they *may* need? or they need?",
+      "range": {
+        "startLine": 37,
+        "startChar": 63,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
