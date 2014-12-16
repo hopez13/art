@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "211e1c5a_37da322f",
+        "filename": "tools/checker.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-16T17:05:30Z",
+      "side": 1,
+      "message": "Suggestion: use a message format similar to compilers:\n\n  FILENAME:LINE: (error|warning|note): MESSAGE...\n\n(Likewise in other places.)",
+      "range": {
+        "startLine": 203,
+        "startChar": 24,
+        "endLine": 204,
+        "endChar": 51
+      },
+      "revId": "36eaba08aba840b7918feb69d18d002887efb09a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41215094_d867b105",
+        "filename": "tools/checker.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-16T17:05:30Z",
+      "side": 1,
+      "message": "Suggestion: maybe rename as `__top\u0027 or `__head\u0027 (or even `__headAndTail\u0027 as the tail is also returned)?",
+      "range": {
+        "startLine": 268,
+        "startChar": 6,
+        "endLine": 268,
+        "endChar": 11
+      },
+      "revId": "36eaba08aba840b7918feb69d18d002887efb09a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "211e1c5a_b7cd2272",
+        "filename": "tools/checker.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-16T17:05:30Z",
+      "side": 1,
+      "message": "with checking annotations?",
+      "range": {
+        "startLine": 492,
+        "startChar": 64,
+        "endLine": 492,
+        "endChar": 86
+      },
+      "revId": "36eaba08aba840b7918feb69d18d002887efb09a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c13aa0c4_d495324d",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-16T17:05:30Z",
+      "side": 1,
+      "message": "Was this whitespace added intentionally (I guess so, but I prefer to ask)?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 1
+      },
+      "revId": "36eaba08aba840b7918feb69d18d002887efb09a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
