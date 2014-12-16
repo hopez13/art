@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "a1dbec04_7007900f",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2014-12-16T21:38:17Z",
+      "side": 1,
+      "message": "Not sure if you have the time but:\n\nIf this could be an enum instead to be: before/during/after that would allow us to dump while debugging during an optimization and not have your naming system put \"before\"/\"after\" wrongly so.\n\nAnother solution that would be even more practical for when we are debugging the compiler would be to be able to pass a suffix to be able to differentiate different moments in a given optimization.\n\nSo instead of the enum, it would just perhaps simpler to have:\n\nvoid DumpGraph(const char* pass_name, char* suffix \u003d nullptr);\n\nand then you can call it with \"(before)\" or \"(after)\" in optimizing_compiler.cc as a second parameter.",
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "217a9caa_d4dd1c75",
         "filename": "tools/checker.py",
         "patchSetId": 16
