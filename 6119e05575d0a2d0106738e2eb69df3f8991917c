@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01e678ff_3b63d787",
+        "filename": "runtime/base/histogram.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-17T23:55:46Z",
+      "side": 1,
+      "message": "Would AdjustAndAddValue sound better as it adjusts first and then add?",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "6119e05575d0a2d0106738e2eb69df3f8991917c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
