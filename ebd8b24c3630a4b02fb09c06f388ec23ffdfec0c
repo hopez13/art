@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21e9bccf_02eeae8f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2997,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-17T23:47:27Z",
+      "side": 1,
+      "message": "Can you add a short comment on the intent? I assume this would cause GC-for-alloc to trigger only when the max_allowed_footprint is reached, rather than earlier, in the case of an unstarted runtime?",
+      "range": {
+        "startLine": 2995,
+        "startChar": 0,
+        "endLine": 2997,
+        "endChar": 7
+      },
+      "revId": "ebd8b24c3630a4b02fb09c06f388ec23ffdfec0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "812508f1_f61eaefd",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-17T23:47:27Z",
+      "side": 1,
+      "message": "When a class in the not ready state, it can be that the access flag hasn\u0027t been set yet. See ClassLinker::LoadClass(). So, we\u0027d read an uninitialized access flag?",
+      "range": {
+        "startLine": 513,
+        "startChar": 9,
+        "endLine": 513,
+        "endChar": 19
+      },
+      "revId": "ebd8b24c3630a4b02fb09c06f388ec23ffdfec0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
