@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1cb2464_c2e922ba",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-17T12:23:00Z",
+      "side": 1,
+      "message": "What about using an (expandable) art::ArenaBitVector instead?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "9504e0c5cbeed08af5cefa9cee789ab501221ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
