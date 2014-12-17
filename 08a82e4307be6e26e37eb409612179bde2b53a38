@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "a1204cdf_287f4bd6",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done. Moved to a separate if",
+      "parentUuid": "017758c2_13dacc2e",
+      "range": {
+        "startLine": 169,
+        "startChar": 6,
+        "endLine": 169,
+        "endChar": 13
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1cb2464_62fcd616",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done. Uses Is/As",
+      "parentUuid": "e1d164e3_b26180f1",
+      "range": {
+        "startLine": 169,
+        "startChar": 16,
+        "endLine": 169,
+        "endChar": 68
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "414f907e_8561c2f1",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 16
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e1cb2464_c285a29b",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "\"We are proud to announce that the is_enabled_ flag is back due to popular demand\"",
+      "parentUuid": "017758c2_d3c3f445",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 21
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1dbec04_7007900f",
         "filename": "compiler/optimizing/graph_visualizer.h",
         "patchSetId": 16
@@ -112,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "c102a041_f1bd2837",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "I want to get this CL in now but this certainly could be changed in the future to suit everyone\u0027s needs. The reason why I have a boolean here is that I was trying to avoid putting string constants into the compiler class.\nIf you\u0027d like to use this in debugging, isn\u0027t it enough to just pass it a bogus pass name? That\u0027s enough to recognize it in the output.",
+      "parentUuid": "a1dbec04_7007900f",
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "017758c2_73fea079",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 16
@@ -123,6 +213,30 @@
       "writtenOn": "2014-12-16T22:19:48Z",
       "side": 1,
       "message": "Please add the TODO message as a \u0027\u003c\u003c\u0027 that the c1visualizer currently only works single-threaded (to help out someone new trying it).",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 12
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c102a041_f18c0896",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "017758c2_73fea079",
       "range": {
         "startLine": 141,
         "startChar": 4,
@@ -158,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "c102a041_51a5140f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Nah, just my OCD. Reverted...",
+      "parentUuid": "217a9caa_94648402",
+      "range": {
+        "startLine": 298,
+        "startChar": 30,
+        "endLine": 298,
+        "endChar": 35
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "017758c2_f3e950b9",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 16
@@ -169,6 +307,30 @@
       "writtenOn": "2014-12-16T22:19:48Z",
       "side": 1,
       "message": "I think the checker should be aware of those ids. Seems silly to repeat them here. This can be done in a next CL though.",
+      "range": {
+        "startLine": 25,
+        "startChar": 24,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c102a041_713bf8ee",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Agreed, that would be useful.",
+      "parentUuid": "017758c2_f3e950b9",
       "range": {
         "startLine": 25,
         "startChar": 24,
@@ -204,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "e1cb2464_e200e62a",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "As discussed, the outer bracket is part of the C1 format. The inner two brackets mark variable reference. We could use a different marker but we\u0027d need to find something that doesn\u0027t clash with the outputs we want to support, i.e. C1 and oatdump. For example, the UNIX\u0027s $VAR would clash with x86 immediates.",
+      "parentUuid": "e1d164e3_12c64c7a",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1d164e3_72c1d860",
         "filename": "compiler/optimizing/test/ConstantFolding.java",
         "patchSetId": 16
@@ -215,6 +401,30 @@
       "writtenOn": "2014-12-16T22:19:48Z",
       "side": 1,
       "message": "Is that order the one in the graph?  Can we be more flexible at this level?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 48
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c102a041_31a690a0",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Yes, it is. And yes, definitely on my list. This is a feature similar to NOT assertions. The standard check lines follow a specific ordering, but it\u0027s easy to specify that some other checks can occur between them without an ordering.\n\nExample:\n  // CHECK:          line 1\n  // CHECK-NOORDER:  line 2\n  // CHECK-NOORDER:  line 3\n  // CHECK-NOT:      line 4\n  // CHECK:          line 5\n\nThe algorithm would first match 1 and 5, fixing their position, and attempt to match 2 and 3 inside that scope. Similarly, it would check that no line between 1 and 5 matches 4.",
+      "parentUuid": "e1d164e3_72c1d860",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -250,6 +460,30 @@
     },
     {
       "key": {
+        "uuid": "c102a041_91b65ccb",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "217a9caa_d4dd1c75",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 36
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "217a9caa_94e7a43d",
         "filename": "tools/checker.py",
         "patchSetId": 16
@@ -261,6 +495,30 @@
       "writtenOn": "2014-12-16T20:49:36Z",
       "side": 1,
       "message": "they *may* need? or they need?",
+      "range": {
+        "startLine": 37,
+        "startChar": 63,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1204cdf_48c9df35",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "217a9caa_94e7a43d",
       "range": {
         "startLine": 37,
         "startChar": 63,
@@ -296,6 +554,30 @@
     },
     {
       "key": {
+        "uuid": "a1204cdf_88cab727",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "217a9caa_74c1a860",
+      "range": {
+        "startLine": 218,
+        "startChar": 32,
+        "endLine": 218,
+        "endChar": 40
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1d164e3_32cb5081",
         "filename": "tools/checker.py",
         "patchSetId": 16
@@ -307,6 +589,30 @@
       "writtenOn": "2014-12-16T22:19:48Z",
       "side": 1,
       "message": "This confuses more than helps. \u0027headAndTail\u0027  I understand, \"List pop\" I don\u0027t.",
+      "range": {
+        "startLine": 267,
+        "startChar": 4,
+        "endLine": 267,
+        "endChar": 12
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c102a041_11942c23",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "e1d164e3_32cb5081",
       "range": {
         "startLine": 267,
         "startChar": 4,
@@ -342,6 +648,30 @@
     },
     {
       "key": {
+        "uuid": "c102a041_518eb410",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1d164e3_d2af649d",
+      "range": {
+        "startLine": 278,
+        "startChar": 48,
+        "endLine": 278,
+        "endChar": 55
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "217a9caa_34cb3081",
         "filename": "tools/checker.py",
         "patchSetId": 16
@@ -353,6 +683,30 @@
       "writtenOn": "2014-12-16T22:19:48Z",
       "side": 1,
       "message": "I can\u0027t parse this.",
+      "range": {
+        "startLine": 421,
+        "startChar": 5,
+        "endLine": 421,
+        "endChar": 44
+      },
+      "revId": "08a82e4307be6e26e37eb409612179bde2b53a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1cb2464_02794a30",
+        "filename": "tools/checker.py",
+        "patchSetId": 16
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2014-12-17T15:36:35Z",
+      "side": 1,
+      "message": "Better now? The word \u0027stream\u0027 is probably confusing in this context.",
+      "parentUuid": "217a9caa_34cb3081",
       "range": {
         "startLine": 421,
         "startChar": 5,
