@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01ccb852_fa2b55e7",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-17T02:53:36Z",
+      "side": 1,
+      "message": "Why not dereference the unique_ptr at the caller? I don\u0027t see you overwriting what the unique_ptr stores...",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 584,
+        "endChar": 74
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ccb852_fab03561",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-17T02:53:36Z",
+      "side": 1,
+      "message": "A break is the standard way for this in our code base...",
+      "range": {
+        "startLine": 598,
+        "startChar": 7,
+        "endLine": 598,
+        "endChar": 30
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ccb852_fa57d59a",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-17T02:53:36Z",
+      "side": 1,
+      "message": "If that\u0027s the case why not make it one enum?",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 59
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ccb852_e5ddfa74",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-17T02:53:36Z",
+      "side": 1,
+      "message": "It feels like these would be better as static standalone functions in the cc file if you add the parameters they need from the object. That would reduce the API (as I can\u0027t see them explicitly called in your test). But that\u0027s a personal style question...",
+      "range": {
+        "startLine": 250,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 63
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01a59882_261a38de",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-17T02:53:36Z",
+      "side": 1,
+      "message": "Convention is somewhat ambiguous here, but for anything that changes, use * instead of \u0026.",
+      "range": {
+        "startLine": 337,
+        "startChar": 44,
+        "endLine": 337,
+        "endChar": 45
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01a59882_092b8d1d",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-17T02:53:36Z",
+      "side": 1,
+      "message": "Maybe introduce another bool into OatFileManager that gets toggled, and have DCHECKs?",
+      "range": {
+        "startLine": 342,
+        "startChar": 61,
+        "endLine": 342,
+        "endChar": 77
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
