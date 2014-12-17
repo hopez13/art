@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1cb2464_c26e8269",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-17T14:11:19Z",
+      "side": 1,
+      "message": "I changed this code to use ArenaBitVector instead.",
+      "parentUuid": "e126c4f7_ea924762",
+      "range": {
+        "startLine": 126,
+        "startChar": 5,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "9504e0c5cbeed08af5cefa9cee789ab501221ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1cb2464_c2e922ba",
         "filename": "compiler/optimizing/graph_checker.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-17T12:23:00Z",
       "side": 1,
       "message": "What about using an (expandable) art::ArenaBitVector instead?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "9504e0c5cbeed08af5cefa9cee789ab501221ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1cb2464_a2717e4e",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-17T14:11:19Z",
+      "side": 1,
+      "message": "Good idea. Done. I made it non-expendable and use the latest id of the graph to make it even more robust.",
+      "parentUuid": "e1cb2464_c2e922ba",
       "range": {
         "startLine": 68,
         "startChar": 2,
