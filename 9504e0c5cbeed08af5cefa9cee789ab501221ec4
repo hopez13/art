@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e126c4f7_ea924762",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2014-12-17T13:01:37Z",
+      "side": 1,
+      "message": "You can use insert to add and test to see if it was already there.",
+      "range": {
+        "startLine": 126,
+        "startChar": 5,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "revId": "9504e0c5cbeed08af5cefa9cee789ab501221ec4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1cb2464_c2e922ba",
         "filename": "compiler/optimizing/graph_checker.h",
         "patchSetId": 1
