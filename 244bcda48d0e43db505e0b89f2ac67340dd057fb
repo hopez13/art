@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c102a041_d137441d",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-17T15:46:42Z",
+      "side": 1,
+      "message": "I don\u0027t care that much either, but I think I stumble more across Maybe* pattern. A quick search in the builder shows that we have more Maybes then Potentials :), though the number is small.",
+      "parentUuid": "a1204cdf_a8817b28",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 214,
+        "endChar": 18
+      },
+      "revId": "244bcda48d0e43db505e0b89f2ac67340dd057fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "641ca21f_36a1d832",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
