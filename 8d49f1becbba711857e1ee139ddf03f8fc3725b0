@@ -281,6 +281,29 @@
       "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81da6831_e8b9a7ea",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T20:29:15Z",
+      "side": 1,
+      "message": "We load the image at a fixed address in memory (modulo relocation), but it\u0027s possible that that particular memory is already being used. When I run the test using \u0027mm -j32 test-art-host\u0027, it looks like bash has already mprotected the memory where we want to place the image. When I run the test individually, the memory is available (bash isn\u0027t involved) and I don\u0027t see the error.\n\nThis shouldn\u0027t be specific to relocation, but rather in general loading images on the host. Is there a strategy for dealing with this already? Why don\u0027t we run into this problem for existing tests?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 28
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
