@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21145c87_8485869c",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T17:17:37Z",
+      "side": 1,
+      "message": "I\u0027m new to using unique_ptrs. My intent was to avoid calling get() on them anywhere (except for checking against null) to avoid accidentally copying the pointer somewhere.\n\nNow that you bring it up, I think using a const OatFile* for the \u0027file\u0027 argument would clarify how that argument is used.\n\nPerhaps using \u0027const std::unique_ptr\u003cOatFile\u003e\u0026\u0027 would let me not use get() and also clarify that I\u0027m not modifying the contents of the unique pointer? If you think it doesn\u0027t matter, I\u0027m also happy to call get() and pass the file as a \u0027const OatFile*\u0027.",
+      "parentUuid": "01ccb852_fa2b55e7",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 584,
+        "endChar": 74
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01ccb852_fab03561",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2014-12-17T02:53:36Z",
       "side": 1,
       "message": "A break is the standard way for this in our code base...",
+      "range": {
+        "startLine": 598,
+        "startChar": 7,
+        "endLine": 598,
+        "endChar": 30
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "812508f1_c7513ea7",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T17:17:37Z",
+      "side": 1,
+      "message": "I think the control flow is hard to understand using break. I\u0027m not sure adding more_secondary_to_check makes it any more clear. I\u0027ll play around a little more to see if I can add clarity.",
+      "parentUuid": "01ccb852_fab03561",
       "range": {
         "startLine": 598,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a1d5ac01_20a56abb",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T17:17:37Z",
+      "side": 1,
+      "message": "Contrary to what\u0027s implied by this comment, whether we attempted to load a field is orthogonal from whether it loaded successfully or not. For the oat files, for example, there is no foo_load_succeeded_; instead we check the unique_ptr for the oat file to see if it was loaded.\n\nI\u0027ll fix the comment to avoid conflating the two things. The code doesn\u0027t rely on the fact that foo_load_succeeded_ implies foo_load_attempted_.",
+      "parentUuid": "01ccb852_fa57d59a",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 59
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01ccb852_e5ddfa74",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2014-12-17T02:53:36Z",
       "side": 1,
       "message": "It feels like these would be better as static standalone functions in the cc file if you add the parameters they need from the object. That would reduce the API (as I can\u0027t see them explicitly called in your test). But that\u0027s a personal style question...",
+      "range": {
+        "startLine": 250,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 63
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "611ad4b5_c98f9536",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T17:17:37Z",
+      "side": 1,
+      "message": "These are private methods; they are not part of the API.\nThey aren\u0027t static because they load the image info and cache it.\n\nIf we had an image manager to cache the image info for us across instantiations of OatFileManager objects, these could be made static methods. That would be nicer. Except I\u0027m not sure how often we want to re-load the image info. I think once per OatFileManager object is plenty often, but perhaps less than that is not often enough?",
+      "parentUuid": "01ccb852_e5ddfa74",
       "range": {
         "startLine": 250,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "611ad4b5_09fecd77",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T17:17:37Z",
+      "side": 1,
+      "message": "The intent is to return an std::unique_ptr to the oat file if we have one. The \u0027oat_file\u0027 parameter is strictly an out parameter.\n\nI didn\u0027t use * because it\u0027s a weird having a pointer to a unique pointer. Do we write things like (*oat_file)-\u003eGetOatDexFile? I wouldn\u0027t run into this problem if I didn\u0027t try to use the oat_file as a unique pointer after I made an assignment to it.\n\nI think either:\nA. Make oat_file a \u0027std::unique_ptr\u003cOatFile\u003e*\u0027 and change the implementation so I don\u0027t have to dereference the pointer to the unique_ptr.\n\nB. Have LoadDexFiles return an std::unique_ptr, and make the boolean success an output parameter. This is slightly less than idea, because the boolean \u0027success\u0027 is the main result of the function and the oat_file is a secondary result you only get sometimes.",
+      "parentUuid": "01a59882_261a38de",
+      "range": {
+        "startLine": 337,
+        "startChar": 44,
+        "endLine": 337,
+        "endChar": 45
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01a59882_092b8d1d",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2014-12-17T02:53:36Z",
       "side": 1,
       "message": "Maybe introduce another bool into OatFileManager that gets toggled, and have DCHECKs?",
+      "range": {
+        "startLine": 342,
+        "startChar": 61,
+        "endLine": 342,
+        "endChar": 77
+      },
+      "revId": "8d49f1becbba711857e1ee139ddf03f8fc3725b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "812508f1_47e8ae36",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2014-12-17T17:17:37Z",
+      "side": 1,
+      "message": "I wonder if there\u0027s some way to restructure the code to avoid the problem of putting the OatFileManager in a bad state after getting the oat file from it.\n\nI could mark the oat file as unloaded, so you can still use the OatFileManager after getting the oat file. But this is probably not what people want, so I think your suggestion is a better approach.\n\nShould I be using CHECKs or DCHECKs? I think I saw a comment that says to prefer CHECKs unless there is evidence they cause performance problems.",
+      "parentUuid": "01a59882_092b8d1d",
       "range": {
         "startLine": 342,
         "startChar": 61,
