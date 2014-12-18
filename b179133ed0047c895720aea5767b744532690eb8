@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21e9bccf_30f3f002",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-18T01:49:54Z",
+      "side": 1,
+      "message": "Would \u0027bytes_allocated_before_gc\u0027 or \u0027bytes_allocated_at_gc_start\u0027 be more descriptive?",
+      "range": {
+        "startLine": 2923,
+        "startChar": 83,
+        "endLine": 2923,
+        "endChar": 96
+      },
+      "revId": "b179133ed0047c895720aea5767b744532690eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "812508f1_7c9f3d6f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3061,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-18T01:49:54Z",
+      "side": 1,
+      "message": "This should work, but it may be cleaner to use another boolean variable to reject concurrent GC notifications while the GC daemon thread is running concurrent GC, if it works.\n\nSomething like:\n\nvoid Heap::WaitForConcurrentGCRequest(Thread* self) {\n  ScopedThreadStateChange tsc(self, kBlocked);\n  MutexLock mu(self, *gc_request_lock_);\n  conc_gc_running_ \u003d false;\n  while (!gc_request_pending_) {\n    gc_request_cond_-\u003eWait(self);\n  }\n  gc_request_pending_ \u003d false;\n  conc_gc_running_ \u003d true;\n}\n\nvoid Heap::NotifyConcurrentGCRequest(Thread* self) {\n  ScopedThreadStateChange tsc(self, kBlocked);\n  MutexLock mu(self, *gc_request_lock_);\n  if (!conc_gc_running_) {\n    gc_request_pending_ \u003d true;\n    gc_request_cond_-\u003eSignal(self);\n  }\n}",
+      "range": {
+        "startLine": 3061,
+        "startChar": 9,
+        "endLine": 3061,
+        "endChar": 41
+      },
+      "revId": "b179133ed0047c895720aea5767b744532690eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
