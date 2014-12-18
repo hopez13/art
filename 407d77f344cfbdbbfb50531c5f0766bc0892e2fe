@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "61765414_86056a85",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-18T15:00:19Z",
+      "side": 0,
+      "message": "Yes, I\u0027ve put the equivalent ones line 278.",
+      "parentUuid": "24162a01_37df126f",
+      "range": {
+        "startLine": 231,
+        "startChar": 6,
+        "endLine": 232,
+        "endChar": 67
+      },
+      "revId": "407d77f344cfbdbbfb50531c5f0766bc0892e2fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "211e1c5a_941b440d",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2014-12-16T11:22:19Z",
       "side": 0,
       "message": "If we do not plan to use the quick_callee_saved_registers reglist, you can remove it from code_generator_arm64.h.",
+      "revId": "407d77f344cfbdbbfb50531c5f0766bc0892e2fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61765414_061b3ae5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-18T15:00:19Z",
+      "side": 0,
+      "message": "Removed. We might use them at some point again.",
+      "parentUuid": "211e1c5a_941b440d",
       "revId": "407d77f344cfbdbbfb50531c5f0766bc0892e2fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

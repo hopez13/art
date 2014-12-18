@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "61765414_a6026678",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-18T15:00:19Z",
+      "side": 1,
+      "message": "Done :-)",
+      "parentUuid": "c102a041_f400762a",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 214,
+        "endChar": 18
+      },
+      "revId": "244bcda48d0e43db505e0b89f2ac67340dd057fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "641ca21f_36a1d832",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -108,6 +132,24 @@
       "writtenOn": "2014-12-15T12:45:40Z",
       "side": 1,
       "message": "Maybe keep the comment with the one register pushed at entry (LR)?",
+      "revId": "244bcda48d0e43db505e0b89f2ac67340dd057fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41731024_e5ba963c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-18T15:00:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "641ca21f_36a1d832",
       "revId": "244bcda48d0e43db505e0b89f2ac67340dd057fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
