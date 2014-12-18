@@ -69,6 +69,30 @@
       "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "618d7444_aee957ba",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-18T11:23:08Z",
+      "side": 1,
+      "message": "Right, but a single block can still contain many instructions.  And short/simple methods may nevertheless be called often.  So this code could be run over and over gratuitously.\n\nActually, it may be even more interesting to cache the larger information \"can (should?) this method be inlined?\" (at least, the bits that only depend on the callee, not the caller).",
+      "parentUuid": "41731024_45f36aaf",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 3
+      },
+      "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
