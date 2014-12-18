@@ -93,6 +93,30 @@
       "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41731024_25366e89",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2014-12-18T12:57:26Z",
+      "side": 1,
+      "message": "Like Calin said, let\u0027s not bother about \"can allocate registers for\", especially since it\u0027s a temporary method.\n\nCaching whether a method is inlineable is in the TODO list (like control flow, method calls, ...).",
+      "parentUuid": "618d7444_aee957ba",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 3
+      },
+      "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
