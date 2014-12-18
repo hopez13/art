@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21c29c57_1457d422",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-18T05:03:45Z",
+      "side": 1,
+      "message": "Is it ok not to have this surrounded by if (ATRACE_ENABLED()) { ... } ?\n\nAlso, would it better to place this after the error-case return in line 476 because the thread hasn\u0027t exactly resumed in the error case?",
+      "range": {
+        "startLine": 458,
+        "startChar": 2,
+        "endLine": 458,
+        "endChar": 12
+      },
+      "revId": "f0dc8b5519102b3d3e738aed846975ae4239421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
