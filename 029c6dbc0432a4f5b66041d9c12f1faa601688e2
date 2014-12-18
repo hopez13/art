@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61765414_e68ffe35",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-18T10:58:47Z",
+      "side": 1,
+      "message": "and long operations",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "618d7444_0ed0ab0f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-18T10:58:47Z",
+      "side": 1,
+      "message": "Maybe we could cache the result of RegisterAllocator::CanAllocateRegistersFor? (Perhaps in another CL.)",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 3
+      },
+      "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
