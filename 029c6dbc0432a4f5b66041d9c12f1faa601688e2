@@ -45,6 +45,30 @@
       "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41731024_45f36aaf",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-18T11:03:32Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s worth bothering. Since currently we handle only 3 blocks it shouldn\u0027t be expensive to call this.",
+      "parentUuid": "618d7444_0ed0ab0f",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 3
+      },
+      "revId": "029c6dbc0432a4f5b66041d9c12f1faa601688e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
