@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1996484_d24ac41f",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-18T14:10:39Z",
+      "side": 1,
+      "message": "Thanks for review. We will upload patchset 2 to modify those two functions for ARM and MIPS.",
+      "parentUuid": "81a8a891_8ffbb54b",
+      "range": {
+        "startLine": 612,
+        "startChar": 58,
+        "endLine": 612,
+        "endChar": 75
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c19e206c_d1cd6471",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
