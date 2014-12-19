@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6102d48e_5b04473d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T21:29:43Z",
+      "side": 1,
+      "message": "Does this need to be AnyAny?  My impression is that ISHLD is not sufficient for precluding the incorrect result for IRIW?  I.e.\n\nThread 1: x \u003d 1;\nThread 2: y \u003d 1;\nThread 3: r1 \u003d x; dmb ishld; r2 \u003d y;\nThread 4: r3 \u003d x; dmb ishld; r4 \u003d y;\n\ndoes not ensure sequential consistency?\n\nI think we had concluded that ISHLD is sufficient for lock acquisition and flag testing, such as in initialization checks.  But I\u0027m not sure it\u0027s quite enough for general volatiles.\n\nThis is unfortunately not apparent from the barrier naming.  Either way a comment about the fact that ISHLD does/does not suffice for IRIW would help.",
+      "range": {
+        "startLine": 1805,
+        "startChar": 45,
+        "endLine": 1805,
+        "endChar": 52
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18bec6e_84ad96a6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T21:29:43Z",
+      "side": 1,
+      "message": "Same question here.",
+      "range": {
+        "startLine": 2484,
+        "startChar": 44,
+        "endLine": 2484,
+        "endChar": 52
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
