@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a18bec6e_797ffb97",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-19T20:15:17Z",
+      "side": 1,
+      "message": "Can you also put the right bug here, so we know where to look online?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 5
+      },
+      "revId": "0374e65e96c02d2f7a8123b5b89d222c5ce8377c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_a02666da",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-19T20:15:17Z",
+      "side": 1,
+      "message": "Maybe we might want to talk to Ying. When I wrote this, LOCAL_CLANG_arch was supposed to be overriding LOCAL_CLANG.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 38
+      },
+      "revId": "0374e65e96c02d2f7a8123b5b89d222c5ce8377c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
