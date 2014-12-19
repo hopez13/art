@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "01f918d6_f7bf8832",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6102d48e_15133e80",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f918d6_4c9db3f9",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -42,6 +60,24 @@
         "endLine": 3051,
         "endChar": 45
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18bec6e_39d41375",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3051,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f918d6_4c9db3f9",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "6102d48e_40be9233",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3081,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll add a TODO since I think its benign currently.",
+      "parentUuid": "01f918d6_cc0c03e3",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f918d6_2cd83701",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -88,6 +142,24 @@
         "endLine": 3121,
         "endChar": 40
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_60daaea5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3121,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f918d6_2cd83701",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "01f918d6_977df4da",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6102d48e_3a550993",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_f6ce98c0",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 5
@@ -134,6 +224,24 @@
         "endLine": 626,
         "endChar": 23
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_e051fe5c",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a18bec6e_f6ce98c0",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +271,24 @@
     },
     {
       "key": {
+        "uuid": "a18bec6e_a43a1ae9",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e133247d_4590fc59",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_939e3e71",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 5
@@ -180,6 +306,24 @@
         "endLine": 241,
         "endChar": 64
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_bb77bbc2",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "I think that was one of the problems, the GC could get blocked if the reference queue daemon was blocked here (e.g. by GetThreadStack). So we need to do it async or else we may get deadlocks (such as gcstress 129).\n\nsynchronized (ReferenceQueue.class) {\n                        while (ReferenceQueue.unenqueued \u003d\u003d null) {\n                            ReferenceQueue.class.wait();\n// suspend check at backwards branch.\n                        }\n                        list \u003d ReferenceQueue.unenqueued;\n                        ReferenceQueue.unenqueued \u003d null;\n                    }\n\nI don\u0027t think there are any issues since we store the cleared references in a global ref. Also since the task processor maintains order, it would mean that things are always added in the right order.",
+      "parentUuid": "a18bec6e_939e3e71",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -209,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "6102d48e_fb4653f2",
+        "filename": "runtime/gc/task_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "I think its not necessary.",
+      "parentUuid": "6102d48e_cf83d569",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_93dcfef2",
         "filename": "runtime/gc/task_processor.cc",
         "patchSetId": 5
@@ -226,6 +388,24 @@
         "endLine": 55,
         "endChar": 22
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a18bec6e_44900e5a",
+        "filename": "runtime/gc/task_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "This is certainly a good question, if we skip the tasks it could result in objects not being finalized however. I think we should leave it for now.",
+      "parentUuid": "a18bec6e_93dcfef2",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -255,6 +435,24 @@
     },
     {
       "key": {
+        "uuid": "01f918d6_12e472de",
+        "filename": "runtime/gc/task_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6102d48e_7a070144",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f918d6_a9e2d957",
         "filename": "runtime/gc/task_processor.cc",
         "patchSetId": 5
@@ -272,6 +470,24 @@
         "endLine": 60,
         "endChar": 56
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_fb73f387",
+        "filename": "runtime/gc/task_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f918d6_a9e2d957",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -301,6 +517,24 @@
     },
     {
       "key": {
+        "uuid": "01f918d6_f2a436c0",
+        "filename": "runtime/gc/task_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f918d6_4955a54a",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f918d6_8ce72b68",
         "filename": "runtime/gc/task_processor.h",
         "patchSetId": 5
@@ -318,6 +552,24 @@
         "endLine": 56,
         "endChar": 35
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_9b5bdff9",
+        "filename": "runtime/gc/task_processor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Deleted",
+      "parentUuid": "01f918d6_8ce72b68",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -347,6 +599,24 @@
     },
     {
       "key": {
+        "uuid": "01f918d6_f20796bd",
+        "filename": "runtime/gc/task_processor_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Yes\n\nexternal/gtest/include/gtest/internal/gtest-internal.h:454:43: error: cannot convert \u0027art::gc::TaskProcessorTest_Ordering_Test*\u0027 to \u0027testing::Test*\u0027 in return",
+      "parentUuid": "6102d48e_fabbf1e6",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_3303d2ae",
         "filename": "runtime/gc/task_processor_test.cc",
         "patchSetId": 5
@@ -364,6 +634,24 @@
         "endLine": 63,
         "endChar": 32
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f918d6_329d2e42",
+        "filename": "runtime/gc/task_processor_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a18bec6e_3303d2ae",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -393,6 +681,24 @@
     },
     {
       "key": {
+        "uuid": "6102d48e_7bcee33f",
+        "filename": "runtime/gc/task_processor_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f918d6_0ce57b33",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6102d48e_da06f511",
         "filename": "runtime/gc/task_processor_test.cc",
         "patchSetId": 5
@@ -416,6 +722,24 @@
     },
     {
       "key": {
+        "uuid": "01f918d6_3272ce80",
+        "filename": "runtime/gc/task_processor_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6102d48e_da06f511",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_93c95eea",
         "filename": "runtime/gc/task_processor_test.cc",
         "patchSetId": 5
@@ -433,6 +757,24 @@
         "endLine": 106,
         "endChar": 71
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f918d6_725166d8",
+        "filename": "runtime/gc/task_processor_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T21:59:39Z",
+      "side": 1,
+      "message": "Interrupt gets cleared when RunTasksUntilInterrupted is called, so if we want to self interrupt, this is the easiest way to do it.",
+      "parentUuid": "a18bec6e_93c95eea",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
