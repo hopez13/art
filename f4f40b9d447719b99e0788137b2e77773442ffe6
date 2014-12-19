@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "217ffc22_ecd48b05",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T22:57:46Z",
+      "side": 1,
+      "message": "Delted comment.",
+      "parentUuid": "c138e05e_47c1e22a",
+      "revId": "f4f40b9d447719b99e0788137b2e77773442ffe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6175743d_7104f23d",
         "filename": "runtime/gc/task_processor.h",
         "patchSetId": 7
@@ -42,6 +60,24 @@
         "endLine": 75,
         "endChar": 15
       },
+      "revId": "f4f40b9d447719b99e0788137b2e77773442ffe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6175743d_d1cfe66c",
+        "filename": "runtime/gc/task_processor.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T22:57:46Z",
+      "side": 1,
+      "message": "The comparator compares by time, there could be two different tasks with the same target time.",
+      "parentUuid": "6175743d_7104f23d",
       "revId": "f4f40b9d447719b99e0788137b2e77773442ffe6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
