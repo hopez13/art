@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a18bec6e_f91c4b94",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T20:15:06Z",
+      "side": 1,
+      "message": "This seems like a serious performance bug, both on Intel and ARM.  The whole point is presumably to avoid synchronization.  Setting this with volatile semantics presumably adds a fence.",
+      "range": {
+        "startLine": 782,
+        "startChar": 44,
+        "endLine": 782,
+        "endChar": 48
+      },
+      "revId": "323548e3f8ee305218da2998469432a683c72cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6102d48e_b56d8a21",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T20:15:06Z",
+      "side": 1,
+      "message": "Same problem, except this penalizes only non-x86.",
+      "range": {
+        "startLine": 878,
+        "startChar": 42,
+        "endLine": 878,
+        "endChar": 46
+      },
+      "revId": "323548e3f8ee305218da2998469432a683c72cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
