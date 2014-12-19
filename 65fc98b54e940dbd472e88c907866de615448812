@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4144f0e8_5df77b69",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-12-19T13:47:53Z",
+      "side": 1,
+      "message": "No, I did not try with a DCHECK_EQ. It originated as a copy-paste of line 972.",
+      "parentUuid": "4144f0e8_5dce9b3f",
+      "revId": "65fc98b54e940dbd472e88c907866de615448812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13dac4e_a0d9ba3b",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 2347,
         "endChar": 101
       },
+      "revId": "65fc98b54e940dbd472e88c907866de615448812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a13dac4e_e05ca2f5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-12-19T13:47:53Z",
+      "side": 1,
+      "message": "Will shorten this. Upstream Clang trunk (there is no 3.6 release yet) apparently works fine. Thus updating the Android host clang to a newer version should fix this.\n\nPlease note that for the host Android uses a pre-release version. Upstream clang suggested adding this as a bug with the Android team.",
+      "parentUuid": "a13dac4e_a0d9ba3b",
       "revId": "65fc98b54e940dbd472e88c907866de615448812",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
