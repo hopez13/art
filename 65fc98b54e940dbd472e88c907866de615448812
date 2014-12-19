@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4144f0e8_5dce9b3f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-19T13:36:28Z",
+      "side": 1,
+      "message": "don\u0027t you get a warning to use DCHECK_EQ?",
+      "range": {
+        "startLine": 1014,
+        "startChar": 6,
+        "endLine": 1014,
+        "endChar": 12
+      },
+      "revId": "65fc98b54e940dbd472e88c907866de615448812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a13dac4e_a0d9ba3b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-19T13:36:28Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 2347,
+        "startChar": 93,
+        "endLine": 2347,
+        "endChar": 101
+      },
+      "revId": "65fc98b54e940dbd472e88c907866de615448812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
