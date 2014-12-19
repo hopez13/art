@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4144f0e8_00f8a8d9",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-19T17:29:24Z",
+      "side": 1,
+      "message": "we could store this in the CodeGenerator base class but until we have a real need in other sub classes I wouldn\u0027t bother.",
+      "range": {
+        "startLine": 336,
+        "startChar": 10,
+        "endLine": 336,
+        "endChar": 53
+      },
+      "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
