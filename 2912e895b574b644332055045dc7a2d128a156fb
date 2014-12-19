@@ -325,6 +325,29 @@
     },
     {
       "key": {
+        "uuid": "6102d48e_202cb6ad",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T20:22:31Z",
+      "side": 1,
+      "message": "This defeats much of the performance advantage, since it requires a fence.  I believe it can be false.  Same for MonitorExit.",
+      "range": {
+        "startLine": 791,
+        "startChar": 44,
+        "endLine": 791,
+        "endChar": 48
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1eaa0ee_31f1b073",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
