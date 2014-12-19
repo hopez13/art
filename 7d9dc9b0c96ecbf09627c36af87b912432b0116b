@@ -84,6 +84,29 @@
     },
     {
       "key": {
+        "uuid": "6102d48e_0da572ba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3051,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T23:10:24Z",
+      "side": 1,
+      "message": "I don\u0027t think it makes sense to say Relaxed here and SequentiallyConsistent in the CAS.  If this is only a preformance hint, it\u0027s probably OK to say Relaxed in both places.  You\u0027re still guaranteed that only the first CAS will succeed.  If you\u0027re relying on a successful CAS to indicate completetion of the prior GC, then you should use at least Release here.",
+      "range": {
+        "startLine": 3051,
+        "startChar": 30,
+        "endLine": 3051,
+        "endChar": 37
+      },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f918d6_cc0c03e3",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -160,6 +183,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "01f918d6_2cd83701",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6175743d_2e0da7a6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3156,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T23:10:24Z",
+      "side": 1,
+      "message": "Again, I think all accesses should be Relaxed, or this should be strengthened.  The question is whether this is a hint or promises something.",
+      "range": {
+        "startLine": 3156,
+        "startChar": 9,
+        "endLine": 3156,
+        "endChar": 43
+      },
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -289,6 +335,29 @@
     },
     {
       "key": {
+        "uuid": "217ffc22_ccf2effd",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T23:10:24Z",
+      "side": 1,
+      "message": "Should we be switching to C++11 atomic\u003cbool\u003e?  I suspect that\u0027s now OK for AOSP.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 2,
+        "endLine": 1065,
+        "endChar": 14
+      },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_939e3e71",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 5
@@ -324,6 +393,29 @@
       "side": 1,
       "message": "I think that was one of the problems, the GC could get blocked if the reference queue daemon was blocked here (e.g. by GetThreadStack). So we need to do it async or else we may get deadlocks (such as gcstress 129).\n\nsynchronized (ReferenceQueue.class) {\n                        while (ReferenceQueue.unenqueued \u003d\u003d null) {\n                            ReferenceQueue.class.wait();\n// suspend check at backwards branch.\n                        }\n                        list \u003d ReferenceQueue.unenqueued;\n                        ReferenceQueue.unenqueued \u003d null;\n                    }\n\nI don\u0027t think there are any issues since we store the cleared references in a global ref. Also since the task processor maintains order, it would mean that things are always added in the right order.",
       "parentUuid": "a18bec6e_939e3e71",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6175743d_31366ad3",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T23:10:24Z",
+      "side": 1,
+      "message": "Any danger that we will end up finalizing objects before the corresponding WeakReferences are enquued?",
+      "range": {
+        "startLine": 241,
+        "startChar": 57,
+        "endLine": 241,
+        "endChar": 64
+      },
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -570,6 +662,29 @@
       "side": 1,
       "message": "Deleted",
       "parentUuid": "01f918d6_8ce72b68",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217ffc22_0c9d5741",
+        "filename": "runtime/gc/task_processor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2014-12-19T23:10:24Z",
+      "side": 1,
+      "message": "Explanatory comment?  It wasn\u0027t obvious to me what this is intended to do.",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 56
+      },
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
