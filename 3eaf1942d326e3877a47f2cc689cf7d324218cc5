@@ -22,6 +22,40 @@
       "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "614734ed_2120488c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2662,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-12-19T18:48:32Z",
+      "side": 1,
+      "message": "I am not sure about this.\n\nThe Java spec needs both Atomic and Volatile for Loading/Storing volatiles. As I understand this you only issue a DMB if the implementation does not have HasAtomicLdrd...(). Thus, for platforms that do not have the LPAE extensions you do not generate the DMB, therefore you do not ensure memory ordering.",
+      "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4144f0e8_6035ecf7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-12-19T18:48:32Z",
+      "side": 1,
+      "message": "Only this should depend on HasAtomicLdrdAnd...()",
+      "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
