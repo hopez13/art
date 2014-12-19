@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "217ffc22_0f01c92c",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-12-19T23:46:42Z",
+      "side": 1,
+      "message": "This loop should still be necessary to set ART_TARGET_CLANG correctly for its use at new line 160 and other .mk files. Without this, ART_TARGET_CFLAGS  was set incorrectly with clang flags because ART_TARGET_CLANG_mips was ignored.",
+      "parentUuid": "c138e05e_c7a3b2b3",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8190a89a_b2b49ec6",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "41723059_90c5da6e",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-12-19T23:46:42Z",
+      "side": 1,
+      "message": "ART_TARGET_CLANG_\u003ctarget\u003e seems to serve the purpose of LOCAL_CLANG_\u003ctarget\u003e now. Or did I miss something?",
+      "parentUuid": "8190a89a_b2b49ec6",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41ff90b8_6e6bc3d3",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2014-12-19T22:21:29Z",
       "side": 1,
       "message": "No, $(set-target-local-clang-vars) is called in the module definition, not here. Run \"mgrep set-target-local-clang-vars\" in art  you\u0027ll see where it\u0027s called.",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6175743d_d4403469",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2014-12-19T23:46:42Z",
+      "side": 1,
+      "message": "Calling here, so that line 160 can use ART_TARGET_CLANG.\nI am assuming that other places do not mind calling set-target-local-clang-vars multiple times.",
+      "parentUuid": "41ff90b8_6e6bc3d3",
       "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
