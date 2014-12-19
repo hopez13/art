@@ -422,6 +422,24 @@
     },
     {
       "key": {
+        "uuid": "6102d48e_0d6e92ee",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-19T23:29:14Z",
+      "side": 1,
+      "message": "Is there a chance that the global reference table could overflow if we have a lot of Reference objects to process?",
+      "parentUuid": "6102d48e_bb77bbc2",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6102d48e_cf83d569",
         "filename": "runtime/gc/task_processor.cc",
         "patchSetId": 5
