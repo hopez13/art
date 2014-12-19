@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c138e05e_47c1e22a",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-19T22:46:54Z",
+      "side": 1,
+      "message": "OK. Now, looking at the comments in lines 239-240 and the comment here, it\u0027s not very clear if the deadlock (mentioned in line 240) still remains with kAsyncReferenceQueueAdd \u003d false. Are the comments accurate?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 1
+      },
+      "revId": "f4f40b9d447719b99e0788137b2e77773442ffe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6175743d_7104f23d",
+        "filename": "runtime/gc/task_processor.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2014-12-19T22:46:54Z",
+      "side": 1,
+      "message": "Why is this a multiset, rather than a set? Do we put the same elements more than once in it?",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 15
+      },
+      "revId": "f4f40b9d447719b99e0788137b2e77773442ffe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
