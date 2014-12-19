@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "a13dac4e_03d510ff",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2662,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-19T22:42:22Z",
+      "side": 1,
+      "message": "oh yes... this is wrong (got carried away with the replacement), thanks!. We should always generate the barrier.",
+      "parentUuid": "614734ed_2120488c",
+      "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4144f0e8_6035ecf7",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -53,6 +71,24 @@
       "writtenOn": "2014-12-19T18:48:32Z",
       "side": 1,
       "message": "Only this should depend on HasAtomicLdrdAnd...()",
+      "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a13dac4e_c3de4821",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2014-12-19T22:42:22Z",
+      "side": 1,
+      "message": "I assume that you wanted to say this, and the double below?\n\nThis is one question that I forgot to address. When using LPAE, does the atomicity holds for both, ldrd/strd and vldrd/vstrd? I assumed so since this is how it is done in quick.",
+      "parentUuid": "4144f0e8_6035ecf7",
       "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
