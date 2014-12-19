@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c138e05e_c7a3b2b3",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-12-19T22:21:29Z",
+      "side": 1,
+      "message": "Without LOCAL_CLANG_$(arch), the loop makes no sense now. You can just write:\nLOCAL_CLANG :\u003d $(ART_TARGET_CLANG_$(TARGET_ARCH))",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8190a89a_b2b49ec6",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-12-19T22:21:29Z",
+      "side": 1,
+      "message": "We can remove use of arch specific LOCAL_CLANG_$(arch), only if it won\u0027t happen that 64-bit needs it off but 32-bit needs it on (or vice versa).\nBefore change https://android-review.googlesource.com/#/c/99275/1, we needed this because we wanted to turn on clang for 64-bit targets but not 32-bit targets in arm64 build.",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41ff90b8_6e6bc3d3",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-12-19T22:21:29Z",
+      "side": 1,
+      "message": "No, $(set-target-local-clang-vars) is called in the module definition, not here. Run \"mgrep set-target-local-clang-vars\" in art  you\u0027ll see where it\u0027s called.",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
