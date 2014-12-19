@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41723059_cda50994",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-19T22:25:11Z",
+      "side": 1,
+      "message": "Actually, doing this async causes native allocations to be flaky since RunFinalization may run before the async task runs. I\u0027ll revert this part and put it behind a flag variable.",
+      "revId": "36845054ce1aa4549e8fb5c1f04e5e622a36afd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
