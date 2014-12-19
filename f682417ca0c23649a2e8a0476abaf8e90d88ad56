@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e11c04fd_1ae81d0b",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-19T04:03:56Z",
+      "side": 1,
+      "message": "should we $(warn) if someone had set this to tell them we are ignoring it?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 25
+      },
+      "revId": "f682417ca0c23649a2e8a0476abaf8e90d88ad56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
