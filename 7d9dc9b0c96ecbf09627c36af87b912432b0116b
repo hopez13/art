@@ -358,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "217ffc22_52f77469",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-20T01:08:31Z",
+      "side": 1,
+      "message": "Good question, probably better to do that in another change though.",
+      "parentUuid": "217ffc22_ccf2effd",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a18bec6e_939e3e71",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 5
@@ -452,6 +470,24 @@
       "side": 1,
       "message": "Never mind. It is only one object.",
       "parentUuid": "6102d48e_0d6e92ee",
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217ffc22_b216d8f0",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-20T01:08:31Z",
+      "side": 1,
+      "message": "No, this maintains the ordering. And weak references are cleared earlier with ClearWhiteReferences.",
+      "parentUuid": "6175743d_31366ad3",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -721,6 +757,24 @@
         "endLine": 67,
         "endChar": 56
       },
+      "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41723059_6d9095ac",
+        "filename": "runtime/gc/task_processor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2014-12-20T01:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "217ffc22_0c9d5741",
       "revId": "7d9dc9b0c96ecbf09627c36af87b912432b0116b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
