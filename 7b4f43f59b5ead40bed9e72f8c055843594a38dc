@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "217ffc22_f293003b",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-20T00:59:10Z",
+      "side": 1,
+      "message": "I\u0027ve always been told that google C++ style is operators at end of line when breaking, but this is all i could really find\n\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Boolean_Expressions\n\n(I guess i based this on the java guide which says to do the opposite of C++ https://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s4.5.1-line-wrapping-where-to-break)",
+      "parentUuid": "a13dac4e_a3f224aa",
+      "range": {
+        "startLine": 126,
+        "startChar": 53,
+        "endLine": 126,
+        "endChar": 54
+      },
+      "revId": "7b4f43f59b5ead40bed9e72f8c055843594a38dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13dac4e_03fe7077",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 1
