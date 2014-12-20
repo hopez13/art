@@ -22,6 +22,30 @@
       "revId": "91e981dc2dd11ca65ec4b178005091ac12861fad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e16a4465_500c445d",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2014-12-20T17:30:50Z",
+      "side": 1,
+      "message": "i\u0027d say \"Null is explicitly defined to return JNIInvalidRefType.\" and add a link to the bug.",
+      "parentUuid": "2151bca8_7f034b7f",
+      "range": {
+        "startLine": 1312,
+        "startChar": 2,
+        "endLine": 1312,
+        "endChar": 32
+      },
+      "revId": "91e981dc2dd11ca65ec4b178005091ac12861fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
