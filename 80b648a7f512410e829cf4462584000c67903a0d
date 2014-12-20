@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "217ffc22_12656cfc",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-20T00:49:11Z",
+      "side": 1,
+      "message": "why such magic?",
+      "range": {
+        "startLine": 893,
+        "startChar": 11,
+        "endLine": 893,
+        "endChar": 34
+      },
+      "revId": "80b648a7f512410e829cf4462584000c67903a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41723059_b326e0da",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-20T00:49:11Z",
+      "side": 1,
+      "message": "NAME_MAX?",
+      "range": {
+        "startLine": 896,
+        "startChar": 21,
+        "endLine": 896,
+        "endChar": 24
+      },
+      "revId": "80b648a7f512410e829cf4462584000c67903a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217ffc22_5282142d",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-20T00:49:11Z",
+      "side": 1,
+      "message": "NAME_MAX-sizeof(\".dot\")?",
+      "range": {
+        "startLine": 897,
+        "startChar": 28,
+        "endLine": 897,
+        "endChar": 31
+      },
+      "revId": "80b648a7f512410e829cf4462584000c67903a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
