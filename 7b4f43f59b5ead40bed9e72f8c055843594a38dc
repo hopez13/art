@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c16f0075_69dac5a5",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-20T05:02:47Z",
+      "side": 1,
+      "message": "It does say that the common case is boolean operators at the end, which is kind of what\u0027s going on here. Personally I do not like to put the ? onto the next line, as then it is not clear when reading the first line that it\u0027s actually a select.",
+      "parentUuid": "217ffc22_f293003b",
+      "range": {
+        "startLine": 126,
+        "startChar": 53,
+        "endLine": 126,
+        "endChar": 54
+      },
+      "revId": "7b4f43f59b5ead40bed9e72f8c055843594a38dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a13dac4e_03fe7077",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 1
@@ -60,6 +84,24 @@
       "writtenOn": "2014-12-19T23:11:21Z",
       "side": 1,
       "message": "Bad indentation.",
+      "revId": "7b4f43f59b5ead40bed9e72f8c055843594a38dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c16f0075_a9e75d67",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-20T05:02:47Z",
+      "side": 1,
+      "message": "I don\u0027t think we have consistent indentation for this. This is conceptually subordinate to the ternary operator, so it is indented...",
+      "parentUuid": "a13dac4e_03fe7077",
       "revId": "7b4f43f59b5ead40bed9e72f8c055843594a38dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
