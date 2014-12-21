@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e11c04fd_ddab7f15",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-12-21T01:36:55Z",
+      "side": 1,
+      "message": "In that case ART_TARGET_CLANG is always evaluated to false with this change, even for non-mips build. That\u0027s not desired.",
+      "parentUuid": "217ffc22_0f01c92c",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8190a89a_b2b49ec6",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "014e780c_efa56993",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-12-21T01:36:55Z",
+      "side": 1,
+      "message": "Let\u0027s preserve use of LOCAL_CLANG_$(arch), as we discussed in the email.",
+      "parentUuid": "41723059_90c5da6e",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41ff90b8_6e6bc3d3",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Calling here, so that line 160 can use ART_TARGET_CLANG.\nI am assuming that other places do not mind calling set-target-local-clang-vars multiple times.",
       "parentUuid": "41ff90b8_6e6bc3d3",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2151bca8_7fa7cb16",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2014-12-21T01:36:55Z",
+      "side": 1,
+      "message": "Yes, line 160 is a mistake. We shouldn\u0027t add art_clang_cflags to ART_TARGET_CFLAGS.\nI think we can add \"LOCAL_CLANG_CFLAGS +\u003d $(art_clang_cflags\" to the function set-target-local-clang-vars, instead.\n(This and other art makefiles are over-complicated and a bit messy :-( )",
+      "parentUuid": "6175743d_d4403469",
       "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
