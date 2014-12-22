@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "611c941f_762fd0a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "We have not observed big performance impact (improvement or regression) on the other benchmarks.",
+      "parentUuid": "01cbd895_f92aef69",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81a8a891_8ffbb54b",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "611c941f_b6404868",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81a8a891_8ffbb54b",
+      "range": {
+        "startLine": 612,
+        "startChar": 58,
+        "endLine": 612,
+        "endChar": 75
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c19e206c_d1cd6471",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -83,6 +131,30 @@
       "writtenOn": "2014-12-18T13:34:33Z",
       "side": 1,
       "message": "any",
+      "range": {
+        "startLine": 630,
+        "startChar": 59,
+        "endLine": 630,
+        "endChar": 65
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1020cb9_3882692c",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19e206c_d1cd6471",
       "range": {
         "startLine": 630,
         "startChar": 59,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c10d40eb_7901872c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81a8a891_aff8794f",
+      "range": {
+        "startLine": 919,
+        "startChar": 58,
+        "endLine": 919,
+        "endChar": 76
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c19e206c_f1ca6856",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -129,6 +225,30 @@
       "writtenOn": "2014-12-18T13:34:33Z",
       "side": 1,
       "message": "any",
+      "range": {
+        "startLine": 933,
+        "startChar": 59,
+        "endLine": 933,
+        "endChar": 65
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1020cb9_187fa598",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19e206c_f1ca6856",
       "range": {
         "startLine": 933,
         "startChar": 59,
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "611c941f_7616b070",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e197a45c_655880cb",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 80,
+        "endChar": 46
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01cbd895_16b1fa51",
         "filename": "runtime/lock_word.h",
         "patchSetId": 1
@@ -175,6 +319,30 @@
       "writtenOn": "2014-12-18T23:03:22Z",
       "side": 1,
       "message": "And not biased?",
+      "range": {
+        "startLine": 128,
+        "startChar": 21,
+        "endLine": 128,
+        "endChar": 35
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "611c941f_5613b47e",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01cbd895_16b1fa51",
       "range": {
         "startLine": 128,
         "startChar": 21,
@@ -210,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "a1020cb9_d87c0da7",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61d9f46e_11522eab",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 30
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61d9f46e_3129aaf0",
         "filename": "runtime/mirror/object.cc",
         "patchSetId": 1
@@ -221,6 +413,30 @@
       "writtenOn": "2014-12-18T23:03:22Z",
       "side": 1,
       "message": "Why test this again?  Just separate the two cases.",
+      "range": {
+        "startLine": 166,
+        "startChar": 12,
+        "endLine": 166,
+        "endChar": 37
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c10d40eb_59fe43c2",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Combined with kUnlocked case as suggested below.",
+      "parentUuid": "61d9f46e_3129aaf0",
       "range": {
         "startLine": 166,
         "startChar": 12,
@@ -256,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "c10d40eb_991c5b94",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61d9f46e_71417286",
+      "range": {
+        "startLine": 167,
+        "startChar": 10,
+        "endLine": 171,
+        "endChar": 11
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c19c6086_e4aa5461",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -267,6 +507,30 @@
       "writtenOn": "2014-12-18T23:03:22Z",
       "side": 1,
       "message": "Please merge the two branches, and use a conditional expression to handle the minor difference.",
+      "range": {
+        "startLine": 354,
+        "startChar": 6,
+        "endLine": 367,
+        "endChar": 7
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c10d40eb_f92117c6",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c19c6086_e4aa5461",
       "range": {
         "startLine": 354,
         "startChar": 6,
@@ -302,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "611c941f_f63ac0e9",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e197a45c_c85643d3",
+      "range": {
+        "startLine": 714,
+        "startChar": 1,
+        "endLine": 714,
+        "endChar": 47
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e197a45c_68ea97af",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -313,6 +601,30 @@
       "writtenOn": "2014-12-18T23:03:22Z",
       "side": 1,
       "message": "What does it mean if the lock is still biased, but has a different owner?  Is there a way for an object to change BiasLockOwner?",
+      "range": {
+        "startLine": 745,
+        "startChar": 10,
+        "endLine": 745,
+        "endChar": 54
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "611c941f_d63fc4d7",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e197a45c_68ea97af",
       "range": {
         "startLine": 745,
         "startChar": 10,
@@ -348,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "611c941f_363558f9",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done. Should we also use \"false\" for the recursive thin lock?",
+      "parentUuid": "6102d48e_202cb6ad",
+      "range": {
+        "startLine": 791,
+        "startChar": 44,
+        "endLine": 791,
+        "endChar": 48
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1eaa0ee_31f1b073",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -371,6 +707,30 @@
     },
     {
       "key": {
+        "uuid": "a1020cb9_788ce15b",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1eaa0ee_31f1b073",
+      "range": {
+        "startLine": 1000,
+        "startChar": 71,
+        "endLine": 1000,
+        "endChar": 77
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01cbd895_96e18aa6",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -382,6 +742,30 @@
       "writtenOn": "2014-12-18T23:03:22Z",
       "side": 1,
       "message": "Call this once?",
+      "range": {
+        "startLine": 928,
+        "startChar": 11,
+        "endLine": 928,
+        "endChar": 43
+      },
+      "revId": "2912e895b574b644332055045dc7a2d128a156fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "611c941f_1632dc10",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2014-12-22T11:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01cbd895_96e18aa6",
       "range": {
         "startLine": 928,
         "startChar": 11,
