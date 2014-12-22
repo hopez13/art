@@ -92,6 +92,24 @@
       "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1b76c4b_d07cdca6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2014-12-22T11:03:24Z",
+      "side": 1,
+      "message": "From ARM ARM - \"LDRD and STRD accesses to 64-bit aligned locations are 64-bit single-copy atomic as seen by translation table walks and accesses to translation tables.\" But no mention of VLDRD and VSTRD being atomic. \n\nThe reason for 64-bit atomic load/stores in LPAE are the page table entries that need to be updated atomicly (using the General Purpose register bank). From this point of view I see no reason  to impose this restriction on the load/stores coming from the Floating Point bank.\n\nIf Quick does it, you can use it as a reference, but I am not sure it is correct in this case. I will raise this question with the architecture team, but I do not expect an answer before the new year. I will update you on this as soon as I have an answer.",
+      "parentUuid": "a13dac4e_c3de4821",
+      "revId": "3eaf1942d326e3877a47f2cc689cf7d324218cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
