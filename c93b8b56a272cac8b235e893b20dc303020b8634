@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1db80ab_0cc1373e",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2014-12-23T03:26:33Z",
+      "side": 1,
+      "message": "is the laziness of the module to avoid dealing with 32/64 bit issues? it might be better to just do the right thing now to prevent issues in the future? but fine...",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 10
+      },
+      "revId": "c93b8b56a272cac8b235e893b20dc303020b8634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
