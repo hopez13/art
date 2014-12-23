@@ -22,6 +22,30 @@
       "revId": "c93b8b56a272cac8b235e893b20dc303020b8634",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e16404ca_c3d43c06",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2014-12-23T03:28:23Z",
+      "side": 1,
+      "message": "Yes, in both cases. More so for the host, though, because I think the sync target already takes care of the executables (as we have a variable for *all* executables with their install path).",
+      "parentUuid": "c1db80ab_0cc1373e",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 10
+      },
+      "revId": "c93b8b56a272cac8b235e893b20dc303020b8634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
