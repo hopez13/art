@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "a185ac8b_a6175270",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-29T15:06:28Z",
+      "side": 1,
+      "message": "Nit: rename as `src\u0027 for symmetry reasons with Load (likewise in compiler/optimizing/code_generator_arm64.h)?",
+      "range": {
+        "startLine": 1033,
+        "startChar": 43,
+        "endLine": 1033,
+        "endChar": 45
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0144b839_8b632d37",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-29T15:06:28Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1058,
+        "startChar": 50,
+        "endLine": 1058,
+        "endChar": 52
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0144b839_ebce71ee",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-29T15:06:28Z",
+      "side": 1,
+      "message": "HeapOperand?",
+      "range": {
+        "startLine": 1128,
+        "startChar": 49,
+        "endLine": 1128,
+        "endChar": 59
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6102d48e_5b04473d",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -37,6 +106,29 @@
       "side": 1,
       "message": "If we assume sequential consistency, I believe we need AnyAny after volatile loads so that stores are not reordered past them.\n\nI will change this to kAnyAny as soon as I am back in the office. If Calin is eager to accept this in he can add a TODO and I will fix it soon.\n\nLong term for ARM64 we should be using the Acquire-Release semantics that, at least in theory, ought to be faster (enabled by default for now in the ARM64 backend).",
       "parentUuid": "6102d48e_5b04473d",
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_a6c912bc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-29T15:06:28Z",
+      "side": 1,
+      "message": "I also ran into this Clang bug in other code generators.  This issue was related to the empty  kRuntimeParameterFpuRegisters array (see line 239).  I believe it should work if you populate this array with { s0, s1 } (or { d0, d1 }) and adjust kRuntimeParameterFpuRegistersLength (on line 240).",
+      "range": {
+        "startLine": 2350,
+        "startChar": 0,
+        "endLine": 2351,
+        "endChar": 85
+      },
       "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
