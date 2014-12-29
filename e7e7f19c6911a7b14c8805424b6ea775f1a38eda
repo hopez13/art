@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a185ac8b_03739007",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2625,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-29T12:14:53Z",
+      "side": 1,
+      "message": "Nit: put each Boolean statement on its own line?",
+      "range": {
+        "startLine": 2624,
+        "startChar": 27,
+        "endLine": 2625,
+        "endChar": 71
+      },
+      "revId": "e7e7f19c6911a7b14c8805424b6ea775f1a38eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_c72ff277",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-29T12:14:53Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 10
+      },
+      "revId": "e7e7f19c6911a7b14c8805424b6ea775f1a38eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
