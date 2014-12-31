@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a185ac8b_06271ed9",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T11:23:06Z",
+      "side": 1,
+      "message": "So it seems you replaced all occurrences of CHECK with CHECK-DAG.  Out of curiosity, do we have (or will we have) a use case for CHECK?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 59
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_c699b60c",
+        "filename": "compiler/optimizing/test/Inliner.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T11:23:06Z",
+      "side": 1,
+      "message": "Trailing whitespace (and likewise below).",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_aaf8f38c",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T11:23:06Z",
+      "side": 1,
+      "message": "assertions formatted as comments in the Java file?",
+      "range": {
+        "startLine": 23,
+        "startChar": 30,
+        "endLine": 23,
+        "endChar": 76
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_e6fb1a1d",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T11:23:06Z",
+      "side": 1,
+      "message": "Suggestion: I would mention the \"keyword\" CHECK earlier in the explanation (likewise for CHECK-DAG and CHECK-NOT).",
+      "range": {
+        "startLine": 37,
+        "startChar": 43,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_eaf2fbaa",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T11:23:06Z",
+      "side": 1,
+      "message": "CHECK-NOT?",
+      "range": {
+        "startLine": 205,
+        "startChar": 27,
+        "endLine": 205,
+        "endChar": 30
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_860deea8",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T11:23:06Z",
+      "side": 1,
+      "message": "CHECK-NOT?",
+      "range": {
+        "startLine": 368,
+        "startChar": 25,
+        "endLine": 368,
+        "endChar": 28
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
