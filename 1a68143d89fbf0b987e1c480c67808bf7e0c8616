@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0144b839_ee4bdfa5",
+        "filename": "compiler/optimizing/test/ConstantFolding.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T16:14:16Z",
+      "side": 1,
+      "message": "OK. I\u0027m also in favor of keeping CHECK. I\u0027m also fine with the -DAG and -NOT suffixes. :)",
+      "parentUuid": "a185ac8b_462cc600",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 59
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a185ac8b_c699b60c",
         "filename": "compiler/optimizing/test/Inliner.java",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done. (How did that get there???)",
       "parentUuid": "a185ac8b_c699b60c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_46da06a5",
+        "filename": "compiler/optimizing/test/Inliner.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T16:14:16Z",
+      "side": 1,
+      "message": "Does you IDE check for/warn about trailing whitespace? :)",
+      "parentUuid": "0144b839_ce78e3ec",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "Done. Also renamed NoOrder type to DAG for consistency",
       "parentUuid": "a185ac8b_e6fb1a1d",
+      "range": {
+        "startLine": 37,
+        "startChar": 43,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "1a68143d89fbf0b987e1c480c67808bf7e0c8616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0144b839_0e410b87",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2014-12-31T16:14:16Z",
+      "side": 1,
+      "message": "Good.",
+      "parentUuid": "c180e07b_4aa04776",
       "range": {
         "startLine": 37,
         "startChar": 43,
