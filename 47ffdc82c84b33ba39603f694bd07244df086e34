@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef61548_c5b22e54",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-03T02:02:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t look sound. If there were a GC checkpoint it wouldn\u0027t be run and you\u0027d not pass through the barrier.",
+      "range": {
+        "startLine": 459,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 54
+      },
+      "revId": "47ffdc82c84b33ba39603f694bd07244df086e34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
