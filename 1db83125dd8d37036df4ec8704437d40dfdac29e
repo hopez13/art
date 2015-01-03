@@ -163,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "0e0225f8_7b4e5fbf",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-03T00:47:16Z",
+      "side": 1,
+      "message": "I seriously dislike this. Using zero forces you to use the horrible static_casts below.\n\nCould you elaborate on two things?\n\n1) What do you mean by \"the register assignments [...] are interleaved?\" Is there some more documentation somewhere? From the callee-save stub I don\u0027t recognize a mixing.\n\n2) Why do you do this? This is making general code less readable, for *one* architecture and an internal save frame layout.",
+      "range": {
+        "startLine": 170,
+        "startChar": 1,
+        "endLine": 170,
+        "endChar": 79
+      },
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "019678c9_24ded870",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 4
