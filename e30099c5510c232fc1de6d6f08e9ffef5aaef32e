@@ -39,6 +39,29 @@
       "revId": "e30099c5510c232fc1de6d6f08e9ffef5aaef32e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_554e2c36",
+        "filename": "tools/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-05T10:51:33Z",
+      "side": 1,
+      "message": "You could define these at top level. It would be easier to change them (if ever...) and avoid repetition.",
+      "range": {
+        "startLine": 108,
+        "startChar": 15,
+        "endLine": 108,
+        "endChar": 24
+      },
+      "revId": "e30099c5510c232fc1de6d6f08e9ffef5aaef32e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
