@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a185ac8b_89d42177",
+        "filename": "tools/checker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-05T10:55:32Z",
+      "side": 1,
+      "message": "why not using the standard regexp for numbers, \u0027\\d\u0027? Based on how you build the regexp internally it should be an almost no-op for the checker.py.",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "06a2033f6ab151588d7b502938ef91a4a5371754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
