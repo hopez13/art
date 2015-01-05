@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e1b056c_d37d549f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-05T19:57:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0144b839_d14084d7",
+      "range": {
+        "startLine": 964,
+        "startChar": 48,
+        "endLine": 964,
+        "endChar": 71
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e0225f8_5b472380",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-01-05T09:45:07Z",
       "side": 1,
       "message": "Not sure, but the warning may only be for things that don\u0027t have a constructor/destructor.",
+      "parentUuid": "0e0225f8_5b472380",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 24
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e1b056c_f3673007",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-05T19:57:17Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "0e0225f8_5b472380",
       "range": {
         "startLine": 193,
@@ -129,6 +177,30 @@
       "writtenOn": "2015-01-05T09:45:07Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 729,
+        "startChar": 6,
+        "endLine": 729,
+        "endChar": 11
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee35d1d2_12ef4c14",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-05T19:57:17Z",
+      "side": 1,
+      "message": "Done.\n\nI haven\u0027t added the new -Xbootclasspath-locations option to the Usage info, which will probably confuse someone if they ever get this error message. I didn\u0027t want to document -Xbootclasspath-locations for fear other people would start using it.",
+      "parentUuid": "c180e07b_759df040",
       "range": {
         "startLine": 729,
         "startChar": 6,
