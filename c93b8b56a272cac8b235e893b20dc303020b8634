@@ -46,6 +46,30 @@
       "revId": "c93b8b56a272cac8b235e893b20dc303020b8634",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3acdc4_7a28ad74",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-05T23:30:53Z",
+      "side": 1,
+      "message": "How does this handle stemming? imgdiag should be built as imgdiagd32 as well sometimes (i.e. volantis).",
+      "parentUuid": "e16404ca_c3d43c06",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 10
+      },
+      "revId": "c93b8b56a272cac8b235e893b20dc303020b8634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
