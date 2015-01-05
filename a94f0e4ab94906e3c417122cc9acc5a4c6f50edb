@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0144b839_d14084d7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-05T09:45:07Z",
+      "side": 1,
+      "message": "-Xbootclasspath-locations?",
+      "range": {
+        "startLine": 964,
+        "startChar": 48,
+        "endLine": 964,
+        "endChar": 71
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e0225f8_5b472380",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 1
@@ -18,6 +41,99 @@
         "startChar": 0,
         "endLine": 193,
         "endChar": 24
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_55a0ec75",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-05T09:45:07Z",
+      "side": 1,
+      "message": "Not sure, but the warning may only be for things that don\u0027t have a constructor/destructor.",
+      "parentUuid": "0e0225f8_5b472380",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 24
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_4903f97e",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-05T09:45:07Z",
+      "side": 1,
+      "message": "Probably better and more useful to give the number instead (or additionally).",
+      "range": {
+        "startLine": 729,
+        "startChar": 108,
+        "endLine": 729,
+        "endChar": 109
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a185ac8b_2906b58f",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-05T09:45:07Z",
+      "side": 1,
+      "message": "vs. -\u003e versus",
+      "range": {
+        "startLine": 729,
+        "startChar": 110,
+        "endLine": 729,
+        "endChar": 112
+      },
+      "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_759df040",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-05T09:45:07Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 729,
+        "startChar": 6,
+        "endLine": 729,
+        "endChar": 11
       },
       "revId": "a94f0e4ab94906e3c417122cc9acc5a4c6f50edb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
