@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0144b839_74133e7f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-01-05T16:17:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a185ac8b_a6175270",
+      "range": {
+        "startLine": 1033,
+        "startChar": 43,
+        "endLine": 1033,
+        "endChar": 45
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0144b839_8b632d37",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c180e07b_15cf44ec",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-01-05T16:17:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0144b839_8b632d37",
+      "range": {
+        "startLine": 1058,
+        "startChar": 50,
+        "endLine": 1058,
+        "endChar": 52
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0144b839_ebce71ee",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2014-12-29T15:06:28Z",
       "side": 1,
       "message": "HeapOperand?",
+      "range": {
+        "startLine": 1128,
+        "startChar": 49,
+        "endLine": 1128,
+        "endChar": 59
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c180e07b_f5c900e9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-01-05T16:17:41Z",
+      "side": 1,
+      "message": "I think it is better as is. The MAsm doesn\u0027t handle MemOperand. HeapOperand is just a wrapper returning a MemOperand.",
+      "parentUuid": "0144b839_ebce71ee",
       "range": {
         "startLine": 1128,
         "startChar": 49,
@@ -123,6 +195,30 @@
       "writtenOn": "2014-12-29T15:06:28Z",
       "side": 1,
       "message": "I also ran into this Clang bug in other code generators.  This issue was related to the empty  kRuntimeParameterFpuRegisters array (see line 239).  I believe it should work if you populate this array with { s0, s1 } (or { d0, d1 }) and adjust kRuntimeParameterFpuRegistersLength (on line 240).",
+      "range": {
+        "startLine": 2350,
+        "startChar": 0,
+        "endLine": 2351,
+        "endChar": 85
+      },
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0144b839_b445a677",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-01-05T16:17:41Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "a185ac8b_a6c912bc",
       "range": {
         "startLine": 2350,
         "startChar": 0,
