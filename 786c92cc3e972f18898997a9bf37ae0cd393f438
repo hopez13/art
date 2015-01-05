@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2e0529fe_e54e4c38",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2015-01-05T19:35:45Z",
+      "side": 1,
+      "message": "Thanks for the catch. Now this change is reverted.",
+      "parentUuid": "e11c04fd_ddab7f15",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8190a89a_b2b49ec6",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -108,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "6126549e_d58ea6bf",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2015-01-05T19:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "014e780c_efa56993",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41ff90b8_6e6bc3d3",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 3
@@ -155,6 +191,24 @@
       "side": 1,
       "message": "Yes, line 160 is a mistake. We shouldn\u0027t add art_clang_cflags to ART_TARGET_CFLAGS.\nI think we can add \"LOCAL_CLANG_CFLAGS +\u003d $(art_clang_cflags\" to the function set-target-local-clang-vars, instead.\n(This and other art makefiles are over-complicated and a bit messy :-( )",
       "parentUuid": "6175743d_d4403469",
+      "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6126549e_f593a2e8",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2015-01-05T19:35:45Z",
+      "side": 1,
+      "message": "Please take a look of new patch set 4, which keeps all existing features and only disables ART_TARGET_CLANG for the mips target.",
+      "parentUuid": "2151bca8_7fa7cb16",
       "revId": "786c92cc3e972f18898997a9bf37ae0cd393f438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
