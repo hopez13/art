@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0144b839_146bdad3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-05T16:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0144b839_715270ac",
+      "range": {
+        "startLine": 331,
+        "startChar": 43,
+        "endLine": 331,
+        "endChar": 65
+      },
+      "revId": "e7e7f19c6911a7b14c8805424b6ea775f1a38eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a185ac8b_03739007",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c180e07b_35aa88df",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2625,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-05T16:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a185ac8b_03739007",
+      "range": {
+        "startLine": 2624,
+        "startChar": 27,
+        "endLine": 2625,
+        "endChar": 71
+      },
+      "revId": "e7e7f19c6911a7b14c8805424b6ea775f1a38eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c180e07b_c72ff277",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2014-12-29T12:14:53Z",
       "side": 1,
       "message": "Remove",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 10
+      },
+      "revId": "e7e7f19c6911a7b14c8805424b6ea775f1a38eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0144b839_3468d6d4",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-05T16:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c180e07b_c72ff277",
       "range": {
         "startLine": 162,
         "startChar": 2,
