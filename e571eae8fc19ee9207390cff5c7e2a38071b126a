@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce3acdc4_b4d06e08",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "maybe CHECK !\u003d nullptr before dereferencing?",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e1b056c_d628a2f1",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "and here? I guess maybe not, if we assert it in the super class setup.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 49
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3acdc4_94d32ae3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "should be unneeded since the -inl.h is included",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e1b056c_1941ab68",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "I might keep a comment like the removed one for this as well: \"// Needs to be before since it accesses the runtime.\"",
+      "range": {
+        "startLine": 453,
+        "startChar": 4,
+        "endLine": 453,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e29e184_b1519aa5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "we prefer not to wrap before 100 chars",
+      "range": {
+        "startLine": 1198,
+        "startChar": 0,
+        "endLine": 1198,
+        "endChar": 29
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3acdc4_745d66c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "does this lose some const? I assume so.",
+      "range": {
+        "startLine": 249,
+        "startChar": 35,
+        "endLine": 249,
+        "endChar": 52
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e29e184_b4186899",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-05T22:32:05Z",
+      "side": 1,
+      "message": "we have been moving away from this type of typedef\u0027ing. I\u0027m not sure if that is good or bad, looking for others opinions.\n\nOnce upon a time I did actually have one for a vector of dex files but it was removed at one point to improve readability. I used to follow google3 like style of always having a typedef for containers like this, but slowly over time those have been removed as well.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
