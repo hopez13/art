@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce3acdc4_577ca455",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-05T23:07:54Z",
+      "side": 1,
+      "message": "This is checked in the creation in common_runtime_test...",
+      "parentUuid": "ce3acdc4_b4d06e08",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1b056c_d628a2f1",
         "filename": "compiler/oat_test.cc",
         "patchSetId": 1
@@ -94,6 +118,29 @@
     },
     {
       "key": {
+        "uuid": "0e1b056c_b93bd708",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-05T23:07:54Z",
+      "side": 1,
+      "message": "Is this necessary? Couldn\u0027t we push the unique-ptr change through? I didn\u0027t see any big hurdles, and a local call to the function for class_path_files_ seems more contained.",
+      "range": {
+        "startLine": 1115,
+        "startChar": 8,
+        "endLine": 1115,
+        "endChar": 61
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e29e184_b1519aa5",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -156,6 +203,53 @@
         "startChar": 0,
         "endLine": 55,
         "endChar": 56
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3acdc4_3786c0fb",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-05T23:07:54Z",
+      "side": 1,
+      "message": "What we\u0027re losing is precision. DexFileUniquePtr doesn\u0027t state in the name that the DexFile pointer is const, for example.\n\nI think Ian was the biggest proponent of writing the actual types instead of aliases. I don\u0027t have an opinion on what\u0027s better.",
+      "parentUuid": "6e29e184_b4186899",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3acdc4_f7a838ea",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-05T23:07:54Z",
+      "side": 1,
+      "message": "This is not your fault, but Google style recommends using pointers for anything that changes, and only const\u0026, and some team members defend that. I wonder whether we should move to something consistent...",
+      "range": {
+        "startLine": 628,
+        "startChar": 34,
+        "endLine": 628,
+        "endChar": 62
       },
       "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
