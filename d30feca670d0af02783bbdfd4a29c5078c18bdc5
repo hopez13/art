@@ -22,6 +22,30 @@
       "revId": "d30feca670d0af02783bbdfd4a29c5078c18bdc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e941dff_83aa0263",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T23:07:19Z",
+      "side": 0,
+      "message": "The method is annotated with SHARED_LOCKS_REQUIRED...",
+      "parentUuid": "4e941dff_a3bcded9",
+      "range": {
+        "startLine": 1342,
+        "startChar": 0,
+        "endLine": 1342,
+        "endChar": 47
+      },
+      "revId": "d30feca670d0af02783bbdfd4a29c5078c18bdc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
