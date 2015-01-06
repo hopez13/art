@@ -222,6 +222,24 @@
     },
     {
       "key": {
+        "uuid": "ae3f59b4_845e56ea",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-06T20:08:36Z",
+      "side": 1,
+      "message": "As I remember, we had crashes until we changed this to match the native ABI. Maybe this was masking some other bug.",
+      "parentUuid": "2e4c498a_a7fde4c6",
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "019678c9_24ded870",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 4
@@ -280,6 +298,24 @@
         "endLine": 1104,
         "endChar": 38
       },
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e26ddb6_539a7cd7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-06T20:08:36Z",
+      "side": 1,
+      "message": "This if-statement evaluates to TRUE only for Mips64.",
+      "parentUuid": "2e4c498a_07539830",
       "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
