@@ -204,6 +204,24 @@
     },
     {
       "key": {
+        "uuid": "2e4c498a_a7fde4c6",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T19:33:46Z",
+      "side": 1,
+      "message": "Can you explain why this was chosen? Why not a traditional setup using F0? This is Quick ABI, it doesn\u0027t have to follow native conventions if they are ugly.",
+      "parentUuid": "8e445558_f29f263a",
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "019678c9_24ded870",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 4
@@ -239,6 +257,52 @@
       "side": 1,
       "message": "The name was taken from the original implementation. All other architectures only required one flag for both GPR and FPR, while Mips64 required one flag for GPR and one flag for FPR.",
       "parentUuid": "019678c9_24ded870",
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4c498a_07539830",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T19:33:46Z",
+      "side": 1,
+      "message": "This is not meaningful here, the right side captures everything necessary.",
+      "range": {
+        "startLine": 1104,
+        "startChar": 10,
+        "endLine": 1104,
+        "endChar": 38
+      },
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e52c124_09e96d3d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T19:33:46Z",
+      "side": 1,
+      "message": "I\u0027m a bit surprised that compiles without warnings or errors.",
+      "range": {
+        "startLine": 1106,
+        "startChar": 8,
+        "endLine": 1106,
+        "endChar": 72
+      },
       "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
