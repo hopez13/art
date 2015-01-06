@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0e3065e8_65aa4a66",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e3065e8_7a18a5e6",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1b056c_d628a2f1",
         "filename": "compiler/oat_test.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2015-01-05T22:32:05Z",
       "side": 1,
       "message": "and here? I guess maybe not, if we assert it in the super class setup.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 49
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee5eb12a_d3af7e9f",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e1b056c_d628a2f1",
       "range": {
         "startLine": 133,
         "startChar": 0,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "6e52c124_86154a61",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2199bcf9_23408963",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1b056c_1941ab68",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "The comment \u0027Needs to be before since it accesses the runtime\u0027 made no sense to me. What needs to be before what since what accesses the runtime?\n\nPerhaps I could clarify the comment: class_path_files_ and opened_dex_files_ must be deleted before the runtime because ~Runtime tears down MemMap which is needed by ~DexFile, and LogCompletionTime before ~Runtime because LogCompletionTime accesses the runtime.",
       "parentUuid": "0e1b056c_1941ab68",
+      "range": {
+        "startLine": 453,
+        "startChar": 4,
+        "endLine": 453,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee5eb12a_b3bc0ada",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e29e184_577266d2",
       "range": {
         "startLine": 453,
         "startChar": 4,
@@ -272,6 +368,30 @@
       "side": 1,
       "message": "Not 80 chars, like the google style guide says? Okay.",
       "parentUuid": "6e29e184_b1519aa5",
+      "range": {
+        "startLine": 1198,
+        "startChar": 0,
+        "endLine": 1198,
+        "endChar": 29
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3065e8_e5b51abe",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e3065e8_7ac305cd",
       "range": {
         "startLine": 1198,
         "startChar": 0,
@@ -448,6 +568,30 @@
     },
     {
       "key": {
+        "uuid": "ee5eb12a_33a01aa9",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce3acdc4_0b6831d7",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce3acdc4_f7a838ea",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -483,6 +627,30 @@
       "side": 1,
       "message": "I\u0027ll fix this. I think there\u0027s a similar occurrence in dex2oat for me to fix too.",
       "parentUuid": "ce3acdc4_f7a838ea",
+      "range": {
+        "startLine": 628,
+        "startChar": 34,
+        "endLine": 628,
+        "endChar": 62
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e52c124_c632220d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T17:51:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee5eb12a_b0c2c030",
       "range": {
         "startLine": 628,
         "startChar": 34,
