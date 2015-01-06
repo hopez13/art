@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "0e3065e8_2527a2a3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3033,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-06T21:34:30Z",
+      "side": 1,
+      "message": "Addressing a comment from a previous CL.",
+      "parentUuid": "2e1e095a_7454281a",
+      "revId": "47ffdc82c84b33ba39603f694bd07244df086e34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef61548_c5b22e54",
         "filename": "runtime/monitor.cc",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "6e52c124_2ccd57f7",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-06T21:34:30Z",
+      "side": 1,
+      "message": "You are right, I found another fix.",
+      "parentUuid": "8ef61548_c5b22e54",
+      "revId": "47ffdc82c84b33ba39603f694bd07244df086e34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e2481a4_bcd06908",
         "filename": "runtime/thread-inl.h",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 120,
         "endChar": 23
       },
+      "revId": "47ffdc82c84b33ba39603f694bd07244df086e34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e52c124_8cbd6b36",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-06T21:34:30Z",
+      "side": 1,
+      "message": "You are right that this would cause the checkpoint to not run, and probably result in a new deadlock, new CL fixes this with a different approach.",
+      "parentUuid": "6e2481a4_bcd06908",
       "revId": "47ffdc82c84b33ba39603f694bd07244df086e34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
