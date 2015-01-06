@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0e3065e8_7a18a5e6",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T16:27:31Z",
+      "side": 1,
+      "message": "I\u0027ll add the extra check here anyway. It won\u0027t hurt anything.",
+      "parentUuid": "ce3acdc4_577ca455",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1b056c_d628a2f1",
         "filename": "compiler/oat_test.cc",
         "patchSetId": 1
@@ -236,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "0e3065e8_7ac305cd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T16:27:31Z",
+      "side": 1,
+      "message": "Not 80 chars, like the google style guide says? Okay.",
+      "parentUuid": "6e29e184_b1519aa5",
+      "range": {
+        "startLine": 1198,
+        "startChar": 0,
+        "endLine": 1198,
+        "endChar": 29
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce3acdc4_745d66c6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -276,6 +324,52 @@
         "startChar": 35,
         "endLine": 249,
         "endChar": 52
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee5eb12a_90bfbc9c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T16:27:31Z",
+      "side": 1,
+      "message": "Should these be guarded by a lock?\n\nThey are only modified during class linker initialization. After that, boot_class_path_ is read only, and opened_dex_files_ is never read. So they don\u0027t need a lock? Should I add a comment to the code to that effect?",
+      "range": {
+        "startLine": 724,
+        "startChar": 0,
+        "endLine": 725,
+        "endChar": 38
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3acdc4_cb6109f3",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T16:27:31Z",
+      "side": 1,
+      "message": "Why do these functions require the mutator_lock_?",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 97
       },
       "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -330,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "ce3acdc4_0b6831d7",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T16:27:31Z",
+      "side": 1,
+      "message": "I\u0027ll remove the typedefs. I think that will make it easier to read and recognize that we are working with std::vectors and std::unique_ptrs instead of some other kind of container or representation of pointers. The biggest downside from my point of view is that not using typedefs will lead to some long lines in the code.",
+      "parentUuid": "ce3acdc4_3786c0fb",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 56
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce3acdc4_f7a838ea",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -341,6 +459,30 @@
       "writtenOn": "2015-01-05T23:07:54Z",
       "side": 1,
       "message": "This is not your fault, but Google style recommends using pointers for anything that changes, and only const\u0026, and some team members defend that. I wonder whether we should move to something consistent...",
+      "range": {
+        "startLine": 628,
+        "startChar": 34,
+        "endLine": 628,
+        "endChar": 62
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee5eb12a_b0c2c030",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T16:27:31Z",
+      "side": 1,
+      "message": "I\u0027ll fix this. I think there\u0027s a similar occurrence in dex2oat for me to fix too.",
+      "parentUuid": "ce3acdc4_f7a838ea",
       "range": {
         "startLine": 628,
         "startChar": 34,
