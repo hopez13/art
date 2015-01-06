@@ -322,6 +322,24 @@
     },
     {
       "key": {
+        "uuid": "ae667910_9818359a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-06T23:26:29Z",
+      "side": 1,
+      "message": "Sorry I got my left and right mixed up. You are right in that only kMultiGPRegistersWidened is needed.",
+      "parentUuid": "4e26ddb6_539a7cd7",
+      "revId": "1db83125dd8d37036df4ec8704437d40dfdac29e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e52c124_09e96d3d",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 4
