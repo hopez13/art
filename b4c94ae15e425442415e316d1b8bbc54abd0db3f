@@ -143,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "8e5d3534_c79c5e48",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-01-06T17:59:41Z",
+      "side": 1,
+      "message": "As Alex mentioned HeapOperand is a wrapper, not provided my the VIXL MacroAssembler. \n\nWhat I meant here is that currently LDAR(reg, MemOperand()) does not handle correctly the status_offset. The ISA only accepts register operands for the acquire-release family and here we use an immediate offset which should be neatly abstracted away.",
+      "parentUuid": "c180e07b_f5c900e9",
+      "revId": "b4c94ae15e425442415e316d1b8bbc54abd0db3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6102d48e_5b04473d",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
