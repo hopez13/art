@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e941dff_5dd37b1a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3036,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T22:10:12Z",
+      "side": 1,
+      "message": "Different CL?",
+      "range": {
+        "startLine": 3031,
+        "startChar": 0,
+        "endLine": 3036,
+        "endChar": 1
+      },
+      "revId": "b0762d2cc2abadbdadf39b2fc6c843639bc3c1cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e941dff_ddc6ab58",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T22:10:12Z",
+      "side": 1,
+      "message": "There is an annotation on there. Trust the compiler... :-)",
+      "range": {
+        "startLine": 935,
+        "startChar": 8,
+        "endLine": 935,
+        "endChar": 66
+      },
+      "revId": "b0762d2cc2abadbdadf39b2fc6c843639bc3c1cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e941dff_bdcddf73",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T22:10:12Z",
+      "side": 1,
+      "message": "For readability we might want to enumify this in a clean-up CL.",
+      "range": {
+        "startLine": 354,
+        "startChar": 31,
+        "endLine": 356,
+        "endChar": 60
+      },
+      "revId": "b0762d2cc2abadbdadf39b2fc6c843639bc3c1cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
