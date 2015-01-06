@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3065e8_4512aec5",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T18:48:04Z",
+      "side": 1,
+      "message": "These, and whatever other variables I added, should be cleared below with the other local make variables.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 38
+      },
+      "revId": "0d11112f5d2c9a0ae7adf2db4998684b7242a326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee5eb12a_53beee87",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T18:48:04Z",
+      "side": 1,
+      "message": "This comment looks obsolete and should be removed.",
+      "range": {
+        "startLine": 81,
+        "startChar": 125,
+        "endLine": 81,
+        "endChar": 161
+      },
+      "revId": "0d11112f5d2c9a0ae7adf2db4998684b7242a326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3065e8_e5575a50",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-06T18:48:04Z",
+      "side": 1,
+      "message": "Should this require the mutator_lock_ be held?",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 67
+      },
+      "revId": "0d11112f5d2c9a0ae7adf2db4998684b7242a326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
