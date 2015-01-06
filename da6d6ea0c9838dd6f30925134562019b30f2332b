@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce3acdc4_2ba535b9",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-06T16:37:55Z",
+      "side": 1,
+      "message": "Yes, infinite loop in here.\n\nI still prefer to sort out the 0 case, as then op has a somewhat defined meaning. lsl isn\u0027t defined with 32.\n\nFollow-up cleanup is at https://android-review.googlesource.com/#/c/121810.",
+      "parentUuid": "a185ac8b_8f798133",
+      "range": {
+        "startLine": 580,
+        "startChar": 16,
+        "endLine": 580,
+        "endChar": 33
+      },
+      "revId": "da6d6ea0c9838dd6f30925134562019b30f2332b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a12ccc7b_3c960959",
         "filename": "test/800-smali/smali/move_exc.smali",
         "patchSetId": 1
