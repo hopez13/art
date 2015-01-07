@@ -70,6 +70,30 @@
       "revId": "d30feca670d0af02783bbdfd4a29c5078c18bdc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e941dff_51a5a4b7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-07T00:11:25Z",
+      "side": 0,
+      "message": "I agree with Hiroshi, this should only be a cost on debug builds.",
+      "parentUuid": "0e9ea522_7e9aedd7",
+      "range": {
+        "startLine": 1342,
+        "startChar": 0,
+        "endLine": 1342,
+        "endChar": 47
+      },
+      "revId": "d30feca670d0af02783bbdfd4a29c5078c18bdc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

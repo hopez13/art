@@ -46,6 +46,30 @@
       "revId": "4306ef8a7ec8e3887e51f64e80d940d974cc3ac3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9ea522_6167b245",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-07T00:11:25Z",
+      "side": 1,
+      "message": "The motivation to add the thread suspension was so that the verifier allowed suspension so that the lock word for the mirror::Class being verified could be inflated, it wasn\u0027t tied into loading classes. Class resolution is the most obvious place where suspension occurs there are likely others. It\u0027d be better if allow_thread_suspension_ were always true as otherwise the invariant isn\u0027t being checked properly.",
+      "parentUuid": "0e9ea522_01b4ae4f",
+      "range": {
+        "startLine": 354,
+        "startChar": 36,
+        "endLine": 354,
+        "endChar": 52
+      },
+      "revId": "4306ef8a7ec8e3887e51f64e80d940d974cc3ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
