@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8e2535f1_4776eef4",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-07T23:02:26Z",
+      "side": 1,
+      "message": "Makes sense.",
+      "parentUuid": "ce348d09_ea325bda",
+      "revId": "6222a91ff2ff7e8e17a0a50844ea0b824fe9a9ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e4d29af_a2223a3d",
         "filename": "build/Android.common_build.mk",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-01-07T22:58:29Z",
       "side": 1,
       "message": "ART_TARGET_CLANG_CFLAGS_$(arch) is never applied, since $(ART_TARGET_CLANG_$(arch)) is blank, see line 86-90.\nI think we should use LOCAL_CLANG_CFLAGS_$(arch)  without the conditional.",
+      "revId": "6222a91ff2ff7e8e17a0a50844ea0b824fe9a9ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1ac1b5_869f4af2",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-07T23:02:26Z",
+      "side": 1,
+      "message": "Yes, it\u0027s never applied right now, but was used before (and comes in handy for the Clang build now). So overall this is useful.\n\nI do agree with the LOCAL_CLANG_CFLAGS though (which I believe did *not* exist when the whole infrastructure was originally written).",
+      "parentUuid": "2e4d29af_a2223a3d",
       "revId": "6222a91ff2ff7e8e17a0a50844ea0b824fe9a9ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
