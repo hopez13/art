@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea1a95e_22fbea1e",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-07T00:37:56Z",
+      "side": 1,
+      "message": "Should this line be in arm64/instruction_set_features_arm64.h as well?\n\nIt looks like you can get it from instruction_set_features.h. I don\u0027t know what style we prefer in terms of re-including \u003cmemory\u003e everywhere a unique_ptr is used. I think it\u0027s okay to remove the \u003cmemory\u003e include here.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "33a175fd671854428f1b4efcdcf9e9196fdb614c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ea1a95e_2290cada",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-07T00:37:56Z",
+      "side": 1,
+      "message": "Do you need std::move here? Can\u0027t you just return FromCppDefines() directly?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 37
+      },
+      "revId": "33a175fd671854428f1b4efcdcf9e9196fdb614c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e941dff_d171b477",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-07T00:37:56Z",
+      "side": 1,
+      "message": "Do you need std::move here?",
+      "range": {
+        "startLine": 234,
+        "startChar": 9,
+        "endLine": 234,
+        "endChar": 19
+      },
+      "revId": "33a175fd671854428f1b4efcdcf9e9196fdb614c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
