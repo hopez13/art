@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e9ea522_6496e0dc",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-07T00:49:15Z",
+      "side": 1,
+      "message": "I think this was a bit overzealous (and not consistent of me). For STL it doesn\u0027t matter too much.\n\nFor our own include files, our long-term goal is include-what-you-use - so mostly no transitive includes. That makes dependencies clearer...",
+      "parentUuid": "2ea1a95e_22fbea1e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "33a175fd671854428f1b4efcdcf9e9196fdb614c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ea1a95e_2290cada",
         "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4e941dff_d1af74ed",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-07T00:49:15Z",
+      "side": 1,
+      "message": "It\u0027s not, it\u0027s a bit overzealous.",
+      "parentUuid": "2ea1a95e_2290cada",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 37
+      },
+      "revId": "33a175fd671854428f1b4efcdcf9e9196fdb614c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e941dff_d171b477",
         "filename": "runtime/arch/instruction_set_features.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-01-07T00:37:56Z",
       "side": 1,
       "message": "Do you need std::move here?",
+      "range": {
+        "startLine": 234,
+        "startChar": 9,
+        "endLine": 234,
+        "endChar": 19
+      },
+      "revId": "33a175fd671854428f1b4efcdcf9e9196fdb614c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e941dff_118ddc93",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-07T00:49:15Z",
+      "side": 1,
+      "message": "Overzealous.",
+      "parentUuid": "4e941dff_d171b477",
       "range": {
         "startLine": 234,
         "startChar": 9,
