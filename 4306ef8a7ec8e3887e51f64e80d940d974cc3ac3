@@ -22,6 +22,30 @@
       "revId": "4306ef8a7ec8e3887e51f64e80d940d974cc3ac3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9ea522_01b4ae4f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-07T00:04:17Z",
+      "side": 1,
+      "message": "I was thinking about this before, but is that really true? I mean this worked before you added thread suspension. Isn\u0027t it more like: when one verifier does something that allows to load classes, then every other should allow suspension?",
+      "parentUuid": "4e941dff_31ea5804",
+      "range": {
+        "startLine": 354,
+        "startChar": 36,
+        "endLine": 354,
+        "endChar": 52
+      },
+      "revId": "4306ef8a7ec8e3887e51f64e80d940d974cc3ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
