@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e941dff_31ea5804",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-07T00:02:26Z",
+      "side": 1,
+      "message": "Loading classes implies that thread suspension is possible, I\u0027d assert that if this is true then allow thread suspension is also true.",
+      "range": {
+        "startLine": 354,
+        "startChar": 36,
+        "endLine": 354,
+        "endChar": 52
+      },
+      "revId": "4306ef8a7ec8e3887e51f64e80d940d974cc3ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
