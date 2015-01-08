@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e144987_64da0af7",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T01:02:12Z",
+      "side": 1,
+      "message": "nit: nullptr for new code?",
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e17bd8b_68a01baa",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T01:02:12Z",
+      "side": 1,
+      "message": "What\u0027s our stance on adding [D]CHECK(arg !\u003d nullptr) when we assume it\u0027s not null?",
+      "range": {
+        "startLine": 1495,
+        "startChar": 76,
+        "endLine": 1495,
+        "endChar": 77
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e17bd8b_88963754",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T01:02:12Z",
+      "side": 1,
+      "message": "Wasn\u0027t it typedefd in PS#1? Seems like it\u0027s copied and pasted a few times.\n\nJust curious if this is always the right style to do when writing new code?",
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e17bd8b_28d3c31b",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T01:02:12Z",
+      "side": 1,
+      "message": "Does this seem seem to happen often enough it could be put into a wrapper function?",
+      "range": {
+        "startLine": 1987,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 3
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e17bd8b_88c3d746",
+        "filename": "runtime/mirror/dex_cache_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T01:02:12Z",
+      "side": 1,
+      "message": "nit: nullptr for new code?",
+      "range": {
+        "startLine": 37,
+        "startChar": 37,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
