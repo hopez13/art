@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e733d24_8599e288",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-08T20:41:34Z",
+      "side": 1,
+      "message": "in the interface, you note that currently only shrinking is supported. can we assert that here somehow?",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 45
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e733d24_050172fb",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-08T20:41:34Z",
+      "side": 1,
+      "message": "I do see these checks here, but it seems like the higher level one is useful too.",
+      "range": {
+        "startLine": 672,
+        "startChar": 34,
+        "endLine": 672,
+        "endChar": 45
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
