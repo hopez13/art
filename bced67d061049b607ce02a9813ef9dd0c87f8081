@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e2535f1_8df0056e",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2015-01-08T00:18:39Z",
+      "side": 1,
+      "message": "Don\u0027t you need to init ART_TARGET_CFLAGS to $(art_clang_cflags) before line 149?",
+      "range": {
+        "startLine": 156,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 7
+      },
+      "revId": "bced67d061049b607ce02a9813ef9dd0c87f8081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
