@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ced00d12_817c7aa5",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T02:18:21Z",
+      "side": 1,
+      "message": "Hmm, that\u0027s why it was originally 1. With this CL, it is used as an offset from the line number given to __matchIndependentChecks but you\u0027re right it is confusing. With patch set 6 I changed it to still use the one-based numbering but start counting from the provided line number. Hope that\u0027s better.",
+      "parentUuid": "ce2badc1_4f6c4176",
+      "range": {
+        "startLine": 394,
+        "startChar": 18,
+        "endLine": 394,
+        "endChar": 33
+      },
+      "revId": "d4139a555de8c2aaf46f10b84c37ec44837bcd2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e144987_848626a6",
         "filename": "tools/checker.py",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-08T01:12:17Z",
       "side": 1,
       "message": "Could this be turned as an assertion?",
+      "range": {
+        "startLine": 648,
+        "startChar": 11,
+        "endLine": 648,
+        "endChar": 63
+      },
+      "revId": "d4139a555de8c2aaf46f10b84c37ec44837bcd2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce348d09_d5cc5c4b",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T02:18:21Z",
+      "side": 1,
+      "message": "I wanted to change that for a while. I guess I can do it in this CL - it is sorta fail related.",
+      "parentUuid": "2e144987_848626a6",
       "range": {
         "startLine": 648,
         "startChar": 11,
