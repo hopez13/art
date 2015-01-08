@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce9e4d6c_71411868",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-08T17:28:34Z",
+      "side": 1,
+      "message": "I\u0027m still coming up to speed on the optimizing compiler, so I am fuzzy about this.  Shouldn\u0027t there be either 0 or 2 movl\u0027s?  I think that the old code moved 1 part into a register, and one on the stack.  This seems to move 2 stacks and 1 register.",
+      "revId": "7f410eec6dbead2082f82e787f74d42c4d4f3ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
