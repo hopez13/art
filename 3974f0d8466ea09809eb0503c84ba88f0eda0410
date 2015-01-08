@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4e733d24_eb0505b2",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T22:43:59Z",
+      "side": 1,
+      "message": "Yes this would provide minimal savings, I\u0027ll add a TODO.",
+      "parentUuid": "4e733d24_08c347cd",
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee97915c_e5c3706a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 2986,
         "endChar": 72
       },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce9c8d86_c12bc21e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2986,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T22:43:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee97915c_e5c3706a",
       "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -94,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "4e733d24_450b6a1b",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T22:43:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e733d24_8599e288",
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aea119bc_00c9a6bc",
         "filename": "runtime/gc/space/malloc_space.cc",
         "patchSetId": 1
@@ -140,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "4e733d24_8b701147",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T22:43:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e733d24_050172fb",
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee97915c_825b7a7f",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 1
@@ -163,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "aea119bc_e07b625d",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T22:43:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee97915c_825b7a7f",
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae7cb9f1_cec057bc",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 1
@@ -180,6 +270,24 @@
         "endLine": 137,
         "endChar": 38
       },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aea119bc_40756e62",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T22:43:59Z",
+      "side": 1,
+      "message": "Yes, uploading other changes now.",
+      "parentUuid": "ae7cb9f1_cec057bc",
       "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
