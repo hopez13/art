@@ -70,6 +70,30 @@
       "revId": "e186d0330b5b0fc9934d7c400f1ad1f7bd8abb98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebf85c3_b611c646",
+        "filename": "runtime/runtime_linux.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-08T16:56:59Z",
+      "side": 1,
+      "message": "Except that it\u0027s a typedef-ed ucontext in libbacktrace to handle the Mac... :-(",
+      "parentUuid": "0ee6a5ff_1e5e09ec",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "e186d0330b5b0fc9934d7c400f1ad1f7bd8abb98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
