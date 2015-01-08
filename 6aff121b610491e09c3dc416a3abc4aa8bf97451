@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "6ec80176_bc38c9be",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T18:31:07Z",
+      "side": 1,
+      "message": "Ok, I see the mismatch now. You essentially want a map of dex file unique pointers to raw pointers. Using transform/etc isn\u0027t really clean unless you do it in a helper function (stdlib doesn\u0027t have a map that performs \"t1 -\u003e t2\" operation, only transform which is \"(t1, t2) -\u003e ()\").\n\nCome to think of it, it might be possible to change the signature of SetCompileTimeClassPath to take in \n\n  const std::vector\u003cstd::unique_ptr\u003cconst DexFile\u003e\u003e\u0026 \n\nThat would solve the problem without requiring a map at all since a const std::vector would only return a const std::unique_ptr\u0026 (so it would be illegal to call #release on it or to move it).\n\nThat being said that seems like a huge change in runtime.cc so maybe it\u0027s not worth doing.",
+      "parentUuid": "6ec80176_d91e7755",
+      "range": {
+        "startLine": 1987,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 3
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e17bd8b_88c3d746",
         "filename": "runtime/mirror/dex_cache_test.cc",
         "patchSetId": 2
