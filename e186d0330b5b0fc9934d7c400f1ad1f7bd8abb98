@@ -22,6 +22,30 @@
       "revId": "e186d0330b5b0fc9934d7c400f1ad1f7bd8abb98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec80176_99b23f05",
+        "filename": "runtime/runtime_linux.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-08T16:00:15Z",
+      "side": 1,
+      "message": "It\u0027s a ucontext. But it\u0027s handed down from the signal handler as a void*, and I did not want to add another dependency here and to utils.h. The result will be cast in utils.cc, where the type is known from the inclusion of libbacktrace.",
+      "parentUuid": "8ea8d591_0f426570",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "e186d0330b5b0fc9934d7c400f1ad1f7bd8abb98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
