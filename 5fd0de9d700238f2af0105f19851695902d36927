@@ -22,6 +22,24 @@
       "revId": "5fd0de9d700238f2af0105f19851695902d36927",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebf85c3_d993d362",
+        "filename": "runtime/handle_scope.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-08T18:14:25Z",
+      "side": 1,
+      "message": "That causes problems due to cycles.",
+      "parentUuid": "0ebf85c3_59c98389",
+      "revId": "5fd0de9d700238f2af0105f19851695902d36927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
