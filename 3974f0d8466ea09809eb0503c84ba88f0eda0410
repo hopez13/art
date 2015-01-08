@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "aea119bc_c3dce82a",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T23:59:06Z",
+      "side": 1,
+      "message": "Any comment here? It looks like as limit_ is initialized to the non growth limit capacity in RosAllocSpace/DlMallocSpace::CreateFromMemMap(), it should be updated to begin + new capacity here.",
+      "parentUuid": "4e733d24_abd94d87",
+      "range": {
+        "startLine": 251,
+        "startChar": 18,
+        "endLine": 251,
+        "endChar": 43
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e733d24_8599e288",
         "filename": "runtime/gc/space/malloc_space.cc",
         "patchSetId": 1
