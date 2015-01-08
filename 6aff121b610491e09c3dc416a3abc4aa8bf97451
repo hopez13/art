@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "6ec80176_dc83c594",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T18:52:12Z",
+      "side": 1,
+      "message": "Actually I kind of doubt using a raw and/or unique pointer is even the right semantics for the SetCompileTimeClassPath.\n\nThe raw pointer just seems to be given out all over the place (Runtime::GetCompileTimeClassPath), but nobody is cleaning it up, so presumably it has to outlive the Runtime and someone else cleans it up? Then this DexFile* gets stored somehow in a Class* and it gets used in even more places.\n\nWhy isn\u0027t it just a shared_ptr?",
+      "parentUuid": "6ec80176_bc38c9be",
+      "range": {
+        "startLine": 1987,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 3
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e17bd8b_88c3d746",
         "filename": "runtime/mirror/dex_cache_test.cc",
         "patchSetId": 2
