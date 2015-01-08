@@ -40,6 +40,24 @@
       "revId": "5fd0de9d700238f2af0105f19851695902d36927",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec80176_3c067914",
+        "filename": "runtime/handle_scope.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-08T18:15:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t SetReference then be moved to the handle_scope -inl?",
+      "parentUuid": "0ebf85c3_d993d362",
+      "revId": "5fd0de9d700238f2af0105f19851695902d36927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
