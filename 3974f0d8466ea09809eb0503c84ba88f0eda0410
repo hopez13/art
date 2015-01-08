@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "4e733d24_08c347cd",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T22:23:20Z",
+      "side": 1,
+      "message": "Is the intent that we do not bother to shrink the mem map for the bitmap, correct?",
+      "range": {
+        "startLine": 163,
+        "startChar": 7,
+        "endLine": 163,
+        "endChar": 18
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee97915c_e5c3706a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2986,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T22:23:20Z",
+      "side": 1,
+      "message": "Would it be more restricted and safer/cleaner if SetNonGrowthLimitCapacity is renamed to ClampGrowthLimit() and this logic is implemented internally in MallocSpace?",
+      "range": {
+        "startLine": 2986,
+        "startChar": 6,
+        "endLine": 2986,
+        "endChar": 72
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e733d24_abd94d87",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T22:23:20Z",
+      "side": 1,
+      "message": "It seems like we need to shrink the ContinuousSpace::limit_ as well here. (and maybe check that end_ \u003c\u003d begin_ + new_capacity).",
+      "range": {
+        "startLine": 251,
+        "startChar": 18,
+        "endLine": 251,
+        "endChar": 43
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e733d24_8599e288",
         "filename": "runtime/gc/space/malloc_space.cc",
         "patchSetId": 1
@@ -25,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "aea119bc_00c9a6bc",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T22:23:20Z",
+      "side": 1,
+      "message": "Assert that temp_bitmap is null?",
+      "range": {
+        "startLine": 253,
+        "startChar": 2,
+        "endLine": 253,
+        "endChar": 15
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e733d24_050172fb",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 1
@@ -41,6 +133,52 @@
         "startChar": 34,
         "endLine": 672,
         "endChar": 45
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee97915c_825b7a7f",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T22:23:20Z",
+      "side": 1,
+      "message": "Would it be useful to check that new_size is page-aligned?",
+      "range": {
+        "startLine": 674,
+        "startChar": 2,
+        "endLine": 674,
+        "endChar": 10
+      },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae7cb9f1_cec057bc",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-08T22:23:20Z",
+      "side": 1,
+      "message": "I assume this gets called from the framework when it\u0027s a small-heap app?",
+      "range": {
+        "startLine": 137,
+        "startChar": 12,
+        "endLine": 137,
+        "endChar": 38
       },
       "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
