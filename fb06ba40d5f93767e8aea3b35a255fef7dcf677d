@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce872d28_69be8556",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T19:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb4f1df_5a4ed58c",
+      "range": {
+        "startLine": 460,
+        "startChar": 36,
+        "endLine": 460,
+        "endChar": 50
+      },
+      "revId": "fb06ba40d5f93767e8aea3b35a255fef7dcf677d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e630529_c7fe6e3b",
         "filename": "tools/checker.py",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-07T21:41:25Z",
       "side": 1,
       "message": "\"2-uple\"? Or simply \"pair\"?",
+      "range": {
+        "startLine": 461,
+        "startChar": 29,
+        "endLine": 461,
+        "endChar": 36
+      },
+      "revId": "fb06ba40d5f93767e8aea3b35a255fef7dcf677d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee823118_ed2c41b4",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T19:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e630529_c7fe6e3b",
       "range": {
         "startLine": 461,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6ec80176_bc28c9f0",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T19:24:03Z",
+      "side": 1,
+      "message": "This is only an enum (or rather the closest thing Python has to one) which is only used by the parsing automaton in _processLine(). Hence I\u0027d keep it internal to the OutputFile class, even though that does not make it private (Python does not support true encapsulation).",
+      "parentUuid": "ae2039df_28c90bbd",
+      "range": {
+        "startLine": 529,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 85
+      },
+      "revId": "fb06ba40d5f93767e8aea3b35a255fef7dcf677d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e8d6144_2eaba791",
         "filename": "tools/checker.py",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ee823118_8d14a537",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T19:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e8d6144_2eaba791",
+      "range": {
+        "startLine": 538,
+        "startChar": 36,
+        "endLine": 538,
+        "endChar": 50
+      },
+      "revId": "fb06ba40d5f93767e8aea3b35a255fef7dcf677d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e630529_070986ce",
         "filename": "tools/checker.py",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-01-07T21:41:25Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 539,
+        "startChar": 30,
+        "endLine": 539,
+        "endChar": 37
+      },
+      "revId": "fb06ba40d5f93767e8aea3b35a255fef7dcf677d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee823118_0d6d15f5",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-08T19:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e630529_070986ce",
       "range": {
         "startLine": 539,
         "startChar": 30,
