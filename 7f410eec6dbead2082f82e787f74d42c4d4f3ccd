@@ -34,6 +34,24 @@
       "revId": "7f410eec6dbead2082f82e787f74d42c4d4f3ccd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce9e4d6c_b132a00b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-08T17:44:04Z",
+      "side": 1,
+      "message": "Why does it go to the parameter register?  I thought that this CL was to remove longs from parameter registers and force it to memory.  Is this for quick compatibility now?",
+      "parentUuid": "eeb4f1df_fde403e3",
+      "revId": "7f410eec6dbead2082f82e787f74d42c4d4f3ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
