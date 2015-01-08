@@ -22,6 +22,30 @@
       "revId": "bced67d061049b607ce02a9813ef9dd0c87f8081",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e17bd8b_658166d9",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-08T00:39:56Z",
+      "side": 1,
+      "message": "No. art_clang_cflags will now be pulled in through ART_TARGET_CLANG_CFLAGS -\u003e LOCAL_CLANG_CFLAGS. This is just trying to detect whether Clang is active at all, and use the gcc_cflags if not.",
+      "parentUuid": "8e2535f1_8df0056e",
+      "range": {
+        "startLine": 156,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 7
+      },
+      "revId": "bced67d061049b607ce02a9813ef9dd0c87f8081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
