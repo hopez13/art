@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce2badc1_4f6c4176",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-08T01:12:17Z",
+      "side": 1,
+      "message": "Why did you change this from 1 to 0? I believe most editors/IDE/tools start numbering lines from 1.",
+      "range": {
+        "startLine": 394,
+        "startChar": 18,
+        "endLine": 394,
+        "endChar": 33
+      },
+      "revId": "d4139a555de8c2aaf46f10b84c37ec44837bcd2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e144987_848626a6",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-08T01:12:17Z",
+      "side": 1,
+      "message": "Could this be turned as an assertion?",
+      "range": {
+        "startLine": 648,
+        "startChar": 11,
+        "endLine": 648,
+        "endChar": 63
+      },
+      "revId": "d4139a555de8c2aaf46f10b84c37ec44837bcd2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
