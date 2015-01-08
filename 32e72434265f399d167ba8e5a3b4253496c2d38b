@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e17bd8b_a835f3f7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T00:52:30Z",
+      "side": 1,
+      "message": "minor nit: this looked like a dangling pointer but it\u0027s really not since this is a std::string for the first element of the pair, maybe better not to use #c_str() if it\u0027s unnecessary?",
+      "range": {
+        "startLine": 1021,
+        "startChar": 62,
+        "endLine": 1021,
+        "endChar": 70
+      },
+      "revId": "32e72434265f399d167ba8e5a3b4253496c2d38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e144987_44c8ae35",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T00:52:30Z",
+      "side": 1,
+      "message": "line length?",
+      "revId": "32e72434265f399d167ba8e5a3b4253496c2d38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e17bd8b_0859a751",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T00:52:30Z",
+      "side": 1,
+      "message": "%zu for size_t",
+      "range": {
+        "startLine": 731,
+        "startChar": 41,
+        "endLine": 731,
+        "endChar": 42
+      },
+      "revId": "32e72434265f399d167ba8e5a3b4253496c2d38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e2535f1_5027c2a1",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-08T00:52:30Z",
+      "side": 1,
+      "message": "%zu for size_t",
+      "range": {
+        "startLine": 732,
+        "startChar": 41,
+        "endLine": 732,
+        "endChar": 42
+      },
+      "revId": "32e72434265f399d167ba8e5a3b4253496c2d38b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
