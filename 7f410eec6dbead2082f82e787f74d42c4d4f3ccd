@@ -52,6 +52,24 @@
       "revId": "7f410eec6dbead2082f82e787f74d42c4d4f3ccd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb4f1df_5d86cffb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-08T17:58:51Z",
+      "side": 1,
+      "message": "No, this is for JNI compatibility (I mention in the CL description that I haven\u0027t ported the x86 one).",
+      "parentUuid": "ce9e4d6c_b132a00b",
+      "revId": "7f410eec6dbead2082f82e787f74d42c4d4f3ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
