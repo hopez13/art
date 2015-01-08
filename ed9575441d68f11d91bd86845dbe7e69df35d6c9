@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e8d6144_ce2f83a6",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-08T09:03:54Z",
+      "side": 1,
+      "message": "buf -\u003e buffer",
+      "range": {
+        "startLine": 48,
+        "startChar": 44,
+        "endLine": 48,
+        "endChar": 47
+      },
+      "revId": "ed9575441d68f11d91bd86845dbe7e69df35d6c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e8d6144_0e6d0bf5",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-08T09:03:54Z",
+      "side": 1,
+      "message": "Doesn\u0027t that imply !HAVE_ANDROID_OS? It seems the macro check is redundant with this.",
+      "range": {
+        "startLine": 53,
+        "startChar": 53,
+        "endLine": 53,
+        "endChar": 67
+      },
+      "revId": "ed9575441d68f11d91bd86845dbe7e69df35d6c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
