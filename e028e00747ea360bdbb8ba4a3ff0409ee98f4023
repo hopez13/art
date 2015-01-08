@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6ec80176_7cc8f135",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-08T18:52:35Z",
+      "side": 1,
+      "message": "The imgdiag_test and my oat file manager tests both load images instead of using the java_lang_dex_file_ for the boot class path. In these cases, the dex location of java_lang_dex_file_ may differ from GetLibCoreDexFileName().\n\nI think there is a deeper issue clarifying what it means to  be a CommonRuntimeTest, and whether CommonRuntimeTest wants to support tests with images instead of the java_lang_dex_file_. I\u0027d rather not tackle that problem in this change.",
+      "parentUuid": "0e94e54f_ebfa71cb",
+      "range": {
+        "startLine": 241,
+        "startChar": 2,
+        "endLine": 241,
+        "endChar": 44
+      },
+      "revId": "e028e00747ea360bdbb8ba4a3ff0409ee98f4023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e94e54f_2b72b9d1",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-08T18:05:28Z",
       "side": 1,
       "message": "so I think someone else mentioned documenting this. I think we should, even if it comes with the caveat about being for cross compilation use, not for general runtime use.",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 66
+      },
+      "revId": "e028e00747ea360bdbb8ba4a3ff0409ee98f4023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebf85c3_3963e7b0",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-08T18:52:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e94e54f_2b72b9d1",
       "range": {
         "startLine": 290,
         "startChar": 0,
