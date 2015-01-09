@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ef945d6_03aaee0e",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T20:03:28Z",
+      "side": 1,
+      "message": "Remove spurious newline.",
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2efc49c4_a770c4f8",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T20:03:28Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 214,
+        "startChar": 12,
+        "endLine": 214,
+        "endChar": 13
+      },
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef945d6_66dd3072",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T20:03:28Z",
+      "side": 1,
+      "message": "That\u0027s a change from before. Are we OK with an abort instead of sending an error over the line?",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 30
+      },
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef945d6_6342c28e",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T20:03:28Z",
+      "side": 1,
+      "message": "Maybe move this to the top. It looks better if those environment-specific parts are clearer separated.",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2efc49c4_6ac73355",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T20:03:28Z",
+      "side": 1,
+      "message": "It seems cleaner to push allow_writing here instead of in the field.",
+      "range": {
+        "startLine": 423,
+        "startChar": 4,
+        "endLine": 423,
+        "endChar": 23
+      },
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
