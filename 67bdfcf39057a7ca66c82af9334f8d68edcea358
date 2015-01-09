@@ -22,6 +22,30 @@
       "revId": "67bdfcf39057a7ca66c82af9334f8d68edcea358",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb22512_9b308b88",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-09T15:35:09Z",
+      "side": 1,
+      "message": "I thought about it, but it felt like overhead. But I\u0027ll do it, since you also mention it...",
+      "parentUuid": "eec0716a_da484502",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 365,
+        "endChar": 8
+      },
+      "revId": "67bdfcf39057a7ca66c82af9334f8d68edcea358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
