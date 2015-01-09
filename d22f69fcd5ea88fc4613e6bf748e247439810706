@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ebff5dd_3ab3bd5a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T17:55:32Z",
+      "side": 1,
+      "message": "Dumping isn\u0027t performance-sensitive IMHO, but you could also pass in a Thread*.",
+      "range": {
+        "startLine": 987,
+        "startChar": 28,
+        "endLine": 987,
+        "endChar": 45
+      },
+      "revId": "d22f69fcd5ea88fc4613e6bf748e247439810706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
