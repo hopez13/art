@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0eb22512_db05f307",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-09T11:34:54Z",
+      "side": 1,
+      "message": "The code was already there to handle constants (in the instruction code generator)\n\nwrt having two options: \n- it\u0027s just an incremental approach where I didn\u0027t feel changing the existing working code\n- in theory you can save a register in some case (as you don\u0027t need to move the constant). Not sure if that actually happen and if it has any impact.\n- I can clean this up in the next CL if you still think it\u0027s worth.",
+      "parentUuid": "2eb529f8_9c29a5b0",
+      "range": {
+        "startLine": 2878,
+        "startChar": 18,
+        "endLine": 2878,
+        "endChar": 36
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eb529f8_5c0c3d5f",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-09T09:34:28Z",
       "side": 1,
       "message": "Just require register. It\u0027s not worth the trouble having two strategies.",
+      "range": {
+        "startLine": 2929,
+        "startChar": 18,
+        "endLine": 2929,
+        "endChar": 21
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb22512_bb0a2716",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2929,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-09T11:34:54Z",
+      "side": 1,
+      "message": "see my other comment.",
+      "parentUuid": "2eb529f8_5c0c3d5f",
       "range": {
         "startLine": 2929,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0eb22512_5b97a351",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2939,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-09T11:34:54Z",
+      "side": 1,
+      "message": "Thanks Razvan. I\u0027m aware of this. As I discussed with Nicolas this is a start, and I\u0027ll work pushing the check in each operation.",
+      "parentUuid": "0ee6a5ff_64222094",
+      "range": {
+        "startLine": 2939,
+        "startChar": 5,
+        "endLine": 2939,
+        "endChar": 56
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eb22512_db1f3385",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-09T09:34:28Z",
       "side": 1,
       "message": "Same comment as x86.",
+      "range": {
+        "startLine": 2604,
+        "startChar": 18,
+        "endLine": 2604,
+        "endChar": 34
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eb529f8_3ce851b6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2604,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-09T11:34:54Z",
+      "side": 1,
+      "message": "see my other comment.",
+      "parentUuid": "0eb22512_db1f3385",
       "range": {
         "startLine": 2604,
         "startChar": 18,
