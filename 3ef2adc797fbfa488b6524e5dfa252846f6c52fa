@@ -22,6 +22,30 @@
       "revId": "3ef2adc797fbfa488b6524e5dfa252846f6c52fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef455d2_f28b2604",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T17:48:41Z",
+      "side": 1,
+      "message": "Hm, I think we\u0027re simply inconsistent over the codebase. I\u0027ll change.",
+      "parentUuid": "eee5d11c_b2212090",
+      "range": {
+        "startLine": 1178,
+        "startChar": 21,
+        "endLine": 1178,
+        "endChar": 24
+      },
+      "revId": "3ef2adc797fbfa488b6524e5dfa252846f6c52fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
