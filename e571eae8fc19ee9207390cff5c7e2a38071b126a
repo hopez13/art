@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "6eaba19e_de360585",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-09T07:54:19Z",
+      "side": 1,
+      "message": "doesn\u0027t the foo-inl.h always include the foo.h file?",
+      "parentUuid": "6e52c124_86154a61",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1b056c_1941ab68",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -273,6 +297,30 @@
       "writtenOn": "2015-01-06T17:51:35Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "6e29e184_577266d2",
+      "range": {
+        "startLine": 453,
+        "startChar": 4,
+        "endLine": 453,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ed17d3e_d5625cab",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-09T07:54:19Z",
+      "side": 1,
+      "message": "when the comment was written, I think it was clearer that it was saying that LogCompletionTime had to be before the delete runtime_; below, but then the conditional was added etc and it became less clear. your clarification SGTM",
       "parentUuid": "6e29e184_577266d2",
       "range": {
         "startLine": 453,
