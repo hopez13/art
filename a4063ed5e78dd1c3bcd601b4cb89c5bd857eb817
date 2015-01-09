@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceeacdee_51caf42d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-09T23:57:19Z",
+      "side": 1,
+      "message": "I am not sure safepoint is the correct terminology here. These instructions already have a \"safepoint\" because they can interact with runtime. The better working in my mind would be to say \"caller-save support\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "a4063ed5e78dd1c3bcd601b4cb89c5bd857eb817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
