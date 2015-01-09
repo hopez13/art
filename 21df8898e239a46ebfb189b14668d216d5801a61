@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2efc49c4_44a6ae1c",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-09T19:36:29Z",
+      "side": 1,
+      "message": "Fixed in https://android-review.googlesource.com/#/c/122033/",
+      "parentUuid": "eec0716a_1afb5dd2",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "21df8898e239a46ebfb189b14668d216d5801a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aea119bc_e91c6ddb",
         "filename": "tools/checker_test.py",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-09T02:15:16Z",
       "side": 1,
       "message": "If I understand correctly, I would swap these two checks, as this test case would still \"work\" as-is if the latter check (\u0027there\u0027s no \"bar\"\u0027) were to overwrite the former one (\u0027there\u0027s not \"foo\"\u0027).",
+      "range": {
+        "startLine": 345,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 51
+      },
+      "revId": "21df8898e239a46ebfb189b14668d216d5801a61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2efc49c4_47fc7041",
+        "filename": "tools/checker_test.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-09T19:36:29Z",
+      "side": 1,
+      "message": "Huh, I\u0027m not sure I understand what you mean. The order of NOT checks does not matter and they will always be verified in the scope given by surrounding non-NOT checks or bounds of the file.\n\nSo for example:\n  CHECK:    AAA\n  CHECK-NOT: BBB\n  CHECK-NOT: CCC\n  CHECK:    DDD\nwill first match AAA (let\u0027s say it matches output line 10), then DDD (line 20) and then it will come back and verify that neither BBB nor CCC appears on lines 11-19 inclusive. I\u0027m not sure if that answers your question but it shows that the order of NOT checks does not matter, as long as they are in the same scope.\n\nThis exercises the bug because:\na) the result of the matching \"foo\" overwrote the variable state the \"bar\" check was invoked with\nb) it forced the matching algorithm to access the variable state (and hence crash) because there is a matching line for \"bar\".\n\nMaybe I should make this a separate test rather than just one of the NotAssertions tests.",
+      "parentUuid": "aea119bc_e91c6ddb",
       "range": {
         "startLine": 345,
         "startChar": 27,
