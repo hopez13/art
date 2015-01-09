@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ebff5dd_7a6815d9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T17:10:17Z",
+      "side": 0,
+      "message": "You could write a wrapper like unique_ptr (I don\u0027t know if you could use unique_ptr directly) that just calls the destructor on its own destruction...",
+      "range": {
+        "startLine": 293,
+        "startChar": 2,
+        "endLine": 294,
+        "endChar": 53
+      },
+      "revId": "4270e74152d8a7cd979ab5a92fe2a8f84adb8a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
