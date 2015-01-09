@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "0ef945d6_4c7ed39b",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T22:52:11Z",
+      "side": 1,
+      "message": "Don\u0027t see why it\u0027s a \"+\u003d\" and not just an \"\u003d\".",
+      "parentUuid": "2efc49c4_aa852bef",
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ef945d6_66dd3072",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 2
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "To the top of where?",
       "parentUuid": "0ef945d6_6342c28e",
+      "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee33117d_484fb302",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T22:52:11Z",
+      "side": 1,
+      "message": "I meant just in this function, but you have broken it up anyways, so disregard.",
+      "parentUuid": "0ef945d6_695bc180",
       "revId": "b50875a67b9863f04e54b1ff325692eb930c918f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
