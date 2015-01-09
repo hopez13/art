@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ed17d3e_5bdb1ba7",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-09T20:05:11Z",
+      "side": 1,
+      "message": "probably don\u0027t need this test any more.  Was left over before I added the invoke_static_stub case.",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 61
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
