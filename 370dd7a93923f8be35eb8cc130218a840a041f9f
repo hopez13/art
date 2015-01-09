@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "2eb529f8_9c29a5b0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2878,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-09T09:34:28Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 2878,
+        "startChar": 18,
+        "endLine": 2878,
+        "endChar": 36
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eb529f8_5c0c3d5f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2929,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-09T09:34:28Z",
+      "side": 1,
+      "message": "Just require register. It\u0027s not worth the trouble having two strategies.",
+      "range": {
+        "startLine": 2929,
+        "startChar": 18,
+        "endLine": 2929,
+        "endChar": 21
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ee6a5ff_64222094",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -18,6 +64,29 @@
         "startChar": 5,
         "endLine": 2939,
         "endChar": 56
+      },
+      "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb22512_db1f3385",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2604,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-09T09:34:28Z",
+      "side": 1,
+      "message": "Same comment as x86.",
+      "range": {
+        "startLine": 2604,
+        "startChar": 18,
+        "endLine": 2604,
+        "endChar": 34
       },
       "revId": "370dd7a93923f8be35eb8cc130218a840a041f9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
