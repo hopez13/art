@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2efc49c4_bef329ac",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T22:52:17Z",
+      "side": 1,
+      "message": "Newline?",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 1
+      },
+      "revId": "7571d5f122205ba2d93eb56bc6a6f2790e24d568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2efc49c4_be8569ef",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T22:52:17Z",
+      "side": 1,
+      "message": "How about a separate function, like FinalizeDump or so?",
+      "range": {
+        "startLine": 412,
+        "startChar": 4,
+        "endLine": 454,
+        "endChar": 5
+      },
+      "revId": "7571d5f122205ba2d93eb56bc6a6f2790e24d568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2efc49c4_1eeb5d84",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-09T22:52:17Z",
+      "side": 1,
+      "message": "Can\u0027t you extract this into a class with three implementations? Like:\n\nOutput::Write\nNullOutput::Write\nStreamOutput::Write\nFileOutput::Write\n\nBut maybe that\u0027s for a cleanup follow-up CL.",
+      "range": {
+        "startLine": 465,
+        "startChar": 2,
+        "endLine": 484,
+        "endChar": 3
+      },
+      "revId": "7571d5f122205ba2d93eb56bc6a6f2790e24d568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
