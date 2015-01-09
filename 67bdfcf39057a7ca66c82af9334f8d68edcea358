@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eec0716a_da484502",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-09T15:20:24Z",
+      "side": 1,
+      "message": "nit: why not having a CompileBaseline as well then? It will make things more consistent.",
+      "range": {
+        "startLine": 365,
+        "startChar": 4,
+        "endLine": 365,
+        "endChar": 8
+      },
+      "revId": "67bdfcf39057a7ca66c82af9334f8d68edcea358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
