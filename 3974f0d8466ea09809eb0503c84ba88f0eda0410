@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "ce9c8d86_e79936e3",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-09T00:02:18Z",
+      "side": 1,
+      "message": "Nice catch, sorry I missed these comments.",
+      "parentUuid": "aea119bc_c3dce82a",
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e733d24_8599e288",
         "filename": "runtime/gc/space/malloc_space.cc",
         "patchSetId": 1
@@ -189,6 +207,24 @@
         "endLine": 253,
         "endChar": 15
       },
+      "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce9c8d86_c79e32c9",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-09T00:02:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aea119bc_00c9a6bc",
       "revId": "3974f0d8466ea09809eb0503c84ba88f0eda0410",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
