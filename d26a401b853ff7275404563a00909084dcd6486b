@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2eb529f8_3c0f31a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-09T16:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eb529f8_9cff6508",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "d26a401b853ff7275404563a00909084dcd6486b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eb22512_fb5c2fcc",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-09T16:19:39Z",
       "side": 1,
       "message": "needs space",
+      "range": {
+        "startLine": 289,
+        "startChar": 56,
+        "endLine": 289,
+        "endChar": 58
+      },
+      "revId": "d26a401b853ff7275404563a00909084dcd6486b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb22512_7b581fcb",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-09T16:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb22512_fb5c2fcc",
       "range": {
         "startLine": 289,
         "startChar": 56,
