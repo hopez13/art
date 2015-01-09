@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "eee5d11c_52c4344e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-09T07:07:30Z",
+      "side": 1,
+      "message": "is this a common C++ idiom?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "09f077e13d17c2346ca5243575dd3db00652e5dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e4a2599_de80018b",
         "filename": "runtime/arch/instruction_set_features.cc",
         "patchSetId": 2
