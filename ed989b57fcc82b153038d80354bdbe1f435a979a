@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2efc49c4_aecd3897",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-10T00:24:19Z",
+      "side": 1,
+      "message": "Doesn\u0027t look equivalent.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 64
+      },
+      "revId": "ed989b57fcc82b153038d80354bdbe1f435a979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef945d6_d2f49ae6",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-10T00:24:19Z",
+      "side": 1,
+      "message": "This doesn\u0027t look like an equivalent thing...",
+      "range": {
+        "startLine": 52,
+        "startChar": 3,
+        "endLine": 52,
+        "endChar": 64
+      },
+      "revId": "ed989b57fcc82b153038d80354bdbe1f435a979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef945d6_b2e91e11",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-10T00:24:19Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 64
+      },
+      "revId": "ed989b57fcc82b153038d80354bdbe1f435a979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
