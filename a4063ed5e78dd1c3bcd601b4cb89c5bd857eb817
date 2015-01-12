@@ -22,6 +22,30 @@
       "revId": "a4063ed5e78dd1c3bcd601b4cb89c5bd857eb817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ef3a11b_1e230d45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-01-12T07:05:20Z",
+      "side": 1,
+      "message": "safepoint is not added for instructions with LocationSummary set to kNoCall. This patch set the LocationSummary to kCallOnSlowPath.\n\nAnd the issue can be fixed in different ways, as you\u0027ve mentioned. This depends on how do we design the runtime. Anyway, we\u0027d better make these checks behave the same way as \"throw\"(kCall).\n\nThis patch was pushed as *WIP* just to raise the issue.",
+      "parentUuid": "ceeacdee_51caf42d",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "a4063ed5e78dd1c3bcd601b4cb89c5bd857eb817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
