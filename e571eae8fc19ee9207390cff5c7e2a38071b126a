@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "0efa25f3_9e80b960",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-12T17:55:56Z",
+      "side": 1,
+      "message": "dex_file-inl.h does include dex_file.h. I\u0027m not sure why I was having issues when I didn\u0027t directly include dex_file.h. Anyway, now that I\u0027m not using typedefs, the issue has gone away, and I\u0027m no longer including dex_file.h directly.",
+      "parentUuid": "6eaba19e_de360585",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 21
+      },
+      "revId": "e571eae8fc19ee9207390cff5c7e2a38071b126a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1b056c_1941ab68",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
