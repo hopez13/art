@@ -22,6 +22,52 @@
       "revId": "a233e03473cd9f0a582447f71946122140a2472c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_d78a1cfe",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T09:00:06Z",
+      "side": 1,
+      "message": "will -\u003e we\u0027ll",
+      "range": {
+        "startLine": 255,
+        "startChar": 32,
+        "endLine": 255,
+        "endChar": 36
+      },
+      "revId": "a233e03473cd9f0a582447f71946122140a2472c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_37a0b877",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T09:00:06Z",
+      "side": 1,
+      "message": "I\u0027d drop the \u0027works\u0027 and just remove the parens: ... so the rosalloc vierfication can read ...",
+      "range": {
+        "startLine": 256,
+        "startChar": 51,
+        "endLine": 257,
+        "endChar": 28
+      },
+      "revId": "a233e03473cd9f0a582447f71946122140a2472c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
