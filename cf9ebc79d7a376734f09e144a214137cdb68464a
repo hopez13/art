@@ -2,6 +2,190 @@
   "comments": [
     {
       "key": {
+        "uuid": "8e07f5ca_77b35059",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "Is that the standard way of doing things in Quick? Looks odd to have X86 subclass X86_64.",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 67
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_b77b28e7",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "How can a reference be a long?",
+      "range": {
+        "startLine": 127,
+        "startChar": 38,
+        "endLine": 127,
+        "endChar": 62
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_57b0cc4a",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "spaces.",
+      "range": {
+        "startLine": 133,
+        "startChar": 66,
+        "endLine": 133,
+        "endChar": 67
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e130513_d3bd1459",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 31,
+        "startChar": 96,
+        "endLine": 31,
+        "endChar": 116
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_9780a460",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "Missing new line begore private.",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e130513_73ad2026",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "Can this be macro-ed?",
+      "range": {
+        "startLine": 305,
+        "startChar": 27,
+        "endLine": 305,
+        "endChar": 31
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e130513_53aaa40f",
+        "filename": "runtime/arch/x86/asm_support_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "Please add a comment.",
+      "range": {
+        "startLine": 24,
+        "startChar": 51,
+        "endLine": 24,
+        "endChar": 52
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e130513_939a7cfd",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "Can you call SETUP_REFS_AND_ARGS_CALLEE_SAVE_FRAME here?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 81
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ed17d3e_5bdb1ba7",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -18,6 +202,29 @@
         "startChar": 0,
         "endLine": 454,
         "endChar": 61
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1c811f_796223f8",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T12:16:57Z",
+      "side": 1,
+      "message": "So this check is really a hard float check? Can we make it explicit?",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 62
       },
       "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
