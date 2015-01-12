@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "8eee1533_02672c93",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-12T17:56:10Z",
+      "side": 1,
+      "message": "I changed my mind. I\u0027ve switched to DCHECKs at the beginning of the functions to check the out parameter, with a short message to indicate what\u0027s wrong if the out parameter pointer is NULL.",
+      "parentUuid": "aeae7991_bb961354",
+      "range": {
+        "startLine": 1495,
+        "startChar": 76,
+        "endLine": 1495,
+        "endChar": 77
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e17bd8b_88963754",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -202,6 +226,30 @@
       "side": 1,
       "message": "Actually I kind of doubt using a raw and/or unique pointer is even the right semantics for the SetCompileTimeClassPath.\n\nThe raw pointer just seems to be given out all over the place (Runtime::GetCompileTimeClassPath), but nobody is cleaning it up, so presumably it has to outlive the Runtime and someone else cleans it up? Then this DexFile* gets stored somehow in a Class* and it gets used in even more places.\n\nWhy isn\u0027t it just a shared_ptr?",
       "parentUuid": "6ec80176_bc38c9be",
+      "range": {
+        "startLine": 1987,
+        "startChar": 0,
+        "endLine": 1989,
+        "endChar": 3
+      },
+      "revId": "6aff121b610491e09c3dc416a3abc4aa8bf97451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8eee1533_22db50a8",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-01-12T17:56:10Z",
+      "side": 1,
+      "message": "Currently the DexFiles passed to SetCompileTimeClassPath must outlive the Runtime. The caller of SetCompileTimeClassPath is responsible for ensuring that. I\u0027ll document that in the comments for SetCompileTimeClassPath.\n\nI don\u0027t know how things should look in a world where the runtime can unload classes that are no longer needed.",
+      "parentUuid": "6ec80176_dc83c594",
       "range": {
         "startLine": 1987,
         "startChar": 0,
