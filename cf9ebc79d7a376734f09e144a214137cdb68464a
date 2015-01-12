@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "6e1c811f_b9a5dbbd",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-01-12T14:28:44Z",
+      "side": 1,
+      "message": "space before \u0027?\u0027",
+      "range": {
+        "startLine": 123,
+        "startChar": 48,
+        "endLine": 123,
+        "endChar": 49
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e07f5ca_b77b28e7",
         "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 38,
         "endLine": 127,
         "endChar": 62
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_1a0cb95e",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-01-12T14:28:44Z",
+      "side": 1,
+      "message": "Why do you need this? Isn\u0027t it enough to check the CurrentParamHighLongRegister().IsNoRegister() below?",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 56
       },
       "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -151,6 +197,30 @@
       "writtenOn": "2015-01-12T12:16:57Z",
       "side": 1,
       "message": "Please add a comment.",
+      "range": {
+        "startLine": 24,
+        "startChar": 51,
+        "endLine": 24,
+        "endChar": 52
+      },
+      "revId": "cf9ebc79d7a376734f09e144a214137cdb68464a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e07f5ca_ba6cadf9",
+        "filename": "runtime/arch/x86/asm_support_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-01-12T14:28:44Z",
+      "side": 1,
+      "message": "And spaces around \u0027*\u0027 and brackets around the whole expression.",
+      "parentUuid": "0e130513_53aaa40f",
       "range": {
         "startLine": 24,
         "startChar": 51,
