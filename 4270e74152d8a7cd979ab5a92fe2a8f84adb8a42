@@ -22,6 +22,30 @@
       "revId": "4270e74152d8a7cd979ab5a92fe2a8f84adb8a42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e130513_33c72856",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-12T08:52:36Z",
+      "side": 0,
+      "message": "As discussed, I felt it\u0027s more in-line with our code base to use unique_ptr.",
+      "parentUuid": "8ebff5dd_7a6815d9",
+      "range": {
+        "startLine": 293,
+        "startChar": 2,
+        "endLine": 294,
+        "endChar": 53
+      },
+      "revId": "4270e74152d8a7cd979ab5a92fe2a8f84adb8a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
