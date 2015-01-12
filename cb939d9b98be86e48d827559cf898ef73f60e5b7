@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee48d53_2ada037b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "Link to docs or some high level explanation of how this works?",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_12b02cfc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "So what this is doing is adding mark bitmaps for the image / zygote correct? Why is this needed?",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8eee1533_a5e48ab7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8eee1533_05da96f5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "Procces -\u003e Process",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_f2e92010",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ef09d0f_06d3c069",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_d2eea415",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "ConcurrentCopying* const collector_;",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_0cdad77a",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "This seems general purpose, move to its own file? Also since this is a queue, does that result in worst object locality than a stack? I was under the impression that a mark stack was advantageous since it resulted in better object locality of moved objects and better cache coherence during marking process.",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ef09d0f_c09540cf",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "Using unique_ptr shouldn\u0027t be additional overhead I think",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_cc40cf67",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "Even though you CHECK that IsPowerOfTwo, I don\u0027t think the compiler is smart enough to turn this % into an \u0026. I\u0027d recommend doing buf_[t \u0026 (size_ - 1)] manually here.",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_2c36b302",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "And here",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ef09d0f_e094bcd0",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "And here",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efa25f3_21298af4",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "Comment meant to say couldn\u0027t be constexpr pointers?",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_b20038f9",
+        "filename": "runtime/mirror/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "DCHECK_EQ will print the values already if they don\u0027t match, its redundant to print them yourself by using the stream.",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efa25f3_6a2d27ad",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "Is there a way to abstract this so that we can have read barriers in other GCs such as concurrent semi-space, etc...",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_8fc7d9d6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "I think you can make this function const.",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efa25f3_24b078fc",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-12T20:39:18Z",
+      "side": 1,
+      "message": "I\u0027m confused why we can\u0027t do the root flipping by using normal checkpoints? Any comment?",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
