@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae53d9fb_30b46850",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T19:20:47Z",
+      "side": 1,
+      "message": "The semi-space collector is used in two cases. The normal case is where it\u0027s the GC chosen at startup in which case the from space is always a bump pointer space. The other special case is where the (main) GC chosen is the CMS collector but the semi-space collector code is used in special side cases such as the zygote compaction and the hspace compaction/background transition. The from-space can be a rosalloc space only in this special case. So, the type of the from-space can change in this sense but we don\u0027t currently support any other way for it to be changed or configured (eg. the from-space can\u0027t be set to rosalloc at start time).",
+      "parentUuid": "0ec145c3_a353da31",
+      "range": {
+        "startLine": 761,
+        "startChar": 6,
+        "endLine": 761,
+        "endChar": 23
+      },
+      "revId": "5cf8bf421f38b655ce8fd04d599168c0605533f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce800d7c_6194564c",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-13T10:40:09Z",
       "side": 1,
       "message": "Maybe add a comment why you need this flag?",
+      "range": {
+        "startLine": 284,
+        "startChar": 106,
+        "endLine": 284,
+        "endChar": 144
+      },
+      "revId": "5cf8bf421f38b655ce8fd04d599168c0605533f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e99a9f9_654c5c3f",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T19:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce800d7c_6194564c",
       "range": {
         "startLine": 284,
         "startChar": 106,
