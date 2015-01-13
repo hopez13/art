@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0efa25f3_a762c5f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T22:14:22Z",
+      "side": 1,
+      "message": "Let\u0027s have a chat.",
+      "parentUuid": "cee48d53_2ada037b",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0efa25f3_3068ae8f",
         "filename": "runtime/gc/accounting/read_barrier_table.h",
         "patchSetId": 1
@@ -76,6 +94,24 @@
       "writtenOn": "2015-01-12T20:39:18Z",
       "side": 1,
       "message": "So what this is doing is adding mark bitmaps for the image / zygote correct? Why is this needed?",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efa25f3_67c71d55",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T22:14:22Z",
+      "side": 1,
+      "message": "Yes, correct.\n\nWith the Baker read barrier, we decide whether the read barrier slow path should be taken based on whether the read barrier pointer is gray or not. If we treat image/zygote objects as always marked without using a bitmap (as in the mark sweep collector case), then we\u0027d have to make sure that all those objects are somehow colored as gray at the beginning of the marking phase or else the to-space invariant would break (a mutator may see an unmarked/from-space ref). Maybe we could concurrently color them gray before the marking phase begins (in addition, we\u0027d have to have a check if the GC is marking or not in the read barrier slow path and we\u0027d have to mark through them specially.) This may work. But it\u0027d add one extra phase. I\u0027d have to try and see, but I see it as an optimization (not a correctness issue). I\u0027ll leave a TODO for now.",
+      "parentUuid": "2eab69f1_12b02cfc",
       "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -178,6 +214,24 @@
       "writtenOn": "2015-01-12T20:39:18Z",
       "side": 1,
       "message": "This seems general purpose, move to its own file? Also since this is a queue, does that result in worst object locality than a stack? I was under the impression that a mark stack was advantageous since it resulted in better object locality of moved objects and better cache coherence during marking process.",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e75fd75_1e42118d",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T22:14:22Z",
+      "side": 1,
+      "message": "I don\u0027t see any problem with moving it its own file. But I think we can defer it to a later point depending on how general purpose it turns out.\n\nYou are probably right about the locality characteristics about a stack vs a queue. I tried, but atomic_stack.h didn\u0027t work for some reason. It may be that in push_back() it\u0027d have to busy-wait for a slot to be filled with a valid pointer/ref after a slot is secured and in pop_back() null out the slot.",
+      "parentUuid": "2eab69f1_0cdad77a",
       "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -366,6 +420,24 @@
     },
     {
       "key": {
+        "uuid": "ae53d9fb_b952035c",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T22:14:22Z",
+      "side": 1,
+      "message": "I think it actually depends on the read barrier type as opposed to the collector type even though HasGrayReadBarrierPointer() is currently defined in the ConcurrentCopying class, which should be separated out more cleanly.\n\nIf we have multiple read barrier types, we probably need to treat them more like the different allocator types that we have (some cases may be specialized via templates). Particularly, if we\u0027d like it to be a runtime option rather than a build time option.",
+      "parentUuid": "0efa25f3_6a2d27ad",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ef09d0f_66872472",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -417,6 +489,24 @@
       "writtenOn": "2015-01-12T20:39:18Z",
       "side": 1,
       "message": "I\u0027m confused why we can\u0027t do the root flipping by using normal checkpoints? Any comment?",
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e3a5daa_500f32a3",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-13T22:14:22Z",
+      "side": 1,
+      "message": "With a checkpoint, there could be missed writes. Since not all threads flip at the exact same time, some threads could concurrently see two (from-space and to-space) copies of the same object. If a thread which hasn\u0027t flipped yet writes to the from-space copy of an object and another thread which has already flipped reads the to-space copy of the same object, the write would be lost.",
+      "parentUuid": "0efa25f3_24b078fc",
       "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
