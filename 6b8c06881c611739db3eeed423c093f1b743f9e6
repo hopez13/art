@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "4e75fd75_7539680f",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-13T16:22:16Z",
+      "side": 1,
+      "message": "if (gpr_index \u003c arraysize(core_regs_args) - 1)...",
+      "parentUuid": "0ec145c3_c3309689",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "6b8c06881c611739db3eeed423c093f1b743f9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e99a9f9_22b32a0c",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Not necessarily. It depends on where you start: from R1 for regular Java parameters, or R0, for all parameters including the method.\n\nIn this file, we apparently assume we start with the former.",
       "parentUuid": "4e75fd75_b56b0010",
+      "range": {
+        "startLine": 62,
+        "startChar": 24,
+        "endLine": 62,
+        "endChar": 64
+      },
+      "revId": "6b8c06881c611739db3eeed423c093f1b743f9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e8c1dba_46a0482f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-13T16:22:16Z",
+      "side": 1,
+      "message": "But does that matter? I mean you know which convention it is...",
+      "parentUuid": "4ec7bdd5_8552225c",
       "range": {
         "startLine": 62,
         "startChar": 24,
