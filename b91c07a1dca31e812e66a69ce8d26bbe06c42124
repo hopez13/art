@@ -16,6 +16,29 @@
       "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec7bdd5_258a4eae",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T14:45:29Z",
+      "side": 1,
+      "message": "You should do all this at the very end. So maximum_number_of_live_registers_ computation is the same.\n\nActually, we should just pass to codegen-\u003eComputeFrameSize the number of live core registers, *and* the number of live FP registers. Then we wouldn\u0027t care here about size of a core/float.",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
