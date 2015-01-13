@@ -22,6 +22,30 @@
       "revId": "fea38cbaf90370b38e35573a2e61ca0614d5986d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5e79fb_98d2b515",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-13T18:36:10Z",
+      "side": 1,
+      "message": "Question:  Not knowing ARM/ARM64 (and how the optimizing compiler works with ARM FP), would the value be 4 or 8 for those machines?",
+      "parentUuid": "0ec145c3_c3bd3659",
+      "range": {
+        "startLine": 149,
+        "startChar": 46,
+        "endLine": 149,
+        "endChar": 47
+      },
+      "revId": "fea38cbaf90370b38e35573a2e61ca0614d5986d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
