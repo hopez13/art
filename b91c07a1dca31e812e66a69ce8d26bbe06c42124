@@ -39,6 +39,30 @@
       "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ecac1df_0c02db7b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-13T14:53:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand how \u0027at the very end\u0027 should be done.  I just tweaked the existing code.  Where should it be done?\n\nI can change this to maintain 2 separate variables for core \u0026 FP variables.   Is there a \u0027size of FP register\u0027 call?   Any thoughts on how 16 byte XMM registers vs. 8 byte doubles should be handled?  Is this supposed to handle vectors in the future, or are the live values guaranteed to be primitive types?\n\nPlease let me know what you recommend.",
+      "parentUuid": "4ec7bdd5_258a4eae",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
