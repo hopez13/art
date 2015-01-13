@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec145c3_a353da31",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T10:40:09Z",
+      "side": 1,
+      "message": "Could you set kProtectFromSpace to false if from is set as rosalloc at start time? Or can the form type change and/or it can be configured at runtime?",
+      "range": {
+        "startLine": 761,
+        "startChar": 6,
+        "endLine": 761,
+        "endChar": 23
+      },
+      "revId": "5cf8bf421f38b655ce8fd04d599168c0605533f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce800d7c_6194564c",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T10:40:09Z",
+      "side": 1,
+      "message": "Maybe add a comment why you need this flag?",
+      "range": {
+        "startLine": 284,
+        "startChar": 106,
+        "endLine": 284,
+        "endChar": 144
+      },
+      "revId": "5cf8bf421f38b655ce8fd04d599168c0605533f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
