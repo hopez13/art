@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ec145c3_c3bd3659",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T17:03:55Z",
+      "side": 1,
+      "message": "You need a virtual function in CodeGenerator for this, for example GetFloatingPointSpillSlotSize.",
+      "range": {
+        "startLine": 149,
+        "startChar": 46,
+        "endLine": 149,
+        "endChar": 47
+      },
+      "revId": "fea38cbaf90370b38e35573a2e61ca0614d5986d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
