@@ -63,6 +63,30 @@
       "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec7bdd5_65260624",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T14:58:26Z",
+      "side": 1,
+      "message": "Yes 2 different variables, and pass the two to CodeGenerator::ComputeFrameSize.\n\nCurrently, we\u0027re only dealing with double (8 byte) on x86/64.",
+      "parentUuid": "6ecac1df_0c02db7b",
+      "range": {
+        "startLine": 605,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 9
+      },
+      "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
