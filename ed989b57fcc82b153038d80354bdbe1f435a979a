@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "ee7b115e_e276a6c3",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010669
+      },
+      "writtenOn": "2015-01-13T01:02:05Z",
+      "side": 1,
+      "message": "Currently, lang does not generate the __mips_isa_rev symbol. \n\nThis test was discriminating between the target cores\n  mips32r1 and mips32r2,  versus mips32r5 and mips32r6,\nand between\n  mips64r2, versus mips64r6.\n\nThere are no r3 or r5 cores now or planned for Android, and no 64r5.\n\nThe original test using __mips_isa_rev was slightly more future proof.\n\nA fully equiv replacement would test\n\n#if defined(MIPS_ARCH_MIPS32R5) || defined(MIPS_ARCH_MIPS32R6) || defined(MIPS_ARCH_MIPS64R6)\n\nbut in this particular mips32-only folder, we can omit the MIPS64R6 test here.\n\nSo it is \"equivalent enough\".",
+      "parentUuid": "2efc49c4_aecd3897",
+      "revId": "ed989b57fcc82b153038d80354bdbe1f435a979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ef945d6_d2f49ae6",
         "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
         "patchSetId": 1
