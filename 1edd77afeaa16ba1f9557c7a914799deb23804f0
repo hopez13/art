@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2e99a9f9_1f04c73e",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-13T02:01:04Z",
+      "side": 1,
+      "message": "It\u0027s overridden in the buffered output, and yes, I still use it...",
+      "parentUuid": "2e99a9f9_3ca0b12e",
+      "revId": "1edd77afeaa16ba1f9557c7a914799deb23804f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce69eda3_d9d99302",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2015-01-13T01:42:23Z",
       "side": 1,
       "message": "\u0026 0xFF probably isn\u0027t necessary.",
+      "revId": "1edd77afeaa16ba1f9557c7a914799deb23804f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e8c1dba_c09a80fe",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-13T02:01:04Z",
+      "side": 1,
+      "message": "I usually prefer it for clarity. The compiler will optimize it away, if possible.",
+      "parentUuid": "ce69eda3_d9d99302",
       "revId": "1edd77afeaa16ba1f9557c7a914799deb23804f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
