@@ -46,6 +46,30 @@
       "revId": "4a3d19bfc16e3f5bfb796fb7ed24404fa77007a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce800d7c_c1aa828c",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T10:31:42Z",
+      "side": 1,
+      "message": "The reason I\u0027m suggesting it is that you are duplicating the tartget-or-host logic. We don\u0027t need the code in WaitForThreadsToRunThroughCheckpoint to care whether it\u0027s target or host.",
+      "parentUuid": "2eab69f1_2fa06577",
+      "range": {
+        "startLine": 155,
+        "startChar": 26,
+        "endLine": 155,
+        "endChar": 48
+      },
+      "revId": "4a3d19bfc16e3f5bfb796fb7ed24404fa77007a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
