@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "0efa25f3_3068ae8f",
+        "filename": "runtime/gc/accounting/read_barrier_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-01-13T01:58:16Z",
+      "side": 1,
+      "message": "Is there any reason to believe this is faster than the obvious memset call?  I would guess it\u0027s typically slower, especially on 64-bit hardware.  Memset already has this optimization, plus more specific architectural tweaks.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eab69f1_fb21fb8e",
+        "filename": "runtime/gc/accounting/read_barrier_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-01-13T01:58:16Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 58
+      },
+      "revId": "cb939d9b98be86e48d827559cf898ef73f60e5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2eab69f1_12b02cfc",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
