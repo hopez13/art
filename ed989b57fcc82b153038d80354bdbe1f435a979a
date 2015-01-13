@@ -61,6 +61,24 @@
     },
     {
       "key": {
+        "uuid": "2ec449d1_e4803ad8",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010669
+      },
+      "writtenOn": "2015-01-13T01:11:21Z",
+      "side": 1,
+      "message": "Another typo:\n\nThere are no r3 or r4 cores now or planned for Android, and no 64r5.",
+      "parentUuid": "6ecac1df_66d1ee0b",
+      "revId": "ed989b57fcc82b153038d80354bdbe1f435a979a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ef945d6_d2f49ae6",
         "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
         "patchSetId": 1
