@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce800d7c_2415fc31",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-13T18:51:37Z",
+      "side": 1,
+      "message": "does this have a rationale or it\u0027s just a random choice?",
+      "range": {
+        "startLine": 53,
+        "startChar": 34,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "f08122286de937631fd2076bc07a134065809796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce800d7c_c4053008",
+        "filename": "test/439-swap-double/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-13T18:51:37Z",
+      "side": 1,
+      "message": "It is not immediately clear how this tests the parallel swap support. Could you provide a short comment?",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "f08122286de937631fd2076bc07a134065809796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
