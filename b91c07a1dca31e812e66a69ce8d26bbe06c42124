@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e6f85ad_b3d79804",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-13T14:28:44Z",
+      "side": 1,
+      "message": "For an X86, if this is a register pair, we only need to save 4 bytes for each of the registers in the pair.  Is there some way to detect this?  Or is this done automatically because the type wouldn\u0027t be long?",
+      "revId": "b91c07a1dca31e812e66a69ce8d26bbe06c42124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
