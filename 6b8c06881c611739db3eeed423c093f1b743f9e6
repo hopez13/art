@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "0ec145c3_0302ae7b",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T17:56:59Z",
+      "side": 1,
+      "message": "I see. So I tried to do it, but because it only applies to non soft-float convention (we still pass the split for soft-float), it made the code less readable. So I kept it the way it is and added a comment.",
+      "parentUuid": "4e75fd75_7539680f",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 9
+      },
+      "revId": "6b8c06881c611739db3eeed423c093f1b743f9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e99a9f9_22b32a0c",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -228,6 +252,30 @@
       "side": 1,
       "message": "But does that matter? I mean you know which convention it is...",
       "parentUuid": "4ec7bdd5_8552225c",
+      "range": {
+        "startLine": 62,
+        "startChar": 24,
+        "endLine": 62,
+        "endChar": 64
+      },
+      "revId": "6b8c06881c611739db3eeed423c093f1b743f9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ec145c3_630f22a4",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-13T17:56:59Z",
+      "side": 1,
+      "message": "OK, changed to kAlignPairRegister.",
+      "parentUuid": "4e8c1dba_46a0482f",
       "range": {
         "startLine": 62,
         "startChar": 24,
