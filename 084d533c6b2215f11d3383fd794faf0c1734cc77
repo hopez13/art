@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e75fd75_58e821b7",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-13T17:30:11Z",
+      "side": 1,
+      "message": "Does this really work this way? I thought you need to create a private/local variable for this. Or does this work because there\u0027s no indent?",
+      "range": {
+        "startLine": 393,
+        "startChar": 6,
+        "endLine": 393,
+        "endChar": 35
+      },
+      "revId": "084d533c6b2215f11d3383fd794faf0c1734cc77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
