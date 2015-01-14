@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4ec7bdd5_0b01212f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-14T09:07:52Z",
+      "side": 1,
+      "message": "I don\u0027t have a preference. This method is only called from here.",
+      "parentUuid": "ce800d7c_844fa801",
+      "range": {
+        "startLine": 826,
+        "startChar": 4,
+        "endLine": 826,
+        "endChar": 33
+      },
+      "revId": "55f6534f260ec82ef2d69a0667b1883f13d11399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce800d7c_6452a4aa",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-14T08:59:51Z",
       "side": 1,
       "message": "Don\u0027t we have thread safety analysis for this kind of things?",
+      "range": {
+        "startLine": 119,
+        "startChar": 24,
+        "endLine": 119,
+        "endChar": 46
+      },
+      "revId": "55f6534f260ec82ef2d69a0667b1883f13d11399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec7bdd5_4bfb19d1",
+        "filename": "runtime/jdwp/object_registry.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-14T09:07:52Z",
+      "side": 1,
+      "message": "Unfortunately it\u0027s more a dynamic issue. I don\u0027t think it can be caught with static analysis for this case.",
+      "parentUuid": "ce800d7c_6452a4aa",
       "range": {
         "startLine": 119,
         "startChar": 24,
