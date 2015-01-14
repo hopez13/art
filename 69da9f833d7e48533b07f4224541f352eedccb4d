@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce800d7c_c4b3708c",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-14T09:02:37Z",
+      "side": 1,
+      "message": "Please add a comment: we allocate S registers, which are word size.",
+      "range": {
+        "startLine": 178,
+        "startChar": 56,
+        "endLine": 178,
+        "endChar": 57
+      },
+      "revId": "69da9f833d7e48533b07f4224541f352eedccb4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec7bdd5_2b04dd3e",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-14T09:02:37Z",
+      "side": 1,
+      "message": "Ditto: \"we allocate D registers, which are word size\".",
+      "range": {
+        "startLine": 195,
+        "startChar": 11,
+        "endLine": 195,
+        "endChar": 25
+      },
+      "revId": "69da9f833d7e48533b07f4224541f352eedccb4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ec145c3_060c7c5e",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-14T09:02:37Z",
+      "side": 1,
+      "message": "Missing spaces.",
+      "range": {
+        "startLine": 171,
+        "startChar": 12,
+        "endLine": 171,
+        "endChar": 13
+      },
+      "revId": "69da9f833d7e48533b07f4224541f352eedccb4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
