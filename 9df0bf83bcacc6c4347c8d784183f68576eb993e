@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0e96a5c9_5b3ca300",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-14T00:56:51Z",
+      "side": 1,
+      "message": "In this case, stack_index_ refers to VRs, so it is okay.  Dex assumes only 32 bit pointers at this time anyways.  The changes for that are more pervasive.",
+      "parentUuid": "ae5e79fb_9b946fab",
+      "range": {
+        "startLine": 547,
+        "startChar": 6,
+        "endLine": 547,
+        "endChar": 20
+      },
+      "revId": "9df0bf83bcacc6c4347c8d784183f68576eb993e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee64f1c9_9a438de4",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-01-14T00:10:09Z",
       "side": 1,
       "message": "movss?",
+      "range": {
+        "startLine": 685,
+        "startChar": 9,
+        "endLine": 685,
+        "endChar": 14
+      },
+      "revId": "9df0bf83bcacc6c4347c8d784183f68576eb993e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae2cb97b_a8463b81",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-14T00:56:51Z",
+      "side": 1,
+      "message": "No, this case can\u0027t happen, as it is Move64.  I will delete it.",
+      "parentUuid": "ee64f1c9_9a438de4",
       "range": {
         "startLine": 685,
         "startChar": 9,
