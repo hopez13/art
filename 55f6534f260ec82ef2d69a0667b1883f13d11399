@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ce800d7c_248a5cae",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-14T09:15:50Z",
+      "side": 1,
+      "message": "I find having it here but the comment in the Clear method is confusing. If it\u0027s only called here, you only need to do ScopedObjectAccess in Clear and you can then avoid the assertion, right?",
+      "parentUuid": "4ec7bdd5_0b01212f",
+      "range": {
+        "startLine": 826,
+        "startChar": 4,
+        "endLine": 826,
+        "endChar": 33
+      },
+      "revId": "55f6534f260ec82ef2d69a0667b1883f13d11399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce800d7c_6452a4aa",
         "filename": "runtime/jdwp/object_registry.cc",
         "patchSetId": 1
