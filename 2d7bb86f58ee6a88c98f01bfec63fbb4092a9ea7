@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ce800d7c_c7461283",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2850,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-14T11:15:38Z",
+      "side": 1,
+      "message": "I did it here: https://android-review.googlesource.com/#/c/122794/",
+      "parentUuid": "4ec7bdd5_cb29c9af",
+      "range": {
+        "startLine": 2850,
+        "startChar": 17,
+        "endLine": 2850,
+        "endChar": 25
+      },
+      "revId": "2d7bb86f58ee6a88c98f01bfec63fbb4092a9ea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce800d7c_448760a3",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-14T09:25:13Z",
       "side": 1,
       "message": "You can remove this, the location builder only requests a register.",
+      "range": {
+        "startLine": 2311,
+        "startChar": 2,
+        "endLine": 2315,
+        "endChar": 3
+      },
+      "revId": "2d7bb86f58ee6a88c98f01bfec63fbb4092a9ea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec7bdd5_eb8005d8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2315,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-14T11:15:38Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "ce800d7c_448760a3",
       "range": {
         "startLine": 2311,
         "startChar": 2,
