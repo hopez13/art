@@ -22,6 +22,30 @@
       "revId": "4945bfef00ac446d9c5458e55500229d463ab4c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb8303c3_626c96f8",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-15T16:39:17Z",
+      "side": 0,
+      "message": "Yes, by mistake for a while we filled the tmp directory with some disassembled files.",
+      "parentUuid": "2b1efb59_54712ccc",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 690,
+        "endChar": 37
+      },
+      "revId": "4945bfef00ac446d9c5458e55500229d463ab4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
