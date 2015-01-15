@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b49377c_c6aea4a3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-15T19:11:24Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this to be atomic if we are resetting, it may be better to use madvise / memset.",
+      "revId": "a1fbf5fe0d84ec36a01485d84c0d1cd832df986b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b49377c_26669898",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-15T19:11:24Z",
+      "side": 1,
+      "message": "Not having a default arg here is probably cleaner.",
+      "revId": "a1fbf5fe0d84ec36a01485d84c0d1cd832df986b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
