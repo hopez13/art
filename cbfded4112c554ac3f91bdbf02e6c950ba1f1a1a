@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb3abfc4_71433876",
+        "filename": "runtime/runtime_linux.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-15T09:08:56Z",
+      "side": 1,
+      "message": "Looks odd to have this def in a file called runtime_linux.cc... Can\u0027t we have mac builds not compile this file?",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 22
+      },
+      "revId": "cbfded4112c554ac3f91bdbf02e6c950ba1f1a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
