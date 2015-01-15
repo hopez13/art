@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "eb106340_ba307105",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-15T01:04:36Z",
+      "side": 1,
+      "message": "Isn\u0027t this the native stack setup? We are setting up the stack and calling the stub function, so I thought this has to match the native ABI.",
+      "parentUuid": "ae53d9fb_109044a9",
+      "revId": "423c00d3eec0a838c55c268a2bafd4d6d7759c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e3a5daa_07e2cae1",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 8
@@ -42,6 +60,24 @@
         "endLine": 1335,
         "endChar": 69
       },
+      "revId": "423c00d3eec0a838c55c268a2bafd4d6d7759c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b2473a4_f6dba07c",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-15T01:04:36Z",
+      "side": 1,
+      "message": "This was fixed by a follow-up patch. I weren\u0027t sure if I should keep adding stuff to this big patch or not, so I added a new patch.",
+      "parentUuid": "4e3a5daa_07e2cae1",
       "revId": "423c00d3eec0a838c55c268a2bafd4d6d7759c49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
