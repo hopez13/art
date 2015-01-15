@@ -22,6 +22,30 @@
       "revId": "cbfded4112c554ac3f91bdbf02e6c950ba1f1a1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b49377c_83141e65",
+        "filename": "runtime/runtime_linux.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-15T16:23:59Z",
+      "side": 1,
+      "message": "enh and agampe were talking about this just last night. right now _android \u003d target and _linux \u003d host essentially. we\u0027ll either split it a bit more or rename things.",
+      "parentUuid": "cb3abfc4_71433876",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 22
+      },
+      "revId": "cbfded4112c554ac3f91bdbf02e6c950ba1f1a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
