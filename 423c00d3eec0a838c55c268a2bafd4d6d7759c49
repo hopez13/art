@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "4bf88f38_d1e8b4b7",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-15T01:10:34Z",
+      "side": 1,
+      "message": "No, the quick_invoke_stub is copying from the args array coming from ArtMethod::Invoke to the Quick ABI. So this is managed, and does not have to be native.",
+      "parentUuid": "eb106340_ba307105",
+      "revId": "423c00d3eec0a838c55c268a2bafd4d6d7759c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e3a5daa_07e2cae1",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 8
@@ -78,6 +96,24 @@
       "side": 1,
       "message": "This was fixed by a follow-up patch. I weren\u0027t sure if I should keep adding stuff to this big patch or not, so I added a new patch.",
       "parentUuid": "4e3a5daa_07e2cae1",
+      "revId": "423c00d3eec0a838c55c268a2bafd4d6d7759c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b0217f8_24b318de",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-15T01:10:34Z",
+      "side": 1,
+      "message": "Yeah, I saw that (and merged in a different CL).",
+      "parentUuid": "6b2473a4_f6dba07c",
       "revId": "423c00d3eec0a838c55c268a2bafd4d6d7759c49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
