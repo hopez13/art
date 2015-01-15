@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "cb88ffe4_c71a525f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2694,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-15T20:03:15Z",
+      "side": 1,
+      "message": "Since this is still an atomic write, it\u0027s not really saving one atomic write?",
+      "range": {
+        "startLine": 2694,
+        "startChar": 21,
+        "endLine": 2694,
+        "endChar": 38
+      },
+      "revId": "a1fbf5fe0d84ec36a01485d84c0d1cd832df986b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b49377c_26669898",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
