@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc24f1f_cd36e903",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-16T08:46:06Z",
+      "side": 1,
+      "message": "Is that for one test? 10min for one test is pretty excessive, especially for some tests that should not timeout.\n\nCan\u0027t we have each test specialize it?",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "8dcde2323413d8b3e4926154e143da331f582c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
