@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_90947a4e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-16T19:41:42Z",
+      "side": 1,
+      "message": "hmm, it shouldn\u0027t be case. I\u0027m not having any issue when testing with the optimzed boot image... I will look more carefully next week.",
+      "parentUuid": "6bae3367_c6db227d",
+      "range": {
+        "startLine": 562,
+        "startChar": 15,
+        "endLine": 562,
+        "endChar": 34
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_d142048d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
