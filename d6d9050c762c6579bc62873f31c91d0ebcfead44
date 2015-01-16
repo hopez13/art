@@ -46,6 +46,121 @@
       "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be0c7b0_2fa3e90f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2086,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-16T18:23:33Z",
+      "side": 1,
+      "message": "fnc maybe? assuming it comes from functions.\n\nthe same in the other places.",
+      "range": {
+        "startLine": 2086,
+        "startChar": 41,
+        "endLine": 2086,
+        "endChar": 44
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_9089da4f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-16T18:23:33Z",
+      "side": 1,
+      "message": "Ideally we should make it possible to request temporary stack slots. I think it\u0027s ok for not but can you add a note?",
+      "range": {
+        "startLine": 2103,
+        "startChar": 2,
+        "endLine": 2103,
+        "endChar": 41
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be0c7b0_efa40116",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2105,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-16T18:23:33Z",
+      "side": 1,
+      "message": "doesn\u0027t it work with `__`?",
+      "range": {
+        "startLine": 2105,
+        "startChar": 2,
+        "endLine": 2105,
+        "endChar": 18
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8be0c7b0_2f7c49da",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-16T18:23:33Z",
+      "side": 1,
+      "message": "who needs this?",
+      "range": {
+        "startLine": 562,
+        "startChar": 15,
+        "endLine": 562,
+        "endChar": 34
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd63fdb_d142048d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-16T18:23:33Z",
+      "side": 1,
+      "message": "why did you need to change this?",
+      "range": {
+        "startLine": 676,
+        "startChar": 9,
+        "endLine": 676,
+        "endChar": 23
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
