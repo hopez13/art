@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc55323_8382ec66",
+        "filename": "runtime/gc/accounting/read_barrier_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "Could make this const",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ba5b782_8c178b69",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "* const collector_",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_d5e50bdf",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "Whats with the extra braces?",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ba5b782_69b3218f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "CHECK_NE",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_f8135e4d",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "CHECK_ALIGNED",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_98001ae1",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "Live percent is rounded down. So if there is only a few objects, live_percent could be 0. Is that OK here?",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_b889564f",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "UNIMPLEMENTED? Or is this actually called.",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_78552e16",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "kAlignment \u003d kObjectAlignment?",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bab2f57_b4d2cede",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_78be8ed8",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "Does this work if kMadviseZeroes \u003d\u003d false",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bab2f57_b4972e20",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "Unfree isn\u0027t very descriptive, can you add a comment for waht this does?",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ba5b782_0c707bf7",
+        "filename": "runtime/gc/space/region_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T23:25:07Z",
+      "side": 1,
+      "message": "Can you use unique_ptr\u003cRegion[]\u003e here?\nAlternatively you can probably get rid of num_regions_ and use a std::vector\u003cRegion\u003e regions_;\n\nAlso, is it possible to do GUARDED_BY(region_lock_)?",
+      "revId": "754d8f8c52da7ea40245180b4fb8dee6538358e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
