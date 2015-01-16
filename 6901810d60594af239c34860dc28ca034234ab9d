@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "abdbcb04_d652f4da",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T01:00:41Z",
+      "side": 1,
+      "message": "True, I guess we don\u0027t need to clear these cards at all.",
+      "parentUuid": "6bc55323_11dbaef9",
+      "revId": "6901810d60594af239c34860dc28ca034234ab9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bcfdb48_cc8a6fac",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 3
@@ -42,6 +60,24 @@
         "endLine": 219,
         "endChar": 76
       },
+      "revId": "6901810d60594af239c34860dc28ca034234ab9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bcfdb48_efc87d34",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T01:00:41Z",
+      "side": 1,
+      "message": "Correct, also since we do ClearCardTable below it won\u0027t really matter.",
+      "parentUuid": "2bcfdb48_cc8a6fac",
       "revId": "6901810d60594af239c34860dc28ca034234ab9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
