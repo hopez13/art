@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6bae3367_a686263d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-16T19:14:20Z",
+      "side": 1,
+      "message": "I mentioned this to you in a previous review. Glad to see it done :) We have definitely seen that inlining exposes optimization opportunities and thus it is vital to do it early before CSE, DCE, and Constant Folding.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abdbcb04_1f596fff",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -99,6 +122,30 @@
       "writtenOn": "2015-01-16T17:36:51Z",
       "side": 1,
       "message": "I did not know HCompare could have objects as inputs.  Out of curiosity, what kind of Java code would lead to the generation of such nodes?",
+      "range": {
+        "startLine": 398,
+        "startChar": 6,
+        "endLine": 398,
+        "endChar": 73
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6b67dc_ddb1bb03",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-16T19:14:20Z",
+      "side": 1,
+      "message": "I assume that the \"condition\" is generated as result of if-cc bytecodes. If yes, the object null checks would be something like an if-nez or if-eqz.",
+      "parentUuid": "abdbcb04_9f26bf22",
       "range": {
         "startLine": 398,
         "startChar": 6,
