@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bab2f57_68c79bd9",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-16T19:53:01Z",
+      "side": 1,
+      "message": "I am not super-happy with this. I understand it\u0027s the easiest thing to do, but a stronger check (exc only when coming from deopt) is IMHO better (and avoids putting down DCHECKs at the bridges).",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 3
+      },
+      "revId": "ff14d5dc926dec734ea2846909db067489cdbdc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
