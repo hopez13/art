@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abdbcb04_1f596fff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "Maybe change this to \"result type\" (or \"return type\"), as this could get mixed up with \"right-hand side type\".",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_029fdaf2",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "constant input?",
+      "range": {
+        "startLine": 374,
+        "startChar": 35,
+        "endLine": 374,
+        "endChar": 43
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bcfdb48_7b0f6bd8",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "Nit: Print a period at the end of the error message.",
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_22fa1619",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "It\u0027s a matter of taste, but I would rename `input0\u0027 and `input1\u0027 as `lhs\u0027 and `rhs\u0027. :-)",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 40
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abdbcb04_9f26bf22",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "I did not know HCompare could have objects as inputs.  Out of curiosity, what kind of Java code would lead to the generation of such nodes?",
+      "range": {
+        "startLine": 398,
+        "startChar": 6,
+        "endLine": 398,
+        "endChar": 73
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_c20a3291",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "Maybe change to \"compares a non-0 integer with an object\"?",
+      "range": {
+        "startLine": 411,
+        "startChar": 17,
+        "endLine": 411,
+        "endChar": 56
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abdbcb04_df5207db",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T17:36:51Z",
+      "side": 1,
+      "message": "Good catch!  Thanks for spotting this one. :-)",
+      "range": {
+        "startLine": 646,
+        "startChar": 4,
+        "endLine": 651,
+        "endChar": 5
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
