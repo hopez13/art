@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc55323_0e0aab16",
+        "filename": "test/437-checker-inliner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T01:51:49Z",
+      "side": 1,
+      "message": "Maybe change to 2015? I know the contents probably dates back from 2014, but as the file is new, maybe the year should be updated as well? (I am not a lawyer though).\n\nBTW, you might want to remove compiler/optimizing/test/Inliner.java as well.",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abdbcb04_10cc04f9",
+        "filename": "test/440-checker-constant-folding/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T01:51:49Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_6e7b2f5e",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T01:51:49Z",
+      "side": 1,
+      "message": "\"should be removed\"",
+      "range": {
+        "startLine": 513,
+        "startChar": 27,
+        "endLine": 513,
+        "endChar": 41
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_2e19a71e",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-16T01:51:49Z",
+      "side": 1,
+      "message": "So tests would be conducted differently on 64-bit environments, which might not be desirable. As discussed, I think all Checker-based (32- and 64-bits) tests should use the same configuration.",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 50
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
