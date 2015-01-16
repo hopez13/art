@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b971303_a73ce800",
+        "filename": "compiler/dex/quick/mips64/utility_mips64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-16T19:16:55Z",
+      "side": 1,
+      "message": "This check should be removed since it is always R6.",
+      "revId": "c40020b0883a198487cf0425dd3ff0a3a3cc5ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b928710_28666f98",
+        "filename": "compiler/dex/quick/mips64/utility_mips64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-01-16T19:16:55Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "c40020b0883a198487cf0425dd3ff0a3a3cc5ee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
