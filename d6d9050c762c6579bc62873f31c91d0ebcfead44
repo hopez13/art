@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "4b7def9e_0956199f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-16T20:03:48Z",
+      "side": 1,
+      "message": "You are right.  I removed this and passed the tests.  Will remove it as well.",
+      "parentUuid": "4bc24f1f_90947a4e",
+      "range": {
+        "startLine": 562,
+        "startChar": 15,
+        "endLine": 562,
+        "endChar": 34
+      },
+      "revId": "d6d9050c762c6579bc62873f31c91d0ebcfead44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_d142048d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
