@@ -43,6 +43,30 @@
     },
     {
       "key": {
+        "uuid": "cb71dfc8_dcc5414e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-01-16T07:05:49Z",
+      "side": 1,
+      "message": "Yes. I agree with you two. Mark compact and Semi space are both Stop-the-World GC. Also there is ClearCardTable below. I will remove the code change for these two algorithms in the next patch set.",
+      "parentUuid": "6bc55323_11dbaef9",
+      "range": {
+        "startLine": 200,
+        "startChar": 43,
+        "endLine": 200,
+        "endChar": 47
+      },
+      "revId": "6901810d60594af239c34860dc28ca034234ab9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bcfdb48_cc8a6fac",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 3
