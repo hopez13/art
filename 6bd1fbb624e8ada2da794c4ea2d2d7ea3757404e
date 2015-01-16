@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bab2f57_741f7686",
+        "filename": "test/437-checker-inliner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-16T22:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc55323_0e0aab16",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abdbcb04_10cc04f9",
         "filename": "test/440-checker-constant-folding/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-16T01:51:49Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ba5b782_8c4c6b3f",
+        "filename": "test/440-checker-constant-folding/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-16T22:53:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abdbcb04_10cc04f9",
       "range": {
         "startLine": 2,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4bab2f57_083dc7df",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-16T22:53:48Z",
+      "side": 1,
+      "message": "Good idea",
+      "parentUuid": "8be0c7b0_2f42096f",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 67
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc55323_6e7b2f5e",
         "filename": "test/run-test",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "6bc55323_359ecfc9",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-16T22:53:48Z",
+      "side": 1,
+      "message": "N/A (now in Makefile)",
+      "parentUuid": "6bc55323_6e7b2f5e",
+      "range": {
+        "startLine": 513,
+        "startChar": 27,
+        "endLine": 513,
+        "endChar": 41
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc55323_2e19a71e",
         "filename": "test/run-test",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-01-16T01:51:49Z",
       "side": 1,
       "message": "So tests would be conducted differently on 64-bit environments, which might not be desirable. As discussed, I think all Checker-based (32- and 64-bits) tests should use the same configuration.",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 50
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bab2f57_486c1ff8",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-16T22:53:48Z",
+      "side": 1,
+      "message": "Yep, it would also run different code with different compilers. I\u0027ve moved the build_arg between lines 509 and 510. Hence the DEX will be the same for all configs.",
+      "parentUuid": "6bc55323_2e19a71e",
       "range": {
         "startLine": 517,
         "startChar": 0,
