@@ -16,6 +16,57 @@
       "revId": "0d6ce3d2eccc2b99d59942b417f248ca486bf2a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abdbcb04_337592e8",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T00:21:15Z",
+      "side": 1,
+      "message": "I think this should be declared inside of the loop.",
+      "revId": "0d6ce3d2eccc2b99d59942b417f248ca486bf2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bcfdb48_aceb6380",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T00:21:15Z",
+      "side": 1,
+      "message": "Missing space between if and (, this shouldn\u0027t pass cpplint. How did you test it?",
+      "revId": "0d6ce3d2eccc2b99d59942b417f248ca486bf2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_11140ee8",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-16T00:21:15Z",
+      "side": 1,
+      "message": "I think this is only sound if paused \u003d\u003d true since there could be races where we clear a card without having processed the related object (due to writes reordering).",
+      "revId": "0d6ce3d2eccc2b99d59942b417f248ca486bf2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
