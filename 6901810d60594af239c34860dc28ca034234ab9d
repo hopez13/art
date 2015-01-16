@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc55323_11dbaef9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-16T00:35:25Z",
+      "side": 1,
+      "message": "I guess the third param does not matter for MarkCompact? We pass true because the non-atomic write is faster than the atomic write? Maybe could we have the third option of doing nothing?",
+      "range": {
+        "startLine": 200,
+        "startChar": 43,
+        "endLine": 200,
+        "endChar": 47
+      },
+      "revId": "6901810d60594af239c34860dc28ca034234ab9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bcfdb48_cc8a6fac",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-16T00:35:25Z",
+      "side": 1,
+      "message": "Similarly, the third param does not matter for the SS collector?\n\nAnd the third param does not matter for the GSS collector as we don\u0027t take the \"AllocSpaceClearCards\" control path?",
+      "range": {
+        "startLine": 219,
+        "startChar": 72,
+        "endLine": 219,
+        "endChar": 76
+      },
+      "revId": "6901810d60594af239c34860dc28ca034234ab9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
