@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ba19b5e_f06868d9",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-17T02:27:55Z",
+      "side": 1,
+      "message": "That is something we usually try to avoid in ART, and use command-line parameters instead.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "5d94af22cf29ef17ed8c56ac5efe50b6470f5833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b971303_b8e889b6",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-17T02:27:55Z",
+      "side": 1,
+      "message": "I understand what you\u0027re doing, but it might be simpler to just use std::string instead of keeping the abilist backing char[] around.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 48
+      },
+      "revId": "5d94af22cf29ef17ed8c56ac5efe50b6470f5833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
