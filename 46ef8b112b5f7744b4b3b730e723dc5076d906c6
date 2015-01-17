@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc55323_787d2ed9",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-17T00:08:29Z",
+      "side": 1,
+      "message": "I think this comment looks a bit cryptic for external readers; could you be a bit more specific?",
+      "range": {
+        "startLine": 511,
+        "startChar": 24,
+        "endLine": 511,
+        "endChar": 77
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bc55323_1840aa82",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-17T00:08:29Z",
+      "side": 1,
+      "message": "I think you should also move the definition of `run_args\u0027 outside this `if\u0027 statement (i.e. just after line 512) so that these tests are run in the same fashion, whatever the runtime/compiler used (even if the dumped graph is not used in some cases).",
+      "range": {
+        "startLine": 516,
+        "startChar": 4,
+        "endLine": 517,
+        "endChar": 48
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
