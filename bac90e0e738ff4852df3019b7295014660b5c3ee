@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_3d5f6fe8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-19T12:34:14Z",
+      "side": 1,
+      "message": "I think you missed removing this and the ones below...",
+      "parentUuid": "4b408f75_7dc8d785",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 37
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_3dbe4fd7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
