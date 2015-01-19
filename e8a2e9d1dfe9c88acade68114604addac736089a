@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb586371_2048ee8d",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-19T19:42:11Z",
+      "side": 1,
+      "message": "Feels like this belongs in interpreter_common(-inl), as it\u0027s shared (it\u0027s a straight-forward copy from switch, isn\u0027t it?).",
+      "range": {
+        "startLine": 496,
+        "startChar": 4,
+        "endLine": 508,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb586371_803d7ae2",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-19T19:42:11Z",
+      "side": 1,
+      "message": "I think this is actually wrong with deopt (mea culpa). What if the catch handler starts there? It\u0027s not valid Java, but one should be able to construct a dex file for it. (I\u0027m decent with the instruction constraints, but it has been a while for structural constraints.)",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
