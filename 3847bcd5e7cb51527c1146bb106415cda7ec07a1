@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc24f1f_3044a6e9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:49:27Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 865,
+        "startChar": 2,
+        "endLine": 865,
+        "endChar": 3
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_9dae83a2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:49:27Z",
+      "side": 1,
+      "message": "-\u003e \"Threads are already suspended.\" ?",
+      "range": {
+        "startLine": 709,
+        "startChar": 7,
+        "endLine": 709,
+        "endChar": 36
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
