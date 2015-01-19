@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "cbd63fdb_94eeaa91",
+        "filename": "test/437-checker-inliner/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T10:02:11Z",
+      "side": 1,
+      "message": "Please do not change an existing test. This test is meant for checker, and the one you copied over, for running the test.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 3
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_3da76fc7",
+        "filename": "test/440-checker-constant-folding/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T10:02:11Z",
+      "side": 1,
+      "message": "Do we really want this? It would be ok with me if we didn\u0027t run any code.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 3
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_50ae122a",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T10:02:11Z",
+      "side": 1,
+      "message": "Explain why they are broken.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 61
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc55323_787d2ed9",
         "filename": "test/run-test",
         "patchSetId": 5
@@ -13,6 +82,30 @@
       "writtenOn": "2015-01-17T00:08:29Z",
       "side": 1,
       "message": "I think this comment looks a bit cryptic for external readers; could you be a bit more specific?",
+      "range": {
+        "startLine": 511,
+        "startChar": 24,
+        "endLine": 511,
+        "endChar": 77
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_7da1f7ad",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T10:02:11Z",
+      "side": 1,
+      "message": "Especially since this is on a *-checker-* test line 509.",
+      "parentUuid": "6bc55323_787d2ed9",
       "range": {
         "startLine": 511,
         "startChar": 24,
