@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b408f75_7d661799",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T13:58:52Z",
+      "side": 1,
+      "message": "Please add a named variable for this.",
+      "range": {
+        "startLine": 87,
+        "startChar": 13,
+        "endLine": 87,
+        "endChar": 69
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_7348f88e",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T13:58:52Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_9d6cc374",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T13:58:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 64
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd63fdb_17d2bc65",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T13:58:52Z",
+      "side": 1,
+      "message": "Do you think you could do the register allocator related changes in another CL?",
+      "range": {
+        "startLine": 3381,
+        "startChar": 30,
+        "endLine": 3381,
+        "endChar": 50
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd63fdb_37d7c056",
+        "filename": "runtime/arch/x86/context_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T13:58:52Z",
+      "side": 1,
+      "message": "Isn\u0027t that what the DCHECK was for?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
