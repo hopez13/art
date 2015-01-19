@@ -22,6 +22,30 @@
       "revId": "7c541d4969d0539399a87394d8b75c2d75a076ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb586371_6042e66f",
+        "filename": "compiler/dex/quick/arm/int_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-19T19:59:46Z",
+      "side": 1,
+      "message": "This is from the original code, so I had preferred not to touch it.\n\nvmarko, you somewhat recently worked on this. Is it reasonable to write: \"Arm either doesn\u0027t support a div instruction, or it is potentially expensive. Look for more special cases.\"? I looked for latency info and only found it for M3, where it\u0027s stated that sdiv/udiv are 2-12 cycles.",
+      "parentUuid": "4bc24f1f_90523aa8",
+      "range": {
+        "startLine": 1664,
+        "startChar": 5,
+        "endLine": 1664,
+        "endChar": 67
+      },
+      "revId": "7c541d4969d0539399a87394d8b75c2d75a076ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
