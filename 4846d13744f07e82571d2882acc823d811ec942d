@@ -22,6 +22,30 @@
       "revId": "4846d13744f07e82571d2882acc823d811ec942d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_b349802e",
+        "filename": "test/441-checker-inliner/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-19T15:53:59Z",
+      "side": 1,
+      "message": "I initially put them there to replicate 437-inline so it could be fully replaced by this test. At the meeting Nicola said he\u0027d prefer to leave 437 in place and have a separate test focused just on Checker, even if it means some duplicity. \n\nThe tryInlineFloat is a regression test for a specific bug which has nothing to do with Checker. Hence, I removed it from here and it will remain in 437.\n\nreturnVoid and returnVoidWithParameter are both called from InlineVoid. I changed it to call the Invoke* methods over return* to test that the methods verified by Checker also run as expected rather than inlining them differently in a large main() method.",
+      "parentUuid": "4b408f75_1dc713da",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 40
+      },
+      "revId": "4846d13744f07e82571d2882acc823d811ec942d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
