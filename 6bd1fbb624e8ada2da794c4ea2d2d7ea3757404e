@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_93cfa46a",
+        "filename": "test/437-checker-inliner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-19T15:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_735a3847",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "6bd1fbb624e8ada2da794c4ea2d2d7ea3757404e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abdbcb04_10cc04f9",
         "filename": "test/440-checker-constant-folding/src/Main.java",
         "patchSetId": 2
