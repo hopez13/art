@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "cbd63fdb_54b84299",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abdbcb04_1f596fff",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc55323_029fdaf2",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-01-16T17:36:51Z",
       "side": 1,
       "message": "constant input?",
+      "range": {
+        "startLine": 374,
+        "startChar": 35,
+        "endLine": 374,
+        "endChar": 43
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_505cd2c9",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc55323_029fdaf2",
       "range": {
         "startLine": 374,
         "startChar": 35,
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "cbd63fdb_74bd4688",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bcfdb48_7b0f6bd8",
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc55323_22fa1619",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -99,6 +165,30 @@
       "writtenOn": "2015-01-16T17:36:51Z",
       "side": 1,
       "message": "It\u0027s a matter of taste, but I would rename `input0\u0027 and `input1\u0027 as `lhs\u0027 and `rhs\u0027. :-)",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 40
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_bd689fd8",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc55323_22fa1619",
       "range": {
         "startLine": 396,
         "startChar": 0,
@@ -158,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_7061ce7e",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:31:52Z",
+      "side": 1,
+      "message": "This is not HCompare, this is HCondition. HCompare is only for long/float and double.",
+      "parentUuid": "abdbcb04_9f26bf22",
+      "range": {
+        "startLine": 398,
+        "startChar": 6,
+        "endLine": 398,
+        "endChar": 73
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bc55323_c20a3291",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -169,6 +283,30 @@
       "writtenOn": "2015-01-16T17:36:51Z",
       "side": 1,
       "message": "Maybe change to \"compares a non-0 integer with an object\"?",
+      "range": {
+        "startLine": 411,
+        "startChar": 17,
+        "endLine": 411,
+        "endChar": 56
+      },
+      "revId": "11100eb20e55fd13a8573a76576ba69f7afd7720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_9d65e302",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-19T09:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc55323_c20a3291",
       "range": {
         "startLine": 411,
         "startChar": 17,
