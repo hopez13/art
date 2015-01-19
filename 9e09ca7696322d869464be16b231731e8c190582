@@ -234,6 +234,30 @@
       "revId": "9e09ca7696322d869464be16b231731e8c190582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb586371_a07cfea1",
+        "filename": "runtime/arch/x86/context_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T20:19:59Z",
+      "side": 1,
+      "message": "I recreated the problem.\n\nThis code in runtime/arch/x86/quick_method_frame_info_x86.h:\nstatic constexpr uint32_t kX86CalleeSaveFpArgSpills \u003d\n    (1 \u003c\u003c art::x86::XMM0) | (1 \u003c\u003c art::x86::XMM1) |\n    (1 \u003c\u003c art::x86::XMM2) | (1 \u003c\u003c art::x86::XMM3);\n...\nconstexpr uint32_t X86CalleeSaveFpSpills(Runtime::CalleeSaveType type) {\n    return type \u003d\u003d Runtime::kRefsAndArgs ? kX86CalleeSaveFpArgSpills : 0;\n}\n\nwhich I copied from the x86_64 version of the file causes the DCHECK to fail, as if the type is kRefsAndArgs, some bits will be on.  This causes much of the host testing to fail.\n\nComments?",
+      "parentUuid": "8b57e740_370af8c8",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
