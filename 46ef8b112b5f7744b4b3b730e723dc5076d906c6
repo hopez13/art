@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "cbd63fdb_d403d27f",
+        "filename": "test/440-checker-constant-folding/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-19T11:45:46Z",
+      "side": 1,
+      "message": "out of curiosity, why bother changing these?",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_3da76fc7",
         "filename": "test/440-checker-constant-folding/src/Main.java",
         "patchSetId": 5
@@ -36,6 +59,30 @@
       "writtenOn": "2015-01-19T10:02:11Z",
       "side": 1,
       "message": "Do we really want this? It would be ok with me if we didn\u0027t run any code.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 3
+      },
+      "revId": "46ef8b112b5f7744b4b3b730e723dc5076d906c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_9deb23b3",
+        "filename": "test/440-checker-constant-folding/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-19T11:45:46Z",
+      "side": 1,
+      "message": "I don\u0027t really mind running these but I think it will be a bit misleading. The goal here is to have checker run on this. Just running them and say that they pass kinda defeats the purpose.",
+      "parentUuid": "4b408f75_3da76fc7",
       "range": {
         "startLine": 222,
         "startChar": 0,
