@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b57e740_17f09420",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T16:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_9079da31",
+      "range": {
+        "startLine": 2108,
+        "startChar": 0,
+        "endLine": 2125,
+        "endChar": 3
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b076563f",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-19T09:42:29Z",
       "side": 1,
       "message": "Add a named constant for this to explain what it is.",
+      "range": {
+        "startLine": 2136,
+        "startChar": 25,
+        "endLine": 2136,
+        "endChar": 30
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb586371_dd811f8f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T16:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_b076563f",
       "range": {
         "startLine": 2136,
         "startChar": 25,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "eb586371_3df01b3a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T16:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_3d5f6fe8",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 37
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_3dbe4fd7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -106,6 +178,30 @@
       "writtenOn": "2015-01-19T09:42:29Z",
       "side": 1,
       "message": "Low32Bits",
+      "range": {
+        "startLine": 667,
+        "startChar": 26,
+        "endLine": 667,
+        "endChar": 47
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b57e740_77e59062",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T16:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_3dbe4fd7",
       "range": {
         "startLine": 667,
         "startChar": 26,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "ab52eb4e_1838c56f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T16:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_1dc3936d",
+      "range": {
+        "startLine": 669,
+        "startChar": 27,
+        "endLine": 669,
+        "endChar": 59
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_5045b2e7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -152,6 +272,30 @@
       "writtenOn": "2015-01-19T09:42:29Z",
       "side": 1,
       "message": "Ditto about not using function pointers.",
+      "range": {
+        "startLine": 2068,
+        "startChar": 0,
+        "endLine": 2092,
+        "endChar": 3
+      },
+      "revId": "bac90e0e738ff4852df3019b7295014660b5c3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab52eb4e_782d8131",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-19T16:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_5045b2e7",
       "range": {
         "startLine": 2068,
         "startChar": 0,
