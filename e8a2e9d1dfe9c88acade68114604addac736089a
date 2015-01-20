@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_16eba207",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-20T07:27:26Z",
+      "side": 1,
+      "message": "It\u0027s similar but not exactly the same. We handle both \"pending exception\" and \"no pending exception\" paths here. In the interpreter, this is shared between the instruction handling (when there is no pending exception) and the exception handling (when there is a pending exception).",
+      "parentUuid": "eb586371_2048ee8d",
+      "range": {
+        "startLine": 496,
+        "startChar": 4,
+        "endLine": 508,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb586371_803d7ae2",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-19T19:42:11Z",
       "side": 1,
       "message": "I think this is actually wrong with deopt (mea culpa). What if the catch handler starts there? It\u0027s not valid Java, but one should be able to construct a dex file for it. (I\u0027m decent with the instruction constraints, but it has been a while for structural constraints.)",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_60faec80",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-20T07:27:26Z",
+      "side": 1,
+      "message": "I don\u0027t think a catch handler can start at 0x0. A catch handler would need a previous instruction to throw the exception. This instruction could be at 0x0 but not the catch handler. Plus the instruction throwing the instruction itself cannot be part of the catch handler I believe.",
+      "parentUuid": "eb586371_803d7ae2",
       "range": {
         "startLine": 152,
         "startChar": 4,
