@@ -71,6 +71,76 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_b6816e8f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2067,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T15:47:56Z",
+      "side": 1,
+      "message": "Nope. This was wrong in the first place as I read a bogus table. It worked because we only used the first register to make the transfer.",
+      "parentUuid": "4bc24f1f_56a7eac5",
+      "range": {
+        "startLine": 2067,
+        "startChar": 55,
+        "endLine": 2067,
+        "endChar": 61
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_36ffbe09",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3313,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T15:47:56Z",
+      "side": 1,
+      "message": "quite a lot of repetitions with these DCHECKS. How about a macro, DCHECK_ARM_REGISTER_PAIR(destination)?",
+      "range": {
+        "startLine": 3311,
+        "startChar": 6,
+        "endLine": 3313,
+        "endChar": 60
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_d603da7f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3324,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T15:47:56Z",
+      "side": 1,
+      "message": "1) didn\u0027t we get rid of register pairs: https://android-review.googlesource.com/#/c/123651/ and assert we don\u0027t get one?\n\nAnyway, if this is still needed, add comment to make it clear that arm register pairs are either equal or they don\u0027t overlap.",
+      "range": {
+        "startLine": 3324,
+        "startChar": 20,
+        "endLine": 3324,
+        "endChar": 34
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_5766044b",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -82,6 +152,30 @@
       "writtenOn": "2015-01-20T10:41:45Z",
       "side": 1,
       "message": "This seems odd to move half a 64-bit value in a 32-bit register.  Shouldn\u0027t the destination be a register pair?",
+      "range": {
+        "startLine": 3348,
+        "startChar": 0,
+        "endLine": 3353,
+        "endChar": 9
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_834f4286",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3353,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T15:47:56Z",
+      "side": 1,
+      "message": "This is rather tricky. It\u0027s because of the 64-bit constant moves are emitted (it expects the codegen to know which part goes where based on the register). I think extra docs are needed here.",
+      "parentUuid": "cbd63fdb_5766044b",
       "range": {
         "startLine": 3348,
         "startChar": 0,
@@ -156,6 +250,29 @@
         "startChar": 6,
         "endLine": 3369,
         "endChar": 9
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_43a7fac5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2811,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T15:47:56Z",
+      "side": 1,
+      "message": "i\u0027m not sure how will you make this work on x86...",
+      "range": {
+        "startLine": 2810,
+        "startChar": 8,
+        "endLine": 2811,
+        "endChar": 35
       },
       "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
