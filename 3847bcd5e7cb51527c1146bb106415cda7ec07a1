@@ -45,6 +45,75 @@
       "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b6c7315_39eb0b3a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-20T17:46:16Z",
+      "side": 1,
+      "message": "avoid overloading the use of a suspended thread state in case we ever do fancier DDMS.. support. Other states are cheap so just add one more to ThreadState (although I not kSuspended is already somewhat abused). See kWaiting... for what I mean.",
+      "range": {
+        "startLine": 716,
+        "startChar": 44,
+        "endLine": 716,
+        "endChar": 54
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf1d3a1_4e42936f",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-20T17:46:16Z",
+      "side": 1,
+      "message": "nice use of LOCKS_EXCLUDED!",
+      "range": {
+        "startLine": 220,
+        "startChar": 6,
+        "endLine": 220,
+        "endChar": 47
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf1d3a1_6e3dcfdf",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-20T17:46:16Z",
+      "side": 1,
+      "message": "LOCKS_EXCLUDED(...heap_bitmap_lock_)",
+      "range": {
+        "startLine": 748,
+        "startChar": 3,
+        "endLine": 748,
+        "endChar": 52
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
