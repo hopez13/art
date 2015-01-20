@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b408f75_833f4248",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T19:44:31Z",
+      "side": 1,
+      "message": "Primitive::ComponentSize(type)",
+      "range": {
+        "startLine": 2103,
+        "startChar": 21,
+        "endLine": 2103,
+        "endChar": 38
+      },
+      "revId": "cc62f707610b18430fff0122d662d56bfaca8b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_6344b6ea",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T19:44:31Z",
+      "side": 1,
+      "message": "no need for extra space",
+      "range": {
+        "startLine": 2125,
+        "startChar": 52,
+        "endLine": 2125,
+        "endChar": 53
+      },
+      "revId": "cc62f707610b18430fff0122d662d56bfaca8b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_81050a0a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T19:44:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2131,
+        "startChar": 41,
+        "endLine": 2131,
+        "endChar": 42
+      },
+      "revId": "cc62f707610b18430fff0122d662d56bfaca8b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_61001ef9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2132,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T19:44:31Z",
+      "side": 1,
+      "message": "expand to \u0027top of the stack\u0027",
+      "range": {
+        "startLine": 2132,
+        "startChar": 14,
+        "endLine": 2132,
+        "endChar": 17
+      },
+      "revId": "cc62f707610b18430fff0122d662d56bfaca8b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
