@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b4a1799_a187daa3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-20T15:54:00Z",
+      "side": 1,
+      "message": "I find this style in the optimizing compiler rather amusing. Why constants? These should be enums, really...",
+      "parentUuid": "4bc24f1f_96bb12e0",
+      "range": {
+        "startLine": 1819,
+        "startChar": 54,
+        "endLine": 1819,
+        "endChar": 81
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b6b88ee3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
