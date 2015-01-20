@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_0166fa0c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-20T18:21:46Z",
+      "side": 1,
+      "message": "Agreed, these constants should be implemented as an enum.  But my main concern here was to about giving a better name to \"!Location::kNoOutputOverlap\". :)",
+      "parentUuid": "0b4a1799_a187daa3",
+      "range": {
+        "startLine": 1819,
+        "startChar": 54,
+        "endLine": 1819,
+        "endChar": 81
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b6b88ee3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
