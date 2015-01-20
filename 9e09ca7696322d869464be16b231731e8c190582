@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "ab074b51_d0ebbc7f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3381,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-20T16:15:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_c0a0207b",
+      "range": {
+        "startLine": 3381,
+        "startChar": 30,
+        "endLine": 3381,
+        "endChar": 50
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_37d7c056",
         "filename": "runtime/arch/x86/context_x86.cc",
         "patchSetId": 4
@@ -297,6 +321,30 @@
       "side": 1,
       "message": "So we do have callee saves, the comment should be updated.\n\nAnd you have to handle them.",
       "parentUuid": "eb586371_a07cfea1",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab074b51_100f04d9",
+        "filename": "runtime/arch/x86/context_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-20T16:15:54Z",
+      "side": 1,
+      "message": "Done.  Bit of a pain because XMMs are 64 bits, and there is an assumption that all regs are intptr_t size.",
+      "parentUuid": "4b408f75_608cac19",
       "range": {
         "startLine": 43,
         "startChar": 0,
