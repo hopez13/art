@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b6c7315_1c055d08",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-20T20:39:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_3044a6e9",
+      "range": {
+        "startLine": 865,
+        "startChar": 2,
+        "endLine": 865,
+        "endChar": 3
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_9dae83a2",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6b6c7315_fc1d0159",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-20T20:39:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_9dae83a2",
+      "range": {
+        "startLine": 709,
+        "startChar": 7,
+        "endLine": 709,
+        "endChar": 36
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b6c7315_39eb0b3a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-01-20T17:46:16Z",
       "side": 1,
       "message": "avoid overloading the use of a suspended thread state in case we ever do fancier DDMS.. support. Other states are cheap so just add one more to ThreadState (although I not kSuspended is already somewhat abused). See kWaiting... for what I mean.",
+      "range": {
+        "startLine": 716,
+        "startChar": 44,
+        "endLine": 716,
+        "endChar": 54
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb5d5f61_1f5a6b45",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-20T20:39:17Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6b6c7315_39eb0b3a",
       "range": {
         "startLine": 716,
         "startChar": 44,
@@ -105,6 +177,30 @@
       "writtenOn": "2015-01-20T17:46:16Z",
       "side": 1,
       "message": "LOCKS_EXCLUDED(...heap_bitmap_lock_)",
+      "range": {
+        "startLine": 748,
+        "startChar": 3,
+        "endLine": 748,
+        "endChar": 52
+      },
+      "revId": "3847bcd5e7cb51527c1146bb106415cda7ec07a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf85789_0bc35d6d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-20T20:39:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bf1d3a1_6e3dcfdf",
       "range": {
         "startLine": 748,
         "startChar": 3,
