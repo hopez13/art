@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b408f75_408d3017",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-20T09:09:02Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 659,
+        "endChar": 37
+      },
+      "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd63fdb_77c788d9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-20T09:09:02Z",
+      "side": 1,
+      "message": "Do you really need this? Can\u0027t you load from the existing stack offset?",
+      "range": {
+        "startLine": 2038,
+        "startChar": 0,
+        "endLine": 2038,
+        "endChar": 83
+      },
+      "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
