@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b6c7315_bc0d495e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-20T18:00:29Z",
+      "side": 1,
+      "message": "Do want to return false in these cases? This function always returns true currently.",
+      "revId": "a8a697f48e92c85136fc7bec661623c434f67ede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
