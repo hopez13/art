@@ -34,6 +34,52 @@
       "revId": "f681570077563bb529a30f9e7c572b837cecfb83",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebfdc373_92f13c74",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-20T18:57:13Z",
+      "side": 1,
+      "message": "Intel uses the fact that this is virtual for our uses.",
+      "range": {
+        "startLine": 962,
+        "startChar": 9,
+        "endLine": 962,
+        "endChar": 21
+      },
+      "revId": "f681570077563bb529a30f9e7c572b837cecfb83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb02bf41_d170e475",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-20T18:57:13Z",
+      "side": 1,
+      "message": "Intel uses the fact that this is virtual for our uses.",
+      "range": {
+        "startLine": 996,
+        "startChar": 9,
+        "endLine": 996,
+        "endChar": 21
+      },
+      "revId": "f681570077563bb529a30f9e7c572b837cecfb83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
