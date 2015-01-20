@@ -117,6 +117,30 @@
       "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_96179269",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-20T08:40:54Z",
+      "side": 1,
+      "message": "I mean when we invoke a method, we start by its instruction at 0x0. We don\u0027t expect any exception pending at this time so it can\u0027t be the first instruction of a catch handler. The only way is to have jump (with a \"goto\" for instance) after the catch handler. Maybe that\u0027s something we should check at verification time?\n\nAnyway, I can move the check in the Execute method (the caller). It\u0027s the normal interpreter path (not the deoptimization path) starting at DEX pc 0x0 so we know there is no exception pending there.",
+      "parentUuid": "2b66fb36_3aae5929",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
