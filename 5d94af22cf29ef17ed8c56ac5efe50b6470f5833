@@ -45,6 +45,29 @@
       "revId": "5d94af22cf29ef17ed8c56ac5efe50b6470f5833",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_815aea43",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T18:24:15Z",
+      "side": 1,
+      "message": "You\u0027re picking the first entry that you find. Shouldn\u0027t you return the entry that corresponds to the app\u0027s ABI?",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 22
+      },
+      "revId": "5d94af22cf29ef17ed8c56ac5efe50b6470f5833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
