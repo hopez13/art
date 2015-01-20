@@ -93,6 +93,30 @@
       "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b66fb36_3aae5929",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-20T08:33:48Z",
+      "side": 1,
+      "message": "No. Just like many other bytecode formats, dex defines exception handlers by a (nested) structure containing the starting pc of the handler and the range of PCs covered. So a handler can be lexically before the guarded region. (See dex file format, start at try_item.)\n\nWhat I don\u0027t know is whether the verifier rejects such a thing on the grounds of an exception register conflict (no exception on method entry, but exception on handler entry). But exceptions are not in a regular dalvik register (that\u0027s why move-exception exists), and if the \"catch-block\" doesn\u0027t start with this, I believe the verifier would let that go through as a perfectly fine start of a method.",
+      "parentUuid": "4b408f75_60faec80",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
