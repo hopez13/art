@@ -93,6 +93,30 @@
       "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_035332ae",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-20T19:44:16Z",
+      "side": 1,
+      "message": "I don\u0027t see any instruction that can load to the FP stack from registers or constants so I guess that\u0027s the best that can be done without a RequireStack Location.",
+      "parentUuid": "cb02bf41_f117e867",
+      "range": {
+        "startLine": 2038,
+        "startChar": 0,
+        "endLine": 2038,
+        "endChar": 83
+      },
+      "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
