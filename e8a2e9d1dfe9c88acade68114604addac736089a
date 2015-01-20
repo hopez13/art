@@ -141,6 +141,30 @@
       "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b66fb36_5abd1556",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-20T08:47:51Z",
+      "side": 1,
+      "message": "I mean: catch handlers are not separated in the code by anything, they are just designated by a secondary structure. The only thing possibly distinguishing them is if they use the exception, their first instruction must be a move-exception. Just going of the file format, nothing is stopping you from running \"catch handler\" code like regular code. So imagine a catch handler that just prints \"hello\" and never touches the exception. That code is perfectly fine no matter whether there was an exception or not. So from my view, this is legal:\n\n 0: const-string v0, \"Hello World\"\n 1: invoke-static ...  // setup out, shortcut here\n 2: new-instance v1, RuntimeException\n 3: throw v1\n\nAnd assign pc 0 as the handler for the pc-range [3...3].\n\nDon\u0027t change the check just yet. I still have hope that I just don\u0027t know enough about the verifier and what we sort out. I really like where we check right now (and that it\u0027s not in the caller...).",
+      "parentUuid": "4bc24f1f_96179269",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
