@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ebfdc373_72dc9828",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-20T12:45:13Z",
+      "side": 1,
+      "message": "You are right.  This isn\u0027t essential.  I thought that moving to two MOVs would allow them to issue in parallel, avoiding the dependency from the 2 movqs.  I will remove this change.\n\nI happened to be in this code looking to change the movq of a constant 0 to an xorq, but realized afterwords that you were worried about setting the CC here, so I didn\u0027t make that change.",
+      "parentUuid": "4b408f75_408d3017",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 659,
+        "endChar": 37
+      },
+      "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_77c788d9",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-20T09:09:02Z",
       "side": 1,
       "message": "Do you really need this? Can\u0027t you load from the existing stack offset?",
+      "range": {
+        "startLine": 2038,
+        "startChar": 0,
+        "endLine": 2038,
+        "endChar": 83
+      },
+      "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb02bf41_f117e867",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-20T12:45:13Z",
+      "side": 1,
+      "message": "In this case, we have already tested for single/double stack slot above, and therefore we can\u0027t load from the stack.  We have to put the register/constant into memory first.\n\nIs there another type of location that is in memory?  I don\u0027t see it.",
+      "parentUuid": "cbd63fdb_77c788d9",
       "range": {
         "startLine": 2038,
         "startChar": 0,
