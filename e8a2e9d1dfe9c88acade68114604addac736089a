@@ -189,6 +189,30 @@
       "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf1d3a1_ce81638f",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-20T18:18:40Z",
+      "side": 1,
+      "message": "I confirmed that this code passes the verifier and gets compiled (haven\u0027t tested running, obviously...):\n\n .method public static run()V\n .registers 6\n :Label1\n        const v1, 15\n        const v2, 0\n \n :Label2\n        div-int v0, v1, v2\n \n :Label3\n        return-void\n \n .catchall {:Label2 .. :Label3} :Label1\n .end method",
+      "parentUuid": "cbd63fdb_17139cca",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
