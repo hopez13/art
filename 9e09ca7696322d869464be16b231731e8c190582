@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_c0a0207b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-20T09:16:21Z",
+      "side": 1,
+      "message": "Yeah, I\u0027d prefer if it was two disinct CLs: one for the ABI change, on for the compiler say yes to longs/doubles/floats.",
+      "parentUuid": "ab52eb4e_9b0a0f42",
+      "range": {
+        "startLine": 3381,
+        "startChar": 30,
+        "endLine": 3381,
+        "endChar": 50
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_37d7c056",
         "filename": "runtime/arch/x86/context_x86.cc",
         "patchSetId": 4
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "I recreated the problem.\n\nThis code in runtime/arch/x86/quick_method_frame_info_x86.h:\nstatic constexpr uint32_t kX86CalleeSaveFpArgSpills \u003d\n    (1 \u003c\u003c art::x86::XMM0) | (1 \u003c\u003c art::x86::XMM1) |\n    (1 \u003c\u003c art::x86::XMM2) | (1 \u003c\u003c art::x86::XMM3);\n...\nconstexpr uint32_t X86CalleeSaveFpSpills(Runtime::CalleeSaveType type) {\n    return type \u003d\u003d Runtime::kRefsAndArgs ? kX86CalleeSaveFpArgSpills : 0;\n}\n\nwhich I copied from the x86_64 version of the file causes the DCHECK to fail, as if the type is kRefsAndArgs, some bits will be on.  This causes much of the host testing to fail.\n\nComments?",
       "parentUuid": "8b57e740_370af8c8",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "9e09ca7696322d869464be16b231731e8c190582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_608cac19",
+        "filename": "runtime/arch/x86/context_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-20T09:16:21Z",
+      "side": 1,
+      "message": "So we do have callee saves, the comment should be updated.\n\nAnd you have to handle them.",
+      "parentUuid": "eb586371_a07cfea1",
       "range": {
         "startLine": 43,
         "startChar": 0,
