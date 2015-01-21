@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc24f1f_dcde9996",
+        "filename": "test/443-not-bool-inline/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-21T17:24:23Z",
+      "side": 1,
+      "message": "You could use Checker to make sure that the Equals is there ;-)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 57
+      },
+      "revId": "fa93b504b324784dd9a96e28e6e8f3f1b1ac456a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
