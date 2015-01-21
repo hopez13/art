@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b408f75_71548018",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T16:05:24Z",
+      "side": 1,
+      "message": "I\u0027m not sure, but shouldn\u0027t this be \"callee-save registers\"?",
+      "range": {
+        "startLine": 552,
+        "startChar": 62,
+        "endLine": 552,
+        "endChar": 83
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b0c4779_92b49ac3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T16:05:24Z",
+      "side": 1,
+      "message": "I find this comment is somewhat ambiguous.  What about \"the register mask must be a subset of callee-save registers\"?",
+      "range": {
+        "startLine": 557,
+        "startChar": 5,
+        "endLine": 557,
+        "endChar": 60
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_d1363403",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T16:05:24Z",
+      "side": 1,
+      "message": "Maybe rename argument as `use_baseline\u0027 or `is_baseline\u0027 (and likewise in other files)?",
+      "range": {
+        "startLine": 128,
+        "startChar": 42,
+        "endLine": 128,
+        "endChar": 50
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_dccbf92e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T16:05:24Z",
+      "side": 1,
+      "message": "Nit: add space after `{\u0027 and before `}\u0027?",
+      "range": {
+        "startLine": 51,
+        "startChar": 48,
+        "endLine": 51,
+        "endChar": 76
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
