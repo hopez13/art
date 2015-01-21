@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_a697ec51",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:31:17Z",
+      "side": 1,
+      "message": "Sure, but we should not abort. Is there some kind of \"Optimized away variable\" kind in jdwp?",
+      "parentUuid": "8b0c4779_2fb8e998",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 88
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_c10472b8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Do you mean it needs a comment or an explicit variable name?",
       "parentUuid": "8b0c4779_cf703d76",
+      "range": {
+        "startLine": 251,
+        "startChar": 41,
+        "endLine": 251,
+        "endChar": 61
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_c181d28e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:31:17Z",
+      "side": 1,
+      "message": "No, Low32Bits is a helper.",
+      "parentUuid": "4bc24f1f_213f764a",
       "range": {
         "startLine": 251,
         "startChar": 41,
@@ -237,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_61f01e3b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:31:17Z",
+      "side": 1,
+      "message": "For optimizing yes, it would work.",
+      "parentUuid": "8b0c4779_0fe6c5c0",
+      "range": {
+        "startLine": 310,
+        "startChar": 19,
+        "endLine": 310,
+        "endChar": 47
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_466c28f8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -272,6 +344,30 @@
       "side": 1,
       "message": "From the debugger, we should be able to modify values of local variables (so DEX registers). In the case of the kConstant location, we cannot do that so we return false. This allows us to reply to the debugger with a JDWP error.\n\nWe receive the request to set a variable only when the thread is suspended. So we cannot deoptimize at this point. To achieve this, we\u0027d need to resume the thread, wait for it to deoptimize that frame then set the new value in the deoptimized frame.",
       "parentUuid": "4b408f75_466c28f8",
+      "range": {
+        "startLine": 426,
+        "startChar": 1,
+        "endLine": 427,
+        "endChar": 60
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_21fa1619",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:31:17Z",
+      "side": 1,
+      "message": "I see, so we do return an error. Thanks.",
+      "parentUuid": "4bc24f1f_814aeaf5",
       "range": {
         "startLine": 426,
         "startChar": 1,
