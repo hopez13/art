@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8b0c4779_4fbd6d56",
+        "filename": "compiler/dex/quick/arm64/utility_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2015-01-21T12:02:10Z",
+      "side": 1,
+      "message": "Independently of what the grand plan was, the \"original way\" allowed an Art developer to use:\n\n  LoadBaseIndexed(r_base, r_index, r_dest, scale, kReference)\n  LoadRefIndexed(r_base, r_index, r_dest, scale)\n\nThe two lines above did the same thing but with different assertions on the type for r_dest. The first required r_dest to be a 32-bit register. The second required r_dest to be 64-bit. No comments were provided explaining why these behaved differently nor when/if one should be using the second rather than the first. The function names didn\u0027t help either: from the lines above it was not obvious why the first should behave differently from the second. I guess a better name for LoadRefIndexed() should have been LoadAndDecompressRefIndexed(). This would have made implicitly clear that LoadBaseIndexed() had to be used for loading the reference without decompressing it... assuming the latter was meant to be used at all. If it was, I still don\u0027t like the asymmetry of the two calls. If it wasn\u0027t, then the functionality for kReference in LoadBaseIndexed should not have been exposed in the first place, I think.",
+      "parentUuid": "cb5d5f61_bca70d19",
+      "revId": "f681570077563bb529a30f9e7c572b837cecfb83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebfdc373_92f13c74",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
