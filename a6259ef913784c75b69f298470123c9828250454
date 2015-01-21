@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bbf77c3_2794a2aa",
+        "filename": "test/114-ParallelGC/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-21T20:34:28Z",
+      "side": 1,
+      "message": "Move this allocation to main() and surround the entire body of run() in a try-catch block for OOME and Throwable?",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "a6259ef913784c75b69f298470123c9828250454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc27b57_9df4e764",
+        "filename": "test/114-ParallelGC/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-21T20:34:28Z",
+      "side": 1,
+      "message": "Exception -\u003e Throwable?",
+      "range": {
+        "startLine": 105,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 26
+      },
+      "revId": "a6259ef913784c75b69f298470123c9828250454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
