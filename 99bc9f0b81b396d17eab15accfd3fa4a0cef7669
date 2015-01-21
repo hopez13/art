@@ -449,6 +449,30 @@
       "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_31bdd889",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T16:58:12Z",
+      "side": 1,
+      "message": "We do not deopt when a debugger attaches to reduce the slowdown caused by using the interpreter and intercepting debugging events (breakpoints, ...). We deopt on demand, only when needed, to execute compiled code as much as possible.",
+      "parentUuid": "4beecfc7_f6307606",
+      "range": {
+        "startLine": 426,
+        "startChar": 1,
+        "endLine": 427,
+        "endChar": 60
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
