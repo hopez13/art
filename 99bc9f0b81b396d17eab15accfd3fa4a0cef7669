@@ -473,6 +473,30 @@
       "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb02bf41_5a0fe925",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-21T17:12:01Z",
+      "side": 1,
+      "message": "Yes, this makes sense and it\u0027s what I thought. :)",
+      "parentUuid": "4b408f75_31bdd889",
+      "range": {
+        "startLine": 426,
+        "startChar": 1,
+        "endLine": 427,
+        "endChar": 60
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
