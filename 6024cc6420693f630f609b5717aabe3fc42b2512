@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bc27b57_48928f37",
+        "filename": "test/114-ParallelGC/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-21T21:25:38Z",
+      "side": 1,
+      "message": "This is gross, isn\u0027t there a thread safe way to do this like setting a static boolean guarded by a lock and waiting on the gate while it is false (in the worker thread).",
+      "range": {
+        "startLine": 49,
+        "startChar": 28,
+        "endLine": 49,
+        "endChar": 30
+      },
+      "revId": "6024cc6420693f630f609b5717aabe3fc42b2512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
