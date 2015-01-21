@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_e691f45c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Yeah I\u0027m trying to compensate for the lack of named parameters. Added an enum instead.",
+      "parentUuid": "4bc24f1f_0166fa0c",
+      "range": {
+        "startLine": 1819,
+        "startChar": 54,
+        "endLine": 1819,
+        "endChar": 81
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b6b88ee3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_6119fee8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Yeah, good point. Done.",
+      "parentUuid": "4bc24f1f_36ffbe09",
+      "range": {
+        "startLine": 3311,
+        "startChar": 6,
+        "endLine": 3313,
+        "endChar": 60
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_d603da7f",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -177,6 +225,30 @@
       "writtenOn": "2015-01-20T15:47:56Z",
       "side": 1,
       "message": "1) didn\u0027t we get rid of register pairs: https://android-review.googlesource.com/#/c/123651/ and assert we don\u0027t get one?\n\nAnyway, if this is still needed, add comment to make it clear that arm register pairs are either equal or they don\u0027t overlap.",
+      "range": {
+        "startLine": 3324,
+        "startChar": 20,
+        "endLine": 3324,
+        "endChar": 34
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_a6108c42",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Yes, we did. Thanks, removed.",
+      "parentUuid": "4bc24f1f_d603da7f",
       "range": {
         "startLine": 3324,
         "startChar": 20,
@@ -236,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "8b0c4779_6f667199",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_834f4286",
+      "range": {
+        "startLine": 3348,
+        "startChar": 0,
+        "endLine": 3353,
+        "endChar": 9
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_17707cf7",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -247,6 +343,30 @@
       "writtenOn": "2015-01-20T10:41:45Z",
       "side": 1,
       "message": "Long line.",
+      "range": {
+        "startLine": 3366,
+        "startChar": 0,
+        "endLine": 3366,
+        "endChar": 117
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_a1260622",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3366,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbd63fdb_17707cf7",
       "range": {
         "startLine": 3366,
         "startChar": 0,
@@ -282,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_e61a945e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_a04fd432",
+      "range": {
+        "startLine": 3368,
+        "startChar": 0,
+        "endLine": 3368,
+        "endChar": 118
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_36a6dec7",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -293,6 +437,30 @@
       "writtenOn": "2015-01-20T10:41:45Z",
       "side": 1,
       "message": "Likewise, about moving half a 64-bit value into a single 32-bit register.",
+      "range": {
+        "startLine": 3364,
+        "startChar": 6,
+        "endLine": 3369,
+        "endChar": 9
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_4629c876",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_36a6dec7",
       "range": {
         "startLine": 3364,
         "startChar": 6,
@@ -328,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "8b0c4779_af6fb967",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Me neither :-)",
+      "parentUuid": "4b408f75_43a7fac5",
+      "range": {
+        "startLine": 2810,
+        "startChar": 8,
+        "endLine": 2811,
+        "endChar": 35
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_80c29815",
         "filename": "compiler/optimizing/register_allocator.h",
         "patchSetId": 2
@@ -339,6 +531,30 @@
       "writtenOn": "2015-01-20T10:41:45Z",
       "side": 1,
       "message": "\"at finding such an interval\"?",
+      "range": {
+        "startLine": 135,
+        "startChar": 39,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_61c25ecb",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T10:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_80c29815",
       "range": {
         "startLine": 135,
         "startChar": 39,
