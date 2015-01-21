@@ -22,6 +22,30 @@
       "revId": "cbeeac2d14aac04b80b7d012b31b291179a4fb21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb02bf41_b7a71019",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-21T13:19:06Z",
+      "side": 1,
+      "message": "I\u0027m having problems separating the two, as I am trying to remove what isn\u0027t necessary.  Missed this one.",
+      "parentUuid": "8b0c4779_4f856de5",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 1
+      },
+      "revId": "cbeeac2d14aac04b80b7d012b31b291179a4fb21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
