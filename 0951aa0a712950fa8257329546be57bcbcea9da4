@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_46a42899",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T11:17:21Z",
+      "side": 1,
+      "message": "BTW, we should use strongly-typed enums (`enum class\u0027).",
+      "parentUuid": "4b408f75_e691f45c",
+      "range": {
+        "startLine": 1819,
+        "startChar": 54,
+        "endLine": 1819,
+        "endChar": 81
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b6b88ee3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
