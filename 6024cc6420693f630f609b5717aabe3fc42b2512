@@ -22,6 +22,30 @@
       "revId": "6024cc6420693f630f609b5717aabe3fc42b2512",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aba3cbb1_73ff5a08",
+        "filename": "test/114-ParallelGC/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-21T22:59:39Z",
+      "side": 1,
+      "message": "Your boolean won\u0027t ensure that the threads start around the same time. Early threads won\u0027t wait for a late starter. It needs another counter. I\u0027ll replace with a barrier, which is actually fine here as it\u0027s before blowing the heap...",
+      "parentUuid": "2bc27b57_48928f37",
+      "range": {
+        "startLine": 49,
+        "startChar": 28,
+        "endLine": 49,
+        "endChar": 30
+      },
+      "revId": "6024cc6420693f630f609b5717aabe3fc42b2512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
