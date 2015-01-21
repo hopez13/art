@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_c6695895",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T11:24:39Z",
+      "side": 1,
+      "message": "Noted. I guess, all our enums should be moved to enum classes, then, for consistency.",
+      "parentUuid": "4b408f75_46a42899",
+      "range": {
+        "startLine": 1819,
+        "startChar": 54,
+        "endLine": 1819,
+        "endChar": 81
+      },
+      "revId": "0951aa0a712950fa8257329546be57bcbcea9da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b6b88ee3",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
