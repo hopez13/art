@@ -425,6 +425,30 @@
       "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4beecfc7_f6307606",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-21T16:53:30Z",
+      "side": 1,
+      "message": "Is it possible (and would we want) to do complete deopt on debugger attach before even suspend is requested?",
+      "parentUuid": "4bc24f1f_814aeaf5",
+      "range": {
+        "startLine": 426,
+        "startChar": 1,
+        "endLine": 427,
+        "endChar": 60
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
