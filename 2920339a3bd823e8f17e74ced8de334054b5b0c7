@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_5c94e9aa",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T17:53:26Z",
+      "side": 1,
+      "message": "No it should be caller-save, but I agree it\u0027s confusing. I improved the comment.",
+      "parentUuid": "4b408f75_71548018",
+      "range": {
+        "startLine": 552,
+        "startChar": 62,
+        "endLine": 552,
+        "endChar": 83
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b0c4779_92b49ac3",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-21T16:05:24Z",
       "side": 1,
       "message": "I find this comment is somewhat ambiguous.  What about \"the register mask must be a subset of callee-save registers\"?",
+      "range": {
+        "startLine": 557,
+        "startChar": 5,
+        "endLine": 557,
+        "endChar": 60
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_b16c4874",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T17:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b0c4779_92b49ac3",
       "range": {
         "startLine": 557,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_b19e08f4",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T17:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_d1363403",
+      "range": {
+        "startLine": 128,
+        "startChar": 42,
+        "endLine": 128,
+        "endChar": 50
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_dccbf92e",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-21T16:05:24Z",
       "side": 1,
       "message": "Nit: add space after `{\u0027 and before `}\u0027?",
+      "range": {
+        "startLine": 51,
+        "startChar": 48,
+        "endLine": 51,
+        "endChar": 76
+      },
+      "revId": "2920339a3bd823e8f17e74ced8de334054b5b0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b0c4779_3294ceaa",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T17:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_dccbf92e",
       "range": {
         "startLine": 51,
         "startChar": 48,
