@@ -34,6 +34,24 @@
       "revId": "dc84301712f55ec3ad9a20c5a081e62e7d2441dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bda8731_1f5c43c9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-21T00:35:46Z",
+      "side": 1,
+      "message": "My bad I misread the line as an \u0026\u0026 instead of ||",
+      "parentUuid": "8bda8731_1fe1a3a8",
+      "revId": "dc84301712f55ec3ad9a20c5a081e62e7d2441dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
