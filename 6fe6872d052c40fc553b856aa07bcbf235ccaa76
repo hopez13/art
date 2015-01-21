@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b0c4779_8f6c7574",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T10:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc24f1f_1613a2ca",
+      "range": {
+        "startLine": 113,
+        "startChar": 48,
+        "endLine": 113,
+        "endChar": 49
+      },
+      "revId": "6fe6872d052c40fc553b856aa07bcbf235ccaa76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_b6bc0e38",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-20T15:58:57Z",
       "side": 1,
       "message": "I wouldn\u0027t complicate verification code to get nicer error messages, but maybe that\u0027s just me.",
+      "range": {
+        "startLine": 228,
+        "startChar": 2,
+        "endLine": 228,
+        "endChar": 28
+      },
+      "revId": "6fe6872d052c40fc553b856aa07bcbf235ccaa76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_66284471",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T10:58:11Z",
+      "side": 1,
+      "message": "I prefer the current version, as the code is simpler and shorter, and because it follows a style use elsewhere in this file.",
+      "parentUuid": "4bc24f1f_b6bc0e38",
       "range": {
         "startLine": 228,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_c10a3291",
+        "filename": "runtime/primitive.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T10:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b408f75_a397de51",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 60
+      },
+      "revId": "6fe6872d052c40fc553b856aa07bcbf235ccaa76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd63fdb_3ac7a528",
         "filename": "runtime/primitive.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-20T15:53:02Z",
       "side": 1,
       "message": "What\u0027s the benefit of having this, and of the approach in general if we already have \u003c\u003c operator?",
+      "range": {
+        "startLine": 149,
+        "startChar": 21,
+        "endLine": 149,
+        "endChar": 37
+      },
+      "revId": "6fe6872d052c40fc553b856aa07bcbf235ccaa76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_c1231211",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-21T10:58:11Z",
+      "side": 1,
+      "message": "This is admittedly a bit redundant, but Primitive::PrettyDescriptor is more general than operator\u003c\u003c and is easier to use with StringPrintf.\n\nI did not remove (nor changed) operator\u003c\u003c as I didn\u0027t want to break any existing code/behavior.",
+      "parentUuid": "cbd63fdb_3ac7a528",
       "range": {
         "startLine": 149,
         "startChar": 21,
