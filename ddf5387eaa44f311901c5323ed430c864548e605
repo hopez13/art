@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc24f1f_bc870d72",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-21T18:39:55Z",
+      "side": 1,
+      "message": "why kIsDebugBuild? DCHECK will only happen in debug builds.",
+      "range": {
+        "startLine": 1282,
+        "startChar": 14,
+        "endLine": 1282,
+        "endChar": 27
+      },
+      "revId": "ddf5387eaa44f311901c5323ed430c864548e605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_319958e1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-21T18:39:55Z",
+      "side": 1,
+      "message": "what does this piece of code actually do? :)",
+      "range": {
+        "startLine": 2154,
+        "startChar": 7,
+        "endLine": 2162,
+        "endChar": 9
+      },
+      "revId": "ddf5387eaa44f311901c5323ed430c864548e605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
