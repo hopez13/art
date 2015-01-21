@@ -34,6 +34,24 @@
       "revId": "a8a697f48e92c85136fc7bec661623c434f67ede",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_5cae292a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T16:36:44Z",
+      "side": 1,
+      "message": "Follow up CL: https://android-review.googlesource.com/124162",
+      "parentUuid": "4bc24f1f_a184c69f",
+      "revId": "a8a697f48e92c85136fc7bec661623c434f67ede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
