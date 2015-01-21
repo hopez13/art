@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4b408f75_26059c08",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:37:56Z",
+      "side": 1,
+      "message": "Sorry, I agree we should not abort but return false. So far, when a variable is not accessible, we return the ABSENT_INFORMATION error (see Dbg::GetLocalValue and Dbg::SetLocalValue). At least IntelliJ does not really like that since it does not expect to receive this error.\n\nI\u0027ll see if another error is more suitable for these cases. FYI, the full list of possible JDWP errors can be found at https://docs.oracle.com/javase/7/docs/platform/jpda/jdwp/jdwp-protocol.html#JDWP_Error",
+      "parentUuid": "4b408f75_a697ec51",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 88
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_c10472b8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "No, Low32Bits is a helper.",
       "parentUuid": "4bc24f1f_213f764a",
+      "range": {
+        "startLine": 251,
+        "startChar": 41,
+        "endLine": 251,
+        "endChar": 61
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_660fa426",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:37:56Z",
+      "side": 1,
+      "message": "Thanks! I didn\u0027t remember we have this helper...",
+      "parentUuid": "4bc24f1f_c181d28e",
       "range": {
         "startLine": 251,
         "startChar": 41,
