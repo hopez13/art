@@ -117,6 +117,30 @@
       "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_41e082a1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2038,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-21T08:48:38Z",
+      "side": 1,
+      "message": "Nevermind, I thought this branch was handling a source already in stack, but I  can see it\u0027s being handled in the other branches.",
+      "parentUuid": "cb02bf41_f117e867",
+      "range": {
+        "startLine": 2038,
+        "startChar": 0,
+        "endLine": 2038,
+        "endChar": 83
+      },
+      "revId": "761ca00b396af75f7fc27e6d85020d0bfcd0fa96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
