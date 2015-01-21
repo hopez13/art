@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc5ef5b_55494cb0",
+        "filename": "runtime/gc/accounting/card_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-21T17:47:13Z",
+      "side": 1,
+      "message": "Is it possible to make clear be a template boolean? This would be more efficient.",
+      "range": {
+        "startLine": 107,
+        "startChar": 54,
+        "endLine": 107,
+        "endChar": 72
+      },
+      "revId": "21995832d631884b45d6beae71dd09279db40240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
