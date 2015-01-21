@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb994384_5866f598",
+        "filename": "test/114-ParallelGC/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-21T22:53:31Z",
+      "side": 1,
+      "message": "Hm. That brings us back to what the test is supposed to do. It was allocating thread-local before, even the list.\n\nAnd wrapping everything in an OOME means that it won\u0027t wait for other threads before releasing that storage.",
+      "parentUuid": "0bbf77c3_2794a2aa",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "a6259ef913784c75b69f298470123c9828250454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bc27b57_9df4e764",
         "filename": "test/114-ParallelGC/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-21T20:34:28Z",
       "side": 1,
       "message": "Exception -\u003e Throwable?",
+      "range": {
+        "startLine": 105,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 26
+      },
+      "revId": "a6259ef913784c75b69f298470123c9828250454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aba3cbb1_f3234a10",
+        "filename": "test/114-ParallelGC/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-21T22:53:31Z",
+      "side": 1,
+      "message": "Why? Normal Java convention says not to catch errors at all. I\u0027m fine with a timeout terminating the test in that case.",
+      "parentUuid": "2bc27b57_9df4e764",
       "range": {
         "startLine": 105,
         "startChar": 17,
