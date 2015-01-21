@@ -22,6 +22,52 @@
       "revId": "21995832d631884b45d6beae71dd09279db40240",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab7cabf1_685e83e9",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-21T21:13:15Z",
+      "side": 1,
+      "message": "I think cards currently get aged during the preclean phase. So, it seems that what this new clearing logic is saving is the scan of cards that get dirtied between the preclean phase and the pause that immediately follow. Is this right? Is there any data that shows the reduction in the card scanning load?",
+      "range": {
+        "startLine": 768,
+        "startChar": 15,
+        "endLine": 769,
+        "endChar": 16
+      },
+      "revId": "21995832d631884b45d6beae71dd09279db40240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc27b57_08e33733",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-21T21:13:15Z",
+      "side": 1,
+      "message": "Maybe would \"!immune_region_.ContainsSpace(space)\" be more generalized?",
+      "range": {
+        "startLine": 771,
+        "startChar": 29,
+        "endLine": 771,
+        "endChar": 79
+      },
+      "revId": "21995832d631884b45d6beae71dd09279db40240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
