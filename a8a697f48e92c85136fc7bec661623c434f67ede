@@ -16,6 +16,24 @@
       "revId": "a8a697f48e92c85136fc7bec661623c434f67ede",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_a184c69f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:29:55Z",
+      "side": 1,
+      "message": "This method is also used by the InstallStubsClassVisitor above. Since we want to visit all classes, we always return true here. We should move the \"return true\" to the InstallStubsClassVisitor. I\u0027ll do that in another CL.",
+      "parentUuid": "6b6c7315_bc0d495e",
+      "revId": "a8a697f48e92c85136fc7bec661623c434f67ede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
