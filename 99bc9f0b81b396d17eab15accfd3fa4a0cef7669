@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b0c4779_2fb8e998",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:16:23Z",
+      "side": 1,
+      "message": "When debugging the app, you should be able to see all local variables visible at the current location in the frame. If the DEX register matches a visible local variable, we should see it even if it\u0027s no longer used.",
+      "parentUuid": "4b408f75_a6336c11",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 88
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_c10472b8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-21T09:50:15Z",
       "side": 1,
       "message": "List them, and change the message to unimplemented?",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 11
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b408f75_864f5086",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:16:23Z",
+      "side": 1,
+      "message": "They\u0027re already all listed above (at the time of this CL). Actually I can remove the default, it would cause compilation error if we introduce new location kinds.",
+      "parentUuid": "4bc24f1f_c10472b8",
       "range": {
         "startLine": 229,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4bc24f1f_213f764a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:16:23Z",
+      "side": 1,
+      "message": "Do you mean it needs a comment or an explicit variable name?",
+      "parentUuid": "8b0c4779_cf703d76",
+      "range": {
+        "startLine": 251,
+        "startChar": 41,
+        "endLine": 251,
+        "endChar": 61
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_61333e98",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-21T09:50:15Z",
       "side": 1,
       "message": "High32Bits",
+      "range": {
+        "startLine": 253,
+        "startChar": 39,
+        "endLine": 253,
+        "endChar": 56
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_414402ea",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:16:23Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "4bc24f1f_61333e98",
       "range": {
         "startLine": 253,
         "startChar": 39,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8b0c4779_0fe6c5c0",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:16:23Z",
+      "side": 1,
+      "message": "Would it work for kStack and kConstant cases? I mean are both vregs have the same stack offset or constant values and we just need to extract the low and high 32-bits?",
+      "parentUuid": "4b408f75_e62d74ae",
+      "range": {
+        "startLine": 310,
+        "startChar": 19,
+        "endLine": 310,
+        "endChar": 47
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b408f75_466c28f8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-01-21T09:50:15Z",
       "side": 1,
       "message": "Why do we need this? It won\u0027t work for constants, as you mention line 453. Isn\u0027t it an error if we try to call this? Shouldn\u0027t we deopt instead?",
+      "range": {
+        "startLine": 426,
+        "startChar": 1,
+        "endLine": 427,
+        "endChar": 60
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc24f1f_814aeaf5",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-21T10:16:23Z",
+      "side": 1,
+      "message": "From the debugger, we should be able to modify values of local variables (so DEX registers). In the case of the kConstant location, we cannot do that so we return false. This allows us to reply to the debugger with a JDWP error.\n\nWe receive the request to set a variable only when the thread is suspended. So we cannot deoptimize at this point. To achieve this, we\u0027d need to resume the thread, wait for it to deoptimize that frame then set the new value in the deoptimized frame.",
+      "parentUuid": "4b408f75_466c28f8",
       "range": {
         "startLine": 426,
         "startChar": 1,
