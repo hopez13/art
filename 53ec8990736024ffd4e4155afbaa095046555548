@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb871f28_4cd2af66",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-22T19:47:28Z",
+      "side": 1,
+      "message": "\"return address register\"?",
+      "range": {
+        "startLine": 144,
+        "startChar": 51,
+        "endLine": 144,
+        "endChar": 66
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_bbea3301",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-22T19:47:28Z",
+      "side": 1,
+      "message": "\"link (return address) register\"?",
+      "range": {
+        "startLine": 562,
+        "startChar": 14,
+        "endLine": 562,
+        "endChar": 27
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_acb40bc3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-22T19:47:28Z",
+      "side": 1,
+      "message": "Maybe move the definition of kFakeReturnRegister outside the body of this ctor and used it here?\n\nAlso, replace the literal value with art::x86::kNumberOfCpuRegisters?",
+      "range": {
+        "startLine": 362,
+        "startChar": 50,
+        "endLine": 362,
+        "endChar": 51
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_0ca43798",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-22T19:47:28Z",
+      "side": 1,
+      "message": "\"fake (return address) register\"?",
+      "range": {
+        "startLine": 367,
+        "startChar": 14,
+        "endLine": 367,
+        "endChar": 27
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_fb542b1c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-22T19:47:28Z",
+      "side": 1,
+      "message": "Replace the literal value with art::x86_64::kNumberOfCpuRegisters?",
+      "range": {
+        "startLine": 48,
+        "startChar": 57,
+        "endLine": 48,
+        "endChar": 59
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_70c74e27",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-22T19:47:28Z",
+      "side": 1,
+      "message": "Maybe add a comment similar to the one in other code generators?",
+      "range": {
+        "startLine": 429,
+        "startChar": 2,
+        "endLine": 429,
+        "endChar": 72
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
