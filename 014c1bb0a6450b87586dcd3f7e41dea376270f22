@@ -94,6 +94,30 @@
       "revId": "014c1bb0a6450b87586dcd3f7e41dea376270f22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_f0709e75",
+        "filename": "test/800-smali/smali/catch_handler_on_entry.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-22T18:44:37Z",
+      "side": 1,
+      "message": "I agree, we should extend the test with the cases we talked about so far.\n\nIn that case, we need to modify the check in the interpreter: we do not expect a pending exception at DEX pc 0x0 *except* if the instruction is a MOVE_EXCEPTION.",
+      "parentUuid": "2bcefba3_54c9ac35",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "014c1bb0a6450b87586dcd3f7e41dea376270f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
