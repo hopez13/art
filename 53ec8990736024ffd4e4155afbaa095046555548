@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "2bfc3bc4_448eae90",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-01-22T22:03:14Z",
+      "side": 1,
+      "message": "POPCOUNT - see utils.h",
+      "range": {
+        "startLine": 266,
+        "startChar": 11,
+        "endLine": 266,
+        "endChar": 29
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbaebeb_bbea3301",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
