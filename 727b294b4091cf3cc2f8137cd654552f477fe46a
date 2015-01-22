@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bbfe7dd_b7b7e878",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-22T17:44:47Z",
+      "side": 1,
+      "message": "I think yamauchi wanted you to change this to:\nclear_card \u003d\u003d paused \u0026\u0026 !immune_region_.ContainsSpace(space).\nApart from that, this change looks good to me.",
+      "range": {
+        "startLine": 773,
+        "startChar": 34,
+        "endLine": 773,
+        "endChar": 83
+      },
+      "revId": "727b294b4091cf3cc2f8137cd654552f477fe46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
