@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4b732f24_28c723da",
+        "filename": "runtime/gc/accounting/card_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-01-22T05:41:37Z",
+      "side": 1,
+      "message": "Thanks for your suggestion. It\u0027s really a better approach.",
+      "parentUuid": "4bc5ef5b_55494cb0",
+      "range": {
+        "startLine": 107,
+        "startChar": 54,
+        "endLine": 107,
+        "endChar": 72
+      },
+      "revId": "21995832d631884b45d6beae71dd09279db40240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab7cabf1_685e83e9",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2b70bb17_ad108542",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-01-22T05:41:37Z",
+      "side": 1,
+      "message": "Yes. You are right. We developed one GC intensive benchmark internally. The net benefit is over 5% reduction of the whole marking time of three kinds of GC on average. It\u0027s expected that there is over 10% reduction of marking time for sticky GC, because partial and full GCs are already included and their marking time is longer than that of sticky GC. What really caused benefit is that the redundant dirty cards of previous GC cycle will continuously be put into mark stack in the current sticky GC. It\u0027s known that mark stack processing is time-consuming.",
+      "parentUuid": "ab7cabf1_685e83e9",
+      "range": {
+        "startLine": 768,
+        "startChar": 15,
+        "endLine": 769,
+        "endChar": 16
+      },
+      "revId": "21995832d631884b45d6beae71dd09279db40240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bc27b57_08e33733",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-01-21T21:13:15Z",
       "side": 1,
       "message": "Maybe would \"!immune_region_.ContainsSpace(space)\" be more generalized?",
+      "range": {
+        "startLine": 771,
+        "startChar": 29,
+        "endLine": 771,
+        "endChar": 79
+      },
+      "revId": "21995832d631884b45d6beae71dd09279db40240",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b763314_0c5fdbe7",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-01-22T05:41:37Z",
+      "side": 1,
+      "message": "Actually I made the same above patch at the beginning:) In most case, it\u0027s right. One corner case is that the current full GC will clear the dirty cards of zygote space, which is not immuned in the next partial GC. One card of zygote space is dirty in preclean phase of the full GC while it may not be dirty again in the following partial GC. This kind of dirty cards will be missed if generalized as above. That was what Haitao and I discussed before. Thanks.",
+      "parentUuid": "2bc27b57_08e33733",
       "range": {
         "startLine": 771,
         "startChar": 29,
