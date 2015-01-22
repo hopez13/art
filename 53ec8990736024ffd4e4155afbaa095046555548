@@ -137,6 +137,52 @@
       "revId": "53ec8990736024ffd4e4155afbaa095046555548",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b763314_7a19e11d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-22T19:53:14Z",
+      "side": 1,
+      "message": "FloatingPointSpillSize()?",
+      "range": {
+        "startLine": 504,
+        "startChar": 63,
+        "endLine": 504,
+        "endChar": 78
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b763314_5a1425e9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-22T19:53:14Z",
+      "side": 1,
+      "message": "Should be FloatingPointSpillSize()?",
+      "range": {
+        "startLine": 517,
+        "startChar": 63,
+        "endLine": 517,
+        "endChar": 78
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
