@@ -105,6 +105,29 @@
       "revId": "6901810d60594af239c34860dc28ca034234ab9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b70bb17_2d549549",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2691,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-01-22T05:58:21Z",
+      "side": 1,
+      "message": "The existing implementation will release card table of the current alloc space if reset is true. This includes two cases. One case is stop-the-world GC, mark compact and semi space. The other case is partial and full concurrent mark sweep. For the first case, the whole card table will be cleared immediately. Therefor it\u0027s unnecessary to do this work in the third branch. For the second case, there may cause lots of page faults, since the card table may be allocated again in the next CMS cycle. One alternative approach is that for stop-the-world GC, the third branch won\u0027t be allowed while using memset to reset the card table of the current allos space for CMS. Thanks.",
+      "range": {
+        "startLine": 2691,
+        "startChar": 21,
+        "endLine": 2691,
+        "endChar": 35
+      },
+      "revId": "6901810d60594af239c34860dc28ca034234ab9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
