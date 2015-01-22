@@ -97,6 +97,54 @@
     },
     {
       "key": {
+        "uuid": "2bfc3bc4_47afd09f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-22T22:20:27Z",
+      "side": 1,
+      "message": "Looks like INVALID_SLOT should be the error returned. The variable isn\u0027t visible (and uninitialized) at the frame\u0027s code index.",
+      "parentUuid": "4b408f75_26059c08",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 88
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf937d6_231e0a55",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-22T22:20:27Z",
+      "side": 1,
+      "message": "My understanding is even for optimized away variable, as long as there is an environment that holds them like at a deoptimization site, they\u0027ll be kept alive. So kNone shouldn\u0027t happen once it\u0027s initialized.",
+      "parentUuid": "4b408f75_a697ec51",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 88
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_c10472b8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
