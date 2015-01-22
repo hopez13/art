@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "eb97835c_48ffd3bc",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-22T00:27:22Z",
+      "side": 1,
+      "message": "One thing I plan to add later is if instr isn\u0027t an invoke, we don\u0027t increment the dex_pc. Because of this requirement, the exception handling is better done here instead of like patch #1.",
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb586371_2048ee8d",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -204,6 +221,30 @@
       "side": 1,
       "message": "I confirmed that this code passes the verifier and gets compiled (haven\u0027t tested running, obviously...):\n\n .method public static run()V\n .registers 6\n :Label1\n        const v1, 15\n        const v2, 0\n \n :Label2\n        div-int v0, v1, v2\n \n :Label3\n        return-void\n \n .catchall {:Label2 .. :Label3} :Label1\n .end method",
       "parentUuid": "cbd63fdb_17139cca",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "e8a2e9d1dfe9c88acade68114604addac736089a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb21712_bbad877b",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-22T00:27:22Z",
+      "side": 1,
+      "message": "The exception is cleared if the first instruction of the catch block isn\u0027t a MOVE_EXCEPTION, so in this case it seems to me the assert is still true. Maybe try a case that has MOVE_EXCEPTION as the first dex instruction?",
+      "parentUuid": "6bf1d3a1_ce81638f",
       "range": {
         "startLine": 152,
         "startChar": 4,
