@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bd16f3e_55d9ac83",
+        "filename": "test/800-smali/smali/catch_handler_on_entry.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-22T17:58:05Z",
+      "side": 1,
+      "message": "I don\u0027t think this exposes the problem. This was only so I had something that throws an exception to check what the verifier is doing.\n\nWhat you\u0027d have to do here is a call. Then we\u0027d have a call-stack of\n\n   catchHandlerOnEntry\n -\u003esomething-called\n\nNow assume deopt hits, so we have two deopted shadow frames:\n\n -\u003eShadow(something-called)-\u003eShadow(catchHandlerOnEntry)\n\nFurther assume something-called now throws an exception (it\u0027s likely easiest to have something-called in a different class that is not written in smali for this). *Now* the entry check becomes interesting, because it\u0027s EnterInterpreterFromDeopt that handles the queue of shadow frames - and I believe we will fail the check.\n\nMy problem was that I don\u0027t know how to force deopt, and my code was only meant to show that it passes the verifier. I guess some VMDebug function could be used?",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "014c1bb0a6450b87586dcd3f7e41dea376270f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
