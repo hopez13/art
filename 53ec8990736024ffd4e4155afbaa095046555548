@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "abbaebeb_3bd623d6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb871f28_4cd2af66",
+      "range": {
+        "startLine": 144,
+        "startChar": 51,
+        "endLine": 144,
+        "endChar": 66
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bfc3bc4_448eae90",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-22T22:03:14Z",
       "side": 1,
       "message": "POPCOUNT - see utils.h",
+      "range": {
+        "startLine": 266,
+        "startChar": 11,
+        "endLine": 266,
+        "endChar": 29
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_1bd35fe6",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bfc3bc4_448eae90",
       "range": {
         "startLine": 266,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4b8a4f30_902cba05",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abbaebeb_bbea3301",
+      "range": {
+        "startLine": 562,
+        "startChar": 14,
+        "endLine": 562,
+        "endChar": 27
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb871f28_acb40bc3",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-22T19:47:28Z",
       "side": 1,
       "message": "Maybe move the definition of kFakeReturnRegister outside the body of this ctor and used it here?\n\nAlso, replace the literal value with art::x86::kNumberOfCpuRegisters?",
+      "range": {
+        "startLine": 362,
+        "startChar": 50,
+        "endLine": 362,
+        "endChar": 51
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_ec236310",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done for first suggestion.\nUnsure about the second, do you want to change 8 to kNumberOfCpuRegisters? I\u0027d rather keep the 8, as I hope this is temporary, and picking kNumberOfCpuRegisters seems unrelated.",
+      "parentUuid": "cb871f28_acb40bc3",
       "range": {
         "startLine": 362,
         "startChar": 50,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4b8a4f30_d0264223",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb871f28_0ca43798",
+      "range": {
+        "startLine": 367,
+        "startChar": 14,
+        "endLine": 367,
+        "endChar": 27
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbaebeb_fb542b1c",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-01-22T19:47:28Z",
       "side": 1,
       "message": "Replace the literal value with art::x86_64::kNumberOfCpuRegisters?",
+      "range": {
+        "startLine": 48,
+        "startChar": 57,
+        "endLine": 48,
+        "endChar": 59
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_0cc277c9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "abbaebeb_fb542b1c",
       "range": {
         "startLine": 48,
         "startChar": 57,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "abbaebeb_fbe0aba6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8a4f30_70c74e27",
+      "range": {
+        "startLine": 429,
+        "startChar": 2,
+        "endLine": 429,
+        "endChar": 72
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b763314_7a19e11d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "cb871f28_6cd1338f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b763314_7a19e11d",
+      "range": {
+        "startLine": 504,
+        "startChar": 63,
+        "endLine": 504,
+        "endChar": 78
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b763314_5a1425e9",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2015-01-22T19:53:14Z",
       "side": 1,
       "message": "Should be FloatingPointSpillSize()?",
+      "range": {
+        "startLine": 517,
+        "startChar": 63,
+        "endLine": 517,
+        "endChar": 78
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_8cb58751",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b763314_5a1425e9",
       "range": {
         "startLine": 517,
         "startChar": 63,
