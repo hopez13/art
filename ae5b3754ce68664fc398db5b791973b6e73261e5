@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bb51bf8_16c8ccb6",
+        "filename": "runtime/jobject_comparator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T03:47:30Z",
+      "side": 1,
+      "message": "Isn\u0027t this returning here? So you take the hit of setting up the handle scope and loading through it on all paths for this (and the final compare)? (Premature opt, I know...)",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 87
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bb51bf8_96dcdc76",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T03:47:30Z",
+      "side": 1,
+      "message": "Can you update the name to make it clearer what we\u0027re comparing? I mean, why is it not just the very last return...",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 23
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aba3cbb1_ca004776",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T03:47:30Z",
+      "side": 1,
+      "message": "are no",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bf447d2_1515745f",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T03:47:30Z",
+      "side": 1,
+      "message": "This really sounds like we want to get the TODO working above...",
+      "range": {
+        "startLine": 80,
+        "startChar": 49,
+        "endLine": 80,
+        "endChar": 75
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bb51bf8_d6d14462",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T03:47:30Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 98,
+        "startChar": 25,
+        "endLine": 98,
+        "endChar": 43
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
