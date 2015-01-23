@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc7afd5_8537c281",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T23:47:16Z",
+      "side": 1,
+      "message": "You used auto in other places. Be consistent in either way.",
+      "range": {
+        "startLine": 790,
+        "startChar": 7,
+        "endLine": 790,
+        "endChar": 37
+      },
+      "revId": "a54605489d9a2fdb4f4f5f92d3e5921834fdee78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc43bd1_44614e29",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T23:47:16Z",
+      "side": 1,
+      "message": "Does this really still fit the name? I mean we used StackReference for something else before, right?",
+      "range": {
+        "startLine": 1154,
+        "startChar": 4,
+        "endLine": 1154,
+        "endChar": 18
+      },
+      "revId": "a54605489d9a2fdb4f4f5f92d3e5921834fdee78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
