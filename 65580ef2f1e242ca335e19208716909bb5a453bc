@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b58bbe4_a4d6a256",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-23T18:28:57Z",
+      "side": 1,
+      "message": "This is good to note as we can rely on that the addresses obj1 and obj2 won\u0027t change during the sorting and it\u0027s ok to base this comparator on them.\n\nThe GC roots are already forwarded, but their classes may not be and the GetClass() calls in lines 135 and 136 could trigger the forwarding of the classes during the sorting. Is it ok? (maybe could we call GetClass() ahead of time in the loop in 199-203?)\n\ntypo: iare -\u003e are",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 76
+      },
+      "revId": "65580ef2f1e242ca335e19208716909bb5a453bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
