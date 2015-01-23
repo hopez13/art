@@ -22,6 +22,30 @@
       "revId": "727b294b4091cf3cc2f8137cd654552f477fe46a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b732f24_5987d3f7",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2015-01-23T01:22:24Z",
+      "side": 1,
+      "message": "Mathieu, I think we have addressed yamauchi\u0027s comment here. The Zygote space is not in the immune_region_ when we do the full GC, if we clear the card here, the dirty cards of Zygote space will not be processed in the next ProcessCards and inserted in the ModUnionTable. So in the future partial GC, we might have missing roots.",
+      "parentUuid": "8bbfe7dd_b7b7e878",
+      "range": {
+        "startLine": 773,
+        "startChar": 34,
+        "endLine": 773,
+        "endChar": 83
+      },
+      "revId": "727b294b4091cf3cc2f8137cd654552f477fe46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
