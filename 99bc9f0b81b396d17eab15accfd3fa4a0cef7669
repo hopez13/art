@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "4b8a4f30_908afaaa",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T08:28:58Z",
+      "side": 1,
+      "message": "You\u0027re correct about the kNone Mingyao: it can currently only be when not initialized. But I don\u0027t think that will hold for long, once I tune this...",
+      "parentUuid": "2bfc3bc4_47afd09f",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 88
+      },
+      "revId": "99bc9f0b81b396d17eab15accfd3fa4a0cef7669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bc24f1f_c10472b8",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
