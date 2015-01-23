@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b69a776_aae98f3e",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-23T18:57:29Z",
+      "side": 1,
+      "message": "Maybe remove this part of this comment to avoid potential confusion as we aren\u0027t sorting weak globals below and calling GetClass *before IsClearedJniWeakGlobal* is not necessary (just calling GetClass is sufficient)?",
+      "range": {
+        "startLine": 170,
+        "startChar": 21,
+        "endLine": 171,
+        "endChar": 23
+      },
+      "revId": "59587926e76238ac97c344fa2540521f6dc18a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
