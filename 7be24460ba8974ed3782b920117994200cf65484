@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "2b58bbe4_c46b9edf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-23T18:49:37Z",
+      "side": 1,
+      "message": "Is this patch set up to date (rebased)? I thought RootType is gone and we are using RootInfo now like patch set 3?",
+      "range": {
+        "startLine": 312,
+        "startChar": 61,
+        "endLine": 313,
+        "endChar": 57
+      },
+      "revId": "7be24460ba8974ed3782b920117994200cf65484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b69a776_8a136b01",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-23T18:49:37Z",
+      "side": 1,
+      "message": "It seems patch set 4 isn\u0027t up to date (isn\u0027t rebased to ToT).",
+      "range": {
+        "startLine": 1595,
+        "startChar": 0,
+        "endLine": 1596,
+        "endChar": 46
+      },
+      "revId": "7be24460ba8974ed3782b920117994200cf65484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b763314_80bd4a59",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -13,6 +59,30 @@
       "writtenOn": "2015-01-23T08:10:11Z",
       "side": 1,
       "message": "reset parameter only works for mark sweep collector.",
+      "range": {
+        "startLine": 2683,
+        "startChar": 38,
+        "endLine": 2683,
+        "endChar": 39
+      },
+      "revId": "7be24460ba8974ed3782b920117994200cf65484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7cd72c_2b98394e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2683,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-23T18:49:37Z",
+      "side": 1,
+      "message": "I\u0027d rather avoid checking the collector type here in ProcessCards() and pass in a parameter that will cause the third branch (lines 2683-2698) to either age, clear, or do nothing. I think it\u0027d be cleaner.\n\nI\u0027d do something like adding another bool param \"bool process_alloc_space_cards\", rename \u0027bool reset\u0027 to \u0027bool reset_alloc_space_cards\" and have\n\nif (process_alloc_space_cards) {\n  if (reset_alloc_space_cards) {\n    // clear\n  } else {\n    // age\n  }\n} else {\n  // do nothing (note: this else block should be omitted in real code.)\n}\n\nin the third branch where we pass in process_alloc_space_cards \u003d\u003d false for SemiSpace and MarkCompact.",
+      "parentUuid": "6b763314_80bd4a59",
       "range": {
         "startLine": 2683,
         "startChar": 38,
