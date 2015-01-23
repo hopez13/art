@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2bc43bd1_443aee04",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-23T23:49:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bc7afd5_8537c281",
+      "range": {
+        "startLine": 790,
+        "startChar": 7,
+        "endLine": 790,
+        "endChar": 37
+      },
+      "revId": "a54605489d9a2fdb4f4f5f92d3e5921834fdee78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bc43bd1_44614e29",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-23T23:47:16Z",
       "side": 1,
       "message": "Does this really still fit the name? I mean we used StackReference for something else before, right?",
+      "range": {
+        "startLine": 1154,
+        "startChar": 4,
+        "endLine": 1154,
+        "endChar": 18
+      },
+      "revId": "a54605489d9a2fdb4f4f5f92d3e5921834fdee78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc43bd1_0702b834",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-23T23:49:57Z",
+      "side": 1,
+      "message": "This is a pointer into the allocation stack, can you clarify what you mean \"still fit the name\"?",
+      "parentUuid": "2bc43bd1_44614e29",
       "range": {
         "startLine": 1154,
         "startChar": 4,
