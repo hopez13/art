@@ -22,6 +22,30 @@
       "revId": "b4c781db26587b32a5906ef7104051c8a4d427a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b7fdb22_cca3cf90",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-23T17:45:13Z",
+      "side": 1,
+      "message": "There was another place, so I copied the logic.  I just tried again, and it seems to be working.  Will upload the change",
+      "parentUuid": "0b7cd72c_4b3d85ac",
+      "range": {
+        "startLine": 1414,
+        "startChar": 0,
+        "endLine": 1415,
+        "endChar": 71
+      },
+      "revId": "b4c781db26587b32a5906ef7104051c8a4d427a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
