@@ -22,6 +22,30 @@
       "revId": "c2e42faceaaa9e570151d81927751a0c6812720f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_fe54191c",
+        "filename": "test/800-smali/src/CatchHandlerOnEntryHelper.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-01-23T13:44:02Z",
+      "side": 1,
+      "message": "Yeah maybe we should move to a separate test designed for deoptimization testing (now we can use VMDebug.start/stopMethodTracing for this purpose)",
+      "parentUuid": "abbaebeb_5bc9d735",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "c2e42faceaaa9e570151d81927751a0c6812720f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
