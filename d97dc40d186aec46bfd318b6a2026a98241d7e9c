@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b8a4f30_337150ce",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-23T11:47:10Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 46,
+        "startChar": 52,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "d97dc40d186aec46bfd318b6a2026a98241d7e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_b3338011",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-23T11:47:10Z",
+      "side": 1,
+      "message": "how about having another entry in the Register enum? It will be less obscure. Directly using kNumberOfCpuRegisters is another option.",
+      "range": {
+        "startLine": 48,
+        "startChar": 57,
+        "endLine": 48,
+        "endChar": 59
+      },
+      "revId": "d97dc40d186aec46bfd318b6a2026a98241d7e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
