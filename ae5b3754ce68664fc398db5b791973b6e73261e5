@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b4e970c_5e0e9159",
+        "filename": "runtime/jobject_comparator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-23T17:54:06Z",
+      "side": 1,
+      "message": "One of obj1 or obj2 would still need to be in a handle since one of the IdentityHashCodes must be evaluated first. Either way, I think its premature opt.",
+      "parentUuid": "2bb51bf8_16c8ccb6",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 87
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bb51bf8_96dcdc76",
         "filename": "runtime/reference_table.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-23T03:47:30Z",
       "side": 1,
       "message": "Can you update the name to make it clearer what we\u0027re comparing? I mean, why is it not just the very last return...",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 23
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b69a776_e7534261",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-23T17:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bb51bf8_96dcdc76",
       "range": {
         "startLine": 74,
         "startChar": 7,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "ab64ab9a_48433f92",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-23T17:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aba3cbb1_ca004776",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bb51bf8_d6d14462",
         "filename": "runtime/reference_table.cc",
         "patchSetId": 2
@@ -105,6 +177,30 @@
       "writtenOn": "2015-01-23T03:47:30Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 98,
+        "startChar": 25,
+        "endLine": 98,
+        "endChar": 43
+      },
+      "revId": "ae5b3754ce68664fc398db5b791973b6e73261e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab64ab9a_68408384",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-23T17:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bb51bf8_d6d14462",
       "range": {
         "startLine": 98,
         "startChar": 25,
