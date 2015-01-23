@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abbaebeb_5bc9d735",
+        "filename": "test/800-smali/src/CatchHandlerOnEntryHelper.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-23T09:11:04Z",
+      "side": 1,
+      "message": "Given the complexity of this test, I think it might deserve being a standalone test (that is, not be mixed with other smali tests).",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "c2e42faceaaa9e570151d81927751a0c6812720f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
