@@ -93,6 +93,30 @@
       "revId": "a54605489d9a2fdb4f4f5f92d3e5921834fdee78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc7afd5_059f52f2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-23T23:54:50Z",
+      "side": 1,
+      "message": "// A reference from the shadow stack to a MirrorType object within the Java heap.\n template\u003cclass MirrorType\u003e\n class MANAGED StackReference : public mirror::ObjectReference\u003cfalse, MirrorType\u003e {\n\nI don\u0027t think the allocation stack counts for a shadow frame.\n\nIn general we normally use StackReference when we temporarily want a reference to something in the stack of some active runtime function as far as I get this. The thread-local allocation-stack is not the same. (I know, I\u0027m pedantic and only understand half of it...)",
+      "parentUuid": "2bc43bd1_0702b834",
+      "range": {
+        "startLine": 1154,
+        "startChar": 4,
+        "endLine": 1154,
+        "endChar": 18
+      },
+      "revId": "a54605489d9a2fdb4f4f5f92d3e5921834fdee78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
