@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b763314_80bd4a59",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2683,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2015-01-23T08:10:11Z",
+      "side": 1,
+      "message": "reset parameter only works for mark sweep collector.",
+      "range": {
+        "startLine": 2683,
+        "startChar": 38,
+        "endLine": 2683,
+        "endChar": 39
+      },
+      "revId": "7be24460ba8974ed3782b920117994200cf65484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
