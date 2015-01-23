@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b27774c_530e8459",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8a4f30_3364f0b7",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbaebeb_deccb5cc",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "abbaebeb_9ef99d8d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb871f28_affa3d43",
+      "range": {
+        "startLine": 456,
+        "startChar": 59,
+        "endLine": 456,
+        "endChar": 71
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb871f28_0f76e977",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -82,6 +130,30 @@
       "writtenOn": "2015-01-23T14:24:23Z",
       "side": 1,
       "message": "We should use the term `allocator\u0027, even though `arena\u0027 is still widely used in the code base. :)",
+      "range": {
+        "startLine": 624,
+        "startChar": 65,
+        "endLine": 624,
+        "endChar": 70
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_5366dc98",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "It\u0027s used everywhere in this file. HEnvironment, HGraph, etc. Maybe renaming all of them should be done at once in a separate CL?",
+      "parentUuid": "cb871f28_0f76e977",
       "range": {
         "startLine": 624,
         "startChar": 65,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "0b27774c_533764ff",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abbaebeb_9e287daa",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 5
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b8a4f30_53f5fc8f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -128,6 +224,30 @@
       "writtenOn": "2015-01-23T14:24:23Z",
       "side": 1,
       "message": "What about\n\n  bool is_empty \u003d (first \u003d\u003d nullptr);\n  if (is_empty) {\n    DCHECK_EQ(last, nullptr);\n  }\n  return is_empty;\n\n?",
+      "range": {
+        "startLine": 656,
+        "startChar": 4,
+        "endLine": 656,
+        "endChar": 29
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b27774c_7334e0f9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8a4f30_53f5fc8f",
       "range": {
         "startLine": 656,
         "startChar": 4,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "abbaebeb_1ee6adea",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Ditto. (I didn\u0027t write this, just moved it in front of HInstruction)",
+      "parentUuid": "abbaebeb_9e419d6c",
+      "range": {
+        "startLine": 734,
+        "startChar": 31,
+        "endLine": 734,
+        "endChar": 36
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbaebeb_fe42d970",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "0b27774c_f370f0cb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abbaebeb_fe42d970",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 20
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b8a4f30_d373ac7f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -197,6 +365,30 @@
       "writtenOn": "2015-01-23T14:24:23Z",
       "side": 1,
       "message": "Turn this while-loop into a for-loop?",
+      "range": {
+        "startLine": 857,
+        "startChar": 4,
+        "endLine": 860,
+        "endChar": 5
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_f376e83f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-23T15:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8a4f30_d373ac7f",
       "range": {
         "startLine": 857,
         "startChar": 4,
