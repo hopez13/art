@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "cb871f28_6c75b3e7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T10:22:07Z",
+      "side": 1,
+      "message": "I suggested to use kNumberOfCpuRegisters (instead of literal 8) as it is defined as the integer value following the last actual register value in runtime/arch/x86/registers_x86.h, thus ensuring it is not a genuine register.",
+      "parentUuid": "cb871f28_ec236310",
+      "range": {
+        "startLine": 362,
+        "startChar": 50,
+        "endLine": 362,
+        "endChar": 51
+      },
+      "revId": "53ec8990736024ffd4e4155afbaa095046555548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb871f28_0ca43798",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
