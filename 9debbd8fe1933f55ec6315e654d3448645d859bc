@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4b8a4f30_3364f0b7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "Suggestion: rename as vreg_env_use?",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbaebeb_deccb5cc",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -18,6 +41,167 @@
         "startChar": 0,
         "endLine": 453,
         "endChar": 1
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_affa3d43",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "As this argument is not `const\u0027, the C++ style guide requires  a pointer instead of a reference here (\"All parameters passed by reference must be labeled const.\").",
+      "range": {
+        "startLine": 456,
+        "startChar": 59,
+        "endLine": 456,
+        "endChar": 71
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb871f28_0f76e977",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "We should use the term `allocator\u0027, even though `arena\u0027 is still widely used in the code base. :)",
+      "range": {
+        "startLine": 624,
+        "startChar": 65,
+        "endLine": 624,
+        "endChar": 70
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_9e287daa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "Add DCHECK_EQ(last, nullptr) before the assignments?  Or better, replace\n\n  first_ \u003d\u003d nullptr\n\nwith\n\n  IsEmpty()\n\n?",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 5
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_53f5fc8f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "What about\n\n  bool is_empty \u003d (first \u003d\u003d nullptr);\n  if (is_empty) {\n    DCHECK_EQ(last, nullptr);\n  }\n  return is_empty;\n\n?",
+      "range": {
+        "startLine": 656,
+        "startChar": 4,
+        "endLine": 656,
+        "endChar": 29
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_9e419d6c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 734,
+        "startChar": 31,
+        "endLine": 734,
+        "endChar": 36
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbaebeb_fe42d970",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "As they are default-constructed, you can remove these calls to ctors from this initialization list.",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 20
+      },
+      "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8a4f30_d373ac7f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-23T14:24:23Z",
+      "side": 1,
+      "message": "Turn this while-loop into a for-loop?",
+      "range": {
+        "startLine": 857,
+        "startChar": 4,
+        "endLine": 860,
+        "endChar": 5
       },
       "revId": "9debbd8fe1933f55ec6315e654d3448645d859bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
