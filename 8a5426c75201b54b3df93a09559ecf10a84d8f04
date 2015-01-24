@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2bab5bf1_0c02d734",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-24T14:29:44Z",
+      "side": 1,
+      "message": "Yes, it is actually a scratch register, but I forgot to update it when we moved from R4 suspend check to TLS suspend check.",
+      "parentUuid": "cb6f1f75_2934cdc6",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 476,
+        "endChar": 5
+      },
+      "revId": "8a5426c75201b54b3df93a09559ecf10a84d8f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6f1f75_89db7930",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-23T19:13:02Z",
       "side": 1,
       "message": "Maybe move this function to runtime/utils.h?",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 1
+      },
+      "revId": "8a5426c75201b54b3df93a09559ecf10a84d8f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_79fc07c7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-24T14:29:44Z",
+      "side": 1,
+      "message": "Actually, just discovered ffs, so using this instead.",
+      "parentUuid": "cb6f1f75_89db7930",
       "range": {
         "startLine": 504,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cb69dfa3_9919dba4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-24T14:29:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6a2365_4ac6d35a",
+      "range": {
+        "startLine": 539,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 59
+      },
+      "revId": "8a5426c75201b54b3df93a09559ecf10a84d8f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b7cd72c_cb5e55ea",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-23T19:13:02Z",
       "side": 1,
       "message": "Shouldn\u0027t PC and LR be processed as well?",
+      "range": {
+        "startLine": 554,
+        "startChar": 13,
+        "endLine": 554,
+        "endChar": 29
+      },
+      "revId": "8a5426c75201b54b3df93a09559ecf10a84d8f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_b91e9f87",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-24T14:29:44Z",
+      "side": 1,
+      "message": "No, PC is the one that should be popped, and is already in the list.",
+      "parentUuid": "0b7cd72c_cb5e55ea",
       "range": {
         "startLine": 554,
         "startChar": 13,
