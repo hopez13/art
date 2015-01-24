@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bcab3df_0c881bb2",
+        "filename": "runtime/read_barrier_c.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:26:40Z",
+      "side": 1,
+      "message": "Note we use this read barrier type for now because it does not need a change in the object model and an edit in libcore.",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 37
+      },
+      "revId": "c23f0d88bee65433a94f84c7cabe50be863905a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
