@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bcab3df_29c6a959",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:30:48Z",
+      "side": 0,
+      "message": "Can we keep this DCHECK_LE as a pointer could be misaligned?",
+      "range": {
+        "startLine": 215,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 13
+      },
+      "revId": "61e620d4771e09143471e38fe7531678a36ce3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

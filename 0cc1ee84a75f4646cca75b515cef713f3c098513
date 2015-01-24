@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bcab3df_c9a2750a",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:30:48Z",
+      "side": 1,
+      "message": "I assume these are needed for the binary_search() call?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "0cc1ee84a75f4646cca75b515cef713f3c098513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bcab3df_69742169",
+        "filename": "runtime/gc/accounting/atomic_stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:30:48Z",
+      "side": 1,
+      "message": "Now it seems we are starting to assume that T is mirror::Object or its subclass. Do we use AtomicStack only with T \u003d mirror::Object or its subclass throughout the codebase (which may be implicitly the case)? If so, is it worth making it clearer. Maybe adding a comment at the top?",
+      "range": {
+        "startLine": 84,
+        "startChar": 40,
+        "endLine": 84,
+        "endChar": 57
+      },
+      "revId": "0cc1ee84a75f4646cca75b515cef713f3c098513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bcab3df_89a87d6c",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:30:48Z",
+      "side": 1,
+      "message": "The original code checked that obj is on the alloc stack. The new code checks that obj is NOT on the alloc stack. Is this ok?",
+      "range": {
+        "startLine": 958,
+        "startChar": 10,
+        "endLine": 958,
+        "endChar": 50
+      },
+      "revId": "0cc1ee84a75f4646cca75b515cef713f3c098513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc7afd5_c5e9ba3e",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:30:48Z",
+      "side": 1,
+      "message": "Indent by 4 spaces?",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 4
+      },
+      "revId": "0cc1ee84a75f4646cca75b515cef713f3c098513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bc7afd5_05b3d26b",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-01-24T01:30:48Z",
+      "side": 1,
+      "message": "Should this be without * as in\n\nsizeof(StackReference\u003cmirror::Object\u003e)\n\n?",
+      "range": {
+        "startLine": 227,
+        "startChar": 31,
+        "endLine": 227,
+        "endChar": 62
+      },
+      "revId": "0cc1ee84a75f4646cca75b515cef713f3c098513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
