@@ -22,6 +22,29 @@
       "revId": "43aa0b460b5484ea02652a4a54b3208d30bbfe48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_8fefd942",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T18:04:35Z",
+      "side": 1,
+      "message": "You should move this to if [run_checker], in order to not pollute regular tests.",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 54
+      },
+      "revId": "43aa0b460b5484ea02652a4a54b3208d30bbfe48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
