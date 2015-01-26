@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bab5bf1_0f3ac9b5",
+        "filename": "compiler/utils/growable_array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-26T14:49:39Z",
+      "side": 1,
+      "message": "I think `SetSize\u0027 should be called after the assignment to `elem_list_\u0027 performed in line 45.  It shouldn\u0027t change the behavior of the code actually executed, but it seems more logical to me with respect to the implementation of `Resize\u0027.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "c45ac3eaf2613f145c403754ac2200814e437510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
