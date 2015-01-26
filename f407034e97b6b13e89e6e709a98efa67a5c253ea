@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bab5bf1_2f434593",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T18:51:47Z",
+      "side": 1,
+      "message": "Doesn\u0027t change much. You should do:\n\n  if run_exit \u003d 0 then\n    if run_checker \u003d yes then\n      $checker args...\n      checker_exit \u003d $?\n      if checker_exit \u003d 0 then\n        good \u003d yes\n      fi\n      echo checker status\n    else\n      good \u003d yes\n    fi\n  fi\n  echo run status",
+      "range": {
+        "startLine": 555,
+        "startChar": 12,
+        "endLine": 555,
+        "endChar": 58
+      },
+      "revId": "f407034e97b6b13e89e6e709a98efa67a5c253ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
