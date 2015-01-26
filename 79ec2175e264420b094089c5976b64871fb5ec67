@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab858b8b_066b9e5e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3549,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-26T16:58:03Z",
+      "side": 1,
+      "message": "Question:  Is it safe here to detect the constant 0.0 and generate a xorps?  I wasn\u0027t sure.",
+      "revId": "79ec2175e264420b094089c5976b64871fb5ec67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
