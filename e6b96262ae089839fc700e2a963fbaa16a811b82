@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_aba3b590",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_8f599953",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 87,
+        "endChar": 26
+      },
+      "revId": "e6b96262ae089839fc700e2a963fbaa16a811b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_f97bb7e1",
         "filename": "compiler/optimizing/gvn.h",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_4bbf999b",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T14:41:01Z",
+      "side": 1,
+      "message": "Yes, I forgot to add that I intended to move it afterwards. I wanted to do this in small steps.",
+      "parentUuid": "cb69dfa3_f97bb7e1",
+      "range": {
+        "startLine": 223,
+        "startChar": 21,
+        "endLine": 223,
+        "endChar": 22
+      },
+      "revId": "e6b96262ae089839fc700e2a963fbaa16a811b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd02b89_0bc3e149",
         "filename": "compiler/optimizing/gvn.h",
         "patchSetId": 1
@@ -83,6 +131,30 @@
       "writtenOn": "2015-01-26T14:19:13Z",
       "side": 1,
       "message": "Maybe introduce an art::GrowableArray\u003cT\u003e::Fill method and/or another art::GrowableArray\u003cT\u003e constructor filling the array with a given value?",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 5
+      },
+      "revId": "e6b96262ae089839fc700e2a963fbaa16a811b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_8f04f90c",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T14:41:01Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "abd02b89_0bc3e149",
       "range": {
         "startLine": 235,
         "startChar": 4,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_ab75756c",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T14:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_ef75bdb9",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 15
+      },
+      "revId": "e6b96262ae089839fc700e2a963fbaa16a811b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd02b89_8bffd170",
         "filename": "compiler/optimizing/gvn.h",
         "patchSetId": 1
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_cb8429ec",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T14:41:01Z",
+      "side": 1,
+      "message": "As discussed, it was this way before, and helpers are named the same way, so I\u0027ll avoid the long name (for now).",
+      "parentUuid": "abd02b89_8bffd170",
+      "range": {
+        "startLine": 260,
+        "startChar": 29,
+        "endLine": 260,
+        "endChar": 43
+      },
+      "revId": "e6b96262ae089839fc700e2a963fbaa16a811b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_19914baf",
         "filename": "compiler/optimizing/gvn.h",
         "patchSetId": 1
@@ -152,6 +272,30 @@
       "writtenOn": "2015-01-26T14:19:13Z",
       "side": 1,
       "message": "Maybe rename as loop_side_effects_ to prevent any ambiguity?",
+      "range": {
+        "startLine": 264,
+        "startChar": 29,
+        "endLine": 264,
+        "endChar": 42
+      },
+      "revId": "e6b96262ae089839fc700e2a963fbaa16a811b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_2b6a2589",
+        "filename": "compiler/optimizing/gvn.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-26T14:41:01Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "cb69dfa3_19914baf",
       "range": {
         "startLine": 264,
         "startChar": 29,
