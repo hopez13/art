@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_abad752d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "Done. You\u0027re right, but it\u0027s actually the other way round: (env_use !\u003d null) \u003d\u003e (vreg !\u003d null).",
+      "parentUuid": "abd02b89_ab329591",
+      "range": {
+        "startLine": 44,
+        "startChar": 26,
+        "endLine": 44,
+        "endChar": 52
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_5c63b1fb",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-26T15:46:30Z",
       "side": 1,
       "message": "CopyFrom?",
+      "range": {
+        "startLine": 445,
+        "startChar": 19,
+        "endLine": 445,
+        "endChar": 27
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_3c119d46",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_5c63b1fb",
       "range": {
         "startLine": 445,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2bab5bf1_6fef0d8f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_8b37d181",
+      "range": {
+        "startLine": 590,
+        "startChar": 1,
+        "endLine": 591,
+        "endChar": 15
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_1c9bf97f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-26T15:46:30Z",
       "side": 1,
       "message": "Add a comment what this returns.",
+      "range": {
+        "startLine": 624,
+        "startChar": 19,
+        "endLine": 624,
+        "endChar": 25
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_bc2dad84",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_1c9bf97f",
       "range": {
         "startLine": 624,
         "startChar": 19,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2bab5bf1_8f0eb9d9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_2b706546",
+      "range": {
+        "startLine": 667,
+        "startChar": 2,
+        "endLine": 667,
+        "endChar": 25
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd02b89_6beffd8e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2015-01-26T15:21:53Z",
       "side": 1,
       "message": "Nit:\n\n  DCHECK_NE(vreg.vreg_, nullptr);",
+      "range": {
+        "startLine": 778,
+        "startChar": 4,
+        "endLine": 778,
+        "endChar": 34
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_4b77993c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "The _NE and _EQ macros don\u0027t like the nullptr.",
+      "parentUuid": "abd02b89_6beffd8e",
       "range": {
         "startLine": 778,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "cb69dfa3_dca0a1ad",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "cb69dfa3_1c805924",
+      "range": {
+        "startLine": 779,
+        "startChar": 4,
+        "endLine": 779,
+        "endChar": 34
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_0fc92937",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2015-01-26T15:46:30Z",
       "side": 1,
       "message": "Make those const.",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 797,
+        "endChar": 39
+      },
+      "revId": "404153437c2ccc2a2e968edb8750789bda62a820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_ef13fdff",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:14:28Z",
+      "side": 1,
+      "message": "You mean \"HInstruction* const vreg_\", right? GrowableArray::Put doesn\u0027t like that.",
+      "parentUuid": "2bab5bf1_0fc92937",
       "range": {
         "startLine": 796,
         "startChar": 0,
