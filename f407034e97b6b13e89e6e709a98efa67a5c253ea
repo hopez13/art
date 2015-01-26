@@ -22,6 +22,30 @@
       "revId": "f407034e97b6b13e89e6e709a98efa67a5c253ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_ee75bbb9",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-26T18:56:30Z",
+      "side": 1,
+      "message": "oh yea, i forgot to wrapped it around run_checker status. I\u0027ll fix.",
+      "parentUuid": "2bab5bf1_2f434593",
+      "range": {
+        "startLine": 555,
+        "startChar": 12,
+        "endLine": 555,
+        "endChar": 58
+      },
+      "revId": "f407034e97b6b13e89e6e709a98efa67a5c253ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
