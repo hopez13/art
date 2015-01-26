@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b58c71b_af9b9900",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3528,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-26T18:25:36Z",
+      "side": 1,
+      "message": "Indent wrong...",
+      "range": {
+        "startLine": 3527,
+        "startChar": 64,
+        "endLine": 3528,
+        "endChar": 80
+      },
+      "revId": "7204fe4c16b9349fbaa830f0a76bc916f79f15dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b58c71b_0f04a587",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2438,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-26T18:25:36Z",
+      "side": 1,
+      "message": "These might be called rarely enough that a CHECK would be OK. Else we\u0027ll always have to rely on JDWP tests (and not the coverage gained by people using the debugger).",
+      "range": {
+        "startLine": 2425,
+        "startChar": 0,
+        "endLine": 2438,
+        "endChar": 1
+      },
+      "revId": "7204fe4c16b9349fbaa830f0a76bc916f79f15dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
