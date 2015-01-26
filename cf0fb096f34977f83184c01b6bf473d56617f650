@@ -68,6 +68,30 @@
       "revId": "cf0fb096f34977f83184c01b6bf473d56617f650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b20bb81_0405763c",
+        "filename": "compiler/dex/dex_types.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-26T21:33:43Z",
+      "side": 1,
+      "message": "No, I derived the filename from the other two, and didn\u0027t want yet another header. Any suggestions for an alternative?",
+      "parentUuid": "cb69dfa3_5f7ac325",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "cf0fb096f34977f83184c01b6bf473d56617f650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
