@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2bab5bf1_6c3d5bfb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T15:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_794a4723",
+      "range": {
+        "startLine": 593,
+        "startChar": 19,
+        "endLine": 593,
+        "endChar": 20
+      },
+      "revId": "7ef5fab7cd86a18ce0d43cfdcb996f176e637734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_ec65cb8b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-26T09:31:06Z",
       "side": 1,
       "message": "DCHECK(!is_empty || last \u003d\u003d nullptr).",
+      "range": {
+        "startLine": 657,
+        "startChar": 1,
+        "endLine": 659,
+        "endChar": 5
+      },
+      "revId": "7ef5fab7cd86a18ce0d43cfdcb996f176e637734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_6c643b3b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T15:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_ec65cb8b",
       "range": {
         "startLine": 657,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_cbe0a9dc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T15:23:44Z",
+      "side": 1,
+      "message": "Removed.\nDoesn\u0027t seem like an iterator is needed. This was used mainly by ssa_builder to directly modify the environment but the builder can easily do so with the existing public methods.",
+      "parentUuid": "abd02b89_c8feef0a",
+      "range": {
+        "startLine": 795,
+        "startChar": 32,
+        "endLine": 795,
+        "endChar": 40
+      },
+      "revId": "7ef5fab7cd86a18ce0d43cfdcb996f176e637734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_b9bcdf8d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-26T09:31:06Z",
       "side": 1,
       "message": "Could we merge those two arrays with an array of internal struct:\n\nstruct {\n  HInstruction* vreg;\n  HUseListNode* node;\n}",
+      "range": {
+        "startLine": 802,
+        "startChar": 1,
+        "endLine": 803,
+        "endChar": 60
+      },
+      "revId": "7ef5fab7cd86a18ce0d43cfdcb996f176e637734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_6be9bdb9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T15:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_b9bcdf8d",
       "range": {
         "startLine": 802,
         "startChar": 1,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2bab5bf1_8fab598f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T15:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_2804eb87",
+      "range": {
+        "startLine": 878,
+        "startChar": 9,
+        "endLine": 878,
+        "endChar": 21
+      },
+      "revId": "7ef5fab7cd86a18ce0d43cfdcb996f176e637734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_ec3e6b4b",
         "filename": "compiler/optimizing/ssa_phi_elimination.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-01-26T09:31:06Z",
       "side": 1,
       "message": "Add a comment why can you do this outside of the loop.",
+      "range": {
+        "startLine": 82,
+        "startChar": 7,
+        "endLine": 82,
+        "endChar": 40
+      },
+      "revId": "7ef5fab7cd86a18ce0d43cfdcb996f176e637734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_1c377900",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T15:23:44Z",
+      "side": 1,
+      "message": "Removed in case stuff gets refactored in the future.",
+      "parentUuid": "2bab5bf1_ec3e6b4b",
       "range": {
         "startLine": 82,
         "startChar": 7,
