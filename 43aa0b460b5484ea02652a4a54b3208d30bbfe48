@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abd02b89_2ba865e7",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-26T16:57:11Z",
+      "side": 1,
+      "message": "Technically this will also print 0 when run_exit\u003d0 and run_checker\u003dno even though it should be \"not-run\"",
+      "range": {
+        "startLine": 559,
+        "startChar": 8,
+        "endLine": 559,
+        "endChar": 54
+      },
+      "revId": "43aa0b460b5484ea02652a4a54b3208d30bbfe48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
