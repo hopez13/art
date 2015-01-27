@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "cb69dfa3_e24e9c89",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-27T10:54:00Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "cb69dfa3_e2d13c62",
+      "range": {
+        "startLine": 866,
+        "startChar": 2,
+        "endLine": 866,
+        "endChar": 26
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd02b89_2efeb33a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
@@ -59,6 +83,30 @@
       "writtenOn": "2015-01-27T10:47:54Z",
       "side": 1,
       "message": "I know this was Nicolas\u0027 suggestion :)\n\nI think we\u0027d be better without the *Expensive* prefix though. Documenting the complexity and the expensiveness is much better imo. In general, expensive does not tell much: space, time, how much? and it creates an easy to copy precedent which is pretty vague.",
+      "range": {
+        "startLine": 872,
+        "startChar": 9,
+        "endLine": 872,
+        "endChar": 37
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_c2599852",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-27T10:54:00Z",
+      "side": 1,
+      "message": "I just don\u0027t want this method to be used. ComputeNumberOfUses does not express this, any other ideas?",
+      "parentUuid": "abd02b89_2efeb33a",
       "range": {
         "startLine": 872,
         "startChar": 9,
