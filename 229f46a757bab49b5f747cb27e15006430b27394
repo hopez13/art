@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb69dfa3_ff7b97e1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-27T08:24:07Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem portable, as, e.g., XMM register are 8 bytes on x86 and core registers are 4 bytes.\n\nIn any case, why can\u0027t we just write the 64bits value to the register?",
+      "range": {
+        "startLine": 350,
+        "startChar": 10,
+        "endLine": 350,
+        "endChar": 18
+      },
+      "revId": "229f46a757bab49b5f747cb27e15006430b27394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
