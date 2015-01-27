@@ -188,6 +188,30 @@
       "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_2e2d1300",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T11:28:37Z",
+      "side": 1,
+      "message": "Yeah, I thought about this too and maybe the best way would be to just move it to the two source files which use it and not have it as a part of the class interface.",
+      "parentUuid": "cb69dfa3_826080ef",
+      "range": {
+        "startLine": 872,
+        "startChar": 9,
+        "endLine": 872,
+        "endChar": 37
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
