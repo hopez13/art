@@ -116,6 +116,30 @@
       "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_4e77a73c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T10:57:13Z",
+      "side": 1,
+      "message": "Something like LinearTimeNumberOfUses would be more descriptive.  What do you think?",
+      "parentUuid": "cb69dfa3_c2599852",
+      "range": {
+        "startLine": 872,
+        "startChar": 9,
+        "endLine": 872,
+        "endChar": 37
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
