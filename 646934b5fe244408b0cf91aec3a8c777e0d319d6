@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d73507d3_12350cd5",
+        "filename": "compiler/dex/quick/x86/codegen_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-27T22:34:18Z",
+      "side": 1,
+      "message": "Mark, is Intel using this functionality? There are no users in AOSP. Can we fully remove?",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 60
+      },
+      "revId": "646934b5fe244408b0cf91aec3a8c777e0d319d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
