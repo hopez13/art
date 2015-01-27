@@ -164,6 +164,30 @@
       "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_826080ef",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-27T11:03:24Z",
+      "side": 1,
+      "message": "This is only used in the graph checker (and some tests). How about inlining it then? The complexity become obvious then. If we don\u0027t want something to be used we probably should not have it in the first place :)\n\nI\u0027m also fine with just documenting it. We should always check the docs of a function before use, right?",
+      "parentUuid": "abd02b89_4e77a73c",
+      "range": {
+        "startLine": 872,
+        "startChar": 9,
+        "endLine": 872,
+        "endChar": 37
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
