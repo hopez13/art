@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "2bab5bf1_55345ec7",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T15:30:17Z",
+      "side": 1,
+      "message": "Does \"B\" stands for \"block\"?  I think \"block\" would be more explicit.  But maybe this is contrived by the c1visualizer format for cross references?",
+      "range": {
+        "startLine": 226,
+        "startChar": 20,
+        "endLine": 226,
+        "endChar": 21
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_f1f47a96",
+        "filename": "test/445-checker-licm/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T15:30:17Z",
+      "side": 1,
+      "message": "test",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_edea0d02",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 2
@@ -18,6 +64,29 @@
         "startChar": 0,
         "endLine": 24,
         "endChar": 61
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_6dffddbc",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T15:30:17Z",
+      "side": 1,
+      "message": "What is the purpose of this line?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 24
       },
       "revId": "5c946424f158b055838f15056cf829c4231df435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -42,6 +111,46 @@
         "endLine": 40,
         "endChar": 61
       },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_71e9aab9",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T15:30:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_51bf469b",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T15:30:17Z",
+      "side": 1,
+      "message": "BTW, regarding nested loops, do you think the LICM pass could be able to turn the following code:\n\n  public static int innerDiv() {\n    int b \u003d staticField;\n    int result \u003d 0;\n    for (int i \u003d 0; i \u003c 10; ++i) {\n      for (int j \u003d 0; j \u003c 10; ++j) {\n        result +\u003d staticField / i;\n      }\n    }\n    return result;\n  }\n\ninto something equivalent to this Java code:\n\n  public static int innerDiv() {\n    int b \u003d staticField;\n    int result \u003d 0;\n    for (int i \u003d 0; i \u003c 10; ++i) {\n      int tmp \u003d staticField / i;\n      for (int j \u003d 0; j \u003c 10; ++j) {\n        result +\u003d tmp;\n      }\n    }\n    return result;\n  }\n\n?",
       "revId": "5c946424f158b055838f15056cf829c4231df435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
