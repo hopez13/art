@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb69dfa3_edea0d02",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T15:23:29Z",
+      "side": 1,
+      "message": "Start the group here again (with the same name). Otherwise the NOT will only be checked on lines preceding the matches of the DAG (there\u0027s an ordering between the CHECK lines and you want to verify the NOT on the entire output).",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_0df021ef",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T15:23:29Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_2d05e53c",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T15:23:29Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 77
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
