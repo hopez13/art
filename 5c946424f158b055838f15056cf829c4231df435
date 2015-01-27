@@ -25,6 +25,121 @@
     },
     {
       "key": {
+        "uuid": "2b47db3f_12276c52",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-27T18:20:57Z",
+      "side": 1,
+      "message": "I guess this must be the inner most loop that contains this block. A more appropriate name might be helpful.",
+      "range": {
+        "startLine": 29,
+        "startChar": 58,
+        "endLine": 29,
+        "endChar": 76
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f82338_604fcc7b",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-27T18:20:57Z",
+      "side": 1,
+      "message": "Extra word.",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b47db3f_b260587d",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-27T18:20:57Z",
+      "side": 1,
+      "message": "Another strategy we have used is iteration peeling to deal with cases that are invariants and thus are guaranteed to throw first iteration (like null checks on invariant objects)",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 42
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37f82338_00a5a8c9",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-27T18:20:57Z",
+      "side": 1,
+      "message": "Likely this is adequate to capture memory effects, but what is your plan for making it possible to hoist things that touch invariant memory locations?",
+      "range": {
+        "startLine": 110,
+        "startChar": 56,
+        "endLine": 110,
+        "endChar": 68
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1705dffd_df88bf37",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-27T18:20:57Z",
+      "side": 1,
+      "message": "Just to clarify, doing this makes it possible for InputsAreDefinedBeforeLoop to return true when the define came from an instruction that was also hoisted, right?",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd02b89_f1f47a96",
         "filename": "test/445-checker-licm/info.txt",
         "patchSetId": 2
@@ -82,6 +197,30 @@
       "writtenOn": "2015-01-27T15:30:17Z",
       "side": 1,
       "message": "What is the purpose of this line?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1705dffd_bf43b32f",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-27T18:20:57Z",
+      "side": 1,
+      "message": "Probably so that it is initialized with a load. Likely, same could be achieved by having it as an argument. If he made it a constant or a known expression, it could be evaluated at compile time.",
+      "parentUuid": "cb69dfa3_6dffddbc",
       "range": {
         "startLine": 27,
         "startChar": 4,
