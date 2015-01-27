@@ -175,6 +175,24 @@
     },
     {
       "key": {
+        "uuid": "2bab5bf1_b5c142c7",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T17:36:07Z",
+      "side": 1,
+      "message": "Yes, Nicolas also explained to me offline that LICM cannot be applied in this case, as \"staticField / i\" may throw.  But it should work with a non-throwing expression, such as \"staticField * i\".  May I suggest adding such a test case exercising code hoisting from an inner loop?",
+      "parentUuid": "cb69dfa3_8de6f1e8",
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_2d05e53c",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 2
