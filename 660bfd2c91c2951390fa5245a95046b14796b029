@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "cb69dfa3_422ae8e8",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "We may want to introduce a switch on `pass_name\u0027 here (maybe in another CL).",
+      "range": {
+        "startLine": 197,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 5
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_31b29208",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(instruction-\u003eIsInLoop());\n\n?",
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_d5284eab",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -41,6 +81,46 @@
         "startChar": 16,
         "endLine": 44,
         "endChar": 28
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_42dca89c",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Maybe add \"later\" at the end of this sentence?",
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_552e1eaa",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Move this logic its own function?",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 92
       },
       "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -71,6 +151,92 @@
     },
     {
       "key": {
+        "uuid": "abd02b89_b1a682c7",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Merge these two `if\u0027 statements?",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 67
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_d57a0ea7",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Is there a way to disable this code in non-debug mode?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 80
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_42a5880e",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Maybe introduce an art::HGraphVisitor::VisitPostOrder method and turn LICM into a visitor?",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 38
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_027c70d9",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(inner-\u003eIsInLoop());\n\n?",
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_b5bdc2db",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -87,6 +253,52 @@
         "startChar": 47,
         "endLine": 112,
         "endChar": 49
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_95c24667",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "I know this method was not part of your CL per se, but I think we should rename it as MoveBefore (maybe in another CL).",
+      "range": {
+        "startLine": 710,
+        "startChar": 19,
+        "endLine": 710,
+        "endChar": 31
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_e2769cfc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3051,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-01-27T14:55:35Z",
+      "side": 1,
+      "message": "Does this iterator follow a specific traversal order?  Maybe mention it in a comment.",
+      "range": {
+        "startLine": 3051,
+        "startChar": 6,
+        "endLine": 3051,
+        "endChar": 27
       },
       "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
