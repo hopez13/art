@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bab5bf1_920edcd9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-27T10:47:54Z",
+      "side": 1,
+      "message": "you need a space",
+      "range": {
+        "startLine": 626,
+        "startChar": 32,
+        "endLine": 626,
+        "endChar": 35
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_e2d13c62",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-27T10:47:54Z",
+      "side": 1,
+      "message": "This should be const.\nIf you need to modify it we should consider going back to pointers. I don\u0027t think the style guide covers this, or at least I didn\u0027t find anything, but returning a non const reference is error prone imo.\n\nSame in the others parts.",
+      "range": {
+        "startLine": 866,
+        "startChar": 2,
+        "endLine": 866,
+        "endChar": 26
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_2efeb33a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-01-27T10:47:54Z",
+      "side": 1,
+      "message": "I know this was Nicolas\u0027 suggestion :)\n\nI think we\u0027d be better without the *Expensive* prefix though. Documenting the complexity and the expensiveness is much better imo. In general, expensive does not tell much: space, time, how much? and it creates an easy to copy precedent which is pretty vague.",
+      "range": {
+        "startLine": 872,
+        "startChar": 9,
+        "endLine": 872,
+        "endChar": 37
+      },
+      "revId": "ed59619b370ef23ffbb25d1d01f615e60a9262b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
