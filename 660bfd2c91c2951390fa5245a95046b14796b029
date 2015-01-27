@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb69dfa3_a21824e7",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T14:48:59Z",
+      "side": 1,
+      "message": "The format will need to be \" ( loop_header:null ) \". Are you using this yet?",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 35
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_d5284eab",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T14:48:59Z",
+      "side": 1,
+      "message": "can move an",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_b542e26f",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T14:48:59Z",
+      "side": 1,
+      "message": "This expression occurs multiple times. How about turning it into an inline function?",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 66
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bab5bf1_b5bdc2db",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T14:48:59Z",
+      "side": 1,
+      "message": "if",
+      "range": {
+        "startLine": 112,
+        "startChar": 47,
+        "endLine": 112,
+        "endChar": 49
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd02b89_b1ffa289",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3057,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T14:48:59Z",
+      "side": 1,
+      "message": "Deduplicate? E.g by turning this into an \"if bit-not-set then Advance()\"",
+      "range": {
+        "startLine": 3057,
+        "startChar": 4,
+        "endLine": 3057,
+        "endChar": 57
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb69dfa3_820b2095",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-01-27T14:48:59Z",
+      "side": 1,
+      "message": "Calin is fixing this in https://android-review.googlesource.com/#/c/124779/",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
