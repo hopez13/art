@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b47db3f_b22db884",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-27T13:40:56Z",
+      "side": 1,
+      "message": "Use REX_X for the 0x2?  Not sure where the 0x40 should come from.\n\n10 minutes ago, I saw a version of this fix in someone else\u0027s change:\n      address \u003c\u003c \"[\";\n      if (base !\u003d 5 || mod !\u003d 0) {\n        DumpBaseReg(address, rex64, base);\n        if (index !\u003d 4 || (rex64 \u0026 REX_X) !\u003d 0) {\n          address \u003c\u003c \" + \";\n        }\n      }\n      if (index !\u003d 4 || (rex64 \u0026 REX_X) !\u003d 0) {\n        DumpIndexReg(address, rex64, index);\n        if (scale !\u003d 0) {\n          address \u003c\u003c StringPrintf(\" * %d\", 1 \u003c\u003c scale);\n        }\n      }",
+      "range": {
+        "startLine": 193,
+        "startChar": 32,
+        "endLine": 193,
+        "endChar": 36
+      },
+      "revId": "accdfce2b06befe1fd13bc270dd249b753198756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
