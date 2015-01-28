@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_fb2ccfbf",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_a21824e7",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 35
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_422ae8e8",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-27T14:55:35Z",
       "side": 1,
       "message": "We may want to introduce a switch on `pass_name\u0027 here (maybe in another CL).",
+      "range": {
+        "startLine": 197,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 5
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_d601a432",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Yeah, when it becomes harder to read, we can use a switch.",
+      "parentUuid": "cb69dfa3_422ae8e8",
       "range": {
         "startLine": 197,
         "startChar": 4,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_9b290baf",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_31b29208",
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_d5284eab",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2015-01-27T14:48:59Z",
       "side": 1,
       "message": "can move an",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_f6fe20c0",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_d5284eab",
       "range": {
         "startLine": 44,
         "startChar": 16,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_bb2647da",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_42dca89c",
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_552e1eaa",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2015-01-27T14:55:35Z",
       "side": 1,
       "message": "Move this logic its own function?",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 46,
+        "endChar": 92
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_96fb2ccf",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_552e1eaa",
       "range": {
         "startLine": 46,
         "startChar": 36,
@@ -174,6 +306,54 @@
     },
     {
       "key": {
+        "uuid": "578037c4_b6f8a8d2",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_b1a682c7",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 67
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_383b29fc",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_b542e26f",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 66
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_d57a0ea7",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -185,6 +365,30 @@
       "writtenOn": "2015-01-27T14:55:35Z",
       "side": 1,
       "message": "Is there a way to disable this code in non-debug mode?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 80
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_5615946a",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "No, but its impact is pretty minimal so I wouldn\u0027t worry about it.",
+      "parentUuid": "2bab5bf1_d57a0ea7",
       "range": {
         "startLine": 78,
         "startChar": 2,
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_5b638302",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "LICM is an HOptimization already, so we shouldn\u0027t extend multiple classes.",
+      "parentUuid": "cb69dfa3_42a5880e",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 38
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_027c70d9",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -237,6 +465,24 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_7b68bfdd",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_027c70d9",
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bab5bf1_b5bdc2db",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 1
@@ -248,6 +494,30 @@
       "writtenOn": "2015-01-27T14:48:59Z",
       "side": 1,
       "message": "if",
+      "range": {
+        "startLine": 112,
+        "startChar": 47,
+        "endLine": 112,
+        "endChar": 49
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_761a109e",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_b5bdc2db",
       "range": {
         "startLine": 112,
         "startChar": 47,
@@ -283,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_3b7237ce",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "I agree. Done.",
+      "parentUuid": "2bab5bf1_95c24667",
+      "range": {
+        "startLine": 710,
+        "startChar": 19,
+        "endLine": 710,
+        "endChar": 31
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_e2769cfc",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -294,6 +588,30 @@
       "writtenOn": "2015-01-27T14:55:35Z",
       "side": 1,
       "message": "Does this iterator follow a specific traversal order?  Maybe mention it in a comment.",
+      "range": {
+        "startLine": 3051,
+        "startChar": 6,
+        "endLine": 3051,
+        "endChar": 27
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_b82659da",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3051,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "cb69dfa3_e2769cfc",
       "range": {
         "startLine": 3051,
         "startChar": 6,
@@ -329,6 +647,30 @@
     },
     {
       "key": {
+        "uuid": "97662f11_58637d02",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3057,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "abd02b89_b1ffa289",
+      "range": {
+        "startLine": 3057,
+        "startChar": 4,
+        "endLine": 3057,
+        "endChar": 57
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_820b2095",
         "filename": "tools/checker.py",
         "patchSetId": 1
@@ -340,6 +682,30 @@
       "writtenOn": "2015-01-27T14:48:59Z",
       "side": 1,
       "message": "Calin is fixing this in https://android-review.googlesource.com/#/c/124779/",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "660bfd2c91c2951390fa5245a95046b14796b029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_7868c1dd",
+        "filename": "tools/checker.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T09:43:08Z",
+      "side": 1,
+      "message": "OK, thanks.",
+      "parentUuid": "cb69dfa3_820b2095",
       "range": {
         "startLine": 113,
         "startChar": 0,
