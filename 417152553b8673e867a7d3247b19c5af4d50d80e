@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97662f11_5815bd6a",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T08:30:03Z",
+      "side": 1,
+      "message": "Yikes! I appreciate the assembly expertise, but please follow what has already been done for ARM: subclass CodeGenerator and block registers the codegen shouldn\u0027t use.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 6
+      },
+      "revId": "417152553b8673e867a7d3247b19c5af4d50d80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
