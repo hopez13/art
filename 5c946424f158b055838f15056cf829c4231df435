@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "97662f11_f8a131bd",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Yes. I don\u0027t know if it\u0027s imposed, but that\u0027s how this file already emits block references, so I kept it consistent.",
+      "parentUuid": "2bab5bf1_55345ec7",
+      "range": {
+        "startLine": 226,
+        "startChar": 20,
+        "endLine": 226,
+        "endChar": 21
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b47db3f_12276c52",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "97662f11_98aef5ac",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Renamed `current` to `input_loop`. Not sure if that\u0027s what you meant.",
+      "parentUuid": "2b47db3f_12276c52",
+      "range": {
+        "startLine": 29,
+        "startChar": 58,
+        "endLine": 29,
+        "endChar": 76
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37f82338_604fcc7b",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-01-27T18:20:57Z",
       "side": 1,
       "message": "Extra word.",
+      "range": {
+        "startLine": 44,
+        "startChar": 25,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_b8abb99b",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37f82338_604fcc7b",
       "range": {
         "startLine": 44,
         "startChar": 25,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_7b9d1f7b",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "It is based id the SideEffects class (which is pretty minimal right now).",
+      "parentUuid": "37f82338_00a5a8c9",
+      "range": {
+        "startLine": 110,
+        "startChar": 56,
+        "endLine": 110,
+        "endChar": 68
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1705dffd_df88bf37",
         "filename": "compiler/optimizing/licm.cc",
         "patchSetId": 2
@@ -128,6 +224,30 @@
       "writtenOn": "2015-01-27T18:20:57Z",
       "side": 1,
       "message": "Just to clarify, doing this makes it possible for InputsAreDefinedBeforeLoop to return true when the define came from an instruction that was also hoisted, right?",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_58985d8c",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "1705dffd_df88bf37",
       "range": {
         "startLine": 117,
         "startChar": 23,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "578037c4_367258ce",
+        "filename": "test/445-checker-licm/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_f1f47a96",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_edea0d02",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 2
@@ -174,6 +318,30 @@
       "writtenOn": "2015-01-27T15:23:29Z",
       "side": 1,
       "message": "Start the group here again (with the same name). Otherwise the NOT will only be checked on lines preceding the matches of the DAG (there\u0027s an ordering between the CHECK lines and you want to verify the NOT on the entire output).",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_363b38fc",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_edea0d02",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -233,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "97662f11_784f617b",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Leftover. Removed.",
+      "parentUuid": "cb69dfa3_6dffddbc",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_0df021ef",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 2
@@ -256,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "f79dab26_1b441b5b",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_0df021ef",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abd02b89_71e9aab9",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 2
@@ -267,6 +483,30 @@
       "writtenOn": "2015-01-27T15:30:17Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f79dab26_3b49d773",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd02b89_71e9aab9",
       "range": {
         "startLine": 43,
         "startChar": 4,
@@ -332,6 +572,24 @@
     },
     {
       "key": {
+        "uuid": "578037c4_166ddcec",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bab5bf1_b5c142c7",
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb69dfa3_2d05e53c",
         "filename": "test/445-checker-licm/src/Main.java",
         "patchSetId": 2
@@ -343,6 +601,30 @@
       "writtenOn": "2015-01-27T15:23:29Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 77
+      },
+      "revId": "5c946424f158b055838f15056cf829c4231df435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_d8a46dd0",
+        "filename": "test/445-checker-licm/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-28T10:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb69dfa3_2d05e53c",
       "range": {
         "startLine": 61,
         "startChar": 0,
