@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d78347c3_48f3b329",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:09:35Z",
+      "side": 0,
+      "message": "RunPass is virtual and OVERRIDE, its not inlined.",
+      "parentUuid": "d72fc7b3_e54a9013",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 87
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7341308_413a526a",
         "filename": "compiler/dex/pass_driver_me.h",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d78347c3_a8e11f4d",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:09:35Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b7341308_413a526a",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 71
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72fc7b3_c5f14c71",
         "filename": "compiler/dex/pass_driver_me.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2015-01-28T23:05:13Z",
       "side": 0,
       "message": "Again, all of this moved to cc because of one line?",
+      "range": {
+        "startLine": 206,
+        "startChar": 33,
+        "endLine": 206,
+        "endChar": 92
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d78347c3_08e5ab58",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:09:35Z",
+      "side": 0,
+      "message": "Yes, this function is way too long to be in header.",
+      "parentUuid": "d72fc7b3_c5f14c71",
       "range": {
         "startLine": 206,
         "startChar": 33,
