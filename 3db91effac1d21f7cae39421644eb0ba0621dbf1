@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57291784_0e916b34",
+        "filename": "compiler/dex/pass_manager.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T00:22:51Z",
+      "side": 1,
+      "message": "Is this necessary (plus the include above)? Don\u0027t see it used anywhere.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "3db91effac1d21f7cae39421644eb0ba0621dbf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
