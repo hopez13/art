@@ -70,6 +70,30 @@
       "revId": "417152553b8673e867a7d3247b19c5af4d50d80e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97db8f05_d012fccf",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T16:17:39Z",
+      "side": 1,
+      "message": "I\u0027ll do that, but personally I think that\u0027s the wrong approach. That way you restrict the coverage of the test.",
+      "parentUuid": "578037c4_168cfc1b",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 6
+      },
+      "revId": "417152553b8673e867a7d3247b19c5af4d50d80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
