@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d75ee72a_ea43a780",
+        "filename": "test/099-vmdebug/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-28T00:41:33Z",
+      "side": 1,
+      "message": "if /data/local/tmp is always available now and writable by shell user, maybe we should always just use that? /sdcard predates that...",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 41,
+        "endChar": 65
+      },
+      "revId": "a6fff9b9043eb076a7ad5346b38f8cea108d03c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
