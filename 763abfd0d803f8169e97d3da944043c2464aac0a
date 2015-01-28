@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "57ae7766_4f3c25f5",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:32:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b7341308_01768a26",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7341308_01484aeb",
         "filename": "compiler/dex/pass_driver.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-28T23:10:50Z",
       "side": 0,
       "message": "Why was this touched?",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 3
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ae7766_2fd6894e",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:32:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b7341308_01484aeb",
       "range": {
         "startLine": 59,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "57ae7766_0fd14d55",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:32:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "57ae7766_6c2b2ffb",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 17
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72fc7b3_a563687c",
         "filename": "compiler/dex/pass_driver.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-01-28T23:10:50Z",
       "side": 0,
       "message": "No reason to touch this, either.",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 3
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72fc7b3_e8f8a7d3",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:32:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d72fc7b3_a563687c",
       "range": {
         "startLine": 102,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "57ae7766_6f1a419e",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:32:56Z",
+      "side": 0,
+      "message": "Unused, deleted.",
+      "parentUuid": "d72fc7b3_e54450d9",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 3
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57ae7766_6cf9ef0a",
         "filename": "compiler/dex/pass_driver.h",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2015-01-28T23:10:50Z",
       "side": 0,
       "message": "Doesn\u0027t need to be touched.",
+      "range": {
+        "startLine": 187,
+        "startChar": 2,
+        "endLine": 191,
+        "endChar": 3
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72fc7b3_a805ff36",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T23:32:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "57ae7766_6cf9ef0a",
       "range": {
         "startLine": 187,
         "startChar": 2,
