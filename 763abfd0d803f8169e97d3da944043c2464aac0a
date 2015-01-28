@@ -187,6 +187,30 @@
     },
     {
       "key": {
+        "uuid": "d72fc7b3_a5788814",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T23:12:38Z",
+      "side": 0,
+      "message": "Any smart compiler should be able to inline this when the actual instance is known.",
+      "parentUuid": "d78347c3_48f3b329",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 87
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7341308_413a526a",
         "filename": "compiler/dex/pass_driver_me.h",
         "patchSetId": 6
@@ -269,6 +293,30 @@
       "side": 0,
       "message": "Yes, this function is way too long to be in header.",
       "parentUuid": "d72fc7b3_c5f14c71",
+      "range": {
+        "startLine": 206,
+        "startChar": 33,
+        "endLine": 206,
+        "endChar": 92
+      },
+      "revId": "763abfd0d803f8169e97d3da944043c2464aac0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ae7766_2caa17ed",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T23:12:38Z",
+      "side": 0,
+      "message": "But that isn\u0027t part of your CL. Your CL is *not* cleanup. You could have fixed this with *two* lines: #include \"pass_manager.h\", and \"pass_manager_-\u003eGetOverridden...\"",
+      "parentUuid": "d78347c3_08e5ab58",
       "range": {
         "startLine": 206,
         "startChar": 33,
