@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97b46fb1_ee915beb",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T22:39:35Z",
+      "side": 1,
+      "message": "What about Throw instructions? From my reading, they aren\u0027t CanThrow...",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 126,
+        "endChar": 9
+      },
+      "revId": "91eac3f89bd2d1eab2b738e4f9eaa377ab3427e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
