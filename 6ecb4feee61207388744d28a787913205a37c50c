@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "770ffb24_c6122c7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T00:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b73a53c3_d1f42491",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "6ecb4feee61207388744d28a787913205a37c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f71a0b66_fc1ffdff",
         "filename": "compiler/dex/pass_driver.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-27T23:56:05Z",
       "side": 1,
       "message": "Still including pass.h, though. Doesn\u0027t make sense.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "6ecb4feee61207388744d28a787913205a37c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b73a53c3_f45dd631",
+        "filename": "compiler/dex/pass_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-01-28T00:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f71a0b66_fc1ffdff",
       "range": {
         "startLine": 28,
         "startChar": 0,
