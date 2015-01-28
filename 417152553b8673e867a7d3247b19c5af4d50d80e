@@ -22,6 +22,30 @@
       "revId": "417152553b8673e867a7d3247b19c5af4d50d80e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d6d3d9_919f9c3f",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-28T12:47:33Z",
+      "side": 1,
+      "message": "Does the x86 have enough registers to do long operations if you block EBX, ESI, EDI, EBP?",
+      "parentUuid": "97662f11_5815bd6a",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 6
+      },
+      "revId": "417152553b8673e867a7d3247b19c5af4d50d80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
