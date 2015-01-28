@@ -39,6 +39,24 @@
       "revId": "e25adaff5fdd4d114249872be4fe783c4495ebdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ae7766_4fcd05ea",
+        "filename": "compiler/dex/quick/quick_compiler.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T23:58:35Z",
+      "side": 1,
+      "message": "Thinking about it, letting mir_graph know about QuickCompiler is OK. So please move the compiler creation function again to its own header, so the driver doesn\u0027t have to know the specific class.",
+      "parentUuid": "57ae7766_2f62097c",
+      "revId": "e25adaff5fdd4d114249872be4fe783c4495ebdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
