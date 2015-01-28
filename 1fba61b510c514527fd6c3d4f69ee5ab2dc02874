@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57ae7766_66a6ee5b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T21:08:47Z",
+      "side": 1,
+      "message": "Put a DCHECK in for same dex file when is_recursive is true. It should be the case as the optimizing compiler forces PIC, but just to be safe, maybe...",
+      "range": {
+        "startLine": 617,
+        "startChar": 8,
+        "endLine": 617,
+        "endChar": 87
+      },
+      "revId": "1fba61b510c514527fd6c3d4f69ee5ab2dc02874",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ae7766_c61242d0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T21:08:47Z",
+      "side": 1,
+      "message": "Maybe put a TODO here. We should optimize this more, as this can be done by a relative call to the method head.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 2,
+        "endLine": 1201,
+        "endChar": 13
+      },
+      "revId": "1fba61b510c514527fd6c3d4f69ee5ab2dc02874",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b46fb1_4b8899ba",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T21:08:47Z",
+      "side": 1,
+      "message": "Maybe put a TODO here. We should optimize this more, as this can be done by a relative call to the method head. Arm64 has a huge range. So this should always be possible with one instruction, avoiding the load.",
+      "range": {
+        "startLine": 1982,
+        "startChar": 2,
+        "endLine": 1992,
+        "endChar": 13
+      },
+      "revId": "1fba61b510c514527fd6c3d4f69ee5ab2dc02874",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7bfb38b_0f0949a4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T21:08:47Z",
+      "side": 1,
+      "message": "Maybe put a TODO here. We should optimize this more, as this can be done by a relative call to the method head. (x86  isn\u0027t under a lot of memory pressure, though, but has enough displacement in the relative call.)",
+      "range": {
+        "startLine": 1128,
+        "startChar": 2,
+        "endLine": 1136,
+        "endChar": 98
+      },
+      "revId": "1fba61b510c514527fd6c3d4f69ee5ab2dc02874",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57ae7766_861c4ae4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-28T21:08:47Z",
+      "side": 1,
+      "message": "Maybe put a TODO here. We should optimize this more, as this can be done by a relative call to the method head. (x86-64 isn\u0027t under a lot of memory pressure, though, but has enough displacement in the relative call.)",
+      "range": {
+        "startLine": 364,
+        "startChar": 2,
+        "endLine": 372,
+        "endChar": 37
+      },
+      "revId": "1fba61b510c514527fd6c3d4f69ee5ab2dc02874",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
