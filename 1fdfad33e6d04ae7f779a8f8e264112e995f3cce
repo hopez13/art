@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "57ae7766_fa783115",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-29T00:54:50Z",
+      "side": 1,
+      "message": "Not necessary, class is final.",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "1fdfad33e6d04ae7f779a8f8e264112e995f3cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72fc7b3_f64a4813",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 10
