@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37690307_3b0f7f2d",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-29T12:47:53Z",
+      "side": 1,
+      "message": "I was actually debugging through here, and IsCurrentParamALong() DOES return true for a reference parameter in x86.  I will have a look at why.",
+      "parentUuid": "97662f11_7b419b5b",
+      "range": {
+        "startLine": 96,
+        "startChar": 37,
+        "endLine": 96,
+        "endChar": 64
+      },
+      "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97662f11_1b365f13",
         "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-01-29T08:50:20Z",
       "side": 1,
       "message": "Please avoid double negatives.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37690307_7b19f775",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-29T12:47:53Z",
+      "side": 1,
+      "message": "NOt a double negative in my mind.  What about\nkSplitPairAcrossRegisterAndStack \u003d true for this case?\nkRegisterPairSpansLastArgumentRegisterAndStack \u003d true?",
+      "parentUuid": "f79dab26_ded0e101",
       "range": {
         "startLine": 62,
         "startChar": 0,
