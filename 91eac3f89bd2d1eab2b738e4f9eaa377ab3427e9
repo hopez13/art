@@ -22,6 +22,30 @@
       "revId": "91eac3f89bd2d1eab2b738e4f9eaa377ab3427e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_7997632c",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-29T08:46:06Z",
+      "side": 1,
+      "message": "Good point, they aren\u0027t CanThrow. We probably could make them CanThrow.\n\nIt works because they aren\u0027t expressions: they are control flow instructions that occur at the end of a block. Since that block is branching to the exit block, HThrow instructions cannot be part of a loop.\n\nI added the CanThrow anyways.",
+      "parentUuid": "97b46fb1_ee915beb",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 126,
+        "endChar": 9
+      },
+      "revId": "91eac3f89bd2d1eab2b738e4f9eaa377ab3427e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
