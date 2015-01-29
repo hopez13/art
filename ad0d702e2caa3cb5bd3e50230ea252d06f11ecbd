@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37ee63c7_edda651e",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-29T17:03:24Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t reflect the code below. You will move any PEI as long as it says it CanBeMoved and doesn\u0027t depend on the loop. (There\u0027s no update to found_first_... in the case of CanThrow() in the true branch.)\n\nYou also have one wrong assumption in there: That the explicit inputs are *all* inputs. That is wrong. LoadClass is marked as movable and not throwing. But the resolved class may come from another dex file, and Android allows to change the path list (I mean it\u0027s done in the additive way for non-native multidex, but you can just as well remove some). As such, I\u0027d rather you remove CanBeMoved from LoadClass.",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 42
+      },
+      "revId": "ad0d702e2caa3cb5bd3e50230ea252d06f11ecbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
