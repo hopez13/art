@@ -188,6 +188,30 @@
       "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_b9197bf3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-29T13:47:48Z",
+      "side": 1,
+      "message": "I see. kSplitPairAcrossRegisterAndStack sounds good to me.\n\nI guess for arm it should be true on soft float. Oterhwise it\u0027s false for other archs except mips.",
+      "parentUuid": "97070f52_f076c06d",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
