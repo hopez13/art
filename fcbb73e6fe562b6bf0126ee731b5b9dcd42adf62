@@ -140,6 +140,30 @@
       "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97070f52_f076c06d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-29T13:24:01Z",
+      "side": 1,
+      "message": "ARM uses a different flag: kAlignPairRegister.  Unfortunately, this isn\u0027t applicable to X86.\n\nIs it better to just change the behaviour without a flag?  I didn\u0027t like that idea.",
+      "parentUuid": "97662f11_3b1483ec",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
