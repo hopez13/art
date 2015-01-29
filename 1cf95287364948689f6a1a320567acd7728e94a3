@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7fd0774_d5260edb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-29T16:40:50Z",
+      "side": 1,
+      "message": "Nice. Didn\u0027t realize our assembler had enough smarts to resolve this correctly.",
+      "range": {
+        "startLine": 1204,
+        "startChar": 4,
+        "endLine": 1204,
+        "endChar": 42
+      },
+      "revId": "1cf95287364948689f6a1a320567acd7728e94a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
