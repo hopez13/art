@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "37690307_1bb0c3dd",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-01-29T13:42:01Z",
+      "side": 1,
+      "message": "Here is the problem:\n  bool IsParamALong(unsigned int param) const {\n    DCHECK_LT(param, NumArgs());\n    if (IsStatic()) {\n      param++;  // 0th argument must skip return value at start of the shorty\n    } else if (param \u003d\u003d 0) {\n      return true;  // this argument\n    }\n    return shorty_[param] \u003d\u003d \u0027J\u0027;\n  }\n\nWhy does it return true for \u0027this argument\u0027?  I will try changing to false.",
+      "parentUuid": "37690307_3b0f7f2d",
+      "range": {
+        "startLine": 96,
+        "startChar": 37,
+        "endLine": 96,
+        "endChar": 64
+      },
+      "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97662f11_1b365f13",
         "filename": "compiler/jni/quick/x86/calling_convention_x86.cc",
         "patchSetId": 1
