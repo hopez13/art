@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "578037c4_99335f6e",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-29T14:15:45Z",
+      "side": 1,
+      "message": "Looks like a wrong copy paste of IsParamAReference.",
+      "parentUuid": "37690307_dbc5ab2c",
+      "revId": "1234eea3448416ffe488a70d1ef90433e14c9cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97070f52_70c13003",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-01-29T14:02:50Z",
       "side": 1,
       "message": "Should this be false?  I think kAlignPairRegister may override this in any case",
+      "revId": "1234eea3448416ffe488a70d1ef90433e14c9cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578037c4_19d74f7c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-29T14:15:45Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s false under soft float.",
+      "parentUuid": "97070f52_70c13003",
       "revId": "1234eea3448416ffe488a70d1ef90433e14c9cd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
