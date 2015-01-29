@@ -116,6 +116,30 @@
       "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97662f11_3b1483ec",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-29T12:59:07Z",
+      "side": 1,
+      "message": "Maybe it\u0027s 1.5 negative then :-) The thing is *Dont* \u003d whatever makes my mind always go to the positive.\n\nIn any case, arm doesn\u0027t split the long on our hardfloat ABI, why do you need that flag for x86?",
+      "parentUuid": "37690307_7b19f775",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "fcbb73e6fe562b6bf0126ee731b5b9dcd42adf62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
