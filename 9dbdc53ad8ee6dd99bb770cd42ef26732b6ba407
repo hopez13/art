@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "57d4b72d_3634f854",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T16:19:07Z",
+      "side": 1,
+      "message": "Because split intervals have no inputs (maybe conceptually its input is the parent interval). I rephrased the comment.",
+      "parentUuid": "d7e5071d_7295f8d6",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97ef0fff_908734ef",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-01-30T15:21:20Z",
       "side": 1,
       "message": "Can you add a check that last sibling covers defined_by-\u003eGetLifetimePosition()? I\u0027m a little worried if we ever aggressively split intervals, picking last sibling won\u0027t work here.",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77f45bd1_0f7e8596",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T16:19:07Z",
+      "side": 1,
+      "message": "Check is at line 678 :-) I have to keep it there because it may have not been processed yet. I\u0027ve added a TODO.",
+      "parentUuid": "97ef0fff_908734ef",
       "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -100,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "77f45bd1_ef490178",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T16:19:07Z",
+      "side": 1,
+      "message": "uses are not split: sibling intervals share the same use list.",
+      "parentUuid": "d7e5071d_f22b282a",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7ea53ed_b1d7e0c1",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -117,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "77f45bd1_8f483571",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T16:19:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7ea53ed_b1d7e0c1",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7ea53ed_51ef948a",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -128,6 +200,24 @@
       "writtenOn": "2015-01-30T15:21:20Z",
       "side": 1,
       "message": "For IsInputRegisterUsed(), regardless of interval-\u003eGetType() \u003d\u003d GetType(), we need to check registers really overlap, like one being an int and the other being a long pair.",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97baafec_5879dd16",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T16:19:07Z",
+      "side": 1,
+      "message": "Intervals don\u0027t hold pair registers, just a single register. So this type check is for FP or Int.",
+      "parentUuid": "b7ea53ed_51ef948a",
       "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
