@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "d7e5071d_7295f8d6",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-30T15:21:20Z",
+      "side": 1,
+      "message": "Can you add a comment on why only for non-split intervals? For split intervals, is it a requirement not to use the input register, or because there is better hint available?",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ef0fff_908734ef",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-30T15:21:20Z",
+      "side": 1,
+      "message": "Can you add a check that last sibling covers defined_by-\u003eGetLifetimePosition()? I\u0027m a little worried if we ever aggressively split intervals, picking last sibling won\u0027t work here.",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b79c1385_87302a15",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -43,6 +77,57 @@
         "endLine": 688,
         "endChar": 34
       },
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e5071d_f22b282a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-30T15:21:20Z",
+      "side": 1,
+      "message": "Just curious, is use-\u003eGetPosition() \u003e end only possibly true for environment use?",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ea53ed_b1d7e0c1",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-30T15:21:20Z",
+      "side": 1,
+      "message": "It\u0027s better to separate this into CanUseInputRegister() and IsInputRegisterUsed(). And we need to check both.",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7ea53ed_51ef948a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-01-30T15:21:20Z",
+      "side": 1,
+      "message": "For IsInputRegisterUsed(), regardless of interval-\u003eGetType() \u003d\u003d GetType(), we need to check registers really overlap, like one being an int and the other being a long pair.",
       "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
