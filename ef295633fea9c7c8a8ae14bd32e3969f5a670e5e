@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17cebfa3_977746ed",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-30T18:49:46Z",
+      "side": 1,
+      "message": "I\u0027m just going to get rid of all this noinline crap, the pragma should be sufficient.",
+      "parentUuid": "d797c75c_85bf04ad",
+      "range": {
+        "startLine": 309,
+        "startChar": 78,
+        "endLine": 309,
+        "endChar": 103
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d797c75c_0592d43c",
         "filename": "cmdline/cmdline_parser.h",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "37d66340_ad33fd91",
+        "filename": "cmdline/token_range.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-30T18:49:46Z",
+      "side": 1,
+      "message": "Maybe not. Then again I\u0027m not getting any warnings about unused functions when I compile? Do they only trigger for non-class functions?",
+      "parentUuid": "d797c75c_88303b15",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 3
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d797c75c_65ef608b",
         "filename": "cmdline/unit.h",
         "patchSetId": 1
@@ -105,6 +153,30 @@
       "writtenOn": "2015-01-30T03:55:07Z",
       "side": 1,
       "message": "Don\u0027t see why this deserves its own file. Can go into cmdline_types.h.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 30
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57d9176e_515b163d",
+        "filename": "cmdline/unit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-30T18:49:46Z",
+      "side": 1,
+      "message": "I didn\u0027t mean for any new types in cmdline_types.h to be defined at all except for CmdlineType and its specializations.\n\nOtherwise anything including that file has to include a ton of other files (and a ton of standard headers for traits etc).\n\nThen next thing you know you remove a header or two somewhere and spend the next 20 mins wacking missing includes because they were implicitly included before.",
+      "parentUuid": "d797c75c_65ef608b",
       "range": {
         "startLine": 1,
         "startChar": 0,
