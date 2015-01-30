@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7ca0b90_334888ec",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-01-30T16:54:51Z",
+      "side": 1,
+      "message": "Both of these are named by gcov, not me: https://gcc.gnu.org/onlinedocs/gcc/Cross-profiling.html",
+      "parentUuid": "97baafec_b8d0f952",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "1c91703e490dbfc2771fe42b5ebd4892641806bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97baafec_98d53543",
         "filename": "build/Android.common.mk",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-01-30T08:39:44Z",
       "side": 1,
       "message": "Add a comment what this creates.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 75
+      },
+      "revId": "1c91703e490dbfc2771fe42b5ebd4892641806bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7ca0b90_f3a0d03f",
+        "filename": "build/Android.common.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-01-30T16:54:51Z",
+      "side": 1,
+      "message": "I\u0027ll still add a comment here since it does look a little odd.",
+      "parentUuid": "97baafec_98d53543",
       "range": {
         "startLine": 27,
         "startChar": 0,
