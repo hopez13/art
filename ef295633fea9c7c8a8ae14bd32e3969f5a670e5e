@@ -186,6 +186,30 @@
       "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17cebfa3_3af299a3",
+        "filename": "cmdline/unit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T19:10:05Z",
+      "side": 1,
+      "message": "Except that Unit doesn\u0027t have or need any includes, and anywhere you include unit you also include cmdline_types.\n\n(And from the practical point, Unit is your abstraction for a Unit type, which sounds a lot like a standard type that should go into a main type file...)\n\nAnyways, your call, but for current purposes the file is overkill.",
+      "parentUuid": "57d9176e_515b163d",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 30
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
