@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "f7ca0b90_53ac2405",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "zip files (we don\u0027t really care they are apk\u0027s, right?)",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17cebfa3_f4255826",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "registers",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7ca0b90_b3a49820",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "support opening shared libraries directly from zip files.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97baafec_58067d42",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -19,6 +88,47 @@
     },
     {
       "key": {
+        "uuid": "f7ca0b90_b34938a7",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "the ifdef style is fine. enh always uses the long form, but that is rare in art/",
+      "parentUuid": "97baafec_58067d42",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17cebfa3_d7401e5b",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "no cutils/properties please. things needed to be passed as runtime arguments via AndroidRuntime.cpp",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d4b72d_36819828",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -30,6 +140,24 @@
       "writtenOn": "2015-01-30T09:55:44Z",
       "side": 1,
       "message": "add a short comment here, something like \"// Defined by the dynamic linker\"",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37d10340_7877fdbc",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "should these just be in android/dlext.h? we seem to get lookup_fn_t from there?\n\noh, we just used to use dlsym for this to avoid the #ifdef. i\u0027m sort of indifferent about this.",
+      "parentUuid": "57d4b72d_36819828",
       "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -70,6 +198,93 @@
     },
     {
       "key": {
+        "uuid": "17cebfa3_37e51230",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "if these come in via AndroidRuntime.cc to our art::Runtime, they can just be fields on that accessed via art::Runtime::Current()",
+      "parentUuid": "97baafec_f83b11fc",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17cebfa3_37fcf2c5",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "art::Split()",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 61
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7ca0b90_96718acb",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "art::Split()",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 58
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7ca0b90_36af56ab",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "short comment explaining who calls this back and why\n\nmaybe a clearer intention revealing name FindSharedObjectInZipCallback?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 89
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d4b72d_f649e077",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -81,6 +296,47 @@
       "writtenOn": "2015-01-30T09:55:44Z",
       "side": 1,
       "message": "you could have a unified definition and\n\nif defined(HAVE_ANDROID_OS)\nUNUSED(javaLdLibraryPath)\nUNUSED(javaDexPath\nendif\n\ni think that\u0027s clearer.",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7ca0b90_96962a5c",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "57d4b72d_f649e077",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17cebfa3_778caa4a",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-01-30T17:55:04Z",
+      "side": 1,
+      "message": "Do you mean the bionic internal global so that we restore if afterwards? without that being thread local, it is all pretty gross. reading this without the context, it just made me think you were trying to limit the scope of javaLdLibraryPath",
+      "range": {
+        "startLine": 181,
+        "startChar": 30,
+        "endLine": 181,
+        "endChar": 47
+      },
       "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
