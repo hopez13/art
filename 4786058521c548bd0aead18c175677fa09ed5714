@@ -46,6 +46,30 @@
       "revId": "4786058521c548bd0aead18c175677fa09ed5714",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97baafec_78a5c1c8",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T10:52:03Z",
+      "side": 1,
+      "message": "I think the simplest could be to update the side effects with the \"can GC\" information.",
+      "parentUuid": "97baafec_585b1d3d",
+      "range": {
+        "startLine": 27,
+        "startChar": 41,
+        "endLine": 27,
+        "endChar": 74
+      },
+      "revId": "4786058521c548bd0aead18c175677fa09ed5714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
