@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97baafec_58067d42",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-01-30T09:55:44Z",
+      "side": 1,
+      "message": "i don\u0027t know the art style, but if defined(HAVE_ANDROID_OS) seems more common.",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57d4b72d_36819828",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-01-30T09:55:44Z",
+      "side": 1,
+      "message": "add a short comment here, something like \"// Defined by the dynamic linker\"",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57d4b72d_167e9c96",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-01-30T09:55:44Z",
+      "side": 1,
+      "message": "#endif  // __LP64__\n#endif  // HAVE_ANDROID_OS",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97baafec_f83b11fc",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-01-30T09:55:44Z",
+      "side": 1,
+      "message": "question for the art people : is this information stored anywhere else in the runtime ? It seems a bit weird to me to have these types of static variables floating around.",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57d4b72d_f649e077",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-01-30T09:55:44Z",
+      "side": 1,
+      "message": "you could have a unified definition and\n\nif defined(HAVE_ANDROID_OS)\nUNUSED(javaLdLibraryPath)\nUNUSED(javaDexPath\nendif\n\ni think that\u0027s clearer.",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
