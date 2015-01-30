@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77bffbde_77303014",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T10:19:21Z",
+      "side": 1,
+      "message": "Some instructions say they don\u0027t have \"side effects\", yet they can enter runtime and therefore run GC. For example SuspendChecks, HLoadClass, ...\n\nHaving an address in the middle of an array is probably not a good idea to keep around in between those instructions :-)",
+      "range": {
+        "startLine": 27,
+        "startChar": 41,
+        "endLine": 27,
+        "endChar": 74
+      },
+      "revId": "4786058521c548bd0aead18c175677fa09ed5714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
