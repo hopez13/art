@@ -210,6 +210,30 @@
       "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d70ee7b4_4a10f3c6",
+        "filename": "cmdline/unit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-01-30T19:14:32Z",
+      "side": 1,
+      "message": "I\u0027m refactoring some more right now, the new runtime_options.h will need unit.h but not cmdline_types.h because the parsing logic is an implementation detail in runtime_options.cc\n\nI can combine Memory\u003csize_t\u003e, Unit, XgcOptions, etc all in one file, but would rather keep CmdlineType\u003cT\u003e in a separate file because those have huge dependencies.",
+      "parentUuid": "17cebfa3_3af299a3",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 30
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
