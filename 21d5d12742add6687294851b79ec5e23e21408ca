@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97ef0fff_b0335892",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-30T17:15:11Z",
+      "side": 1,
+      "message": "For quick, we have gotten rid of such \"magic\" numbers by using pass options infrastructure. It makes sense to consider that for future.",
+      "range": {
+        "startLine": 39,
+        "startChar": 21,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "21d5d12742add6687294851b79ec5e23e21408ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7e5071d_525af471",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-01-30T17:15:11Z",
+      "side": 1,
+      "message": "This is not adequate to capture inlining relationship. For example, foo calls bar, foo calls baz, baz and bar call zoo. Zoo can have either baz or bar as parent even though its nesting level will always be 2. However, since with current implementation you do not allow escape to runtime, there is no real need to maintain the relationship. With further generalization, the relationship should be maintained hence why I think it makes sense to implement it now.",
+      "range": {
+        "startLine": 52,
+        "startChar": 15,
+        "endLine": 52,
+        "endChar": 21
+      },
+      "revId": "21d5d12742add6687294851b79ec5e23e21408ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
