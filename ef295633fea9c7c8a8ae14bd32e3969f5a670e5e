@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d797c75c_85bf04ad",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T03:55:07Z",
+      "side": 1,
+      "message": "Line break.\n\nAlso, base/macros.h defines NO_INLINE",
+      "range": {
+        "startLine": 309,
+        "startChar": 78,
+        "endLine": 309,
+        "endChar": 103
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d797c75c_0592d43c",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T03:55:07Z",
+      "side": 1,
+      "message": "Long line.",
+      "range": {
+        "startLine": 369,
+        "startChar": 77,
+        "endLine": 369,
+        "endChar": 104
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b79c1385_a1b9decb",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T03:55:07Z",
+      "side": 1,
+      "message": "Double superlative.",
+      "range": {
+        "startLine": 526,
+        "startChar": 18,
+        "endLine": 526,
+        "endChar": 30
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d797c75c_88303b15",
+        "filename": "cmdline/token_range.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T03:55:07Z",
+      "side": 1,
+      "message": "You really need all of these?",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 3
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d797c75c_65ef608b",
+        "filename": "cmdline/unit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T03:55:07Z",
+      "side": 1,
+      "message": "Don\u0027t see why this deserves its own file. Can go into cmdline_types.h.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 30
+      },
+      "revId": "ef295633fea9c7c8a8ae14bd32e3969f5a670e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
