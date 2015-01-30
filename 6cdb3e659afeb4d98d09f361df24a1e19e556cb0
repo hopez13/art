@@ -22,6 +22,29 @@
       "revId": "6cdb3e659afeb4d98d09f361df24a1e19e556cb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57767713_66f30e2a",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-01-30T00:44:38Z",
+      "side": 1,
+      "message": "Could you explain why? This is the first use after CLEAR_VARS as far as I can see...",
+      "range": {
+        "startLine": 467,
+        "startChar": 27,
+        "endLine": 467,
+        "endChar": 29
+      },
+      "revId": "6cdb3e659afeb4d98d09f361df24a1e19e556cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
