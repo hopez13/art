@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77f45bd1_8f34b5d9",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-01-30T16:48:06Z",
+      "side": 1,
+      "message": "You need to call AddAllocatedRegister here with the number of callee-save registers you want. See line 55.\n\nYou will also need to unblock them in SetupBlockedRegisters.",
+      "range": {
+        "startLine": 76,
+        "startChar": 55,
+        "endLine": 76,
+        "endChar": 56
+      },
+      "revId": "05c1f08e91fda237e8f8dc4e570022aa7edab92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
