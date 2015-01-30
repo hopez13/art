@@ -46,6 +46,30 @@
       "revId": "8ff089124cb85b409a1efdc6a03752b8cba381a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1714ff86_47ed5013",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-01-30T00:43:05Z",
+      "side": 1,
+      "message": "Oh, actually, not needed here. GCOV_ENV is only needed on the device because gcov dumps things to the same directory as the object files by default, which doesn\u0027t exist on the device.",
+      "parentUuid": "d7b427e0_da12e57d",
+      "range": {
+        "startLine": 308,
+        "startChar": 1,
+        "endLine": 309,
+        "endChar": 34
+      },
+      "revId": "8ff089124cb85b409a1efdc6a03752b8cba381a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
