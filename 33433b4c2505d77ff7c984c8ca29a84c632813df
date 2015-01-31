@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f77beb34_6ef64f61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ca0b90_53ac2405",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17cebfa3_f4255826",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d76a6765_8dfdc578",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17cebfa3_f4255826",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7ca0b90_b3a49820",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2015-01-30T17:55:04Z",
       "side": 1,
       "message": "support opening shared libraries directly from zip files.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f77beb34_0e030bb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ca0b90_b3a49820",
       "range": {
         "startLine": 10,
         "startChar": 4,
@@ -129,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "d781874d_b22a6023",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17cebfa3_d7401e5b",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d4b72d_36819828",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -164,6 +260,42 @@
     },
     {
       "key": {
+        "uuid": "f7268b4e_73ef008b",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57d4b72d_36819828",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d781874d_1271ec45",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "I prefer to keep them out of header file for now.",
+      "parentUuid": "37d10340_7877fdbc",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d4b72d_167e9c96",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -175,6 +307,24 @@
       "writtenOn": "2015-01-30T09:55:44Z",
       "side": 1,
       "message": "#endif  // __LP64__\n#endif  // HAVE_ANDROID_OS",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d781874d_d2392476",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57d4b72d_167e9c96",
       "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -216,6 +366,41 @@
     },
     {
       "key": {
+        "uuid": "978b8f6f_79929bf1",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "abilist - done, can\u0027t really do it for dexPath because it is specific to classloader.",
+      "parentUuid": "17cebfa3_37e51230",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "172a3f14_f73e9a5b",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "this method is removed, abi list is part of art::Runtime",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17cebfa3_37fcf2c5",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -227,6 +412,30 @@
       "writtenOn": "2015-01-30T17:55:04Z",
       "side": 1,
       "message": "art::Split()",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 61
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "172a3f14_37c892d3",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17cebfa3_37fcf2c5",
       "range": {
         "startLine": 80,
         "startChar": 0,
@@ -262,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "f7268b4e_f613fe55",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ca0b90_96718acb",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 58
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7ca0b90_36af56ab",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -273,6 +506,30 @@
       "writtenOn": "2015-01-30T17:55:04Z",
       "side": 1,
       "message": "short comment explaining who calls this back and why\n\nmaybe a clearer intention revealing name FindSharedObjectInZipCallback?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 89
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d781874d_553afe46",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ca0b90_36af56ab",
       "range": {
         "startLine": 124,
         "startChar": 0,
@@ -320,6 +577,24 @@
     },
     {
       "key": {
+        "uuid": "f77beb34_6e1def06",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ca0b90_96962a5c",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17cebfa3_778caa4a",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
@@ -337,6 +612,47 @@
         "endLine": 181,
         "endChar": 47
       },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "172a3f14_1a449d36",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "those names are confusing.. I should probably look and see if -Djava.library.path is related to this argument. Removed todo for now.",
+      "parentUuid": "17cebfa3_778caa4a",
+      "range": {
+        "startLine": 181,
+        "startChar": 30,
+        "endLine": 181,
+        "endChar": 47
+      },
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7268b4e_1676ba26",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-01-31T02:01:51Z",
+      "side": 1,
+      "message": "this is removed... \n\nreasons:\n1. exiting code may rely on this.\n2. it is not abvious for the user that libraries in apk can only be dlopened during JNI_OnLoad... I would expect them to be available at any function call.\n\nreasons not to (also reasons to reset ldLibraryPath after JNI_OnLoad...):\n\ndexPath is classloader specific. iirc user may register another classloader with different path for the same application.. hence there is a way to get unexpected results.",
       "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
