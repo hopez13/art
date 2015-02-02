@@ -239,6 +239,24 @@
       "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7769bb73_e757c299",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T09:41:15Z",
+      "side": 1,
+      "message": "Yeah very good point. We should not check, the type, but the kind instead. Done.",
+      "parentUuid": "17cebfa3_fa39c175",
+      "revId": "9dbdc53ad8ee6dd99bb770cd42ef26732b6ba407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
