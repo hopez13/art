@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17fddfe8_bf493379",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T16:12:36Z",
+      "side": 1,
+      "message": "I\u0027d remove the last sentence. If you want one, then \"the fewer suspend checks, the better for the SSA builder\" or something like that helps to better understand why. And/or you can also mention that dx is generating branches to the first return encountered.",
+      "range": {
+        "startLine": 1082,
+        "startChar": 48,
+        "endLine": 1082,
+        "endChar": 52
+      },
+      "revId": "695c2e3d87a7307680d0e7546783d81b3734f827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17fddfe8_ff6c5bf2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T16:12:36Z",
+      "side": 1,
+      "message": "This is probably computed before calling Add SuspendCheck. How about passing it to this method?",
+      "range": {
+        "startLine": 1083,
+        "startChar": 0,
+        "endLine": 1083,
+        "endChar": 68
+      },
+      "revId": "695c2e3d87a7307680d0e7546783d81b3734f827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
