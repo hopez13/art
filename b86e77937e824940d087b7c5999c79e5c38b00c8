@@ -22,6 +22,30 @@
       "revId": "b86e77937e824940d087b7c5999c79e5c38b00c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17fddfe8_dcafed2a",
+        "filename": "tools/checker.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-02T14:11:05Z",
+      "side": 1,
+      "message": "Yep, I did kinda sneak this in here. Logger is disabled during checker_test.py and when something failed, it just said \"1\".",
+      "parentUuid": "97662f11_38ed6914",
+      "range": {
+        "startLine": 131,
+        "startChar": 13,
+        "endLine": 131,
+        "endChar": 16
+      },
+      "revId": "b86e77937e824940d087b7c5999c79e5c38b00c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
