@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17fddfe8_1f5b073e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-02T16:18:40Z",
+      "side": 1,
+      "message": "Yep, I\u0027ve already changed it to something shorter. This version is also wrong - I didn\u0027t realize it doesn\u0027t produce a SuspendCheck for spin locks (target_offset \u003d\u003d 0)",
+      "parentUuid": "17fddfe8_bf493379",
+      "range": {
+        "startLine": 1082,
+        "startChar": 48,
+        "endLine": 1082,
+        "endChar": 52
+      },
+      "revId": "695c2e3d87a7307680d0e7546783d81b3734f827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17fddfe8_ff6c5bf2",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-02T16:12:36Z",
       "side": 1,
       "message": "This is probably computed before calling Add SuspendCheck. How about passing it to this method?",
+      "range": {
+        "startLine": 1083,
+        "startChar": 0,
+        "endLine": 1083,
+        "endChar": 68
+      },
+      "revId": "695c2e3d87a7307680d0e7546783d81b3734f827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97e9cf2d_46094652",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-02T16:18:40Z",
+      "side": 1,
+      "message": "Could do, it\u0027s just a bit messy because the callers of this method tend to compute the target a lot later after calling this. But yeah, why not",
+      "parentUuid": "17fddfe8_ff6c5bf2",
       "range": {
         "startLine": 1083,
         "startChar": 0,
