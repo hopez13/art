@@ -22,6 +22,29 @@
       "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f74dab10_04e3dcaa",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-02-02T23:48:22Z",
+      "side": 1,
+      "message": "I believe you are missing the logic to remove invoke in case there is no return value. But maybe you are handling that somewhere else.",
+      "range": {
+        "startLine": 920,
+        "startChar": 4,
+        "endLine": 922,
+        "endChar": 5
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
