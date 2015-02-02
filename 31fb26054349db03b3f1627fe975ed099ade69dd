@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "571cb71e_f6180075",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-02-02T18:11:45Z",
+      "side": 1,
+      "message": "acov --clean just clears all the old coverage data. You don\u0027t want old coverage runs affecting your current results.",
+      "parentUuid": "17fddfe8_fce629ef",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e9cf2d_60643233",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-02T11:47:20Z",
       "side": 1,
       "message": "same question?",
+      "range": {
+        "startLine": 13,
+        "startChar": 53,
+        "endLine": 14,
+        "endChar": 9
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7707fbcb_17c81425",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-02-02T18:11:45Z",
+      "side": 1,
+      "message": "You can do an incremental build from coverage to coverage, but you can\u0027t do an incremental from coverage to non-coverage because the build system has no way to notice the change.",
+      "parentUuid": "97e9cf2d_60643233",
       "range": {
         "startLine": 13,
         "startChar": 53,
