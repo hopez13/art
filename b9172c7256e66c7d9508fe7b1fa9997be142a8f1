@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7769bb73_ea6d471e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T16:45:49Z",
+      "side": 1,
+      "message": "This sentence sill bugs me the wrong way. You really want to say that blocks branch to the first DEX return. It\u0027s not really at the beginning of the DEX file (and it\u0027s not DEX file, but DEX CodeItem).\n\nAlso, \"tend\" is too tend-ish. Just say that that\u0027s what DX generated.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 7,
+        "endLine": 1078,
+        "endChar": 71
+      },
+      "revId": "b9172c7256e66c7d9508fe7b1fa9997be142a8f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
