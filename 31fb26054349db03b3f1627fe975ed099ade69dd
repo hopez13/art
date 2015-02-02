@@ -49,6 +49,53 @@
     },
     {
       "key": {
+        "uuid": "37190331_7586a829",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T18:19:46Z",
+      "side": 1,
+      "message": "Wont the old data just be overwritten?",
+      "parentUuid": "571cb71e_f6180075",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37190331_b50e802d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T18:19:46Z",
+      "side": 1,
+      "message": "This gives me:\n\ngeninfo: ERROR: no .gcda files found in /usr/local/google/home/ngeoffray/projects/android/standalone3/out/host/linux-x86!\nGenerating coverage report at covreport-A7RfQJ\ngenhtml: ERROR: no valid records found in tracefile covreport-A7RfQJ/cov.info\ngvfs-open: covreport-A7RfQJ/index.html: error opening location: Error when getting information for file \u0027/usr/local/google/home/ngeoffray/projects/android/standalone3/covreport-A7RfQJ/index.html\u0027: No such file or directory\n\nAny idea what is going on?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e9cf2d_60643233",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -84,6 +131,30 @@
       "side": 1,
       "message": "You can do an incremental build from coverage to coverage, but you can\u0027t do an incremental from coverage to non-coverage because the build system has no way to notice the change.",
       "parentUuid": "97e9cf2d_60643233",
+      "range": {
+        "startLine": 13,
+        "startChar": 53,
+        "endLine": 14,
+        "endChar": 9
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97e9cf2d_269242f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-02T18:19:46Z",
+      "side": 1,
+      "message": "OK, so if I do a first coverage build, I don\u0027t need the -B afterwards, right?",
+      "parentUuid": "7707fbcb_17c81425",
       "range": {
         "startLine": 13,
         "startChar": 53,
