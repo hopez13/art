@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f795abbd_0172aecd",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "Is there a reason this isn\u0027t const? Also, as this is a copy, we prefer \"implicit\" management through a unique_ptr (vmarko, could you confirm?).",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 12
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d76427ca_ddba5fef",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "This is to be deleted, I guess?",
+      "range": {
+        "startLine": 289,
+        "startChar": 25,
+        "endLine": 289,
+        "endChar": 78
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f795abbd_e1430253",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "This should go to the \"We attempt...\" comment.",
+      "range": {
+        "startLine": 288,
+        "startChar": 40,
+        "endLine": 289,
+        "endChar": 24
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97854f8c_c99f09cb",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "Is there a reason to no longer accept formatted numbers?",
+      "range": {
+        "startLine": 300,
+        "startChar": 57,
+        "endLine": 300,
+        "endChar": 59
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f795abbd_013b8efb",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "Too long.",
+      "range": {
+        "startLine": 169,
+        "startChar": 100,
+        "endLine": 169,
+        "endChar": 119
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f795abbd_412d96b8",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 189,
+        "startChar": 100,
+        "endLine": 189,
+        "endChar": 109
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97854f8c_c9f8e90a",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 197,
+        "startChar": 100,
+        "endLine": 197,
+        "endChar": 110
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f795abbd_81279ed6",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T16:33:46Z",
+      "side": 1,
+      "message": "Please fix this one, too, while you\u0027re here.",
+      "range": {
+        "startLine": 207,
+        "startChar": 100,
+        "endLine": 207,
+        "endChar": 119
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
