@@ -68,6 +68,30 @@
       "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7758db1a_6fac51b4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T18:24:11Z",
+      "side": 1,
+      "message": "Great catch Mark, it should be phi-\u003e. It looks like the code we\u0027re getting has a single return instruction. I\u0027ll fix it and add a smali test in a follow-up CL.",
+      "parentUuid": "975e2ffc_786ec165",
+      "range": {
+        "startLine": 913,
+        "startChar": 26,
+        "endLine": 913,
+        "endChar": 31
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
