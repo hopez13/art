@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f74dab10_8a9373bb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-03T18:19:24Z",
+      "side": 1,
+      "message": "Magic number?  Have a IsSingleBlock?",
+      "range": {
+        "startLine": 869,
+        "startChar": 28,
+        "endLine": 869,
+        "endChar": 29
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f74dab10_6a9627ae",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-03T18:19:24Z",
+      "side": 1,
+      "message": "typo: of?",
+      "range": {
+        "startLine": 889,
+        "startChar": 50,
+        "endLine": 889,
+        "endChar": 52
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "975e2ffc_786ec165",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-03T18:19:24Z",
+      "side": 1,
+      "message": "Won\u0027t AsPhi return nullptr if !IsPhi?",
+      "range": {
+        "startLine": 913,
+        "startChar": 26,
+        "endLine": 913,
+        "endChar": 31
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
