@@ -25,6 +25,69 @@
     },
     {
       "key": {
+        "uuid": "778a9b9e_62d538bd",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T11:13:59Z",
+      "side": 1,
+      "message": "This is a bit confusing. It looks like it\u0027s updating \u0027instructions_.block_\u0027 but it\u0027s iterating over the list. Could we rename it to \u0027SetBlockOfEach\u0027 or something like that?",
+      "range": {
+        "startLine": 744,
+        "startChar": 2,
+        "endLine": 744,
+        "endChar": 47
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76973a4_f9c5770f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T11:13:59Z",
+      "side": 1,
+      "message": "Is this scenario possible? If so, could \u0027this\u0027 end with a control flow instruction that you don\u0027t remove? Maybe add a DCHECK for that?",
+      "range": {
+        "startLine": 789,
+        "startChar": 31,
+        "endLine": 789,
+        "endChar": 91
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5778376f_b6cb08a6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T11:13:59Z",
+      "side": 1,
+      "message": "I know this is currently used only in inlining but in case somebody picks this up, it could be worth adding more DCHECKs here. E.g. if both \u0027successors_\u0027 and \u0027dominated_blocks_\u0027 are empty, the other block can be pretty much anything - have predecessors, a dominator, etc.",
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f74dab10_04e3dcaa",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -41,6 +104,29 @@
         "startChar": 4,
         "endLine": 922,
         "endChar": 5
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5778376f_d6d08454",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T11:13:59Z",
+      "side": 1,
+      "message": "also mention that the two blocks are not connected?",
+      "range": {
+        "startLine": 466,
+        "startChar": 39,
+        "endLine": 466,
+        "endChar": 78
       },
       "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
