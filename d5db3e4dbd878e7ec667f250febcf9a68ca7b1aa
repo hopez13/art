@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "17723f91_3441b079",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T17:03:52Z",
+      "side": 1,
+      "message": "No macros, please.\nconstexpr size_t kOptionStringMaxLength",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37758377_b840555a",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T17:03:52Z",
+      "side": 1,
+      "message": "Style: kString, kInteger.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 11
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5778376f_39ce0b63",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T17:03:52Z",
+      "side": 1,
+      "message": "int64_t should be passed by value.",
+      "range": {
+        "startLine": 138,
+        "startChar": 29,
+        "endLine": 138,
+        "endChar": 49
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f795abbd_0172aecd",
         "filename": "compiler/dex/compiler_ir.h",
         "patchSetId": 3
@@ -18,6 +87,53 @@
         "startChar": 4,
         "endLine": 147,
         "endChar": 12
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17723f91_f4801861",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T17:03:52Z",
+      "side": 1,
+      "message": "That\u0027s not feasible for a union.\n\n(Otherwise, since strndup() allocates with malloc(), I\u0027d recommend the UniqueCPtr\u003cconst char[]\u003e alias from runtime/utils.h .)",
+      "parentUuid": "f795abbd_0172aecd",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 12
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5778376f_79d88326",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T17:03:52Z",
+      "side": 1,
+      "message": "Put this on a separate line. Don\u0027t mix the union and variable definition together.",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 13
       },
       "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -87,6 +203,29 @@
         "startChar": 57,
         "endLine": 300,
         "endChar": 59
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37758377_d8435153",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T17:03:52Z",
+      "side": 1,
+      "message": "NOTE: This provides a DoS attack vector. Just convince the framework to pass the wrong type of option to the compiler...",
+      "range": {
+        "startLine": 139,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 78
       },
       "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
