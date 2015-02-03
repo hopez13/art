@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37758377_d5495ca6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T16:31:48Z",
+      "side": 1,
+      "message": "Nit: indent more; twice more below",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "e2d78ce5cdb66c909bee5b51659d828f7f2f2f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37758377_f54e58ab",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T16:31:48Z",
+      "side": 1,
+      "message": "Is using a constant like this a thing? I\u0027ve seen:\n\n  CompileInternal(allocator, /*is_baseline\u003d*/ false);",
+      "range": {
+        "startLine": 59,
+        "startChar": 29,
+        "endLine": 59,
+        "endChar": 40
+      },
+      "revId": "e2d78ce5cdb66c909bee5b51659d828f7f2f2f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17723f91_741a48e8",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T16:31:48Z",
+      "side": 1,
+      "message": "Change this to: CodeGen has already been initialized...",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 72
+      },
+      "revId": "e2d78ce5cdb66c909bee5b51659d828f7f2f2f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37758377_3541b079",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T16:31:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 94,
+        "startChar": 29,
+        "endLine": 94,
+        "endChar": 40
+      },
+      "revId": "e2d78ce5cdb66c909bee5b51659d828f7f2f2f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
