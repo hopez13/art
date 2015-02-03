@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f74dab10_04f99c0b",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2308,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-03T01:58:03Z",
+      "side": 0,
+      "message": "If the write is less than a word, should this remain?",
+      "revId": "4336b97fc291d28f883607c88feaff202a684a59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
