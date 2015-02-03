@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c444057_2fe669f2",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T23:24:47Z",
+      "side": 1,
+      "message": "Check for the target_ptr_size or whatever it was?",
+      "range": {
+        "startLine": 934,
+        "startChar": 18,
+        "endLine": 934,
+        "endChar": 99
+      },
+      "revId": "5b2fc0e3fc6e087a3fad588b644ad319a87bad94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc10cc40_6ea5774d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T23:24:47Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1035,
+        "startChar": 24,
+        "endLine": 1035,
+        "endChar": 91
+      },
+      "revId": "5b2fc0e3fc6e087a3fad588b644ad319a87bad94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc10cc40_0e94bbdb",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T23:24:47Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1089,
+        "startChar": 24,
+        "endLine": 1089,
+        "endChar": 91
+      },
+      "revId": "5b2fc0e3fc6e087a3fad588b644ad319a87bad94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c293c84_2e6c27ef",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T23:24:47Z",
+      "side": 1,
+      "message": "If not available, store it somewhere? This is done for every compiled method...",
+      "range": {
+        "startLine": 935,
+        "startChar": 18,
+        "endLine": 935,
+        "endChar": 95
+      },
+      "revId": "5b2fc0e3fc6e087a3fad588b644ad319a87bad94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
