@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "5778376f_16775cbd",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T12:39:49Z",
+      "side": 1,
+      "message": "Renamed to SetBlockOfInstructions. Does that work for you?",
+      "parentUuid": "778a9b9e_62d538bd",
+      "range": {
+        "startLine": 744,
+        "startChar": 2,
+        "endLine": 744,
+        "endChar": 47
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76973a4_f9c5770f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-02-03T11:13:59Z",
       "side": 1,
       "message": "Is this scenario possible? If so, could \u0027this\u0027 end with a control flow instruction that you don\u0027t remove? Maybe add a DCHECK for that?",
+      "range": {
+        "startLine": 789,
+        "startChar": 31,
+        "endLine": 789,
+        "endChar": 91
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5778376f_367458b6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T12:39:49Z",
+      "side": 1,
+      "message": "It\u0027s not possible in current use, as `this` was split and does not have successors, nor a control flow instruction. I could only dcheck that successors are empty if you prefer?",
+      "parentUuid": "b76973a4_f9c5770f",
       "range": {
         "startLine": 789,
         "startChar": 31,
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "77637bc4_57862c29",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T12:39:49Z",
+      "side": 1,
+      "message": "Not sure I understand which additional DCHECKS you want?\n\nThe other\u0027s predecessors/dominator are discarded, do you prefer to enforce that before and/or in that method?",
+      "parentUuid": "5778376f_b6cb08a6",
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f74dab10_04e3dcaa",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -99,6 +165,30 @@
       "writtenOn": "2015-02-02T23:48:22Z",
       "side": 1,
       "message": "I believe you are missing the logic to remove invoke in case there is no return value. But maybe you are handling that somewhere else.",
+      "range": {
+        "startLine": 920,
+        "startChar": 4,
+        "endLine": 922,
+        "endChar": 5
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5778376f_767ed097",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T12:39:49Z",
+      "side": 1,
+      "message": "Line 982.",
+      "parentUuid": "f74dab10_04e3dcaa",
       "range": {
         "startLine": 920,
         "startChar": 4,
