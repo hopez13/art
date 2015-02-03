@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76973a4_d95993f8",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T10:46:56Z",
+      "side": 1,
+      "message": "Why dynamically allocated? Can\u0027t it just be stack-allocated?",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 70
+      },
+      "revId": "453b268fa6c65037026f7b118a967c0a5cd66aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778a9b9e_62ec5895",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T10:46:56Z",
+      "side": 1,
+      "message": "Could you create this when dumping the graph?",
+      "range": {
+        "startLine": 103,
+        "startChar": 30,
+        "endLine": 103,
+        "endChar": 88
+      },
+      "revId": "453b268fa6c65037026f7b118a967c0a5cd66aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778a9b9e_82e95c86",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T10:46:56Z",
+      "side": 1,
+      "message": "This looks odd. Maybe pass a graph to PassInfoPrinter, and don\u0027t dump anything if it\u0027s null?",
+      "range": {
+        "startLine": 107,
+        "startChar": 41,
+        "endLine": 107,
+        "endChar": 67
+      },
+      "revId": "453b268fa6c65037026f7b118a967c0a5cd66aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76973a4_99b63bbb",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T10:46:56Z",
+      "side": 1,
+      "message": "Why do you need this? In case BeforePass is not called?",
+      "range": {
+        "startLine": 127,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 28
+      },
+      "revId": "453b268fa6c65037026f7b118a967c0a5cd66aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
