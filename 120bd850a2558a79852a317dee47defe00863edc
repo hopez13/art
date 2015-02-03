@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17515fa8_2b134584",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-02-03T08:39:34Z",
+      "side": 1,
+      "message": "thread \u003d\u003d self includes two cases. One case is the runnable threads to execute checkpoint functions at its safe point. The other is the thread itself to call RunCheckpoint function. The second case doesn\u0027t need to call Pass function.",
+      "parentUuid": "97854f8c_a6dd92e6",
+      "range": {
+        "startLine": 994,
+        "startChar": 8,
+        "endLine": 994,
+        "endChar": 39
+      },
+      "revId": "120bd850a2558a79852a317dee47defe00863edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97854f8c_e6d79ac0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
