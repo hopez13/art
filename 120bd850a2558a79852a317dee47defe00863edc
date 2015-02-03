@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97854f8c_a6dd92e6",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-03T03:07:08Z",
+      "side": 1,
+      "message": "Would \"if (thread \u003d\u003d self)\" be equivalent and slightly better in that it matches the first condition in the CHECK() in line 983?",
+      "range": {
+        "startLine": 994,
+        "startChar": 8,
+        "endLine": 994,
+        "endChar": 39
+      },
+      "revId": "120bd850a2558a79852a317dee47defe00863edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97854f8c_e6d79ac0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-03T03:07:08Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 1066,
+        "startChar": 8,
+        "endLine": 1066,
+        "endChar": 39
+      },
+      "revId": "120bd850a2558a79852a317dee47defe00863edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
