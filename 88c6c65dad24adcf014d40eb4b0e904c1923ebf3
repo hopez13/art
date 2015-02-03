@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5778376f_f6482072",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T14:13:45Z",
+      "side": 1,
+      "message": "Sure, thanks",
+      "parentUuid": "5778376f_16775cbd",
+      "range": {
+        "startLine": 744,
+        "startChar": 2,
+        "endLine": 744,
+        "endChar": 47
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76973a4_f9c5770f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "5778376f_365b783e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T14:13:45Z",
+      "side": 1,
+      "message": "Might be safer to restrict it to just the empty scenario for now,",
+      "parentUuid": "5778376f_367458b6",
+      "range": {
+        "startLine": 789,
+        "startChar": 31,
+        "endLine": 789,
+        "endChar": 91
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5778376f_b6cb08a6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -148,6 +196,24 @@
       "side": 1,
       "message": "Not sure I understand which additional DCHECKS you want?\n\nThe other\u0027s predecessors/dominator are discarded, do you prefer to enforce that before and/or in that method?",
       "parentUuid": "5778376f_b6cb08a6",
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77637bc4_174af447",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-03T14:13:45Z",
+      "side": 1,
+      "message": "I guess I\u0027m just worried somebody might use this method to merge blocks inside the same graph. Yes, they should read the method first, but maybe we could make it more obvious. How about forcing \u0027other\u0027 to be an entry block from a different graph?",
+      "parentUuid": "77637bc4_57862c29",
       "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
