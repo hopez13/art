@@ -22,6 +22,30 @@
       "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17207f81_e4713aca",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-03T18:51:07Z",
+      "side": 1,
+      "message": "At this point error_msgs will already contain some errors, namely those of oat file generation. I guess it\u0027s fine to add a top-level one stating that fallback is disabled in an else-branch.\n\nThe false is the return code for \"couldn\u0027t find or generate oat file\" according to a comment in DexFile. The actual decision is then made over the content of dex_files. Probably needs a comment in class_linker.h what \"false\" means.",
+      "parentUuid": "b737b3c2_c959b1f8",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1017,
+        "endChar": 17
+      },
+      "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
