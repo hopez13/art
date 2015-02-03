@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "378ca3b9_e6aa341d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T11:31:50Z",
+      "side": 1,
+      "message": "Hmm, the only think I did different was to defined NATIVE_COVERAGE and ART_COVERAGE in my environment.\n\nAlso, all run-test crash when doing this, with:\n+/usr/local/google/home/ngeoffray/projects/android/standalone3/art/test/etc/run-test-jar: line 415:   615 Segmentation fault      $cmdline \"$@\" 2\u003e\u00261\n\n\nAny idea why?\n\nDoes it matter for the coverage?",
+      "parentUuid": "7707fbcb_57456cd1",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e9cf2d_60643233",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
