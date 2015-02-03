@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "97538ffc_10092453",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17723f91_3441b079",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37758377_b840555a",
         "filename": "compiler/dex/compiler_ir.h",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "97538ffc_7010b075",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37758377_b840555a",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 11
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5778376f_39ce0b63",
         "filename": "compiler/dex/compiler_ir.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-03T17:03:52Z",
       "side": 1,
       "message": "int64_t should be passed by value.",
+      "range": {
+        "startLine": 138,
+        "startChar": 29,
+        "endLine": 138,
+        "endChar": 49
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d749874e_12304c13",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5778376f_39ce0b63",
       "range": {
         "startLine": 138,
         "startChar": 29,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "7758db1a_cfe7fd32",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Thanks Vladimir. No objects in C unions indeed.",
+      "parentUuid": "17723f91_f4801861",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 12
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5778376f_79d88326",
         "filename": "compiler/dex/compiler_ir.h",
         "patchSetId": 3
@@ -129,6 +225,30 @@
       "writtenOn": "2015-02-03T17:03:52Z",
       "side": 1,
       "message": "Put this on a separate line. Don\u0027t mix the union and variable definition together.",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 13
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97538ffc_302d48ba",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5778376f_79d88326",
       "range": {
         "startLine": 149,
         "startChar": 4,
@@ -187,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d749874e_12a5acc9",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f795abbd_e1430253",
+      "range": {
+        "startLine": 288,
+        "startChar": 40,
+        "endLine": 289,
+        "endChar": 24
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97854f8c_c99f09cb",
         "filename": "compiler/dex/pass_driver_me.h",
         "patchSetId": 3
@@ -198,6 +342,30 @@
       "writtenOn": "2015-02-03T16:33:46Z",
       "side": 1,
       "message": "Is there a reason to no longer accept formatted numbers?",
+      "range": {
+        "startLine": 300,
+        "startChar": 57,
+        "endLine": 300,
+        "endChar": 59
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d749874e_b2b5c000",
+        "filename": "compiler/dex/pass_driver_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97854f8c_c99f09cb",
       "range": {
         "startLine": 300,
         "startChar": 57,
@@ -233,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "97538ffc_b064d8b1",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "37758377_d8435153",
+      "range": {
+        "startLine": 139,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 78
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f795abbd_013b8efb",
         "filename": "compiler/dex/pass_me.h",
         "patchSetId": 3
@@ -244,6 +436,30 @@
       "writtenOn": "2015-02-03T16:33:46Z",
       "side": 1,
       "message": "Too long.",
+      "range": {
+        "startLine": 169,
+        "startChar": 100,
+        "endLine": 169,
+        "endChar": 119
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97538ffc_d0915c67",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f795abbd_013b8efb",
       "range": {
         "startLine": 169,
         "startChar": 100,
@@ -279,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "d749874e_9297dc5b",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f795abbd_412d96b8",
+      "range": {
+        "startLine": 189,
+        "startChar": 100,
+        "endLine": 189,
+        "endChar": 109
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97854f8c_c9f8e90a",
         "filename": "compiler/dex/pass_me.h",
         "patchSetId": 3
@@ -302,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "97538ffc_3089c83a",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97854f8c_c9f8e90a",
+      "range": {
+        "startLine": 197,
+        "startChar": 100,
+        "endLine": 197,
+        "endChar": 110
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f795abbd_81279ed6",
         "filename": "compiler/dex/pass_me.h",
         "patchSetId": 3
@@ -313,6 +577,30 @@
       "writtenOn": "2015-02-03T16:33:46Z",
       "side": 1,
       "message": "Please fix this one, too, while you\u0027re here.",
+      "range": {
+        "startLine": 207,
+        "startChar": 100,
+        "endLine": 207,
+        "endChar": 119
+      },
+      "revId": "d5db3e4dbd878e7ec667f250febcf9a68ca7b1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d749874e_f296685c",
+        "filename": "compiler/dex/pass_me.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1054755
+      },
+      "writtenOn": "2015-02-03T18:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f795abbd_81279ed6",
       "range": {
         "startLine": 207,
         "startChar": 100,
