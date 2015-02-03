@@ -16,6 +16,24 @@
       "revId": "4336b97fc291d28f883607c88feaff202a684a59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37758377_b5cb00a6",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2308,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-03T11:54:31Z",
+      "side": 0,
+      "message": "I don\u0027t think so. But AFAICT, this code isn\u0027t used with pure AOSP builds, so it\u0027s really up to Intel to verify.",
+      "parentUuid": "f74dab10_04f99c0b",
+      "revId": "4336b97fc291d28f883607c88feaff202a684a59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
