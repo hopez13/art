@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "17723f91_74f968d5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T14:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5778376f_365b783e",
+      "range": {
+        "startLine": 789,
+        "startChar": 31,
+        "endLine": 789,
+        "endChar": 91
+      },
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5778376f_b6cb08a6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -214,6 +238,24 @@
       "side": 1,
       "message": "I guess I\u0027m just worried somebody might use this method to merge blocks inside the same graph. Yes, they should read the method first, but maybe we could make it more obvious. How about forcing \u0027other\u0027 to be an entry block from a different graph?",
       "parentUuid": "77637bc4_57862c29",
+      "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17723f91_54138c82",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-03T14:26:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77637bc4_174af447",
       "revId": "88c6c65dad24adcf014d40eb4b0e904c1923ebf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
