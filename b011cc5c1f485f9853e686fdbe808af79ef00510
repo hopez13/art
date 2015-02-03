@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dce7ec92_a2271ed8",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1064859
+      },
+      "writtenOn": "2015-02-03T19:46:37Z",
+      "side": 1,
+      "message": "In this case I think it is better to avoid crashing and document appropriately the error.",
+      "parentUuid": "f74dab10_ea4f97a9",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 9
+      },
+      "revId": "b011cc5c1f485f9853e686fdbe808af79ef00510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "975e2ffc_58481ded",
         "filename": "compiler/dex/compiler_ir.h",
         "patchSetId": 4
