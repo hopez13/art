@@ -46,6 +46,53 @@
       "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c293c84_710452bf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-04T00:53:45Z",
+      "side": 1,
+      "message": "OpenDexFilesFromOat can return three ways:\n1. return true, with \u0027dex_files\u0027 populated, meaning the dex files were loaded from oat files.\n2. return false, with \u0027dex_files\u0027 populated, meaning the dex files were loaded from unquickened dex files, to be interpreted.\n3. return false, with \u0027dex_files\u0027 empty, meaning it couldn\u0027t open anything for the given dex location.\n\nIn the oat file cleanup work I was doing, I wanted to change this to return true if any dex files were loaded (oat or no oat), because dalvik_system_DexFile.cc doesn\u0027t care if no oat file was loaded, so long as it gets some dex files back.\n\nMy vote is to return \u0027false\u0027 only if no dex files are returned. Then dalvik_system_DexFile.cc can be cleaned up a little and the interface is less confusing. Either way, yes, add a comment in class_linker.h to describe these cases. The comment I added in my oat file management cleanup is:\n\n// Find or create the oat file holding dex_location. Then load all\n// corresponding dex files into the given vector (there may be more than one\n// dex file loaded in the case of multidex).\n// Returns true if dex files were successfully loaded, including the case\n// where an oat file could not be generated, but the original, unquickened\n// dex files could be loaded.",
+      "parentUuid": "17207f81_e4713aca",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1017,
+        "endChar": 17
+      },
+      "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6318f1_699a25de",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-04T00:53:45Z",
+      "side": 1,
+      "message": "Can you document this option by adding usage info for it?",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 657,
+        "endChar": 39
+      },
+      "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
