@@ -25,6 +25,81 @@
     },
     {
       "key": {
+        "uuid": "1c7a64aa_3460109b",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-04T21:36:43Z",
+      "side": 1,
+      "message": "(Will fix in this CL)\n\nOn a more general note for future CLs, this has been bothering me for a while, if MIPS is the only one where -O0 doesn\u0027t work, can we just make an exception for MIPS by adding -O2 for MIPS only?\n\nAny objections to that?",
+      "parentUuid": "5c521c24_462cf210",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 5
+      },
+      "revId": "46a2f2e63d703aabd886b324b1661701e82a9154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc9d9026_fee59d5a",
+        "filename": "cmdline/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-04T21:36:43Z",
+      "side": 1,
+      "message": "I assume I don\u0027t need a copyright here? bionic/README.md doesn\u0027t have one",
+      "revId": "46a2f2e63d703aabd886b324b1661701e82a9154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c7d68a0_f5aa98e8",
+        "filename": "cmdline/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-04T21:36:43Z",
+      "side": 1,
+      "message": "Reflow this file to fit within 100 columns",
+      "revId": "46a2f2e63d703aabd886b324b1661701e82a9154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c665411_9becaf95",
+        "filename": "cmdline/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-04T21:36:43Z",
+      "side": 1,
+      "message": "extra spaces",
+      "revId": "46a2f2e63d703aabd886b324b1661701e82a9154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c521c24_06883ab5",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -36,6 +111,30 @@
       "writtenOn": "2015-02-04T01:50:34Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 6
+      },
+      "revId": "46a2f2e63d703aabd886b324b1661701e82a9154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c7a64aa_f49058e9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-04T21:36:43Z",
+      "side": 1,
+      "message": "Forgot to remove this, thanks.\n\nFor the more curious, these static constexpr declarations in the headers aren\u0027t enough if the static fields end up getting odr-used (e.g. used in a context where their address is taken or bound to a reference). I worked around this problem by copying instead of using const T\u0026",
+      "parentUuid": "5c521c24_06883ab5",
       "range": {
         "startLine": 112,
         "startChar": 0,
