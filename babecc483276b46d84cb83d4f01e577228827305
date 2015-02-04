@@ -22,6 +22,30 @@
       "revId": "babecc483276b46d84cb83d4f01e577228827305",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c400875_fde22750",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-04T23:40:20Z",
+      "side": 0,
+      "message": "Yes,\n\ncollector_type_ has the default set in XGcOption constructor\nbackground_collector_type has the default set in BackgroundGcOption constructor\ninterpreter_only has the default set in runtime_options.def\n\nBasically primitives have their defaults set directly in runtime_options.def and everything else is in the default constructor of the type.\n\nWe could do it all in runtime_options.def but then the default values become many lines instead of 1 line, and T{} no longer reflects defaults which seems counter-intuitive. Either way is fine with me.",
+      "parentUuid": "3c400875_1d039387",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 3
+      },
+      "revId": "babecc483276b46d84cb83d4f01e577228827305",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
