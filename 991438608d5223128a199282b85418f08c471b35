@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c5d2031_4dd1ad86",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T02:52:45Z",
+      "side": 1,
+      "message": "Looks like this is almost the same as below. Put it into a static ALWAYS_INLINE function, maybe?",
+      "range": {
+        "startLine": 686,
+        "startChar": 8,
+        "endLine": 699,
+        "endChar": 9
+      },
+      "revId": "991438608d5223128a199282b85418f08c471b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
