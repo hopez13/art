@@ -22,6 +22,75 @@
       "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc2f508a_0e984b87",
+        "filename": "test/118-noimage-dex2oat/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T08:22:07Z",
+      "side": 1,
+      "message": "Why don\u0027t we just set the test as failing with prebuild?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c1ee459_ba11897c",
+        "filename": "test/119-noimage-patchoat/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T08:22:07Z",
+      "side": 1,
+      "message": "If it worked before, is this false_bin really needed?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc2f508a_ee8cdf4b",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T08:22:07Z",
+      "side": 1,
+      "message": "This is a cleanup right? Not related to the no-dex2oat test changes?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 20
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
