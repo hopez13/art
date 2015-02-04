@@ -296,6 +296,24 @@
     },
     {
       "key": {
+        "uuid": "7c928013_ff2d9fb9",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-04T09:42:28Z",
+      "side": 1,
+      "message": "why do you prefer to keep them out of the header file ? \n\nMaybe you should add a TODO if this is something you foresee doing in the near future.",
+      "parentUuid": "f7268b4e_73ef008b",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d4b72d_167e9c96",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
