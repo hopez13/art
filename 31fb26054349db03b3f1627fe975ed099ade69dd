@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "3cc2c81e_302ca63e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-02-04T20:46:54Z",
+      "side": 1,
+      "message": "Oops, missed this.\n\nYeah, ART_COVERAGE cannot be used as an environment variable (since it has to override the value in the makefile). Feel free to change it to yield to the environment; I just matched bionic\u0027s implementation.\n\nAs for the segfault, don\u0027t know, and I\u0027m not sure what segfaults do to coverage runs. I think the buffers are flushed on each write, so in theory you\u0027d have all the coverage info up to the crash.",
+      "parentUuid": "378ca3b9_e6aa341d",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "31fb26054349db03b3f1627fe975ed099ade69dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97e9cf2d_60643233",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
