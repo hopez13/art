@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "bc6318f1_a93edd04",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T01:14:50Z",
+      "side": 1,
+      "message": "Your cleanup isn\u0027t merged, yet, right? How about we roll this cleanup into your CL?",
+      "parentUuid": "5c293c84_710452bf",
+      "range": {
+        "startLine": 1017,
+        "startChar": 4,
+        "endLine": 1017,
+        "endChar": 17
+      },
+      "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6318f1_699a25de",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "writtenOn": "2015-02-04T00:53:45Z",
       "side": 1,
       "message": "Can you document this option by adding usage info for it?",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 657,
+        "endChar": 39
+      },
+      "revId": "fd9c324ff4b7a43510f0d179d92dda35e917d05a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c5d2031_67a0123f",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T01:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6318f1_699a25de",
       "range": {
         "startLine": 656,
         "startChar": 0,
