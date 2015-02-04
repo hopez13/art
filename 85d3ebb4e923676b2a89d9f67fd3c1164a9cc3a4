@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c521c24_e66bde84",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-04T01:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c521c24_66b00e11",
+      "range": {
+        "startLine": 310,
+        "startChar": 24,
+        "endLine": 310,
+        "endChar": 78
+      },
+      "revId": "85d3ebb4e923676b2a89d9f67fd3c1164a9cc3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6318f1_0c2cd73d",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7c5d2031_caefc388",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-04T01:31:49Z",
+      "side": 1,
+      "message": "Not sure, but it shouldn\u0027t be called for long. Time to suspend is \u003c1 ms usually.",
+      "parentUuid": "bc6318f1_0c2cd73d",
+      "range": {
+        "startLine": 684,
+        "startChar": 37,
+        "endLine": 684,
+        "endChar": 47
+      },
+      "revId": "85d3ebb4e923676b2a89d9f67fd3c1164a9cc3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c5d2031_4a98735a",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-04T01:22:46Z",
       "side": 1,
       "message": "2 * 0 \u003d 0, probably the minimum here...",
+      "range": {
+        "startLine": 699,
+        "startChar": 24,
+        "endLine": 699,
+        "endChar": 36
+      },
+      "revId": "85d3ebb4e923676b2a89d9f67fd3c1164a9cc3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6318f1_cc0ebfa9",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-04T01:31:49Z",
+      "side": 1,
+      "message": "Intent is to stay at 0 forever to prevent usleep causing millisecond long pauses which can cause jank. Added comment.",
+      "parentUuid": "7c5d2031_4a98735a",
       "range": {
         "startLine": 699,
         "startChar": 24,
