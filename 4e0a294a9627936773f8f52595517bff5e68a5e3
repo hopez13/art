@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c928013_1fef233e",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-04T13:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc836cc3_c2aa4297",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 252,
+        "endChar": 10
+      },
+      "revId": "4e0a294a9627936773f8f52595517bff5e68a5e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc836cc3_6299f68e",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-04T08:51:49Z",
       "side": 1,
       "message": "Missing \u0027.\u0027",
+      "range": {
+        "startLine": 103,
+        "startChar": 36,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "4e0a294a9627936773f8f52595517bff5e68a5e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc836cc3_42507249",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-04T13:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc836cc3_6299f68e",
       "range": {
         "startLine": 103,
         "startChar": 36,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c928013_bfdf1785",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-04T13:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc2f508a_6e0eaf30",
+      "range": {
+        "startLine": 115,
+        "startChar": 36,
+        "endLine": 115,
+        "endChar": 41
+      },
+      "revId": "4e0a294a9627936773f8f52595517bff5e68a5e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc836cc3_829e7a76",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-04T08:51:49Z",
       "side": 1,
       "message": "Again, why do you need this? Shouldn\u0027t you call BeforePass always and DCHECK that timing_logger_running is true?",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "4e0a294a9627936773f8f52595517bff5e68a5e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c977c02_5eb615bf",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-04T13:48:30Z",
+      "side": 1,
+      "message": "Done.\nSry I forgot to reply to your previous comment. Yeah, I previously thought I might call just AfterPass on some passes so doing it the way you\u0027re suggesting would be too restrictive. But yeah, makes sense. Swapped them around now.",
+      "parentUuid": "dc836cc3_829e7a76",
       "range": {
         "startLine": 116,
         "startChar": 8,
