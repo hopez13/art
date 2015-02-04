@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c7a64aa_7467680f",
+        "filename": "test/118-noimage-dex2oat/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T18:31:37Z",
+      "side": 1,
+      "message": "Seems OK to me to do that. As long as it is clear when the test is expected to succeed. (See the reply to Nicolas below).",
+      "parentUuid": "9c3f34b5_f05ba072",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc2f508a_0e984b87",
         "filename": "test/118-noimage-dex2oat/run",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-04T08:22:07Z",
       "side": 1,
       "message": "Why don\u0027t we just set the test as failing with prebuild?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c7d68a0_d5bd1cb5",
+        "filename": "test/118-noimage-dex2oat/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T18:31:37Z",
+      "side": 1,
+      "message": "The test was intended to, I think. I guess we missed it when 116 was added that way.\n\nThis is just a fallback so that when you do start it with run-test, it works. I do that a lot for the --dev of a test, and it is nice to not have to go look and see that --no-prebuild must be pushed for it to work.",
+      "parentUuid": "fc2f508a_0e984b87",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fc9d9026_feefdd87",
+        "filename": "test/119-noimage-patchoat/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T18:31:37Z",
+      "side": 1,
+      "message": "There\u0027s a slight different there between who gives the exit code and what\u0027s going wrong. I wanted to preserve the test as is, just fix the IsHost decision...",
+      "parentUuid": "1c1ee459_ba11897c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc2f508a_ee8cdf4b",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-04T08:22:07Z",
       "side": 1,
       "message": "This is a cleanup right? Not related to the no-dex2oat test changes?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 20
+      },
+      "revId": "a14b57347db012a680d43cec9b101ff8fa3cf116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c7d68a0_55610ca1",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T18:31:37Z",
+      "side": 1,
+      "message": "As mentioned in the commit message, yes, that\u0027s cleanup. I was tired when looking at the command lines from --dev...",
+      "parentUuid": "fc2f508a_ee8cdf4b",
       "range": {
         "startLine": 312,
         "startChar": 0,
