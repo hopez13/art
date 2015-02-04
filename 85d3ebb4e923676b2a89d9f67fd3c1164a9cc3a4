@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c521c24_66b00e11",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T01:22:46Z",
+      "side": 1,
+      "message": "Needs a colon or a reformulation to be an actual sentence.",
+      "range": {
+        "startLine": 310,
+        "startChar": 24,
+        "endLine": 310,
+        "endChar": 78
+      },
+      "revId": "85d3ebb4e923676b2a89d9f67fd3c1164a9cc3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6318f1_0c2cd73d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T01:22:46Z",
+      "side": 1,
+      "message": "What\u0027s the impact of calling this quite often?",
+      "range": {
+        "startLine": 684,
+        "startChar": 37,
+        "endLine": 684,
+        "endChar": 47
+      },
+      "revId": "85d3ebb4e923676b2a89d9f67fd3c1164a9cc3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c5d2031_4a98735a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-04T01:22:46Z",
+      "side": 1,
+      "message": "2 * 0 \u003d 0, probably the minimum here...",
+      "range": {
+        "startLine": 699,
+        "startChar": 24,
+        "endLine": 699,
+        "endChar": 36
+      },
+      "revId": "85d3ebb4e923676b2a89d9f67fd3c1164a9cc3a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
