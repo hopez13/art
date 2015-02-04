@@ -22,6 +22,29 @@
       "revId": "e5368d1de3506079697207880d7337e194a910d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c928013_5fefeb0e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T09:11:28Z",
+      "side": 1,
+      "message": "You need a handle scope.",
+      "range": {
+        "startLine": 1270,
+        "startChar": 0,
+        "endLine": 1270,
+        "endChar": 63
+      },
+      "revId": "e5368d1de3506079697207880d7337e194a910d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
