@@ -46,6 +46,30 @@
       "revId": "babecc483276b46d84cb83d4f01e577228827305",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c400875_c0302017",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-04T23:53:07Z",
+      "side": 0,
+      "message": "I see.\n\nI see UseTLAB is a Unit type. How would temporarily I change it to hard-code/override use_tlab_ \u003d true now like I was able to here before?",
+      "parentUuid": "3c400875_fde22750",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 3
+      },
+      "revId": "babecc483276b46d84cb83d4f01e577228827305",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
