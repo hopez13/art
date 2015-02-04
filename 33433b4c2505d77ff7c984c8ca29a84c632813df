@@ -314,6 +314,24 @@
     },
     {
       "key": {
+        "uuid": "fc48307a_6605b0f2",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-02-04T13:32:49Z",
+      "side": 1,
+      "message": "I would like to keep them \"for internal use only\". Mostly because of inertia. I do not think they are likely to be replaced with something else in near future.",
+      "parentUuid": "7c928013_ff2d9fb9",
+      "revId": "33433b4c2505d77ff7c984c8ca29a84c632813df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57d4b72d_167e9c96",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 11
