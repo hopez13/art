@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc836cc3_a5d9482b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T14:53:11Z",
+      "side": 1,
+      "message": "Not so magic, as the first block is the entry and the third block is the exit. I added a comment.",
+      "parentUuid": "f74dab10_8a9373bb",
+      "range": {
+        "startLine": 869,
+        "startChar": 28,
+        "endLine": 869,
+        "endChar": 29
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f74dab10_6a9627ae",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-03T18:19:24Z",
       "side": 1,
       "message": "typo: of?",
+      "range": {
+        "startLine": 889,
+        "startChar": 50,
+        "endLine": 889,
+        "endChar": 52
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc836cc3_c5d6ccfa",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T14:53:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f74dab10_6a9627ae",
       "range": {
         "startLine": 889,
         "startChar": 50,
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "Great catch Mark, it should be phi-\u003e. It looks like the code we\u0027re getting has a single return instruction. I\u0027ll fix it and add a smali test in a follow-up CL.",
       "parentUuid": "975e2ffc_786ec165",
+      "range": {
+        "startLine": 913,
+        "startChar": 26,
+        "endLine": 913,
+        "endChar": 31
+      },
+      "revId": "276d9daaedfbff716339f94d55e6eff98b7434c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca1845e_5c05bdf1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T14:53:11Z",
+      "side": 1,
+      "message": "Done in: https://android-review.googlesource.com/128701.",
+      "parentUuid": "7758db1a_6fac51b4",
       "range": {
         "startLine": 913,
         "startChar": 26,
