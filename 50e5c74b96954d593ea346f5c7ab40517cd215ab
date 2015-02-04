@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc836cc3_a244de39",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T15:05:56Z",
+      "side": 1,
+      "message": "Name of the method does not seem correct anymore.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 73
+      },
+      "revId": "50e5c74b96954d593ea346f5c7ab40517cd215ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc836cc3_22e68ef2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T15:05:56Z",
+      "side": 1,
+      "message": "Should this check be factorized as something like CanBeBaseOfValue?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 75
+      },
+      "revId": "50e5c74b96954d593ea346f5c7ab40517cd215ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc836cc3_82099ad6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T15:05:56Z",
+      "side": 1,
+      "message": "ditto?",
+      "range": {
+        "startLine": 219,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 88
+      },
+      "revId": "50e5c74b96954d593ea346f5c7ab40517cd215ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc836cc3_e5bd10b5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T15:05:56Z",
+      "side": 1,
+      "message": "So should we replace all array.length instructions with `len` instead? Wouldn\u0027t that simplify the optimization?",
+      "range": {
+        "startLine": 752,
+        "startChar": 7,
+        "endLine": 752,
+        "endChar": 71
+      },
+      "revId": "50e5c74b96954d593ea346f5c7ab40517cd215ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ca1845e_fcf5a98c",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T15:05:56Z",
+      "side": 1,
+      "message": "Could you put a CHECK: BoundsCheck line 34?",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 81
+      },
+      "revId": "50e5c74b96954d593ea346f5c7ab40517cd215ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

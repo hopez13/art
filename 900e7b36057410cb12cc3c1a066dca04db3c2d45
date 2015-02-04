@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc836cc3_25b458d2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-04T15:05:56Z",
+      "side": 0,
+      "message": "It\u0027s a nice cleanup to remove this special case of LessThanOrEqual.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "900e7b36057410cb12cc3c1a066dca04db3c2d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
