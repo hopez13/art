@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c69e806_d883f116",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-05T02:11:08Z",
+      "side": 1,
+      "message": "uint32_t* ThreadLocalFreeBitMap()\n\nWhy the array indexing plus get-pointer?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 57,
+        "endLine": 1126,
+        "endChar": 84
+      },
+      "revId": "1a34101eef9a8f73ed2496127eec335c5ed2dec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
