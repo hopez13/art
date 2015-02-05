@@ -49,6 +49,40 @@
     },
     {
       "key": {
+        "uuid": "bcd07810_0184ea1e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-05T18:02:38Z",
+      "side": 1,
+      "message": "Minor nit: redundant check//you could also use unique_ptr to avoid changing the constructor/destructor",
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dccb6c64_2289eebd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-05T18:02:38Z",
+      "side": 1,
+      "message": "Argh, sorry about this, completely forgot that jdwp_options was a global",
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c1a1cb5_29aaa96e",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
