@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dc260cf8_4d0d6dae",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1010712
+      },
+      "writtenOn": "2015-02-05T22:53:27Z",
+      "side": 1,
+      "message": "Ok.  I got what you suggest.  We can delay the processing at the end to avoid the allocation of a new switch table.  I can try to do that.  Thanks a lot!",
+      "parentUuid": "dcfd2c74_98e5dd5c",
+      "range": {
+        "startLine": 943,
+        "startChar": 42,
+        "endLine": 943,
+        "endChar": 52
+      },
+      "revId": "40e4708146628455eb07102361979ecb7327eb2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c2014e0_c8ef8fb6",
         "filename": "compiler/dex/quick/codegen_util.cc",
         "patchSetId": 4
