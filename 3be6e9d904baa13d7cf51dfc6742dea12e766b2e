@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c1a1cb5_29aaa96e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-05T17:40:25Z",
+      "side": 1,
+      "message": "This is to avoid including jdwp/jdwp.h into runtime.h file (which is included almost everywhere already).\n\nOpinions?",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 51
+      },
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
