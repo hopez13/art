@@ -22,6 +22,30 @@
       "revId": "0d3c6344c95a9e18e9a2a91a1d65ac4a7374686c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c073452_36dcc01f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-05T16:55:51Z",
+      "side": 1,
+      "message": "Unfortunately yes.\n(1) I want to time just Run()\n(2) I want to dump the graph after Run() even if Check() fails",
+      "parentUuid": "9c073452_16137c59",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 5
+      },
+      "revId": "0d3c6344c95a9e18e9a2a91a1d65ac4a7374686c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
