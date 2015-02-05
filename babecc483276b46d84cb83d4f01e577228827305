@@ -70,6 +70,30 @@
       "revId": "babecc483276b46d84cb83d4f01e577228827305",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c400875_002cc892",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-05T00:07:15Z",
+      "side": 0,
+      "message": "Apologies, I thought the // use_tlab \u003d true was some dead code someone forgot to remove.\n\nIn runtime.cc where it initializes \u0027new gc::Heap\u0027 there\u0027s\n\n    runtime_options.Exists(Opt::UseTLAB),\n\nwhich checks if the user passed in the \u0027USETLAB\u0027 flag via the options.\n\nChange that to prepend \u0027kUseReadBarrier || \u0027 if you want to hardcode it for development.\n\n   kUseReadBarrier || runtime_options.Exists(Opt::UseTLAB)\n\nWe can also just change the UseTLAB type to be a bool and then set the default to \u0027kUseReadBarrier\u0027, but then we need to change that line to \u0027GetOrDefault(Opt::UseTLAB)\u0027 instead of Exists.",
+      "parentUuid": "3c400875_c0302017",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 3
+      },
+      "revId": "babecc483276b46d84cb83d4f01e577228827305",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
