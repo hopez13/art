@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c073452_365200ae",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-05T18:00:05Z",
+      "side": 1,
+      "message": "I changed jdwp_options to a pointer in ParseOption because we modify it and IIRC we agreed on using pointer than reference in that case, right?\nFor the Parse method, you\u0027re right. It\u0027s mainly to transform into a foreach loop.",
+      "parentUuid": "bcd07810_e111c67b",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 32
+      },
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c1a1cb5_29aaa96e",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "You could use a unique_ptr (it works as long as constructor and destructor of Runtime are in the .cc file, which they are). Else I think it\u0027s fine.\n\nAlternatively, looking at the debugger, we only allow one per process, it seems, as the interface is static. So you could also store it there as a static member?",
       "parentUuid": "5c1a1cb5_29aaa96e",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 51
+      },
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c1a1cb5_c972f579",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-05T18:00:05Z",
+      "side": 1,
+      "message": "OK, I\u0027ll try the unique_ptr. \n\nI agree about Dbg class, there\u0027s only one. That\u0027s in my todo list of a more global refactoring. That could simplify the access to JDWP options when starting the JDWP thread.",
+      "parentUuid": "bcd07810_a107be3e",
       "range": {
         "startLine": 809,
         "startChar": 4,
