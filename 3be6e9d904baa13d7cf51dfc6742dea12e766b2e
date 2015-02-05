@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1ce984cf_5c8dfd16",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-05T18:48:58Z",
+      "side": 1,
+      "message": "BTW, stylistically the \"most consistent\" thing would be to have this function return Result just like all the other type-parsers. Also in that case you wouldn\u0027t need to change it to use a pointer\n\n  error_stream \u003c\u003c error_message +\n  return false\n     becomes:\n  return Result::Failure(error_message)\n  \n  return true \n     becomes:\n  return Result::Success(jdwp_options)\n\nThe reason it was using a reference is because I refactored it from the jdwp header file with minimal changes (error_stream instead of LOG(error))",
+      "parentUuid": "9c073452_365200ae",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 32
+      },
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcd07810_0184ea1e",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
