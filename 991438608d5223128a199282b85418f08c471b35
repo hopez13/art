@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "bc5dd861_99a33b8e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-05T00:30:38Z",
+      "side": 1,
+      "message": "Since the above if block ends with a return, we can start a new if statement?",
+      "range": {
+        "startLine": 694,
+        "startChar": 8,
+        "endLine": 694,
+        "endChar": 35
+      },
+      "revId": "991438608d5223128a199282b85418f08c471b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c400875_208e24c6",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-05T00:30:38Z",
+      "side": 1,
+      "message": "Add UsToNs() to utils.h and use it here?",
+      "range": {
+        "startLine": 695,
+        "startChar": 26,
+        "endLine": 695,
+        "endChar": 80
+      },
+      "revId": "991438608d5223128a199282b85418f08c471b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c5d2031_4dd1ad86",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 4
