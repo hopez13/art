@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bcd07810_e111c67b",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-05T17:48:13Z",
+      "side": 1,
+      "message": "Is there a reason to touch all this? It seems like a semantically equivalent transformation, and a reason would be nice.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 32
+      },
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c1a1cb5_29aaa96e",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2015-02-05T17:40:25Z",
       "side": 1,
       "message": "This is to avoid including jdwp/jdwp.h into runtime.h file (which is included almost everywhere already).\n\nOpinions?",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 51
+      },
+      "revId": "3be6e9d904baa13d7cf51dfc6742dea12e766b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcd07810_a107be3e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-05T17:48:13Z",
+      "side": 1,
+      "message": "You could use a unique_ptr (it works as long as constructor and destructor of Runtime are in the .cc file, which they are). Else I think it\u0027s fine.\n\nAlternatively, looking at the debugger, we only allow one per process, it seems, as the interface is static. So you could also store it there as a static member?",
+      "parentUuid": "5c1a1cb5_29aaa96e",
       "range": {
         "startLine": 809,
         "startChar": 4,
