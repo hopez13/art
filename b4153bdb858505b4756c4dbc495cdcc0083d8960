@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bce4f851_a4bacc9d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-06T19:54:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "dc81ac4d_d277e46f",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 25
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c8bb46f_30c5082c",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-06T15:58:55Z",
       "side": 1,
       "message": "... the constant instruction. This helps the bounds check elimination phase.",
+      "range": {
+        "startLine": 85,
+        "startChar": 34,
+        "endLine": 85,
+        "endChar": 35
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce4f851_c4b550b2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-06T19:54:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9c8bb46f_30c5082c",
       "range": {
         "startLine": 85,
         "startChar": 34,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dc08ccdb_da252525",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-06T19:54:59Z",
+      "side": 1,
+      "message": "We have removed the null check on HNewArray. We are replacing the HArrayLength* possibly with a constant below. The IsNullCheck on line 81 is still needed since the array may not be a HNewArray*.",
+      "parentUuid": "dc81ac4d_124fac25",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c5e9cd0_26e15624",
         "filename": "test/448-checker-bce/src/Main.java",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-06T16:14:24Z",
       "side": 1,
       "message": "As Nicolas mentions below, to verify that something occurs a certain number of times, you need to do than number of CHECKs followed by a single CHECK-NOT. Otherwise you\u0027re testing that there are \"at least N occurrences\" rather than \"exactly N\".\n\nTo test for exactly three BoundsChecks:\n  // CHECK: BoundsCheck\n  // CHECK: BoundsCheck\n  // CHECK: BoundsCheck\n  // CHECK-NOT: BoundsCheck\n\nChecker will find matches for CHECKs in the given order and then come back and test that CHECK-NOTs don\u0027t occur in the given scopes. So CHECK CHECK-NOT CHECK will verify that something doesn\u0027t appear between lines that match the surrounding CHECKs.\n\nIM me if I can help clear things out more.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca13c0b_2ea4e7cd",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-06T19:54:59Z",
+      "side": 1,
+      "message": "Thanks for the explanation. I added // CHECK: ArraySet between the CHECK-NOT like I did for the first method sieve(). This should give more accurate matching.",
+      "parentUuid": "5c5e9cd0_26e15624",
       "range": {
         "startLine": 50,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7cbc4032_4f732d7f",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-06T19:54:59Z",
+      "side": 1,
+      "message": "Good point. That actually caught a bug in my original testcase.\nI added some ArraySet in-between my CHECK/CHECK-NOT which should make the matching more accurate.",
+      "parentUuid": "dc81ac4d_b2c4a014",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc81ac4d_12d48cc1",
         "filename": "test/448-checker-bce/src/Main.java",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-06T15:58:55Z",
       "side": 1,
       "message": "Add a comment that this gets inlined by dex. Why not just inlining it yourself?",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 29
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc08ccdb_1abddd42",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-06T19:54:59Z",
+      "side": 1,
+      "message": "Ok I just inlined it myself.",
+      "parentUuid": "dc81ac4d_12d48cc1",
       "range": {
         "startLine": 59,
         "startChar": 2,
