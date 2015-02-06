@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc81ac4d_d277e46f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-06T15:58:55Z",
+      "side": 1,
+      "message": "Add a comment: \"Will always throw\".",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 25
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c8bb46f_30c5082c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-06T15:58:55Z",
+      "side": 1,
+      "message": "... the constant instruction. This helps the bounds check elimination phase.",
+      "range": {
+        "startLine": 85,
+        "startChar": 34,
+        "endLine": 85,
+        "endChar": 35
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc81ac4d_124fac25",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-06T15:58:55Z",
+      "side": 1,
+      "message": "Haven\u0027t we removed the null check on HNewArray already?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc81ac4d_b2c4a014",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-06T15:58:55Z",
+      "side": 1,
+      "message": "This should be:\nCHECK: BoundsCheck\nCHECK-NOT: BoundsCheck\n\nOtherwise, more bounds check could be there after your CHECK: BoundsCheck.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc81ac4d_12d48cc1",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-06T15:58:55Z",
+      "side": 1,
+      "message": "Add a comment that this gets inlined by dex. Why not just inlining it yourself?",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 29
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
