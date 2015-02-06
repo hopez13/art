@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "5c5e9cd0_26e15624",
+        "filename": "test/448-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-06T16:14:24Z",
+      "side": 1,
+      "message": "As Nicolas mentions below, to verify that something occurs a certain number of times, you need to do than number of CHECKs followed by a single CHECK-NOT. Otherwise you\u0027re testing that there are \"at least N occurrences\" rather than \"exactly N\".\n\nTo test for exactly three BoundsChecks:\n  // CHECK: BoundsCheck\n  // CHECK: BoundsCheck\n  // CHECK: BoundsCheck\n  // CHECK-NOT: BoundsCheck\n\nChecker will find matches for CHECKs in the given order and then come back and test that CHECK-NOTs don\u0027t occur in the given scopes. So CHECK CHECK-NOT CHECK will verify that something doesn\u0027t appear between lines that match the surrounding CHECKs.\n\nIM me if I can help clear things out more.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc81ac4d_b2c4a014",
         "filename": "test/448-checker-bce/src/Main.java",
         "patchSetId": 3
