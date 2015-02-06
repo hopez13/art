@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "bc80787a_4100322e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-06T21:55:45Z",
+      "side": 1,
+      "message": "Yeah, but then why do you care? You\u0027re only interested on HNewArray, which cannot be guarded on a HNullCheck anymore.",
+      "parentUuid": "dc08ccdb_da252525",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "b4153bdb858505b4756c4dbc495cdcc0083d8960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c5e9cd0_26e15624",
         "filename": "test/448-checker-bce/src/Main.java",
         "patchSetId": 3
