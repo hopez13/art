@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51292784_ee74dfb7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T15:04:09Z",
+      "side": 1,
+      "message": "int32_t (to be on the safe side).",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 11
+      },
+      "revId": "32b1238b3be927f8322f06ef20ee3a303bd69596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51292784_ce7123c6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T15:04:09Z",
+      "side": 1,
+      "message": "Factorize this into something like FromArrayLengthToNewArray ?",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 5
+      },
+      "revId": "32b1238b3be927f8322f06ef20ee3a303bd69596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51292784_6e48ef74",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T15:04:09Z",
+      "side": 1,
+      "message": "... and we have checked that c falls into the right range above.",
+      "range": {
+        "startLine": 221,
+        "startChar": 10,
+        "endLine": 221,
+        "endChar": 84
+      },
+      "revId": "32b1238b3be927f8322f06ef20ee3a303bd69596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_cd7129c6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T15:04:09Z",
+      "side": 1,
+      "message": "Should this be called GetOffset() ? It\u0027s confusing otherwise to have a GetConstant and IsConstant following each other.",
+      "range": {
+        "startLine": 369,
+        "startChar": 45,
+        "endLine": 369,
+        "endChar": 56
+      },
+      "revId": "32b1238b3be927f8322f06ef20ee3a303bd69596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_ad7edd93",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T15:04:09Z",
+      "side": 1,
+      "message": "Could we somehow have this automatically with the logic line 566? It seems that if you were to create a ValueRange for the constant you would get all of this code for free?",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 7
+      },
+      "revId": "32b1238b3be927f8322f06ef20ee3a303bd69596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51292784_4e4d3383",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T15:04:09Z",
+      "side": 1,
+      "message": "-\u003e a valid array[i] cannot prove a valid array[i - 1]",
+      "range": {
+        "startLine": 606,
+        "startChar": 63,
+        "endLine": 606,
+        "endChar": 81
+      },
+      "revId": "32b1238b3be927f8322f06ef20ee3a303bd69596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
