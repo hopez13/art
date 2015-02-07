@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "312673b6_4d4d3983",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "Don\u0027t we have a helper in code_generator_arm.cc? Maybe factorize that in the .h file?",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 45
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_6d48f574",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "This is not correct. A D Register can never be through a FpuReguster, it must be created out of a FpuRegisterPair.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 42
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51292784_0e472b63",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "And it cannot happen right? So I\u0027d rather do a DCHECK() \u003c\u003c \"Diagonal overlap cannot happen\".",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 70
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51292784_ee5bbf39",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "Why do you take the parameter then? I\u0027d just get rid of is_long and this check.",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 3
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_0d473163",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "What is this? Note that I understand the last part of the sentence.",
+      "range": {
+        "startLine": 424,
+        "startChar": 17,
+        "endLine": 424,
+        "endChar": 28
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51292784_ce580340",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 483,
+        "startChar": 17,
+        "endLine": 483,
+        "endChar": 28
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_ed5bc539",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "The codegen has it, why can\u0027t you have it?",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 23
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11332ff6_8c7b27a4",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": ".. Worst case is that we\u0027ll consider the referenced object as live through this object for some time.",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 761,
+        "endChar": 57
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_cd8a4930",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "DCHECK that it\u0027s false, and remove the code below.",
+      "range": {
+        "startLine": 778,
+        "startChar": 0,
+        "endLine": 778,
+        "endChar": 37
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312673b6_ad87fd25",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-07T19:14:48Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 817,
+        "startChar": 0,
+        "endLine": 817,
+        "endChar": 56
+      },
+      "revId": "e9d81f9b13b00fc7249d829eede701d21fc52b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
