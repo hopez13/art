@@ -16,6 +16,24 @@
       "revId": "54aa4e578a382977325d654d5ae1bd779d443fc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3117538d_a5207e9c",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 0,
+      "message": "Note that i\u0027ve preserved the existing (broken) semantics. If we were really comparing as code point values, I wouldn\u0027t compare the leading and trailing surrogates individually.",
+      "parentUuid": "51f127a1_0eb88bf4",
+      "revId": "54aa4e578a382977325d654d5ae1bd779d443fc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

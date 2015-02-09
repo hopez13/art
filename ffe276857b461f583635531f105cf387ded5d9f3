@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9120ffdf_a8217b49",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f127a1_4e70d3c2",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51f127a1_ee7edf94",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9120ffdf_c8182f16",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f127a1_ee7edf94",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51f127a1_0e4d2b84",
         "filename": "runtime/mirror/object_test.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-02-09T16:38:41Z",
       "side": 1,
       "message": "four-byte (or change the others above to be more en-US)",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9120ffdf_28510ba6",
+        "filename": "runtime/mirror/object_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f127a1_0e4d2b84",
       "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "3117538d_45eeeacb",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f127a1_ae5b373a",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a88f5a_e71dfc5e",
         "filename": "runtime/mirror/string.h",
         "patchSetId": 1
@@ -98,6 +170,24 @@
       "writtenOn": "2015-02-09T16:38:41Z",
       "side": 1,
       "message": "?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9120ffdf_0856c79d",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11a88f5a_e71dfc5e",
       "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -155,6 +245,24 @@
     },
     {
       "key": {
+        "uuid": "11fb2f87_0c0c17e7",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "I chose Leading and Trailing because it\u0027s a more intuitive name wrt. to string indices; the leading surrogate always comes \"first\".\n\nre: s/pseduo/maybe - done.",
+      "parentUuid": "51f127a1_ce52031b",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a88f5a_473410da",
         "filename": "runtime/utf-inl.h",
         "patchSetId": 1
@@ -166,6 +274,24 @@
       "writtenOn": "2015-02-09T16:38:41Z",
       "side": 1,
       "message": "oh, i see. i think we should change the name of this now, especially because of implicit truncation.",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3117538d_e541d62a",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "any suggestions ? I toyed around with a few names before i put this up, but they were all generally worse than this.",
+      "parentUuid": "11a88f5a_473410da",
       "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -189,6 +315,24 @@
     },
     {
       "key": {
+        "uuid": "9120ffdf_88ec7799",
+        "filename": "runtime/utf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "This is supposed to be handled by the verifier, but i can\u0027t really see that happening anywhere.\n\nI wonder what the difference in performance is if we do validate these values.",
+      "parentUuid": "f1493ba5_5b16c3f4",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1493ba5_9bf7ab59",
         "filename": "runtime/utf_test.cc",
         "patchSetId": 1
@@ -200,6 +344,24 @@
       "writtenOn": "2015-02-09T16:38:41Z",
       "side": 1,
       "message": "\\n",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3117538d_c5277ab0",
+        "filename": "runtime/utf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1493ba5_9bf7ab59",
       "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -223,6 +385,24 @@
     },
     {
       "key": {
+        "uuid": "11fb2f87_2cdc73e6",
+        "filename": "runtime/utf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f127a1_4ec2935a",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a88f5a_072e188c",
         "filename": "runtime/utils.cc",
         "patchSetId": 1
@@ -234,6 +414,24 @@
       "writtenOn": "2015-02-09T16:38:41Z",
       "side": 1,
       "message": "maybe we should just have one function that breaks ch in two?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3117538d_053992d1",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-09T17:10:47Z",
+      "side": 1,
+      "message": "I considered doing that. This reads slightly better in places where we look at leading and trailing at different points in the code. Speaking of which, I can move the call to GetTrailing closer to the point of use.\n\nThere\u0027s no efficiency argument either, since i\u0027ve marked these as always inline. Even if i didn\u0027t, the compiler would inline these because they\u0027re less than a handful of instructions (1 in the best case)",
+      "parentUuid": "11a88f5a_072e188c",
       "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
