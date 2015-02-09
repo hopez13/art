@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51f127a1_4e70d3c2",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "pattern",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f127a1_ee7edf94",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "maybe spaces between them?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f127a1_0e4d2b84",
+        "filename": "runtime/mirror/object_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "four-byte (or change the others above to be more en-US)",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1493ba5_dbe653b5",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "why 32?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f127a1_ae5b373a",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "these seem big enough to warrant factoring out now. or just have this overload call the other one. that doesn\u0027t cost anything. (the other way round would cost a useless strlen.)",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a88f5a_e71dfc5e",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a88f5a_872a087a",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "(/me sniggers at the thought of this being pronounced like the disease rather than like \"stud\".)",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1493ba5_fbe98f87",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "GetCharArray and pull chars out of that?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f127a1_ce52031b",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "i\u0027m torn. java usually uses high and low rather than leading or trailing, but the latter do seem clearer for streams.\n\ns/pseudo/maybe/?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a88f5a_473410da",
+        "filename": "runtime/utf-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "oh, i see. i think we should change the name of this now, especially because of implicit truncation.",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1493ba5_5b16c3f4",
+        "filename": "runtime/utf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "!\n\nthey\u0027re assuming there\u0027s no such thing as a deliberately-crafted invalid dex file?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1493ba5_9bf7ab59",
+        "filename": "runtime/utf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "\\n",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f127a1_4ec2935a",
+        "filename": "runtime/utf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "type*",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a88f5a_072e188c",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-09T16:38:41Z",
+      "side": 1,
+      "message": "maybe we should just have one function that breaks ch in two?",
+      "revId": "ffe276857b461f583635531f105cf387ded5d9f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
