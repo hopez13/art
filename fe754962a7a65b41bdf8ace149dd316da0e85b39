@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1999784_d5e38e54",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-09T21:02:44Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "fe754962a7a65b41bdf8ace149dd316da0e85b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1999784_9593c6b9",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-09T21:02:44Z",
+      "side": 1,
+      "message": "As discussed, please add a comment like \"worst case we are going to scan the base object for nothing\".",
+      "range": {
+        "startLine": 743,
+        "startChar": 56,
+        "endLine": 743,
+        "endChar": 57
+      },
+      "revId": "fe754962a7a65b41bdf8ace149dd316da0e85b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
