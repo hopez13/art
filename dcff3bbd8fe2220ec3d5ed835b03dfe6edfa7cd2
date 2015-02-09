@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9139df03_e028c2ab",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "This is the only use of \"insn\". Replace with \"bottom_block-\u003efirst_mir_insn\" and remove \"insn\" above.",
+      "range": {
+        "startLine": 320,
+        "startChar": 13,
+        "endLine": 320,
+        "endChar": 17
+      },
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9139df03_603dd2eb",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d158b771_7ae6193c",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d158b771_5aeb5502",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d158b771_baff11bb",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b15d0362_b9ff1fbb",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "InsertCaseLabel(target, key)\n\nPlease keep the InsertCaseLabel() with the first parameter as BasicBlockId; used for codegen dump.",
+      "range": {
+        "startLine": 567,
+        "startChar": 28,
+        "endLine": 567,
+        "endChar": 54
+      },
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9139df03_c0749eb8",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-09T11:23:06Z",
+      "side": 1,
+      "message": "InsertCaseLabel(target, key)",
+      "range": {
+        "startLine": 589,
+        "startChar": 28,
+        "endLine": 589,
+        "endChar": 54
+      },
+      "revId": "dcff3bbd8fe2220ec3d5ed835b03dfe6edfa7cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
