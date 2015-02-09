@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71daab34_1f90c330",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "ReplaceAndRemoveInstructionWith\n\nthe same in the other places",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 60
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1493ba5_5e7071c2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "are we sure if the inputs are constant they are the same pointer?",
+      "range": {
+        "startLine": 159,
+        "startChar": 13,
+        "endLine": 159,
+        "endChar": 62
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1e5bbf3_db41132b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "nit: try to be consistent: either use else-if or return",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 10
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1493ba5_9efcb9c7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "use early return instead of a long if",
+      "range": {
+        "startLine": 262,
+        "startChar": 2,
+        "endLine": 262,
+        "endChar": 40
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71daab34_bff7d758",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "These are not used. Have I missed something?\n\nAlso, I found them a bit confusing (not immediately clear what they do and what\u0027s their purpose).",
+      "range": {
+        "startLine": 1351,
+        "startChar": 2,
+        "endLine": 1362,
+        "endChar": 46
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71daab34_7f60ef74",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1650,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "Since these are used ony in InstructionSimplifier why not making them statics there?",
+      "range": {
+        "startLine": 1650,
+        "startChar": 7,
+        "endLine": 1650,
+        "endChar": 17
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71daab34_dfb01b0a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-09T19:09:08Z",
+      "side": 1,
+      "message": "AreAllBitsOne?",
+      "range": {
+        "startLine": 1653,
+        "startChar": 7,
+        "endLine": 1653,
+        "endChar": 16
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
