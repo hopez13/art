@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91647f9b_cb0c093b",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T17:13:55Z",
+      "side": 1,
+      "message": "nit: could you separate with a new line?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 22
+      },
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91647f9b_ab60b59d",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T17:13:55Z",
+      "side": 1,
+      "message": "having it specified like this there\u0027s nothing that actually enforces the same order used by the package manager. I don\u0027t see an easy way out but a comment saying that they should match would be good.",
+      "range": {
+        "startLine": 83,
+        "startChar": 43,
+        "endLine": 83,
+        "endChar": 56
+      },
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f3e71a_1e45cd36",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T17:13:55Z",
+      "side": 1,
+      "message": "I think we should verify that we get valid values here.",
+      "range": {
+        "startLine": 240,
+        "startChar": 17,
+        "endLine": 240,
+        "endChar": 28
+      },
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
