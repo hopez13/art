@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "f1105b97_c3113678",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether these methods should be part of the ConstantFolding optimization -- maybe not, as they depend on a sole input being constant.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 67
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11140f87_842e26b7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 44
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71daab34_1f90c330",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -25,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "b1218333_d96153a5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "This is a recurring pattern in this file; I suggest introducing a helper routine.",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 82
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1493ba5_5e7071c2",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -41,6 +110,52 @@
         "startChar": 13,
         "endLine": 159,
         "endChar": 62
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1105b97_0366ae13",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "I guess that this optimization relies on GVN being performed prior (which is the case as InstructionSimplifier is run before *and* after GVNOptimization in compiler/optimizing/optimizing_compiler.cc); maybe add a comment about this?",
+      "range": {
+        "startLine": 159,
+        "startChar": 13,
+        "endLine": 159,
+        "endChar": 62
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "918b9f6f_90e5d42f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "What about implementing transformations similar to the ones in `InstructionSimplifierVisitor::VisitMul(HMul* instruction)\u0027, e.g.:\n\n* a / -1 → -a\n* a / 2^b  → -a \u003e\u003e b (arithmetic shift)\n\n?",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 48
       },
       "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -94,6 +209,46 @@
     },
     {
       "key": {
+        "uuid": "918b9f6f_30f748e1",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "I find this sentence a bit confusing.  I would replace it with \"the former expression yields `0.0`, while the later yields `-0.0`\".",
+      "range": {
+        "startLine": 288,
+        "startChar": 23,
+        "endLine": 288,
+        "endChar": 78
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1105b97_23c5aa94",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "Maybe mention that \"otherwise, returns nullptr.\"?",
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71daab34_bff7d758",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -110,6 +265,29 @@
         "startChar": 2,
         "endLine": 1362,
         "endChar": 46
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3117538d_e52a767a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "Is this cast really needed?",
+      "range": {
+        "startLine": 1363,
+        "startChar": 40,
+        "endLine": 1363,
+        "endChar": 71
       },
       "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -151,6 +329,30 @@
       "writtenOn": "2015-02-09T19:09:08Z",
       "side": 1,
       "message": "AreAllBitsOne?",
+      "range": {
+        "startLine": 1653,
+        "startChar": 7,
+        "endLine": 1653,
+        "endChar": 16
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "918b9f6f_3053c821",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T11:10:06Z",
+      "side": 1,
+      "message": "Or maybe is IsZeroBitwiseComplement?",
+      "parentUuid": "71daab34_dfb01b0a",
       "range": {
         "startLine": 1653,
         "startChar": 7,
