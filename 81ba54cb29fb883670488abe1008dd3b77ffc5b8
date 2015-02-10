@@ -68,6 +68,30 @@
       "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b10d03ec_797fc791",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-02-10T21:02:42Z",
+      "side": 1,
+      "message": "not every runtime needs it.. if I change to fail if not specified; dex2oat fails. I do not think dex2oat needs to load native libraries. warning maybe?",
+      "parentUuid": "51f3e71a_1e45cd36",
+      "range": {
+        "startLine": 240,
+        "startChar": 17,
+        "endLine": 240,
+        "endChar": 28
+      },
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
