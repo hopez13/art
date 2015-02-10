@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "918b9f6f_d037dc7c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T12:10:54Z",
+      "side": 1,
+      "message": "You can probably get rid of this test.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 10,
+        "endLine": 1388,
+        "endChar": 32
+      },
+      "revId": "a0b0be5681fee89b0812c1c47806639ce7ab1f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5175a73c_0e56ab10",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T12:10:54Z",
+      "side": 1,
+      "message": "0.0f",
+      "range": {
+        "startLine": 1389,
+        "startChar": 81,
+        "endLine": 1389,
+        "endChar": 84
+      },
+      "revId": "a0b0be5681fee89b0812c1c47806639ce7ab1f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "117faf22_acd3e35a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-10T12:10:54Z",
+      "side": 1,
+      "message": "As suggested by Calin, it would be worth adding a short comment explaining this special case.",
+      "range": {
+        "startLine": 1430,
+        "startChar": 8,
+        "endLine": 1430,
+        "endChar": 27
+      },
+      "revId": "a0b0be5681fee89b0812c1c47806639ce7ab1f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
