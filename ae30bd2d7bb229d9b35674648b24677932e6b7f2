@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "11fdefe8_5c53dd1f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-02-10T18:37:59Z",
+      "side": 1,
+      "message": "This actually cares about the proper size, so I need to use target_ptr_size_ here.",
+      "parentUuid": "7c57e041_5ad51141",
+      "range": {
+        "startLine": 934,
+        "startChar": 66,
+        "endLine": 934,
+        "endChar": 82
+      },
+      "revId": "ae30bd2d7bb229d9b35674648b24677932e6b7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c6cdc14_56f4d411",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "91647f9b_cece57e9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-02-10T18:37:59Z",
+      "side": 1,
+      "message": "Yes, orig should be the same size as the target.",
+      "parentUuid": "5c6cdc14_56f4d411",
+      "range": {
+        "startLine": 1087,
+        "startChar": 55,
+        "endLine": 1087,
+        "endChar": 57
+      },
+      "revId": "ae30bd2d7bb229d9b35674648b24677932e6b7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c57e041_9ad6894b",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-05T01:42:26Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 943,
+        "startChar": 9,
+        "endLine": 943,
+        "endChar": 21
+      },
+      "revId": "ae30bd2d7bb229d9b35674648b24677932e6b7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c69e806_d59a9c04",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-02-10T18:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c57e041_9ad6894b",
       "range": {
         "startLine": 943,
         "startChar": 9,
