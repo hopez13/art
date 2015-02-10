@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "9102bfb9_38c9c92d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3517,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T18:40:29Z",
+      "side": 1,
+      "message": "what\u0027s this todo for? (same for the others). Do you want to push this to the register allocator?",
+      "range": {
+        "startLine": 3517,
+        "startChar": 4,
+        "endLine": 3517,
+        "endChar": 42
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9102bfb9_18f84549",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3522,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T18:40:29Z",
+      "side": 1,
+      "message": "tmp + 2",
+      "range": {
+        "startLine": 3522,
+        "startChar": 35,
+        "endLine": 3522,
+        "endChar": 42
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91647f9b_0e56af10",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T18:40:29Z",
+      "side": 1,
+      "message": "not sure if useful right now but I\u0027d append a D, or a marker for double stack slots.",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 35
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d108b7db_1aa15d87",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 2
@@ -42,6 +111,29 @@
         "startChar": 12,
         "endLine": 87,
         "endChar": 19
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91647f9b_8e937f6c",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-10T18:40:29Z",
+      "side": 1,
+      "message": "An example will ease the understanding of this comment :)",
+      "range": {
+        "startLine": 88,
+        "startChar": 30,
+        "endLine": 89,
+        "endChar": 60
       },
       "revId": "51bec636f86749050898d92352c26849b0b92f3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
