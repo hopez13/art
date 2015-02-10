@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1121b0d_f3bc90ea",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-10T19:12:50Z",
+      "side": 1,
+      "message": "I\u0027ve improved the TODO. The idea is that we could either block a D register and never allocate it, or try to find  a free D register in the parallel moves, just like we do for core register.",
+      "parentUuid": "9102bfb9_38c9c92d",
+      "range": {
+        "startLine": 3517,
+        "startChar": 4,
+        "endLine": 3517,
+        "endChar": 42
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9102bfb9_18f84549",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "711b8b07_d7defc16",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-10T19:12:50Z",
+      "side": 1,
+      "message": "No, this is D, so it\u0027s +1.",
+      "parentUuid": "9102bfb9_18f84549",
+      "range": {
+        "startLine": 3522,
+        "startChar": 35,
+        "endLine": 3522,
+        "endChar": 42
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91647f9b_0e56af10",
         "filename": "compiler/optimizing/locations.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-10T18:40:29Z",
       "side": 1,
       "message": "not sure if useful right now but I\u0027d append a D, or a marker for double stack slots.",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 35
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "711b8b07_77f7f091",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-10T19:12:50Z",
+      "side": 1,
+      "message": "The DebugString line 66 outputs \u0027S\u0027 for stack slot, or \u0027DS\u0027 for double stack slot.",
+      "parentUuid": "91647f9b_0e56af10",
       "range": {
         "startLine": 72,
         "startChar": 4,
@@ -129,6 +201,30 @@
       "writtenOn": "2015-02-10T18:40:29Z",
       "side": 1,
       "message": "An example will ease the understanding of this comment :)",
+      "range": {
+        "startLine": 88,
+        "startChar": 30,
+        "endLine": 89,
+        "endChar": 60
+      },
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1121b0d_33d3a80c",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-10T19:12:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91647f9b_8e937f6c",
       "range": {
         "startLine": 88,
         "startChar": 30,
