@@ -1,0 +1,596 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96db9505_d0099c54",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "mapping_table.empty()\n\nAn empty ArrayRef\u003c\u003e, just like an empty std::vector\u003c\u003e, can have null or non-null data() and it doesn\u0027t affect its semantics. Most ArrayRef\u003c\u003es are constructed from std::vector\u003c\u003es and acquire their data() anyway.",
+      "range": {
+        "startLine": 149,
+        "startChar": 21,
+        "endLine": 149,
+        "endChar": 52
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "164de5ae_7c8459ef",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "dex_instruction_list.h says \"unused-f3\" ... \"unused-ff\".",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 840,
+        "endChar": 10
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6834dc3_e5abd0ee",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "This is an abuse of MethodReference. We should have a FieldReference class as well if we want to do it like this. However, I\u0027d keep this as uint16_t* or uint32_t*, see below.",
+      "range": {
+        "startLine": 1209,
+        "startChar": 39,
+        "endLine": 1209,
+        "endChar": 54
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36402975_7d8457ef",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "This should be in Mir{I,S}FieldLoweringInfo::Resolve(). This method should just record an extra flag \"is_quick\" and pass it to the Mir{I,S}FieldLoweringInfo constructors.\n\n(You can allocate another bool array for these flags or encode them locally with the index/offset for faster search in a unified \"uint32_t* field_idxs_or_offsets\".)",
+      "range": {
+        "startLine": 1238,
+        "startChar": 32,
+        "endLine": 1238,
+        "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d658ad71_3ac4a198",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "This should be in MirMethodLoweringInfo::Resolve(). Just store mir-\u003edalvikInsn.vB in the target method idx and record an additional \"is_quick\" flag here.\n\n(MapEntry::invoke_type is unnecessarily 16-bit, change it to 8-bit to make space for the flag.)",
+      "range": {
+        "startLine": 1383,
+        "startChar": 34,
+        "endLine": 1383,
+        "endChar": 82
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b65df961_19b72b08",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "dex_instruction_list.h says \"unused-f3\" ... \"unused-ff\".",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 799,
+        "endChar": 0
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6834dc3_659820e2",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Remove: don\u0027t compare bool to false.",
+      "range": {
+        "startLine": 71,
+        "startChar": 52,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56c59d22_eefddfc1",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1746,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Rewrite using IsInstructionInvoke() and IsInstructionQuickInvoke().",
+      "range": {
+        "startLine": 1740,
+        "startChar": 0,
+        "endLine": 1746,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766b81dd_f7a14088",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "This is error-prone. meta is a union, so this check may spuriously fail.\n\nPlease revert all changes to GetMethodLoweringInfo() and implement appropriate checks in callers. It is their responsibility to ensure that they call GetMethodLoweringInfo() only for invokes.",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 5
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56c59d22_aef7d7df",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Always false in this branch of the highest enclosing if.",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 20
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766b81dd_d7bbdcbc",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Did we run out of bits in flags_? This bool will increase the sizeof(MirMethodLoweringInfo) by sizeof(void*).",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6834dc3_e55d1067",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "FALLTHROUGH_INTENDED or nothing (not even a blank line) here and 17 times below.",
+      "range": {
+        "startLine": 410,
+        "startChar": 6,
+        "endLine": 410,
+        "endChar": 22
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56c59d22_8e2c5bbf",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "So we\u0027re losing some sharpening here?",
+      "range": {
+        "startLine": 233,
+        "startChar": 43,
+        "endLine": 233,
+        "endChar": 59
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "766b81dd_d748bc51",
+        "filename": "runtime/dex_instruction_utils.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Unnecessary and potentially harmful to code size if the compiler emits out-of-line copies - the linker will keep all of them.",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 6
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16cfa548_ccd7cf46",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "I assume this small change is just for debugging. Revert before submitting.",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5643dd80_1e1b8d9e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "not",
+      "range": {
+        "startLine": 69,
+        "startChar": 29,
+        "endLine": 69,
+        "endChar": 32
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9639d503_00432634",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "dlclose(jit_library_handle_)?",
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b475b1_88d1b7d2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 34,
+        "startChar": 49,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b475b1_c8f00f6d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Could we instead make the code grow down from the end?",
+      "range": {
+        "startLine": 58,
+        "startChar": 37,
+        "endLine": 58,
+        "endChar": 62
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763e21ec_bf7377ce",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "end",
+      "range": {
+        "startLine": 95,
+        "startChar": 16,
+        "endLine": 95,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763e21ec_9f7033c3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "end",
+      "range": {
+        "startLine": 102,
+        "startChar": 16,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9639d503_00b04607",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Unnecessary, nullptr is the default argument.",
+      "range": {
+        "startLine": 61,
+        "startChar": 21,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56ae7d66_e61c1e63",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "This variable is used only here, so it should not be calculated so far above.",
+      "range": {
+        "startLine": 349,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 28
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b475b1_e8f71391",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "WIP?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 43
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6341908_4149b276",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "Remove \"after\".",
+      "range": {
+        "startLine": 232,
+        "startChar": 33,
+        "endLine": 232,
+        "endChar": 39
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6341908_01b04a07",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-11T17:34:38Z",
+      "side": 1,
+      "message": "error ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
