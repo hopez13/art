@@ -160,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "d6834dc3_42895203",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2962,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-11T03:46:23Z",
+      "side": 1,
+      "message": "Yeah, but R1_R2 is not valid anymore. I need to clean up the places where it\u0027s referenced.",
+      "parentUuid": "dc6a8c65_4a9493dc",
+      "revId": "51bec636f86749050898d92352c26849b0b92f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d108b7db_1aa15d87",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 2
