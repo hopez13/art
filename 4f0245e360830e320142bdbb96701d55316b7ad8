@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6834dc3_452e3c3b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-11T10:38:23Z",
+      "side": 1,
+      "message": "don\u0027t you need to block the register?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 38
+      },
+      "revId": "4f0245e360830e320142bdbb96701d55316b7ad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
