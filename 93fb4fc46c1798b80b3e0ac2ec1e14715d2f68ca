@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d6998d84_92bbdcbd",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Why not just directly use one bool flag \"UseJIT\" (is there a reason to do two flags like -Xjit and -Xnojit)?",
+      "range": {
+        "startLine": 420,
+        "startChar": 38,
+        "endLine": 420,
+        "endChar": 42
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96db9505_d0099c54",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 13
@@ -255,6 +278,29 @@
     },
     {
       "key": {
+        "uuid": "16fc05c4_c49f3e70",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "What does is_quick mean? Quick the compiler?",
+      "range": {
+        "startLine": 218,
+        "startChar": 7,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6834dc3_e55d1067",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 13
@@ -278,6 +324,29 @@
     },
     {
       "key": {
+        "uuid": "f6f851d4_43fea6be",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Put DCHECK(Runtime::Current()-\u003eUseJit())?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 40
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56c59d22_8e2c5bbf",
         "filename": "compiler/driver/compiler_driver-inl.h",
         "patchSetId": 13
@@ -294,6 +363,184 @@
         "startChar": 43,
         "endLine": 233,
         "endChar": 59
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76a621d5_9f1ab366",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "If we put lines 572-585 in a nested block, can we avoid the TransitionFromRunnableToSuspended call across the CompileMethod call?",
+      "range": {
+        "startLine": 572,
+        "startChar": 0,
+        "endLine": 591,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60eedb4_6a497753",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "I guess this applies to app classes, correct?",
+      "range": {
+        "startLine": 1092,
+        "startChar": 13,
+        "endLine": 1097,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36d66940_2d894d3a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "If the condition in line 1344 holds, is it ok to return? Is there a chance that we should negate the condition and put line 1347 into the if-then block and fall through to line 1365 and on?",
+      "range": {
+        "startLine": 1344,
+        "startChar": 0,
+        "endLine": 1347,
+        "endChar": 66
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fc05c4_04f2f6a0",
+        "filename": "compiler/jit/jit_compiler.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "2015?",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56abdd9d_3ea0493a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Is it intentional to add a blank line here?",
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96a1d5bc_83014037",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Indentation seems off (though it\u0027s the original code)?",
+      "range": {
+        "startLine": 1037,
+        "startChar": 44,
+        "endLine": 1037,
+        "endChar": 94
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56abdd9d_bed7b978",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Here, too.",
+      "range": {
+        "startLine": 1108,
+        "startChar": 0,
+        "endLine": 1109,
+        "endChar": 57
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b1310e_3b2df7b9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Is this fixing a bug (i.e., we should not set code pointer size for a runtime method) or removing redundancy (i.e., we don\u0027t need to set code pointer size for a runtime method)?",
+      "range": {
+        "startLine": 1631,
+        "startChar": 10,
+        "endLine": 1631,
+        "endChar": 40
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -347,6 +594,121 @@
     },
     {
       "key": {
+        "uuid": "96a1d5bc_a089dabe",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Does this suggest that we can have forced interpret and have jit at the same time? Can we make these mutually exclusive (it seems odd to have JIT when interpreter only)?",
+      "range": {
+        "startLine": 131,
+        "startChar": 9,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56abdd9d_3e784957",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 139,
+        "startChar": 65,
+        "endLine": 139,
+        "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96a1d5bc_60ee3291",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "This is a copy-and-paste error.",
+      "range": {
+        "startLine": 98,
+        "startChar": 24,
+        "endLine": 98,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69c1985_e1e126a5",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 296,
+        "startChar": 27,
+        "endLine": 296,
+        "endChar": 47
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56abdd9d_bebd7995",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 690,
+        "startChar": 8,
+        "endLine": 690,
+        "endChar": 37
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5643dd80_1e1b8d9e",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 13
@@ -387,6 +749,29 @@
     },
     {
       "key": {
+        "uuid": "56475dec_9e009de4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Assert that capacity \u003c 4G for a 64-bit build?",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 50
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b475b1_88d1b7d2",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -410,6 +795,29 @@
     },
     {
       "key": {
+        "uuid": "7642a1dd_3f762725",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Assign a mutex level in the enum in mutex.h?",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b475b1_c8f00f6d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -426,6 +834,29 @@
         "startChar": 37,
         "endLine": 58,
         "endChar": 62
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7642a1dd_7f610f77",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Should this line be removed?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 98
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -479,6 +910,29 @@
     },
     {
       "key": {
+        "uuid": "7642a1dd_7f6b4f88",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 51,
+        "startChar": 26,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9639d503_00b04607",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 13
@@ -502,6 +956,29 @@
     },
     {
       "key": {
+        "uuid": "f66cd149_e329b2ad",
+        "filename": "runtime/mirror/art_field.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Why skip the DCHECK_ALIGNED if we use JIT?",
+      "range": {
+        "startLine": 47,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56ae7d66_e61c1e63",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 13
@@ -518,6 +995,98 @@
         "startChar": 8,
         "endLine": 349,
         "endChar": 28
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16708517_a42fc2b2",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Why need this? We don\u0027t run JIT when -Xint, right?",
+      "range": {
+        "startLine": 423,
+        "startChar": 27,
+        "endLine": 423,
+        "endChar": 45
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76a8e190_6f6211a8",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Add comment on what \u0027code\u0027 is pointing to?",
+      "range": {
+        "startLine": 303,
+        "startChar": 42,
+        "endLine": 303,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56767d13_46ce12b8",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Can this be private? Since we don\u0027t check code is a valid pointer, it seems risky.",
+      "range": {
+        "startLine": 308,
+        "startChar": 14,
+        "endLine": 308,
+        "endChar": 33
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b979da_991f9b56",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Update this comment for JIT?",
+      "range": {
+        "startLine": 583,
+        "startChar": 4,
+        "endLine": 583,
+        "endChar": 97
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -571,6 +1140,144 @@
     },
     {
       "key": {
+        "uuid": "d6998d84_72dd9896",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Does this mean that create jit options if we are not AOT or JIT? Not sure what this means.",
+      "range": {
+        "startLine": 838,
+        "startChar": 0,
+        "endLine": 840,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6998d84_12f7ec18",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "On what conditions exactly do we enable jit currently?",
+      "range": {
+        "startLine": 841,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96a1d5bc_e0e242e0",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Does this mean now that we are more or less dex2oat, which is what IsCompiler() used to mean? Add comment to clarify?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6998d84_32015080",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "I think this used to mean more or less we are dex2oat.\n\nWhat does this exactly mean now? Add comment?",
+      "range": {
+        "startLine": 111,
+        "startChar": 7,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f66cd149_e37a929e",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Why create_peer \u003d true for the JIT case?",
+      "range": {
+        "startLine": 183,
+        "startChar": 37,
+        "endLine": 183,
+        "endChar": 62
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6998d84_955ca633",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Can we add a non-static version of ArtMethod::PcIsWithinQuickCode (and turn the static version private)? It seem that if we do, we would not need to modify this code and it\u0027d be safer as we don\u0027t check the validity of the \u0027code\u0027 param in the current static ArtMethod::PcIsWithinQuickCode.",
+      "range": {
+        "startLine": 1242,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6341908_01b04a07",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 13
@@ -587,6 +1294,29 @@
         "startChar": 70,
         "endLine": 116,
         "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69c1985_212a6ea2",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-12T03:05:25Z",
+      "side": 1,
+      "message": "Why -Xint and Xjit at the same time? It seem they should be mutually exclusive.",
+      "range": {
+        "startLine": 264,
+        "startChar": 14,
+        "endLine": 264,
+        "endChar": 25
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
