@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "3644a9e8_9d42e352",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "How is that safe?",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96db9505_d0099c54",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 13
@@ -41,6 +64,29 @@
         "startChar": 21,
         "endLine": 149,
         "endChar": 52
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fc05c4_a4d7a278",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Do you really want this ownership lowered down to the method? Seems more like a code cache problem...",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 80,
+        "endChar": 29
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -301,6 +347,29 @@
     },
     {
       "key": {
+        "uuid": "3644a9e8_3dadcfb0",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "is_quick -\u003e is_quickened",
+      "range": {
+        "startLine": 218,
+        "startChar": 7,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6834dc3_e55d1067",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 13
@@ -439,6 +508,75 @@
     },
     {
       "key": {
+        "uuid": "165165a8_9c1f4588",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Name does not match field.",
+      "range": {
+        "startLine": 396,
+        "startChar": 6,
+        "endLine": 396,
+        "endChar": 23
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fc05c4_44a90ef6",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Can\u0027t you do that in the initializers and avoid the std::unique_ptr?",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 88,
+        "endChar": 67
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fc05c4_c485fe74",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Use that in the error message?",
+      "range": {
+        "startLine": 117,
+        "startChar": 70,
+        "endLine": 117,
+        "endChar": 75
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16fc05c4_04f2f6a0",
         "filename": "compiler/jit/jit_compiler.h",
         "patchSetId": 13
@@ -548,6 +686,52 @@
     },
     {
       "key": {
+        "uuid": "165165a8_1c57b50e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. How can the JIT have it its in cache at class-linker time?",
+      "range": {
+        "startLine": 2519,
+        "startChar": 2,
+        "endLine": 2525,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "165165a8_dcb14d14",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "How is that different than above?",
+      "range": {
+        "startLine": 2540,
+        "startChar": 25,
+        "endLine": 2540,
+        "endChar": 49
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766b81dd_d748bc51",
         "filename": "runtime/dex_instruction_utils.h",
         "patchSetId": 13
@@ -587,6 +771,29 @@
         "startChar": 0,
         "endLine": 613,
         "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fc05c4_6701ac34",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment, and the TODO unfortunately doesn\u0027t help.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 52
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -663,6 +870,29 @@
     },
     {
       "key": {
+        "uuid": "3644a9e8_7db917c4",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Not really :)",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69c1985_e1e126a5",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 13
@@ -702,6 +932,29 @@
         "startChar": 8,
         "endLine": 690,
         "endChar": 37
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16fc05c4_4707d040",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Hasn\u0027t the IsForcedInterpretOnly defeat this check?",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 690,
+        "endChar": 40
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -788,6 +1041,29 @@
         "startChar": 49,
         "endLine": 34,
         "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "165165a8_dc062d01",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "When does that happen?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -910,6 +1186,29 @@
     },
     {
       "key": {
+        "uuid": "165165a8_7ccfd95f",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Seems unused?",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7642a1dd_7f6b4f88",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 13
@@ -956,6 +1255,52 @@
     },
     {
       "key": {
+        "uuid": "16fc05c4_67d2cc09",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Why are we sampling if it\u0027s compiled?",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 38
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "165165a8_1cf57588",
+        "filename": "runtime/jit/jit_instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to fit in this abstraction.",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f66cd149_e329b2ad",
         "filename": "runtime/mirror/art_field.cc",
         "patchSetId": 13
@@ -972,6 +1317,29 @@
         "startChar": 43,
         "endLine": 47,
         "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f64db110_5b330320",
+        "filename": "runtime/mirror/art_method-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Why is that on the ArtMethod? Why don\u0027t we have an abstraction on OatQuickMethodHeader?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 6
       },
       "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -1232,6 +1600,30 @@
     },
     {
       "key": {
+        "uuid": "16e32520_cc540f98",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Yeah, as discussed, I don\u0027t think you need to change this. Or you could rename IsCompiler to IsDex2Oat.",
+      "parentUuid": "d6998d84_32015080",
+      "range": {
+        "startLine": 111,
+        "startChar": 7,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f66cd149_e37a929e",
         "filename": "runtime/signal_catcher.cc",
         "patchSetId": 13
@@ -1255,6 +1647,29 @@
     },
     {
       "key": {
+        "uuid": "162a4514_d4c35c90",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "Not related?",
+      "range": {
+        "startLine": 993,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6998d84_955ca633",
         "filename": "runtime/utils.cc",
         "patchSetId": 13
@@ -1266,6 +1681,29 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Can we add a non-static version of ArtMethod::PcIsWithinQuickCode (and turn the static version private)? It seem that if we do, we would not need to modify this code and it\u0027d be safer as we don\u0027t check the validity of the \u0027code\u0027 param in the current static ArtMethod::PcIsWithinQuickCode.",
+      "range": {
+        "startLine": 1242,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b638995d_61bc16b6",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-12T03:47:48Z",
+      "side": 1,
+      "message": "This is basically checking if it\u0027s jitted, right? How about an abstraction on the ArtMethod?",
       "range": {
         "startLine": 1242,
         "startChar": 10,
