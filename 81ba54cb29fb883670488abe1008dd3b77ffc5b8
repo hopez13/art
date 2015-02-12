@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36a829a2_dde16ba5",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-02-12T04:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91647f9b_cb0c093b",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 22
+      },
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51a1270b_ce3283eb",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 15
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "36a829a2_bdd69fc3",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-02-12T04:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51a1270b_ce3283eb",
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91647f9b_ab60b59d",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 15
@@ -53,6 +95,30 @@
       "writtenOn": "2015-02-10T17:13:55Z",
       "side": 1,
       "message": "having it specified like this there\u0027s nothing that actually enforces the same order used by the package manager. I don\u0027t see an easy way out but a comment saying that they should match would be good.",
+      "range": {
+        "startLine": 83,
+        "startChar": 43,
+        "endLine": 83,
+        "endChar": 56
+      },
+      "revId": "81ba54cb29fb883670488abe1008dd3b77ffc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16b5e5f7_bf7a13db",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-02-12T04:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91647f9b_ab60b59d",
       "range": {
         "startLine": 83,
         "startChar": 43,
