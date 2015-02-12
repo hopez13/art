@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7658e11a_cf38ddfe",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-12T21:30:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "918b9f6f_d037dc7c",
+      "range": {
+        "startLine": 1388,
+        "startChar": 10,
+        "endLine": 1388,
+        "endChar": 32
+      },
+      "revId": "a0b0be5681fee89b0812c1c47806639ce7ab1f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5175a73c_0e56ab10",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8bf1ac52_a0ddda6b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-12T21:30:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5175a73c_0e56ab10",
+      "range": {
+        "startLine": 1389,
+        "startChar": 81,
+        "endLine": 1389,
+        "endChar": 84
+      },
+      "revId": "a0b0be5681fee89b0812c1c47806639ce7ab1f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "117faf22_acd3e35a",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-10T12:10:54Z",
       "side": 1,
       "message": "As suggested by Calin, it would be worth adding a short comment explaining this special case.",
+      "range": {
+        "startLine": 1430,
+        "startChar": 8,
+        "endLine": 1430,
+        "endChar": 27
+      },
+      "revId": "a0b0be5681fee89b0812c1c47806639ce7ab1f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bf1ac52_60efd20b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-12T21:30:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "117faf22_acd3e35a",
       "range": {
         "startLine": 1430,
         "startChar": 8,
