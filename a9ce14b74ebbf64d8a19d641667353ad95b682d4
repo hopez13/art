@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "2b7d20a0_55010cb0",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-02-13T18:10:42Z",
+      "side": 1,
+      "message": "yes, i have misgivings about this change. the other change to loosen restrictions on what we accept seems much safer. this one i\u0027m not so sure.",
+      "parentUuid": "4b8094c4_5696f435",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b8094c4_16907c34",
         "filename": "runtime/utf.cc",
         "patchSetId": 2
