@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbd1e4e3_d2a9a46b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-13T17:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b4cdc89_a789643e",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 26
+      },
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb5e442b_0dd2955d",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 7
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "cbd1e4e3_f26dc896",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-13T17:09:00Z",
+      "side": 1,
+      "message": "Yes, but it looked wrong to me. English reading kicks in for me, and so I get \"nodex\"-file-fallback. But I\u0027m open to changing that if the team thinks it\u0027s better.",
+      "parentUuid": "cb5e442b_0dd2955d",
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb5e442b_8a90abb1",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 7
@@ -53,6 +95,24 @@
       "writtenOn": "2015-02-13T01:53:57Z",
       "side": 1,
       "message": "Did you want to make it like the other ones and have the -Xdex-file-fallback and the -Xnodex-file-fallback options?",
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd1e4e3_7269d884",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-13T17:09:00Z",
+      "side": 1,
+      "message": "It seemed like a special one-off thing like X:CheckJNI. I know it is now formatted like the dual options. Critique is welcome.",
+      "parentUuid": "cb5e442b_8a90abb1",
       "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "cbd1e4e3_32959025",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-13T17:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b4cdc89_473750dc",
+      "range": {
+        "startLine": 388,
+        "startChar": 23,
+        "endLine": 388,
+        "endChar": 27
+      },
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b4cdc89_a728447d",
         "filename": "runtime/runtime.cc",
         "patchSetId": 7
@@ -93,6 +177,30 @@
       "writtenOn": "2015-02-13T16:58:09Z",
       "side": 1,
       "message": "Why is this different from the verify_ assign statement?\nShould it use runtime_options.GetOrDefault? Or should the verify_ assignment use !runtime_options.Exists?",
+      "range": {
+        "startLine": 771,
+        "startChar": 1,
+        "endLine": 771,
+        "endChar": 77
+      },
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4cdc89_0795d824",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-13T17:09:00Z",
+      "side": 1,
+      "message": "Verify has text options and is binary: you can say verification on or off. This goes into Igor\u0027s question on whether the new option should be binary, too. I used Intel\u0027s approach here, and think NoDexFileFallback is singular enough (it\u0027s like -X:CheckJni) that only turning it off is necessary (and then you use Exists).",
+      "parentUuid": "0b4cdc89_a728447d",
       "range": {
         "startLine": 771,
         "startChar": 1,
