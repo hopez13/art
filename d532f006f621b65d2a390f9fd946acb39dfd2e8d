@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bb9d8a9_07905634",
+        "filename": "compiler/dex/local_value_numbering_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-13T21:24:15Z",
+      "side": 1,
+      "message": "I don\u0027t have the background for fully following this. I guess it\u0027s checking that wahtever is next in the instruction doesn\u0027t have the same \"name\"? Meaining it hasn\u0027t been GVN\u0027ed? Maybe add a comment.",
+      "range": {
+        "startLine": 804,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 67
+      },
+      "revId": "d532f006f621b65d2a390f9fd946acb39dfd2e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
