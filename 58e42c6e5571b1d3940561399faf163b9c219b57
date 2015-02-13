@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b7d20a0_7569a884",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-13T17:18:39Z",
+      "side": 0,
+      "message": "@Nicolas: Is there a reason for this Copy()? The set is cloned below if \u0027block\u0027 is not the only and direct successor.",
+      "range": {
+        "startLine": 273,
+        "startChar": 43,
+        "endLine": 273,
+        "endChar": 53
+      },
+      "revId": "58e42c6e5571b1d3940561399faf163b9c219b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
