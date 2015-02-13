@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "8b8d2cf5_e3450c3b",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-13T22:38:57Z",
+      "side": 1,
+      "message": "Fallback-to-interpreter is too general. This one is very specific to not running out of original APKs, but running the interpreter over oat files is still allowed. So I think that name is not better.\n\nI\u0027m open to making at a fully boolean option. I was just guided by things like CheckJNI. More opinions would be nice.",
+      "parentUuid": "ebcb083b_ce8fc342",
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb5e442b_8a90abb1",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 7
