@@ -141,6 +141,30 @@
       "revId": "4f0245e360830e320142bdbb96701d55316b7ad8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7a1caa_34bed0af",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-13T15:33:01Z",
+      "side": 1,
+      "message": "oki, didn\u0027t know that we can\u0027t encode 0... worth a comment again.",
+      "parentUuid": "2b9440fe_bdc95f4d",
+      "range": {
+        "startLine": 541,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 32
+      },
+      "revId": "4f0245e360830e320142bdbb96701d55316b7ad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
