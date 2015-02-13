@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b8d2cf5_800676c8",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-13T17:57:48Z",
+      "side": 1,
+      "message": "ReleaseStringChars?",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8094c4_5696f435",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-13T17:57:48Z",
+      "side": 1,
+      "message": "ignore? any security implications?",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8094c4_16907c34",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-13T17:57:48Z",
+      "side": 1,
+      "message": "java programmer :-P",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b8094c4_567d944b",
+        "filename": "runtime/utf_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-13T17:57:48Z",
+      "side": 1,
+      "message": "maybe order these backwards, since all other \"eq\" assertions are backwards?",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
