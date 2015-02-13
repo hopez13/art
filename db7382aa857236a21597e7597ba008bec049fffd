@@ -399,6 +399,30 @@
     },
     {
       "key": {
+        "uuid": "6be0f8af_6fefb10b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-13T17:34:40Z",
+      "side": 1,
+      "message": "Let me find one for you :-)\n\nObject a;\nif () {\n  a \u003d Foo.class;\n} else {\n  a \u003d new Foo();\n}\n\nWhat is the type of a after this? :-)",
+      "parentUuid": "56267d9d_c67a82dc",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 51
+      },
+      "revId": "db7382aa857236a21597e7597ba008bec049fffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb48687a_234e8ab2",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
