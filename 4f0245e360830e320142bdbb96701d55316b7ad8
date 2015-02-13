@@ -46,6 +46,53 @@
       "revId": "4f0245e360830e320142bdbb96701d55316b7ad8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b6b98dd_57c34c92",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-13T10:42:27Z",
+      "side": 1,
+      "message": "ok, maybe just me being lazy, but I will add a note for this :)",
+      "parentUuid": "cb5e442b_30bff0dd",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 38
+      },
+      "revId": "4f0245e360830e320142bdbb96701d55316b7ad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56267d9d_462a127c",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-13T10:42:27Z",
+      "side": 1,
+      "message": "interesting trick but I don\u0027t understand it :), we can talk offline.",
+      "range": {
+        "startLine": 541,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 32
+      },
+      "revId": "4f0245e360830e320142bdbb96701d55316b7ad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
