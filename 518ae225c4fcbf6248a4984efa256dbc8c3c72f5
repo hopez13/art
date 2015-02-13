@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7658e11a_0f74a5b5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "I hadn\u0027t thought about that.\nI moved the logic that replaces the instruction by a constant to the constant folding pass, so it correctly folds `(a \u0026 0) | 0xabc` to `0`.",
+      "parentUuid": "f1105b97_c3113678",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 67
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11140f87_842e26b7",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "7658e11a_6f545108",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "That does not work because ReplaceAndRemoveInstructionWith assumes that the new instruction is not in the graph.\nI\u0027d be happy to change the semantics to only conditionally insert the instruction in the graph if it is not there already. Should I do that as part of this patch?",
+      "parentUuid": "71daab34_1f90c330",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 60
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1218333_d96153a5",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2015-02-10T11:10:06Z",
       "side": 1,
       "message": "This is a recurring pattern in this file; I suggest introducing a helper routine.",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 82
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf8c037_fd6147ea",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1218333_d96153a5",
       "range": {
         "startLine": 79,
         "startChar": 4,
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "7658e11a_8f489575",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Yes that was what I was assuming. Added a comment.\nNote that if for some reason it is not the case, we are still correct but missing an optimisation opportunity.",
+      "parentUuid": "f1105b97_0366ae13",
+      "range": {
+        "startLine": 159,
+        "startChar": 13,
+        "endLine": 159,
+        "endChar": 62
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "918b9f6f_90e5d42f",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -151,6 +247,30 @@
       "writtenOn": "2015-02-10T11:10:06Z",
       "side": 1,
       "message": "What about implementing transformations similar to the ones in `InstructionSimplifierVisitor::VisitMul(HMul* instruction)\u0027, e.g.:\n\n* a / -1 → -a\n* a / 2^b  → -a \u003e\u003e b (arithmetic shift)\n\n?",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 48
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bf1ac52_606c72ee",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Added \"a / -1\"\nDivision by a power of 2 is not a simple shift when the input is negative (eg. -1 / 2 should yield 0). I left the division because I wanted to have a separate patch to optimise the generated code for divisions by any constant (multiplying by reciprocal values).",
+      "parentUuid": "918b9f6f_90e5d42f",
       "range": {
         "startLine": 166,
         "startChar": 2,
@@ -186,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "363ae9a9_6d653531",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1e5bbf3_db41132b",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 10
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1493ba5_9efcb9c7",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -197,6 +341,30 @@
       "writtenOn": "2015-02-09T19:09:08Z",
       "side": 1,
       "message": "use early return instead of a long if",
+      "range": {
+        "startLine": 262,
+        "startChar": 2,
+        "endLine": 262,
+        "endChar": 40
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3623c98f_456e8a67",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1493ba5_9efcb9c7",
       "range": {
         "startLine": 262,
         "startChar": 2,
@@ -232,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "abecb07a_8122da18",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "918b9f6f_30f748e1",
+      "range": {
+        "startLine": 288,
+        "startChar": 23,
+        "endLine": 288,
+        "endChar": 78
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1105b97_23c5aa94",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -249,6 +441,24 @@
     },
     {
       "key": {
+        "uuid": "2bf8c037_bde05f1c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1105b97_23c5aa94",
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71daab34_bff7d758",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -260,6 +470,30 @@
       "writtenOn": "2015-02-09T19:09:08Z",
       "side": 1,
       "message": "These are not used. Have I missed something?\n\nAlso, I found them a bit confusing (not immediately clear what they do and what\u0027s their purpose).",
+      "range": {
+        "startLine": 1351,
+        "startChar": 2,
+        "endLine": 1362,
+        "endChar": 46
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf8c037_1de99303",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "They are used in instruction_simplifier.cc.",
+      "parentUuid": "71daab34_bff7d758",
       "range": {
         "startLine": 1351,
         "startChar": 2,
@@ -295,6 +529,30 @@
     },
     {
       "key": {
+        "uuid": "8bf1ac52_00fec6bd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "I was also surprised it was required! The compiler gives me an error otherwise:\n\nerror: cannot convert \u0027art::HConstant*\u0027 to \u0027art::HInstruction*\u0027 in initialization\n     HInstruction* most_constant_right \u003d GetConstantRight();\n\nI haven\u0027t investigated.",
+      "parentUuid": "3117538d_e52a767a",
+      "range": {
+        "startLine": 1363,
+        "startChar": 40,
+        "endLine": 1363,
+        "endChar": 71
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71daab34_7f60ef74",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -306,6 +564,30 @@
       "writtenOn": "2015-02-09T19:09:08Z",
       "side": 1,
       "message": "Since these are used ony in InstructionSimplifier why not making them statics there?",
+      "range": {
+        "startLine": 1650,
+        "startChar": 7,
+        "endLine": 1650,
+        "endChar": 17
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7658e11a_cf69bde3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1650,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "After moving some logic into the constant folding pass the helpers are now used in both places. I don\u0027t see a good other place to put them, so leaving IsMinusOne(), IsZero(), and IsOne() here. The other IsAllOnes() has been renamed and moved to the simplifier.",
+      "parentUuid": "71daab34_7f60ef74",
       "range": {
         "startLine": 1650,
         "startChar": 7,
@@ -352,6 +634,30 @@
       "writtenOn": "2015-02-10T11:10:06Z",
       "side": 1,
       "message": "Or maybe is IsZeroBitwiseComplement?",
+      "parentUuid": "71daab34_dfb01b0a",
+      "range": {
+        "startLine": 1653,
+        "startChar": 7,
+        "endLine": 1653,
+        "endChar": 16
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf8c037_9d0b634c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-13T00:53:27Z",
+      "side": 1,
+      "message": "Renamed to \"AreAllBitsSet\".",
       "parentUuid": "71daab34_dfb01b0a",
       "range": {
         "startLine": 1653,
