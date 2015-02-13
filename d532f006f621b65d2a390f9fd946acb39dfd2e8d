@@ -22,6 +22,30 @@
       "revId": "d532f006f621b65d2a390f9fd946acb39dfd2e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56267d9d_e9c03154",
+        "filename": "compiler/dex/local_value_numbering_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-13T21:35:27Z",
+      "side": 1,
+      "message": "It\u0027s checking that all value names assigned to the insns above are different.\n(The Quick GVN doesn\u0027t eliminate insns the way Optimizing GVN does. It just assigns value names.)",
+      "parentUuid": "6bb9d8a9_07905634",
+      "range": {
+        "startLine": 804,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 67
+      },
+      "revId": "d532f006f621b65d2a390f9fd946acb39dfd2e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
