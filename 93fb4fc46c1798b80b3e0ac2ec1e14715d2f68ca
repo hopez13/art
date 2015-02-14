@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96d0f589_e8b133e2",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "-Xnojit is so that I can disable it if it is enabled by default.",
+      "parentUuid": "d6998d84_92bbdcbd",
+      "range": {
+        "startLine": 420,
+        "startChar": 38,
+        "endLine": 420,
+        "endChar": 42
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3644a9e8_9d42e352",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "How is that safe?",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36c749d7_e5cdd6ba",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Currently the array is always allocated with new if own_arrays_ is true. Also delete nullptr is defined to be a NOP.",
+      "parentUuid": "3644a9e8_9d42e352",
       "range": {
         "startLine": 34,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "16c405d1_e4cddaba",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96db9505_d0099c54",
+      "range": {
+        "startLine": 149,
+        "startChar": 21,
+        "endLine": 149,
+        "endChar": 52
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16fc05c4_a4d7a278",
         "filename": "compiler/compiled_method.h",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Do you really want this ownership lowered down to the method? Seems more like a code cache problem...",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 80,
+        "endChar": 29
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76bc6132_aff61919",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "The problem is that I need to release the arrays for the compiled methods after they are added to the code cache. I supposed we could remove the arrays from the dedupe maps to do this, but it wouldn\u0027t be very safe or efficient.",
+      "parentUuid": "16fc05c4_a4d7a278",
       "range": {
         "startLine": 80,
         "startChar": 13,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "36c749d7_652d66b9",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Pretty sure this is leftover stuff from Dalvik, I\u0027ll clean it up a bit.",
+      "parentUuid": "164de5ae_7c8459ef",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 840,
+        "endChar": 10
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6834dc3_e5abd0ee",
         "filename": "compiler/dex/mir_analysis.cc",
         "patchSetId": 13
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "This is an abuse of MethodReference. We should have a FieldReference class as well if we want to do it like this. However, I\u0027d keep this as uint16_t* or uint32_t*, see below.",
+      "range": {
+        "startLine": 1209,
+        "startChar": 39,
+        "endLine": 1209,
+        "endChar": 54
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b4dbcae_bfa9b36c",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6834dc3_e5abd0ee",
       "range": {
         "startLine": 1209,
         "startChar": 39,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8b528c4f_3b0023e5",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36402975_7d8457ef",
+      "range": {
+        "startLine": 1238,
+        "startChar": 32,
+        "endLine": 1238,
+        "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d658ad71_3ac4a198",
         "filename": "compiler/dex/mir_analysis.cc",
         "patchSetId": 13
@@ -174,6 +342,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "This should be in MirMethodLoweringInfo::Resolve(). Just store mir-\u003edalvikInsn.vB in the target method idx and record an additional \"is_quick\" flag here.\n\n(MapEntry::invoke_type is unnecessarily 16-bit, change it to 8-bit to make space for the flag.)",
+      "range": {
+        "startLine": 1383,
+        "startChar": 34,
+        "endLine": 1383,
+        "endChar": 82
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bb9d8a9_87a3e687",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "I don\u0027t think that will deduplicate correctly in all cases, I\u0027ll just directly insert into method_lowering_infos_ and skip the map.",
+      "parentUuid": "d658ad71_3ac4a198",
       "range": {
         "startLine": 1383,
         "startChar": 34,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "568d9d43_4e8b9306",
+        "filename": "compiler/dex/mir_dataflow.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b65df961_19b72b08",
+      "range": {
+        "startLine": 761,
+        "startChar": 0,
+        "endLine": 799,
+        "endChar": 0
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6834dc3_659820e2",
         "filename": "compiler/dex/mir_field_info.cc",
         "patchSetId": 13
@@ -220,6 +436,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "Remove: don\u0027t compare bool to false.",
+      "range": {
+        "startLine": 71,
+        "startChar": 52,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf6384b_7f388ffc",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6834dc3_659820e2",
       "range": {
         "startLine": 71,
         "startChar": 52,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "abbf508b_095e29e4",
+        "filename": "compiler/dex/mir_graph.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1746,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c59d22_eefddfc1",
+      "range": {
+        "startLine": 1740,
+        "startChar": 0,
+        "endLine": 1746,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "766b81dd_f7a14088",
         "filename": "compiler/dex/mir_graph.h",
         "patchSetId": 13
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "8bb44cb1_aedda36b",
+        "filename": "compiler/dex/mir_graph.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766b81dd_f7a14088",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 5
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56c59d22_aef7d7df",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 13
@@ -289,6 +577,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "Always false in this branch of the highest enclosing if.",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 20
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bcf7c48_0c4e37b2",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c59d22_aef7d7df",
       "range": {
         "startLine": 106,
         "startChar": 12,
@@ -370,6 +682,78 @@
     },
     {
       "key": {
+        "uuid": "abbf508b_a9ea7da2",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "16fc05c4_c49f3e70",
+      "range": {
+        "startLine": 218,
+        "startChar": 7,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebcb083b_8b79ad14",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "766b81dd_d7bbdcbc",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbf508b_c9f331a3",
+        "filename": "compiler/dex/mir_method_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3644a9e8_3dadcfb0",
+      "range": {
+        "startLine": 218,
+        "startChar": 7,
+        "endLine": 218,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6834dc3_e55d1067",
         "filename": "compiler/dex/quick/mir_to_lir.cc",
         "patchSetId": 13
@@ -381,6 +765,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "FALLTHROUGH_INTENDED or nothing (not even a blank line) here and 17 times below.",
+      "range": {
+        "startLine": 410,
+        "startChar": 6,
+        "endLine": 410,
+        "endChar": 22
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bcf7c48_8cd6a7fd",
+        "filename": "compiler/dex/quick/mir_to_lir.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6834dc3_e55d1067",
       "range": {
         "startLine": 410,
         "startChar": 6,
@@ -416,6 +824,30 @@
     },
     {
       "key": {
+        "uuid": "2bc2801e_6d8255e7",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6f851d4_43fea6be",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 40
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56c59d22_8e2c5bbf",
         "filename": "compiler/driver/compiler_driver-inl.h",
         "patchSetId": 13
@@ -427,6 +859,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "So we\u0027re losing some sharpening here?",
+      "range": {
+        "startLine": 233,
+        "startChar": 43,
+        "endLine": 233,
+        "endChar": 59
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bcf7c48_0c32b71a",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "There is not less sharpening than before, note the check below.\nCHECK_EQ(target_method-\u003edex_file, mUnit-\u003eGetDexFile());",
+      "parentUuid": "56c59d22_8e2c5bbf",
       "range": {
         "startLine": 233,
         "startChar": 43,
@@ -462,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "8bdb6c05_309b488c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "We already have the mutator lock when we enter the function, I can just delete the ScopedObjectAccessUnchecked instead.",
+      "parentUuid": "76a621d5_9f1ab366",
+      "range": {
+        "startLine": 572,
+        "startChar": 0,
+        "endLine": 591,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d60eedb4_6a497753",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 13
@@ -473,6 +953,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "I guess this applies to app classes, correct?",
+      "range": {
+        "startLine": 1092,
+        "startChar": 13,
+        "endLine": 1097,
+        "endChar": 16
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd670d9_31bef0af",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "It should, though these are usually movable, so there is probably minimal benefits.",
+      "parentUuid": "d60eedb4_6a497753",
       "range": {
         "startLine": 1092,
         "startChar": 13,
@@ -508,6 +1012,30 @@
     },
     {
       "key": {
+        "uuid": "2bc2801e_8d89c13e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36d66940_2d894d3a",
+      "range": {
+        "startLine": 1344,
+        "startChar": 0,
+        "endLine": 1347,
+        "endChar": 66
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_9c1f4588",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 13
@@ -519,6 +1047,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Name does not match field.",
+      "range": {
+        "startLine": 396,
+        "startChar": 6,
+        "endLine": 396,
+        "endChar": 23
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc2801e_2dff6d6c",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "165165a8_9c1f4588",
       "range": {
         "startLine": 396,
         "startChar": 6,
@@ -554,6 +1106,30 @@
     },
     {
       "key": {
+        "uuid": "ab3af0c2_f11ba817",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fc05c4_44a90ef6",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 88,
+        "endChar": 67
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16fc05c4_c485fe74",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 13
@@ -565,6 +1141,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Use that in the error message?",
+      "range": {
+        "startLine": 117,
+        "startChar": 70,
+        "endLine": 117,
+        "endChar": 75
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b2600b6_8d67a133",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fc05c4_c485fe74",
       "range": {
         "startLine": 117,
         "startChar": 70,
@@ -600,6 +1200,30 @@
     },
     {
       "key": {
+        "uuid": "0b4cdc89_07d838ac",
+        "filename": "compiler/jit/jit_compiler.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Was written in 2014 but uploaded in 2015? But done.",
+      "parentUuid": "16fc05c4_04f2f6a0",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56abdd9d_3ea0493a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -617,6 +1241,24 @@
     },
     {
       "key": {
+        "uuid": "6b447857_0f1a856e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56abdd9d_3ea0493a",
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96a1d5bc_83014037",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -628,6 +1270,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Indentation seems off (though it\u0027s the original code)?",
+      "range": {
+        "startLine": 1037,
+        "startChar": 44,
+        "endLine": 1037,
+        "endChar": 94
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab3af0c2_d1a66499",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96a1d5bc_83014037",
       "range": {
         "startLine": 1037,
         "startChar": 44,
@@ -663,6 +1329,30 @@
     },
     {
       "key": {
+        "uuid": "2b2600b6_add6ddfc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56abdd9d_bed7b978",
+      "range": {
+        "startLine": 1108,
+        "startChar": 0,
+        "endLine": 1109,
+        "endChar": 57
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6b1310e_3b2df7b9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -674,6 +1364,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Is this fixing a bug (i.e., we should not set code pointer size for a runtime method) or removing redundancy (i.e., we don\u0027t need to set code pointer size for a runtime method)?",
+      "range": {
+        "startLine": 1631,
+        "startChar": 10,
+        "endLine": 1631,
+        "endChar": 40
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab3af0c2_315ed0e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "It was for the jit + interpreter support, but I think its worth keeping. Doens\u0027t makes sense otherwise.",
+      "parentUuid": "f6b1310e_3b2df7b9",
       "range": {
         "startLine": 1631,
         "startChar": 10,
@@ -709,6 +1423,30 @@
     },
     {
       "key": {
+        "uuid": "2b2600b6_ed706571",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "This is called from Instrumentation.",
+      "parentUuid": "165165a8_1c57b50e",
+      "range": {
+        "startLine": 2519,
+        "startChar": 2,
+        "endLine": 2525,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_dcb14d14",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -720,6 +1458,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "How is that different than above?",
+      "range": {
+        "startLine": 2540,
+        "startChar": 25,
+        "endLine": 2540,
+        "endChar": 49
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b2600b6_2d5e6de4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "??\n// Special case to get oat code without overwriting a trampoline.",
+      "parentUuid": "165165a8_dcb14d14",
       "range": {
         "startLine": 2540,
         "startChar": 25,
@@ -755,6 +1517,30 @@
     },
     {
       "key": {
+        "uuid": "56783d6f_b6430868",
+        "filename": "runtime/dex_instruction_utils.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Its requried for linkage, should I add a dex_instruction_utils.cc to get rid of it?",
+      "parentUuid": "766b81dd_d748bc51",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 6
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16cfa548_ccd7cf46",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 13
@@ -766,6 +1552,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "I assume this small change is just for debugging. Revert before submitting.",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16724591_1433d420",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cfa548_ccd7cf46",
       "range": {
         "startLine": 612,
         "startChar": 0,
@@ -801,6 +1611,30 @@
     },
     {
       "key": {
+        "uuid": "eb1a2866_d3a67499",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fc05c4_6701ac34",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 52
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96a1d5bc_a089dabe",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 13
@@ -824,6 +1658,30 @@
     },
     {
       "key": {
+        "uuid": "eb1a2866_13950c25",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "I\u0027m dropping the support for jit + interpreter only.",
+      "parentUuid": "96a1d5bc_a089dabe",
+      "range": {
+        "startLine": 131,
+        "startChar": 9,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56abdd9d_3e784957",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 13
@@ -835,6 +1693,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 139,
+        "startChar": 65,
+        "endLine": 139,
+        "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb1a2866_f3a9706b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56abdd9d_3e784957",
       "range": {
         "startLine": 139,
         "startChar": 65,
@@ -893,6 +1775,54 @@
     },
     {
       "key": {
+        "uuid": "2b2600b6_2de42d2b",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3644a9e8_7db917c4",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b447857_af25b9cd",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96a1d5bc_60ee3291",
+      "range": {
+        "startLine": 98,
+        "startChar": 24,
+        "endLine": 98,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69c1985_e1e126a5",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 13
@@ -904,6 +1834,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 296,
+        "startChar": 27,
+        "endLine": 296,
+        "endChar": 47
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b447857_8f81d52c",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b69c1985_e1e126a5",
       "range": {
         "startLine": 296,
         "startChar": 27,
@@ -962,6 +1916,54 @@
     },
     {
       "key": {
+        "uuid": "6bf6384b_7f576fa1",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56abdd9d_bebd7995",
+      "range": {
+        "startLine": 690,
+        "startChar": 8,
+        "endLine": 690,
+        "endChar": 37
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf6384b_9f1233f8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fc05c4_4707d040",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 690,
+        "endChar": 40
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5643dd80_1e1b8d9e",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 13
@@ -973,6 +1975,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "not",
+      "range": {
+        "startLine": 69,
+        "startChar": 29,
+        "endLine": 69,
+        "endChar": 32
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb1a2866_b328987d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5643dd80_1e1b8d9e",
       "range": {
         "startLine": 69,
         "startChar": 29,
@@ -1002,6 +2028,24 @@
     },
     {
       "key": {
+        "uuid": "2b21a095_f51ef860",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9639d503_00432634",
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56475dec_9e009de4",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -1013,6 +2057,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Assert that capacity \u003c 4G for a 64-bit build?",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 50
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64ed954_517e5495",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "4 GB is probably far too big, I\u0027ll add a 1GB sanity check.",
+      "parentUuid": "56475dec_9e009de4",
       "range": {
         "startLine": 26,
         "startChar": 42,
@@ -1048,6 +2116,30 @@
     },
     {
       "key": {
+        "uuid": "965395fc_3030e811",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96b475b1_88d1b7d2",
+      "range": {
+        "startLine": 34,
+        "startChar": 49,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_dc062d01",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -1059,6 +2151,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "When does that happen?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64ed954_f1474860",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "I thought it might happen with SELinux, but it doesn\u0027t. Should I just delete all the code? It may be worth leaving if we want since, when enabled, it the period of time which pages are read write execute at a slight performance cost.",
+      "parentUuid": "165165a8_dc062d01",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -1094,6 +2210,30 @@
     },
     {
       "key": {
+        "uuid": "6bf6384b_5f06ebca",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7642a1dd_3f762725",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b475b1_c8f00f6d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -1105,6 +2245,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "Could we instead make the code grow down from the end?",
+      "range": {
+        "startLine": 58,
+        "startChar": 37,
+        "endLine": 58,
+        "endChar": 62
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf6384b_7f676f0b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Work for another CL.",
+      "parentUuid": "96b475b1_c8f00f6d",
       "range": {
         "startLine": 58,
         "startChar": 37,
@@ -1140,6 +2304,30 @@
     },
     {
       "key": {
+        "uuid": "f61cd153_03f1ee6e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "I\u0027ll leave it but add a TODO.",
+      "parentUuid": "7642a1dd_7f610f77",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 98
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "763e21ec_bf7377ce",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -1151,6 +2339,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "end",
+      "range": {
+        "startLine": 95,
+        "startChar": 16,
+        "endLine": 95,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bf6384b_ffa81fa0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763e21ec_bf7377ce",
       "range": {
         "startLine": 95,
         "startChar": 16,
@@ -1186,6 +2398,30 @@
     },
     {
       "key": {
+        "uuid": "6bf6384b_dfa55bc6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763e21ec_9f7033c3",
+      "range": {
+        "startLine": 102,
+        "startChar": 16,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_7ccfd95f",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 13
@@ -1197,6 +2433,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Seems unused?",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b05bcfd_1c2075c5",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "165165a8_7ccfd95f",
       "range": {
         "startLine": 20,
         "startChar": 10,
@@ -1232,6 +2492,30 @@
     },
     {
       "key": {
+        "uuid": "6bf6384b_bffe1732",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7642a1dd_7f6b4f88",
+      "range": {
+        "startLine": 51,
+        "startChar": 26,
+        "endLine": 51,
+        "endChar": 27
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9639d503_00b04607",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 13
@@ -1243,6 +2527,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "Unnecessary, nullptr is the default argument.",
+      "range": {
+        "startLine": 61,
+        "startChar": 21,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16724591_34d5303e",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9639d503_00b04607",
       "range": {
         "startLine": 61,
         "startChar": 21,
@@ -1278,6 +2586,30 @@
     },
     {
       "key": {
+        "uuid": "36758977_35fe10be",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Since we don\u0027t have on-stack replacement, some methods can remain in the interpreter longer than we want.",
+      "parentUuid": "16fc05c4_67d2cc09",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 38
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_1cf57588",
         "filename": "runtime/jit/jit_instrumentation.h",
         "patchSetId": 13
@@ -1289,6 +2621,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Doesn\u0027t seem to fit in this abstraction.",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64ed954_d13884fe",
+        "filename": "runtime/jit/jit_instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "165165a8_1cf57588",
       "range": {
         "startLine": 54,
         "startChar": 7,
@@ -1324,6 +2680,30 @@
     },
     {
       "key": {
+        "uuid": "36758977_55e2ac2c",
+        "filename": "runtime/mirror/art_field.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "AotCompiler is not JIT",
+      "parentUuid": "f66cd149_e329b2ad",
+      "range": {
+        "startLine": 47,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f64db110_5b330320",
         "filename": "runtime/mirror/art_method-inl.h",
         "patchSetId": 13
@@ -1335,6 +2715,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Why is that on the ArtMethod? Why don\u0027t we have an abstraction on OatQuickMethodHeader?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 6
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d54178_27c89a27",
+        "filename": "runtime/mirror/art_method-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Clean-up in another CL.",
+      "parentUuid": "f64db110_5b330320",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -1370,6 +2774,30 @@
     },
     {
       "key": {
+        "uuid": "76d54178_07f8f67f",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56ae7d66_e61c1e63",
+      "range": {
+        "startLine": 349,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 28
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16708517_a42fc2b2",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 13
@@ -1381,6 +2809,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Why need this? We don\u0027t run JIT when -Xint, right?",
+      "range": {
+        "startLine": 423,
+        "startChar": 27,
+        "endLine": 423,
+        "endChar": 45
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f693f167_4ef1d31f",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Currently it is supported for testing purposes, should I remove that option?",
+      "parentUuid": "16708517_a42fc2b2",
       "range": {
         "startLine": 423,
         "startChar": 27,
@@ -1416,6 +2868,30 @@
     },
     {
       "key": {
+        "uuid": "568d9d43_ce6dc36b",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76a8e190_6f6211a8",
+      "range": {
+        "startLine": 303,
+        "startChar": 42,
+        "endLine": 303,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56767d13_46ce12b8",
         "filename": "runtime/mirror/art_method.h",
         "patchSetId": 13
@@ -1427,6 +2903,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Can this be private? Since we don\u0027t check code is a valid pointer, it seems risky.",
+      "range": {
+        "startLine": 308,
+        "startChar": 14,
+        "endLine": 308,
+        "endChar": 33
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568d9d43_ae607774",
+        "filename": "runtime/mirror/art_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56767d13_46ce12b8",
       "range": {
         "startLine": 308,
         "startChar": 14,
@@ -1462,6 +2962,30 @@
     },
     {
       "key": {
+        "uuid": "568d9d43_6e15afe7",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b979da_991f9b56",
+      "range": {
+        "startLine": 583,
+        "startChar": 4,
+        "endLine": 583,
+        "endChar": 97
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b475b1_e8f71391",
         "filename": "runtime/quick/inline_method_analyser.cc",
         "patchSetId": 13
@@ -1473,6 +2997,30 @@
       "writtenOn": "2015-02-11T17:34:38Z",
       "side": 1,
       "message": "WIP?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 43
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d54178_c7ec1ed3",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "I\u0027ll add a TODO",
+      "parentUuid": "96b475b1_e8f71391",
       "range": {
         "startLine": 115,
         "startChar": 0,
@@ -1508,6 +3056,30 @@
     },
     {
       "key": {
+        "uuid": "76d54178_278ffa41",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6341908_4149b276",
+      "range": {
+        "startLine": 232,
+        "startChar": 33,
+        "endLine": 232,
+        "endChar": 39
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6998d84_72dd9896",
         "filename": "runtime/runtime.cc",
         "patchSetId": 13
@@ -1519,6 +3091,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Does this mean that create jit options if we are not AOT or JIT? Not sure what this means.",
+      "range": {
+        "startLine": 838,
+        "startChar": 0,
+        "endLine": 840,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d54178_672a927c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "d6998d84_72dd9896",
       "range": {
         "startLine": 838,
         "startChar": 0,
@@ -1554,6 +3150,30 @@
     },
     {
       "key": {
+        "uuid": "76d54178_47866e2b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "d6998d84_12f7ec18",
+      "range": {
+        "startLine": 841,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96a1d5bc_e0e242e0",
         "filename": "runtime/runtime.h",
         "patchSetId": 13
@@ -1565,6 +3185,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Does this mean now that we are more or less dex2oat, which is what IsCompiler() used to mean? Add comment to clarify?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568d9d43_eeceff30",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96a1d5bc_e0e242e0",
       "range": {
         "startLine": 107,
         "startChar": 0,
@@ -1624,6 +3268,54 @@
     },
     {
       "key": {
+        "uuid": "f693f167_8e0f3ba8",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Renaming IsCompiler to IsDex2Oat is incorrect unless I change the logic, I assume you meant rename IsAotCompiler to IsDex2Oat?",
+      "parentUuid": "16e32520_cc540f98",
+      "range": {
+        "startLine": 111,
+        "startChar": 7,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f693f167_2e2ac7f7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6998d84_32015080",
+      "range": {
+        "startLine": 111,
+        "startChar": 7,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f66cd149_e37a929e",
         "filename": "runtime/signal_catcher.cc",
         "patchSetId": 13
@@ -1647,6 +3339,30 @@
     },
     {
       "key": {
+        "uuid": "f693f167_6e8a0fb3",
+        "filename": "runtime/signal_catcher.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "JIT in a real running runtime, so we need to have the usual runtime behavior.",
+      "parentUuid": "f66cd149_e37a929e",
+      "range": {
+        "startLine": 183,
+        "startChar": 37,
+        "endLine": 183,
+        "endChar": 62
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "162a4514_d4c35c90",
         "filename": "runtime/thread.cc",
         "patchSetId": 13
@@ -1658,6 +3374,30 @@
       "writtenOn": "2015-02-12T03:47:48Z",
       "side": 1,
       "message": "Not related?",
+      "range": {
+        "startLine": 993,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d54178_47adceaf",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "162a4514_d4c35c90",
       "range": {
         "startLine": 993,
         "startChar": 0,
@@ -1716,6 +3456,54 @@
     },
     {
       "key": {
+        "uuid": "36758977_1533d420",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6998d84_955ca633",
+      "range": {
+        "startLine": 1242,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64ed954_f1d2e857",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "No it\u0027s checking that the pc is within the quick code, same behavior as before.",
+      "parentUuid": "b638995d_61bc16b6",
+      "range": {
+        "startLine": 1242,
+        "startChar": 10,
+        "endLine": 1244,
+        "endChar": 21
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6341908_01b04a07",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 13
@@ -1739,6 +3527,30 @@
     },
     {
       "key": {
+        "uuid": "76d54178_c7c09e54",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6341908_01b04a07",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 79
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69c1985_212a6ea2",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 13
@@ -1750,6 +3562,30 @@
       "writtenOn": "2015-02-12T03:05:25Z",
       "side": 1,
       "message": "Why -Xint and Xjit at the same time? It seem they should be mutually exclusive.",
+      "range": {
+        "startLine": 264,
+        "startChar": 14,
+        "endLine": 264,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568d9d43_6e904f30",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-14T01:54:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b69c1985_212a6ea2",
       "range": {
         "startLine": 264,
         "startChar": 14,
