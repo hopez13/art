@@ -22,6 +22,30 @@
       "revId": "35aa5782625e441641dd2a2c59ee6e2673c16e88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab34b007_e40bb44a",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-02-14T03:12:26Z",
+      "side": 1,
+      "message": "The abi doc states:\n\"When the first argument is integral, the remaining arguments are passed in the integer registers.\".",
+      "parentUuid": "eb4948a5_a167da84",
+      "range": {
+        "startLine": 251,
+        "startChar": 8,
+        "endLine": 251,
+        "endChar": 93
+      },
+      "revId": "35aa5782625e441641dd2a2c59ee6e2673c16e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
