@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "4b433481_c10e64af",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-14T00:37:04Z",
+      "side": 1,
+      "message": "I think it\u0027s fine either as a fully boolean option or like the CheckJNI things, with a slight preference toward the CheckJNI like approach.\n\nPerhaps it would make more sense if the name was something like \"fail-without-oat\".",
+      "parentUuid": "8b8d2cf5_e3450c3b",
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb5e442b_8a90abb1",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 7
@@ -237,6 +255,30 @@
       "side": 1,
       "message": "Verify has text options and is binary: you can say verification on or off. This goes into Igor\u0027s question on whether the new option should be binary, too. I used Intel\u0027s approach here, and think NoDexFileFallback is singular enough (it\u0027s like -X:CheckJni) that only turning it off is necessary (and then you use Exists).",
       "parentUuid": "0b4cdc89_a728447d",
+      "range": {
+        "startLine": 771,
+        "startChar": 1,
+        "endLine": 771,
+        "endChar": 77
+      },
+      "revId": "7fe4bb19646dc703cc0ff6bc3bfad011b5e94080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b433481_c135c451",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-14T00:37:04Z",
+      "side": 1,
+      "message": "Okay, I get it now. This is fine.",
+      "parentUuid": "0b4cdc89_0795d824",
       "range": {
         "startLine": 771,
         "startChar": 1,
