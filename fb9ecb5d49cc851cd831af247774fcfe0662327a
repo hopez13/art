@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0be93ccf_1c00d5e4",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-16T13:52:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc08ccdb_7a35f951",
+      "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc08ccdb_1a383d4a",
         "filename": "cmdline/cmdline_types.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-02-06T18:39:28Z",
       "side": 1,
       "message": "minor nit:\n\nIt\u0027s a bit redundant to have it both as an out-parameter and the return value, it\u0027s possible to get away with having only 2 parameters to ParseJdwpOption by making it a local:\n\n  JdwpOptions jdwp_options;\n\n(removing it from line 90)\n\nand can just do\n\n  const JdwpOptions\u0026 jdwp_options \u003d parse_attempt.GetValue();\n\nand change line 115 to \u0027return parse_attempt\u0027",
+      "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdfb423_be18b91c",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-16T13:52:49Z",
+      "side": 1,
+      "message": "I don\u0027t quite follow you here: where jdwp_options should be declared then?\nWe pass it to ParseJdwpOption to build it with each option (x\u003dy). \nWe could make jdwp_options a field here so we can access it from ParseJdwpOption. Is it what you had in mind?",
+      "parentUuid": "dc08ccdb_1a383d4a",
       "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
