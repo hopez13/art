@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "0be93ccf_5c489d74",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-16T12:13:05Z",
+      "side": 1,
+      "message": "If you use the mir-\u003eoffset as target_method_idx and add a bool is_quickened to MapEntry as suggested, then the quickened invokes will be correctly unique.",
+      "parentUuid": "6bb9d8a9_87a3e687",
+      "range": {
+        "startLine": 1383,
+        "startChar": 34,
+        "endLine": 1383,
+        "endChar": 82
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b65df961_19b72b08",
         "filename": "compiler/dex/mir_dataflow.cc",
         "patchSetId": 13
