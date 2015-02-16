@@ -22,6 +22,30 @@
       "revId": "645f0b7c669ba1e28136e08fb69ff8cfe1b4cf85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab9e706a_1167ec0b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-16T16:49:08Z",
+      "side": 1,
+      "message": "yea :) it\u0027s currently here because it was faster to asses it\u0027s performance. The removal stuff will need to be pulled out of the InstructionSimplifier as well to get this.",
+      "parentUuid": "0be93ccf_dcc66dcc",
+      "range": {
+        "startLine": 1142,
+        "startChar": 0,
+        "endLine": 1142,
+        "endChar": 56
+      },
+      "revId": "645f0b7c669ba1e28136e08fb69ff8cfe1b4cf85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
