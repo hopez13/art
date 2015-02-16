@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bdfb423_fed3210b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2063,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "auto -\u003e HIntConstant*",
+      "range": {
+        "startLine": 2063,
+        "startChar": 2,
+        "endLine": 2063,
+        "endChar": 6
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdab834_3f9bc75d",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "How bad would it be to use our ValueSet, and they key being HIntConstant?",
+      "range": {
+        "startLine": 51,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 63
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be93ccf_dce02d1e",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "-\u003e const ValueSet\u0026 other",
+      "range": {
+        "startLine": 168,
+        "startChar": 24,
+        "endLine": 168,
+        "endChar": 45
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdab834_7fbe2fb0",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "const ValueSet\u0026 to_clone",
+      "range": {
+        "startLine": 204,
+        "startChar": 20,
+        "endLine": 204,
+        "endChar": 44
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdfb423_5efa557c",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "Is that the same as utils\u0027 RoundUpToPwerOfTwo?",
+      "range": {
+        "startLine": 223,
+        "startChar": 9,
+        "endLine": 223,
+        "endChar": 24
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bdfb423_3e0589f5",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "Make this static? In utils.h?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 36
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdab834_9fc21329",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "-\u003e (x !\u003d 0) \u0026\u0026 IsPowerOfTwo(x)",
+      "range": {
+        "startLine": 224,
+        "startChar": 8,
+        "endLine": 224,
+        "endChar": 34
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdab834_dfcc9b5f",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "Might want to tune that further. If the set is very big, doubling it just too excessive.",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 36
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be93ccf_5ce41d2c",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "Did you measure how many collisions we\u0027re having? How would it compare to open addressing?",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 38
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bdab834_ffc95f4c",
+        "filename": "compiler/utils/growable_array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T11:13:53Z",
+      "side": 1,
+      "message": "one line",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 76
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
