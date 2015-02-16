@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0be93ccf_9f04d73f",
+        "filename": "compiler/optimizing/instruction_simplifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T19:11:04Z",
+      "side": 1,
+      "message": "Probably makes sense to move this to the HOptimization class.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba36cb2_303788dd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T19:11:04Z",
+      "side": 1,
+      "message": "This term has confused a lot more people before me. I suggest changing it to IsSubtypeOf(...) or IsSupertypeOf(...).",
+      "range": {
+        "startLine": 894,
+        "startChar": 7,
+        "endLine": 894,
+        "endChar": 23
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba36cb2_103284ec",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T19:11:04Z",
+      "side": 1,
+      "message": "Should that make things true whatsoever?",
+      "range": {
+        "startLine": 896,
+        "startChar": 12,
+        "endLine": 896,
+        "endChar": 18
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab9e706a_91c2fc28",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T19:11:04Z",
+      "side": 1,
+      "message": "To make this more readable, I suggest early returns:\n\nif (IsTop()) return true;\nif (!IsKnown() || !rti.IsKnown()) return false;\n...",
+      "range": {
+        "startLine": 895,
+        "startChar": 0,
+        "endLine": 897,
+        "endChar": 95
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba36cb2_703110e4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T19:11:04Z",
+      "side": 1,
+      "message": "Needs a comment.",
+      "range": {
+        "startLine": 900,
+        "startChar": 7,
+        "endLine": 900,
+        "endChar": 19
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba36cb2_9045943c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-16T19:11:04Z",
+      "side": 1,
+      "message": "Same comment as IsAssignableFrom. These composed || and \u0026\u0026 make it unreadable.",
+      "range": {
+        "startLine": 901,
+        "startChar": 0,
+        "endLine": 905,
+        "endChar": 41
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
