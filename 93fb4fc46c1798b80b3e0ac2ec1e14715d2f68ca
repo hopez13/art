@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "0bb5bcf7_3c1611ef",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "I don\u0027t think we do, I\u0027ll change it to a CHECK. I just have a habit of not writing memory leaks :)",
+      "parentUuid": "ebe5c8f3_5be4232c",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96db9505_d0099c54",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 13
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "OK, so we are creating these arrays, and then copying them to the code cache, is that it?",
       "parentUuid": "76bc6132_aff61919",
+      "range": {
+        "startLine": 80,
+        "startChar": 13,
+        "endLine": 80,
+        "endChar": 29
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bb398fa_fd907fb2",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "Yes, these arrays are only live for the short period of time after the compile but before adding to the code cache.",
+      "parentUuid": "ebe5c8f3_1bea9bfb",
       "range": {
         "startLine": 80,
         "startChar": 13,
@@ -438,6 +486,30 @@
       "side": 1,
       "message": "If you use the mir-\u003eoffset as target_method_idx and add a bool is_quickened to MapEntry as suggested, then the quickened invokes will be correctly unique.",
       "parentUuid": "6bb9d8a9_87a3e687",
+      "range": {
+        "startLine": 1383,
+        "startChar": 34,
+        "endLine": 1383,
+        "endChar": 82
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_ace30324",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be93ccf_5c489d74",
       "range": {
         "startLine": 1383,
         "startChar": 34,
@@ -1543,6 +1615,30 @@
     },
     {
       "key": {
+        "uuid": "abc5907a_99fe5b6d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "Are you saying check for OatCode before JIT? Or visa versa?",
+      "parentUuid": "ebe5c8f3_9bfdcbc3",
+      "range": {
+        "startLine": 2519,
+        "startChar": 2,
+        "endLine": 2525,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_dcb14d14",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -1602,6 +1698,30 @@
       "side": 1,
       "message": "Then I don\u0027t understand this comment. I know it\u0027s not your code, but where is the overwriting here? All I can see is different is that one method may return null, and the other won\u0027t by returning stubs.",
       "parentUuid": "2b2600b6_2d5e6de4",
+      "range": {
+        "startLine": 2540,
+        "startChar": 25,
+        "endLine": 2540,
+        "endChar": 49
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abc5907a_f9ff976b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "I think the main difference here is that we return nullptr instead of returning GetQuickGenericJniStub / GetQuickToInterpreterBridge.",
+      "parentUuid": "0be93ccf_1cb535fc",
       "range": {
         "startLine": 2540,
         "startChar": 25,
@@ -2331,6 +2451,30 @@
     },
     {
       "key": {
+        "uuid": "abc5907a_79eee78c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebe5c8f3_bbfa87c6",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7642a1dd_3f762725",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 13
@@ -2766,6 +2910,30 @@
       "side": 1,
       "message": "I see. Maybe add this as a comment, as it\u0027s not obvious at first.",
       "parentUuid": "36758977_35fe10be",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 38
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb5bcf7_1c4915f4",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:21Z",
+      "side": 1,
+      "message": "Already in PS 14",
+      "parentUuid": "0be93ccf_5cbfbddb",
       "range": {
         "startLine": 103,
         "startChar": 2,
