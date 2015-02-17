@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bba8cec_dbb727b2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 0,
+      "message": "Am I preserving this behavior?\n\nIt appears this means we must have a checksum (the original dex can\u0027t be stripped) to consider an (not already opened) oat file up to date, but I thought no checksum meant we assume up to date (Which is what FindOpenedOatDexFile does).\n\nSee also class_linker.cc#912, class_linker.cc#1220, and dalvik_system_DexFile.cc#329, where they all consider an oat file up to date if there is no dex checksum available.",
+      "range": {
+        "startLine": 913,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 7
+      },
+      "revId": "5b2c6ec47cb8585c9e15b8baf74809a07b4387a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bba8cec_385ce935",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "I should clear these variables at the end of the makefile too.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 138
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bba8cec_18724546",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "\u0027running out of the original dex file\u0027",
+      "range": {
+        "startLine": 776,
+        "startChar": 18,
+        "endLine": 776,
+        "endChar": 37
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_ba146d42",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Revisit this comment to ensure it says what I mean it to say.",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 41
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebca2890_73b3a065",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Cache the result of this, because it could be called many times when we search for an open oat file that matches the checksum.",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 17
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_1a1359ff",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Should we prefer an up to date odex file over an up to date oat file?",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 738,
+        "endChar": 3
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_cca08fb3",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Status should be \"out of date\". Update this test to check for that.",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 47
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_ec0a2b1f",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Use GenerateOatForTest?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 73
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_8c19677c",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "temporarily",
+      "range": {
+        "startLine": 328,
+        "startChar": 28,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_4c1c9f67",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "temporarily.\n\nPerhaps it\u0027s worth pulling this operation out into a separate function?",
+      "range": {
+        "startLine": 366,
+        "startChar": 28,
+        "endLine": 366,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_9ab3e995",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Again...",
+      "range": {
+        "startLine": 431,
+        "startChar": 28,
+        "endLine": 431,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_6c463b48",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "and again...",
+      "range": {
+        "startLine": 482,
+        "startChar": 27,
+        "endLine": 482,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebca2890_360f565b",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be disabled. Track down why this test case fails.",
+      "range": {
+        "startLine": 558,
+        "startChar": 27,
+        "endLine": 558,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_fafae514",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Add a comment saying why this test case is disabled.",
+      "range": {
+        "startLine": 615,
+        "startChar": 27,
+        "endLine": 615,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_8cfe076d",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Add a comment saying why this test case is disabled.\n\nAlso, document in oat_file_manager.h the expected behavior in this case, even if I\u0027m not sure the expected behavior is the best behavior to have.",
+      "range": {
+        "startLine": 635,
+        "startChar": 27,
+        "endLine": 635,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_fa21c516",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "Add comment why it is disabled.",
+      "range": {
+        "startLine": 656,
+        "startChar": 27,
+        "endLine": 656,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebca2890_56a652d2",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "again.",
+      "range": {
+        "startLine": 747,
+        "startChar": 28,
+        "endLine": 747,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_3a305d5d",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-17T20:42:59Z",
+      "side": 1,
+      "message": "again.",
+      "range": {
+        "startLine": 783,
+        "startChar": 28,
+        "endLine": 783,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
