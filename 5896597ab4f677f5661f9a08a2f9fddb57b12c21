@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ba36cb2_304308db",
+        "filename": "compiler/optimizing/instruction_simplifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-17T15:13:54Z",
+      "side": 1,
+      "message": "agree",
+      "parentUuid": "0be93ccf_9f04d73f",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ba36cb2_303788dd",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-16T19:11:04Z",
       "side": 1,
       "message": "This term has confused a lot more people before me. I suggest changing it to IsSubtypeOf(...) or IsSupertypeOf(...).",
+      "range": {
+        "startLine": 894,
+        "startChar": 7,
+        "endLine": 894,
+        "endChar": 23
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_48961f64",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-17T15:13:54Z",
+      "side": 1,
+      "message": "agree again :). I went with the same name as the one in mirror::Class which was confusing for me in the beginning was well. I got use to it though and reuse it here...",
+      "parentUuid": "8ba36cb2_303788dd",
       "range": {
         "startLine": 894,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b7c4cf2_888f3743",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-17T15:13:54Z",
+      "side": 1,
+      "message": "yes, good observation.",
+      "parentUuid": "8ba36cb2_103284ec",
+      "range": {
+        "startLine": 896,
+        "startChar": 12,
+        "endLine": 896,
+        "endChar": 18
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab9e706a_91c2fc28",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-16T19:11:04Z",
       "side": 1,
       "message": "To make this more readable, I suggest early returns:\n\nif (IsTop()) return true;\nif (!IsKnown() || !rti.IsKnown()) return false;\n...",
+      "range": {
+        "startLine": 895,
+        "startChar": 0,
+        "endLine": 897,
+        "endChar": 95
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba36cb2_d04b9ceb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-17T15:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab9e706a_91c2fc28",
       "range": {
         "startLine": 895,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0b705c17_6476aabf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-17T15:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba36cb2_703110e4",
+      "range": {
+        "startLine": 900,
+        "startChar": 7,
+        "endLine": 900,
+        "endChar": 19
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ba36cb2_9045943c",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-16T19:11:04Z",
       "side": 1,
       "message": "Same comment as IsAssignableFrom. These composed || and \u0026\u0026 make it unreadable.",
+      "range": {
+        "startLine": 901,
+        "startChar": 0,
+        "endLine": 905,
+        "endChar": 41
+      },
+      "revId": "5896597ab4f677f5661f9a08a2f9fddb57b12c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba36cb2_f048a0f1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-17T15:13:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba36cb2_9045943c",
       "range": {
         "startLine": 901,
         "startChar": 0,
