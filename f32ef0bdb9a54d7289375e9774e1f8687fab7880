@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bb398fa_7dd2af5e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-17T16:52:12Z",
+      "side": 1,
+      "message": "Since you\u0027re touching this, please change to use IsAligned.",
+      "range": {
+        "startLine": 591,
+        "startChar": 6,
+        "endLine": 591,
+        "endChar": 56
+      },
+      "revId": "f32ef0bdb9a54d7289375e9774e1f8687fab7880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
