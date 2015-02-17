@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8ba1acbc_802c96bb",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-17T16:41:08Z",
+      "side": 1,
+      "message": "As discussed offline, we probably don\u0027t need to save the number of saved registers per stack map, by using a special value (say 0 or -1) for the DexRegisterMapOffset field.",
+      "parentUuid": "0b705c17_c4e03e1e",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 64
+      },
+      "revId": "635b2573a2aebd37036955f6fd75453c7bbbffd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b8a802f_8d8f4143",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 1
