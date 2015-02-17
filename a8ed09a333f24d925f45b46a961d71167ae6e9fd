@@ -94,6 +94,30 @@
       "revId": "a8ed09a333f24d925f45b46a961d71167ae6e9fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8a802f_adbf9da7",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T11:59:34Z",
+      "side": 1,
+      "message": "But what does it generate for methods it does not change the stack? frame size of 0 or 8? I guess frame size of 0...",
+      "parentUuid": "2b8a802f_0dafd17c",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 43
+      },
+      "revId": "a8ed09a333f24d925f45b46a961d71167ae6e9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
