@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0be3fc1f_0cb0d703",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6bb9d8a9_4ad97333",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 44
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bb9d8a9_2ae8bfb6",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-13T22:17:33Z",
       "side": 1,
       "message": "indentation is off",
+      "range": {
+        "startLine": 475,
+        "startChar": 18,
+        "endLine": 475,
+        "endChar": 61
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be3fc1f_ac954357",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6bb9d8a9_2ae8bfb6",
       "range": {
         "startLine": 475,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0be3fc1f_8c9a8785",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "abbf508b_32d916fa",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 734,
+        "endChar": 5
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bcf7c48_46ff366b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-13T22:17:33Z",
       "side": 1,
       "message": "It\u0027s more than Div, isn\u0027t it?",
+      "range": {
+        "startLine": 767,
+        "startChar": 31,
+        "endLine": 767,
+        "endChar": 34
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbf18df_9a3c095f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Renamed it to FindAndHandlePartialArrayLength.",
+      "parentUuid": "0bcf7c48_46ff366b",
       "range": {
         "startLine": 767,
         "startChar": 31,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6bbf18df_5a4f91fa",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Will add.",
+      "parentUuid": "0bcf7c48_869bde5b",
+      "range": {
+        "startLine": 788,
+        "startChar": 2,
+        "endLine": 794,
+        "endChar": 3
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbf508b_72378edc",
         "filename": "test/449-checker-bce/src/Main.java",
         "patchSetId": 2
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "ebca2890_56d41246",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "abbf508b_72378edc",
+      "range": {
+        "startLine": 271,
+        "startChar": 25,
+        "endLine": 271,
+        "endChar": 27
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bcf7c48_26b9cac6",
         "filename": "test/449-checker-bce/src/Main.java",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2015-02-13T22:17:33Z",
       "side": 1,
       "message": "spaces",
+      "range": {
+        "startLine": 331,
+        "startChar": 24,
+        "endLine": 331,
+        "endChar": 38
+      },
+      "revId": "0f24c40e605adb535ed6c45037de01e54ab56bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebca2890_36e19620",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-17T21:38:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0bcf7c48_26b9cac6",
       "range": {
         "startLine": 331,
         "startChar": 24,
