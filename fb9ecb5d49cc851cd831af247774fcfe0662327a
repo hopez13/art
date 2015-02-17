@@ -87,6 +87,24 @@
       "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebb1480e_bbe227d7",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-17T18:34:00Z",
+      "side": 1,
+      "message": "Sorry but I don\u0027t understand how it can work if you declare the JdwpOptions object locally in ParseJdwpOption. This means you do not preserve its state with the options already parsed before (we loop on each option of the form x\u003dy).\n\nImagine you have something a string like \"option1\u003dvalue1,option2\u003dvalue2\". You will call ParseJdwpOption for each option (\"option1\u003dvalue1\" and \"option2\u003dvalue2\"). So you need to preserve the state of JdwpOptions between calls.\n\nDo I miss something?",
+      "parentUuid": "6bb398fa_bd5d276e",
+      "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
