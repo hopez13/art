@@ -22,6 +22,30 @@
       "revId": "c468f1233a21173960f823b72558cf1be6e495ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b705c17_e481ba2b",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-17T12:46:57Z",
+      "side": 1,
+      "message": "I believe CodeInfo is a data structure specific to the optimizing compiler (according to `git grep\u0027).",
+      "parentUuid": "2b8a802f_ad6ddd97",
+      "range": {
+        "startLine": 339,
+        "startChar": 52,
+        "endLine": 339,
+        "endChar": 62
+      },
+      "revId": "c468f1233a21173960f823b72558cf1be6e495ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
