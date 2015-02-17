@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bbf18df_979aa485",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:04Z",
+      "side": 1,
+      "message": "You are right, I should have though of using the mir-\u003eoffset as the key. The original code was arguably groser, but I can see the motivation for the memory savings. I reverted the logic here.",
+      "parentUuid": "0be93ccf_fc588943",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1321,
+        "endChar": 75
+      },
+      "revId": "ccb93a7604917a05dd527eea83064414bfb13b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bdfb423_9e45bd3c",
         "filename": "compiler/dex/mir_field_info.h",
         "patchSetId": 14
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cb81e44d_1226ccd8",
+        "filename": "compiler/dex/mir_field_info.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bdfb423_9e45bd3c",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 54
+      },
+      "revId": "ccb93a7604917a05dd527eea83064414bfb13b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bdab834_3f690786",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-16T12:19:44Z",
       "side": 1,
       "message": "AFAICT, this would work for quickened invokes as well. There\u0027s no need to record the vtable_idx_ in MIRGraph::DoCacheMethodLoweringInfo().",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 5
+      },
+      "revId": "ccb93a7604917a05dd527eea83064414bfb13b0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb5bcf7_dcde0de4",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-17T23:47:04Z",
+      "side": 1,
+      "message": "Sometimes we de-quicken to interface methods, it does not work in this case.",
+      "parentUuid": "6bdab834_3f690786",
       "range": {
         "startLine": 113,
         "startChar": 0,
