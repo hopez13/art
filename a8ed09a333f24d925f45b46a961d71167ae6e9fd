@@ -22,6 +22,30 @@
       "revId": "a8ed09a333f24d925f45b46a961d71167ae6e9fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8a802f_ed3c45bc",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-17T11:25:07Z",
+      "side": 1,
+      "message": "I updated HasEmptyFrame in PS2, but now I\u0027m not sure the fix is quite right, as enlarging the \"empty frame size\" may have changed the behavior of HasEmptyFrame.  Do we actually rely on the fact that the a stack frame is non 16-byte aligned (or zero-sized) to declare it an empty frame?",
+      "parentUuid": "8ba36cb2_703d9059",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 43
+      },
+      "revId": "a8ed09a333f24d925f45b46a961d71167ae6e9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
