@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ba1acbc_e09a4258",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Should is_top be true by default?",
+      "range": {
+        "startLine": 872,
+        "startChar": 67,
+        "endLine": 872,
+        "endChar": 72
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebb1480e_5b432336",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 872,
+        "startChar": 42,
+        "endLine": 872,
+        "endChar": 57
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebb1480e_7b46df47",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 874,
+        "startChar": 50,
+        "endLine": 874,
+        "endChar": 64
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_ab1b156f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Move line 898?",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 906,
+        "endChar": 5
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_cb28497f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "How can it be a superclass? I would change the comment to \"it cannot be a subclass of `type_handle`.",
+      "range": {
+        "startLine": 952,
+        "startChar": 39,
+        "endLine": 952,
+        "endChar": 64
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_eb250da4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "When true,",
+      "range": {
+        "startLine": 956,
+        "startChar": 32,
+        "endLine": 956,
+        "endChar": 41
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_6b311de4",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Are we guaranteed by the algorithm that the inputs\u0027s types will be known? What happens here if only one input is known?",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 47
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba1acbc_40a44e8f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Call the ReferenceTypeInfo method instead?",
+      "range": {
+        "startLine": 102,
+        "startChar": 15,
+        "endLine": 102,
+        "endChar": 60
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_8b45713c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 105,
+        "startChar": 15,
+        "endLine": 105,
+        "endChar": 58
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_ab42352f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Add a TODO: Find common parent?",
+      "range": {
+        "startLine": 107,
+        "startChar": 11,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ba1acbc_80aa565e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "IsEquivalent doesn\u0027t really fit here. What you really want is to know whether any of the field has changed. Equals does seem like a good name to me....",
+      "range": {
+        "startLine": 113,
+        "startChar": 10,
+        "endLine": 113,
+        "endChar": 45
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b7c4cf2_2bde451d",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-17T18:35:28Z",
+      "side": 1,
+      "message": "Maybe also add a test that the checkcast is still there when doing a checkcast of SubclassA ?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 3
+      },
+      "revId": "5a9c0c0383e40f15cf3f10cd408464fb3e156d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
