@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bbf18df_9a4c0989",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2015-02-17T19:59:32Z",
+      "side": 1,
+      "message": "Clarify commit message - something along the lines of:\n\n\"Because of Dalvik byte code\u0027s lack of immediate typing, the same vreg may be used in core, ref and fp operations.  To properly support GC, we must ensure that if a constant zero is loaded into a fp view of a vreg, it must also be loaded into the core/ref view.  The code that was responsible for ensuring this failed to handle the case of a vreg having a non-promoted fp view and a promoted core/ref view.\"",
+      "revId": "5e48e3b4ab693ab1694810642a9de3ea667299f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebca2890_f3c2108e",
+        "filename": "compiler/dex/quick/gen_loadstore.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2015-02-17T19:59:32Z",
+      "side": 1,
+      "message": "Useless if statement here.  is_fp_promoted is guaranteed to be true in the else clause.",
+      "revId": "5e48e3b4ab693ab1694810642a9de3ea667299f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
