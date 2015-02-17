@@ -69,6 +69,24 @@
       "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bb398fa_bd5d276e",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-17T18:11:30Z",
+      "side": 1,
+      "message": "So what I mean is, you can move the declaration from line 90 to line 105\n\n  Result parse_attempt \u003d ParseJdwpOption(\n        jdwp_option.substr(0, equals_pos),\n        jdwp_option.substr(equals_pos + 1));\n\n  if (parse_attempt.IsError()) {\n    return parse_attempt;\n  }\n  \n  const JDWP::JdwpOptions\u0026 jdwp_options \u003d parse_attempt.GetValue();\n \n  ...\n\nSee how by doing that you no longer need to pass in an extra parameter to \u0027ParseJdwpOption\u0027 (since it\u0027s already nested inside of the result)\n\nYou would also need to change line 119 to allocate automatic storage for it there\n\n  Result ParseJdwpOption(const std::string\u0026 name, const std::string\u0026 value) {\n      JDWP::JdwpOptions jdwp_options;\n      ....\n      return Result::Success(jdwp_options);\n  }",
+      "parentUuid": "4bdfb423_be18b91c",
+      "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
