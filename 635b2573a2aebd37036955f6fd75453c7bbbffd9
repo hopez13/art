@@ -22,6 +22,29 @@
       "revId": "635b2573a2aebd37036955f6fd75453c7bbbffd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8a802f_8d8f4143",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-17T10:23:28Z",
+      "side": 1,
+      "message": "Native methods have no GC map. I think you also need to know the method is not native.",
+      "range": {
+        "startLine": 874,
+        "startChar": 8,
+        "endLine": 874,
+        "endChar": 40
+      },
+      "revId": "635b2573a2aebd37036955f6fd75453c7bbbffd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
