@@ -118,6 +118,30 @@
       "revId": "a8ed09a333f24d925f45b46a961d71167ae6e9fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b8a802f_0d6431ad",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-17T12:43:16Z",
+      "side": 1,
+      "message": "Yes, I guess so.  Here\u0027s a filtered output of oatdump on core.oat showing frame sizes:\n\n  $ oatdumpd --oat-file\u003dout/host/linux-x86/framework/x86_64/core.oat | sed -n \u0027s/      frame_size_in_bytes: //p\u0027 | sort -n | uniq\n  0\n  32\n  48\n  64\n  80\n  96\n  112\n  128\n  144\n  160\n  176\n  192\n  208\n  224\n  240\n  256\n  288\n  304\n  320\n  336",
+      "parentUuid": "2b8a802f_adbf9da7",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 43
+      },
+      "revId": "a8ed09a333f24d925f45b46a961d71167ae6e9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
