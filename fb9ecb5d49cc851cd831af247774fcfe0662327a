@@ -105,6 +105,41 @@
       "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb5bcf7_bfe33324",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-17T18:37:50Z",
+      "side": 1,
+      "message": "Oh, right, didn\u0027t notice that the loop was significant there sorry!\n\nIn that case this seems perfectly fine.",
+      "parentUuid": "ebb1480e_bbe227d7",
+      "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb5bcf7_7ffecbbe",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-17T18:37:50Z",
+      "side": 1,
+      "message": "minor nit: Maybe return Result::SuccessNoValue() here then if this isn\u0027t the \"final\" value?\n\nThat\u0027s the pattern we use in the other parsers when a value is built up from multiple function calls into an out-parameter.",
+      "revId": "fb9ecb5d49cc851cd831af247774fcfe0662327a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
