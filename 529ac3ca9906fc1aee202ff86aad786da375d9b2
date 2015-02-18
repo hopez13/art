@@ -270,6 +270,30 @@
       "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb26a84e_96316a18",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:08:09Z",
+      "side": 1,
+      "message": "IIUC there\u0027s undefined behavior when value\u003d0b100000...0 (std::numeric_limits\u003cT\u003e::min()) and it\u0027s signed because it will overflow after being negated",
+      "parentUuid": "cb81e44d_551c3e10",
+      "range": {
+        "startLine": 145,
+        "startChar": 9,
+        "endLine": 145,
+        "endChar": 18
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
