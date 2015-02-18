@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4ba1740b_2e998719",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T17:18:40Z",
+      "side": 1,
+      "message": "The C++ Style Guide requires reference arguments to be const, but it also allows const pointers arguments, especially for this case (where `code_item\u0027 can be null).",
+      "parentUuid": "eba78821_6bd701fb",
+      "range": {
+        "startLine": 875,
+        "startChar": 20,
+        "endLine": 875,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_eebc9f98",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
