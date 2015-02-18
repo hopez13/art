@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b8ab89e_9f21b318",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bba8cec_385ce935",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 138
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bba8cec_18724546",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "\u0027running out of the original dex file\u0027",
+      "range": {
+        "startLine": 776,
+        "startChar": 18,
+        "endLine": 776,
+        "endChar": 37
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b30947e_dcff056c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bba8cec_18724546",
       "range": {
         "startLine": 776,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6b8ab89e_7f686f04",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbf18df_ba146d42",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 41
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebca2890_73b3a065",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "Cache the result of this, because it could be called many times when we search for an open oat file that matches the checksum.",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 17
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b993cf9_7c3dd9b4",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebca2890_73b3a065",
       "range": {
         "startLine": 603,
         "startChar": 0,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "eb95c8bd_bb684783",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be3fc1f_cca08fb3",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 47
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0be3fc1f_ec0a2b1f",
         "filename": "runtime/oat_file_manager_test.cc",
         "patchSetId": 3
@@ -151,6 +271,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "Use GenerateOatForTest?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 73
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb95c8bd_3beb577c",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be3fc1f_ec0a2b1f",
       "range": {
         "startLine": 253,
         "startChar": 0,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "0b993cf9_dc37cd78",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be3fc1f_8c19677c",
+      "range": {
+        "startLine": 328,
+        "startChar": 28,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0be3fc1f_4c1c9f67",
         "filename": "runtime/oat_file_manager_test.cc",
         "patchSetId": 3
@@ -197,6 +365,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "temporarily.\n\nPerhaps it\u0027s worth pulling this operation out into a separate function?",
+      "range": {
+        "startLine": 366,
+        "startChar": 28,
+        "endLine": 366,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb95c8bd_fbd72f7b",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be3fc1f_4c1c9f67",
       "range": {
         "startLine": 366,
         "startChar": 28,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "0b993cf9_1c5215a5",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbf18df_9ab3e995",
+      "range": {
+        "startLine": 431,
+        "startChar": 28,
+        "endLine": 431,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0be3fc1f_6c463b48",
         "filename": "runtime/oat_file_manager_test.cc",
         "patchSetId": 3
@@ -243,6 +459,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "and again...",
+      "range": {
+        "startLine": 482,
+        "startChar": 27,
+        "endLine": 482,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb95c8bd_1bbdbb40",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be3fc1f_6c463b48",
       "range": {
         "startLine": 482,
         "startChar": 27,
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "6b6398c4_b7b788b2",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "This fails because dex2oat doesn\u0027t fail if the dex file doesn\u0027t exist. Why is that?\n\nI added an explicit check in GenerateOatFile for a missing dex file to fix the test case.",
+      "parentUuid": "ebca2890_360f565b",
+      "range": {
+        "startLine": 558,
+        "startChar": 27,
+        "endLine": 558,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bbf18df_fafae514",
         "filename": "runtime/oat_file_manager_test.cc",
         "patchSetId": 3
@@ -289,6 +553,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "Add a comment saying why this test case is disabled.",
+      "range": {
+        "startLine": 615,
+        "startChar": 27,
+        "endLine": 615,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b993cf9_3c97d1ac",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbf18df_fafae514",
       "range": {
         "startLine": 615,
         "startChar": 27,
@@ -324,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "0b993cf9_5c42dd81",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be3fc1f_8cfe076d",
+      "range": {
+        "startLine": 635,
+        "startChar": 27,
+        "endLine": 635,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bbf18df_fa21c516",
         "filename": "runtime/oat_file_manager_test.cc",
         "patchSetId": 3
@@ -335,6 +647,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "Add comment why it is disabled.",
+      "range": {
+        "startLine": 656,
+        "startChar": 27,
+        "endLine": 656,
+        "endChar": 35
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b993cf9_7c9159b4",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbf18df_fa21c516",
       "range": {
         "startLine": 656,
         "startChar": 27,
@@ -370,6 +706,30 @@
     },
     {
       "key": {
+        "uuid": "eb95c8bd_5bc743c8",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebca2890_56a652d2",
+      "range": {
+        "startLine": 747,
+        "startChar": 28,
+        "endLine": 747,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bbf18df_3a305d5d",
         "filename": "runtime/oat_file_manager_test.cc",
         "patchSetId": 3
@@ -381,6 +741,30 @@
       "writtenOn": "2015-02-17T20:42:59Z",
       "side": 1,
       "message": "again.",
+      "range": {
+        "startLine": 783,
+        "startChar": 28,
+        "endLine": 783,
+        "endChar": 38
+      },
+      "revId": "9fc255dba2f56c97d405a3e83d8acf547bc63986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b993cf9_5c4c9d04",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-18T20:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbf18df_3a305d5d",
       "range": {
         "startLine": 783,
         "startChar": 28,
