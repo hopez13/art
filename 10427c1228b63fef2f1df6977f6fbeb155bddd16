@@ -72,6 +72,40 @@
     },
     {
       "key": {
+        "uuid": "0bc4dcd0_67cd6c58",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "Why does this need a cast? when sh_size is 64 bits and uintptr_t is 32bits?\n\nIn which case this is unsafe because of truncation, for maximal robustness it could do everything in the larger bit space and then check for overflow",
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd55878_4df5edd3",
+        "filename": "runtime/barrier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "where is the guarantee/check there is no truncation?",
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd64482_0a5f5b2d",
         "filename": "runtime/base/bit_vector.cc",
         "patchSetId": 1
@@ -113,6 +147,161 @@
         "endLine": 312,
         "endChar": 3
       },
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd55878_4d232dc8",
+        "filename": "runtime/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "Either that or BitVector itself is wrong and should be using size_t for sizes everywhere. Usually containers use size_t for that.",
+      "parentUuid": "cbd64482_4ace7335",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 3
+      },
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8ab89e_bf3677dd",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "probably safe, although it could be negative or too large, is there a constraint on max_load_factor_ ?",
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc4dcd0_a70004af",
+        "filename": "runtime/base/scoped_flock.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "nit: use auto here, it\u0027s safer",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 7
+      },
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc4dcd0_07f2b867",
+        "filename": "runtime/base/stringpiece.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "Seems like this could use size_type to avoid the cast",
+      "range": {
+        "startLine": 81,
+        "startChar": 7,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd55878_6d8a7133",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "auto will avoid the casts",
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc4dcd0_07191820",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "Should indent_ be size_t?",
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc4dcd0_471310fe",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "Possible truncation",
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bc4dcd0_a75644a2",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T19:19:39Z",
+      "side": 1,
+      "message": "Possible truncation",
       "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
