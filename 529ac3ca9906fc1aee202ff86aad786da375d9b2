@@ -251,6 +251,30 @@
     },
     {
       "key": {
+        "uuid": "ebb1480e_fb566fa3",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-18T00:26:37Z",
+      "side": 1,
+      "message": "Then you need to document that corner case. And with an example of call that requires this check and would not succeed with the limit check.\n\nHaving both checks is surprising.",
+      "parentUuid": "eb26a84e_b64ca688",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b90f899_cf4dfd87",
         "filename": "runtime/utils.h",
         "patchSetId": 2
