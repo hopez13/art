@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "cb81e44d_187b4d55",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:30:38Z",
+      "side": 1,
+      "message": "Don\u0027t think you can static_assert on bits (unfortunately), but if you do want to add more static_asserts you could add one to check that T is integral.",
+      "parentUuid": "cb81e44d_582c75ba",
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb0e44b5_4a023333",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -304,6 +322,41 @@
       "side": 1,
       "message": "Shouldn\u0027t it be is_integral?",
       "parentUuid": "6b90f899_cf4dfd87",
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b90f899_0fff8530",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:30:38Z",
+      "side": 1,
+      "message": "That should work even better since it probably doesn\u0027t need to handle floating values.",
+      "parentUuid": "6b90f899_8f8ff514",
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb26a84e_16a47a8e",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:30:38Z",
+      "side": 1,
+      "message": "The result of \"GetIntLimit\u003c...\u003e(kBits+1)\" is undefined when kBits \u003d\u003d 32 because it will try to do \"1 \u003c\u003c 32\" ; but the right operand must be \u003c sizeof(left operand) \u0026\u0026 \u003e\u003d 0",
       "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
