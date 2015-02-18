@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6bbc7832_0f7da5ff",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-18T17:21:41Z",
+      "side": 1,
+      "message": "Yes, it allows, but:\n\n\"So if you choose const T* rather than const T\u0026, do so for a concrete reason; otherwise it will likely confuse readers by making them look for an explanation that doesn\u0027t exist.\"\n\nThe confusion bit I agree with.",
+      "parentUuid": "4ba1740b_2e998719",
+      "range": {
+        "startLine": 875,
+        "startChar": 20,
+        "endLine": 875,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_eebc9f98",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
