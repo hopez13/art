@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0b993cf9_bff4b30f",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-18T22:15:07Z",
+      "side": 1,
+      "message": "Original goal was for it to be similar to -Xint, but I am open to changing this stuff in other CLs.",
+      "parentUuid": "6b8ab89e_a263c0a5",
+      "range": {
+        "startLine": 420,
+        "startChar": 38,
+        "endLine": 420,
+        "endChar": 42
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3644a9e8_9d42e352",
         "filename": "compiler/compiled_method.cc",
         "patchSetId": 13
@@ -2090,6 +2114,30 @@
     },
     {
       "key": {
+        "uuid": "0b993cf9_1fe4c758",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-18T22:15:07Z",
+      "side": 1,
+      "message": "Yes, that used to work but may no longer work.",
+      "parentUuid": "0b993cf9_9cb2a5c3",
+      "range": {
+        "startLine": 131,
+        "startChar": 9,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56abdd9d_3e784957",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 13
@@ -3361,6 +3409,30 @@
       "side": 1,
       "message": "We don\u0027t use JIT when -Xint is passed in, correct?\n\nAssuming that...\n\nI think it\u0027s desirable to avoid code that might give a wrong impression that the JIT may be used even when -Xint. In this sense, the condition \"!runtime-\u003eUseJit()\" seems redundant or confusing. We should probably assert, here or somewhere else, that IsForcedInterpretOnly() and UseJit() shouldn\u0027t both true at the same time.\n\nAlso, this check is important so we won\u0027t accidentally break -Xint (literally means \"interpreter only\", no AOT or JIT compiled code executed.) There was a time when the interpreter-only heap poisoning got broken that this check would have detected. Optionally, if there\u0027s an invariant that specifically holds for the JIT case, we might check that here in a separate if statement parallel to this.\n\nSo, it seems like we should probably stop supporting the option of JIT and -Xint though I don\u0027t know exactly what you mean by testing purposes.",
       "parentUuid": "f693f167_4ef1d31f",
+      "range": {
+        "startLine": 423,
+        "startChar": 27,
+        "endLine": 423,
+        "endChar": 45
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb49e44e_b2c7809c",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-18T22:15:07Z",
+      "side": 1,
+      "message": "I already removed it, currently -Xint doesn\u0027t override -Xjit, but we may want to implement this if jit is ever enabled by default. Added DCHECK.",
+      "parentUuid": "6b6398c4_97b44401",
       "range": {
         "startLine": 423,
         "startChar": 27,
