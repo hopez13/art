@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bbc7832_0ff1259b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "My thoughts precisely. The previous implementation would just iterate over the use list and do nothing, so this preserves the original semantics. But I think the only time this might happen is when SsaPhiElimination replaces a dead input with the phi itself. Look at PS5 - I\u0027ve changed it to replace it with nullptr instead and test for that in RemoveAsUser.",
+      "parentUuid": "7c69a073_c7ee3e12",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 28
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c5e9cd0_46da5272",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-06T16:11:41Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 483,
+        "startChar": 6,
+        "endLine": 483,
+        "endChar": 14
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba1740b_8e9a3b57",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "ditto. Never observed, not found anywhere \u003d\u003e removed. DCHECK inside HUseListNode::Remove will fail if this occurs.",
+      "parentUuid": "5c5e9cd0_46da5272",
       "range": {
         "startLine": 483,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6b69d873_c7b2bec4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c8bb46f_b086d8f2",
+      "range": {
+        "startLine": 758,
+        "startChar": 18,
+        "endLine": 758,
+        "endChar": 19
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c90c099_4fbeedb1",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-06T16:11:41Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 775,
+        "startChar": 15,
+        "endLine": 775,
+        "endChar": 16
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b69d873_87bcc697",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "Can\u0027t do that if I want to assign it (like on line 1211).",
+      "parentUuid": "7c90c099_4fbeedb1",
       "range": {
         "startLine": 775,
         "startChar": 15,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6b69d873_a7c1ca08",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "dc81ac4d_92d87cf3",
+      "range": {
+        "startLine": 778,
+        "startChar": 18,
+        "endLine": 778,
+        "endChar": 19
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c90c099_cf92dd3d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-06T16:11:41Z",
       "side": 1,
       "message": "const\u0026 ?",
+      "range": {
+        "startLine": 1210,
+        "startChar": 45,
+        "endLine": 1210,
+        "endChar": 77
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab0d90eb_19ca0b53",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "Done (and elsewhere)",
+      "parentUuid": "7c90c099_cf92dd3d",
       "range": {
         "startLine": 1210,
         "startChar": 45,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ab0d90eb_39cd4f6b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c90c099_ef97a12a",
+      "range": {
+        "startLine": 1795,
+        "startChar": 2,
+        "endLine": 1795,
+        "endChar": 9
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c8bb46f_3073c880",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2015-02-06T16:11:41Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1796,
+        "startChar": 2,
+        "endLine": 1796,
+        "endChar": 9
+      },
+      "revId": "62d85970031b16707adc0b338470b9f88bbba688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b69d873_274f1a2a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1796,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-18T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c8bb46f_3073c880",
       "range": {
         "startLine": 1796,
         "startChar": 2,
