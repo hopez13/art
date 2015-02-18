@@ -69,6 +69,30 @@
       "revId": "c468f1233a21173960f823b72558cf1be6e495ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba1740b_4ea1737e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T16:34:47Z",
+      "side": 1,
+      "message": "I wanted to imitate git-diff\u0027s `--stat\u0027, but fair enough. :)  Renamed as `--dump:oat_size_statistics\u0027 in PS4.",
+      "parentUuid": "6bb398fa_bd0b679d",
+      "range": {
+        "startLine": 2154,
+        "startChar": 37,
+        "endLine": 2154,
+        "endChar": 41
+      },
+      "revId": "c468f1233a21173960f823b72558cf1be6e495ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
