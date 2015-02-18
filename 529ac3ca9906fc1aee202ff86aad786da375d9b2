@@ -426,6 +426,30 @@
       "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b90f899_efb7a1b1",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:17:01Z",
+      "side": 1,
+      "message": "Actually, there are users (it\u0027s just Eclipse not being able to track it). They are all with 10 or 12 bits, so technically the overflow is fine. However, if there\u0027s a suggestion on what to do...",
+      "parentUuid": "6b90f899_ef9a4158",
+      "range": {
+        "startLine": 145,
+        "startChar": 9,
+        "endLine": 145,
+        "endChar": 18
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
