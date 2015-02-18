@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4ba1740b_ae7c5751",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T16:35:18Z",
+      "side": 1,
+      "message": "I eventually went with `dump_size_statistics\u0027 in PS4.",
+      "parentUuid": "ebb1480e_bb146742",
+      "range": {
+        "startLine": 314,
+        "startChar": 24,
+        "endLine": 314,
+        "endChar": 28
+      },
+      "revId": "542d88def225d1500d00ed74c637b4c4290b442b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ba1acbc_20eb8aaa",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-17T18:05:43Z",
       "side": 1,
       "message": "Given how small this is, how about adding them to OatDumper? And check whether the stats flag was set when you write things to file?",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 36
+      },
+      "revId": "542d88def225d1500d00ed74c637b4c4290b442b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eba78821_ab4d6988",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T16:35:18Z",
+      "side": 1,
+      "message": "Yeah, but my intention was to extend this set of information beyond this embryo of statistics (in an upcoming PS or CL). Does it make sense?",
+      "parentUuid": "8ba1acbc_20eb8aaa",
       "range": {
         "startLine": 336,
         "startChar": 0,
