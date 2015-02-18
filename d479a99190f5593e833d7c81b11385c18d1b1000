@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb12280d_f3cc90c2",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-18T08:51:54Z",
+      "side": 1,
+      "message": "sizeof(num_failed_boots) is generally considered safer",
+      "range": {
+        "startLine": 141,
+        "startChar": 44,
+        "endLine": 141,
+        "endChar": 60
+      },
+      "revId": "d479a99190f5593e833d7c81b11385c18d1b1000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b028cb9_b83159ea",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-18T08:51:54Z",
+      "side": 1,
+      "message": "why not assume file format change and ReadPruneDalvikCache here?",
+      "range": {
+        "startLine": 143,
+        "startChar": 6,
+        "endLine": 143,
+        "endChar": 20
+      },
+      "revId": "d479a99190f5593e833d7c81b11385c18d1b1000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b644c9b_ce63b7a5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-18T08:51:54Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 162,
+        "startChar": 43,
+        "endLine": 162,
+        "endChar": 61
+      },
+      "revId": "d479a99190f5593e833d7c81b11385c18d1b1000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b644c9b_ee68fb83",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-18T08:51:54Z",
+      "side": 1,
+      "message": "file-\u003eErase() here too?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 52
+      },
+      "revId": "d479a99190f5593e833d7c81b11385c18d1b1000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b644c9b_8e5dbfe8",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-18T08:51:54Z",
+      "side": 1,
+      "message": "uint32_t?",
+      "range": {
+        "startLine": 698,
+        "startChar": 2,
+        "endLine": 698,
+        "endChar": 9
+      },
+      "revId": "d479a99190f5593e833d7c81b11385c18d1b1000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb12280d_33d7284e",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-18T08:51:54Z",
+      "side": 1,
+      "message": "bump to 5?",
+      "range": {
+        "startLine": 117,
+        "startChar": 74,
+        "endLine": 117,
+        "endChar": 75
+      },
+      "revId": "d479a99190f5593e833d7c81b11385c18d1b1000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
