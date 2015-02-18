@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cb7ba45e_428d9248",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T22:22:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebc068c1_a3b47a00",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 31
+      },
+      "revId": "2bcdf2dbb25d7bb0f9b9e69dda027ee1e931f8d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebc068c1_83b97efa",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cb7ba45e_a20ade1d",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T22:22:31Z",
+      "side": 1,
+      "message": "wanted to right a single line for SetTop at L107 and overlooked that I already do this. reverted.",
+      "parentUuid": "ebc068c1_83b97efa",
+      "range": {
+        "startLine": 88,
+        "startChar": 21,
+        "endLine": 88,
+        "endChar": 61
+      },
+      "revId": "2bcdf2dbb25d7bb0f9b9e69dda027ee1e931f8d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b78946f_f6e82002",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-18T22:15:04Z",
       "side": 1,
       "message": "I don\u0027t understand why you need the boolean. This should be new_rti.SetTop(); new_rti.SetInexact().",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 28
+      },
+      "revId": "2bcdf2dbb25d7bb0f9b9e69dda027ee1e931f8d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebc068c1_23a9aaa3",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T22:22:31Z",
+      "side": 1,
+      "message": "reverted. see previous comment.",
+      "parentUuid": "4b78946f_f6e82002",
       "range": {
         "startLine": 107,
         "startChar": 6,
