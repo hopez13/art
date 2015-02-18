@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eba78821_2bf5f94f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ba1740b_ee5dbfe7",
+      "range": {
+        "startLine": 998,
+        "startChar": 21,
+        "endLine": 998,
+        "endChar": 22
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_ce62839f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-18T16:22:20Z",
       "side": 1,
       "message": "indentation is off",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 15
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eba78821_0bf2bd67",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ba1740b_ce62839f",
       "range": {
         "startLine": 1001,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ebc068c1_c3d1b65a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbc7832_efd301d9",
+      "range": {
+        "startLine": 896,
+        "startChar": 6,
+        "endLine": 896,
+        "endChar": 45
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_8e687b83",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-18T16:22:20Z",
       "side": 1,
       "message": "Want to name this IsStructurallyEqual?",
+      "range": {
+        "startLine": 915,
+        "startChar": 7,
+        "endLine": 915,
+        "endChar": 14
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb7ba45e_e2cce6c2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "I think we\u0027re good with equal. The fact that we need the extra check is just an implementation detail.",
+      "parentUuid": "4ba1740b_8e687b83",
       "range": {
         "startLine": 915,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "cb7ba45e_c2c7e29b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbc7832_2feea98b",
+      "range": {
+        "startLine": 920,
+        "startChar": 15,
+        "endLine": 920,
+        "endChar": 19
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eba78821_6b854137",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-18T16:22:20Z",
       "side": 1,
       "message": "If NullHandle can\u0027t work, add a comment that you only need this check because Handle.Get() would return an error.",
+      "range": {
+        "startLine": 924,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 67
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb7ba45e_a2c2de8c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eba78821_6b854137",
       "range": {
         "startLine": 924,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ebc068c1_83ee9e0c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "I thought about it. It\u0027s the cost of acquiring this on each fix point iteration vs acquiring it once. To avoid holding it too much it\u0027s probably better to have it here though. So done.",
+      "parentUuid": "6bbc7832_ef0ae1cc",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 47
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bbc7832_4fe5eda1",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2015-02-18T16:22:20Z",
       "side": 1,
       "message": "Don\u0027t you need to set the phi type to new_rti?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 46
+      },
+      "revId": "44da8331a49c29bc21d3c7751d534111948e0473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eba78821_4bfcc539",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T18:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbc7832_4fe5eda1",
       "range": {
         "startLine": 74,
         "startChar": 0,
