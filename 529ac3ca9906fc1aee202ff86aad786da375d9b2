@@ -49,6 +49,47 @@
     },
     {
       "key": {
+        "uuid": "cb81e44d_f54212d5",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:03:56Z",
+      "side": 1,
+      "message": "std::make_unsigned",
+      "parentUuid": "8ba1acbc_e0cda2ee",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb26a84e_f3a31014",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:03:56Z",
+      "side": 1,
+      "message": "This seems like it will underflow back to 0xFFFFF... for bits\u003d\u003d0, you probably don\u0027t want that",
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb0e44b5_4a023333",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -90,6 +131,47 @@
         "endLine": 131,
         "endChar": 73
       },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb26a84e_d6e92208",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:03:56Z",
+      "side": 1,
+      "message": "You can just use std::numeric_limits\u003cT\u003e::min() and max() instead of GetIntLimit, they are constexpr in C++11",
+      "parentUuid": "cb0e44b5_4a023333",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b90f899_cf4dfd87",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T00:03:56Z",
+      "side": 1,
+      "message": "you may want an is_arithmetic check here to be symmetric with IsInt (which is implicit as part of is_signed)",
       "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
