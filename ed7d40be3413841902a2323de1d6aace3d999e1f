@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bbc7832_cf655d80",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T17:01:19Z",
+      "side": 1,
+      "message": "`code_item\u0027 may be null here, so I did not convert it to a reference here (but I did in DumpCodeInfo below).",
+      "parentUuid": "eba78821_eb477162",
+      "range": {
+        "startLine": 875,
+        "startChar": 20,
+        "endLine": 875,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_eebc9f98",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-18T16:26:34Z",
       "side": 1,
       "message": "Nit: No need.",
+      "range": {
+        "startLine": 882,
+        "startChar": 8,
+        "endLine": 882,
+        "endChar": 13
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbc7832_6f16f1ef",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T17:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ba1740b_eebc9f98",
       "range": {
         "startLine": 882,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "eba78821_8ba06db2",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T17:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eba78821_8b522d26",
+      "range": {
+        "startLine": 889,
+        "startChar": 8,
+        "endLine": 889,
+        "endChar": 13
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eba78821_cb4c358a",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-18T16:26:34Z",
       "side": 1,
       "message": "const DexFile::CodeItem\u0026 code_item",
+      "range": {
+        "startLine": 898,
+        "startChar": 20,
+        "endLine": 898,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bbc7832_4f132dfe",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T17:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eba78821_cb4c358a",
       "range": {
         "startLine": 898,
         "startChar": 20,
