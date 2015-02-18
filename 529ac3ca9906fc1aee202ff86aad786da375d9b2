@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "cb81e44d_582c75ba",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:02Z",
+      "side": 1,
+      "message": "The callers already ensure bits \u003e 0, but I can put in another static_assert here.",
+      "parentUuid": "eb26a84e_f3a31014",
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb0e44b5_4a023333",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -185,6 +203,54 @@
     },
     {
       "key": {
+        "uuid": "eb26a84e_b64ca688",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:02Z",
+      "side": 1,
+      "message": "No, that is a corner case that we don\u0027t hit and that was excluded before. Normally you call something like T\u003dint32_t and kBits\u003d8,16,24. I just thought it\u0027s fine to allow kBits \u003d 8 * sizeof(T) and trivially return true, as the constexpr is inlined and either branch is dead.",
+      "parentUuid": "cb0e44b5_0a0c3b62",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb26a84e_d64da287",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:02Z",
+      "side": 1,
+      "message": "Except that GetIntLimit gives the limit with kBits bits, not the numeric_limits for the actual enclosing type.",
+      "parentUuid": "eb26a84e_d6e92208",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b90f899_cf4dfd87",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -196,6 +262,24 @@
       "writtenOn": "2015-02-18T00:03:56Z",
       "side": 1,
       "message": "you may want an is_arithmetic check here to be symmetric with IsInt (which is implicit as part of is_signed)",
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b90f899_8f8ff514",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:02Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be is_integral?",
+      "parentUuid": "6b90f899_cf4dfd87",
       "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -285,6 +369,54 @@
       "side": 1,
       "message": "IIUC there\u0027s undefined behavior when value\u003d0b100000...0 (std::numeric_limits\u003cT\u003e::min()) and it\u0027s signed because it will overflow after being negated",
       "parentUuid": "cb81e44d_551c3e10",
+      "range": {
+        "startLine": 145,
+        "startChar": 9,
+        "endLine": 145,
+        "endChar": 18
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b90f899_ef9a4158",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:02Z",
+      "side": 1,
+      "message": "It seems there are no users of this anymore, so I might remove to avoid the MIN_VALUE issue.",
+      "parentUuid": "eb26a84e_96316a18",
+      "range": {
+        "startLine": 145,
+        "startChar": 9,
+        "endLine": 145,
+        "endChar": 18
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb81e44d_38597146",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:02Z",
+      "side": 1,
+      "message": "Yeah, moving the ternary in makes sense.",
+      "parentUuid": "cb0e44b5_ea37a70a",
       "range": {
         "startLine": 145,
         "startChar": 9,
