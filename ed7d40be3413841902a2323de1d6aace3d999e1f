@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "4ba1740b_4ea05333",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-18T17:33:38Z",
+      "side": 1,
+      "message": "The guide also says:\n\n\"However, there are some instances where using const T* is preferable to const T\u0026 for input parameters. For example:\n\n* You want to pass in a null pointer. [...]\"\n\nI\u0027d favor type safety here, as removing `const\u0027 before the `CodeItem*\u0027 argument would require a `const_cast\u0027 before calling DumpVmapData.\n\nBTW, all of oatdump/oatdump.cc is using this argument passing style for `code_item\u0027.  If you think this style is better, I can remove those `const\u0027 keywords on other occurrences for the sake consistency, but I\u0027d rather do that in another CL.",
+      "parentUuid": "6bbc7832_0f7da5ff",
+      "range": {
+        "startLine": 875,
+        "startChar": 20,
+        "endLine": 875,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_eebc9f98",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
