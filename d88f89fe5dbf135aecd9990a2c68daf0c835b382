@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b90f899_8f8615f7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3515,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:14:47Z",
+      "side": 1,
+      "message": "This now needs IsLongConstant.",
+      "range": {
+        "startLine": 3515,
+        "startChar": 6,
+        "endLine": 3515,
+        "endChar": 42
+      },
+      "revId": "d88f89fe5dbf135aecd9990a2c68daf0c835b382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
