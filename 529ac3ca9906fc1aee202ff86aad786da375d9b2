@@ -161,6 +161,30 @@
     },
     {
       "key": {
+        "uuid": "cb0e44b5_0a0c3b62",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-18T00:06:13Z",
+      "side": 1,
+      "message": "kBits \u003d\u003d kBitsPerByte * sizeof(T)",
+      "parentUuid": "eb26a84e_934dfcb6",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b90f899_cf4dfd87",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "I don\u0027t think it\u0027s meant that way. I preserved old behavior here.",
       "parentUuid": "8ba1acbc_c0d29e8e",
+      "range": {
+        "startLine": 145,
+        "startChar": 9,
+        "endLine": 145,
+        "endChar": 18
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb0e44b5_ea37a70a",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-18T00:06:13Z",
+      "side": 1,
+      "message": "Meant which way? I\u0027m just suggestion to write the shorter version:\n\nreturn IsUint\u003ckBits, T\u003e(value \u003c 0 ? -value : value)",
+      "parentUuid": "cb81e44d_551c3e10",
       "range": {
         "startLine": 145,
         "startChar": 9,
