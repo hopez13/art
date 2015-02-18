@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "abdbd0ab_09192920",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T17:32:34Z",
+      "side": 1,
+      "message": "Yes. Not sure why, but maybe Clang and GCC disagree here...",
+      "parentUuid": "cbd64482_2a7b3fa7",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 24
+      },
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd64482_0a5f5b2d",
         "filename": "runtime/base/bit_vector.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-02-18T17:10:15Z",
       "side": 1,
       "message": "This doesn\u0027t look like an improvement to me. Is there no choice for the type of \u0027i\u0027 where an explicit cast isn\u0027t needed?",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 3
+      },
+      "revId": "10427c1228b63fef2f1df6977f6fbeb155bddd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd64482_4ace7335",
+        "filename": "runtime/base/bit_vector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T17:32:34Z",
+      "side": 1,
+      "message": "i can be made uint32_t.",
+      "parentUuid": "cbd64482_0a5f5b2d",
       "range": {
         "startLine": 310,
         "startChar": 0,
