@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b993cf9_bf8af384",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T22:01:27Z",
+      "side": 1,
+      "message": "This isn\u0027t a warning. It\u0027s at most an INFO.",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 73
+      },
+      "revId": "9f6adf6e540bea716b36bd19adde5ca7d1a4bdb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b6398c4_bd04c7f9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T22:01:27Z",
+      "side": 1,
+      "message": "No.\n\nThis won\u0027t clean up the cache when we really should. When you generate an image, you should clean up. When we\u0027re running out of space, you should. When we had an error situation, clean up. Don\u0027t leave old files around with the hope it gets better next time.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 1
+      },
+      "revId": "9f6adf6e540bea716b36bd19adde5ca7d1a4bdb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
