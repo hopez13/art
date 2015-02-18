@@ -93,6 +93,30 @@
       "revId": "542d88def225d1500d00ed74c637b4c4290b442b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba1740b_ae00d7ae",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-18T16:39:01Z",
+      "side": 1,
+      "message": "I view oatdump as a tool that should emit all the information we want. So even not having the stats option works for me.\n\nSo I think it\u0027s fine if you just inline these fields in OatDumper.",
+      "parentUuid": "eba78821_ab4d6988",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 36
+      },
+      "revId": "542d88def225d1500d00ed74c637b4c4290b442b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
