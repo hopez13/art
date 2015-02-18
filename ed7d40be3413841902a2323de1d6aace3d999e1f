@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "eba78821_6b7b8154",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-18T17:36:34Z",
+      "side": 1,
+      "message": "Wisdom is to follow the style of the file, so if it\u0027s been written this way, no need to change it.\n\nBut (yes, there is a but :-)), I really don\u0027t like this style...",
+      "parentUuid": "4ba1740b_4ea05333",
+      "range": {
+        "startLine": 875,
+        "startChar": 20,
+        "endLine": 875,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_eebc9f98",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
