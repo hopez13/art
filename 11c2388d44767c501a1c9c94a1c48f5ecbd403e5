@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "6bd55878_6a7a5709",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T18:59:35Z",
+      "side": 1,
+      "message": "Is this right? The positive check is valid for values up to 2^16-1 but the negative check is only valid for values as small as -2^15. I fear when there is a positive value between 2^15 and 2^16-1 it might cause an overflow if the encoding is only for int16.\n\nPerhaps it should be just\n\n  return IsInt\u003c16\u003e(value) ?",
+      "revId": "11c2388d44767c501a1c9c94a1c48f5ecbd403e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc7e0d6_888a3785",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-02-18T18:59:35Z",
+      "side": 1,
+      "message": "Overflows for 1021\u003c-\u003e1023 and underflows for -1021\u003c-\u003e-1024\n\nI am basing this purely off the comment. Should this be a simple range check instead?",
+      "revId": "11c2388d44767c501a1c9c94a1c48f5ecbd403e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b69d873_472c8eba",
         "filename": "runtime/utils.h",
         "patchSetId": 5
