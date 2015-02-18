@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b8ab89e_22997019",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1346,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-18T20:26:03Z",
+      "side": 1,
+      "message": "Did you mean to remove this disabled if statement?",
+      "range": {
+        "startLine": 1344,
+        "startChar": 0,
+        "endLine": 1346,
+        "endChar": 5
+      },
+      "revId": "c50c9648642f9c5b03ede3bb75ac46fab75d8d6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
