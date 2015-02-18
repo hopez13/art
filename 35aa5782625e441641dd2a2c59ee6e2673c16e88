@@ -46,6 +46,30 @@
       "revId": "35aa5782625e441641dd2a2c59ee6e2673c16e88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b644c9b_c89e4fd5",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T01:39:13Z",
+      "side": 1,
+      "message": "OK, thanks. Which runtime helper is that way? Does this actually happen?",
+      "parentUuid": "ab34b007_e40bb44a",
+      "range": {
+        "startLine": 251,
+        "startChar": 8,
+        "endLine": 251,
+        "endChar": 93
+      },
+      "revId": "35aa5782625e441641dd2a2c59ee6e2673c16e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
