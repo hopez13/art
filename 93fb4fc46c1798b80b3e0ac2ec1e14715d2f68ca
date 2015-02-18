@@ -1663,6 +1663,30 @@
     },
     {
       "key": {
+        "uuid": "cb81e44d_759622e9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2525,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-18T00:01:35Z",
+      "side": 1,
+      "message": "This is for the case where the entrypoint doesn\u0027t point to the compiled code. I suppose it might be possible to move all the FindOatMethodFor / FindOatClass logic into ArtMethod if you really wanted to?",
+      "parentUuid": "8ba1acbc_60bab24a",
+      "range": {
+        "startLine": 2519,
+        "startChar": 2,
+        "endLine": 2525,
+        "endChar": 3
+      },
+      "revId": "93fb4fc46c1798b80b3e0ac2ec1e14715d2f68ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "165165a8_dcb14d14",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
