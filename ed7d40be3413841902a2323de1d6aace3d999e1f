@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "cb7ba45e_a24d7e88",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-18T20:04:46Z",
+      "side": 1,
+      "message": "+1 for following the style of the file. It gets even more confusing when there\u0027s a divergence in the same unit.",
+      "parentUuid": "eba78821_6b7b8154",
+      "range": {
+        "startLine": 875,
+        "startChar": 20,
+        "endLine": 875,
+        "endChar": 54
+      },
+      "revId": "ed7d40be3413841902a2323de1d6aace3d999e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba1740b_eebc9f98",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 3
