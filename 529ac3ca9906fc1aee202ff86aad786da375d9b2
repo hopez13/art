@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb26a84e_136b2c03",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:00:52Z",
+      "side": 1,
+      "message": "The is_unsigned and make_unsigned. Those are template things that manipulate types.",
+      "parentUuid": "8ba1acbc_e0cda2ee",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb0e44b5_4a023333",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "eb26a84e_934dfcb6",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:00:52Z",
+      "side": 1,
+      "message": "Former check?",
+      "parentUuid": "cb0e44b5_4a023333",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ba1acbc_c0d29e8e",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-17T23:54:30Z",
       "side": 1,
       "message": "Move this in the IsUint call?",
+      "range": {
+        "startLine": 145,
+        "startChar": 9,
+        "endLine": 145,
+        "endChar": 18
+      },
+      "revId": "529ac3ca9906fc1aee202ff86aad786da375d9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb81e44d_551c3e10",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-18T00:00:52Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s meant that way. I preserved old behavior here.",
+      "parentUuid": "8ba1acbc_c0d29e8e",
       "range": {
         "startLine": 145,
         "startChar": 9,
