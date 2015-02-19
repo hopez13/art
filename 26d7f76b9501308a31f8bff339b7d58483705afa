@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "084ce289_24be92df",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-19T17:23:24Z",
+      "side": 1,
+      "message": "Fair enough.  What about IsIntOrLong?",
+      "parentUuid": "48fb3a34_de97a5ab",
+      "range": {
+        "startLine": 105,
+        "startChar": 7,
+        "endLine": 105,
+        "endChar": 66
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8858d242_684fc37f",
         "filename": "compiler/optimizing/constant_folding.cc",
         "patchSetId": 2
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "I hadn\u0027t because we only do this once in this file. But it can\u0027t hurt, so added a copy of the helper here and used it.\n\nAt some point we may want to share such helpers. Where should they go?",
       "parentUuid": "8858d242_684fc37f",
+      "range": {
+        "startLine": 126,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 84
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_61dd901e",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-19T17:23:24Z",
+      "side": 1,
+      "message": "I\u0027d suggest to put them into compiler/optimizing/nodes.hh.",
+      "parentUuid": "083302f6_ccb80f51",
       "range": {
         "startLine": 126,
         "startChar": 16,
