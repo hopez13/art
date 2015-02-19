@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28f8c637_1d8bd300",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2988,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "Top here is confusing. Why is this not the reference type of HInstruction?",
+      "range": {
+        "startLine": 2988,
+        "startChar": 30,
+        "endLine": 2988,
+        "endChar": 33
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_bed5f9f4",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "Since VisitBasicBlock is the only user of those two methods, I don\u0027t see the need of factoring them. They\u0027re small enough and concise enough that I find it more readable to have them here.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "083302f6_cc8daf4a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "How about null?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_fef4a18e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "Please fix this first :-) Something\u0027s very wrong if what you\u0027re saying is true. It means we miscompile:\n\nbool a \u003d b instanceof Foo\nif (a) {\n} else {\n}",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 39
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f8c637_7d6537aa",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be simpler to do this on the block that has the HIf?",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 3
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f8c637_3dbc4f95",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "ReferenceTypeInfo* new_rti. Or should you just return a new ReferenceTypeInfo instead?",
+      "range": {
+        "startLine": 164,
+        "startChar": 42,
+        "endLine": 164,
+        "endChar": 68
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "083302f6_2c2d5388",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "As discussed, I think it would be clearer (and the more we\u0027ll handle instructions with this, the more it will be) to split UpdateReferenceTypeInfo into Visit functions. The Equality check in 221 can stay in UpdateReferenceTypeInfo.",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 27
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f8c637_dd556bbd",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T11:16:28Z",
+      "side": 1,
+      "message": "This kind of belongs where I put a comment on null checks. Also, no need for the code snippets, just say \"handle a !\u003d/\u003d\u003d null\".",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 6
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
