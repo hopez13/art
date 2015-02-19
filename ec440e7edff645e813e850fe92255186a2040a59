@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_7eb2d1c6",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T12:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "083302f6_4c389fca",
+      "range": {
+        "startLine": 343,
+        "startChar": 23,
+        "endLine": 343,
+        "endChar": 25
+      },
+      "revId": "ec440e7edff645e813e850fe92255186a2040a59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_5eb715b5",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T12:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28f8c637_5db71bb5",
+      "range": {
+        "startLine": 343,
+        "startChar": 38,
+        "endLine": 343,
+        "endChar": 41
+      },
+      "revId": "ec440e7edff645e813e850fe92255186a2040a59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f8c637_bdcf3f30",
         "filename": "compiler/optimizing/primitive_type_propagation.cc",
         "patchSetId": 3
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_3ebc4995",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T12:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28f8c637_bdcf3f30",
+      "range": {
+        "startLine": 87,
+        "startChar": 10,
+        "endLine": 87,
+        "endChar": 24
+      },
+      "revId": "ec440e7edff645e813e850fe92255186a2040a59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a863d6f0_a9dffd61",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-19T11:31:17Z",
       "side": 1,
       "message": "Maybe get rid of this unused argument?",
+      "range": {
+        "startLine": 259,
+        "startChar": 53,
+        "endLine": 259,
+        "endChar": 88
+      },
+      "revId": "ec440e7edff645e813e850fe92255186a2040a59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "083302f6_0cbdf7b0",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-19T12:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a863d6f0_a9dffd61",
       "range": {
         "startLine": 259,
         "startChar": 53,
