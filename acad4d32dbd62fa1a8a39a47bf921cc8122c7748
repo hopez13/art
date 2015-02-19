@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_5eddd51d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "083302f6_6cb47b01",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "acad4d32dbd62fa1a8a39a47bf921cc8122c7748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "083302f6_4cb9bff5",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-19T10:40:08Z",
       "side": 1,
       "message": "Maybe add a IsResolved on HLoadClass, that knows that it just needs to check whether the class_rti is exact?",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "acad4d32dbd62fa1a8a39a47bf921cc8122c7748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f8c637_5d815be0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:41Z",
+      "side": 1,
+      "message": "that\u0027s a good idea.",
+      "parentUuid": "083302f6_4cb9bff5",
       "range": {
         "startLine": 60,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_3ee209da",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:41Z",
+      "side": 1,
+      "message": ":), done.",
+      "parentUuid": "28f8c637_7dae5780",
+      "range": {
+        "startLine": 927,
+        "startChar": 16,
+        "endLine": 927,
+        "endChar": 17
+      },
+      "revId": "acad4d32dbd62fa1a8a39a47bf921cc8122c7748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f8c637_5db39be8",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-19T10:40:08Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 46
+      },
+      "revId": "acad4d32dbd62fa1a8a39a47bf921cc8122c7748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f8c637_dd6c4b9b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28f8c637_5db39be8",
       "range": {
         "startLine": 161,
         "startChar": 0,
