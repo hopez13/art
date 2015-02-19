@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8858d242_68c8e3dd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2988,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T18:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "083302f6_ec52aba4",
+      "range": {
+        "startLine": 2988,
+        "startChar": 30,
+        "endLine": 2988,
+        "endChar": 33
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48fb3a34_bed5f9f4",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 12
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Code should be small: VisitBasicBlock should loop over the phis, call Visit on them, then loop over the instructions, and call visit on them.",
       "parentUuid": "8858d242_88dc376e",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "084ce289_e4cbda54",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T18:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8858d242_882437a9",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -215,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_610fd02e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T18:48:56Z",
+      "side": 1,
+      "message": "ah, I thought you were referring to `null instanceof ClassA`\n\nI will add sensitivity to nullchecks in a follow up.",
+      "parentUuid": "083302f6_2cae732d",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48fb3a34_fef4a18e",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 12
@@ -274,6 +346,30 @@
       "side": 1,
       "message": "Again, this looks bogus. At the DEX level, we\u0027ll get if-eq or if-eqz (most probably if-eqz). The branches will then match where Dex is jumping to.\n\nLooks like you\u0027re confused about the comparison to zero?",
       "parentUuid": "48fb3a34_fef3816b",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 39
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_418614fb",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T18:48:56Z",
+      "side": 1,
+      "message": "I think we are talking about the same thing.\n\ndex will generate an if-eqz and thus reversing what branch you should take.\n\nTo make things clearer I just choose the proper successor based on the value if compare against.",
+      "parentUuid": "48fb3a34_be1739c3",
       "range": {
         "startLine": 94,
         "startChar": 2,
@@ -392,6 +488,30 @@
       "side": 1,
       "message": "Some might say immutability is a lot nicer....",
       "parentUuid": "8858d242_081f278f",
+      "range": {
+        "startLine": 164,
+        "startChar": 42,
+        "endLine": 164,
+        "endChar": 68
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "084ce289_044ef67f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T18:48:56Z",
+      "side": 1,
+      "message": "can\u0027t argue with that :) but ReferenceTypeInfo was not immutable...\n\nI made it so and change this as well.",
+      "parentUuid": "083302f6_0cb3b797",
       "range": {
         "startLine": 164,
         "startChar": 42,
