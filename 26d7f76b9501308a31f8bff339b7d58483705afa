@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_21e788ea",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T17:29:00Z",
+      "side": 1,
+      "message": "I used IsIntOrLongType() to keep the \u0027Type\u0027 suffix as in other helpers.",
+      "parentUuid": "084ce289_24be92df",
+      "range": {
+        "startLine": 105,
+        "startChar": 7,
+        "endLine": 105,
+        "endChar": 66
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8858d242_684fc37f",
         "filename": "compiler/optimizing/constant_folding.cc",
         "patchSetId": 2
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "I\u0027d suggest to put them into compiler/optimizing/nodes.hh.",
       "parentUuid": "083302f6_ccb80f51",
+      "range": {
+        "startLine": 126,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 84
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "084ce289_049cb67f",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T17:29:00Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "48fb3a34_61dd901e",
       "range": {
         "startLine": 126,
         "startChar": 16,
