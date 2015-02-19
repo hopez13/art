@@ -22,6 +22,30 @@
       "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88b452b1_e8439334",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-19T21:47:16Z",
+      "side": 1,
+      "message": "The output of symbolize is determined by --output, defaulting to \u0027symbolized.oat\u0027.\n\nThe reason I ran into this was because I wanted to add symbols to /data/dalvik-cache/arm/system@framework@boot.oat. I could use that instead if you think it\u0027s a better example.\n\nBut, now that you mention it, I should update the rest of the usage info to say you can run \u0027oatdump --symbolize\u0027 without an oat-file or image in this case.",
+      "parentUuid": "e8cb0e3b_4bebc5fe",
+      "range": {
+        "startLine": 2148,
+        "startChar": 36,
+        "endLine": 2148,
+        "endChar": 62
+      },
+      "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
