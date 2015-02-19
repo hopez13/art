@@ -70,6 +70,30 @@
       "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88b452b1_a89efbfb",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-19T22:06:01Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s my bad. I chose symbolized.oat to *not* have to overwrite the original, and have a somewhat meaningful name.\n\nI\u0027d suggest extending the usage info to make clear that --output is kind-of expected.",
+      "parentUuid": "a8bf568b_090aa9cc",
+      "range": {
+        "startLine": 2148,
+        "startChar": 36,
+        "endLine": 2148,
+        "endChar": 62
+      },
+      "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
