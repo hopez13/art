@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8858d242_28b8abc0",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8858d242_e87973ac",
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "083302f6_6cdb5bf5",
         "filename": "compiler/optimizing/constant_folding.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-02-19T14:17:11Z",
       "side": 1,
       "message": "As this is a recurring pattern, maybe introduce a Primitive::IsIntegerType helper?  (Likewise in other files of this CL.)",
+      "range": {
+        "startLine": 105,
+        "startChar": 7,
+        "endLine": 105,
+        "endChar": 66
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_de97a5ab",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:28Z",
+      "side": 1,
+      "message": "We already have a IsIntegralType(), so I think IsIntegerType() would be confusing. Added a IsIntOrLongType() helper instead. Let me know if you prefer a different name.",
+      "parentUuid": "083302f6_6cdb5bf5",
       "range": {
         "startLine": 105,
         "startChar": 7,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "083302f6_ccb80f51",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:28Z",
+      "side": 1,
+      "message": "I hadn\u0027t because we only do this once in this file. But it can\u0027t hurt, so added a copy of the helper here and used it.\n\nAt some point we may want to share such helpers. Where should they go?",
+      "parentUuid": "8858d242_684fc37f",
+      "range": {
+        "startLine": 126,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 84
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "083302f6_8c768769",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2015-02-19T14:17:11Z",
       "side": 1,
       "message": "Shouldn\u0027t this be\n\n  new (allocator) HNeg(type, input_other)\n\n?",
+      "range": {
+        "startLine": 215,
+        "startChar": 29,
+        "endLine": 215,
+        "endChar": 40
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8858d242_687c6350",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:28Z",
+      "side": 1,
+      "message": "Yes! Fixed.",
+      "parentUuid": "083302f6_8c768769",
       "range": {
         "startLine": 215,
         "startChar": 29,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "8858d242_88767769",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:28Z",
+      "side": 1,
+      "message": "The code is wrong.\nI wanted to optimize\n  REM dst, 0, src\nto 0.\n\nFixed.",
+      "parentUuid": "8858d242_6866a311",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 13
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "083302f6_aca1433a",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2015-02-19T14:17:11Z",
       "side": 1,
       "message": "Shouldn\u0027t this switch be turned into virtual methods? Likewise for IsZero and IsOne.",
+      "range": {
+        "startLine": 994,
+        "startChar": 2,
+        "endLine": 1006,
+        "endChar": 3
+      },
+      "revId": "26d7f76b9501308a31f8bff339b7d58483705afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "083302f6_2ca8b3ee",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "083302f6_aca1433a",
       "range": {
         "startLine": 994,
         "startChar": 2,
