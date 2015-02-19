@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_3e8689fa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2988,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "I can rename it GetBoundType or GetMaxType maybe.\n\nIt\u0027s not the same because we can still narrow type but never go beyond top_type_. Because we merge towards Top we need to keep track how high we can go for the BoundType().\n\nAs discussed, this is to cover cases like\n\nfor() {\n  if (a instance of Super) {\n    (Subclass)a...\n  }\n}",
+      "parentUuid": "28f8c637_1d8bd300",
+      "range": {
+        "startLine": 2988,
+        "startChar": 30,
+        "endLine": 2988,
+        "endChar": 33
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48fb3a34_bed5f9f4",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-19T11:16:28Z",
       "side": 1,
       "message": "Since VisitBasicBlock is the only user of those two methods, I don\u0027t see the need of factoring them. They\u0027re small enough and concise enough that I find it more readable to have them here.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8858d242_88dc376e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "The split up is also in anticipation that  InitializeExactType will become bigger. IMO it reads better as all these are distinctive steps but if have a strong opinion i don\u0027t mid reverting.",
+      "parentUuid": "48fb3a34_bed5f9f4",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8858d242_28cc2bbf",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "It doesn\u0027t really matter because that branch will never be taken if the input is null. I will add a check to avoid doing extra work.",
+      "parentUuid": "083302f6_cc8daf4a",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 34
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48fb3a34_fef4a18e",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-19T11:16:28Z",
       "side": 1,
       "message": "Please fix this first :-) Something\u0027s very wrong if what you\u0027re saying is true. It means we miscompile:\n\nbool a \u003d b instanceof Foo\nif (a) {\n} else {\n}",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 39
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_fef3816b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "I phrased the comment wrong... sorry. I will update\n\nHInstanceOf returns 1 when True but HIf will compare with 0, so the branch where HInstanceOf is True is actually the FalseSuccessor.",
+      "parentUuid": "48fb3a34_fef4a18e",
       "range": {
         "startLine": 94,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_def0c561",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "yea :), it will save a few lines.",
+      "parentUuid": "28f8c637_7d6537aa",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 3
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f8c637_3dbc4f95",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 12
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-19T11:16:28Z",
       "side": 1,
       "message": "ReferenceTypeInfo* new_rti. Or should you just return a new ReferenceTypeInfo instead?",
+      "range": {
+        "startLine": 164,
+        "startChar": 42,
+        "endLine": 164,
+        "endChar": 68
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8858d242_081f278f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "done with pointer. I don\u0027t see it necessary to add the extra lines to return a new ReferenceTypeInfo.",
+      "parentUuid": "28f8c637_3dbc4f95",
       "range": {
         "startLine": 164,
         "startChar": 42,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8858d242_0875e7b1",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "083302f6_2c2d5388",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 27
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f8c637_dd556bbd",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 12
@@ -174,6 +342,30 @@
       "writtenOn": "2015-02-19T11:16:28Z",
       "side": 1,
       "message": "This kind of belongs where I put a comment on null checks. Also, no need for the code snippets, just say \"handle a !\u003d/\u003d\u003d null\".",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 6
+      },
+      "revId": "2140812e81d5500558eadd7157cb234d921771e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8858d242_483e3fe9",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-19T13:59:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28f8c637_dd556bbd",
       "range": {
         "startLine": 224,
         "startChar": 0,
