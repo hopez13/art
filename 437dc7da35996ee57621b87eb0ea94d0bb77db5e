@@ -46,6 +46,30 @@
       "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8bf568b_090aa9cc",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-19T21:51:31Z",
+      "side": 1,
+      "message": "ah, i would have expected --oat-file\u003d --output\u003d and --symbolize to really just change the dumping mode. we don\u0027t document the symbolized.oat behavior anywhere that i can see.",
+      "parentUuid": "88b452b1_e8439334",
+      "range": {
+        "startLine": 2148,
+        "startChar": 36,
+        "endLine": 2148,
+        "endChar": 62
+      },
+      "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
