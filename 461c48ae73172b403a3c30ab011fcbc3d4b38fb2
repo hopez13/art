@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48fb3a34_de6c459b",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-19T11:51:40Z",
+      "side": 1,
+      "message": "If this yields an interface method, we should change the invoke_type to kInterface. We should still try to resolve the actual virtual method that the quickened opcode calls to determine target method (sharp_type \u003d kVirtual on success). And the devirtualization in IsFastInvoke(..., devirt_target, ...) below doesn\u0027t make sense at all.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 56
+      },
+      "revId": "461c48ae73172b403a3c30ab011fcbc3d4b38fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_def1e59c",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-19T11:51:40Z",
+      "side": 1,
+      "message": "These flags are for CompilerDriver\u0027s internal use. You need to ask CompilerDriver to provide the correct flags for dequickened invokes.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "461c48ae73172b403a3c30ab011fcbc3d4b38fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f8c637_fdc5c713",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-19T11:51:40Z",
+      "side": 1,
+      "message": "You mean \"Disable some optimizations for JIT\".",
+      "range": {
+        "startLine": 546,
+        "startChar": 7,
+        "endLine": 546,
+        "endChar": 18
+      },
+      "revId": "461c48ae73172b403a3c30ab011fcbc3d4b38fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48fb3a34_beee19b7",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-19T11:51:40Z",
+      "side": 1,
+      "message": "Also kGlobalValueNumbering and kGvnDeadCodeElimination.",
+      "range": {
+        "startLine": 548,
+        "startChar": 4,
+        "endLine": 548,
+        "endChar": 49
+      },
+      "revId": "461c48ae73172b403a3c30ab011fcbc3d4b38fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
