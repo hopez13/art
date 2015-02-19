@@ -553,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "48fb3a34_5e7155f6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-19T15:01:28Z",
+      "side": 1,
+      "message": "I found out why the compiler did not allow you to initialize an art::HInstruction* with an art::HConstant*: the class art::HConstant is not defined at this point of the file, therefore the compiler is not aware that it derives from art::HInstruction.\n\nTo get rid of the cast, you can move the definition of art::HBinaryOperation after art::HConstant\u0027s or (better IMHO) move the definition of art::HBinaryOperation::GetLeastConstantLeft (and art::HBinaryOperation::GetConstantRight, by symmetry) to compiler/optimizing/nodes.cc.",
+      "parentUuid": "8bf1ac52_00fec6bd",
+      "range": {
+        "startLine": 1363,
+        "startChar": 40,
+        "endLine": 1363,
+        "endChar": 71
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71daab34_7f60ef74",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
