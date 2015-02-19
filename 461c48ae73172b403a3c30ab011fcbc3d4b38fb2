@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "48809ac4_567cb44f",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-19T19:13:09Z",
+      "side": 1,
+      "message": "I just tried that an it works, I think last time I had tried changing the it-\u003einvoke_type.",
+      "parentUuid": "4897ba02_5e3935fe",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 56
+      },
+      "revId": "461c48ae73172b403a3c30ab011fcbc3d4b38fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48fb3a34_def1e59c",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 17
