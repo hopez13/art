@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8cb0e3b_4bebc5fe",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-19T21:30:18Z",
+      "side": 1,
+      "message": "is this a good example? I guess it technically doesn\u0027t overwrite the input because that is technically in /system/framework/\u003cisa\u003e/boot.oat",
+      "range": {
+        "startLine": 2148,
+        "startChar": 36,
+        "endLine": 2148,
+        "endChar": 62
+      },
+      "revId": "437dc7da35996ee57621b87eb0ea94d0bb77db5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
