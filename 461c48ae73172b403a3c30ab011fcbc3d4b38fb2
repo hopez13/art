@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4897ba02_5e3935fe",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-19T18:49:05Z",
+      "side": 1,
+      "message": "What interface trampolines? With sharp_type \u003d\u003d kVirtual, we should use the virtual method dispatch.",
+      "parentUuid": "685d5e31_2787baaf",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 56
+      },
+      "revId": "461c48ae73172b403a3c30ab011fcbc3d4b38fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48fb3a34_def1e59c",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 17
