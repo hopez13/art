@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "880a9212_38e58929",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-19T00:47:29Z",
+      "side": 1,
+      "message": "No, on Mips you can encode a 16b unsigned immediate and a 16b signed immediate. See LoadConstantNoClobber.",
+      "parentUuid": "6bd55878_6a7a5709",
+      "revId": "11c2388d44767c501a1c9c94a1c48f5ecbd403e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bc7e0d6_888a3785",
         "filename": "compiler/utils/arm/assembler_arm.cc",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2015-02-18T18:59:35Z",
       "side": 1,
       "message": "Overflows for 1021\u003c-\u003e1023 and underflows for -1021\u003c-\u003e-1024\n\nI am basing this purely off the comment. Should this be a simple range check instead?",
+      "revId": "11c2388d44767c501a1c9c94a1c48f5ecbd403e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b205c81_6a77d31d",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-19T00:47:29Z",
+      "side": 1,
+      "message": "Rewritten.",
+      "parentUuid": "2bc7e0d6_888a3785",
       "revId": "11c2388d44767c501a1c9c94a1c48f5ecbd403e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
