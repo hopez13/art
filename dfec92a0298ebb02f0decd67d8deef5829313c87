@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "08cf8248_6c281bf9",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-19T21:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4897ba02_1e496d77",
+      "range": {
+        "startLine": 72,
+        "startChar": 6,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "dfec92a0298ebb02f0decd67d8deef5829313c87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "888d32f5_a08a9a2e",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 20
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "88db7205_d3c52614",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-19T21:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "888d32f5_a08a9a2e",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 56
+      },
+      "revId": "dfec92a0298ebb02f0decd67d8deef5829313c87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c883aac3_a2ee1eb7",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 20
@@ -59,6 +107,30 @@
       "writtenOn": "2015-02-19T20:39:26Z",
       "side": 1,
       "message": "Sorry, I think I confused the invoke_type with the bits used by GetIvokeType(). This should be\n\n  it-\u003eflags_ \u003d (it-\u003eflags_ \u0026 ~(kInvokeTypeMask \u003c\u003c kBitInvokeTypeBegin)) |\n               (static_cast\u003cuint16_t\u003e(kInterface) \u003c\u003c kBitInvokeTypeBegin);\n\nThe IsFastInvoke() below was not written with this situation in mind and it\u0027s just a coincidence that it\u0027s giving us acceptable results.",
+      "range": {
+        "startLine": 109,
+        "startChar": 10,
+        "endLine": 109,
+        "endChar": 35
+      },
+      "revId": "dfec92a0298ebb02f0decd67d8deef5829313c87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "087a22aa_b79182b7",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-19T21:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c883aac3_a2ee1eb7",
       "range": {
         "startLine": 109,
         "startChar": 10,
