@@ -22,6 +22,30 @@
       "revId": "beacd381dbdcc9f7f02b5e207037afb993aabba4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8cb0e3b_4b10a580",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-19T21:32:06Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure whether we want to be that precise. Technically the bitmap is written last, and we close the file afterwards. So the second check could be !\u003d.",
+      "parentUuid": "c8baca9b_ca032336",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 649,
+        "endChar": 41
+      },
+      "revId": "beacd381dbdcc9f7f02b5e207037afb993aabba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
