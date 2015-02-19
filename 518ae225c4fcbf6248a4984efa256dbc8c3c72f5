@@ -577,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "083302f6_0c861781",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-19T15:24:03Z",
+      "side": 1,
+      "message": "Thanks for spotting that. Moved to nodes.cc.",
+      "parentUuid": "48fb3a34_5e7155f6",
+      "range": {
+        "startLine": 1363,
+        "startChar": 40,
+        "endLine": 1363,
+        "endChar": 71
+      },
+      "revId": "518ae225c4fcbf6248a4984efa256dbc8c3c72f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71daab34_7f60ef74",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
