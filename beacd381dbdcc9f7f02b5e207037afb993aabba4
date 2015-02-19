@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8baca9b_ca032336",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-19T21:26:01Z",
+      "side": 1,
+      "message": "can\u0027t we assert that it is the expected size or do we end up with slop at the end due to the bitmap?",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 649,
+        "endChar": 41
+      },
+      "revId": "beacd381dbdcc9f7f02b5e207037afb993aabba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
