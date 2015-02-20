@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c899ea84_f83de9b5",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-20T04:46:03Z",
+      "side": 1,
+      "message": "How about using a \u0027valgrind_modifier\u0027 variable (as in line 2093) and use \"obj_size + valgrind_modifier\u0027 in place of the two following uses of obj_size, rather than updating obj_size? That may be somewhat clearer.",
+      "range": {
+        "startLine": 1936,
+        "startChar": 12,
+        "endLine": 1936,
+        "endChar": 23
+      },
+      "revId": "05573b9905e54321f590452de6f2fcdb22a5c5d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
