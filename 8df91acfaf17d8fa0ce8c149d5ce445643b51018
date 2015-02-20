@@ -22,6 +22,30 @@
       "revId": "8df91acfaf17d8fa0ce8c149d5ce445643b51018",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "883d324f_40254ea2",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-20T21:20:39Z",
+      "side": 1,
+      "message": "Yes, this is relative. I tried with the build server line in an unlunched tree, and it worked for me.",
+      "parentUuid": "883d324f_60a8929e",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 27
+      },
+      "revId": "8df91acfaf17d8fa0ce8c149d5ce445643b51018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
