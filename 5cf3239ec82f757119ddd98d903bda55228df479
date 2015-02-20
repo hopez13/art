@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88d53202_4006ee03",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "So you\u0027re using the dictionary in memory, but then can output either the dictionary style or the list style? Why the overhead if going list style?",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 34
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_5fe24bda",
+        "filename": "compiler/utils/growable_array.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "Hmmm, I can see this tripping us for pathological cases...",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 48
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_23012aeb",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "Why not a regular function?",
+      "range": {
+        "startLine": 909,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 6
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_bf435735",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "What is this for?",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 45
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_4300a6e3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "I didn\u0027t find any check if we need higher indices for a method (and we will need to, if not already). So it looks like you need to handle this overflow.",
+      "range": {
+        "startLine": 172,
+        "startChar": 24,
+        "endLine": 172,
+        "endChar": 35
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_e3d552f4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 412,
+        "startChar": 4,
+        "endLine": 412,
+        "endChar": 10
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88d53202_00d3060f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:48:18Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 423,
+        "startChar": 4,
+        "endLine": 423,
+        "endChar": 10
+      },
+      "revId": "5cf3239ec82f757119ddd98d903bda55228df479",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
