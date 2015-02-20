@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28736625_25066e03",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 3015,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T14:09:02Z",
+      "side": 1,
+      "message": "As discussed, you can add CanBeNull() { return false; }",
+      "revId": "fced19465c579fc30e620b56521fc8acd49a4466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a89cb684_81049a3f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T14:09:02Z",
+      "side": 1,
+      "message": "top_rti -\u003e bound_rti",
+      "range": {
+        "startLine": 205,
+        "startChar": 20,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "fced19465c579fc30e620b56521fc8acd49a4466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
