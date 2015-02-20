@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "a89cb684_a11e7e8f",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-20T14:09:41Z",
+      "side": 1,
+      "message": "Which copy ctor are your referring to?  Did you intend to add a\n\n  ValueSet(const ValueSet\u0026 rhs) \u003d delete;\n\nstatement?",
+      "range": {
+        "startLine": 203,
+        "startChar": 5,
+        "endLine": 203,
+        "endChar": 48
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bdab834_7fbe2fb0",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 2
@@ -87,6 +110,29 @@
         "startChar": 20,
         "endLine": 204,
         "endChar": 44
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a89cb684_21f6eee2",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-20T14:09:41Z",
+      "side": 1,
+      "message": "Nit: LoadIsTooHigh?",
+      "range": {
+        "startLine": 218,
+        "startChar": 7,
+        "endLine": 218,
+        "endChar": 18
       },
       "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -163,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "c8972a5d_e253662b",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-20T14:09:41Z",
+      "side": 1,
+      "message": "It\u0027s a matter of personal taste, but I prefer\n\n  pow *\u003d 2;\n\n:)",
+      "range": {
+        "startLine": 230,
+        "startChar": 8,
+        "endLine": 230,
+        "endChar": 18
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6bdab834_dfcc9b5f",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 2
@@ -179,6 +248,29 @@
         "startChar": 4,
         "endLine": 238,
         "endChar": 36
+      },
+      "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8972a5d_c2486276",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-02-20T14:09:41Z",
+      "side": 1,
+      "message": "Likewise, I think\n\n  size_t new_size \u003d old_size * 2;\n\nis easier to read.",
+      "range": {
+        "startLine": 238,
+        "startChar": 22,
+        "endLine": 238,
+        "endChar": 35
       },
       "revId": "56f0ee8a655c529316e14dfe05ac1111a53fb412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
