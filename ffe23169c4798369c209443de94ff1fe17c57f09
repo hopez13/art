@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "e826ae4e_53a8c49d",
+        "filename": ".gitignore",
+        "patchSetId": 21
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_33af48a5",
+        "filename": ".gitignore",
+        "patchSetId": 21
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 10
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "282d262a_b51ee08f",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "I thought this was gone... for another CL. filed b/19460766",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8867663_11cc8c5a",
+        "filename": "compiler/dex/mir_analysis.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "agampe is surprised this works...",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 10
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8106e97_a3035a36",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 21
@@ -18,6 +110,352 @@
         "startChar": 57,
         "endLine": 105,
         "endChar": 60
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_b38b58b7",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "e8106e97_a3035a36",
+      "range": {
+        "startLine": 105,
+        "startChar": 57,
+        "endLine": 105,
+        "endChar": 60
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_5381a495",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "typo -\u003e trambopoline",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 122,
+        "endChar": 19
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_13c6cccd",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "how does installd know this?",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 3
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8867663_d18cc4d3",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "method context for CHECK\u0027s in here?",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 39
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_d3861483",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "yes...",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c881ea4d_b2d900fb",
+        "filename": "compiler/jit/jit_compiler.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "should this be be shared with gtests?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 50
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_3340a877",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "nit: the style below seems to be to put this one line",
+      "range": {
+        "startLine": 1034,
+        "startChar": 0,
+        "endLine": 1034,
+        "endChar": 3
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c881ea4d_720b989e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "any unload needed?",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 42
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c881ea4d_d28cc4d3",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "can\u0027t it just use accessors?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 19
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c881ea4d_1231ec62",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "so lazy... are there really that many call sites that you need default args?",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 76
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_16847a3b",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "and these change now?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 26
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8867663_91807c66",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "say why? \"Add handling for JIT.\"",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 26
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e826ae4e_b69b4689",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "same?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8867663_3192f0bb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "comment explaining selinux restrictions? maybe?",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 45
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c881ea4d_92a71c21",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T23:45:35Z",
+      "side": 1,
+      "message": "perhaps create should have error_msg out arg with reason instead of logging itself.",
+      "range": {
+        "startLine": 1670,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 43
       },
       "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
