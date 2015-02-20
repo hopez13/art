@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "28736625_054fb27f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8106e97_83a45ecb",
+      "range": {
+        "startLine": 969,
+        "startChar": 58,
+        "endLine": 969,
+        "endChar": 63
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68dabe34_1f9d2380",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-20T11:21:02Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2742,
+        "startChar": 55,
+        "endLine": 2742,
+        "endChar": 60
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8972a5d_e2efe607",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68dabe34_1f9d2380",
       "range": {
         "startLine": 2742,
         "startChar": 55,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "28736625_654ea681",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 3021,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68dabe34_3fa2e7ba",
+      "range": {
+        "startLine": 3021,
+        "startChar": 26,
+        "endLine": 3021,
+        "endChar": 37
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68dabe34_5f97ab5f",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 15
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-20T11:21:02Z",
       "side": 1,
       "message": "How about instr-\u003eAccept(this) ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28736625_c583da33",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "It will need a bit of over-engineering... I\u0027ll need to create a separate visitor and share the state with it.\n\nI\u0027d keep it like this for now.",
+      "parentUuid": "68dabe34_5f97ab5f",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "08706217_84fe46bb",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "It will make life harder for convergence as all the phis will need to be added to the work list. And actually, for me it\u0027s more logical to first set things that you are sure of and then handle the \u0027unknown\u0027 :)",
+      "parentUuid": "68dabe34_bf8d174b",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68dabe34_1f0a831e",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 15
@@ -128,6 +248,30 @@
       "writtenOn": "2015-02-20T11:21:02Z",
       "side": 1,
       "message": "Can we end up having instanceof in the HIf? HInstanceOf is a bool and we might just fold HIf(HEqual(bool, true)) to HIf(bool)\n\nAlso what about HNotEqual?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 28
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_e379d25a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "We probably can. I was planning to experiment with different code patterns and see what dex is generated. \n\nI\u0027ll add a todo and address it in a follow up.",
+      "parentUuid": "68dabe34_1f0a831e",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "08706217_44cc4ec0",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "It\u0027s not because this can still be part of the fix point iteration in which case it will need to be bounded.",
+      "parentUuid": "68dabe34_df273bac",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 48
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68dabe34_3f0f472f",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 15
@@ -174,6 +342,30 @@
       "writtenOn": "2015-02-20T11:21:02Z",
       "side": 1,
       "message": "/* is_exact */, here and below.",
+      "range": {
+        "startLine": 123,
+        "startChar": 66,
+        "endLine": 123,
+        "endChar": 70
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_638682fb",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68dabe34_3f0f472f",
       "range": {
         "startLine": 123,
         "startChar": 66,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "28736625_65ea26f9",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8106e97_4319c677",
+      "range": {
+        "startLine": 177,
+        "startChar": 11,
+        "endLine": 177,
+        "endChar": 12
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88d53202_602db287",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 15
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "e8106e97_03818ee1",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "nope, that\u0027s the purpose of HBoundType: to make sure we stay within the limit even if the \u0027outside\u0027 changes.\n\nAn artificial case is:\n\n    for (int i \u003d 0; i \u003c n; i++) {\n      if (o instanceof Super) {\n        ((Super)o).f();\n      }\n      if () {\n        o \u003d new Object();\n      }\n    }",
+      "parentUuid": "88d53202_602db287",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 52
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8106e97_2333eaf2",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 15
@@ -243,6 +483,30 @@
       "writtenOn": "2015-02-20T11:21:02Z",
       "side": 1,
       "message": "Seems like duplicating line 222 and 223. Could you start new_rti with some kind of bottom type? Looks like it would also serve the invalid case for primitives.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 3
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08706217_04eb36ff",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-02-20T13:39:45Z",
+      "side": 1,
+      "message": "it is a duplication of line 222/223. It will possibly save some iterations. Though I don\u0027t expect it to very important :)\n\npreviously is_known served as a kind of bottom but since it was not strictly needed i removed it.",
+      "parentUuid": "e8106e97_2333eaf2",
       "range": {
         "startLine": 215,
         "startChar": 0,
