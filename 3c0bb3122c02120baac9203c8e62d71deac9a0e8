@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88eff2fe_d05a5cc7",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-20T20:18:11Z",
+      "side": 1,
+      "message": "build is failing due to:\n\nvalgrind: failed to start tool \u0027memcheck\u0027 for platform \u0027x86-linux\u0027: No such file or directory",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 34
+      },
+      "revId": "3c0bb3122c02120baac9203c8e62d71deac9a0e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
