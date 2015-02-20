@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "488dfa43_2e3807ca",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-20T04:14:59Z",
+      "side": 1,
+      "message": "I am actually not sure whether this change is correct. Tests still succeed. But I think some of the cc files try pointer comparisons (which still means the static was wrong before, just that the compiler didn\u0027t use its freedom).\n\nWhy are these not an enum?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
