@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88a372b2_109d2480",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-02-20T02:04:39Z",
+      "side": 1,
+      "message": "You can also move definition of this variable out of the function body, because it\u0027s a constant and you don\u0027t need to reasgin it in every invocation of the function.\nThat way, you don\u0027t need to escape when you reference it in the function body.",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 28
+      },
+      "revId": "827f35730fc703cbb3d7d0f61bdb124f6312928f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
