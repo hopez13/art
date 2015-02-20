@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8106e97_83a45ecb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "/* is_exact */ false",
+      "range": {
+        "startLine": 969,
+        "startChar": 58,
+        "endLine": 969,
+        "endChar": 63
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_1f9d2380",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2742,
+        "startChar": 55,
+        "endLine": 2742,
+        "endChar": 60
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_3fa2e7ba",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 3021,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "Add a comment what this is.",
+      "range": {
+        "startLine": 3021,
+        "startChar": 26,
+        "endLine": 3021,
+        "endChar": 37
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_5f97ab5f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "How about instr-\u003eAccept(this) ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_bf8d174b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "Should be done first. It\u0027s not strictly necessary, but it feels more logical to visit phis first.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_1f0a831e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "Can we end up having instanceof in the HIf? HInstanceOf is a bool and we might just fold HIf(HEqual(bool, true)) to HIf(bool)\n\nAlso what about HNotEqual?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 28
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_df273bac",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "Why are you creating the HBoundType then? It seems useless.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 48
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68dabe34_3f0f472f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "/* is_exact */, here and below.",
+      "range": {
+        "startLine": 123,
+        "startChar": 66,
+        "endLine": 123,
+        "endChar": 70
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_4319c677",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "TODO: Find a common super class.",
+      "range": {
+        "startLine": 177,
+        "startChar": 11,
+        "endLine": 177,
+        "endChar": 12
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88d53202_602db287",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "If we do, should we just get rid of the HBoundType?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 52
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8106e97_2333eaf2",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-20T11:21:02Z",
+      "side": 1,
+      "message": "Seems like duplicating line 222 and 223. Could you start new_rti with some kind of bottom type? Looks like it would also serve the invalid case for primitives.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 3
+      },
+      "revId": "eeb5212727f6996c31a9351d1ea180d9ad681b64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
