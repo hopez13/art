@@ -46,6 +46,30 @@
       "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48ab3a9e_9ee63deb",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-20T16:46:49Z",
+      "side": 1,
+      "message": "No. Why are we using strings to distinguish passes? What\u0027s wrong with a standard enum, and a string array if you need to ever write out the name?\n\nIn the printer, we have, for example,\n\n pass_name_ \u003d\u003d kLivenessPassName\n\nThat is pretty broken whenever you use \"static,\" which says that things are local to a compilation unit.",
+      "parentUuid": "e8106e97_63be82e0",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
