@@ -70,6 +70,30 @@
       "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "085862e4_240b924d",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-21T14:53:34Z",
+      "side": 1,
+      "message": "It is indeed broken. Any fix works for me. Given this is only used in the printer, strcmp could even work.",
+      "parentUuid": "48ab3a9e_9ee63deb",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
