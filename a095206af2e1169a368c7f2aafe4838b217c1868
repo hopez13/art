@@ -67,6 +67,24 @@
       "revId": "a095206af2e1169a368c7f2aafe4838b217c1868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0816a200_b4ea00f9",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-02-21T22:27:14Z",
+      "side": 1,
+      "message": "The path should be available during JNI_OnLoad and probably after that. JNI_OnLoad is called after dlopen. android_dlopen_ext scopes the callback on dlopen.",
+      "parentUuid": "48f33a1b_be865981",
+      "revId": "a095206af2e1169a368c7f2aafe4838b217c1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
