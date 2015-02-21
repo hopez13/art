@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28f0c60e_201b4471",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-21T18:13:23Z",
+      "side": 1,
+      "message": "Android\u0027s dynamic linker.",
+      "revId": "a095206af2e1169a368c7f2aafe4838b217c1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28f0c60e_401e5061",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-21T18:13:23Z",
+      "side": 1,
+      "message": "the default",
+      "revId": "a095206af2e1169a368c7f2aafe4838b217c1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48f33a1b_5eb91540",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-21T18:13:23Z",
+      "side": 1,
+      "message": "the list",
+      "revId": "a095206af2e1169a368c7f2aafe4838b217c1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48f33a1b_be865981",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2015-02-21T18:13:23Z",
+      "side": 1,
+      "message": "i\u0027m not quite clear why we\u0027re adding this API rather than doing this via android_dlopen_ext?",
+      "revId": "a095206af2e1169a368c7f2aafe4838b217c1868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
