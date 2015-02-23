@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e895cebd_1b1e9b60",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T18:03:31Z",
+      "side": 1,
+      "message": "Hmmm, we should probably have changed this to be the null constant. Maybe add a virtual IsNull on an instruction, and a TODO on the IntConstant explaining the situation.",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 78
+      },
+      "revId": "a949cbe295c054316e0d3e9d5d20572c55108210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
