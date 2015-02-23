@@ -118,6 +118,30 @@
       "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "288c46b9_9dd70301",
+        "filename": "compiler/optimizing/optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-23T16:06:47Z",
+      "side": 1,
+      "message": "I was tending towards the enum, but there is also something to say for strings. Strings allow you to decouple this. There is no reason/need to have a central place to list the optimizations as enums. If we use strings (or something else) as unique tokens and put them into the respective optimizations\u0027 header files, you wouldn\u0027t have to maintain this single repository.\n\nOpinions?",
+      "parentUuid": "6869de73_e72d8239",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "543e3c19c771f41163b49c0c9897a787b2e89593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
