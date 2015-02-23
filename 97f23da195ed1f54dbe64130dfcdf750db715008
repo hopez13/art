@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6869de73_c765de03",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "I think you can remove this check.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6869de73_e76a62d1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "Why does it have to be specific to a loop phi, and on which other block would you call this method? FWIW, I could see this method also useful for:\n\nif (a \u003c 42) {\n  ...\n}",
+      "range": {
+        "startLine": 484,
+        "startChar": 5,
+        "endLine": 489,
+        "endChar": 7
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8df2a7e_22018e2e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "Can you add an example of what this is actually fetching?",
+      "range": {
+        "startLine": 734,
+        "startChar": 6,
+        "endLine": 734,
+        "endChar": 26
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8df2a7e_820e9a5a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "Ditto. This is for (array.length - 1 ) / 2, right?",
+      "range": {
+        "startLine": 789,
+        "startChar": 0,
+        "endLine": 789,
+        "endChar": 26
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08c4e2d0_a4964233",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "Should this check be related to an overflow check?",
+      "range": {
+        "startLine": 793,
+        "startChar": 3,
+        "endLine": 793,
+        "endChar": 42
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6869de73_4a6333f4",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "Please add an example for this comment.",
+      "range": {
+        "startLine": 795,
+        "startChar": 8,
+        "endLine": 795,
+        "endChar": 59
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8c06ec1_c36376a3",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:30:26Z",
+      "side": 1,
+      "message": "Why? If the condition as \u0027||\u0027 I would agree, but here it\u0027s \u0027\u0026\u0026\u0027 which ensures i it below the length.",
+      "range": {
+        "startLine": 269,
+        "startChar": 1,
+        "endLine": 270,
+        "endChar": 44
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
