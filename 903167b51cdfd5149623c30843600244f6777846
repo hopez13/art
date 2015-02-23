@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08c4e2d0_848066df",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:44:45Z",
+      "side": 1,
+      "message": "This should be optimized away (for example in instruction simplifier). I think it\u0027s being done in https://android-review.googlesource.com/#/c/129562.",
+      "range": {
+        "startLine": 1981,
+        "startChar": 2,
+        "endLine": 1981,
+        "endChar": 35
+      },
+      "revId": "903167b51cdfd5149623c30843600244f6777846",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8c06ec1_63d0c2d3",
+        "filename": "test/433-checker-gvn/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T14:44:45Z",
+      "side": 1,
+      "message": "Please make this a new test (instead of changing an existing test), and keep the old test as it is.",
+      "revId": "903167b51cdfd5149623c30843600244f6777846",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
