@@ -118,6 +118,52 @@
     },
     {
       "key": {
+        "uuid": "0816a200_d427bc56",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-23T11:09:43Z",
+      "side": 1,
+      "message": "it-\u003efield_idx_ is supposed to be an index in mUnit-\u003eGetCompilationUnit()-\u003edex_file but the field_idx_ptr-\u003edex_file may be different. So this is bogus and if we somehow end up generating the call to helper in GenIGet()/GenIPut(), it will be broken.",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8df2a7e_420e52af",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-23T11:09:43Z",
+      "side": 1,
+      "message": "Don\u0027t use the ClassLinker directly, go through CompilerDriver.",
+      "range": {
+        "startLine": 73,
+        "startChar": 39,
+        "endLine": 73,
+        "endChar": 55
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8106e97_a3035a36",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 21
