@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "054ccd89_84c78639",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-23T23:46:53Z",
+      "side": 1,
+      "message": "isn\u0027t it bad to encourage inlined version? callers may already have a cached runtime or class_linker and now you are hiding this in helper function.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "6d70abcad7d7b61614ad3593bebf15adfe83c08b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
