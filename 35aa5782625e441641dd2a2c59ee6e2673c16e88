@@ -70,6 +70,30 @@
       "revId": "35aa5782625e441641dd2a2c59ee6e2673c16e88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "051e8d59_f41dd80b",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1003299
+      },
+      "writtenOn": "2015-02-23T23:36:27Z",
+      "side": 1,
+      "message": "For now, I don\u0027t think this is happening. I found this via code review and thought better add code to protect against that case.",
+      "parentUuid": "8b644c9b_c89e4fd5",
+      "range": {
+        "startLine": 251,
+        "startChar": 8,
+        "endLine": 251,
+        "endChar": 93
+      },
+      "revId": "35aa5782625e441641dd2a2c59ee6e2673c16e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
