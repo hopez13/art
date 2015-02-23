@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "885372fc_1004c43d",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "I guess it is better to just not change this. There is already checks that the declaring_dex_file_ matches, so we will get a SIGABRT if this is ever the case.",
+      "parentUuid": "0816a200_d427bc56",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8df2a7e_420e52af",
         "filename": "compiler/dex/mir_field_info.cc",
         "patchSetId": 21
@@ -152,6 +176,30 @@
       "writtenOn": "2015-02-23T11:09:43Z",
       "side": 1,
       "message": "Don\u0027t use the ClassLinker directly, go through CompilerDriver.",
+      "range": {
+        "startLine": 73,
+        "startChar": 39,
+        "endLine": 73,
+        "endChar": 55
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a84e7654_11cccc6c",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8df2a7e_420e52af",
       "range": {
         "startLine": 73,
         "startChar": 39,
@@ -211,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "882c527c_880fb75d",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e826ae4e_b38b58b7",
+      "range": {
+        "startLine": 105,
+        "startChar": 57,
+        "endLine": 105,
+        "endChar": 60
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e826ae4e_5381a495",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 21
@@ -222,6 +294,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "typo -\u003e trambopoline",
+      "range": {
+        "startLine": 122,
+        "startChar": 9,
+        "endLine": 122,
+        "endChar": 19
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "882c527c_a8147b74",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e826ae4e_5381a495",
       "range": {
         "startLine": 122,
         "startChar": 9,
@@ -257,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "a880367a_04eab8f7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Clarify? This condition is for the case where the JIT compilations fails. Since we mapped the oat file read only we don\u0027t want to dex2dex or else we wil fault.",
+      "parentUuid": "e826ae4e_13c6cccd",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 3
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8867663_d18cc4d3",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 21
@@ -268,6 +388,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "method context for CHECK\u0027s in here?",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 39
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0847823f_8fea59f9",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Compiled method doesn\u0027t really have any context unfortunately, don\u0027t really think adding an arg for this is worth it.",
+      "parentUuid": "a8867663_d18cc4d3",
       "range": {
         "startLine": 149,
         "startChar": 2,
@@ -303,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "882c527c_a86abbcf",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Added TODO, seems to work fine without it for now.",
+      "parentUuid": "e826ae4e_d3861483",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c881ea4d_b2d900fb",
         "filename": "compiler/jit/jit_compiler.h",
         "patchSetId": 21
@@ -314,6 +482,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "should this be be shared with gtests?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 50
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "882c527c_a83d5bec",
+        "filename": "compiler/jit/jit_compiler.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Maybe when I get around to adding gtests :)",
+      "parentUuid": "c881ea4d_b2d900fb",
       "range": {
         "startLine": 68,
         "startChar": 2,
@@ -349,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "c832cad2_4df94dd1",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e826ae4e_3340a877",
+      "range": {
+        "startLine": 1034,
+        "startChar": 0,
+        "endLine": 1034,
+        "endChar": 3
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c881ea4d_720b989e",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 21
@@ -360,6 +576,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "any unload needed?",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 42
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "882c527c_488bff34",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c881ea4d_720b989e",
       "range": {
         "startLine": 73,
         "startChar": 34,
@@ -395,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "882c527c_0863c7f4",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c881ea4d_d28cc4d3",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 19
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c881ea4d_1231ec62",
         "filename": "runtime/oat_file.h",
         "patchSetId": 21
@@ -406,6 +670,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "so lazy... are there really that many call sites that you need default args?",
+      "range": {
+        "startLine": 130,
+        "startChar": 3,
+        "endLine": 130,
+        "endChar": 76
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c832cad2_ada1e9b7",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c881ea4d_1231ec62",
       "range": {
         "startLine": 130,
         "startChar": 3,
@@ -441,6 +729,30 @@
     },
     {
       "key": {
+        "uuid": "c832cad2_cd2c5d8e",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "I need operator \u003d, which doesn\u0027t work if they are constant.",
+      "parentUuid": "e826ae4e_16847a3b",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 26
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8867663_91807c66",
         "filename": "runtime/quick/inline_method_analyser.cc",
         "patchSetId": 21
@@ -452,6 +764,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "say why? \"Add handling for JIT.\"",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 26
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "882c527c_68d3630f",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8867663_91807c66",
       "range": {
         "startLine": 115,
         "startChar": 0,
@@ -487,6 +823,30 @@
     },
     {
       "key": {
+        "uuid": "c832cad2_8dd7c500",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e826ae4e_b69b4689",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8867663_3192f0bb",
         "filename": "runtime/runtime.cc",
         "patchSetId": 21
@@ -510,6 +870,30 @@
     },
     {
       "key": {
+        "uuid": "2823668f_85c1628d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8867663_3192f0bb",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 45
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c881ea4d_92a71c21",
         "filename": "runtime/runtime.cc",
         "patchSetId": 21
@@ -521,6 +905,30 @@
       "writtenOn": "2015-02-20T23:45:35Z",
       "side": 1,
       "message": "perhaps create should have error_msg out arg with reason instead of logging itself.",
+      "range": {
+        "startLine": 1670,
+        "startChar": 0,
+        "endLine": 1670,
+        "endChar": 43
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c832cad2_4dd6ad00",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-23T21:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c881ea4d_92a71c21",
       "range": {
         "startLine": 1670,
         "startChar": 0,
