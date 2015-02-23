@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "283a86a9_0df4b153",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-23T19:51:34Z",
+      "side": 1,
+      "message": "comment what this is for? I was going to ask for it in the .h but its not there of course",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68639ec4_d7323c1b",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 2
@@ -85,6 +108,30 @@
       "side": 1,
       "message": "Well, it depends. Our setup right now isn\u0027t clear. I just wanted to make sure if things are shared between Runtimes we don\u0027t delete till all are gone.",
       "parentUuid": "e895cebd_7becffbe",
+      "range": {
+        "startLine": 1074,
+        "startChar": 61,
+        "endLine": 1074,
+        "endChar": 79
+      },
+      "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48025a8e_694981a5",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-23T19:51:34Z",
+      "side": 1,
+      "message": "oh, now I think I see. Myself, I\u0027d not worry about supporting more than one Runtime proactively. would we really want to share the locks if we were doing that? probably not.",
+      "parentUuid": "a86916a4_d94ef3af",
       "range": {
         "startLine": 1074,
         "startChar": 61,
