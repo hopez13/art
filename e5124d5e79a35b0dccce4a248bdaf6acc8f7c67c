@@ -22,6 +22,30 @@
       "revId": "e5124d5e79a35b0dccce4a248bdaf6acc8f7c67c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5ece17a_c1822232",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-23T23:09:51Z",
+      "side": 1,
+      "message": "I said the same thing to agampe off line being virtual Nicolas, but was going to write to explain this. \n\nThe problem is that various tools like dex2oat manually init logging, and therefore locks, before a runtime is created.\n\nI was going to say that we should probably null out logging_lock_ on delete since we are using that as a test for freeing, but that still can leave the runtime calling Locks::Free when dex2oat could still be using logging...\n\nso the refcount approach tried to cope with this, and was partially why agampe had done this.\n\nlong ago enh and I objected to the logging lock being part of the lock hierarchy at all, I kind of feel this is an excuse to revisit that decision. the ALOG* code does its own logging, our wrapper is just keeping long messages atomic...",
+      "parentUuid": "a5ece17a_4134d203",
+      "range": {
+        "startLine": 1072,
+        "startChar": 2,
+        "endLine": 1072,
+        "endChar": 57
+      },
+      "revId": "e5124d5e79a35b0dccce4a248bdaf6acc8f7c67c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
