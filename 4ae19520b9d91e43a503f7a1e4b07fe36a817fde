@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68639ec4_d7323c1b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T17:57:59Z",
+      "side": 1,
+      "message": "Then why don\u0027t we free unconditionally?",
+      "range": {
+        "startLine": 1074,
+        "startChar": 61,
+        "endLine": 1074,
+        "endChar": 79
+      },
+      "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
