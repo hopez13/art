@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a84e7654_f13108e7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-23T19:22:27Z",
+      "side": 1,
+      "message": "Ok. Just saw that CL. The Identity() in nodes.h approach does it in a more object-oriented way and seems to me cleaner. It doesn\u0027t need to be in GVN pass though. Which approach do you prefer?",
+      "parentUuid": "08c4e2d0_848066df",
+      "range": {
+        "startLine": 1981,
+        "startChar": 2,
+        "endLine": 1981,
+        "endChar": 35
+      },
+      "revId": "903167b51cdfd5149623c30843600244f6777846",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8c06ec1_63d0c2d3",
         "filename": "test/433-checker-gvn/info.txt",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2015-02-23T14:44:45Z",
       "side": 1,
       "message": "Please make this a new test (instead of changing an existing test), and keep the old test as it is.",
+      "revId": "903167b51cdfd5149623c30843600244f6777846",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6858fe1a_2f6089e5",
+        "filename": "test/433-checker-gvn/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-23T19:22:27Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "e8c06ec1_63d0c2d3",
       "revId": "903167b51cdfd5149623c30843600244f6777846",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
