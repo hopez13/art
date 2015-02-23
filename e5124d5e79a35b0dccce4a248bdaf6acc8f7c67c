@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5ece17a_4134d203",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T22:39:13Z",
+      "side": 1,
+      "message": "This really bugs me the wrong way. I know you\u0027re improving it. But we pride ourselves on testing with valgrind, yet we only do the right thing when running under valgrind.... Or do we have a strong statement that we don\u0027t care about what\u0027s happening at shutdown?",
+      "range": {
+        "startLine": 1072,
+        "startChar": 2,
+        "endLine": 1072,
+        "endChar": 57
+      },
+      "revId": "e5124d5e79a35b0dccce4a248bdaf6acc8f7c67c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
