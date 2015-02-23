@@ -22,6 +22,30 @@
       "revId": "9af4e0d6294100771b8445802770ff5b750f511d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08c4e2d0_e485daed",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-23T14:44:09Z",
+      "side": 1,
+      "message": "There\u0027s the same method in HEnvironment - do you want me to rename that one as well? Perhaps RemoveAsUserOfInstruction?",
+      "parentUuid": "08c4e2d0_c4bc1eb7",
+      "range": {
+        "startLine": 1071,
+        "startChar": 7,
+        "endLine": 1071,
+        "endChar": 21
+      },
+      "revId": "9af4e0d6294100771b8445802770ff5b750f511d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
