@@ -70,6 +70,30 @@
       "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a86916a4_d94ef3af",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-23T18:22:45Z",
+      "side": 1,
+      "message": "Well, it depends. Our setup right now isn\u0027t clear. I just wanted to make sure if things are shared between Runtimes we don\u0027t delete till all are gone.",
+      "parentUuid": "e895cebd_7becffbe",
+      "range": {
+        "startLine": 1074,
+        "startChar": 61,
+        "endLine": 1074,
+        "endChar": 79
+      },
+      "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
