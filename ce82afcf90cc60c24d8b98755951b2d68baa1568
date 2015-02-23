@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0816a200_94cc24f2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-23T12:10:09Z",
+      "side": 1,
+      "message": "HGraph::RemoveDeadBlocks and SsaDeadPhiElimination::EliminateDeadPhis have been modified to use unsafe instruction removal and thus this is not needed.",
+      "parentUuid": "48fb3a34_9e87dd28",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 27
+      },
+      "revId": "ce82afcf90cc60c24d8b98755951b2d68baa1568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f8c637_bdd5fff4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-19T10:27:21Z",
       "side": 1,
       "message": "Is it safe to return a copy? Shouldn\u0027t you return a pointer? What if the caller wants to change it? (the fields of HUserRecord are not const)",
+      "range": {
+        "startLine": 1818,
+        "startChar": 2,
+        "endLine": 1818,
+        "endChar": 28
+      },
+      "revId": "ce82afcf90cc60c24d8b98755951b2d68baa1568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08706217_e4dc5a6f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1818,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-02-23T12:10:09Z",
+      "side": 1,
+      "message": "It is safe because HUserRecord is just an instruction + use node pair and changing the copy doesn\u0027t do anything. I\u0027ve hidden the internal implementation so that the data structure is not exposed any more. Is that enough?",
+      "parentUuid": "28f8c637_bdd5fff4",
       "range": {
         "startLine": 1818,
         "startChar": 2,
