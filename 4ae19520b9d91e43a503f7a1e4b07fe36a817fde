@@ -46,6 +46,30 @@
       "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e895cebd_7becffbe",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-23T18:17:27Z",
+      "side": 1,
+      "message": "Ins\u0027t it safer/puts us in a better place to unconditionally delete? Otherwise you could make the argument that as soon as we know it\u0027s the end, we call exit(0)....",
+      "parentUuid": "a86916a4_d9d1938c",
+      "range": {
+        "startLine": 1074,
+        "startChar": 61,
+        "endLine": 1074,
+        "endChar": 79
+      },
+      "revId": "4ae19520b9d91e43a503f7a1e4b07fe36a817fde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
