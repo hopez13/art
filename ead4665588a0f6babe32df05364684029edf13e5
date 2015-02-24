@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c56c75f3_ba565112",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "nit: or you could just use \"bool oat;\" and \"-verbose:oat\" to avoid the need for the clarification.",
+      "range": {
+        "startLine": 47,
+        "startChar": 26,
+        "endLine": 47,
+        "endChar": 70
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e81a2e66_f35f3063",
         "filename": "runtime/class_linker.h",
         "patchSetId": 4
@@ -18,6 +41,477 @@
         "startChar": 14,
         "endLine": 317,
         "endChar": 20
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65574942_771d9094",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the current fashion is. I thought it was const references or non-const pointers.",
+      "range": {
+        "startLine": 610,
+        "startChar": 35,
+        "endLine": 610,
+        "endChar": 59
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_420bd29d",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "The style says the C++ includes go in a section after the C includes",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 14
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2540f174_5d187b73",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "seems like workarounds like this should have a comment? Do we have an idea why or is the reason lost to time?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_6218d6f2",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "do we use ALOG directly? isn\u0027t that the only reason for defining a TAG?\n\nI see, this is different than ALOG TAG\u0027s which are \"strings\". I think this is just more reason to rename to \"oat\"",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_a2f01e1e",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "there is an AOSP change regarding this right now that needs to be reviewed from Intel",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 19
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653e69ec_ffa17f82",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "oat data begin check was first before there was patching. it was needed to cover changes to the boot.oat layout requiring a recompile, even if checksum didn\u0027t change.\n\npatch delta was added later. one could imagine the boot being relocated but having the same data begin and checksum, right? so that is needed as a separate check?",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_220eceae",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "I hate to say this, but I was thinking of OatFileManager as more of the singleton and the owner of the ClassLinker::oat_files_ etc, perhaps the static members of here could be there.\n\nI realized there would have to be some helper class like the OatFileManager here, we have traditionally called these something like OatFileReference or OatFileHelper. I\u0027ll ignore that for the purposes of the review, we can chat about names separately.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "257d51a0_75d0c884",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "for these, it is often clear to just use the constant name such as kUpToDate so that searches will find the comment as well.",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5bab59b_4a4c138d",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "that should be a misconfiguration, the BOOTCLASSPATH is expected to be the same for all ISAs. In theory something could try to validate this. If that is your goal, we should probably be more explicit about what is to be done.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 56
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653e69ec_3fb76704",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "seems like it should go up with the more general description. any reason it shouldn\u0027t be an error since if the lock\u0027s are nested, the unlocks might be a problem.",
+      "range": {
+        "startLine": 127,
+        "startChar": 48,
+        "endLine": 128,
+        "endChar": 18
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_22532eab",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "For example when both a foreground Activity and a background Service both use DexClassloaders pointing to the same dex file.",
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_4250329c",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "is it possible for the odex to be out of date? because we validate that the system odex agrees with the system dex file?",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 28
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_a2a3be46",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "on a casual read, these seem to be opposites, I assume the difference is patching case. can this be clearer?",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 51
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_c2a8c223",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "is this just to allow reuse by GenerateOatFile and GenerateImage?",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 14
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_e2adc630",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "return const pointer? other places?",
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_22988e13",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 303,
+        "startChar": 58,
+        "endLine": 303,
+        "endChar": 60
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87baa5e_429592da",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "do we have an accessor that CHECKS this?\n\nsimilar for the rest?",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 22
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653e69ec_5f2fcb82",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "do we have CHECKS for this?",
+      "range": {
+        "startLine": 420,
+        "startChar": 5,
+        "endLine": 420,
+        "endChar": 77
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2540f174_ddd5abf0",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "probably we can just treat them as absolute with the leading char removed. this might fix art/tools/art and shouldn\u0027t be a security issue if we insist they are absolute in installd",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 57
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65574942_171894a4",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "I believe dalvik sniffed out thing using extension where art looks at file magic more. that said for /system odex files, it harder to support short because things would collide. so perhaps we just don\u0027t support /system odex file short names, but allow it for other uses.",
+      "range": {
+        "startLine": 610,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 50
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2540f174_3d02cff0",
+        "filename": "runtime/oat_file_manager_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-24T06:43:22Z",
+      "side": 1,
+      "message": "this seems simpler to just make work.",
+      "range": {
+        "startLine": 632,
+        "startChar": 0,
+        "endLine": 637,
+        "endChar": 73
       },
       "revId": "ead4665588a0f6babe32df05364684029edf13e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
