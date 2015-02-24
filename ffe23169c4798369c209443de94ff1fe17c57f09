@@ -636,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "a57141c9_195f4bb7",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-24T00:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e52fb98a_6eb7cf03",
+      "range": {
+        "startLine": 73,
+        "startChar": 34,
+        "endLine": 73,
+        "endChar": 42
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c881ea4d_d28cc4d3",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 21
@@ -976,6 +1000,30 @@
       "writtenOn": "2015-02-23T23:47:18Z",
       "side": 1,
       "message": "this looks removed looking at PS21 to PS22. is that you or a rebase?",
+      "range": {
+        "startLine": 2047,
+        "startChar": 0,
+        "endLine": 2048,
+        "endChar": 16
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a57141c9_f975b7ad",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-24T00:44:54Z",
+      "side": 1,
+      "message": "Rebase",
+      "parentUuid": "e52fb98a_ce8ec348",
       "range": {
         "startLine": 2047,
         "startChar": 0,
