@@ -92,6 +92,30 @@
       "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4547a5ec_5e50d599",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T23:15:59Z",
+      "side": 1,
+      "message": "I understand that there isn\u0027t any \"great\" way to do this. In general you can\u0027t make MIPS and Quick format agree, as Quick isn\u0027t structured that way and we won\u0027t change runtime expectations for just one architecture.\n\nThat\u0027s why for me it would be OK to put two big warning signs (here and above) as mentioned. It might also be prudent to make this a \"decision\" that is more central, e.g., somewhere in the runtime, so that it\u0027s harder to have mismatches between initializing the entrypoints structure and the corresponding code here.",
+      "parentUuid": "a5c5c17a_f939d7ff",
+      "range": {
+        "startLine": 741,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
