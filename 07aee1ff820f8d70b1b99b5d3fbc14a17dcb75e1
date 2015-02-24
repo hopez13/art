@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65574942_f7a1a082",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T16:02:58Z",
+      "side": 1,
+      "message": "JNI entrypoints are *not* used by Quick. Remove them. It is also wrong to do this \"direct trampoline\" with them, as they may throw exceptions.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 64
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653e69ec_429ed47c",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T16:02:58Z",
+      "side": 1,
+      "message": "Please make this a switch statement.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653e69ec_a28ec046",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T16:02:58Z",
+      "side": 1,
+      "message": "There needs to be a big comment here and at the definition. Something along the line that this would in general not be safe to do at all, as it violates the frame size of the Quick method. You can only do this as you\u0027re going directly to some native implementation that does *not* do anything in the runtime.",
+      "range": {
+        "startLine": 741,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
