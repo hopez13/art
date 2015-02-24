@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e5bed9c5_53340404",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T18:10:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t have to be, I believe. JNI allows any thread to shut down the runtime.\n\nHowever, for our tests it shouldn\u0027t be, so I was dubious before.",
+      "parentUuid": "c5b475e0_fa9ec943",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 30
+      },
+      "revId": "05d1461f40a065acb66e6d5248609cf33c5b900a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "054dadae_fcdea964",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
