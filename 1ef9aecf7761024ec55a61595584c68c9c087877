@@ -117,6 +117,30 @@
       "revId": "1ef9aecf7761024ec55a61595584c68c9c087877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2540f174_80e29820",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T16:32:53Z",
+      "side": 1,
+      "message": "That would be quite some overhead, and it would be ugly (must be array of longs), and only relevant for dalvikvm Valgrind run-tests. So I feel it\u0027s overkill. But if the team thinks that\u0027s the right way...",
+      "parentUuid": "85f19d52_20c0aa03",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 83
+      },
+      "revId": "1ef9aecf7761024ec55a61595584c68c9c087877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
