@@ -68,6 +68,30 @@
       "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5c5c17a_f939d7ff",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1062659
+      },
+      "writtenOn": "2015-02-24T21:58:36Z",
+      "side": 1,
+      "message": "I am open for ideas on a better solution. One that would respect both the Quick method frame format, and the MIPS ABI.\nAdding asm trampoline for each of these methods seems expensive.\nIn the meantime, we can use this workaround to resolve errors.",
+      "parentUuid": "653e69ec_a28ec046",
+      "range": {
+        "startLine": 741,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
