@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "054dadae_9cd16557",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-24T08:23:35Z",
+      "side": 1,
+      "message": "I\u0027m missing something here: isn\u0027t it the main thread that destroys the Runtime? And we assume it was already detached? In which conditions can it not be null?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 30
+      },
+      "revId": "05d1461f40a065acb66e6d5248609cf33c5b900a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "054dadae_fcdea964",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-24T08:23:35Z",
+      "side": 1,
+      "message": "But it\u0027s fine to continue? Why is that not a FATAL?",
+      "range": {
+        "startLine": 198,
+        "startChar": 4,
+        "endLine": 198,
+        "endChar": 70
+      },
+      "revId": "05d1461f40a065acb66e6d5248609cf33c5b900a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
