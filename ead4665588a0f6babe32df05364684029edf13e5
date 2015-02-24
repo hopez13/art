@@ -318,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "650ca978_4fc0cd04",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-24T15:46:06Z",
+      "side": 1,
+      "message": "system odex wasn\u0027t checked before. I think because there was no way out, as any apk/jar would have been stripped.",
+      "parentUuid": "c87baa5e_4250329c",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 28
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c87baa5e_a2a3be46",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 4
