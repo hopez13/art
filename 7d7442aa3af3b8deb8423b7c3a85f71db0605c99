@@ -22,6 +22,30 @@
       "revId": "7d7442aa3af3b8deb8423b7c3a85f71db0605c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5625923_532fc482",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-24T14:30:36Z",
+      "side": 1,
+      "message": "No HReturn is a different type of instruction than HReturnVoid.",
+      "parentUuid": "a5022140_b191e067",
+      "range": {
+        "startLine": 909,
+        "startChar": 8,
+        "endLine": 909,
+        "endChar": 91
+      },
+      "revId": "7d7442aa3af3b8deb8423b7c3a85f71db0605c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
