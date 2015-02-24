@@ -165,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "85aefd91_18c1c58b",
+        "filename": "compiler/dex/mir_field_info.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-24T17:41:23Z",
+      "side": 1,
+      "message": "We\u0027ve got a precedent for invalid field_idx, namely inlined getters and setters. They are guarded by (cu-\u003eenable_debug \u0026 (1 \u003c\u003c kDebugSlowFieldPath)) in dex_file_method_inliner.cc .\n\nEither you make sure the JIT never sets that flag or you need to reconstruct a valid index in the correct dex file, even if it means traversing the class hierarchy of the reference as seen by the MethodVerifier. Since the quickened insn was created from a non-quickened insn, there must always be a valid index.",
+      "parentUuid": "885372fc_1004c43d",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "ffe23169c4798369c209443de94ff1fe17c57f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8df2a7e_420e52af",
         "filename": "compiler/dex/mir_field_info.cc",
         "patchSetId": 21
