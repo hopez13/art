@@ -69,6 +69,30 @@
       "revId": "9f6adf6e540bea716b36bd19adde5ca7d1a4bdb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c549d54e_b2a220ba",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-25T16:27:52Z",
+      "side": 1,
+      "message": "It is bad practice to rely on a reboot to clean (especially now that there\u0027s a counter for .booting). That has always been a quick-n-dirty thing to hopefully get back to a booting system.\n\nThis changes current behavior more than necessary. As mentioned before, there are various places where PruneDalvikCache should clean the cache, no matter what. Example is in GenerateImage. When you are generating a new image, the preloaded files are almost guaranteed out of date.\n\n(In the absence of a proof of determinism for dex2oat, my understanding was that you pre-opt the boot image into /system or /data and do not try to compile it on device.)\n\nWith that understanding, the only invocation that should change behavior is the one in RelocateImage, as far as I can see. All others are in a situation where we either know that:\n\n a) the boot image will likely *not* be what it was at preopt time\n b) we ran into an error while trying to use it (e.g., patch it)\n\nIn those cases we *should* clean up.\n\nThis is relatively easy to incorporate by either just changing the code in RelocateImage, or adding another function. This one should at least have a name change anyways to include the new behavior somehow.\n\nbdc, any opinions?",
+      "parentUuid": "083302f6_0c0f37dd",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 1
+      },
+      "revId": "9f6adf6e540bea716b36bd19adde5ca7d1a4bdb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
