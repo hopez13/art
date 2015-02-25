@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c57b955e_c5ec4c1a",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1040193
+      },
+      "writtenOn": "2015-02-25T16:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65574942_f7a1a082",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 64
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "653e69ec_429ed47c",
         "filename": "compiler/dex/quick/mips/utility_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-24T16:02:58Z",
       "side": 1,
       "message": "Please make this a switch statement.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c57b955e_e5e1501f",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1040193
+      },
+      "writtenOn": "2015-02-25T16:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "653e69ec_429ed47c",
       "range": {
         "startLine": 31,
         "startChar": 4,
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "I understand that there isn\u0027t any \"great\" way to do this. In general you can\u0027t make MIPS and Quick format agree, as Quick isn\u0027t structured that way and we won\u0027t change runtime expectations for just one architecture.\n\nThat\u0027s why for me it would be OK to put two big warning signs (here and above) as mentioned. It might also be prudent to make this a \"decision\" that is more central, e.g., somewhere in the runtime, so that it\u0027s harder to have mismatches between initializing the entrypoints structure and the corresponding code here.",
       "parentUuid": "a5c5c17a_f939d7ff",
+      "range": {
+        "startLine": 741,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 3
+      },
+      "revId": "07aee1ff820f8d70b1b99b5d3fbc14a17dcb75e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05720d91_d4fb1c7c",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1040193
+      },
+      "writtenOn": "2015-02-25T16:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4547a5ec_5e50d599",
       "range": {
         "startLine": 741,
         "startChar": 2,
