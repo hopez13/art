@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "229467fe_1d2bb377",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-25T22:16:05Z",
+      "side": 1,
+      "message": "What\u0027s the reason for this change?\n\nMy guess is that was made lower-case as there is no other user, so it\u0027s a Makefile \"local,\" which we keep lower-cased.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "aa073d99a2a1a5914a90f92a34903daeaa38ae77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
