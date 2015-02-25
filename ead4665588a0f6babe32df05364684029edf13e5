@@ -209,6 +209,30 @@
     },
     {
       "key": {
+        "uuid": "222627b6_4da419c8",
+        "filename": "runtime/oat_file_manager.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-25T20:47:02Z",
+      "side": 1,
+      "message": "Thoughts on naming:\n \"OatFileManager\" - doesn\u0027t quite fit, because the class doesn\u0027t manage the oat files after they are loaded.\n \"OatFileHelper\" - apparently has legacy connotations, and I think it\u0027s vague. What does it help with? Could be reading, writing, formatting, verifying, accessing or any number of other things. I fear this sounds appealing from the context of choosing the name for this class, but doesn\u0027t make sense in the general context of art class names.\n \"OatFileReference\" - but this isn\u0027t a reference to an Oat file.\n\nHow about \"OatFileAssistant\"? It\u0027s suitably vague, without connotations that I know of, and if you want an OatFileManager eventually, it makes sense for the Manager to have an Assistant.",
+      "parentUuid": "c87baa5e_220eceae",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "257d51a0_75d0c884",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 4
