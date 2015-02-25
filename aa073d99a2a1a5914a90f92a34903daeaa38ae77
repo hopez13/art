@@ -22,6 +22,30 @@
       "revId": "aa073d99a2a1a5914a90f92a34903daeaa38ae77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26c6bf3_da60e5ea",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-25T22:24:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure about the uppercase/lowercase convention here, but changing this to uppercase as it looked like other variables that are to be passed in from the command line are in uppercase, as in, \"mm ART_DEFAULT_GC_TYPE\u003dCMS...\" rather than \"mm art_default_gc_type\u003dcms...\".",
+      "parentUuid": "229467fe_1d2bb377",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "aa073d99a2a1a5914a90f92a34903daeaa38ae77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
