@@ -45,6 +45,30 @@
       "revId": "9f6adf6e540bea716b36bd19adde5ca7d1a4bdb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "083302f6_0c0f37dd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1064833
+      },
+      "writtenOn": "2015-02-25T08:29:51Z",
+      "side": 1,
+      "message": "The .preloaded is removed as soon as the first boot is completed\n(https://android-review.googlesource.com/#/c/133132)\nIf we did not succeed to boot, .booting will still be there and we will flush the dalvik-cache. This will be performed by the RealPruneDalvikCache in MarkZygoteStart.\nKept as is, the dalvik-cache is always wiped on first boot even though the images are valid.\nI will investigate other solutions available to avoid this.",
+      "parentUuid": "6b6398c4_bd04c7f9",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 1
+      },
+      "revId": "9f6adf6e540bea716b36bd19adde5ca7d1a4bdb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
