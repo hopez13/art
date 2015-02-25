@@ -16,6 +16,24 @@
       "revId": "a6dfdae1cffc78f9791348b2e1dc8f4c6c3f7128",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e51c1954_a369fae1",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-25T18:47:33Z",
+      "side": 1,
+      "message": "This was to keep the old low-level code just relying on read and our File support. Sure, something like fgets would be more comfortable...",
+      "parentUuid": "653109d1_07349650",
+      "revId": "a6dfdae1cffc78f9791348b2e1dc8f4c6c3f7128",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
