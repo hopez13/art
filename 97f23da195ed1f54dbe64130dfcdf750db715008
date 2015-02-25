@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c57b955e_85896440",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-25T17:38:59Z",
+      "side": 1,
+      "message": "no, it\u0027s me not reading the code carefully, and thinking you returned the same thing lines 58 and 48 :-)",
+      "parentUuid": "08722291_f4c01806",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6869de73_e76a62d1",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "c57b955e_a508282a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-25T17:38:59Z",
+      "side": 1,
+      "message": "I meant, should this be a call to WouldSomethingOverflowOrUnderflow (just like we have WouldAddOrSubOverflow) ?",
+      "parentUuid": "a84e7654_f1d02858",
+      "range": {
+        "startLine": 793,
+        "startChar": 3,
+        "endLine": 793,
+        "endChar": 42
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6869de73_4a6333f4",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -319,6 +367,30 @@
       "side": 1,
       "message": "Let\u0027s say random.nextInt() keeps returning 1 so this if test fails and i goes to INT_MIN due to overflow. Then random.nextInt() returns 0, array[i] will be attempted which will cause AIOOB exception.\n\nThis is an infinite loop so it\u0027s a little contrived. But it shows the point for the necessity of the bounds check.",
       "parentUuid": "e8c06ec1_c36376a3",
+      "range": {
+        "startLine": 269,
+        "startChar": 1,
+        "endLine": 270,
+        "endChar": 44
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6558291b_2f04093e",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-25T17:38:59Z",
+      "side": 1,
+      "message": "Ah, did not realize it was an infinite loop. Thanks!",
+      "parentUuid": "a880367a_446da093",
       "range": {
         "startLine": 269,
         "startChar": 1,
