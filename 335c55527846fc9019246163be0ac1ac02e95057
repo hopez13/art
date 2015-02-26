@@ -22,6 +22,30 @@
       "revId": "335c55527846fc9019246163be0ac1ac02e95057",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a22bf7c1_e9d7f5f7",
+        "filename": "compiler/dex/quick/arm/assemble_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1055173
+      },
+      "writtenOn": "2015-02-26T10:43:42Z",
+      "side": 1,
+      "message": "Yes, it will be more precise to describe the fp flags. But in current stage, I think to do it conservatively is OK and separating them should not benefit much. :-)",
+      "parentUuid": "a22bf7c1_895d9933",
+      "range": {
+        "startLine": 838,
+        "startChar": 64,
+        "endLine": 838,
+        "endChar": 75
+      },
+      "revId": "335c55527846fc9019246163be0ac1ac02e95057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
