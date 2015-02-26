@@ -45,6 +45,30 @@
       "revId": "9cc7bddb913a6d912f89b6b72ac055f1cb3b165c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b937da_b957ffc1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1630,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-26T14:21:23Z",
+      "side": 1,
+      "message": "Right, good point. Nevermind the approach then.",
+      "parentUuid": "22dc672f_3dde6fe2",
+      "range": {
+        "startLine": 1630,
+        "startChar": 9,
+        "endLine": 1630,
+        "endChar": 75
+      },
+      "revId": "9cc7bddb913a6d912f89b6b72ac055f1cb3b165c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
