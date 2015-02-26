@@ -22,6 +22,30 @@
       "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a22bf7c1_a967bd88",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-02-26T12:54:13Z",
+      "side": 1,
+      "message": "I started doing this from Roland\u0027s suggestions to use them instead of static inline method for helpers. http://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Namespaces.",
+      "parentUuid": "a2b937da_d9f673e1",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 9
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
