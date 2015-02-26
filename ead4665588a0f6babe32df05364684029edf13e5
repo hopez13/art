@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "e2a40f89_2321cacd",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-26T00:06:50Z",
+      "side": 1,
+      "message": "It was required back then. Dimitry fixed that with Change-ID I014ab622b3332647 according to the log.",
+      "parentUuid": "62b9ffa9_67bb52ee",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c87baa5e_6218d6f2",
         "filename": "runtime/oat_file_manager.cc",
         "patchSetId": 4
