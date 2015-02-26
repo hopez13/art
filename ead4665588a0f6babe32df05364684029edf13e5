@@ -210,6 +210,30 @@
     },
     {
       "key": {
+        "uuid": "02a8435a_2421d2cd",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-02-26T00:04:37Z",
+      "side": 1,
+      "message": "If this is the case, it sounds like the check against oat_data_begin should be part of the checksum test, not the relocation test (in other words, it should be moved to \u0027GivenOatFileIsOutOfDate\u0027.\n\nI wonder if this means there\u0027s a bug in the old code. What if you have a PIC oat file where boot.oat layout has changed but the checksum hasn\u0027t? Is there a way to write a test of boot.oat layout changing without the checksum changing?",
+      "parentUuid": "653e69ec_ffa17f82",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "ead4665588a0f6babe32df05364684029edf13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c87baa5e_220eceae",
         "filename": "runtime/oat_file_manager.h",
         "patchSetId": 4
