@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6242dfdd_5f78cba5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-26T21:05:50Z",
+      "side": 1,
+      "message": "Does this increase logcat spam? We used to log all the compacting GCs, but that was removed to reduce logcat spam. I think most of the compacting GCs would have log_gc\u003d\u003dtrue due to the long pauses.",
+      "range": {
+        "startLine": 1698,
+        "startChar": 0,
+        "endLine": 1698,
+        "endChar": 52
+      },
+      "revId": "e4d99873eb1dbee956d76c1edef489103898b33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
