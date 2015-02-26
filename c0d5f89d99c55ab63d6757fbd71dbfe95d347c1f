@@ -94,6 +94,30 @@
       "revId": "c0d5f89d99c55ab63d6757fbd71dbfe95d347c1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2932f68_2b9ab955",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-02-26T18:27:12Z",
+      "side": 1,
+      "message": "If we\u0027re using the QuickCompilerCallbacks, we\u0027re recording data for every verified method and wasting memory even for methods we don\u0027t compile. Are we not?",
+      "parentUuid": "6281ff16_279afa55",
+      "range": {
+        "startLine": 75,
+        "startChar": 51,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "c0d5f89d99c55ab63d6757fbd71dbfe95d347c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
