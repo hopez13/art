@@ -22,6 +22,30 @@
       "revId": "e4d99873eb1dbee956d76c1edef489103898b33f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6242dfdd_3f3ce7b5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-26T21:09:21Z",
+      "side": 1,
+      "message": "I don\u0027t think it does, as we don\u0027t log if we have CareAboutPauseTimes() \u003d\u003d false, which is the case in the background where this compaction happens.",
+      "parentUuid": "6242dfdd_5f78cba5",
+      "range": {
+        "startLine": 1698,
+        "startChar": 0,
+        "endLine": 1698,
+        "endChar": 52
+      },
+      "revId": "e4d99873eb1dbee956d76c1edef489103898b33f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
