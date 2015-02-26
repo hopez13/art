@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22dc672f_fd22479d",
+        "filename": "runtime/mirror/throwable.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-26T13:21:54Z",
+      "side": 1,
+      "message": "or stack_state-\u003eAsObjectArray\u003cObject\u003e() ?",
+      "range": {
+        "startLine": 75,
+        "startChar": 38,
+        "endLine": 75,
+        "endChar": 82
+      },
+      "revId": "9cc7bddb913a6d912f89b6b72ac055f1cb3b165c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dc672f_3dde6fe2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1630,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-26T13:21:54Z",
+      "side": 1,
+      "message": "It won\u0027t work for recursive case (m calls m). I think you need to know the stack depth at the time the exception was thrown and compare with the current stack depth.",
+      "range": {
+        "startLine": 1630,
+        "startChar": 9,
+        "endLine": 1630,
+        "endChar": 75
+      },
+      "revId": "9cc7bddb913a6d912f89b6b72ac055f1cb3b165c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
