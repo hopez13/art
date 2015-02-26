@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2cb2f3b_0b1cdd96",
+        "filename": "runtime/arch/mips/entrypoints_direct_mips.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-26T00:00:23Z",
+      "side": 1,
+      "message": "Fixed indentation and went with || again (sorry for asking for the switch), as this allows a constexpr which allows static_asserts.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 1
+      },
+      "revId": "2d873b67f97c31da984c17ccbd94441c6264cafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
