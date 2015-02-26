@@ -70,6 +70,30 @@
       "revId": "c0d5f89d99c55ab63d6757fbd71dbfe95d347c1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a29cd784_016e4a18",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-26T18:24:19Z",
+      "side": 1,
+      "message": "Not sure, maybe it is multiple interpreter threads verifying the same method at the same time.",
+      "parentUuid": "6281ff16_279afa55",
+      "range": {
+        "startLine": 75,
+        "startChar": 51,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "c0d5f89d99c55ab63d6757fbd71dbfe95d347c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
