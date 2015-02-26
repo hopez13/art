@@ -46,6 +46,30 @@
       "revId": "c0d5f89d99c55ab63d6757fbd71dbfe95d347c1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6281ff16_279afa55",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-26T18:19:59Z",
+      "side": 1,
+      "message": "OK. Also, do you know why we\u0027re ending up in this method twice? Are we verifying the same method multiple times?",
+      "parentUuid": "228aa72f_f0da5e6e",
+      "range": {
+        "startLine": 75,
+        "startChar": 51,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "c0d5f89d99c55ab63d6757fbd71dbfe95d347c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
