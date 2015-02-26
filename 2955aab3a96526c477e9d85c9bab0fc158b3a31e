@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2cb2f3b_2b63d97f",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-26T08:52:13Z",
+      "side": 1,
+      "message": "Should we guarantee this instead? So If an input gets updated for a commutative operation, we always do the ordering? \n\nI think this should then be done in ReplaceInput or equivalent. We could then also ensure a constant is on the right side.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 7
+      },
+      "revId": "2955aab3a96526c477e9d85c9bab0fc158b3a31e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

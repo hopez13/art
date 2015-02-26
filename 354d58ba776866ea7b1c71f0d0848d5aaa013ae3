@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a22bf7c1_6935c500",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-26T08:52:13Z",
+      "side": 0,
+      "message": "Did you hit this? I think this code is only used by the baseline compiler, which doesn\u0027t see double constants. Not sure why we check if it\u0027s double.",
+      "range": {
+        "startLine": 627,
+        "startChar": 6,
+        "endLine": 627,
+        "endChar": 61
+      },
+      "revId": "354d58ba776866ea7b1c71f0d0848d5aaa013ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
