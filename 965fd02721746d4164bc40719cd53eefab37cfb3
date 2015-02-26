@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42d95b6e_6e062f4b",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-26T19:51:18Z",
+      "side": 1,
+      "message": "I don\u0027t know. Maybe we should consider turning those into error messages instead of FATALing out. In IsDexOptNeeded we can throw an exception directly, and in ClassLinker not being able to generate an oat file is already an error condition.",
+      "range": {
+        "startLine": 1528,
+        "startChar": 2,
+        "endLine": 1529,
+        "endChar": 83
+      },
+      "revId": "965fd02721746d4164bc40719cd53eefab37cfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
