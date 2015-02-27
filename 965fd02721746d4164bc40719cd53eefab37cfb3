@@ -22,6 +22,30 @@
       "revId": "965fd02721746d4164bc40719cd53eefab37cfb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82e9932d_6090b2b0",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-27T07:50:19Z",
+      "side": 1,
+      "message": "i think this is better than where we are now...\n\ni think Richard was going to look at extremely short cases too (see his other tests) which might address this they way you want.",
+      "parentUuid": "42d95b6e_6e062f4b",
+      "range": {
+        "startLine": 1528,
+        "startChar": 2,
+        "endLine": 1529,
+        "endChar": 83
+      },
+      "revId": "965fd02721746d4164bc40719cd53eefab37cfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
