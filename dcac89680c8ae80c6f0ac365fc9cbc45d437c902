@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2fb4a33_9e323dc0",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-27T21:46:32Z",
+      "side": 1,
+      "message": "this seems backwards, so I appreciate the comment. the question is what isn\u0027t the if done at the use of ...HOST_CORE_IMAGE_jit_...",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "dcac89680c8ae80c6f0ac365fc9cbc45d437c902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
