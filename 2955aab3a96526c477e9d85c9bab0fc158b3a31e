@@ -22,6 +22,30 @@
       "revId": "2955aab3a96526c477e9d85c9bab0fc158b3a31e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6263bfc4_177834a5",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-27T18:27:05Z",
+      "side": 1,
+      "message": "I tried put the ordering in ReplaceWith and ReplaceInput. It\u0027s kind of tricky, especially ReplaceWith which is iterating all uses, and changing a use can cause reordering which can change the ues list of the instruction for ReplaceWith in the middle of iterating. Also it causes a lot of unnecessary reordering in many passes.\n\nSo I prefer doing reordering in this single pass. Plus I added this comment:\n        // This replacement doesn\u0027t make more OrderInputs() necessary since\n        // current is either used by an instruction that it dominates,\n        // which hasn\u0027t been visited yet due to the order we visit instructions.\n        // Or current is used by a phi, and we don\u0027t do OrderInputs() on a phi anyway.\n        current-\u003eReplaceWith(existing);",
+      "parentUuid": "e2cb2f3b_2b63d97f",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 7
+      },
+      "revId": "2955aab3a96526c477e9d85c9bab0fc158b3a31e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

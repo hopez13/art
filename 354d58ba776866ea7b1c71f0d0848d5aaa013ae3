@@ -22,6 +22,30 @@
       "revId": "354d58ba776866ea7b1c71f0d0848d5aaa013ae3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62d57f78_47a02e7e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-27T18:27:05Z",
+      "side": 0,
+      "message": "Yes I hit this during one of the changes I made.",
+      "parentUuid": "a22bf7c1_6935c500",
+      "range": {
+        "startLine": 627,
+        "startChar": 6,
+        "endLine": 627,
+        "endChar": 61
+      },
+      "revId": "354d58ba776866ea7b1c71f0d0848d5aaa013ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
