@@ -46,6 +46,30 @@
       "revId": "dcac89680c8ae80c6f0ac365fc9cbc45d437c902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92f6464a_fdb827be",
+        "filename": "build/Android.oat.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-27T21:57:57Z",
+      "side": 1,
+      "message": "I kinda don\u0027t like this. I would rather put this into the run-test generation. It\u0027s not hard there. Put $(4) into a local, override it with interpreter when \u003d\u003d jit, then do the regular image dependency.",
+      "parentUuid": "92f6464a_dd2e8b8e",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "dcac89680c8ae80c6f0ac365fc9cbc45d437c902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
