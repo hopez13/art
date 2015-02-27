@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "22f0e70e_1dbb134b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-02-27T00:44:41Z",
+      "side": 1,
+      "message": "Overflow doesn\u0027t matter here. (array_length + 1) / 2 will generate a value in range [INT_MIN, array_length], overflow or not.",
+      "parentUuid": "c57b955e_a508282a",
+      "range": {
+        "startLine": 793,
+        "startChar": 3,
+        "endLine": 793,
+        "endChar": 42
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6869de73_4a6333f4",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
