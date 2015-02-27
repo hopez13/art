@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42a15b0b_2e06a749",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-27T10:36:13Z",
+      "side": 0,
+      "message": "As discussed, this code does not seem right, as we are not unwinding here, but just jumping to the catch handler in the current method. I removed it.",
+      "parentUuid": "c2df0b7e_62f436d8",
+      "range": {
+        "startLine": 511,
+        "startChar": 8,
+        "endLine": 511,
+        "endChar": 52
+      },
+      "revId": "ec27dc12124d57283d8f86e5386c95896b01eb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "025843e4_e4681add",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 4

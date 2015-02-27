@@ -45,6 +45,30 @@
       "revId": "7c82ba14837d4ad0d5c8748948e8b74c46b6cc7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42a15b0b_ce39e3fc",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-27T10:36:13Z",
+      "side": 1,
+      "message": "Good point. As discussed, I changed the code to discard native frames at the top of the stack.",
+      "parentUuid": "025843e4_846da6eb",
+      "range": {
+        "startLine": 369,
+        "startChar": 5,
+        "endLine": 369,
+        "endChar": 50
+      },
+      "revId": "7c82ba14837d4ad0d5c8748948e8b74c46b6cc7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
