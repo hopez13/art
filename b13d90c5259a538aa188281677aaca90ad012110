@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a23777c2_095bc9ef",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "The mov/and instructions (472-473) are there to zero the rb bits to use the cbnz instruction (474) to check if the monitor is unlocked (that is, the lock word is all zero except for the rb bits.)\n\nIf we don\u0027t mask the rb bits there, we can\u0027t use cbnz to do so. How do you suggest implementing this conditional branch logic without masking the rb bits?\n\nNote the rb bits can have any value and can be updated concurrently/atomically throughout these assembly routines (and that\u0027s why we need to atomically update the lockword.)",
+      "parentUuid": "02fda3e8_1cbdd5ac",
+      "range": {
+        "startLine": 472,
+        "startChar": 7,
+        "endLine": 472,
+        "endChar": 11
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5ad55fe_35d55a42",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-27T00:43:28Z",
       "side": 1,
       "message": "Change the comment to say that its not the upper two bits but two read barrier bits? (28-30).",
+      "range": {
+        "startLine": 491,
+        "startChar": 0,
+        "endLine": 491,
+        "endChar": 112
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a23777c2_091f4903",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "Do you see the comment changed from \"top two bits\" to \"the upper two bits\" and the latter can mean the two bits just upper than the count bits (that is, bits 28-29)? So, it seems ok to me. But I\u0027ll update it to include \"bits 28-29\" to be clearer.",
+      "parentUuid": "c5ad55fe_35d55a42",
       "range": {
         "startLine": 491,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a23777c2_69a1a539",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2e4d751_81de9a62",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "225b87e2_a5169e46",
         "filename": "runtime/lock_word.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-02-27T00:43:28Z",
       "side": 1,
       "message": "() unnecessary",
+      "range": {
+        "startLine": 105,
+        "startChar": 37,
+        "endLine": 105,
+        "endChar": 51
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "822c337c_085bc7ef",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "225b87e2_a5169e46",
       "range": {
         "startLine": 105,
         "startChar": 37,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a23777c2_898ed9ca",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fda3e8_dc2fed7f",
+      "range": {
+        "startLine": 170,
+        "startChar": 29,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22f0e70e_5dee3bba",
         "filename": "runtime/lock_word.h",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "2223878f_0593b270",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "Done. Confirmed a private works fine. Will use \"\u003d delete\" instead, which is more concise.\n\nI added a related comment on GetValue().",
+      "parentUuid": "22f0e70e_5dee3bba",
+      "range": {
+        "startLine": 203,
+        "startChar": 7,
+        "endLine": 203,
+        "endChar": 15
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5ad55fe_b2a68056",
         "filename": "runtime/lock_word.h",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2015-02-27T00:43:28Z",
       "side": 1,
       "message": "I think the preferred way is ATTRIBUTE_UNUSED now.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 16
+      },
+      "revId": "b13d90c5259a538aa188281677aaca90ad012110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6231ffd0_2a031f3a",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-02-27T21:29:38Z",
+      "side": 1,
+      "message": "Done (or obsolete.)",
+      "parentUuid": "c5ad55fe_b2a68056",
       "range": {
         "startLine": 204,
         "startChar": 0,
