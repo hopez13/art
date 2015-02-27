@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "425ebbd0_a616a646",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-27T07:48:25Z",
+      "side": 1,
+      "message": "Not sure about that subject: we don\u0027t change how we *report* the exception but how we *detect* when we need to report the exception. It\u0027s more about getting rid of  the is_exception_reported_to_instrumentation_ flag from Thread, it\u0027s more a cleanup.\n\nI\u0027d change to something like \"Change detection of exception reporting to the debugger\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "7c82ba14837d4ad0d5c8748948e8b74c46b6cc7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "025843e4_846da6eb",
         "filename": "runtime/thread.h",
         "patchSetId": 4
