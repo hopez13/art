@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2df0b7e_62f436d8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-27T07:36:02Z",
+      "side": 0,
+      "message": "You can\u0027t just remove this one. You need to replace with \"!self-\u003eIsExceptionThrownByCurrentMethod(exception.Get())\"",
+      "range": {
+        "startLine": 511,
+        "startChar": 8,
+        "endLine": 511,
+        "endChar": 52
+      },
+      "revId": "ec27dc12124d57283d8f86e5386c95896b01eb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "025843e4_e4681add",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-02-27T07:36:02Z",
+      "side": 0,
+      "message": "That\u0027s the part I expected to be removed :)",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 3
+      },
+      "revId": "ec27dc12124d57283d8f86e5386c95896b01eb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
