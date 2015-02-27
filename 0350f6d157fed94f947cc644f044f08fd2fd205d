@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "820273b9_bb02f3ef",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-27T02:42:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820273b9_7b8dfb48",
+      "range": {
+        "startLine": 1305,
+        "startChar": 38,
+        "endLine": 1305,
+        "endChar": 60
+      },
+      "revId": "0350f6d157fed94f947cc644f044f08fd2fd205d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62073fcc_17bbf44a",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-02-27T02:38:24Z",
       "side": 1,
       "message": "How is this related to sharpening?",
+      "range": {
+        "startLine": 79,
+        "startChar": 6,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "0350f6d157fed94f947cc644f044f08fd2fd205d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62073fcc_57b72c4c",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-02-27T02:42:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62073fcc_17bbf44a",
       "range": {
         "startLine": 79,
         "startChar": 6,
