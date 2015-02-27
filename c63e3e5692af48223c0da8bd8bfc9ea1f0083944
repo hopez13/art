@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2242aa5_36cfd85b",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-02-27T23:56:19Z",
+      "side": 1,
+      "message": "The CAS on unlock is unnecessary without the read-barrier (ie default). While the assembly code is conditional the C++ isn\u0027t and you\u0027ve removed the sable optimization from the C++ code just not the assembly code (hence no performance degradation on compiled code, but likely a performance degradation on interpreted code that doesn\u0027t go through the assembly stubs). The code should really be conditional on either having read barriers or having the sable optimization, in the case of the sable optimization suspension is needed to inflate on contention, without the sable optimization you can CAS to inflate and not suspend the thread owner - which should be a performance win for that unlikely case. All in all having the assembly code out-of-sync with the C++ implementation is at best messy.",
+      "range": {
+        "startLine": 807,
+        "startChar": 0,
+        "endLine": 807,
+        "endChar": 80
+      },
+      "revId": "c63e3e5692af48223c0da8bd8bfc9ea1f0083944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
