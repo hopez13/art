@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "c2df0b7e_02c0ca55",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-02-27T09:43:36Z",
+      "side": 1,
+      "message": "Oh yes, indeed c is the \"divider\" (sort of). Thanks!",
+      "parentUuid": "22f0e70e_1dbb134b",
+      "range": {
+        "startLine": 793,
+        "startChar": 3,
+        "endLine": 793,
+        "endChar": 42
+      },
+      "revId": "97f23da195ed1f54dbe64130dfcdf750db715008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6869de73_4a6333f4",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
