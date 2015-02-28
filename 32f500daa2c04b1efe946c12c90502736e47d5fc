@@ -70,6 +70,30 @@
       "revId": "32f500daa2c04b1efe946c12c90502736e47d5fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "522e8e91_8bbf8da2",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2015-02-28T06:06:53Z",
+      "side": 1,
+      "message": "Yup just noticed. It would be faster if you can submit the fix. Thanks.",
+      "parentUuid": "f2586243_c8fd8fb5",
+      "range": {
+        "startLine": 149,
+        "startChar": 16,
+        "endLine": 149,
+        "endChar": 18
+      },
+      "revId": "32f500daa2c04b1efe946c12c90502736e47d5fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
