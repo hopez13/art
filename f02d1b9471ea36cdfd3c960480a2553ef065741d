@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "723392f5_6ff7cda9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2344,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-28T16:03:30Z",
+      "side": 1,
+      "message": "LSRA doesn\u0027t like SameAsFirstInput when a hardcoded register is the first input.",
+      "revId": "f02d1b9471ea36cdfd3c960480a2553ef065741d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723392f5_2f01c503",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-28T16:03:30Z",
+      "side": 1,
+      "message": "I suspect that this new code can all go, now that I put in the splitting for x86 pairs.",
+      "revId": "f02d1b9471ea36cdfd3c960480a2553ef065741d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52004eef_decfa1a5",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-02-28T16:03:30Z",
+      "side": 1,
+      "message": "Do I need to remove this?   It really helps debugging RA \u0026 codegen",
+      "revId": "f02d1b9471ea36cdfd3c960480a2553ef065741d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
