@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f23f82b3_d08adce5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-28T06:02:31Z",
+      "side": 1,
+      "message": "update for WITH_ART_SMART_MODE removal and non- /build changes?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "ae157973210b42472c1dbf54726ed492b4f99b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "922486ae_2d7b0df5",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-02-28T06:02:31Z",
+      "side": 1,
+      "message": "seems fine but why in this CL?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 77
+      },
+      "revId": "ae157973210b42472c1dbf54726ed492b4f99b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
