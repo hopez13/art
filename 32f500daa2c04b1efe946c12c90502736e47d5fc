@@ -22,6 +22,30 @@
       "revId": "32f500daa2c04b1efe946c12c90502736e47d5fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52004eef_1bfbdbfb",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1067419
+      },
+      "writtenOn": "2015-02-28T05:56:16Z",
+      "side": 1,
+      "message": "Yes. PS4 should fix that.",
+      "parentUuid": "42ca3bdf_2645363d",
+      "range": {
+        "startLine": 149,
+        "startChar": 16,
+        "endLine": 149,
+        "endChar": 18
+      },
+      "revId": "32f500daa2c04b1efe946c12c90502736e47d5fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
