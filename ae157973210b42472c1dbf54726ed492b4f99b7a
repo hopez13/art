@@ -45,6 +45,30 @@
       "revId": "ae157973210b42472c1dbf54726ed492b4f99b7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2586243_e800532f",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-28T06:03:58Z",
+      "side": 1,
+      "message": "This is incorrectly rebased. Hiroshi made it upper-case, with the reasoning that it\u0027s a make flag, e.g., mm ART_DEFAULT_GC_TYPE\u003dXXX test-art-host.",
+      "parentUuid": "922486ae_2d7b0df5",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 77
+      },
+      "revId": "ae157973210b42472c1dbf54726ed492b4f99b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
