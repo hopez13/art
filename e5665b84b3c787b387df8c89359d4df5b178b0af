@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "921f2654_35e0f012",
+        "filename": "compiler/dex/quick/mips/int_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-02-28T00:18:08Z",
+      "side": 1,
+      "message": "This being repeated quite often suggests a helper in MipsMir2Lir. Maybe even a field, similar to what X86Mir2Lir did some time ago, if you want to avoid the overhead of the call.",
+      "range": {
+        "startLine": 250,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 14
+      },
+      "revId": "e5665b84b3c787b387df8c89359d4df5b178b0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
