@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1287b6d2_e10986e3",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "bigger picture, maybe this should be a list of section information, otherwise we have to add this for each new section. I wouldn\u0027t change it for this CL.",
+      "range": {
+        "startLine": 541,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 31
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f28dc2f3_40438efb",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to a segment type defined in the spec: \n\nhttp://www.sco.com/developers/gabi/latest/ch5.pheader.html",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 50
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924d6688_283e6374",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "oatlastword is supposed to be the end of the oat content. seems like that should move here, or we don\u0027t need oatbsslastword",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 45
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f28dc2f3_a0313a9f",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "This should just be part of the above PT_LOAD RW segment.\n\nthe .bss should just be at the end. Here is an example from http://mylinuxbook.com/readelf-command/\n\nnote that the mem size is slight larger than the file size here:\n\n LOAD           0x000f14 0x08049f14 0x08049f14 0x00104 0x0010c RW  0x1000\n\nand the .bss is at the end of the segment:\n\n  03     .ctors .dtors .jcr .dynamic .got .got.plt .data .bss",
+      "range": {
+        "startLine": 711,
+        "startChar": 0,
+        "endLine": 712,
+        "endChar": 53
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f28dc2f3_c02ebe3c",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "this is where we should bump by the desired .bss size. indeed, this whole segment needs to include dynamic_builder_ and bss_builder_ information",
+      "range": {
+        "startLine": 1023,
+        "startChar": 76,
+        "endLine": 1023,
+        "endChar": 83
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1287b6d2_81fbda4b",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1033,
+        "startChar": 0,
+        "endLine": 1039,
+        "endChar": 0
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1287b6d2_41f5d253",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "move up before oatlastword",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1218,
+        "endChar": 80
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1287b6d2_21f0ce64",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 1219,
+        "startChar": 0,
+        "endLine": 1220,
+        "endChar": 65
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924d6688_48707f5e",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1265,
+        "startChar": 0,
+        "endLine": 1265,
+        "endChar": 24
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "924d6688_a88813b5",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "document reuse argument",
+      "range": {
+        "startLine": 64,
+        "startChar": 44,
+        "endLine": 64,
+        "endChar": 54
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1287b6d2_0107cace",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "do we need this? If you need BssSize, you can compute between oatbss and the moved down oatlastword",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 33
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f28dc2f3_8070b65f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T06:11:07Z",
+      "side": 1,
+      "message": "and here...",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 33
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
