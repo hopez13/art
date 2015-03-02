@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12d5f6ce_d131a4f0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T10:08:19Z",
+      "side": 1,
+      "message": "Why only on x64? This looks odd if triggered by this change. I don\u0027t see why GVN would replace an constant int with a null.\n\nCould you move this to its own change with a small unit test?",
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "727ab2ab_b4bf40a2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T10:08:19Z",
+      "side": 1,
+      "message": "Since this could also apply to non commutative inputs, maybe move the constant logic to a helper in HBinaryOperation that will be used by something like prepare_for_register_allocation.cc.",
+      "range": {
+        "startLine": 1514,
+        "startChar": 0,
+        "endLine": 1514,
+        "endChar": 76
+      },
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32d2fae7_f2fdc8b4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T10:08:19Z",
+      "side": 1,
+      "message": "You can drop the virtual (here and below).",
+      "range": {
+        "startLine": 1574,
+        "startChar": 2,
+        "endLine": 1574,
+        "endChar": 9
+      },
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
