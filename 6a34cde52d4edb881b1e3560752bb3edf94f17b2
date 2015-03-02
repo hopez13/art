@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "92c00617_0d74f188",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T14:38:54Z",
+      "side": 1,
+      "message": "It\u0027s OK to keep it, but it deserves a comment.",
+      "parentUuid": "72cf1248_cc27cfe1",
+      "range": {
+        "startLine": 714,
+        "startChar": 0,
+        "endLine": 715,
+        "endChar": 59
+      },
+      "revId": "6a34cde52d4edb881b1e3560752bb3edf94f17b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92c00617_4dec39c3",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "That\u0027s assuming Covers is always called on non-decreasing sequences. For example, FreeIfNotCover is called on current_pos+1 and ConnectSplitSiblings calls Covers completely out of sequence. \n\nSo yes, we could get rid of it but apart from \"resetting\" the cached value of each interval, we would also have to rewrite some bits to run in the correct order and I\u0027m worried I might miss something.",
       "parentUuid": "92c00617_4dec39c3",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 720,
+        "endChar": 88
+      },
+      "revId": "6a34cde52d4edb881b1e3560752bb3edf94f17b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_cd8d8900",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T14:38:54Z",
+      "side": 1,
+      "message": "Please add a comment on this code then, explaining that \"even though it is linear, ....\".",
+      "parentUuid": "b2c50a26_8e353bac",
       "range": {
         "startLine": 720,
         "startChar": 0,
