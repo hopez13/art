@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b2c50a26_4ee67334",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-02T11:41:40Z",
+      "side": 1,
+      "message": "I can rename it to LOAD_RW_2.\nI didn\u0027t find any restriction on the number of program headers with the same type.",
+      "parentUuid": "f28dc2f3_40438efb",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 50
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "924d6688_283e6374",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b2c50a26_2e33e72a",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-02T11:41:40Z",
+      "side": 1,
+      "message": "I want to keep oatlastword as the end of the content mapped from file and oatbsslastword as the end of the mapped memory.",
+      "parentUuid": "924d6688_283e6374",
+      "range": {
+        "startLine": 592,
+        "startChar": 0,
+        "endLine": 592,
+        "endChar": 45
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f28dc2f3_a0313a9f",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -82,6 +130,30 @@
       "writtenOn": "2015-03-02T06:11:07Z",
       "side": 1,
       "message": "This should just be part of the above PT_LOAD RW segment.\n\nthe .bss should just be at the end. Here is an example from http://mylinuxbook.com/readelf-command/\n\nnote that the mem size is slight larger than the file size here:\n\n LOAD           0x000f14 0x08049f14 0x08049f14 0x00104 0x0010c RW  0x1000\n\nand the .bss is at the end of the segment:\n\n  03     .ctors .dtors .jcr .dynamic .got .got.plt .data .bss",
+      "range": {
+        "startLine": 711,
+        "startChar": 0,
+        "endLine": 712,
+        "endChar": 53
+      },
+      "revId": "4352e55a3b80dd13bf441b0e69241a68cf8309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2defef5_2fe52923",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-02T11:41:40Z",
+      "side": 1,
+      "message": "This is exactly what I do NOT want. This breaks the oat file stuff in the elf file into two pieces (.rodata+.text and .bss) and puts the .dynamic in between. Any link-time patching in OatWriter pointing to .bss would need to know the size of the .dynamic segment.\n\nThis would also make it impossible to symbolize the oat file without moving the .bss, so we would need to write all .bss references to the elf file and re-patch when symbolizing.",
+      "parentUuid": "f28dc2f3_a0313a9f",
       "range": {
         "startLine": 711,
         "startChar": 0,
