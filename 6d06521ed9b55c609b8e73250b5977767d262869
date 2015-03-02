@@ -211,6 +211,30 @@
       "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2c50a26_2eb2074e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T16:56:45Z",
+      "side": 1,
+      "message": "Oh ok, I misunderstood this part. Then why do you need to caller check? Can\u0027t you just give an instance to whoever calls this method?",
+      "parentUuid": "b2aeea63_261d5662",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 74
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
