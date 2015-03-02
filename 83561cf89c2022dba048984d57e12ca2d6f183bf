@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92dac633_9d9ce36e",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-02T23:56:39Z",
+      "side": 1,
+      "message": "deflation is inherently racy (reads from the monitor writes to the object) why the use of CAS? Perhaps document this is only necessary for read barriers.",
+      "range": {
+        "startLine": 615,
+        "startChar": 16,
+        "endLine": 615,
+        "endChar": 53
+      },
+      "revId": "83561cf89c2022dba048984d57e12ca2d6f183bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2d8be3c_bf627787",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-02T23:56:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 68
+      },
+      "revId": "83561cf89c2022dba048984d57e12ca2d6f183bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92dac633_dda66bbc",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-02T23:56:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 629,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 68
+      },
+      "revId": "83561cf89c2022dba048984d57e12ca2d6f183bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2d8be3c_1f1d231d",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-02T23:56:39Z",
+      "side": 1,
+      "message": "Use an acquire store in the non read-barrier case?",
+      "range": {
+        "startLine": 733,
+        "startChar": 14,
+        "endLine": 733,
+        "endChar": 82
+      },
+      "revId": "83561cf89c2022dba048984d57e12ca2d6f183bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2dfca22_9eb85dbe",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-02T23:56:39Z",
+      "side": 1,
+      "message": "Why is this not exclusive? Worth a comment.",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 18
+      },
+      "revId": "83561cf89c2022dba048984d57e12ca2d6f183bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
