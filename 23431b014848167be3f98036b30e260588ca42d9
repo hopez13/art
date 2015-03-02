@@ -22,6 +22,30 @@
       "revId": "23431b014848167be3f98036b30e260588ca42d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72cf1248_6c125b8d",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-03-02T13:59:19Z",
+      "side": 1,
+      "message": "Will do. I used stl since I can apply std::sort() and std::is_sorted().\n\nWe need a sorted list, since we scan linearly for call positions (see my comments in RegisterAllocator::GetCallerCalleePreference(()).\n\nA better way would be to record the call positions on the linearised graph, in SsaLivenessAnalysis::NumberInstructions(). This way we do not need to sort the call positions array before using it.\n\nWould that be acceptable?",
+      "parentUuid": "72cf1248_4ce67f34",
+      "range": {
+        "startLine": 203,
+        "startChar": 7,
+        "endLine": 203,
+        "endChar": 13
+      },
+      "revId": "23431b014848167be3f98036b30e260588ca42d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
