@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2defef5_eff641df",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T10:31:50Z",
+      "side": 1,
+      "message": "I think you need to set overflow and underflow to false before calling Bound::Add (to be on the safe side). Oterhwise the previous call might return 1 overflow/underflow, and you would not enter this case.",
+      "range": {
+        "startLine": 561,
+        "startChar": 11,
+        "endLine": 561,
+        "endChar": 35
+      },
+      "revId": "57e04754d5b7fb3cc99d6b9f70da73cf4c65b416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
