@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2b4e2b1_c88d6f00",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T16:38:14Z",
+      "side": 1,
+      "message": "\"Order may be different in final output\" seems wrong now. In fact you are doing this non-traditional layout on purpose to make sure the oat sections are contiguous without .dynamic in the way. So I\u0027d document that, probably here?",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 80
+      },
+      "revId": "a860adf6874e109be871fcfbc71d350ec77c35a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2aeea63_e6809ef6",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T16:38:14Z",
+      "side": 1,
+      "message": "now that we don\u0027t have a generic RW segment, I would in fact call them *_RW_BSS and *_RW_DYNAMIC to be clear.",
+      "range": {
+        "startLine": 705,
+        "startChar": 32,
+        "endLine": 705,
+        "endChar": 33
+      },
+      "revId": "a860adf6874e109be871fcfbc71d350ec77c35a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2b4e2b1_a884bbd7",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-02T16:38:14Z",
+      "side": 1,
+      "message": "do you want to renumber?",
+      "range": {
+        "startLine": 1274,
+        "startChar": 0,
+        "endLine": 1275,
+        "endChar": 26
+      },
+      "revId": "a860adf6874e109be871fcfbc71d350ec77c35a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
