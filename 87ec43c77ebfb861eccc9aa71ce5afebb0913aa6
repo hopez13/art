@@ -22,6 +22,30 @@
       "revId": "87ec43c77ebfb861eccc9aa71ce5afebb0913aa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2434a80_be0a591d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T18:13:38Z",
+      "side": 1,
+      "message": "There\u0027s only ZipError as a subclass, I think. Initialization abort is kind of an internal error, so it\u0027s the right category IMHO. We didn\u0027t want to introduce another class. And as I discussed with shertz a couple of weeks back, changing to -1 like we do for deopt has other complications.",
+      "parentUuid": "b2c50a26_d1f9a6d1",
+      "range": {
+        "startLine": 847,
+        "startChar": 56,
+        "endLine": 847,
+        "endChar": 91
+      },
+      "revId": "87ec43c77ebfb861eccc9aa71ce5afebb0913aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
