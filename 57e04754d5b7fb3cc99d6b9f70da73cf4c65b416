@@ -22,6 +22,30 @@
       "revId": "57e04754d5b7fb3cc99d6b9f70da73cf4c65b416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2d8be3c_ffd95f72",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-02T23:37:07Z",
+      "side": 1,
+      "message": "ValueBound::Add() always set overflow/underflow so it should be ok.",
+      "parentUuid": "d2defef5_eff641df",
+      "range": {
+        "startLine": 561,
+        "startChar": 11,
+        "endLine": 561,
+        "endChar": 35
+      },
+      "revId": "57e04754d5b7fb3cc99d6b9f70da73cf4c65b416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
