@@ -235,6 +235,30 @@
       "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2b4e2b1_0827076e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T16:59:03Z",
+      "side": 1,
+      "message": "I felt safer to only do this for code I inspected so I know it\u0027s correct to return a random new instance.",
+      "parentUuid": "b2c50a26_2eb2074e",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 74
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
