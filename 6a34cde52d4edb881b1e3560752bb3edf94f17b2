@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72cf1248_ccf90fd2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T13:55:51Z",
+      "side": 1,
+      "message": "Not sure I understand this check. Is it for checking the last visited range is owned by this interval?",
+      "range": {
+        "startLine": 714,
+        "startChar": 0,
+        "endLine": 715,
+        "endChar": 59
+      },
+      "revId": "6a34cde52d4edb881b1e3560752bb3edf94f17b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_4dec39c3",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T13:55:51Z",
+      "side": 1,
+      "message": "So we go back to first range if the position is below the last visited range. If we knew the places we restart the algorithm, we wouldn\u0027t need to check right?",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 720,
+        "endChar": 88
+      },
+      "revId": "6a34cde52d4edb881b1e3560752bb3edf94f17b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
