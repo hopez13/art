@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92c00617_8da6a1bb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-02T12:53:50Z",
+      "side": 1,
+      "message": "Isn\u0027t this the same as region_.size()? Passing the number of dex registers to the method is really ugly.",
+      "range": {
+        "startLine": 137,
+        "startChar": 11,
+        "endLine": 137,
+        "endChar": 68
+      },
+      "revId": "d32828aca7793ed08e52c26e425d83374612d3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
