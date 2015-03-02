@@ -68,6 +68,29 @@
       "revId": "993a80eecd04778faf3f7065fa3768c15ca5060a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_ed6ba5ec",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1056068
+      },
+      "writtenOn": "2015-03-02T12:46:50Z",
+      "side": 1,
+      "message": "lock_count_ is owner\u0027s recursive lock depth starting from zero. entryCount is \"the number of times the monitor has been entered\" according to spes. So it should be lock_count_ + 1 for fat monitor.",
+      "range": {
+        "startLine": 1469,
+        "startChar": 6,
+        "endLine": 1469,
+        "endChar": 38
+      },
+      "revId": "993a80eecd04778faf3f7065fa3768c15ca5060a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
