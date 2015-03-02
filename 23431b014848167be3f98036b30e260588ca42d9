@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72cf1248_4ce67f34",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T13:47:35Z",
+      "side": 1,
+      "message": "No STL please, use a GrowableArray instead.",
+      "range": {
+        "startLine": 203,
+        "startChar": 7,
+        "endLine": 203,
+        "endChar": 13
+      },
+      "revId": "23431b014848167be3f98036b30e260588ca42d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
