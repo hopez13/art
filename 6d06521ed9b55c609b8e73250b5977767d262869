@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2b4e2b1_e88ab3e5",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T16:42:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c50a26_8e145b43",
+      "range": {
+        "startLine": 847,
+        "startChar": 4,
+        "endLine": 847,
+        "endChar": 46
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2c50a26_6e232faa",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-02T12:43:13Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 902,
+        "startChar": 4,
+        "endLine": 902,
+        "endChar": 44
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2b4e2b1_888777dc",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T16:42:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c50a26_6e232faa",
       "range": {
         "startLine": 902,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "92a9e660_4542ca6b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T16:42:13Z",
+      "side": 1,
+      "message": "Moved it to line 914, instead.",
+      "parentUuid": "92c00617_ad4cbd98",
+      "range": {
+        "startLine": 917,
+        "startChar": 9,
+        "endLine": 917,
+        "endChar": 35
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92c00617_0db39103",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-02T12:43:13Z",
       "side": 1,
       "message": "Why don\u0027t you catch this instead?",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 74
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2aeea63_c6832201",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T16:42:13Z",
+      "side": 1,
+      "message": "Because I don\u0027t want to write an implementation for this. Having a compliant implementation is IMHO a lot harder than creating the pretend-ThreadLocal object.",
+      "parentUuid": "92c00617_0db39103",
       "range": {
         "startLine": 1037,
         "startChar": 24,
