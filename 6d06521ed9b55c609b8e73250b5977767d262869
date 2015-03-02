@@ -187,6 +187,30 @@
       "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2aeea63_261d5662",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-02T16:44:14Z",
+      "side": 1,
+      "message": "Also note b/19548084. I think RealToString can be rewritten to look like IntegralToString, which would allow to remove those caller checks (which I did just for safety knowing the ThreadLocal usage).",
+      "parentUuid": "b2aeea63_c6832201",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 74
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
