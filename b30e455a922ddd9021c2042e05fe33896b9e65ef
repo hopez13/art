@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72a8f25b_64c4aa8d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-02T16:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c50a26_ee171fc6",
+      "range": {
+        "startLine": 326,
+        "startChar": 34,
+        "endLine": 326,
+        "endChar": 46
+      },
+      "revId": "b30e455a922ddd9021c2042e05fe33896b9e65ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72cf1248_0c42b718",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-02T16:20:30Z",
       "side": 1,
       "message": "-\u003e linear scan performs 3 scans: integers, floats, and resolution. Instead of resetting at the beginning of a scan, we do it here.",
+      "range": {
+        "startLine": 721,
+        "startChar": 46,
+        "endLine": 721,
+        "endChar": 79
+      },
+      "revId": "b30e455a922ddd9021c2042e05fe33896b9e65ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_cd4109c3",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-02T16:27:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72cf1248_0c42b718",
       "range": {
         "startLine": 721,
         "startChar": 46,
