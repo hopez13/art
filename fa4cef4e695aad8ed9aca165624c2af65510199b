@@ -22,6 +22,30 @@
       "revId": "fa4cef4e695aad8ed9aca165624c2af65510199b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72cf1248_ecfdebb4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-03-02T14:03:16Z",
+      "side": 1,
+      "message": "No reason... probably because of vim yanking. Will fix this and break the patch dependency, since it is not needed.",
+      "parentUuid": "b2c50a26_2e06871c",
+      "range": {
+        "startLine": 889,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 45
+      },
+      "revId": "fa4cef4e695aad8ed9aca165624c2af65510199b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
