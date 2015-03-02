@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2c50a26_8e145b43",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T12:43:13Z",
+      "side": 1,
+      "message": "Please provide a meaningful comment. I can read the code :-), but don\u0027t know why you\u0027re doing this.",
+      "range": {
+        "startLine": 847,
+        "startChar": 4,
+        "endLine": 847,
+        "endChar": 46
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2c50a26_6e232faa",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T12:43:13Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 902,
+        "startChar": 4,
+        "endLine": 902,
+        "endChar": 44
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_ad4cbd98",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T12:43:13Z",
+      "side": 1,
+      "message": "This comment relates to what we were doing before. In the new context, we\u0027re still aborting (that is, not setting ok to true), so I\u0027d rephrase this comment and move it to line 926.",
+      "range": {
+        "startLine": 917,
+        "startChar": 9,
+        "endLine": 917,
+        "endChar": 35
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_0db39103",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-02T12:43:13Z",
+      "side": 1,
+      "message": "Why don\u0027t you catch this instead?",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 74
+      },
+      "revId": "6d06521ed9b55c609b8e73250b5977767d262869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
