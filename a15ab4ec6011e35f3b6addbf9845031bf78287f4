@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2bd1ee7_d7c93c57",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T17:21:33Z",
+      "side": 1,
+      "message": "You don\u0027t need this. Is the check line 1438 guaranteeing safepoint_index does not go below 0?",
+      "range": {
+        "startLine": 1429,
+        "startChar": 11,
+        "endLine": 1429,
+        "endChar": 44
+      },
+      "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
