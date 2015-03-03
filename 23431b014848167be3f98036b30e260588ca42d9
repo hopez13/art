@@ -46,6 +46,30 @@
       "revId": "23431b014848167be3f98036b30e260588ca42d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92a646d4_fd06679d",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T14:40:15Z",
+      "side": 1,
+      "message": "We\u0027re collecting the call positions in linear order. Why do you need to sort it? It\u0027s already sorted. I\u0027m sure we can workaround it if it\u0027s not in ascending order.",
+      "parentUuid": "72cf1248_6c125b8d",
+      "range": {
+        "startLine": 203,
+        "startChar": 7,
+        "endLine": 203,
+        "endChar": 13
+      },
+      "revId": "23431b014848167be3f98036b30e260588ca42d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
