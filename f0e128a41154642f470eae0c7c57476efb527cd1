@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f20862ad_68b983c0",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T18:42:05Z",
+      "side": 1,
+      "message": "Yes, thanks.",
+      "parentUuid": "72e3921f_cc32cf77",
+      "range": {
+        "startLine": 924,
+        "startChar": 6,
+        "endLine": 924,
+        "endChar": 18
+      },
+      "revId": "f0e128a41154642f470eae0c7c57476efb527cd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72e3921f_4c3fff3c",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-03T18:35:22Z",
       "side": 1,
       "message": "Should this be wrapped in a handle because we call AllocObject() in line 1052?",
+      "range": {
+        "startLine": 1050,
+        "startChar": 10,
+        "endLine": 1050,
+        "endChar": 45
+      },
+      "revId": "f0e128a41154642f470eae0c7c57476efb527cd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d20b5ea7_a7168a7c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T18:42:05Z",
+      "side": 1,
+      "message": "Yes, thanks.",
+      "parentUuid": "72e3921f_4c3fff3c",
       "range": {
         "startLine": 1050,
         "startChar": 10,
