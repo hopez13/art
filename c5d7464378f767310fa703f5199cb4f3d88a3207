@@ -160,6 +160,30 @@
       "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_68e59b22",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:15:54Z",
+      "side": 1,
+      "message": "OK, I understand now. It\u0027s to have a complete frame for the exception dispatch. Ugly, needs comment.",
+      "parentUuid": "72ce32a5_14da1467",
+      "range": {
+        "startLine": 1404,
+        "startChar": 4,
+        "endLine": 1404,
+        "endChar": 25
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
