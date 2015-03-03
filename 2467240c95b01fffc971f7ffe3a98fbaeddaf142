@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "52920e67_0ec50b3a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-03T08:54:00Z",
+      "side": 1,
+      "message": "When we have a \"obj \u003d\u003d null\" test, we now do:\n      0 1 z28 Equal [ l24 i27 ]\u003c|@\n      0 0 v29 If [ z28 ]\u003c|@\nl24 is later replace with constant null l153 after inlining.\nand this change swaps the order of l153 and i27, thus causing this crash.\n\nSo the change on this line takes into consideration a null constant is on the right. \nOne arm side may need the same change also.\n\nIt looks like i27 should be a constant null instead of constant 0. Also constant folding should make null \u003d\u003d null be constant true, and can further trim dead code.",
+      "parentUuid": "12d5f6ce_d131a4f0",
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "727ab2ab_b4bf40a2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "52920e67_6ed4cfed",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-03T08:54:00Z",
+      "side": 1,
+      "message": "Still has to be commutative to be able to reorder I think. I added the helper.",
+      "parentUuid": "727ab2ab_b4bf40a2",
+      "range": {
+        "startLine": 1514,
+        "startChar": 0,
+        "endLine": 1514,
+        "endChar": 76
+      },
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32d2fae7_f2fdc8b4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2015-03-02T10:08:19Z",
       "side": 1,
       "message": "You can drop the virtual (here and below).",
+      "range": {
+        "startLine": 1574,
+        "startChar": 2,
+        "endLine": 1574,
+        "endChar": 9
+      },
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52920e67_8eb81bbe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-03T08:54:00Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "32d2fae7_f2fdc8b4",
       "range": {
         "startLine": 1574,
         "startChar": 2,
