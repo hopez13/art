@@ -116,6 +116,30 @@
       "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_08e6e732",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2175,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:14:53Z",
+      "side": 1,
+      "message": "GenericJNI works for Mips64. But it seems the JNI compiler doesn\u0027t. That was the situation for the other 64b backends in the beginning, too...",
+      "parentUuid": "52b04e09_5b7c4337",
+      "range": {
+        "startLine": 2175,
+        "startChar": 4,
+        "endLine": 2175,
+        "endChar": 40
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
