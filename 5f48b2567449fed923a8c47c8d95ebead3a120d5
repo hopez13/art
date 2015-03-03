@@ -140,6 +140,30 @@
       "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52b04e09_9b508bb2",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T16:20:23Z",
+      "side": 1,
+      "message": "Erf, ok the code is kind of convoluted here. Maybe a InstructionSetHasJniCompiler would be better (and not require a comment. Without a comment the current code is hard to follow).",
+      "parentUuid": "9271e61d_08e6e732",
+      "range": {
+        "startLine": 2175,
+        "startChar": 4,
+        "endLine": 2175,
+        "endChar": 40
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
