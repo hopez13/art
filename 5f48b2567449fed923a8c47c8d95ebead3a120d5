@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9271e61d_c5975a8d",
+        "filename": "compiler/dex/quick/mips64/utility_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:02:18Z",
+      "side": 1,
+      "message": "This and below has been updated for readability in the mips backend. Please update.",
+      "range": {
+        "startLine": 73,
+        "startChar": 47,
+        "endLine": 73,
+        "endChar": 81
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9271e61d_a507be14",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 1
