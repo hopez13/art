@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "321d9af7_0098aa4a",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-03T22:29:49Z",
+      "side": 1,
+      "message": "Thanks, I don\u0027t mind the CAS it was more that it wasn\u0027t documented in the same way the other \"return false\" cases were above. If you are assuming no concurrent operations then perhaps a debug assert is appropriate or a comment to something like that.",
+      "parentUuid": "3282fa51_b2cd80b1",
+      "revId": "5d4978129fe5b027de0285b91851cacaed1b449d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72ce32a5_141fb487",
         "filename": "runtime/monitor.cc",
         "patchSetId": 6
