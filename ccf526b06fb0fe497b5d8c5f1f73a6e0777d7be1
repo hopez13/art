@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "321d9af7_ee41e766",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-03T23:45:20Z",
+      "side": 1,
+      "message": "New CL doesn\u0027t touch this stuff.",
+      "parentUuid": "527a0e34_eb979119",
+      "range": {
+        "startLine": 1245,
+        "startChar": 2,
+        "endLine": 1245,
+        "endChar": 64
+      },
+      "revId": "ccf526b06fb0fe497b5d8c5f1f73a6e0777d7be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "527a0e34_eb4c714f",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-03T23:40:19Z",
       "side": 1,
       "message": "break -\u003e return?",
+      "range": {
+        "startLine": 1141,
+        "startChar": 6,
+        "endLine": 1141,
+        "endChar": 11
+      },
+      "revId": "ccf526b06fb0fe497b5d8c5f1f73a6e0777d7be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "727f1222_0cb7976b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-03T23:45:20Z",
+      "side": 1,
+      "message": "New CL doesn\u0027t have this.",
+      "parentUuid": "527a0e34_eb4c714f",
       "range": {
         "startLine": 1141,
         "startChar": 6,
