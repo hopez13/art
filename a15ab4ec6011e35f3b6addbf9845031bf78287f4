@@ -46,6 +46,30 @@
       "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ba22ed_d8fa8d48",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T17:40:58Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer safepoint_index \u003e 0, and use safepoint_index - 1 in the body. But your other suggestion works for me. Your call.",
+      "parentUuid": "52b04e09_fb70af11",
+      "range": {
+        "startLine": 1429,
+        "startChar": 11,
+        "endLine": 1429,
+        "endChar": 44
+      },
+      "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
