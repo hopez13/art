@@ -22,6 +22,30 @@
       "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52b04e09_fb70af11",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-03T17:37:57Z",
+      "side": 1,
+      "message": "I don\u0027t see how it would guarantee that. That would imply that there\u0027s always a safepoint at a position where all intervals are dead. Conversely, if an interval covers the zero-index safepoint, it will loop again with index ULONG_MAX.\n\nThis condition loops until safepoint_index underflows. It breaks at the right time but I do admit it\u0027s not easily readable - i could replace it with:\n\n  while (true) {\n    ...\n    if (safepoint_index \u003d\u003d 0) break;\n    else --safepoint_index;\n  }",
+      "parentUuid": "d2bd1ee7_d7c93c57",
+      "range": {
+        "startLine": 1429,
+        "startChar": 11,
+        "endLine": 1429,
+        "endChar": 44
+      },
+      "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
