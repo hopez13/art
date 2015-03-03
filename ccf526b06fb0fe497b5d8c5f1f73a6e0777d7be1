@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "527a0e34_eb979119",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-03T23:40:19Z",
+      "side": 1,
+      "message": "Can you leave a comment to emphasize that we need soa for this Revoke call?",
+      "range": {
+        "startLine": 1245,
+        "startChar": 2,
+        "endLine": 1245,
+        "endChar": 64
+      },
+      "revId": "ccf526b06fb0fe497b5d8c5f1f73a6e0777d7be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "527a0e34_eb4c714f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-03T23:40:19Z",
+      "side": 1,
+      "message": "break -\u003e return?",
+      "range": {
+        "startLine": 1141,
+        "startChar": 6,
+        "endLine": 1141,
+        "endChar": 11
+      },
+      "revId": "ccf526b06fb0fe497b5d8c5f1f73a6e0777d7be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
