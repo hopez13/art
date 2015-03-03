@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "92a646d4_7d2817b3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T10:25:17Z",
+      "side": 1,
+      "message": "I see. Yeah, then safer to call GetInt32Value here and other archs.",
+      "parentUuid": "52920e67_0ec50b3a",
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "727ab2ab_b4bf40a2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Still has to be commutative to be able to reorder I think. I added the helper.",
       "parentUuid": "727ab2ab_b4bf40a2",
+      "range": {
+        "startLine": 1514,
+        "startChar": 0,
+        "endLine": 1514,
+        "endChar": 76
+      },
+      "revId": "2467240c95b01fffc971f7ffe3a98fbaeddaf142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2a43ecd_1f7b43a8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T10:25:17Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re right. We\u0027d need to change the instruction completely (HSub -\u003e HAdd) for it. So you can scratch my comment.",
+      "parentUuid": "52920e67_6ed4cfed",
       "range": {
         "startLine": 1514,
         "startChar": 0,
