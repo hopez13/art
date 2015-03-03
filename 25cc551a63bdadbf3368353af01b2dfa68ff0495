@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52b04e09_1eda2967",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T18:06:18Z",
+      "side": 1,
+      "message": "So is kFixedSize the reason this is here? I think making the test a friend class might be better. It\u0027s kind of surprising to have this method.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 30
+      },
+      "revId": "25cc551a63bdadbf3368353af01b2dfa68ff0495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
