@@ -45,6 +45,30 @@
       "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_a59a5eb6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2175,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:01:16Z",
+      "side": 1,
+      "message": "That\u0027s a bit unfair. Exactly this place had instruction-set decisions before...",
+      "parentUuid": "d2a43ecd_3f7967c7",
+      "range": {
+        "startLine": 2175,
+        "startChar": 4,
+        "endLine": 2175,
+        "endChar": 40
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
