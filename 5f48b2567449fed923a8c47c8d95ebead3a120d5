@@ -92,6 +92,30 @@
       "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52b04e09_5b7c4337",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T16:08:06Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with the old code. But looking at this change here, something does not look logical. Like we\u0027re not going to have JNI methods?",
+      "parentUuid": "9271e61d_a59a5eb6",
+      "range": {
+        "startLine": 2175,
+        "startChar": 4,
+        "endLine": 2175,
+        "endChar": 40
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
