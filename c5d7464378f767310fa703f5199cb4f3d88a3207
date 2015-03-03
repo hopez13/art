@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9271e61d_e56b761a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "Unnecessary?",
+      "range": {
+        "startLine": 946,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 14
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_25766e0c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "? Why not just fall-through? / Remove?",
+      "range": {
+        "startLine": 950,
+        "startChar": 4,
+        "endLine": 950,
+        "endChar": 22
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2ab4a9d_be4b3905",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "Unnecessary?",
+      "range": {
+        "startLine": 1564,
+        "startChar": 1,
+        "endLine": 1564,
+        "endChar": 14
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_6580663f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "Fall-through/unnecessary...",
+      "range": {
+        "startLine": 1572,
+        "startChar": 4,
+        "endLine": 1572,
+        "endChar": 22
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_45528a6b",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "Unnecessary?",
+      "range": {
+        "startLine": 1158,
+        "startChar": 0,
+        "endLine": 1158,
+        "endChar": 2
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_6557865a",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "Fallthrough? / Remove?",
+      "range": {
+        "startLine": 1161,
+        "startChar": 0,
+        "endLine": 1162,
+        "endChar": 2
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72ce32a5_14da1467",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T16:10:06Z",
+      "side": 1,
+      "message": "Definitely not a call. Surprised this works, as it puts the return address onto the stack.",
+      "range": {
+        "startLine": 1404,
+        "startChar": 4,
+        "endLine": 1404,
+        "endChar": 25
+      },
+      "revId": "c5d7464378f767310fa703f5199cb4f3d88a3207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
