@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "321d9af7_6e0ab7d9",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-03T23:59:45Z",
+      "side": 1,
+      "message": "Is there a chance that ~ThreadList() gets called and proceeds without waiting when a thread is still here calling Unregister() right before incrementing unregistering_count_? \n\nWould it make sense to turn unregistring_count_ to registered_count_ (the number of currently registered threads, incremented when a thread is registered)?",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1098,
+        "endChar": 3
+      },
+      "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
