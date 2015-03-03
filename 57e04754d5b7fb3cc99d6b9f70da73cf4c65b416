@@ -46,6 +46,30 @@
       "revId": "57e04754d5b7fb3cc99d6b9f70da73cf4c65b416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c00617_3070268c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T09:29:26Z",
+      "side": 1,
+      "message": "Yes, I agree. But I think that\u0027s an inter procedural dependency we can afford not to have by just setting to false the values before the call.",
+      "parentUuid": "d2d8be3c_ffd95f72",
+      "range": {
+        "startLine": 561,
+        "startChar": 11,
+        "endLine": 561,
+        "endChar": 35
+      },
+      "revId": "57e04754d5b7fb3cc99d6b9f70da73cf4c65b416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
