@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9271e61d_a507be14",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-03T05:46:17Z",
+      "side": 1,
+      "message": "Considering that the mips64 files still bear witness to being copied from mips (with large swaths being unmodified or trivial changes, e.g., renames from MIPS to MIPS64), what are the arguments that you can suddenly allow all those optimizations?",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 19
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
