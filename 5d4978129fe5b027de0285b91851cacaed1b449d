@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3282fa51_b2cd80b1",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-03T22:25:22Z",
+      "side": 1,
+      "message": "I had thought it was ok to fail to deflate as it\u0027d be tried again in the next trim. But it\u0027s possible to retry. I changed it back to SetLockWord as we are at a pause here (technically not a pause in the image writer case, but mutators are not running) and won\u0027t really have concurrent read barrier state changes.",
+      "parentUuid": "9271e61d_2839e30b",
+      "revId": "5d4978129fe5b027de0285b91851cacaed1b449d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72ce32a5_141fb487",
         "filename": "runtime/monitor.cc",
         "patchSetId": 6
