@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9271e61d_2839e30b",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-03T16:26:06Z",
+      "side": 1,
+      "message": "The CAS failed, which may be spurious or because of a concurrent change caused by the read barriers. Why is this a failure to deflate and not something to retry in a loop?",
+      "revId": "5d4978129fe5b027de0285b91851cacaed1b449d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72ce32a5_141fb487",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-03T16:26:06Z",
+      "side": 1,
+      "message": "similar",
+      "range": {
+        "startLine": 632,
+        "startChar": 0,
+        "endLine": 632,
+        "endChar": 23
+      },
+      "revId": "5d4978129fe5b027de0285b91851cacaed1b449d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9271e61d_6833db29",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-03T16:26:06Z",
+      "side": 1,
+      "message": "similar",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 644,
+        "endChar": 23
+      },
+      "revId": "5d4978129fe5b027de0285b91851cacaed1b449d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
