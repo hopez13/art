@@ -46,6 +46,30 @@
       "revId": "87ec43c77ebfb861eccc9aa71ce5afebb0913aa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2c50a26_d1e206a2",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-03T09:27:14Z",
+      "side": 1,
+      "message": "And what was the decision around the try/catch-all done in a clinit? I know -1 sucks, but that\u0027s probably the less error-prone..",
+      "parentUuid": "b2434a80_be0a591d",
+      "range": {
+        "startLine": 847,
+        "startChar": 56,
+        "endLine": 847,
+        "endChar": 91
+      },
+      "revId": "87ec43c77ebfb861eccc9aa71ce5afebb0913aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
