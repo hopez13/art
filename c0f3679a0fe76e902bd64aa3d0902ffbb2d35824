@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7251d2a7_3c7631d6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-03T20:55:17Z",
+      "side": 1,
+      "message": "Any clues on why this doesn\u0027t work would be appreciated.  My best guess is that it is due to EAX:EDX being a non-even/even+1 register pair.",
+      "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
