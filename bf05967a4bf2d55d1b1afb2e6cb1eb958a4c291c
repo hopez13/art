@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12da56a9_ec64a321",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T21:10:29Z",
+      "side": 1,
+      "message": "did you modify the linter to accept \u0027;\u0027 after \u0027}\u0027?",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 50
+      },
+      "revId": "bf05967a4bf2d55d1b1afb2e6cb1eb958a4c291c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
