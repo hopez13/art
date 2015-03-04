@@ -1176,6 +1176,30 @@
       "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_2d0b4d25",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T11:24:55Z",
+      "side": 1,
+      "message": "For register allocation, is it possible that we happen to have free register R1 and R2?\n\nIn this case, we can just allocate R1_R2 if we need a register pair.",
+      "parentUuid": "929c86d9_0d9ad170",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 26
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
