@@ -22,6 +22,30 @@
       "revId": "085b733d15ec09afa27b85358acb89d9bc02e843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_adf61daa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1039815
+      },
+      "writtenOn": "2015-03-04T11:22:19Z",
+      "side": 1,
+      "message": "Vectorization capabilities are not supported in AOSP. So no test would reproduce this situation.",
+      "parentUuid": "126ed67a_692f258b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "085b733d15ec09afa27b85358acb89d9bc02e843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
