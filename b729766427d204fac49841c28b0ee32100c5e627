@@ -22,6 +22,30 @@
       "revId": "b729766427d204fac49841c28b0ee32100c5e627",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_10c66ac1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:48:18Z",
+      "side": 1,
+      "message": "I think that will be hard given the magic of gtest macros :)\n\nWhy keeping this around anyway?. I\u0027d just remove it...",
+      "parentUuid": "929c86d9_ed178540",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "b729766427d204fac49841c28b0ee32100c5e627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
