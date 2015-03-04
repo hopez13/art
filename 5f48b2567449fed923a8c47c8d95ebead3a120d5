@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "321d9af7_f79f77db",
+        "filename": "compiler/dex/quick/mips64/mips64_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-04T20:16:58Z",
+      "side": 1,
+      "message": "I\u0027d prefer we get this in (so that there\u0027s not always the \"we\u0027re three weeks behind AOSP\") and iterate on it, with the clear understanding that if this is not refactored by, say, the end of March, I\u0027ll revert.\n\nx86 started out separate, too, if I remember correctly.",
+      "parentUuid": "928ac69d_dd17cb40",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9271e61d_c5975a8d",
         "filename": "compiler/dex/quick/mips64/utility_mips64.cc",
         "patchSetId": 1
