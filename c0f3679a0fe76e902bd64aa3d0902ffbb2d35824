@@ -113,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "d2d35e94_0753d63c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-04T16:53:37Z",
+      "side": 1,
+      "message": "Thinking about this, splitting a DS-\u003eDS should be okay.  The actual code used will split it anyways, because we are using a core register to copy.  I think the \u0027Contains\u0027 code should get this right.",
+      "parentUuid": "12da56a9_8997d91a",
+      "range": {
+        "startLine": 999,
+        "startChar": 0,
+        "endLine": 999,
+        "endChar": 95
+      },
+      "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_2db7cd3d",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 11
