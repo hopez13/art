@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "12da56a9_89a7d90c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T18:27:39Z",
+      "side": 1,
+      "message": "Sure. But you should build the regalloc change on top of the callee-save changes.",
+      "parentUuid": "92c566cf_e5df9651",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 65
+      },
+      "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7251d2a7_3c7631d6",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 11
