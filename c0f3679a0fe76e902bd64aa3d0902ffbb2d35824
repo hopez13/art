@@ -253,6 +253,23 @@
       "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7220f282_a45f424b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-04T23:04:07Z",
+      "side": 1,
+      "message": "During gc time, it\u0027s possible both the spill slot and the register need to be relocated. So we need to do SetRegisterBit() as long as it\u0027s a reference. What\u0027s the issue you were seeing?",
+      "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
