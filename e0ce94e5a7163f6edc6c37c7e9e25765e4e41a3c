@@ -22,6 +22,30 @@
       "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321d9af7_ae744f52",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-04T00:06:56Z",
+      "side": 1,
+      "message": "I think you are right, there is another race for non-daemon threads that was pre-existing. I think if I move the shutdown logic into WaitForOtherNonDaemonThreadsToExit it should work.",
+      "parentUuid": "321d9af7_6e0ab7d9",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1098,
+        "endChar": 3
+      },
+      "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
