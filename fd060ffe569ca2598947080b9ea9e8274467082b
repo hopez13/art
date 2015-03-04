@@ -801,6 +801,30 @@
     },
     {
       "key": {
+        "uuid": "126ed67a_297b6da8",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T10:42:14Z",
+      "side": 1,
+      "message": "Just discussed with Alex, it might not be a good choice to move between core registers and float point registers, though we can save one instruction. Because move between core register and float point register is much slower than move between the same register kind.",
+      "parentUuid": "12b17657_d1cd04b1",
+      "range": {
+        "startLine": 408,
+        "startChar": 21,
+        "endLine": 408,
+        "endChar": 61
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d20a7e5c_55169cce",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -895,6 +919,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_2d6fcdfc",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T10:42:14Z",
+      "side": 1,
+      "message": "If we do not use D registers, it will be 6 moves for the swap version. It is the same with no-swap version.",
+      "parentUuid": "12b17657_71dd385e",
+      "range": {
+        "startLine": 465,
+        "startChar": 20,
+        "endLine": 465,
+        "endChar": 72
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2a43ecd_3f1ba725",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -930,6 +978,30 @@
       "side": 1,
       "message": "Yes, but this will require some additional logic in the resolver to do the best choice.\n\nThis case is quite special which has two intersected cycles. Introduce one scratch will result one additional move. So this becomes 5 moves. But if we introduce a scratch location for the common edge, we will only need one additional scratch location. This will be resolved as : (0,1 -\u003e D) (2 -\u003e 0) (3 -\u003e 1) (D -\u003e 2,3)",
       "parentUuid": "d2a43ecd_3f1ba725",
+      "range": {
+        "startLine": 488,
+        "startChar": 20,
+        "endLine": 488,
+        "endChar": 78
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_f1176840",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T10:42:14Z",
+      "side": 1,
+      "message": "If we are not using D registers, swap version generates 6 moves and no-swap version generates 7 moves.\n\nBut I prefer to not change the resolver at the moment, because this kind of choice only happens with register pairs which do not exist on arm64.\n\nI will fine tune this if we want to use no-swap version for arm32.",
+      "parentUuid": "126ed67a_e911d587",
       "range": {
         "startLine": 488,
         "startChar": 20,
