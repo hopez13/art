@@ -22,6 +22,30 @@
       "revId": "91e56692c6bd9fa1d41951ee7dc311f19461f4be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92ee4635_a6480c1b",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-04T17:31:45Z",
+      "side": 1,
+      "message": "agampe didn\u0027t want the NO_THREAD_SAFETY_ANALYSIS in Init, I\u0027ll try to remember to add comment.",
+      "parentUuid": "929c86d9_0d25b1d8",
+      "range": {
+        "startLine": 1073,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 98
+      },
+      "revId": "91e56692c6bd9fa1d41951ee7dc311f19461f4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
