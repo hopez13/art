@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "d256feec_0f3ca597",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-04T22:55:41Z",
+      "side": 1,
+      "message": "it may be worth documenting that the dmb is missing (as this the recursive case)",
+      "range": {
+        "startLine": 494,
+        "startChar": 58,
+        "endLine": 494,
+        "endChar": 96
+      },
+      "revId": "e15ea086439b41a805d164d2beb07b4ba96aaa97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d256feec_efdda1e2",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-04T22:55:41Z",
+      "side": 1,
+      "message": "again the dmb is missed due to being recursive",
+      "range": {
+        "startLine": 549,
+        "startChar": 60,
+        "endLine": 549,
+        "endChar": 97
+      },
+      "revId": "e15ea086439b41a805d164d2beb07b4ba96aaa97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b226ea9a_661f0e87",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-04T22:55:41Z",
+      "side": 1,
+      "message": "this can be false, the JMM allows recursive monitor acquisitions to be nops.",
+      "range": {
+        "startLine": 730,
+        "startChar": 46,
+        "endLine": 730,
+        "endChar": 50
+      },
+      "revId": "e15ea086439b41a805d164d2beb07b4ba96aaa97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b23d0aa1_510bb651",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-04T22:55:41Z",
+      "side": 1,
+      "message": "this need only be true if this isn\u0027t the recursive case. Turning this from a false/true argument to a memory ordering enum value would be more intention revealing. In which case this is a release not volatile store.",
+      "range": {
+        "startLine": 811,
+        "startChar": 39,
+        "endLine": 811,
+        "endChar": 43
+      },
+      "revId": "e15ea086439b41a805d164d2beb07b4ba96aaa97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32091ade_3ae381a8",
         "filename": "runtime/monitor.h",
         "patchSetId": 9
