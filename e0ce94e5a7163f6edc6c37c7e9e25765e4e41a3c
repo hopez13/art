@@ -46,6 +46,54 @@
       "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "727f1222_6f25edd7",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-04T00:16:18Z",
+      "side": 1,
+      "message": "I agree with Hiroshi. I explained this race to you before. The proper fix is an actual lock that needs to be acquired for unregister and deletion...",
+      "parentUuid": "321d9af7_ae744f52",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1098,
+        "endChar": 3
+      },
+      "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321d9af7_ceb1834a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-04T00:16:18Z",
+      "side": 1,
+      "message": "Do user daemon threads not count as registered? We intend to ignore them if they don\u0027t shut down in time...",
+      "parentUuid": "321d9af7_6e0ab7d9",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1098,
+        "endChar": 3
+      },
+      "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
