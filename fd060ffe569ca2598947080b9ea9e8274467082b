@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2bd1ee7_5749acb8",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "OverlapWith() can work with (R0,R1), (R1,R2) and DoubleStackSlot(sp), DoubleStackSlot(sp+4).\n\nBut \"Contains(other) || other.Contains(*this)\" should also work well with current locations that we generate.",
+      "parentUuid": "92c00617_0ddf118d",
+      "range": {
+        "startLine": 276,
+        "startChar": 41,
+        "endLine": 276,
+        "endChar": 42
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a646d4_3db16fc6",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "0u?",
+      "range": {
+        "startLine": 286,
+        "startChar": 36,
+        "endLine": 286,
+        "endChar": 58
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2bd1ee7_17433499",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "92a646d4_3db16fc6",
       "range": {
         "startLine": 286,
         "startChar": 36,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f2ba22ed_b8511968",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "d2a43ecd_bf26976e",
+      "range": {
+        "startLine": 335,
+        "startChar": 36,
+        "endLine": 335,
+        "endChar": 58
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92c00617_edc5e5b5",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "Move inside the if.",
+      "range": {
+        "startLine": 390,
+        "startChar": 5,
+        "endLine": 390,
+        "endChar": 61
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "126ed67a_8916197d",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "92c00617_edc5e5b5",
       "range": {
         "startLine": 390,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "126ed67a_e9ea35f6",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Yes, I will add an example in the comment.\n\n(0-\u003e1) (1-\u003e0) (1-\u003e2) , cycle (0-\u003e1) (1-\u003e0) will be resolved as (1-\u003escratch) (0-\u003e1) (scratch-\u003e0). (1-\u003e2) will be also performed, if we use 2 as the scratch location.",
+      "parentUuid": "92c00617_cdc829d1",
+      "range": {
+        "startLine": 390,
+        "startChar": 62,
+        "endLine": 391,
+        "endChar": 25
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2a43ecd_7f0a4fd9",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "But to perform -\u003e But performing ?",
+      "range": {
+        "startLine": 447,
+        "startChar": 61,
+        "endLine": 447,
+        "endChar": 75
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52f84efa_7b505f2e",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "d2a43ecd_7f0a4fd9",
       "range": {
         "startLine": 447,
         "startChar": 61,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "52f84efa_5b4da392",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "d2a43ecd_3f04c7c6",
+      "range": {
+        "startLine": 473,
+        "startChar": 50,
+        "endLine": 473,
+        "endChar": 59
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a646d4_dd972b1a",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "Why is that not Overlap?",
+      "range": {
+        "startLine": 485,
+        "startChar": 26,
+        "endLine": 485,
+        "endChar": 32
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2bd1ee7_7ad37555",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "This should be Equals().\n\nFor example, after (0,1 -\u003e 2,3) has been performed, we can update (0,1 -\u003e 4,5) with (2,3 -\u003e 4,5). But we cannot update (0 -\u003e 6) with (2,3 -\u003e 6).\n\nAnd yes, we can update (0 -\u003e 6) with (2 -\u003e 6). But I don\u0027t want to rely on how the locations and registers are defined. Because that is backend dependent. On arm32 we have register and register pair overlap, while on arm64 we have W/X overlap(not defined in location currently).\n\nAs mentioned in the comment, this helps to improve the generated code quality but not a must. So it is fine to not update (0 -\u003e 6) with (2 -\u003e 6). And I don\u0027t think two overlapped locations(0,1 and 0) can be both used as move sources in current optimizing compiler(they can be source and destination in different moves). So I\u0027d rather keep the code simple and backend independent.",
+      "parentUuid": "92a646d4_dd972b1a",
       "range": {
         "startLine": 485,
         "startChar": 26,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "d2bd1ee7_5ad0b146",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "You are right. It is not worth doing so.",
+      "parentUuid": "d2a43ecd_1f0103b7",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 3
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2a43ecd_7f112f03",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "You should add a comment that this is only for debugging/dcheck purposes, and why it\u0027s important to check it.",
+      "range": {
+        "startLine": 535,
+        "startChar": 35,
+        "endLine": 535,
+        "endChar": 55
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_b1be80fb",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "d2a43ecd_7f112f03",
       "range": {
         "startLine": 535,
         "startChar": 35,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "12b17657_91c37c85",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Yes, it can be simplified.",
+      "parentUuid": "92a646d4_1daeb364",
+      "range": {
+        "startLine": 537,
+        "startChar": 2,
+        "endLine": 539,
+        "endChar": 3
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2a43ecd_df215b5a",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "What does it mean to be unblocked by a location?",
+      "range": {
+        "startLine": 174,
+        "startChar": 29,
+        "endLine": 174,
+        "endChar": 45
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ba22ed_f857915a",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Should be : Get move which might be unblocked after we had performed move (loc-\u003eXXX).",
+      "parentUuid": "d2a43ecd_df215b5a",
       "range": {
         "startLine": 174,
         "startChar": 29,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "f2ba22ed_d85ccd81",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "92c00617_50d5b26a",
+      "range": {
+        "startLine": 181,
+        "startChar": 9,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a646d4_bd733fa2",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "You can avoid this check here.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 30
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_f1c808a3",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "92a646d4_bd733fa2",
       "range": {
         "startLine": 258,
         "startChar": 0,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "d2bd1ee7_7afa55c7",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "92a646d4_9d78837f",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 32
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a646d4_dd7e0b6c",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -358,6 +718,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "You can avoid this check here.",
+      "range": {
+        "startLine": 300,
+        "startChar": 4,
+        "endLine": 300,
+        "endChar": 32
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2bd1ee7_5af791db",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "92a646d4_dd7e0b6c",
       "range": {
         "startLine": 300,
         "startChar": 4,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "12b17657_d1cd04b1",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "This is the choice for backend\u0027s AllocateScratchRegister(). \n\nOn arm32, we can prefer D registers as the scratch locations to hold the value of register pairs and also support to move between D and register pairs. If we implement it in this way, it will also be 4 moves on arm32. (2,3 -\u003e D31) (0,1 -\u003e 2,3) (D31 -\u003e 0,1)",
+      "parentUuid": "72147288_8790e8c7",
+      "range": {
+        "startLine": 408,
+        "startChar": 21,
+        "endLine": 408,
+        "endChar": 61
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d20a7e5c_55169cce",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -404,6 +812,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 96
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_31d3b056",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d20a7e5c_55169cce",
       "range": {
         "startLine": 426,
         "startChar": 0,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "12b17657_71dd385e",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Yes, but both of them are correct.\n\nThere are multiple moves in the cycle. Introducing a scratch location for one of the move can resolve the problem. But different choices will result to different solutions.",
+      "parentUuid": "92c00617_d0c8c2d0",
+      "range": {
+        "startLine": 465,
+        "startChar": 20,
+        "endLine": 465,
+        "endChar": 72
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2a43ecd_3f1ba725",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -462,6 +918,30 @@
     },
     {
       "key": {
+        "uuid": "126ed67a_e911d587",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "Yes, but this will require some additional logic in the resolver to do the best choice.\n\nThis case is quite special which has two intersected cycles. Introduce one scratch will result one additional move. So this becomes 5 moves. But if we introduce a scratch location for the common edge, we will only need one additional scratch location. This will be resolved as : (0,1 -\u003e D) (2 -\u003e 0) (3 -\u003e 1) (D -\u003e 2,3)",
+      "parentUuid": "d2a43ecd_3f1ba725",
+      "range": {
+        "startLine": 488,
+        "startChar": 20,
+        "endLine": 488,
+        "endChar": 78
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a646d4_fd79c785",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -473,6 +953,30 @@
       "writtenOn": "2015-03-03T11:56:51Z",
       "side": 1,
       "message": "Explain why. Why do we want to test this then? Should we make NoSwap not support it as well?",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 26
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_b1e5e027",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-04T07:57:27Z",
+      "side": 1,
+      "message": "The swap version do not support overlap like 0,1 and 1,2.\n\nBTW, can the compiler make better use of registers if there is no such constrains in parallel move resolver?",
+      "parentUuid": "92a646d4_fd79c785",
       "range": {
         "startLine": 508,
         "startChar": 0,
