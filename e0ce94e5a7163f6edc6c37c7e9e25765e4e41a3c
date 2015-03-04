@@ -94,6 +94,30 @@
       "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "727f1222_ef5f9d4a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-04T00:18:05Z",
+      "side": 1,
+      "message": "This is handled by WaitForOtherNonDaemonThreadsToExit is it not? We can\u0027t wait for user daemons since they aren\u0027t required to shut down.",
+      "parentUuid": "727f1222_6f25edd7",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1098,
+        "endChar": 3
+      },
+      "revId": "e0ce94e5a7163f6edc6c37c7e9e25765e4e41a3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
