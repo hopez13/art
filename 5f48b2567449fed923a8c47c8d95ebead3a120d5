@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "928ac69d_dd17cb40",
+        "filename": "compiler/dex/quick/mips64/mips64_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-04T18:40:40Z",
+      "side": 1,
+      "message": "Wow, a giant copy-paste of the compiler too. Why not factor the code? Look at x86 for how to achieve this.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9271e61d_c5975a8d",
         "filename": "compiler/dex/quick/mips64/utility_mips64.cc",
         "patchSetId": 1
