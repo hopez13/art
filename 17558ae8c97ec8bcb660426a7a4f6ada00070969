@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1268969d_3908cf25",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-04T20:18:08Z",
+      "side": 1,
+      "message": "Don\u0027t really agree, as you shouldn\u0027t touch c outside the nullptr checked area below, and there\u0027s no reason to break things apart here. But for safety I\u0027ll do it.",
+      "parentUuid": "7299d2f8_bc21215b",
+      "range": {
+        "startLine": 924,
+        "startChar": 6,
+        "endLine": 924,
+        "endChar": 18
+      },
+      "revId": "17558ae8c97ec8bcb660426a7a4f6ada00070969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "321d9af7_a4354b8c",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
