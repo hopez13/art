@@ -1200,6 +1200,30 @@
       "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_2bd33956",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:26:21Z",
+      "side": 1,
+      "message": "Please provide an example, I don\u0027t understand at which level you\u0027d like this to happen. R1_R2 as an allocatable register or as a scrach register?",
+      "parentUuid": "929c86d9_2d0b4d25",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 26
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
