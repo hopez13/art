@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7299d2f8_bc21215b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-04T18:55:08Z",
+      "side": 1,
+      "message": "Minor point, but I think it\u0027d be cleaner and less error-prone to wrap \u0027c\u0027 in a handle here rather than after a null check (in the if-then block)? \u0027c\u0027 isn\u0027t used in the other paths, but if it were, it could be an error. The else case should be rare.",
+      "range": {
+        "startLine": 924,
+        "startChar": 6,
+        "endLine": 924,
+        "endChar": 18
+      },
+      "revId": "17558ae8c97ec8bcb660426a7a4f6ada00070969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321d9af7_a4354b8c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-04T18:55:08Z",
+      "side": 1,
+      "message": "Similarly, I think it\u0027d be cleaner to directly wrap real_to_string_class in a handle (declare h_real_to_string_class) here rather than going through an extra step real_to_string_class -\u003e h_real_to_string_class. As in,\n\nHandle\u003cClass\u003e h_real_to_string_class(hs.NewHandle(\n    shadow_frame-\u003eGetLink()-\u003eGetMethod()-\u003eGetDeclaringClass()));\n...",
+      "range": {
+        "startLine": 1051,
+        "startChar": 10,
+        "endLine": 1051,
+        "endChar": 45
+      },
+      "revId": "17558ae8c97ec8bcb660426a7a4f6ada00070969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
