@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52a68e28_ce1563c2",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "- missing indentation\n- i think i\u0027d go with Get... instead of Compute in this case and below but that\u0027s just my preference (shorter). feel free to ignore :)",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 34
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_0e180bf7",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "UNREACHABLE()",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_8e323b76",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "range": {
+        "startLine": 175,
+        "startChar": 8,
+        "endLine": 175,
+        "endChar": 21
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_ee277f32",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "instead of this, you can add DexRegisterCompressedMap::EntrySize(LocationKind kind) which will simplify some other code paths as well.",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 52
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_2e7fc72e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "I don\u0027t see any benefit keeping this around. Is there any scenario in which you see us going back or actively changing between them?\n\nGetting rid of it and keeping just one encoding also simplifies a lot some other code paths.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 26
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12da56a9_09b48935",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "is the order specify anywhere? (value -\u003e high bits, kind -\u003e low bits)",
+      "range": {
+        "startLine": 176,
+        "startChar": 60,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12da56a9_2cd35b56",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "suggestion: (Large/Big)Offset instead of Long documenting what large means",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 16
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_5022b228",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "suggestion: (Large/Big)Value, with similar docs",
+      "range": {
+        "startLine": 187,
+        "startChar": 13,
+        "endLine": 187,
+        "endChar": 17
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_f0275e32",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "please fix this TODO before submitting. I added my suggestions in the relevant places :)",
+      "range": {
+        "startLine": 261,
+        "startChar": 5,
+        "endLine": 261,
+        "endChar": 9
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12da56a9_c956f15c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "maybe \u0027)\u0027 ?",
+      "range": {
+        "startLine": 272,
+        "startChar": 63,
+        "endLine": 272,
+        "endChar": 64
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_90325a76",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "how about FindRegisterInfoOffset",
+      "range": {
+        "startLine": 291,
+        "startChar": 9,
+        "endLine": 291,
+        "endChar": 18
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_2ead071b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "I don\u0027t see any use for GetValue() and GetLocationKind(). Did I miss anything? \n\nEither way one function is enough. I\u0027d keep only this one.",
+      "range": {
+        "startLine": 339,
+        "startChar": 35,
+        "endLine": 339,
+        "endChar": 58
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12da56a9_094929ba",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "too many spaces",
+      "range": {
+        "startLine": 355,
+        "startChar": 23,
+        "endLine": 355,
+        "endChar": 26
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12da56a9_cccd5fb1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "use a local to make this look better :)",
+      "range": {
+        "startLine": 578,
+        "startChar": 8,
+        "endLine": 578,
+        "endChar": 76
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_8ed99baa",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-04T20:31:26Z",
+      "side": 1,
+      "message": "suggestion: to make this clearer you could transform this into the ctor of DexRegisterCompressedMap. i.e. instead of accepting a subregion, have a private ctor:\n\nDexRegisterCompressedMap(region, offset, nr_of_registers)",
+      "range": {
+        "startLine": 631,
+        "startChar": 4,
+        "endLine": 633,
+        "endChar": 77
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
