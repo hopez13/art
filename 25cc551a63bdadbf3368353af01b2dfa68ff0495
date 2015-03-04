@@ -22,6 +22,30 @@
       "revId": "25cc551a63bdadbf3368353af01b2dfa68ff0495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "126ed67a_09a789b9",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-04T11:46:54Z",
+      "side": 1,
+      "message": "Agreed; I\u0027ve moved this method into compiler/optimizing/stack_map_test.cc in PS3 (and likewise in other CLs).",
+      "parentUuid": "52b04e09_1eda2967",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 30
+      },
+      "revId": "25cc551a63bdadbf3368353af01b2dfa68ff0495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
