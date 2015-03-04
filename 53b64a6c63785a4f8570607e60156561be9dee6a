@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "929c86d9_ad41fd67",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T10:36:32Z",
+      "side": 1,
+      "message": "Considering long term, I think it makes more sense and should make things simpler to you by moving this to ArtMethod.",
+      "range": {
+        "startLine": 1008,
+        "startChar": 18,
+        "endLine": 1008,
+        "endChar": 26
+      },
+      "revId": "53b64a6c63785a4f8570607e60156561be9dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_0d6c9104",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T10:36:32Z",
+      "side": 1,
+      "message": "Remove the nesting?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "53b64a6c63785a4f8570607e60156561be9dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_b11de066",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T10:36:32Z",
+      "side": 1,
+      "message": "Really? Nice try ;-)",
+      "range": {
+        "startLine": 66,
+        "startChar": 55,
+        "endLine": 66,
+        "endChar": 59
+      },
+      "revId": "53b64a6c63785a4f8570607e60156561be9dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
