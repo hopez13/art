@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "12b17657_71c37831",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:09:54Z",
+      "side": 1,
+      "message": "We should not generate DoubleStackSlot(sp), DoubleStackSlot(sp+4). Same for registers (at least today, x86 might change this). So I would not bother considering these cases.",
+      "parentUuid": "d2bd1ee7_5749acb8",
+      "range": {
+        "startLine": 276,
+        "startChar": 41,
+        "endLine": 276,
+        "endChar": 42
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92a646d4_3db16fc6",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 1
@@ -324,6 +348,52 @@
         "startChar": 50,
         "endLine": 473,
         "endChar": 59
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_8dad21a0",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:09:54Z",
+      "side": 1,
+      "message": "something must do -\u003e something we must do",
+      "range": {
+        "startLine": 480,
+        "startChar": 17,
+        "endLine": 480,
+        "endChar": 34
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12b17657_b1eb20ab",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:09:54Z",
+      "side": 1,
+      "message": "less -\u003e fewer",
+      "range": {
+        "startLine": 480,
+        "startChar": 51,
+        "endLine": 480,
+        "endChar": 55
       },
       "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -825,6 +895,30 @@
     },
     {
       "key": {
+        "uuid": "12b17657_91f09c98",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:09:54Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "126ed67a_297b6da8",
+      "range": {
+        "startLine": 408,
+        "startChar": 21,
+        "endLine": 408,
+        "endChar": 61
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d20a7e5c_55169cce",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 1
@@ -1049,6 +1143,30 @@
       "side": 1,
       "message": "The swap version do not support overlap like 0,1 and 1,2.\n\nBTW, can the compiler make better use of registers if there is no such constrains in parallel move resolver?",
       "parentUuid": "92a646d4_fd79c785",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 26
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_0d9ad170",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:09:54Z",
+      "side": 1,
+      "message": "Define \"better use\" in this context?",
+      "parentUuid": "12b17657_b1e5e027",
       "range": {
         "startLine": 508,
         "startChar": 0,
