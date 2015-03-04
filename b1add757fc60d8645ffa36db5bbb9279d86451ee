@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "321d9af7_61296583",
+        "filename": "test/031-class-attributes/src/ClassAttrs.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-04T16:57:50Z",
+      "side": 1,
+      "message": "I think this should be more generic. We don\u0027t even need to point to dex file producers. As mentioned in the bug, getClasses() doesn\u0027t make guarantees. And running this test against the RI doesn\u0027t have anything to do with DEX.",
+      "range": {
+        "startLine": 334,
+        "startChar": 11,
+        "endLine": 334,
+        "endChar": 50
+      },
+      "revId": "b1add757fc60d8645ffa36db5bbb9279d86451ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
