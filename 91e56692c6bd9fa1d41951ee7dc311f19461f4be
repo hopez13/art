@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "929c86d9_0d25b1d8",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T10:27:44Z",
+      "side": 1,
+      "message": "Why is that not part of Init? If there\u0027s a reason, deserves a comment.",
+      "range": {
+        "startLine": 1073,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 98
+      },
+      "revId": "91e56692c6bd9fa1d41951ee7dc311f19461f4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
