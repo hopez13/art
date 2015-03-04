@@ -46,6 +46,30 @@
       "revId": "965fd02721746d4164bc40719cd53eefab37cfb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321d9af7_c9697df9",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1529,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-04T00:35:07Z",
+      "side": 1,
+      "message": "In my oat file management change, for patch set 5, I\u0027m turning these into error messages and handling them appropriately (https://android-review.googlesource.com/#/c/119862/).",
+      "parentUuid": "82e9932d_6090b2b0",
+      "range": {
+        "startLine": 1528,
+        "startChar": 2,
+        "endLine": 1529,
+        "endChar": 83
+      },
+      "revId": "965fd02721746d4164bc40719cd53eefab37cfb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
