@@ -1248,6 +1248,30 @@
       "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_4bda0568",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T11:35:13Z",
+      "side": 1,
+      "message": "Ah OK. I think we\u0027d rather not do this, knowing that there are instructions that require even/odd register pair (for example arm32\u0027s ldrd).",
+      "parentUuid": "12b17657_d1786480",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 26
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
