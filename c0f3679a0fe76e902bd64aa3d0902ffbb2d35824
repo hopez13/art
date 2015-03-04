@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "12da56a9_8997d91a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-04T16:09:32Z",
+      "side": 1,
+      "message": "In the context of x86, FP can only be XMM reg. Maybe the splitting should be done in the register allocator instead.",
+      "parentUuid": "d2d35e94_07d0f645",
+      "range": {
+        "startLine": 999,
+        "startChar": 0,
+        "endLine": 999,
+        "endChar": 95
+      },
+      "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_2db7cd3d",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 11
