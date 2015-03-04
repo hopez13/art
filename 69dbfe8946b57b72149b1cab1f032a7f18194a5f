@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "321d9af7_2e7eff97",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-04T00:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321d9af7_0033ca7c",
+      "range": {
+        "startLine": 164,
+        "startChar": 46,
+        "endLine": 164,
+        "endChar": 50
+      },
+      "revId": "69dbfe8946b57b72149b1cab1f032a7f18194a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "321d9af7_c046322b",
         "filename": "runtime/monitor.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-03T22:41:33Z",
       "side": 1,
       "message": "// Success!\n\n(for consistency)",
+      "range": {
+        "startLine": 809,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 24
+      },
+      "revId": "69dbfe8946b57b72149b1cab1f032a7f18194a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "727f1222_ec324b77",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-04T00:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321d9af7_c046322b",
       "range": {
         "startLine": 809,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "527a0e34_8befed84",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-04T00:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321d9af7_60e3a6a7",
+      "revId": "69dbfe8946b57b72149b1cab1f032a7f18194a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b230aa7f_b92b3b38",
         "filename": "runtime/monitor.cc",
         "patchSetId": 7
@@ -76,6 +142,24 @@
       "writtenOn": "2015-03-03T22:41:33Z",
       "side": 1,
       "message": "// Success!",
+      "revId": "69dbfe8946b57b72149b1cab1f032a7f18194a5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "727f1222_ac2c4318",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-04T00:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b230aa7f_b92b3b38",
       "revId": "69dbfe8946b57b72149b1cab1f032a7f18194a5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
