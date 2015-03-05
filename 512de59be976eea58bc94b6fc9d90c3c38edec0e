@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_d6697af9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "I fixed the indentation, but kept the name of the function. :)",
+      "parentUuid": "52a68e28_ce1563c2",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 34
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_0e180bf7",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "UNREACHABLE()",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_8c8b2797",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a68e28_0e180bf7",
       "range": {
         "startLine": 155,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "375f4c29_6a91f74f",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "The host build doesn\u0027t need it, but the target build does.  I suppose we use different compilers or different compiler versions for host and target builds.",
+      "parentUuid": "d22fde6e_079d7668",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 13
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_8e323b76",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_36e0bec1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a68e28_8e323b76",
+      "range": {
+        "startLine": 175,
+        "startChar": 8,
+        "endLine": 175,
+        "endChar": 21
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_ee277f32",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "instead of this, you can add DexRegisterCompressedMap::EntrySize(LocationKind kind) which will simplify some other code paths as well.",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 52
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_1635c28a",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a68e28_ee277f32",
       "range": {
         "startLine": 180,
         "startChar": 16,
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_367f1e2f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "It\u0027s actually useful to produce code size benchmarks on the various encoding strategies.  I will eventually remove this, of course.",
+      "parentUuid": "d22fde6e_47504e2e",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 26
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12da56a9_09b48935",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -175,6 +319,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "is the order specify anywhere? (value -\u003e high bits, kind -\u003e low bits)",
+      "range": {
+        "startLine": 176,
+        "startChar": 60,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_56862aa8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Good point.  It is currently compiler-dependent, as I\u0027m using bit fields in CompressedShortLocation to encode and pack these values as an 8-bit integer.  (I suppose the `kind\u0027 field uses the 3 least-significant bits while the `value\u0027 field is encoded on the 5 most-significant bits).  I\u0027ll change this to use bit manipulations, which are portable and compiler-independent.",
+      "parentUuid": "12da56a9_09b48935",
       "range": {
         "startLine": 176,
         "startChar": 60,
@@ -210,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "375f4c29_4a4e3347",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12da56a9_2cd35b56",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 16
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_5022b228",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -221,6 +413,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "suggestion: (Large/Big)Value, with similar docs",
+      "range": {
+        "startLine": 187,
+        "startChar": 13,
+        "endLine": 187,
+        "endChar": 17
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_361b9ef7",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929c86d9_5022b228",
       "range": {
         "startLine": 187,
         "startChar": 13,
@@ -256,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_16c662c1",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Needed on target builds.",
+      "parentUuid": "929c86d9_b30cc06f",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 5
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_53f11ce4",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -267,6 +507,30 @@
       "writtenOn": "2015-03-05T09:31:58Z",
       "side": 1,
       "message": "Is that the same as the PACKED macro?",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 34
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_8a2f8b37",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Yes, I changed this to use PACKED instead.",
+      "parentUuid": "929c86d9_53f11ce4",
       "range": {
         "startLine": 228,
         "startChar": 4,
@@ -302,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "375f4c29_0af6fb62",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "parentUuid": "929c86d9_9311c489",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 13
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_f0275e32",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -313,6 +601,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "please fix this TODO before submitting. I added my suggestions in the relevant places :)",
+      "range": {
+        "startLine": 261,
+        "startChar": 5,
+        "endLine": 261,
+        "endChar": 9
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_ea0f27dd",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929c86d9_f0275e32",
       "range": {
         "startLine": 261,
         "startChar": 5,
@@ -348,6 +660,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_8f10b94e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12da56a9_c956f15c",
+      "range": {
+        "startLine": 272,
+        "startChar": 63,
+        "endLine": 272,
+        "endChar": 64
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_511f5486",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -371,6 +707,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_ef329df4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a68e28_511f5486",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 81
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_90325a76",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -382,6 +742,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "how about FindRegisterInfoOffset",
+      "range": {
+        "startLine": 291,
+        "startChar": 9,
+        "endLine": 291,
+        "endChar": 18
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_36f0be13",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "I opted for FindLocationOffset.",
+      "parentUuid": "929c86d9_90325a76",
       "range": {
         "startLine": 291,
         "startChar": 9,
@@ -440,6 +824,54 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_56e74a57",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Yeah, this was for debugging purpose only.  I removed them.",
+      "parentUuid": "52a68e28_2ead071b",
+      "range": {
+        "startLine": 339,
+        "startChar": 35,
+        "endLine": 339,
+        "endChar": 58
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_ea7de734",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d22fde6e_674d5293",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 34
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12da56a9_094929ba",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -451,6 +883,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "too many spaces",
+      "range": {
+        "startLine": 355,
+        "startChar": 23,
+        "endLine": 355,
+        "endChar": 26
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_ca7a233b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12da56a9_094929ba",
       "range": {
         "startLine": 355,
         "startChar": 23,
@@ -486,6 +942,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_b6a2eefc",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12da56a9_cccd5fb1",
+      "range": {
+        "startLine": 578,
+        "startChar": 8,
+        "endLine": 578,
+        "endChar": 76
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_8ed99baa",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -497,6 +977,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "suggestion: to make this clearer you could transform this into the ctor of DexRegisterCompressedMap. i.e. instead of accepting a subregion, have a private ctor:\n\nDexRegisterCompressedMap(region, offset, nr_of_registers)",
+      "range": {
+        "startLine": 631,
+        "startChar": 4,
+        "endLine": 633,
+        "endChar": 77
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_2a4d3f18",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:25Z",
+      "side": 1,
+      "message": "OK, will try in another CL.",
+      "parentUuid": "52a68e28_8ed99baa",
       "range": {
         "startLine": 631,
         "startChar": 4,
