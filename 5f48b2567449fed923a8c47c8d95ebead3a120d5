@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_ccedaf3a",
+        "filename": "compiler/dex/quick/mips64/mips64_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1068027
+      },
+      "writtenOn": "2015-03-05T15:34:32Z",
+      "side": 1,
+      "message": "We will do the refactoring, sure. If we can get the change merged as-is now, it would save us time as it would enable us to do it in a few smaller iterations. However, if there is a hard requirement to do it from the start, not a problem.",
+      "parentUuid": "526daeb2_731fc086",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "5f48b2567449fed923a8c47c8d95ebead3a120d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9271e61d_c5975a8d",
         "filename": "compiler/dex/quick/mips64/utility_mips64.cc",
         "patchSetId": 1
