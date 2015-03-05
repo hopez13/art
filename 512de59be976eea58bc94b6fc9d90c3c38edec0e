@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "d22fde6e_079d7668",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "No need?",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 13
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_8e323b76",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 4
@@ -105,6 +128,30 @@
       "writtenOn": "2015-03-04T20:31:26Z",
       "side": 1,
       "message": "I don\u0027t see any benefit keeping this around. Is there any scenario in which you see us going back or actively changing between them?\n\nGetting rid of it and keeping just one encoding also simplifies a lot some other code paths.",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 26
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_47504e2e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "I agree.",
+      "parentUuid": "52a68e28_2e7fc72e",
       "range": {
         "startLine": 83,
         "startChar": 2,
@@ -186,6 +233,75 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_b30cc06f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "You don\u0027t need a default, as you covered all the cases. UNREACHABLE + return nullptr might read better.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 5
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_53f11ce4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "Is that the same as the PACKED macro?",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 34
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_9311c489",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 255,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 13
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_f0275e32",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -232,6 +348,29 @@
     },
     {
       "key": {
+        "uuid": "52a68e28_511f5486",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "Fits in one line?",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 81
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_90325a76",
         "filename": "runtime/stack_map.h",
         "patchSetId": 4
@@ -271,6 +410,29 @@
         "startChar": 35,
         "endLine": 339,
         "endChar": 58
+      },
+      "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_674d5293",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T09:31:58Z",
+      "side": 1,
+      "message": "Please provide an abstraction instead the std::pair. For example DexRegisterLocation.",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 34
       },
       "revId": "512de59be976eea58bc94b6fc9d90c3c38edec0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
