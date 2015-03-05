@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7585443_e82853b3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-05T17:00:29Z",
+      "side": 1,
+      "message": "This can\u0027t happen since you forced it into ECX.",
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7585443_483abf00",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2072,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-05T17:00:29Z",
+      "side": 1,
+      "message": "This isn\u0027t always a constant. Should be \u002764 bits\u0027",
+      "range": {
+        "startLine": 2072,
+        "startChar": 37,
+        "endLine": 2072,
+        "endChar": 51
+      },
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d742704b_8f3315c6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-05T17:00:29Z",
+      "side": 1,
+      "message": "I changed this because it was breaking the RA, since it didn\u0027t handle SameAsFirstInput for non-symbolics.  Guess it must have been fixed.",
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
