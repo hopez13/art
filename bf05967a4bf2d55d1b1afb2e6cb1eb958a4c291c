@@ -22,6 +22,30 @@
       "revId": "bf05967a4bf2d55d1b1afb2e6cb1eb958a4c291c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_ea66079f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T19:28:37Z",
+      "side": 1,
+      "message": "No, it was working as-is (or maybe I missed something).",
+      "parentUuid": "12da56a9_ec64a321",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 50
+      },
+      "revId": "bf05967a4bf2d55d1b1afb2e6cb1eb958a4c291c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
