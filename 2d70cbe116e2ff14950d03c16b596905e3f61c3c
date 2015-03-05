@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "773384f5_6cf7db62",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T14:21:47Z",
+      "side": 1,
+      "message": "Can\u0027t the stack map stream figure that one out?",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 3
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_7346d8a9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T14:21:47Z",
+      "side": 1,
+      "message": "Please provide a meaninful name for this variable. It\u0027s not just a simple for loop anymore, so maybe another name for \u0027j\u0027 as well?",
+      "range": {
+        "startLine": 186,
+        "startChar": 27,
+        "endLine": 186,
+        "endChar": 28
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_2cf1d36a",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T14:21:47Z",
+      "side": 1,
+      "message": "Why this change? You still want them dumped.",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1067,
+        "endChar": 69
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_8757a65b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T14:21:47Z",
+      "side": 1,
+      "message": "reg -\u003e registers (here and all other places)",
+      "range": {
+        "startLine": 88,
+        "startChar": 57,
+        "endLine": 88,
+        "endChar": 60
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_c7519e67",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T14:21:47Z",
+      "side": 1,
+      "message": "Please add a comment. This is loading a map for... ? Why is this not an instance method on StackMap or CodeRegion?",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
