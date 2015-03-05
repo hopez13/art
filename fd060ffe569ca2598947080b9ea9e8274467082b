@@ -1272,6 +1272,30 @@
       "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_47f4ced5",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-05T03:40:05Z",
+      "side": 1,
+      "message": "This depends on which mode we are using. There is no such limitation for thumb mode.",
+      "parentUuid": "52a68e28_4bda0568",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 26
+      },
+      "revId": "fd060ffe569ca2598947080b9ea9e8274467082b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
