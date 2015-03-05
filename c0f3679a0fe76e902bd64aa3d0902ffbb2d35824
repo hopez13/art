@@ -270,6 +270,24 @@
       "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f70a1413_b822b9cf",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-05T02:32:21Z",
+      "side": 1,
+      "message": "The issue was that a reference was in ECX at the bottom of a loop.  In this case, the parent also had a spill slot, so it wasn\u0027t marking ECX as an object, and RegisterContainsObject wasn\u0027t set.  Although TestSuspend saved and restored ECX, since it wasn\u0027t marked as an object reg, it wasn\u0027t updated by the GC.\n\nShould this be just:\nif (current-\u003eGetType() \u003d\u003d Primitive::kPrimNot) { ...SetRegisterBit} ??",
+      "parentUuid": "7220f282_a45f424b",
+      "revId": "c0f3679a0fe76e902bd64aa3d0902ffbb2d35824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
