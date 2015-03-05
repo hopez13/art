@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "773384f5_afda550c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T17:42:42Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer having this in CodeGenerator :-) Just pass an HEnvironment. And a null environment means you don\u0027t encode a DexRegisterMap.",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 68
+      },
+      "revId": "4c0bec2b8ea6622a3f977e1068a9a6af0c8c033f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
