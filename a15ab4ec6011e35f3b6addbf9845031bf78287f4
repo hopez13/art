@@ -70,6 +70,30 @@
       "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_0c2bb738",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-05T14:28:34Z",
+      "side": 1,
+      "message": "Done. My approach wouldn\u0027t work with safepoint\u003d\u003d0 so I ended up using something close to your suggestion.",
+      "parentUuid": "f2ba22ed_d8fa8d48",
+      "range": {
+        "startLine": 1429,
+        "startChar": 11,
+        "endLine": 1429,
+        "endChar": 44
+      },
+      "revId": "a15ab4ec6011e35f3b6addbf9845031bf78287f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
