@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "929c86d9_13ddd407",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2792,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "Not needed and removing it fixes the long line.",
+      "range": {
+        "startLine": 2792,
+        "startChar": 2,
+        "endLine": 2792,
+        "endChar": 10
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_6ca8fb8d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2862,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "I\u0027d put this after the exception_ field so it\u0027s close to the handle it manages.",
+      "range": {
+        "startLine": 2862,
+        "startChar": 2,
+        "endLine": 2862,
+        "endChar": 36
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_6701d2b6",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "I don\u0027t think giving an empty location is the right thing. We should be able to compute it. We could recycle Thread::GetCurrentThrowLocation to achieve that.",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 43
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_a7210a5b",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "Same concern about empty location.",
+      "range": {
+        "startLine": 203,
+        "startChar": 35,
+        "endLine": 203,
+        "endChar": 50
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_6c911b50",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 80,
+        "startChar": 21,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_270efae2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 1036,
+        "startChar": 19,
+        "endLine": 1036,
+        "endChar": 20
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_a7482a1b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "I see why you still need pass the location ot this method now. However, we should be able to compute that location from the exception object, shouldn\u0027t we?",
+      "range": {
+        "startLine": 1741,
+        "startChar": 9,
+        "endLine": 1741,
+        "endChar": 23
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_936544cf",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-05T11:32:19Z",
+      "side": 1,
+      "message": "Same concern about passing empty location",
+      "range": {
+        "startLine": 1842,
+        "startChar": 22,
+        "endLine": 1842,
+        "endChar": 37
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
