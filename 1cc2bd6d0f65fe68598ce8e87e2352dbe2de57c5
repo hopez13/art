@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "929c86d9_304c46ca",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-05T03:27:09Z",
+      "side": 1,
+      "message": "We can restore Contains() and use \"Contains(other) || other.Contains(*this)\" if we do not care about overlap between register pairs like (a,b) and (b,c).",
+      "revId": "1cc2bd6d0f65fe68598ce8e87e2352dbe2de57c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_d1cd04b1",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-05T03:27:09Z",
+      "side": 1,
+      "message": "This case can be removed if no one cares about overlap between register pairs like (a,b) and (b,c).",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 5
+      },
+      "revId": "1cc2bd6d0f65fe68598ce8e87e2352dbe2de57c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
