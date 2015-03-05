@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_d346ac2a",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 0,
+      "message": "This is a \"nice to have message\" but not so much a requirement. If one wants this level of information, he should probably open up a debugger.",
+      "parentUuid": "d22fde6e_27e0ba98",
+      "range": {
+        "startLine": 1068,
+        "startChar": 6,
+        "endLine": 1072,
+        "endChar": 74
+      },
+      "revId": "3d7d2af4c6502b771b032ee9bf3ab30e78f9c60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_738898ed",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-05T11:32:19Z",
       "side": 0,
       "message": "We should dump the throw location here too.",
+      "range": {
+        "startLine": 309,
+        "startChar": 6,
+        "endLine": 313,
+        "endChar": 31
+      },
+      "revId": "3d7d2af4c6502b771b032ee9bf3ab30e78f9c60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_87b88662",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 0,
+      "message": "Same reply as before: kind of a best effort message, and the developer should probably open up a debugger.",
+      "parentUuid": "929c86d9_738898ed",
       "range": {
         "startLine": 309,
         "startChar": 6,

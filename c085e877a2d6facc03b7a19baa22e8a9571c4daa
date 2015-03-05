@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_333c5098",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2792,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929c86d9_13ddd407",
+      "range": {
+        "startLine": 2792,
+        "startChar": 2,
+        "endLine": 2792,
+        "endChar": 10
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "773384f5_6ca8fb8d",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-05T11:32:19Z",
       "side": 1,
       "message": "I\u0027d put this after the exception_ field so it\u0027s close to the handle it manages.",
+      "range": {
+        "startLine": 2862,
+        "startChar": 2,
+        "endLine": 2862,
+        "endChar": 36
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_0c05f70f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2862,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773384f5_6ca8fb8d",
       "range": {
         "startLine": 2862,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_93d384d7",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d22fde6e_6701d2b6",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 43
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d22fde6e_a7210a5b",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-05T11:32:19Z",
       "side": 1,
       "message": "Same concern about empty location.",
+      "range": {
+        "startLine": 203,
+        "startChar": 35,
+        "endLine": 203,
+        "endChar": 50
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_53eabc79",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d22fde6e_a7210a5b",
       "range": {
         "startLine": 203,
         "startChar": 35,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_b3f5e059",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773384f5_6c911b50",
+      "range": {
+        "startLine": 80,
+        "startChar": 21,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d22fde6e_270efae2",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-05T11:32:19Z",
       "side": 1,
       "message": "1",
+      "range": {
+        "startLine": 1036,
+        "startChar": 19,
+        "endLine": 1036,
+        "endChar": 20
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_a7bd8a51",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d22fde6e_270efae2",
       "range": {
         "startLine": 1036,
         "startChar": 19,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_6c1fdb5d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Yes, but there\u0027s no exception object here, we\u0027re creating it :-)\n\nI think we could just walk the stack here. I\u0027ll try it in a follow-up CL.",
+      "parentUuid": "d22fde6e_a7482a1b",
+      "range": {
+        "startLine": 1741,
+        "startChar": 9,
+        "endLine": 1741,
+        "endChar": 23
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_936544cf",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2015-03-05T11:32:19Z",
       "side": 1,
       "message": "Same concern about passing empty location",
+      "range": {
+        "startLine": 1842,
+        "startChar": 22,
+        "endLine": 1842,
+        "endChar": 37
+      },
+      "revId": "c085e877a2d6facc03b7a19baa22e8a9571c4daa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_e7c782dd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1842,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T11:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929c86d9_936544cf",
       "range": {
         "startLine": 1842,
         "startChar": 22,
