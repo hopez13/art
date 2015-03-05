@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "375f4c29_2a43ff1e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T17:07:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7585443_e82853b3",
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7585443_483abf00",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 14
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "375f4c29_ea3cc799",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T17:07:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7585443_483abf00",
+      "range": {
+        "startLine": 2072,
+        "startChar": 37,
+        "endLine": 2072,
+        "endChar": 51
+      },
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d742704b_8f3315c6",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 14
@@ -53,6 +95,24 @@
       "writtenOn": "2015-03-05T17:00:29Z",
       "side": 1,
       "message": "I changed this because it was breaking the RA, since it didn\u0027t handle SameAsFirstInput for non-symbolics.  Guess it must have been fixed.",
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_f6c2b6cf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T17:07:28Z",
+      "side": 1,
+      "message": "Yes, with the ssa_liveness_analysis.h change.",
+      "parentUuid": "d742704b_8f3315c6",
       "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
