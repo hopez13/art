@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_0ca0571a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-05T15:01:25Z",
+      "side": 1,
+      "message": "It can but it makes things slightly messier and inefficient in the stack map stream. I\u0027ll need to reiterate the dex register list every time i need the live mask which is both during size computation and region filling.\n\nIf you have a strong preference for that I can worked it out.",
+      "parentUuid": "773384f5_6cf7db62",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 3
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_7346d8a9",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-05T14:21:47Z",
       "side": 1,
       "message": "Please provide a meaninful name for this variable. It\u0027s not just a simple for loop anymore, so maybe another name for \u0027j\u0027 as well?",
+      "range": {
+        "startLine": 186,
+        "startChar": 27,
+        "endLine": 186,
+        "endChar": 28
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_4c6f7f7e",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-05T15:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929c86d9_7346d8a9",
       "range": {
         "startLine": 186,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d22fde6e_47468ea9",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-05T15:01:25Z",
+      "side": 1,
+      "message": "For brevity. There are a lot of nones and they are not interesting. I can document (somewhere...) that if the dex register is not there is\u0027s location is none.",
+      "parentUuid": "773384f5_2cf1d36a",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1067,
+        "endChar": 69
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d22fde6e_8757a65b",
         "filename": "runtime/stack_map.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d22fde6e_2ad07f46",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-05T15:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d22fde6e_8757a65b",
+      "range": {
+        "startLine": 88,
+        "startChar": 57,
+        "endLine": 88,
+        "endChar": 60
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d22fde6e_c7519e67",
         "filename": "runtime/stack_map.h",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-03-05T14:21:47Z",
       "side": 1,
       "message": "Please add a comment. This is loading a map for... ? Why is this not an instance method on StackMap or CodeRegion?",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "2d70cbe116e2ff14950d03c16b596905e3f61c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_8abecbfb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-05T15:01:25Z",
+      "side": 1,
+      "message": "I will document. This assumes that the MemoryRegion is populated with eveything it needs to recreate the Map. Having it here avoids exposing unnecessary details. It\u0027s the DexRegisterMap concern on how/where it stores individual fields.",
+      "parentUuid": "d22fde6e_c7519e67",
       "range": {
         "startLine": 99,
         "startChar": 24,
