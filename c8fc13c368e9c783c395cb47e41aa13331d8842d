@@ -46,6 +46,30 @@
       "revId": "c8fc13c368e9c783c395cb47e41aa13331d8842d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_07d3b655",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T08:37:47Z",
+      "side": 1,
+      "message": "OK, figured out. EAX and ECX will be used as inputs. I\u0027ll fix baseline...",
+      "parentUuid": "d22fde6e_87bec6fb",
+      "range": {
+        "startLine": 937,
+        "startChar": 33,
+        "endLine": 937,
+        "endChar": 62
+      },
+      "revId": "c8fc13c368e9c783c395cb47e41aa13331d8842d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
