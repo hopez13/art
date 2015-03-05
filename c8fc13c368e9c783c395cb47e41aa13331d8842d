@@ -22,6 +22,30 @@
       "revId": "c8fc13c368e9c783c395cb47e41aa13331d8842d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7247123f_ecddabe2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-05T02:24:29Z",
+      "side": 1,
+      "message": "It seems that there are already 3 registers being used.  The 2 inputs and the output.  I tried ECX here, and it failed.  I can update the comment",
+      "parentUuid": "d22fde6e_87bec6fb",
+      "range": {
+        "startLine": 937,
+        "startChar": 33,
+        "endLine": 937,
+        "endChar": 62
+      },
+      "revId": "c8fc13c368e9c783c395cb47e41aa13331d8842d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
