@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d2bd1ee7_37dab810",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "Nit: Maybe move the left-hand side of the `\u0026\u0026\u0027 operation on its own line (and split it if it doesn\u0027t fit on a 100-char line)?",
+      "range": {
+        "startLine": 165,
+        "startChar": 34,
+        "endLine": 166,
+        "endChar": 57
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ba22ed_78e381a7",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "I don\u0027t remember whether we have a helper for this pattern; if so, please use it, otherwise I suggest introducing one.",
+      "range": {
+        "startLine": 240,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 5
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2b937da_d9f673e1",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 8
@@ -42,6 +88,191 @@
         "startChar": 0,
         "endLine": 58,
         "endChar": 9
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2ba22ed_18ea4579",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "Thanks! :)",
+      "parentUuid": "a22bf7c1_a967bd88",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 9
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52b04e09_5b49e3b8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "Please remove `virtual\u0027 on methods tagged `OVERRIDE\u0027.",
+      "range": {
+        "startLine": 1540,
+        "startChar": 2,
+        "endLine": 1540,
+        "endChar": 9
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d22fde6e_a7ad8a9f",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "UShr",
+      "range": {
+        "startLine": 376,
+        "startChar": 38,
+        "endLine": 376,
+        "endChar": 42
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_91ad3ca0",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "Try to factor these checks using assert routines? (E.g. as in test/422-type-conversion/src/Main.java).",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 439,
+        "endChar": 5
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_119aec70",
+        "filename": "test/454-checker-instruction-simplification/info.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "(American) nit: optimizations ;-)",
+      "range": {
+        "startLine": 1,
+        "startChar": 28,
+        "endLine": 1,
+        "endChar": 41
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_d3698cf9",
+        "filename": "test/454-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52a68e28_71a7f0b8",
+        "filename": "test/454-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 20,
+        "startChar": 30,
+        "endLine": 20,
+        "endChar": 43
+      },
+      "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_336f30fd",
+        "filename": "test/454-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-05T09:49:43Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 5
       },
       "revId": "3c6526f604dadb9c430d70412cad099983e1378b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
