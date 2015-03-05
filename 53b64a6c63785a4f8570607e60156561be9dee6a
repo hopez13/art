@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "321d9af7_21a5ad2c",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-05T03:53:10Z",
+      "side": 1,
+      "message": "I think thats only worth it if I can find a nice 16 bit slot that I can use without increasing the size of the object.",
+      "parentUuid": "929c86d9_ad41fd67",
+      "range": {
+        "startLine": 1008,
+        "startChar": 18,
+        "endLine": 1008,
+        "endChar": 26
+      },
+      "revId": "53b64a6c63785a4f8570607e60156561be9dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_0d6c9104",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f25ea2fc_7895e183",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-05T03:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929c86d9_0d6c9104",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "53b64a6c63785a4f8570607e60156561be9dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12b17657_b11de066",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-03-04T10:36:32Z",
       "side": 1,
       "message": "Really? Nice try ;-)",
+      "range": {
+        "startLine": 66,
+        "startChar": 55,
+        "endLine": 66,
+        "endChar": 59
+      },
+      "revId": "53b64a6c63785a4f8570607e60156561be9dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321d9af7_b5081727",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-05T03:53:10Z",
+      "side": 1,
+      "message": "Default opt-in is good to have",
+      "parentUuid": "12b17657_b11de066",
       "range": {
         "startLine": 66,
         "startChar": 55,
