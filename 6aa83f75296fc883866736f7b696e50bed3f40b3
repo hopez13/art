@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_76d36683",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-05T17:38:18Z",
+      "side": 1,
+      "message": "No, the location builder requests a constant or a byte register. Even baseline will honor this.",
+      "parentUuid": "773384f5_2fce655d",
+      "revId": "6aa83f75296fc883866736f7b696e50bed3f40b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7585443_483abf00",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 14
