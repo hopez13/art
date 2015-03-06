@@ -93,6 +93,30 @@
       "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570f6078_c34db694",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-06T18:33:03Z",
+      "side": 1,
+      "message": "Ah, so there was a padding field then? I guess that makes sense.",
+      "parentUuid": "57f6809e_2bb8d95e",
+      "range": {
+        "startLine": 1045,
+        "startChar": 13,
+        "endLine": 1045,
+        "endChar": 35
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

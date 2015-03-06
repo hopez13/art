@@ -46,6 +46,30 @@
       "revId": "51867b3cdc0481048ea8c22a846932f2a207cf53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570f6078_03486e87",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-06T18:33:03Z",
+      "side": 0,
+      "message": "Handles are only meant to be on the stack, GcRoot is the replacement for non thread-local Object* roots.",
+      "parentUuid": "97155885_250c8e6d",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 26
+      },
+      "revId": "51867b3cdc0481048ea8c22a846932f2a207cf53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
