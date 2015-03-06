@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_5c33e9c5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 3259,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-06T13:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773384f5_cfc481bc",
+      "range": {
+        "startLine": 3259,
+        "startChar": 6,
+        "endLine": 3259,
+        "endChar": 24
+      },
+      "revId": "54812d009d447d869f52ee04bef3eac5443d2574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "375f4c29_cdcebda9",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 19
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-06T06:12:29Z",
       "side": 1,
       "message": "invocation",
+      "range": {
+        "startLine": 406,
+        "startChar": 5,
+        "endLine": 406,
+        "endChar": 15
+      },
+      "revId": "54812d009d447d869f52ee04bef3eac5443d2574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f4c29_ed53c1f3",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-06T13:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "375f4c29_cdcebda9",
       "range": {
         "startLine": 406,
         "startChar": 5,
