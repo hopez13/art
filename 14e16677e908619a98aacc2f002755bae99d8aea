@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_1cdde107",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-06T10:31:33Z",
+      "side": 1,
+      "message": "No, it\u0027s just a personal preference.  You can keep it as is.\nAlternatively, you could use an `else\u0027 for the outermost `if\u0027 statement and get rid of the `return\u0027 statements.",
+      "parentUuid": "929c86d9_1cb681cf",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "14e16677e908619a98aacc2f002755bae99d8aea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "375f4c29_8dbe85a4",
         "filename": "disassembler/disassembler_arm64.cc",
         "patchSetId": 1
