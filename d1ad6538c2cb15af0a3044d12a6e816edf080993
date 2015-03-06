@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "17b888d3_1ce7f930",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3426,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-06T20:57:30Z",
+      "side": 1,
+      "message": "throwing std::bad_alloc is new behavior so some of the old CHECK\u0027s are out of date.",
+      "parentUuid": "97155885_255ace5c",
+      "range": {
+        "startLine": 3426,
+        "startChar": 6,
+        "endLine": 3426,
+        "endChar": 25
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f72054e0_c85dcfc6",
         "filename": "runtime/thread.h",
         "patchSetId": 4
