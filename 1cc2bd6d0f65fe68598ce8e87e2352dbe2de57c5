@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "929c86d9_9cfb9194",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T09:56:05Z",
+      "side": 1,
+      "message": "Yes, I\u0027d prefer this.",
+      "parentUuid": "929c86d9_9c46f17b",
+      "revId": "1cc2bd6d0f65fe68598ce8e87e2352dbe2de57c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52a68e28_d1cd04b1",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 2
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Should I remove this case?",
       "parentUuid": "52a68e28_d1cd04b1",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 5
+      },
+      "revId": "1cc2bd6d0f65fe68598ce8e87e2352dbe2de57c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_fc00d501",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T09:56:05Z",
+      "side": 1,
+      "message": "Yes, please. If you want, you can DCHECK it in the parallel move resolver.",
+      "parentUuid": "773384f5_b2099859",
       "range": {
         "startLine": 480,
         "startChar": 0,
