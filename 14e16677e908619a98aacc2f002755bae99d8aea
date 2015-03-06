@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_9210dc4e",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-06T10:56:20Z",
+      "side": 1,
+      "message": "Oh, right.  Thanks for adding the comment!",
+      "parentUuid": "773384f5_927b3ca5",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "14e16677e908619a98aacc2f002755bae99d8aea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "375f4c29_8dbe85a4",
         "filename": "disassembler/disassembler_arm64.cc",
         "patchSetId": 1
