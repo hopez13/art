@@ -70,6 +70,30 @@
       "revId": "bf05967a4bf2d55d1b1afb2e6cb1eb958a4c291c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "773384f5_5265d4cc",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-06T11:52:44Z",
+      "side": 1,
+      "message": "Addressed in https://android-review.googlesource.com/#/c/138693/.",
+      "parentUuid": "929c86d9_212516d9",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 50
+      },
+      "revId": "bf05967a4bf2d55d1b1afb2e6cb1eb958a4c291c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
