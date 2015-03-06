@@ -22,6 +22,30 @@
       "revId": "229f46a757bab49b5f747cb27e15006430b27394",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_ce104350",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-06T14:52:58Z",
+      "side": 1,
+      "message": "That may explain why setting float and double parameters fail in my new JDWP tests on x86_64: https://android-review.googlesource.com/123694",
+      "parentUuid": "cb69dfa3_ff7b97e1",
+      "range": {
+        "startLine": 350,
+        "startChar": 10,
+        "endLine": 350,
+        "endChar": 18
+      },
+      "revId": "229f46a757bab49b5f747cb27e15006430b27394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
