@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57f6809e_0b24fdb0",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Should you DCHECK num_buckets is a power of 2?",
+      "range": {
+        "startLine": 43,
+        "startChar": 19,
+        "endLine": 43,
+        "endChar": 35
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ec78cf_ed50a530",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ec78cf_ad84dd0b",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Fits on one line?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 42
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77fb8486_6c8b1b1d",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "That\u0027s bucket_owned, right? Might be clearer to name it directly instead of mentioning flags.",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 47
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77fb8486_eca54bb2",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "changes -\u003e changes,",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_6e3dcfe5",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Why the \"but\" in \"but will\". Also, is it \"we will\" instead?",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 43
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_4e445304",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Aren\u0027t we guaranteed pure instructions survive? Shouldn\u0027t you skip them?",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 90
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_0b96bd48",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Is the caching worth it?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 28
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_8b810dfc",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "was only -\u003e is currently pointing to the parent?",
+      "range": {
+        "startLine": 164,
+        "startChar": 42,
+        "endLine": 164,
+        "endChar": 46
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_ab84c90b",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "own -\u003e our own?",
+      "range": {
+        "startLine": 164,
+        "startChar": 11,
+        "endLine": 164,
+        "endChar": 12
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_4b90c549",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "What\u0027s preserve_node?",
+      "range": {
+        "startLine": 167,
+        "startChar": 52,
+        "endLine": 167,
+        "endChar": 65
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_0e4a4b11",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Please document this.",
+      "range": {
+        "startLine": 168,
+        "startChar": 34,
+        "endLine": 168,
+        "endChar": 67
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ec78cf_ed60a582",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "\u003d\u003d nullptr",
+      "range": {
+        "startLine": 171,
+        "startChar": 75,
+        "endLine": 171,
+        "endChar": 88
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_6b002101",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "OK, so you\u0027re cloning all entries/collisions at this bucket index, correct?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 47
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_8b062d19",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "satisfy cond -\u003e on which `cond` returns true ?",
+      "range": {
+        "startLine": 196,
+        "startChar": 49,
+        "endLine": 196,
+        "endChar": 64
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_4b05650f",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "all which -\u003e the ones that ?",
+      "range": {
+        "startLine": 196,
+        "startChar": 39,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_2e458703",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "don\u0027t -\u003e do not",
+      "range": {
+        "startLine": 212,
+        "startChar": 52,
+        "endLine": 212,
+        "endChar": 55
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ec78cf_6dc2f5d2",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "don\u0027t -\u003e do not",
+      "range": {
+        "startLine": 228,
+        "startChar": 15,
+        "endLine": 228,
+        "endChar": 20
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ec78cf_8da8010a",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Nit: Please be consistent on the comments. Either \"Return\" or \"Returns\".",
+      "range": {
+        "startLine": 248,
+        "startChar": 5,
+        "endLine": 248,
+        "endChar": 12
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_2b1f395e",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Please add a comment on why you\u0027re doing this computation.",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 61
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ec78cf_edb54564",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "hash set? you mean the ValueSet ?",
+      "range": {
+        "startLine": 281,
+        "startChar": 47,
+        "endLine": 281,
+        "endChar": 56
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_4e429369",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "bucket_owned_ -\u003e buckets_owned_ ?",
+      "range": {
+        "startLine": 290,
+        "startChar": 17,
+        "endLine": 290,
+        "endChar": 30
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_6b194175",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-06T16:48:33Z",
+      "side": 1,
+      "message": "Should this be computed instead? GetHashMask() -\u003e num_buckets - 1 ?",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 20
+      },
+      "revId": "ec6910fb3cc0c06a7bc68a9faa1ca49cb59fe63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
