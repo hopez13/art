@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f72054e0_a8385b84",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3426,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-06T18:07:25Z",
+      "side": 1,
+      "message": "Unfortunately, I don\u0027t think new returns null if OOM, it throws std::bad_alloc",
+      "range": {
+        "startLine": 3426,
+        "startChar": 6,
+        "endLine": 3426,
+        "endChar": 25
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f72054e0_c85dcfc6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-06T18:07:25Z",
+      "side": 1,
+      "message": "Doesn\u0027t adding this field mean you need to update the constants in asm_support.h?",
+      "range": {
+        "startLine": 1045,
+        "startChar": 13,
+        "endLine": 1045,
+        "endChar": 35
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
