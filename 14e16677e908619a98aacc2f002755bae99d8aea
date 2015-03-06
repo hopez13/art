@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "773384f5_f29ba072",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-06T10:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "375f4c29_8d7b25a5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 78
+      },
+      "revId": "14e16677e908619a98aacc2f002755bae99d8aea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "773384f5_323da8e6",
         "filename": "disassembler/disassembler_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-06T10:18:29Z",
       "side": 1,
       "message": "What about\n\n  return AppendToOutput(\"tr\");\n\n?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "14e16677e908619a98aacc2f002755bae99d8aea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929c86d9_1cb681cf",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-06T10:25:55Z",
+      "side": 1,
+      "message": "Do you prefer it much? I don\u0027t really like returning \u0027void\u0027.",
+      "parentUuid": "773384f5_323da8e6",
       "range": {
         "startLine": 48,
         "startChar": 0,
