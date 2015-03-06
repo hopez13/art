@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "97155885_255ace5c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3426,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-06T18:28:51Z",
+      "side": 1,
+      "message": "Right. So the CHECK does not work either I guess. \n\nWhat\u0027s about using \"new (std::nothrow)\"? From the spec, it returns nullptr instead of std::bad_alloc. There are other places where we CHECK allocation succeeds.",
+      "parentUuid": "f72054e0_a8385b84",
+      "range": {
+        "startLine": 3426,
+        "startChar": 6,
+        "endLine": 3426,
+        "endChar": 25
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f72054e0_c85dcfc6",
         "filename": "runtime/thread.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-06T18:07:25Z",
       "side": 1,
       "message": "Doesn\u0027t adding this field mean you need to update the constants in asm_support.h?",
+      "range": {
+        "startLine": 1045,
+        "startChar": 13,
+        "endLine": 1045,
+        "endChar": 35
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f6809e_2bb8d95e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-06T18:28:51Z",
+      "side": 1,
+      "message": "That was required when I started this CL. But it was no longer needed after https://android-review.googlesource.com/136081 which removed the is_exception_reported_to_instrumentation_.",
+      "parentUuid": "f72054e0_c85dcfc6",
       "range": {
         "startLine": 1045,
         "startChar": 13,

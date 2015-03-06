@@ -22,6 +22,30 @@
       "revId": "51867b3cdc0481048ea8c22a846932f2a207cf53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97155885_250c8e6d",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-06T18:28:51Z",
+      "side": 0,
+      "message": "I was thinking about using Handle (with an extra StackHandleScope to create them). Is GcRoot the better solution?",
+      "parentUuid": "d72350ea_47154ec1",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 26
+      },
+      "revId": "51867b3cdc0481048ea8c22a846932f2a207cf53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
