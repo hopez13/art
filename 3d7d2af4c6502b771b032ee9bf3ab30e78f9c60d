@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b7025c8b_a6c7a690",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-08T21:43:43Z",
+      "side": 0,
+      "message": "Done through exception-\u003eDump().",
+      "parentUuid": "929c86d9_d346ac2a",
+      "range": {
+        "startLine": 1068,
+        "startChar": 6,
+        "endLine": 1072,
+        "endChar": 74
+      },
+      "revId": "3d7d2af4c6502b771b032ee9bf3ab30e78f9c60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "929c86d9_738898ed",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 0,
       "message": "Same reply as before: kind of a best effort message, and the developer should probably open up a debugger.",
       "parentUuid": "929c86d9_738898ed",
+      "range": {
+        "startLine": 309,
+        "startChar": 6,
+        "endLine": 313,
+        "endChar": 31
+      },
+      "revId": "3d7d2af4c6502b771b032ee9bf3ab30e78f9c60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f17ca4_f10402cb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-08T21:43:43Z",
+      "side": 0,
+      "message": "Actually, the info was duplicated here, as exception-\u003eDump() would dump the location.",
+      "parentUuid": "d22fde6e_87b88662",
       "range": {
         "startLine": 309,
         "startChar": 6,
