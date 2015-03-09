@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7772a492_14d2f451",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T20:44:41Z",
+      "side": 1,
+      "message": "I\u0027ll change all of these as you suggest.",
+      "parentUuid": "b78fbcac_3e8c2900",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 57
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7d35094_cadc23e7",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 5
@@ -82,6 +106,30 @@
       "writtenOn": "2015-03-09T20:10:40Z",
       "side": 1,
       "message": "probably a good idea to include the bad location string in the error message.",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 50
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1768889d_79a327ad",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T20:44:41Z",
+      "side": 1,
+      "message": "The dex location is reported by the caller (the OdexFileName method) if we get this error. I can move it to the error message here if you prefer. It makes no difference to me.",
+      "parentUuid": "978ab89d_3dfd0fb3",
       "range": {
         "startLine": 668,
         "startChar": 4,
