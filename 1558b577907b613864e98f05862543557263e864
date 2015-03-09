@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57420031_0bfbbdc9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T21:13:54Z",
+      "side": 1,
+      "message": "Are these supposed to be IfNonNull? This is changing the behavior.",
+      "range": {
+        "startLine": 352,
+        "startChar": 9,
+        "endLine": 352,
+        "endChar": 18
+      },
+      "revId": "1558b577907b613864e98f05862543557263e864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9738f8b1_2df88dca",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T21:13:54Z",
+      "side": 1,
+      "message": "Thanks",
+      "range": {
+        "startLine": 68,
+        "startChar": 17,
+        "endLine": 68,
+        "endChar": 23
+      },
+      "revId": "1558b577907b613864e98f05862543557263e864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
