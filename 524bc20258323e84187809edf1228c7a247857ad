@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c558cf_e50f96ae",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-09T21:08:59Z",
+      "side": 1,
+      "message": "this seems inconsistent now. if this is slower, why are we using it now? do we want to have different options for compile time arena vs runtime arena?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "524bc20258323e84187809edf1228c7a247857ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
