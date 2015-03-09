@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5794c0c0_9b42ab6a",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T20:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7e9342c_400ace1f",
+      "range": {
+        "startLine": 591,
+        "startChar": 56,
+        "endLine": 591,
+        "endChar": 72
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37e02c3c_c2a0a221",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-09T18:25:45Z",
       "side": 1,
       "message": "Should this be garbage_collectors_lock_?",
+      "range": {
+        "startLine": 597,
+        "startChar": 59,
+        "endLine": 597,
+        "endChar": 84
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5794c0c0_bb476779",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T20:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37e02c3c_c2a0a221",
       "range": {
         "startLine": 597,
         "startChar": 59,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5794c0c0_fb41ef64",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T20:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d70510c4_d71dfc61",
+      "range": {
+        "startLine": 1821,
+        "startChar": 21,
+        "endLine": 1821,
+        "endChar": 66
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57f840fa_1b54bb22",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-09T18:25:45Z",
       "side": 1,
       "message": "Would it be worth templatizing FindOrCreateCollector with the collector type to cast the return value to?",
+      "range": {
+        "startLine": 2168,
+        "startChar": 10,
+        "endLine": 2169,
+        "endChar": 68
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5794c0c0_bb7f6766",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T20:41:37Z",
+      "side": 1,
+      "message": "Maybe, seems like it might be more effort than its worth though.",
+      "parentUuid": "57f840fa_1b54bb22",
       "range": {
         "startLine": 2168,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5794c0c0_3b8c3700",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2999,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T20:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "971718fb_b534c015",
+      "range": {
+        "startLine": 2999,
+        "startChar": 36,
+        "endLine": 2999,
+        "endChar": 62
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77fd44e8_dc8fed25",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-09T18:25:45Z",
       "side": 1,
       "message": "I\u0027d be worried that if we legitimately (not a bug) lazily create/initialize collectors in the middle of an execution,\n\n1) there may be things in the collector constructors that are expected to be initialized at startup rather than in the middle of an execution.\n\n2) memory allocations (mmap/malloc) related to collector initializations for things like mark stack, etc. may be more likely to fail than at startup.\n\nIt seems to me it\u0027d be simpler to create the collectors needed upfront (and abort if we find that we had failed to create what we needed.)\n\nWhat\u0027s an example of a legitimate lazy creation of a collector that gives us memory savings over an upfront/eager approach?",
+      "range": {
+        "startLine": 3014,
+        "startChar": 0,
+        "endLine": 3014,
+        "endChar": 55
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5794c0c0_fbf56f56",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T20:41:37Z",
+      "side": 1,
+      "message": "There is advantages / disadvantages to both approaches. Do you have examples of point 1)? Most things the constructors should be safe at runtime. Regarding point two, it is just something that GCs need to be aware of in their constructor. I think the only collector which has non-trivial allocations in the constructor is the CC collector.\n\nThe main case where we allocate GCs but never use them is apps which stay in a jank perceptible state, since they will never compact in this case.",
+      "parentUuid": "77fd44e8_dc8fed25",
       "range": {
         "startLine": 3014,
         "startChar": 0,
