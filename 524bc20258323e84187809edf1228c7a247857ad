@@ -22,6 +22,30 @@
       "revId": "524bc20258323e84187809edf1228c7a247857ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "370f4cb3_50cf84a5",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-09T21:12:25Z",
+      "side": 1,
+      "message": "I don\u0027t think this is slower, its slower to madvise than memset due to page faults. The compiler should recycle the same few arenas for thousands of methods.",
+      "parentUuid": "97c558cf_e50f96ae",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "524bc20258323e84187809edf1228c7a247857ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
