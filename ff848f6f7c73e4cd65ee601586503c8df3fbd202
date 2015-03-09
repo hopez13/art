@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b78fbcac_be011970",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T20:23:37Z",
+      "side": 1,
+      "message": "Is this necessary?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 33
+      },
+      "revId": "ff848f6f7c73e4cd65ee601586503c8df3fbd202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b78fbcac_7e30719a",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 6
