@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "57f840fa_deb6c1f1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T20:44:51Z",
+      "side": 1,
+      "message": "It is not necessary. I\u0027ll remove it.",
+      "parentUuid": "b78fbcac_be011970",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 33
+      },
+      "revId": "ff848f6f7c73e4cd65ee601586503c8df3fbd202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b78fbcac_7e30719a",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-09T20:16:37Z",
       "side": 1,
       "message": "do we at least DCHECK this in all the other method calls? I guess we\u0027ll get a clear SIGSEGV but...",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 33
+      },
+      "revId": "ff848f6f7c73e4cd65ee601586503c8df3fbd202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f840fa_feb1fdfb",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T20:44:51Z",
+      "side": 1,
+      "message": "There is a CHECK for this every place we try to access the released file (see the \u0027oat_file_released_\u0027 member variable). We will not get a SIGSEGV.\n\nIt is possible the user could call some other functions that still work properly after this is called without getting a CHECK failure.",
+      "parentUuid": "b78fbcac_7e30719a",
       "range": {
         "startLine": 138,
         "startChar": 0,
