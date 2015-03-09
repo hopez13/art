@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f78bf46d_908ab417",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-09T14:48:02Z",
+      "side": 1,
+      "message": "Since the code line 924 and 925 check based on first_register_use, it is first_register_use we need to pass here, not the interval\u0027s start.",
+      "range": {
+        "startLine": 922,
+        "startChar": 46,
+        "endLine": 922,
+        "endChar": 64
+      },
+      "revId": "5ea3ed87727c12612f6ea207bf3a5f492f6d5160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
