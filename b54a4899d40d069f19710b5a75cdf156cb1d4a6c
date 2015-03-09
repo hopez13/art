@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "777f0422_4c6effff",
+        "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-09T16:48:02Z",
+      "side": 1,
+      "message": "offsets",
+      "range": {
+        "startLine": 26,
+        "startChar": 70,
+        "endLine": 26,
+        "endChar": 77
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "577a0034_2b5b590b",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 1
