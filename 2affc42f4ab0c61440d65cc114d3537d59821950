@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "b78fbcac_3e8c2900",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-09T20:10:40Z",
+      "side": 1,
+      "message": "Is (OdexFileStatus() \u003d\u003d kNeedsLocation) clearer?",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 57
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7d35094_cadc23e7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-09T20:10:40Z",
+      "side": 1,
+      "message": "similar here? just use OatFileStatus \u003d\u003d kNeedsRelocation?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 55
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "978ab89d_3df8afca",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-09T20:10:40Z",
+      "side": 1,
+      "message": "similar here? (basically it feeds like otherwise this duplicates the logic of the other)",
+      "range": {
+        "startLine": 375,
+        "startChar": 9,
+        "endLine": 375,
+        "endChar": 73
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "978ab89d_3dfd0fb3",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-09T20:10:40Z",
+      "side": 1,
+      "message": "probably a good idea to include the bad location string in the error message.",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 50
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b78fbcac_5e3735b3",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-09T20:10:40Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 685,
+        "startChar": 4,
+        "endLine": 685,
+        "endChar": 50
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76990e5_f71620cc",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 5
