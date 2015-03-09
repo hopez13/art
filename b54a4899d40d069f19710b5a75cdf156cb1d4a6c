@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "37e02c3c_c2d38288",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T17:09:39Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 97,
+        "startChar": 3,
+        "endLine": 97,
+        "endChar": 28
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7f33c1a_9eac3da2",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T17:09:39Z",
+      "side": 1,
+      "message": "We mostly prefer a new line. Possibly even braces. Otherwise consider a ternary.",
+      "range": {
+        "startLine": 99,
+        "startChar": 29,
+        "endLine": 99,
+        "endChar": 57
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e02c3c_c2fc22f6",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T17:09:39Z",
+      "side": 1,
+      "message": "Side-effect and self-return?",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 18
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e02c3c_a2011e70",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T17:09:39Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 38
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e02c3c_e2fb26f8",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T17:09:39Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 135,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e02c3c_22eeae35",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T17:09:39Z",
+      "side": 1,
+      "message": "Period, offset.",
+      "range": {
+        "startLine": 349,
+        "startChar": 85,
+        "endLine": 349,
+        "endChar": 89
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "777f0422_4c6effff",
         "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.h",
         "patchSetId": 1
