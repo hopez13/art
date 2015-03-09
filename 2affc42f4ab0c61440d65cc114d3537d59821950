@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37e02c3c_02b28aff",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T16:45:10Z",
+      "side": 1,
+      "message": "I fixed this by getting rid of the ExecutableOatFileAssistant, and adding a \u0027load_executable\u0027 option to the OatFileAssistant. This better reflects that you may wish to load an oat file non-executable.",
+      "parentUuid": "d76990e5_f71620cc",
+      "range": {
+        "startLine": 874,
+        "startChar": 66,
+        "endLine": 874,
+        "endChar": 70
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "777aa4ab_545a6c5d",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-09T16:43:59Z",
       "side": 1,
       "message": "If for_execution_ was already false, we should skip doing this wasted work.",
+      "range": {
+        "startLine": 891,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 3
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e02c3c_22998e7b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T16:45:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "777aa4ab_545a6c5d",
       "range": {
         "startLine": 891,
         "startChar": 0,
