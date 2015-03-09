@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "577a0034_2b5b590b",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Sort...",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_d12e0412",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "If there\u0027s no current subclass, ART style is to make it FINAL.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 49
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "777f0422_6c82db00",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "If there\u0027s no current reason to make it protected, ART style is to make it private.",
+      "range": {
+        "startLine": 231,
+        "startChar": 1,
+        "endLine": 231,
+        "endChar": 11
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_d1b7e46f",
+        "filename": "compiler/dwarf/debug_frame_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "This is a rather weird dependence. Can you decouple it a different way?",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_f133087b",
+        "filename": "compiler/dwarf/debug_frame_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "FINAL.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "577a0034_6b3ac19d",
+        "filename": "compiler/dwarf/debug_frame_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Private.",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "777f0422_ecfa4b8f",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "FINAL.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "577a0034_0bec5d92",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Comments end with period.",
+      "range": {
+        "startLine": 112,
+        "startChar": 44,
+        "endLine": 112,
+        "endChar": 69
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_5143f4cb",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Private.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 11
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "577a0034_4be265a5",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Comments end with period.",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_113d6c41",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Final.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "777f0422_0c147741",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 43,
+        "startChar": 41,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "577a0034_8bd7edc2",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Comments end with period.",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 48
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_d1d36488",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Comments end with period.",
+      "range": {
+        "startLine": 60,
+        "startChar": 22,
+        "endLine": 60,
+        "endChar": 56
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "577a0034_abdc29e5",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Comments end with period.",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_b1e26053",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "Remove. That allows to compiler-check that all enum cases are handled. Put a LOG(FATAL) and UNREACHABLE below.",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 12
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1785e858_910f1cb0",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-09T15:54:17Z",
+      "side": 1,
+      "message": "No. The runtime should not depend on the compiler. Crap like the JIT are a special case, but if you need this here, then the enum needs to go into runtime.",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "b54a4899d40d069f19710b5a75cdf156cb1d4a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
