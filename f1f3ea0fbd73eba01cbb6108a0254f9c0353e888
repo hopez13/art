@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d719900f_f7fa208f",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-09T13:44:04Z",
+      "side": 1,
+      "message": "--debuggable",
+      "range": {
+        "startLine": 103,
+        "startChar": 33,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "f1f3ea0fbd73eba01cbb6108a0254f9c0353e888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d719900f_5733ccf9",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-09T13:44:04Z",
+      "side": 1,
+      "message": "IIUC, you missed to shift a few args in your original CL, right? I mean use $(13) instead of $(12).\n\nIMO, we should use meaningful local variable name instead of arg index: $(address_size) instead of $(13) for instance. Therefore if we introduce extra args again, we\u0027d just have to change the local variables init. That can be done in a separate CL.",
+      "range": {
+        "startLine": 454,
+        "startChar": 7,
+        "endLine": 454,
+        "endChar": 31
+      },
+      "revId": "f1f3ea0fbd73eba01cbb6108a0254f9c0353e888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
