@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d76990e5_f71620cc",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T16:43:59Z",
+      "side": 1,
+      "message": "This sets for_execution_ to true. The old class_linker.cc code uses \u0027!Runtime()-\u003eIsAotCompiler\u0027 for this. Presumably this is an issue I should fix.",
+      "range": {
+        "startLine": 874,
+        "startChar": 66,
+        "endLine": 874,
+        "endChar": 70
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "777aa4ab_545a6c5d",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T16:43:59Z",
+      "side": 1,
+      "message": "If for_execution_ was already false, we should skip doing this wasted work.",
+      "range": {
+        "startLine": 891,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 3
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
