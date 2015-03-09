@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7f17ca4_5144f603",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-09T08:43:49Z",
+      "side": 1,
+      "message": "I don\u0027t think these chars are needed because mirror::Throwable::Dump() adds \u0027\\n\u0027 to add the stack trace.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 51,
+        "endLine": 1069,
+        "endChar": 52
+      },
+      "revId": "564d04783dc6b8db93be7468e9d3b25d94e4ce2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "574cc013_5bd22353",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-09T08:43:49Z",
+      "side": 1,
+      "message": "This is redundant with mirror::Throwable::Dump. Actually, I\u0027d change the whole message to:\n\n  os \u003c\u003c \"Pending exception \" \u003c\u003c exception-\u003eDump();",
+      "range": {
+        "startLine": 310,
+        "startChar": 36,
+        "endLine": 310,
+        "endChar": 59
+      },
+      "revId": "564d04783dc6b8db93be7468e9d3b25d94e4ce2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97155885_25ce4e2f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-09T08:43:49Z",
+      "side": 1,
+      "message": "I think it\u0027s dangerous to have this \u0027mirror::ClassLoader* cl\u0027 and the matching Handle\u003cmirror::ClassLoader\u003e a few lines below. Maybe a GC could happen in between. I believe there is the same issue for ThrowLocation.GetMethod().\n\nI propose to move up the Handle\u003cmirror::ClassLoader\u003e initialization there, something like:\n\n\n  Handle\u003cmirror::ClassLoader\u003e class_loader(hs.NewHandle(GetClassLoaderFromThrowLocation(throw_location));\n\nwith \n\n  static mirror::ClassLoader* GetClassLoaderFromThrowLocation(const ThrowLocation\u0026 throw_location) {\n    if (throw_location.GetMethod() !\u003d nullptr) {\n      return throw_location.GetMethod()-\u003eGetDeclaringClass()-\u003eGetClassLoader();\n  } else {\n    return nullptr;\n  }\n}",
+      "range": {
+        "startLine": 1739,
+        "startChar": 2,
+        "endLine": 1742,
+        "endChar": 3
+      },
+      "revId": "564d04783dc6b8db93be7468e9d3b25d94e4ce2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
