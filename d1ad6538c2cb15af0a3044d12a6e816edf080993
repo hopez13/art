@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "97155885_c5013ab9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3426,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-09T08:53:02Z",
+      "side": 1,
+      "message": "Agreed. In my next PS, I use \"new (std::nothrow)\" to ensure a null pointer is returned if the allocation fails. \n\nWe should do a large pass on all allocations made in ART using \"new\" that may throw a std::bad_alloc instead of returning a nullptr.",
+      "parentUuid": "17b888d3_1ce7f930",
+      "range": {
+        "startLine": 3426,
+        "startChar": 6,
+        "endLine": 3426,
+        "endChar": 25
+      },
+      "revId": "d1ad6538c2cb15af0a3044d12a6e816edf080993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f72054e0_c85dcfc6",
         "filename": "runtime/thread.h",
         "patchSetId": 4
