@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "377cac56_021b8aa6",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T21:48:24Z",
+      "side": 1,
+      "message": "Brian mentioned that because this function is public, we shouldn\u0027t assume the caller will add the dex location.\n\nI\u0027ve moved reporting of the dex location on error into this function.",
+      "parentUuid": "1768889d_79a327ad",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 50
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b78fbcac_5e3735b3",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 5
@@ -225,6 +249,30 @@
       "writtenOn": "2015-03-09T20:10:40Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 685,
+        "startChar": 4,
+        "endLine": 685,
+        "endChar": 50
+      },
+      "revId": "2affc42f4ab0c61440d65cc114d3537d59821950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf45543_7fbd2ffe",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-09T21:48:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b78fbcac_5e3735b3",
       "range": {
         "startLine": 685,
         "startChar": 4,
