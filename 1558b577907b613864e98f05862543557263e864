@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c6d71ed_3aba41d5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T08:48:13Z",
+      "side": 1,
+      "message": "No, the class and the method must not be null. Now we allocate DebugInvokeReq when we know the class and the method, they\u0027re no longer supposed to be null so using VisitRoot will DCHECK that.\n\nWe used to check for null when the DebugInvokeReq was always visible by GC (through the thread) when no invoke was in progress. This is no longer needed with this CL.",
+      "parentUuid": "57420031_0bfbbdc9",
+      "range": {
+        "startLine": 352,
+        "startChar": 9,
+        "endLine": 352,
+        "endChar": 18
+      },
+      "revId": "1558b577907b613864e98f05862543557263e864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9738f8b1_2df88dca",
         "filename": "runtime/debugger.h",
         "patchSetId": 6
