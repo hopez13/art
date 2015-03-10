@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bcf161a4_d120e6ca",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T15:32:14Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "7cfb6986_cc304f99",
+      "range": {
+        "startLine": 254,
+        "startChar": 5,
+        "endLine": 254,
+        "endChar": 65
+      },
+      "revId": "7b973c862b66082de917a19bbb49f530d55c964d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc2375ea_679b3246",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-10T13:56:01Z",
       "side": 1,
       "message": "Looks redundant with the loop above (except the \"Update(phi)\"). Maybe you can factorize by moving the \"if (block-\u003eIsLoopHeader())\" inside the loop.",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 5
+      },
+      "revId": "7b973c862b66082de917a19bbb49f530d55c964d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cfb6986_4f35710a",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T15:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc2375ea_679b3246",
       "range": {
         "startLine": 132,
         "startChar": 4,
