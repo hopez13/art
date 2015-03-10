@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3c9ad178_7291184a",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T16:54:40Z",
+      "side": 1,
+      "message": "Is this necessary (to be public)? I couldn\u0027t find a use outside the debugger.",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 3
+      },
+      "revId": "4212092ae1fb4c89c341bbbaef91690b3055c7e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cb571da_5a8c1537",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 20
