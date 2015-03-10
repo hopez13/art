@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "571be05a_03572e2a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-10T00:08:19Z",
+      "side": 1,
+      "message": "ScopedObjectAccess",
+      "range": {
+        "startLine": 81,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "963b0b5d800830efe1c9c7563b5d03f0767a4a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc524121_86c1ca2a",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-10T00:08:19Z",
+      "side": 1,
+      "message": "Worth using PrimitiveArray::Memcpy here?",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 245,
+        "endChar": 21
+      },
+      "revId": "963b0b5d800830efe1c9c7563b5d03f0767a4a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c8491cb_02002a2d",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-10T00:08:19Z",
+      "side": 1,
+      "message": "Normal style is to put { on line above I think.",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 5
+      },
+      "revId": "963b0b5d800830efe1c9c7563b5d03f0767a4a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
