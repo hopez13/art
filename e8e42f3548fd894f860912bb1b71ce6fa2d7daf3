@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5ce4e5f6_9b294bbb",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T16:05:41Z",
+      "side": 0,
+      "message": "Ian, the functional change is here: \nhttps://android-review.googlesource.com/#/c/139210/.\n\nThis change is just about removing the code leading to creating a ThrowLocation that is now unused.\n\nI filed a bug for this. I\u0027m sure if the test shows we\u0027re not behaving properly, we can workaround it without requiring a ThrowLocation for all the other places.",
+      "parentUuid": "7ce9a9ce_bc2601e6",
+      "range": {
+        "startLine": 293,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 59
+      },
+      "revId": "e8e42f3548fd894f860912bb1b71ce6fa2d7daf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ccfcd73_611936ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
