@@ -22,6 +22,30 @@
       "revId": "39d9fe2eb3552a002c53ed41701c6faffe3cd75a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c5305ca_c391564f",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-10T21:43:17Z",
+      "side": 0,
+      "message": "I deleted the TODO since its probably not worth keeping track of methods which access fields / call virtual methods since the amount which don\u0027t is probably tiny.",
+      "parentUuid": "7c58c9e5_64f50ad0",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 54
+      },
+      "revId": "39d9fe2eb3552a002c53ed41701c6faffe3cd75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
