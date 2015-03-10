@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c6b0531_a3ffbaa9",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T17:54:55Z",
+      "side": 1,
+      "message": "Don\u0027t like. There is no check for your assumption. Randomly trying to resolve as an interface doesn\u0027t sound good.",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 107,
+        "endChar": 42
+      },
+      "revId": "74452437f51b6c57b910d9bd60128ba82087a823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
