@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcf161a4_eeda5f64",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T10:37:01Z",
+      "side": 1,
+      "message": "This is trimming after each compilation, right?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 38
+      },
+      "revId": "9b34b244ecddd8a35c922ed87bc3df0ca4db0282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c6d71ed_fa3a8999",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T10:37:01Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 133,
+        "startChar": 40,
+        "endLine": 133,
+        "endChar": 51
+      },
+      "revId": "9b34b244ecddd8a35c922ed87bc3df0ca4db0282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
