@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c6d71ed_7a6e7986",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3803,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T11:31:32Z",
+      "side": 0,
+      "message": "I cleanup that code in https://android-review.googlesource.com/137971. You probably have a conflict now.",
+      "range": {
+        "startLine": 3797,
+        "startChar": 2,
+        "endLine": 3803,
+        "endChar": 3
+      },
+      "revId": "54a8cc689dc23f346c9aac0d5fc6f47e61df8cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ca1a95d_7c4f5945",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T11:31:32Z",
+      "side": 0,
+      "message": "Proxy method requires special handling to report the right method. Is this supported by your change? We probably need to add a test for it.",
+      "range": {
+        "startLine": 284,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 59
+      },
+      "revId": "54a8cc689dc23f346c9aac0d5fc6f47e61df8cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
