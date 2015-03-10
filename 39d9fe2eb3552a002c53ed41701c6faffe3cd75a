@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c58c9e5_64f50ad0",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T21:35:39Z",
+      "side": 0,
+      "message": "Why wasn\u0027t that extended to include the TODO? Now there\u0027s overhead for methods that have neither (admittedly a minority, I\u0027d guess).",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 54
+      },
+      "revId": "39d9fe2eb3552a002c53ed41701c6faffe3cd75a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
