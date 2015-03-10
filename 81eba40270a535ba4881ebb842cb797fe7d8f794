@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c70c918_e4d7fa39",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-10T18:01:47Z",
+      "side": 1,
+      "message": "The read barrier code is hot. Can we remove this null check? We can call FindOrCreateCollector for the CC collector in the Heap constructor if the collector type is CC.",
+      "range": {
+        "startLine": 381,
+        "startChar": 2,
+        "endLine": 381,
+        "endChar": 49
+      },
+      "revId": "81eba40270a535ba4881ebb842cb797fe7d8f794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd50dcf_3149103e",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-10T18:01:47Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 382,
+        "startChar": 2,
+        "endLine": 382,
+        "endChar": 4
+      },
+      "revId": "81eba40270a535ba4881ebb842cb797fe7d8f794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
