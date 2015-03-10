@@ -281,6 +281,30 @@
       "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb4b9b1_a8d7db3a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-10T18:01:32Z",
+      "side": 1,
+      "message": "I guess currently 1) is mostly 2). \n\nHow much memory are we saving with this?\n\nAs a side note, compaction can happen right before oome even if in a jank perceptible state.",
+      "parentUuid": "5794c0c0_fbf56f56",
+      "range": {
+        "startLine": 3014,
+        "startChar": 0,
+        "endLine": 3014,
+        "endChar": 55
+      },
+      "revId": "ff9c9d63c5e7da6b56c6c3b66f8b2a82d5bcc8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
