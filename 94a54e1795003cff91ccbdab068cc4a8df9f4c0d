@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cfb6986_cc820fcd",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T13:50:14Z",
+      "side": 1,
+      "message": "I moved LocationKind (and its companion routines) into DexRegisterLocation and renamed it as Kind in PS10.",
+      "parentUuid": "3c6d71ed_7afaf98f",
+      "range": {
+        "startLine": 616,
+        "startChar": 44,
+        "endLine": 616,
+        "endChar": 56
+      },
+      "revId": "94a54e1795003cff91ccbdab068cc4a8df9f4c0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ca1a95d_9c76e5d3",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 9
