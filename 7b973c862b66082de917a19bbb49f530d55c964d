@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cfb6986_cc304f99",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T13:56:01Z",
+      "side": 1,
+      "message": "IMO it\u0027s more about cutting optimizations to ensure debuggability. \n\nI\u0027d say \"Indicates whether the graph should be compiled in a way that ensures full debuggability. If false, we can apply more aggressive optimizations that may limit the level of debugging\".",
+      "range": {
+        "startLine": 254,
+        "startChar": 5,
+        "endLine": 254,
+        "endChar": 65
+      },
+      "revId": "7b973c862b66082de917a19bbb49f530d55c964d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc2375ea_679b3246",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T13:56:01Z",
+      "side": 1,
+      "message": "Looks redundant with the loop above (except the \"Update(phi)\"). Maybe you can factorize by moving the \"if (block-\u003eIsLoopHeader())\" inside the loop.",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 5
+      },
+      "revId": "7b973c862b66082de917a19bbb49f530d55c964d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
