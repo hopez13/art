@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cb571da_5a8c1537",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T16:26:54Z",
+      "side": 1,
+      "message": "Handle necessary? Or better: why is this done here? The things up the stack shouldn\u0027t be modified until you return...",
+      "range": {
+        "startLine": 605,
+        "startChar": 2,
+        "endLine": 605,
+        "endChar": 27
+      },
+      "revId": "4212092ae1fb4c89c341bbbaef91690b3055c7e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cb571da_9aba2db2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T16:26:54Z",
+      "side": 1,
+      "message": "I don\u0027t understand this...",
+      "range": {
+        "startLine": 972,
+        "startChar": 21,
+        "endLine": 972,
+        "endChar": 58
+      },
+      "revId": "4212092ae1fb4c89c341bbbaef91690b3055c7e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcae7992_1840e562",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T16:26:54Z",
+      "side": 1,
+      "message": "I don\u0027t understand this...",
+      "range": {
+        "startLine": 989,
+        "startChar": 21,
+        "endLine": 989,
+        "endChar": 58
+      },
+      "revId": "4212092ae1fb4c89c341bbbaef91690b3055c7e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
