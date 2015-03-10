@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "bcc88176_56deb456",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T16:37:25Z",
+      "side": 1,
+      "message": "You can also use two DCHECKs:\n\n   DCHECK(0 \u003c\u003d entry.value) \u003c\u003c entry.value;\n   DCHECK(entry.value \u003c 32) \u003c\u003c entry.value;",
+      "parentUuid": "dc2375ea_e7eba225",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 51
+      },
+      "revId": "c5c4207dfe361e1546ca01435b9e24c01c48157d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cfb6986_8f9bd971",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 11
