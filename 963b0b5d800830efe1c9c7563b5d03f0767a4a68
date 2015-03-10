@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc667911_f8a13177",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T00:31:24Z",
+      "side": 1,
+      "message": "This is copied straightforwardly from the code just below. Doesn\u0027t look like we like SOA here...",
+      "parentUuid": "571be05a_03572e2a",
+      "range": {
+        "startLine": 81,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 54
+      },
+      "revId": "963b0b5d800830efe1c9c7563b5d03f0767a4a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc524121_86c1ca2a",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7c7a89ab_34e33023",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T00:31:24Z",
+      "side": 1,
+      "message": "I think the issue is that it can rely on assembly implementations for memcpy, and we seem to want to avoid them. This is all just moved code...\n\nBrings up the question of correctness. I don\u0027t think the naive loops are correct, we\u0027re just lucky. Follow-up CL...",
+      "parentUuid": "bc524121_86c1ca2a",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 245,
+        "endChar": 21
+      },
+      "revId": "963b0b5d800830efe1c9c7563b5d03f0767a4a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c8491cb_02002a2d",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-03-10T00:08:19Z",
       "side": 1,
       "message": "Normal style is to put { on line above I think.",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 5
+      },
+      "revId": "963b0b5d800830efe1c9c7563b5d03f0767a4a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c7a89ab_14d154fb",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-10T00:31:24Z",
+      "side": 1,
+      "message": "We have both in the code base, but majorly your suggestion. Will do.",
+      "parentUuid": "3c8491cb_02002a2d",
       "range": {
         "startLine": 402,
         "startChar": 4,
