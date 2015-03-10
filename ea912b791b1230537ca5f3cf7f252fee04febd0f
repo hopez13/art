@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bcf161a4_f14d2298",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T16:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcf161a4_6ef82ffd",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 17
+      },
+      "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcf161a4_aef17717",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 10
@@ -36,6 +60,24 @@
       "writtenOn": "2015-03-10T15:32:01Z",
       "side": 1,
       "message": "static ?",
+      "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cfb6986_6f8cad37",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T16:04:59Z",
+      "side": 1,
+      "message": "This function has been removed in PS11.",
+      "parentUuid": "bcf161a4_aef17717",
       "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "7cfb6986_af85f509",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T16:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcf161a4_7130121c",
+      "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc2375ea_472b8e02",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 10
@@ -70,6 +130,24 @@
       "writtenOn": "2015-03-10T15:32:01Z",
       "side": 1,
       "message": "static?",
+      "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcf161a4_11b0aef3",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T16:04:59Z",
+      "side": 1,
+      "message": "This function has been removed in PS11.",
+      "parentUuid": "dc2375ea_472b8e02",
       "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "dc2375ea_87b10647",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T16:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc2375ea_a73fea3a",
+      "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cfb6986_2f590567",
         "filename": "runtime/stack_map.h",
         "patchSetId": 10
@@ -104,6 +200,30 @@
       "writtenOn": "2015-03-10T15:32:01Z",
       "side": 1,
       "message": "Or you could let art/tools/generate-operator-out.py do it for you when building art.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 1
+      },
+      "revId": "ea912b791b1230537ca5f3cf7f252fee04febd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cfb6986_4f045115",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-10T16:04:59Z",
+      "side": 1,
+      "message": "Thanks for the advice!  This part has been removed in PS11, so this issue has been resolved automatically. :)",
+      "parentUuid": "7cfb6986_2f590567",
       "range": {
         "startLine": 95,
         "startChar": 0,
