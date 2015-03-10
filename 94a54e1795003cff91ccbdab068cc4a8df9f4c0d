@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c6d71ed_7afaf98f",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T09:23:03Z",
+      "side": 1,
+      "message": "This has the potential to be confusing with the Location object. I\u0027d rather use something more explicit, like DexRegisterLocation, or DexRegisterEntry.",
+      "range": {
+        "startLine": 616,
+        "startChar": 44,
+        "endLine": 616,
+        "endChar": 56
+      },
+      "revId": "94a54e1795003cff91ccbdab068cc4a8df9f4c0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ca1a95d_9c76e5d3",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-10T09:23:03Z",
+      "side": 1,
+      "message": "As discussed, I think you should get rid of this entirely. It makes things simpler to just handle one encoding.",
+      "range": {
+        "startLine": 107,
+        "startChar": 12,
+        "endLine": 107,
+        "endChar": 35
+      },
+      "revId": "94a54e1795003cff91ccbdab068cc4a8df9f4c0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
