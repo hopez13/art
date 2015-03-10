@@ -93,6 +93,30 @@
       "revId": "54a8cc689dc23f346c9aac0d5fc6f47e61df8cad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cfb6986_6cee7b8d",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-10T13:38:44Z",
+      "side": 0,
+      "message": "Yes the code is dead after your previous change. I\u0027m just worried we broke the reported throw location if we throw an exception from UnboxPrimitiveForResult below. Did you observe other special handling elsewhere?\n\nPlease file a bug so we do not forget to fix it.",
+      "parentUuid": "3c6d71ed_7a31996f",
+      "range": {
+        "startLine": 284,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 59
+      },
+      "revId": "54a8cc689dc23f346c9aac0d5fc6f47e61df8cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
