@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7ce9a9ce_bc2601e6",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-03-10T16:02:54Z",
+      "side": 0,
+      "message": "That\u0027s irrelevant, this throw location is not the same as the current method. Having the code now use the current method elsewhere on the call stack is a functional change, no? I can believe that there are bugs in this code, but it looks now that unboxed exception throwing will not report that the unboxing failure happened in the called proxy method but in the caller as determined by the current method.\nFwiw, the throw location existed to match JDWP APIs that may not yet have been implemented. It seems this change may need reversing were those to be implemented. I\u0027m sure Seb has a fuller picture. The trick with the throw location was making sure it was robust for GC.",
+      "parentUuid": "bcf161a4_91ff7eaa",
+      "range": {
+        "startLine": 293,
+        "startChar": 6,
+        "endLine": 293,
+        "endChar": 59
+      },
+      "revId": "e8e42f3548fd894f860912bb1b71ce6fa2d7daf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ccfcd73_611936ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
