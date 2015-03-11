@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21146a32_f92a77ab",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c94e5c0_9bf46ba3",
+      "range": {
+        "startLine": 1093,
+        "startChar": 13,
+        "endLine": 1093,
+        "endChar": 37
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "610022f0_7be53f28",
         "filename": "runtime/check_reference_map_visitor.h",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-11T10:05:17Z",
       "side": 1,
       "message": "Because the value can be compressed (for example stack offset, but also you\u0027re mentioning VIP constants), I think we should not offer such an interface of fetching both kind and value.",
+      "range": {
+        "startLine": 76,
+        "startChar": 55,
+        "endLine": 76,
+        "endChar": 78
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21146a32_7958a761",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure to follow.  Could you be more specific?  FYI, DexRegisterLocation is a \"high-level\" data structure: it doesn\u0027t show implementation details such as stack offsets divided by 4.",
+      "parentUuid": "610022f0_7be53f28",
       "range": {
         "startLine": 76,
         "startChar": 55,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c1246ea6_56c1347e",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "Changed to `location.value / kFrameSlotSize\u0027 in PS15.\n\n`stack_mask.LoadBit\u0027 expects a stack slot value, while `dex_register_map.GetStackOffsetInBytes\u0027 provides a stack offset value (in bytes). Are you suggesting adding a DexRegisterMap::GetStackSlotOffset method?",
+      "parentUuid": "610022f0_bbd98771",
+      "range": {
+        "startLine": 83,
+        "startChar": 35,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb06509_9e1ab967",
         "filename": "runtime/stack.cc",
         "patchSetId": 14
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-11T10:05:17Z",
       "side": 1,
       "message": "Shouldn\u0027t we make this implementation dependent, and therefore not expose it?",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 55
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2162aaee_69bc6502",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "I think it\u0027s useful to have this information, e.g. in oatdump to display finer statistics.  But we can probably improve this and make the implementation details less visible.  I suggest doing this in another CL.",
+      "parentUuid": "5cb06509_9e1ab967",
       "range": {
         "startLine": 397,
         "startChar": 5,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "415f9e27_cacc63b5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "I\u0027ll test this on an ARM device and change it to a per-byte I/O if it is an issue.",
+      "parentUuid": "5c94e5c0_7bacff6d",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 80
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb06509_3e2a857c",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
@@ -151,6 +271,30 @@
       "writtenOn": "2015-03-11T10:05:17Z",
       "side": 1,
       "message": "dex_register_index?",
+      "range": {
+        "startLine": 217,
+        "startChar": 37,
+        "endLine": 217,
+        "endChar": 51
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "415f9e27_aad92f71",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb06509_3e2a857c",
       "range": {
         "startLine": 217,
         "startChar": 37,
@@ -209,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "415f9e27_2adf7f52",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "Yes, that\u0027s admittedly better.  Renamed as CanBeEncodedAsShortLocation.",
+      "parentUuid": "610022f0_dbf573d3",
+      "range": {
+        "startLine": 288,
+        "startChar": 14,
+        "endLine": 288,
+        "endChar": 28
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c94e5c0_bb2047a0",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
@@ -220,6 +388,30 @@
       "writtenOn": "2015-03-11T10:05:17Z",
       "side": 1,
       "message": "size_t?",
+      "range": {
+        "startLine": 335,
+        "startChar": 19,
+        "endLine": 335,
+        "endChar": 27
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2162aaee_49eac1f8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "I opted for uint8_t as it is the underlying type of the art::DexRegisterLocation::kind enum value, which is masked by kKindMask.",
+      "parentUuid": "5c94e5c0_bb2047a0",
       "range": {
         "startLine": 335,
         "startChar": 19,
@@ -255,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "612e6292_0be4bd28",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "I kept int32_t as it is the type of art::DexRegisterLocation::value, which is masked by kValueMask.",
+      "parentUuid": "610022f0_bbf2a7e7",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb06509_1e27c9b2",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
@@ -278,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "415f9e27_8aef8b01",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb06509_1e27c9b2",
+      "range": {
+        "startLine": 340,
+        "startChar": 23,
+        "endLine": 340,
+        "endChar": 39
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb06509_decba14f",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
@@ -289,6 +529,30 @@
       "writtenOn": "2015-03-11T10:05:17Z",
       "side": 1,
       "message": "ExtraKindFromShortLocationOffset?",
+      "range": {
+        "startLine": 358,
+        "startChar": 28,
+        "endLine": 358,
+        "endChar": 39
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "415f9e27_6a0e976a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T16:14:18Z",
+      "side": 1,
+      "message": "Renamed as ExtractKindAtOffset, as the kind may also be the one of a large location.",
+      "parentUuid": "5cb06509_decba14f",
       "range": {
         "startLine": 358,
         "startChar": 28,
