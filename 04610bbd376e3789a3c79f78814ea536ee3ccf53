@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2162aaee_091cc961",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T16:34:01Z",
+      "side": 1,
+      "message": "Nit: you first CL had an error message, which you can keep here by doing:\n\nCHECK(...) \u003c\u003c  \"my message\".",
+      "range": {
+        "startLine": 924,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 89
+      },
+      "revId": "04610bbd376e3789a3c79f78814ea536ee3ccf53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
