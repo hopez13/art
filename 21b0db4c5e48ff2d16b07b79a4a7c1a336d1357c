@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c94e5c0_9bf46ba3",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "Maybe list what\u0027s missing?",
+      "range": {
+        "startLine": 1093,
+        "startChar": 13,
+        "endLine": 1093,
+        "endChar": 37
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610022f0_7be53f28",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "Because the value can be compressed (for example stack offset, but also you\u0027re mentioning VIP constants), I think we should not offer such an interface of fetching both kind and value.",
+      "range": {
+        "startLine": 76,
+        "startChar": 55,
+        "endLine": 76,
+        "endChar": 78
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610022f0_bbd98771",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "To avoid this, we should always use a dex_register_map.GetStackOffsetInBytes",
+      "range": {
+        "startLine": 83,
+        "startChar": 35,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb06509_9e1ab967",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we make this implementation dependent, and therefore not expose it?",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 55
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c94e5c0_3b06f71b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 409,
+        "startChar": 36,
+        "endLine": 409,
+        "endChar": 55
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb06509_3e2a857c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "dex_register_index?",
+      "range": {
+        "startLine": 217,
+        "startChar": 37,
+        "endLine": 217,
+        "endChar": 51
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610022f0_dbf573d3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "CanBeEncodedInShortLocation?",
+      "range": {
+        "startLine": 288,
+        "startChar": 14,
+        "endLine": 288,
+        "endChar": 28
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c94e5c0_bb2047a0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 335,
+        "startChar": 19,
+        "endLine": 335,
+        "endChar": 27
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "610022f0_bbf2a7e7",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "size_t?",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb06509_1e27c9b2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "MakeShortLocation?",
+      "range": {
+        "startLine": 340,
+        "startChar": 23,
+        "endLine": 340,
+        "endChar": 39
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cb06509_decba14f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T10:05:17Z",
+      "side": 1,
+      "message": "ExtraKindFromShortLocationOffset?",
+      "range": {
+        "startLine": 358,
+        "startChar": 28,
+        "endLine": 358,
+        "endChar": 39
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
