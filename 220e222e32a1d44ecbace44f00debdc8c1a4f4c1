@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "612e6292_cb2d9594",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T16:47:59Z",
+      "side": 1,
+      "message": "You could avoid the repetition and do encoding \u003d ... | (set_cc ? B20 : B25) | ...",
+      "range": {
+        "startLine": 841,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 7
+      },
+      "revId": "220e222e32a1d44ecbace44f00debdc8c1a4f4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
