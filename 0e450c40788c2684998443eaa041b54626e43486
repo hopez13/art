@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "41febe70_12138c8f",
+        "filename": "runtime/gc/allocator/rosalloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-11T23:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81cfd646_4c1d1f61",
+      "range": {
+        "startLine": 142,
+        "startChar": 97,
+        "endLine": 142,
+        "endChar": 100
+      },
+      "revId": "0e450c40788c2684998443eaa041b54626e43486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c73bd93_7537a85f",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-11T18:33:54Z",
       "side": 1,
       "message": "What is this used for?",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 75
+      },
+      "revId": "0e450c40788c2684998443eaa041b54626e43486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41febe70_1298ac6f",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-11T23:31:50Z",
+      "side": 1,
+      "message": "Currently for sanity check only.\n\nWhen we reach the rosalloc allocation slow path (the rosalloc case of the switch in Heap::TryToAllocate()), we\u0027d want to make sure that it\u0027s only because the fast path (thread local allocation) failed. Otherwise, we may not be fully taking advantage of thread local allocations, which would be a performance loss.",
+      "parentUuid": "9c73bd93_7537a85f",
       "range": {
         "startLine": 579,
         "startChar": 0,
