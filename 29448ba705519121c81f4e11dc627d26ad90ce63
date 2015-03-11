@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6192e267_0bbc1d01",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T22:28:36Z",
+      "side": 1,
+      "message": "Sounded like something we could do, knowing that Optimizing doesn\u0027t understand these filters.",
+      "parentUuid": "013a06f6_a00ebae1",
+      "range": {
+        "startLine": 616,
+        "startChar": 8,
+        "endLine": 616,
+        "endChar": 43
+      },
+      "revId": "29448ba705519121c81f4e11dc627d26ad90ce63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41307e12_82ef3a86",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-11T19:35:03Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 619,
+        "startChar": 8,
+        "endLine": 619,
+        "endChar": 43
+      },
+      "revId": "29448ba705519121c81f4e11dc627d26ad90ce63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1ecdace_8d512134",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T22:28:36Z",
+      "side": 1,
+      "message": "Ditto, if you\u0027re asking for pic, you probably know what you\u0027re doing.",
+      "parentUuid": "41307e12_82ef3a86",
       "range": {
         "startLine": 619,
         "startChar": 8,
