@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e10df22c_d7377c91",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T14:19:53Z",
+      "side": 1,
+      "message": "You might be missing a \u0027!\u0027 at the beginning, don\u0027t you?",
+      "range": {
+        "startLine": 924,
+        "startChar": 6,
+        "endLine": 924,
+        "endChar": 86
+      },
+      "revId": "24f6443c739eee56448daf8105a0dd7aea62fd56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
