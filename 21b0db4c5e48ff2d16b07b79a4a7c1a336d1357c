@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "612e6292_eb9df166",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T16:28:50Z",
+      "side": 1,
+      "message": "sgtm. good point about being useful for oatdump",
+      "parentUuid": "2162aaee_69bc6502",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 55
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c94e5c0_3b06f71b",
         "filename": "runtime/stack.cc",
         "patchSetId": 14
@@ -459,6 +483,30 @@
       "side": 1,
       "message": "I kept int32_t as it is the type of art::DexRegisterLocation::value, which is masked by kValueMask.",
       "parentUuid": "610022f0_bbf2a7e7",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "612e6292_aba7e9ba",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T16:28:50Z",
+      "side": 1,
+      "message": "OK, the comment came by seeing different types for all these constexpr, and that they could be made consistent.",
+      "parentUuid": "612e6292_0be4bd28",
       "range": {
         "startLine": 336,
         "startChar": 19,
