@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "010be618_18a2c526",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-11T17:06:53Z",
+      "side": 1,
+      "message": "Please expand this comment. It is not clear here that the sampling thread is using the_trace_ to figure out that it needs to shut down, and that this works because we did this just above.",
+      "range": {
+        "startLine": 418,
+        "startChar": 2,
+        "endLine": 419,
+        "endChar": 48
+      },
+      "revId": "607293a0c3b144c48101e5b4514dcd30ae750a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
