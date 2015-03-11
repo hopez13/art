@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "41307e12_a23b5e9c",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "Not worth it IMO, its not hard to look in the header file.",
+      "parentUuid": "612e6292_2b177943",
+      "range": {
+        "startLine": 84,
+        "startChar": 91,
+        "endLine": 84,
+        "endChar": 92
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "415f9e27_0a4a7b31",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-11T17:06:19Z",
       "side": 1,
       "message": "The \"probably\" is kind of odd. Isn\u0027t it either a miranda method or a not found method?",
+      "range": {
+        "startLine": 103,
+        "startChar": 45,
+        "endLine": 103,
+        "endChar": 70
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81a8b65c_e4373a91",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "I\u0027ll change it to \"should be\".",
+      "parentUuid": "415f9e27_0a4a7b31",
       "range": {
         "startLine": 103,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "41595e72_baf8b1ca",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "Done, but I don\u0027t think it matters.",
+      "parentUuid": "612e6292_8b0e6d30",
+      "range": {
+        "startLine": 199,
+        "startChar": 11,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612e6292_6b1d8161",
         "filename": "compiler/dex/verified_method.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-11T17:06:19Z",
       "side": 1,
       "message": "Please add a comment why it can now be null.",
+      "range": {
+        "startLine": 213,
+        "startChar": 9,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41595e72_7adf3951",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612e6292_6b1d8161",
       "range": {
         "startLine": 213,
         "startChar": 9,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "814d16b1_3ca3f12e",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2162aaee_89c0b926",
+      "range": {
+        "startLine": 225,
+        "startChar": 16,
+        "endLine": 225,
+        "endChar": 18
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2162aaee_a986dde1",
         "filename": "runtime/verifier/register_line.cc",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "814d16b1_9c9325d2",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2162aaee_a986dde1",
+      "range": {
+        "startLine": 84,
+        "startChar": 62,
+        "endLine": 84,
+        "endChar": 80
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2162aaee_69efc5b9",
         "filename": "test/135-MirandaDispatch/src/Main.java",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2015-03-11T17:06:19Z",
       "side": 1,
       "message": "DoStuff -\u003e doStuff",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "8298f54fd45e8c81d5c3cd92a690ffa7c3cb1a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "814d16b1_dc8dadae",
+        "filename": "test/135-MirandaDispatch/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T19:42:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2162aaee_69efc5b9",
       "range": {
         "startLine": 35,
         "startChar": 16,
