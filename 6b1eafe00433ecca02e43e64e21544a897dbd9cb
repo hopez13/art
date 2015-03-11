@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1b7b2b3_07e936b1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-03-11T18:29:05Z",
+      "side": 1,
+      "message": "Wrong indent. Also, probably a good idea to mark title of patch with \"WIP\" since the old code did not fail in this case.",
+      "range": {
+        "startLine": 2418,
+        "startChar": 0,
+        "endLine": 2418,
+        "endChar": 10
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
