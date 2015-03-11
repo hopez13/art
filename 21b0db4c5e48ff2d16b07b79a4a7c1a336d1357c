@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "81a19660_bc2161cf",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-11T17:42:46Z",
+      "side": 1,
+      "message": "FYI I compared the result of `oatdumpd` for the same oat file on the host and the target (Nexus 9) and they were identical.  Here\u0027s the recipe I used:\n\n  m -j30 out/host/linux-x86/bin/oatdumpd\n  m -j30 out/target/product/armv8/data/art-test/arm64/core-optimizing.art\n  out/host/linux-x86/bin/oatdumpd --oat-file\u003dout/target/product/armv8/data/art-test/arm64/core-optimizing.oat \u003eoatdumpd-host.out\n  \n  m -j30 out/target/product/armv8/system/bin/oatdumpd\n  adb push out/target/product/armv8/data/art-test/arm64/core-optimizing.art /data/art-test/arm64\n  adb push out/target/product/armv8/system/bin/oatdumpd /data/art-test/arm64\n  adb push out/target/product/armv8/system/lib64/libartd.so /data/art-test/arm64\n  adb push out/target/product/armv8/system/lib64/libartd-compiler.so /data/art-test/arm64\n  adb push out/target/product/armv8/system/lib64/libartd-disassembler.so /data/art-test/arm64\n  adb push out/target/product/armv8/system/lib64/libvixld.so /data/art-test/arm64\n  adb shell \u0027LD_LIBRARY_PATH\u003d/data/art-test/arm64 /data/art-test/arm64/oatdumpd --oat-file\u003d/data/art-test/arm64/core-optimizing.oat\u0027 \u003eoatdumpd-target-dos.out\n  \n  recode dos.. \u003coatdumpd-target-dos.out \u003eoatdumpd-target.out\n  cmp oatdumpd-host.out oatdumpd-target.out\n\n(I don\u0027t know why the target\u0027s `oatdumpd\u0027 emitted DOS CR-LF end-of-line markers though.)\n\nThe unaligned accessed didn\u0027t seem to cause trouble on ARM64.  Should I try on (32-bit) ARM as well?",
+      "parentUuid": "415f9e27_cacc63b5",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 80
+      },
+      "revId": "21b0db4c5e48ff2d16b07b79a4a7c1a336d1357c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cb06509_3e2a857c",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
