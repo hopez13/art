@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81cfd646_4c1d1f61",
+        "filename": "runtime/gc/allocator/rosalloc-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T18:33:54Z",
+      "side": 1,
+      "message": "Some of these lines go past 100 columns.",
+      "range": {
+        "startLine": 142,
+        "startChar": 97,
+        "endLine": 142,
+        "endChar": 100
+      },
+      "revId": "0e450c40788c2684998443eaa041b54626e43486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c73bd93_7537a85f",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T18:33:54Z",
+      "side": 1,
+      "message": "What is this used for?",
+      "range": {
+        "startLine": 579,
+        "startChar": 0,
+        "endLine": 579,
+        "endChar": 75
+      },
+      "revId": "0e450c40788c2684998443eaa041b54626e43486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
