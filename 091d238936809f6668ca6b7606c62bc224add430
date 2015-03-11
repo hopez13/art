@@ -45,6 +45,30 @@
       "revId": "091d238936809f6668ca6b7606c62bc224add430",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6161021f_f34ed091",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T20:00:32Z",
+      "side": 1,
+      "message": "We don\u0027t populate the dex cache with the Miranda method though? So whatever we resolve wont have the miranda flag set.",
+      "parentUuid": "e155f239_d70e1c31",
+      "range": {
+        "startLine": 104,
+        "startChar": 60,
+        "endLine": 105,
+        "endChar": 62
+      },
+      "revId": "091d238936809f6668ca6b7606c62bc224add430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

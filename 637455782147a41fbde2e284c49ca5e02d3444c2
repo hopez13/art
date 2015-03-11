@@ -22,6 +22,30 @@
       "revId": "637455782147a41fbde2e284c49ca5e02d3444c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41febe70_52b994dd",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T20:00:32Z",
+      "side": 0,
+      "message": "I changed the method during testing, and decided to not revert the indentation fixes.",
+      "parentUuid": "41307e12_82f9fa01",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 48
+      },
+      "revId": "637455782147a41fbde2e284c49ca5e02d3444c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
