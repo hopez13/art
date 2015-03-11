@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a11f7a53_95ffc42f",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-11T14:11:36Z",
+      "side": 1,
+      "message": "Nit: please turn this into a CHECK, to avoid the explicit dependency with the logging.",
+      "range": {
+        "startLine": 924,
+        "startChar": 0,
+        "endLine": 927,
+        "endChar": 7
+      },
+      "revId": "b234fd09c86ba43809adfb27acf1702fdfe065f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
