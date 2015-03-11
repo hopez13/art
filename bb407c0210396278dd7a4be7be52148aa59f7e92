@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c73bd93_b54ea046",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T01:19:19Z",
+      "side": 1,
+      "message": "Deletd, was for debugging.",
+      "parentUuid": "fc85998a_40df4efe",
+      "range": {
+        "startLine": 225,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 45
+      },
+      "revId": "bb407c0210396278dd7a4be7be52148aa59f7e92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc8fa1ac_9e1b7d6f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-11T00:08:38Z",
       "side": 1,
       "message": "No. This should be a hard failure no matter waht, as it means somethings is seriously messed up with the class hierarchy.",
+      "range": {
+        "startLine": 3451,
+        "startChar": 4,
+        "endLine": 3452,
+        "endChar": 38
+      },
+      "revId": "bb407c0210396278dd7a4be7be52148aa59f7e92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c73bd93_35de10db",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3452,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-11T01:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc8fa1ac_9e1b7d6f",
       "range": {
         "startLine": 3451,
         "startChar": 4,
