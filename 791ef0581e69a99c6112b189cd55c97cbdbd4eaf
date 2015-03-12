@@ -22,6 +22,98 @@
       "revId": "791ef0581e69a99c6112b189cd55c97cbdbd4eaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a173fa92_159e7462",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T22:47:17Z",
+      "side": 1,
+      "message": "Their",
+      "range": {
+        "startLine": 101,
+        "startChar": 72,
+        "endLine": 101,
+        "endChar": 76
+      },
+      "revId": "791ef0581e69a99c6112b189cd55c97cbdbd4eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1ec123e_421814f6",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T22:47:17Z",
+      "side": 1,
+      "message": "Do we really have no other option than using JNI?",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 34
+      },
+      "revId": "791ef0581e69a99c6112b189cd55c97cbdbd4eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a173fa92_359b7073",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T22:47:17Z",
+      "side": 1,
+      "message": "Nit: one per line (here and below).\n\nI know it\u0027s not the style everywhere, but I do find it *a lot* more readable by having one per line. Don\u0027t you agree?",
+      "range": {
+        "startLine": 411,
+        "startChar": 42,
+        "endLine": 412,
+        "endChar": 59
+      },
+      "revId": "791ef0581e69a99c6112b189cd55c97cbdbd4eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1ec123e_82221c2a",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T22:47:17Z",
+      "side": 1,
+      "message": "ok -\u003e found_dex_cache?",
+      "range": {
+        "startLine": 417,
+        "startChar": 7,
+        "endLine": 417,
+        "endChar": 9
+      },
+      "revId": "791ef0581e69a99c6112b189cd55c97cbdbd4eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
