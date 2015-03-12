@@ -22,6 +22,30 @@
       "revId": "0f7e3d6a39a1ffb78a69ff5abaca24e32422a82c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41987e8f_62e076c4",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-12T10:27:14Z",
+      "side": 1,
+      "message": "No, transaction is reserved for compilation but IIRC, we may need to execute code before the runtime is started. I believe this can happen during tests when we \u003cclinit\u003e some of the \"root\" class in ClassLinker::RunRootClinits.",
+      "parentUuid": "01bbe6f2_d87ded6d",
+      "range": {
+        "startLine": 154,
+        "startChar": 5,
+        "endLine": 154,
+        "endChar": 30
+      },
+      "revId": "0f7e3d6a39a1ffb78a69ff5abaca24e32422a82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
