@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "01bbe6f2_f8cb111f",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-12T10:54:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we throw a NullPointerException here? What if the caller may handle it with try/catch.",
+      "range": {
+        "startLine": 307,
+        "startChar": 4,
+        "endLine": 307,
+        "endChar": 26
+      },
+      "revId": "e8d1e0d29a93610b5d8d23be3fbbfc0753f10772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "017da6ec_08efc7b9",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
