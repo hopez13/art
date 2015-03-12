@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c1f38e19_1eab0d09",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1f38e19_7e8691ac",
+      "range": {
+        "startLine": 231,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 59
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ec123e_3f3b6780",
         "filename": "runtime/check_reference_map_visitor.h",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-12T14:40:36Z",
       "side": 1,
       "message": "__ -\u003e _",
+      "range": {
+        "startLine": 69,
+        "startChar": 31,
+        "endLine": 69,
+        "endChar": 33
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ea0620_e02b2200",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "Thanks for spotting this one; I thought I had fixed all of these search-and-replace typos...\nDone.",
+      "parentUuid": "e1ec123e_3f3b6780",
       "range": {
         "startLine": 69,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c1f38e19_9ea71d38",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "OK, I\u0027ll do that in another CL.",
+      "parentUuid": "e1ec123e_1f382380",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 60
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1f38e19_de4fe50f",
         "filename": "runtime/stack_map.h",
         "patchSetId": 16
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-12T14:40:36Z",
       "side": 1,
       "message": "Add a comment why this is unaligned.",
+      "range": {
+        "startLine": 245,
+        "startChar": 5,
+        "endLine": 246,
+        "endChar": 89
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1ec123e_bfa2d727",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1f38e19_de4fe50f",
       "range": {
         "startLine": 245,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "01ea0620_6038b24f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ea0620_00c446dd",
+      "range": {
+        "startLine": 308,
+        "startChar": 4,
+        "endLine": 308,
+        "endChar": 47
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ec123e_df76bb57",
         "filename": "runtime/stack_map.h",
         "patchSetId": 16
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "01ea0620_a0daba97",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ec123e_df76bb57",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 5
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ec123e_3f7c0735",
         "filename": "runtime/stack_map.h",
         "patchSetId": 16
@@ -151,6 +295,30 @@
       "writtenOn": "2015-03-12T14:40:36Z",
       "side": 1,
       "message": "LoadUnaligned?",
+      "range": {
+        "startLine": 639,
+        "startChar": 18,
+        "endLine": 639,
+        "endChar": 22
+      },
+      "revId": "440bf7d0c8ea914085a97f57e2d61dfaba9c8e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1f38e19_9e08bdac",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-12T15:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ec123e_3f7c0735",
       "range": {
         "startLine": 639,
         "startChar": 18,
