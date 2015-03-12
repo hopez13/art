@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "21370a6d_013c2af7",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-12T02:07:55Z",
+      "side": 1,
+      "message": "Not sure if this is strictly true as far as the standard goes, but might be true for all platforms we care about. Can use std::atomic\u003cT\u003e to ensure there\u0027s no tearing?\n\nHans should know for sure.",
+      "revId": "f395c98f36bd0bc72b40c34533c7c1e0ba6af962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1fdbac1_e540f666",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 1
