@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e105f2c3_d73fbcd9",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-12T15:23:34Z",
+      "side": 1,
+      "message": "Seb implemented transactional support only for single-element access. There\u0027s no bulk operation keeping/restoring a whole array segment.",
+      "parentUuid": "01bbe6f2_b872399c",
+      "range": {
+        "startLine": 267,
+        "startChar": 47,
+        "endLine": 267,
+        "endChar": 90
+      },
+      "revId": "e8d1e0d29a93610b5d8d23be3fbbfc0753f10772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01bbe6f2_f8cb111f",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-12T10:54:16Z",
       "side": 1,
       "message": "Shouldn\u0027t we throw a NullPointerException here? What if the caller may handle it with try/catch.",
+      "range": {
+        "startLine": 307,
+        "startChar": 4,
+        "endLine": 307,
+        "endChar": 26
+      },
+      "revId": "e8d1e0d29a93610b5d8d23be3fbbfc0753f10772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8116f6fe_d41cdc9c",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-12T15:23:34Z",
+      "side": 1,
+      "message": "I tried to keep most things traditional: re-run everything at runtime. This kinda assumes that the exception cases are not supposed to happen in unstarted runtimes. It\u0027s an improvement over before, as it avoids the segfault / (D)CHECK aborts.",
+      "parentUuid": "01bbe6f2_f8cb111f",
       "range": {
         "startLine": 307,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c11c6e21_7676b0d6",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-12T15:23:34Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "017da6ec_08efc7b9",
+      "range": {
+        "startLine": 323,
+        "startChar": 4,
+        "endLine": 323,
+        "endChar": 57
+      },
+      "revId": "e8d1e0d29a93610b5d8d23be3fbbfc0753f10772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "017da6ec_28f48b89",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-12T10:00:37Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 98
+      },
+      "revId": "e8d1e0d29a93610b5d8d23be3fbbfc0753f10772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8116f6fe_740ce869",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-12T15:23:34Z",
+      "side": 1,
+      "message": "The top type mismatch is OK. The lower mismatch requires a more complicated copy loop: you have to check each assignment. As this is already copy-pasted over this file and compared to array.h, I did not see a reason to complicate this. If we see it somewhere, I can still decide to do it.",
+      "parentUuid": "017da6ec_28f48b89",
       "range": {
         "startLine": 336,
         "startChar": 0,
