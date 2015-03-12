@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c178ee71_df6b37a1",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-12T22:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ca1a95d_1c6df5b6",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 3
+      },
+      "revId": "cbeeedaac8667b5ddff33953c972124d6a9705d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcf161a4_ae6cd709",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-10T11:10:39Z",
       "side": 1,
       "message": "It could be easier to review, if you do not include the newly added implementations here, but in a follow-up CL....",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "cbeeedaac8667b5ddff33953c972124d6a9705d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2168ea9d_73a8a08a",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-12T22:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcf161a4_ae6cd709",
       "range": {
         "startLine": 1,
         "startChar": 0,
