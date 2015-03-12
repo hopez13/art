@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e1ec123e_c2926453",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T17:32:49Z",
+      "side": 1,
+      "message": "Nit: use ternary operator.",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 5
+      },
+      "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01ea0620_433138ee",
         "filename": "runtime/base/arena_allocator.h",
         "patchSetId": 1
@@ -90,6 +113,99 @@
         "startChar": 2,
         "endLine": 120,
         "endChar": 9
+      },
+      "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61110209_7387e0df",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T17:32:49Z",
+      "side": 1,
+      "message": "Oh I see, did not realize the Arena -\u003e ArenaPool -\u003e ArenaAllocator would drag this in.\n\nWhat is not to like with templates? It\u0027s all over this file :) I\u0027m fine with virtual.",
+      "parentUuid": "a19cdad8_b0579632",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 9
+      },
+      "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1ec123e_42877411",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T17:32:49Z",
+      "side": 1,
+      "message": "No need with the OVERRIDE.",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 9
+      },
+      "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61110209_f36bf0a0",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T17:32:49Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 184,
+        "startChar": 5,
+        "endLine": 184,
+        "endChar": 15
+      },
+      "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ea0620_039a9040",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-12T17:32:49Z",
+      "side": 1,
+      "message": "bool use_memmap \u003d (jit_options.get() \u003d\u003d nullptr);",
+      "range": {
+        "startLine": 860,
+        "startChar": 34,
+        "endLine": 860,
+        "endChar": 63
       },
       "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
