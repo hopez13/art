@@ -22,6 +22,30 @@
       "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01d1268c_a8f3bbba",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-12T17:16:17Z",
+      "side": 1,
+      "message": "This is good OOP practices, destructors don\u0027t run until the arena pool gets destroyed anyways.",
+      "parentUuid": "01ea0620_433138ee",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 9
+      },
+      "revId": "98f01feb944ccf1150c5459da56e6128bda3d77a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
