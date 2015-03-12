@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01ea0620_80edf63b",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-03-12T15:27:01Z",
+      "side": 1,
+      "message": "This asserted since there is no || constant-\u003eIsNullConstant())",
+      "revId": "758c2f65805564e0c51cccaacf8307e52a9e312b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01ea0620_c09ffeb0",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-03-12T15:27:01Z",
+      "side": 1,
+      "message": "Which is great since this line would have called -constant-\u003eAsLongConstant()-\u003eGetValue()  on a HNullConstant.",
+      "revId": "758c2f65805564e0c51cccaacf8307e52a9e312b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
