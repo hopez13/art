@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "660038f0_db5573dc",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660038f0_7be2df1b",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 17
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "660038f0_fb238fd0",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "This is a recurring pattern; what about introducing a method for this case, say SetBitAndNextBit (or maybe SetBitPair)?",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 125,
+        "endChar": 50
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_fd582716",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "I feel it\u0027s a bit overkill. It\u0027s very specific to the way dex does things, so not really part of BitMask.\n\nI think ideally we should move the setting of the bit in AddDexRegisterEntry. I added a TODO.",
+      "parentUuid": "660038f0_fb238fd0",
       "range": {
         "startLine": 124,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c6fba432_de5565dc",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6fba432_be53b93d",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 47
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f6b049_dd9d6b6d",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "Likewise, add a comment for this case?",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 16
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_bb62a7ba",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f6b049_dd9d6b6d",
       "range": {
         "startLine": 220,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "660038f0_9b5febfa",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "I like both. I know Andreas prefers the one I wrote. Done.",
+      "parentUuid": "a6f6b049_9da7e3b3",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 77
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6fba432_7e1ad172",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 7
@@ -128,6 +248,24 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "Add\n\n  ASSERT_FALSE(stack_map.HasInlineInfo());",
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_dd556bdc",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6fba432_7e1ad172",
       "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "660038f0_7b4c1f53",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660038f0_fb06ef1d",
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f6b049_fd2dc78f",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 7
@@ -162,6 +318,30 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "Shouldn\u0027t we let the user decide to display kNone locations (or not) through a command line option?",
+      "range": {
+        "startLine": 1088,
+        "startChar": 10,
+        "endLine": 1088,
+        "endChar": 52
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_9d5fe3fa",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "I think this is a bit too fine grain.",
+      "parentUuid": "a6f6b049_fd2dc78f",
       "range": {
         "startLine": 1088,
         "startChar": 10,
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "a6f6b049_5d515be9",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660038f0_bb2747ac",
+      "range": {
+        "startLine": 222,
+        "startChar": 35,
+        "endLine": 222,
+        "endChar": 50
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f6b049_5d995b7a",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -208,6 +412,30 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "Shouldn\u0027t we use uint16_t as in other methods of this class (IIRC, the maximum number of Dex register is 65536)?",
+      "range": {
+        "startLine": 231,
+        "startChar": 32,
+        "endLine": 231,
+        "endChar": 38
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_1b4bdb39",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f6b049_5d995b7a",
       "range": {
         "startLine": 231,
         "startChar": 32,
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "a6f6b049_3d468f31",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660038f0_3b40d762",
+      "range": {
+        "startLine": 236,
+        "startChar": 22,
+        "endLine": 236,
+        "endChar": 28
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f6b049_1dd073fb",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -254,6 +506,30 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "For the sake of uniformity, what about introducing another static offset constant (kLiveBitMaskOffset) in art::DexRegisterMaps and have art::DexRegisterMaps::kFixedSize be defined according to it?",
+      "range": {
+        "startLine": 279,
+        "startChar": 20,
+        "endLine": 279,
+        "endChar": 30
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_fd3f0788",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6f6b049_1dd073fb",
       "range": {
         "startLine": 279,
         "startChar": 20,
@@ -289,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "660038f0_7bcbff23",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660038f0_fbb4afc5",
+      "range": {
+        "startLine": 288,
+        "startChar": 20,
+        "endLine": 288,
+        "endChar": 30
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "660038f0_5bede3b8",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -306,6 +606,24 @@
     },
     {
       "key": {
+        "uuid": "c6fba432_1edaadee",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Excellent point. Done",
+      "parentUuid": "660038f0_5bede3b8",
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "660038f0_9bd24bf8",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -317,6 +635,30 @@
       "writtenOn": "2015-03-13T17:39:46Z",
       "side": 1,
       "message": "Ditto (regarding the introduction of kLiveBitMaskOffset and GetDexRegisterMapLocationsOffset).",
+      "range": {
+        "startLine": 724,
+        "startChar": 4,
+        "endLine": 725,
+        "endChar": 71
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6fba432_dedb25ef",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T18:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "660038f0_9bd24bf8",
       "range": {
         "startLine": 724,
         "startChar": 4,
