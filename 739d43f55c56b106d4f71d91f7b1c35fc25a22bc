@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2168ea9d_8c250add",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-13T06:38:51Z",
+      "side": 1,
+      "message": "Ugh, very rough. How about:\n\nThis can be used to establish invariants in the managed code: if the invariant does not hold at runtime, we will deoptimize and continue execution in the interpreter. This allows to optimize the managed code as if the invariant was proven statically.",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "739d43f55c56b106d4f71d91f7b1c35fc25a22bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c178ee71_9d28e482",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-13T06:38:51Z",
+      "side": 1,
+      "message": "The invariant and optimization included in this patch are based on the length of an array. Given a set of array accesses with (literal) indices {c1, ..., cn}, we can optimize away all bounds checks iff all 0 \u003c\u003d min(ci) and max(ci) \u003c array-length. The first can be proven statically. The second can be established with a deoptimization-based invariant. This replaces n bounds checks with one invariant check (plus slow-path code).",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 76
+      },
+      "revId": "739d43f55c56b106d4f71d91f7b1c35fc25a22bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
