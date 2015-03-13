@@ -1,0 +1,331 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "660038f0_7be2df1b",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Maybe add a comment saying that we do not register any Dex register location information in this case?",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 17
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_fb238fd0",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "This is a recurring pattern; what about introducing a method for this case, say SetBitAndNextBit (or maybe SetBitPair)?",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 125,
+        "endChar": 50
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6fba432_be53b93d",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Move this assertion at the beginning of the block (i.e., before line 147)?",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 148,
+        "endChar": 47
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_dd9d6b6d",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Likewise, add a comment for this case?",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 16
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_9da7e3b3",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "It\u0027s a matter of personal preference, but I prefer this style:        \n\n  dex_register_map.SetLiveBitMask(offset,\n                                  entry.num_dex_registers,\n                                  *entry.live_dex_registers_mask);",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 77
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6fba432_7e1ad172",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Add\n\n  ASSERT_FALSE(stack_map.HasInlineInfo());",
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_fb06ef1d",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "I think we should also dump the live bit mask, at least for (stack maps + oatdump) debugging purpose (maybe just add a TODO).",
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_fd2dc78f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we let the user decide to display kNone locations (or not) through a command line option?",
+      "range": {
+        "startLine": 1088,
+        "startChar": 10,
+        "endLine": 1088,
+        "endChar": 52
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_bb2747ac",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Nit: \"1- or 5-byte wide\"?",
+      "range": {
+        "startLine": 222,
+        "startChar": 35,
+        "endLine": 222,
+        "endChar": 50
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_5d995b7a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use uint16_t as in other methods of this class (IIRC, the maximum number of Dex register is 65536)?",
+      "range": {
+        "startLine": 231,
+        "startChar": 32,
+        "endLine": 231,
+        "endChar": 38
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_3b40d762",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 236,
+        "startChar": 22,
+        "endLine": 236,
+        "endChar": 28
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6f6b049_1dd073fb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "For the sake of uniformity, what about introducing another static offset constant (kLiveBitMaskOffset) in art::DexRegisterMaps and have art::DexRegisterMaps::kFixedSize be defined according to it?",
+      "range": {
+        "startLine": 279,
+        "startChar": 20,
+        "endLine": 279,
+        "endChar": 30
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_fbb4afc5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Ditto (use kLiveBitMaskOffset).  Or better, have a method (GetDexRegisterMapLocationsOffset?) computing\n\n  kLiveBitMaskOffset + LiveBitMaskSize(number_of_dex_registers)\n\n?",
+      "range": {
+        "startLine": 288,
+        "startChar": 20,
+        "endLine": 288,
+        "endChar": 30
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_5bede3b8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK_NE(kind, DexRegisterLocation::Kind::kNone);\n\nas a kNone entry should be recorded as an actual (\"physical\") DexRegisterLocation in the Dex register map?",
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660038f0_9bd24bf8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-13T17:39:46Z",
+      "side": 1,
+      "message": "Ditto (regarding the introduction of kLiveBitMaskOffset and GetDexRegisterMapLocationsOffset).",
+      "range": {
+        "startLine": 724,
+        "startChar": 4,
+        "endLine": 725,
+        "endChar": 71
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
