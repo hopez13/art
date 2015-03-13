@@ -45,6 +45,23 @@
       "revId": "739d43f55c56b106d4f71d91f7b1c35fc25a22bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86052c00_9cc1259d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-13T17:00:44Z",
+      "side": 1,
+      "message": "Maybe we can do better than this since the constant may already be available. Run another mini-gvn on constants for entry block at the end of BCE?",
+      "revId": "739d43f55c56b106d4f71d91f7b1c35fc25a22bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
