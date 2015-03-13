@@ -62,6 +62,24 @@
       "revId": "739d43f55c56b106d4f71d91f7b1c35fc25a22bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6fba432_de9d656d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-13T17:02:39Z",
+      "side": 1,
+      "message": "David has a CL in progress about not duplicating constants in the entry block. We should not do GVN for constants.",
+      "parentUuid": "86052c00_9cc1259d",
+      "revId": "739d43f55c56b106d4f71d91f7b1c35fc25a22bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
