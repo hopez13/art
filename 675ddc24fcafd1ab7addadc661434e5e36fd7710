@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "012da676_bc22f95e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2015-03-13T18:38:31Z",
+      "side": 1,
+      "message": "Under 64-bit, this is now an unused argument, which gets picked up and turned into an error for ART. I think Nicolas\u0027 suggestion is better.",
+      "range": {
+        "startLine": 34,
+        "startChar": 77,
+        "endLine": 34,
+        "endChar": 84
+      },
+      "revId": "675ddc24fcafd1ab7addadc661434e5e36fd7710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6f6b049_bdff3f2f",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
