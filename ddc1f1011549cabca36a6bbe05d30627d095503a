@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2639e0d0_80bd204f",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-14T22:37:52Z",
+      "side": 1,
+      "message": "maybe \n\n  echo \u003e\u00262\n\nso it goes to stderr?",
+      "revId": "ddc1f1011549cabca36a6bbe05d30627d095503a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "861e0c58_f47278df",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
