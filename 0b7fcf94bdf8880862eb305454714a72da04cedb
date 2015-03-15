@@ -16,6 +16,24 @@
       "revId": "0b7fcf94bdf8880862eb305454714a72da04cedb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a624f0ad_2118b6ac",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-15T20:28:39Z",
+      "side": 1,
+      "message": "No, the other paths do this implicitly. In line 172 the file is either successfully closed, or implicitly erased. After that, only image_file is open, and those paths have the right Erase calls.",
+      "parentUuid": "a624f0ad_531efc1d",
+      "revId": "0b7fcf94bdf8880862eb305454714a72da04cedb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
