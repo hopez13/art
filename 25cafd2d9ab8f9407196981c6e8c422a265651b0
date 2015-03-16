@@ -16,6 +16,24 @@
       "revId": "25cafd2d9ab8f9407196981c6e8c422a265651b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c62484a6_96b7cc65",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-16T10:02:28Z",
+      "side": 1,
+      "message": "Yes, after thinking about this a bit more, it feels nicer to let the code generator handle the instructions, and the stack map stream just handle its encoding.",
+      "parentUuid": "c62484a6_f669606b",
+      "revId": "25cafd2d9ab8f9407196981c6e8c422a265651b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
