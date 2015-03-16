@@ -22,6 +22,98 @@
       "revId": "a534d92a3ab379de7dfd1c80f1924ee5729871c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61ac4b3_cc504333",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-16T19:39:43Z",
+      "side": 1,
+      "message": "We need something like \u0027SelfRelocateOatFile\u0027 here. Calling RelocateOatFile will try to relocate the oat file from the odex, not from itself.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 1
+      },
+      "revId": "a534d92a3ab379de7dfd1c80f1924ee5729871c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61ac4b3_ecd89f74",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-16T19:39:43Z",
+      "side": 1,
+      "message": "It\u0027s not clear from the description in the comments what the difference is between these two cases.\n\nPart of the problem is that Status is used for two different things: individual oat files, in which case, kNeedsRelocation is probably the relevant status to use, and overall dex location status, in which case we want to distinguish between relocating from .odex to .oat and relocation from .oat to .oat. I\u0027m not sure how to reconcile those differences in a good way. Perhaps it would be better to have two different enum types for status: perhaps called \u0027OatStatus\u0027 and \u0027DexOptStatus\u0027?",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "a534d92a3ab379de7dfd1c80f1924ee5729871c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86144c89_a4a1a2eb",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-16T19:39:43Z",
+      "side": 1,
+      "message": "We need to add another test case to test the self-relocation case: DEX file, no ODEX file, OAT file needing relocation.",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 30
+      },
+      "revId": "a534d92a3ab379de7dfd1c80f1924ee5729871c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61ac4b3_2c947743",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-16T19:39:43Z",
+      "side": 1,
+      "message": "Why do we expect kNeedsSelfRelocation here instead of kNeedsRelocation? Should we prefer relocating from self to relocating from the odex file?",
+      "range": {
+        "startLine": 510,
+        "startChar": 2,
+        "endLine": 510,
+        "endChar": 84
+      },
+      "revId": "a534d92a3ab379de7dfd1c80f1924ee5729871c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
