@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "c62484a6_565b74dc",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-16T09:33:07Z",
+      "side": 1,
+      "message": "Actually done in https://android-review.googlesource.com/#/c/141625/.",
+      "parentUuid": "861e0c58_1474d47b",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 125,
+        "endChar": 50
+      },
+      "revId": "1a88a6b0e60750ac56072b194690b7be9afd4a93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6fba432_be53b93d",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 7
