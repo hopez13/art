@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a61f9053_db568b2f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2314,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-16T18:29:30Z",
+      "side": 1,
+      "message": "Nope, but cannot find a way to allocate a pair of register without explicitely naming them.",
+      "parentUuid": "c62484a6_592f270b",
+      "range": {
+        "startLine": 2314,
+        "startChar": 59,
+        "endLine": 2314,
+        "endChar": 65
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a61f9053_dbf9ebc4",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-16T17:28:13Z",
       "side": 1,
       "message": "This will always be a register, at least in the current flow. So just remove it. I\u0027m not sure if it\u0027s worth bothering with constants (unless it\u0027s trivial)",
+      "range": {
+        "startLine": 2370,
+        "startChar": 6,
+        "endLine": 2370,
+        "endChar": 30
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "861e0c58_baaaa97b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-16T18:29:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a61f9053_dbf9ebc4",
       "range": {
         "startLine": 2370,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c62484a6_b9e51b4e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-16T18:29:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a61f9053_3bdc5f62",
+      "range": {
+        "startLine": 2372,
+        "startChar": 8,
+        "endLine": 2372,
+        "endChar": 42
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a61f9053_dbf20be7",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c62484a6_39b10b46",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-16T18:29:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a61f9053_dbf20be7",
+      "range": {
+        "startLine": 2375,
+        "startChar": 13,
+        "endLine": 2375,
+        "endChar": 32
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1b7b2b3_07e936b1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-03-11T18:29:05Z",
       "side": 1,
       "message": "Wrong indent. Also, probably a good idea to mark title of patch with \"WIP\" since the old code did not fail in this case.",
+      "range": {
+        "startLine": 2418,
+        "startChar": 0,
+        "endLine": 2418,
+        "endChar": 10
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61f9053_db6fabf5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2418,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-16T18:29:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1b7b2b3_07e936b1",
       "range": {
         "startLine": 2418,
         "startChar": 0,
