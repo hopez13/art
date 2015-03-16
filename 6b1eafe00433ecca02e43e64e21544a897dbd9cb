@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c62484a6_bc106952",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2314,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-16T21:31:35Z",
+      "side": 1,
+      "message": "You don\u0027t need to name them. Just say you want a register. The register allocator then looks at the type of the instruction (in the current case, long right?) to know how many registers it needs.",
+      "parentUuid": "a61f9053_db568b2f",
+      "range": {
+        "startLine": 2314,
+        "startChar": 59,
+        "endLine": 2314,
+        "endChar": 65
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a61f9053_dbf9ebc4",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
