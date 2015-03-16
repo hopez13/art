@@ -34,6 +34,52 @@
       "revId": "25cafd2d9ab8f9407196981c6e8c422a265651b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61f9053_d5941cc1",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-16T10:14:04Z",
+      "side": 1,
+      "message": "Nit: long line",
+      "range": {
+        "startLine": 698,
+        "startChar": 100,
+        "endLine": 698,
+        "endChar": 102
+      },
+      "revId": "25cafd2d9ab8f9407196981c6e8c422a265651b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "861e0c58_746f887c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-16T10:14:04Z",
+      "side": 1,
+      "message": "Why not set the initial size to num_dex_registers? This might end up reallocating several times.",
+      "range": {
+        "startLine": 82,
+        "startChar": 82,
+        "endLine": 82,
+        "endChar": 83
+      },
+      "revId": "25cafd2d9ab8f9407196981c6e8c422a265651b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
