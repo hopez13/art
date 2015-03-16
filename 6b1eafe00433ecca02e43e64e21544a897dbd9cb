@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "c62484a6_592f270b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2314,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-16T17:28:13Z",
+      "side": 1,
+      "message": "do you need exactly R0, R1 for this? If yes, document why and dcheck when generating the code; if not don\u0027t constrain.",
+      "range": {
+        "startLine": 2314,
+        "startChar": 59,
+        "endLine": 2314,
+        "endChar": 65
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61f9053_dbf9ebc4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-16T17:28:13Z",
+      "side": 1,
+      "message": "This will always be a register, at least in the current flow. So just remove it. I\u0027m not sure if it\u0027s worth bothering with constants (unless it\u0027s trivial)",
+      "range": {
+        "startLine": 2370,
+        "startChar": 6,
+        "endLine": 2370,
+        "endChar": 30
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61f9053_3bdc5f62",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-16T17:28:13Z",
+      "side": 1,
+      "message": "no need for this check",
+      "range": {
+        "startLine": 2372,
+        "startChar": 8,
+        "endLine": 2372,
+        "endChar": 42
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61f9053_dbf20be7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-16T17:28:13Z",
+      "side": 1,
+      "message": "can you spread the comment into the code? to make it clearer to which lines it corresponds.",
+      "range": {
+        "startLine": 2375,
+        "startChar": 13,
+        "endLine": 2375,
+        "endChar": 32
+      },
+      "revId": "6b1eafe00433ecca02e43e64e21544a897dbd9cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1b7b2b3_07e936b1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
