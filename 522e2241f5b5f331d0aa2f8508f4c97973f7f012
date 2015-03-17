@@ -94,6 +94,30 @@
       "revId": "522e2241f5b5f331d0aa2f8508f4c97973f7f012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06af7c90_5b24172c",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-17T21:21:23Z",
+      "side": 1,
+      "message": "yea, I wasn\u0027t sure what\u0027s missing and this is why I suggested ActAsNullConstant().",
+      "parentUuid": "26b800d4_3c6afd9a",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 67
+      },
+      "revId": "522e2241f5b5f331d0aa2f8508f4c97973f7f012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
