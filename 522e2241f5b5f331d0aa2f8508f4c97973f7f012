@@ -22,6 +22,30 @@
       "revId": "522e2241f5b5f331d0aa2f8508f4c97973f7f012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6b188f2_fd131f0b",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-17T21:03:42Z",
+      "side": 1,
+      "message": "Calin: I think this doesn\u0027t prevent an objet type being an IntConstant, does it?\n\nDavid: Maybe it would be easier to read if written:\n!(type \u003d\u003d Primitive::kPrimNot \u0026\u0026 value-\u003eIsIntConstant())\n\n?",
+      "parentUuid": "26b800d4_9caa294e",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 67
+      },
+      "revId": "522e2241f5b5f331d0aa2f8508f4c97973f7f012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
