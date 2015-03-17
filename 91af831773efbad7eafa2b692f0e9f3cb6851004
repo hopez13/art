@@ -16,6 +16,24 @@
       "revId": "91af831773efbad7eafa2b692f0e9f3cb6851004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26b800d4_dc8101fd",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-17T17:45:59Z",
+      "side": 1,
+      "message": "No, it was just easier to merge with the revert of the CL that removed that support. Would you prefer I move the implementations out of the class?",
+      "parentUuid": "26b800d4_9c878912",
+      "revId": "91af831773efbad7eafa2b692f0e9f3cb6851004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
