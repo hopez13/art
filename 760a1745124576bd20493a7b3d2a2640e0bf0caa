@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66bd98c9_e781cafc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-17T20:36:44Z",
+      "side": 1,
+      "message": "We keep updating a value range for array_length instruction throughout the block once a constant is used as the index. For example, array[3] will update array.length\u0027s value range to be [4, INT_MAX]. The lower bound is 4. And here we add the check to be:\n  if (array.length \u003c 4) deoptimize",
+      "parentUuid": "86144c89_9f882476",
+      "range": {
+        "startLine": 963,
+        "startChar": 4,
+        "endLine": 968,
+        "endChar": 89
+      },
+      "revId": "760a1745124576bd20493a7b3d2a2640e0bf0caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86144c89_1f9c34b6",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "06a4dcb8_b384620e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-17T20:36:44Z",
+      "side": 1,
+      "message": "Good point! I need to add a check for the constant to make sure it\u0027s \u003e\u003d 0 to eliminate the bounds check.",
+      "parentUuid": "86144c89_1f9c34b6",
+      "range": {
+        "startLine": 982,
+        "startChar": 4,
+        "endLine": 994,
+        "endChar": 5
+      },
+      "revId": "760a1745124576bd20493a7b3d2a2640e0bf0caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66bd98c9_79cabf9d",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-03-17T15:20:42Z",
       "side": 1,
       "message": "?\n\nMaybe consider a macro for the common body? Maybe write a comment why you can\u0027t combine the two. (We align function by 16B, so using the \"body\" twice would add a lot of nops after pushl.)",
+      "range": {
+        "startLine": 1563,
+        "startChar": 13,
+        "endLine": 1563,
+        "endChar": 33
+      },
+      "revId": "760a1745124576bd20493a7b3d2a2640e0bf0caa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "469a5479_3f572c2d",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-17T20:36:44Z",
+      "side": 1,
+      "message": "I took this out and added an exported symbol in art_quick_deoptimize for art_quick_deoptimize_from_compiled_slow_path.",
+      "parentUuid": "66bd98c9_79cabf9d",
       "range": {
         "startLine": 1563,
         "startChar": 13,
