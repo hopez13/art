@@ -16,6 +16,24 @@
       "revId": "b1a6549a0845d99cf16928a07feaf4bf920e1704",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6887037_5346dc31",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-17T23:27:11Z",
+      "side": 1,
+      "message": "Would you prefer:\n  Example: --dex-file\u003d/home/build/out/system/framework/core.jar\n           --dex-location\u003d/system/framework/core.jar\n\nThat\u0027s more consistent with the --dex-file example.\nTo me, an example ending with .dex is more confusing, because it\u0027s not what you usually have.",
+      "parentUuid": "06a4dcb8_56b7a4ea",
+      "revId": "b1a6549a0845d99cf16928a07feaf4bf920e1704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
