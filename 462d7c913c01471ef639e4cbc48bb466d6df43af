@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "06af7c90_78456172",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-17T10:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "861e0c58_5a4b958a",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 8
+      },
+      "revId": "462d7c913c01471ef639e4cbc48bb466d6df43af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c62484a6_f9eb9321",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2015-03-16T17:50:35Z",
       "side": 1,
       "message": "current -\u003e given",
+      "range": {
+        "startLine": 168,
+        "startChar": 9,
+        "endLine": 168,
+        "endChar": 16
+      },
+      "revId": "462d7c913c01471ef639e4cbc48bb466d6df43af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06af7c90_98595563",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-17T10:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c62484a6_f9eb9321",
       "range": {
         "startLine": 168,
         "startChar": 9,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e6b188f2_d739dca3",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-17T10:08:37Z",
+      "side": 1,
+      "message": "Done. Good point.",
+      "parentUuid": "c62484a6_99cb7fcc",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 22
+      },
+      "revId": "462d7c913c01471ef639e4cbc48bb466d6df43af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c62484a6_99e25f42",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 4
@@ -105,6 +177,30 @@
       "writtenOn": "2015-03-16T17:50:35Z",
       "side": 1,
       "message": "I think this is implied by the first check. Can you do a DCHECK here instead?",
+      "range": {
+        "startLine": 349,
+        "startChar": 50,
+        "endLine": 349,
+        "endChar": 93
+      },
+      "revId": "462d7c913c01471ef639e4cbc48bb466d6df43af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06af7c90_b856192e",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-17T10:08:37Z",
+      "side": 1,
+      "message": "Done. True...",
+      "parentUuid": "c62484a6_99e25f42",
       "range": {
         "startLine": 349,
         "startChar": 50,
