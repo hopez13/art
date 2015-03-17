@@ -34,6 +34,24 @@
       "revId": "b1a6549a0845d99cf16928a07feaf4bf920e1704",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e67fc8e4_c753de3c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-17T23:45:05Z",
+      "side": 1,
+      "message": "Should we change the --dex-file usage too then?\n\nOr maybe something like this, which lists the typical file extensions:\n\n    specifies a .dex file to compile (also often .jar, .apk)\n    Example: ...\n\nThe #1 problem as-is is not being sure what file extension goes with which command flag, so we end up digging through source code or look at some examples in runtest",
+      "parentUuid": "a6887037_5346dc31",
+      "revId": "b1a6549a0845d99cf16928a07feaf4bf920e1704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
