@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66c9189c_b6eb6675",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-18T20:31:03Z",
+      "side": 1,
+      "message": "you can save 1 line of code by making this a struct :)",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 10
+      },
+      "revId": "b4f8417ac7e11774622e0cc44c28a8e7d8744044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
