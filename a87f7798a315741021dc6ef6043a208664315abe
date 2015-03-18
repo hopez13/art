@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06bbfcf2_3ecf31db",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-18T19:16:59Z",
+      "side": 1,
+      "message": "I am wondering: Is it possible that this can go wrong?  The code uses the current method\u0027s dex cache for this lookup, so the outer method. What if the class is not declared in the outer method\u0027s dex file?",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 91
+      },
+      "revId": "a87f7798a315741021dc6ef6043a208664315abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
