@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "666bd831_a6cb489d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-18T18:12:44Z",
+      "side": 1,
+      "message": "Out of curiosity, is it used anywhere? FYI, I implemented\n\n  bool operator\u003d\u003d(const DexRegisterLocation\u0026 other_location) {\n    return kind_ \u003d\u003d other_location.kind_ \u0026\u0026 value_ \u003d\u003d other_location.value_;\n  }\n\nin https://android-review.googlesource.com/#/c/142375/, as I needed it to implement art::GrowableArray\u003cT\u003e::Find in https://android-review.googlesource.com/#/c/142375/1/compiler/utils/growable_array.h.  We should probably merge them. :)",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 215,
+        "endChar": 3
+      },
+      "revId": "ecfff89be36a3aa5efbfa7ab19f0b7952871519e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
