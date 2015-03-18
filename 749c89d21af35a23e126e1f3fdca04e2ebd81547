@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "269ba08e_a1731e95",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2015-03-18T14:43:28Z",
+      "side": 1,
+      "message": "Technically obsolescent, but should be fine for just now.\nART uses only d0-d15. Will be a problem in future if d16-d31 are used.\n\nPlease add \"TODO\".",
+      "revId": "749c89d21af35a23e126e1f3fdca04e2ebd81547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c62484a6_79e2e31b",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 3
