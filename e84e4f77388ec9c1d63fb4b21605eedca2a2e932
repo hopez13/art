@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66c9189c_fc6e5d7e",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-18T21:20:58Z",
+      "side": 1,
+      "message": "Comment is wrong now. Clang does not fail anymore (and probably never did). It\u0027s just awfully slow, to the tune of 3min on the host.",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 64
+      },
+      "revId": "e84e4f77388ec9c1d63fb4b21605eedca2a2e932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
