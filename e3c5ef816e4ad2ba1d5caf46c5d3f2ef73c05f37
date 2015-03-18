@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e6bd08e7_26bcc8a8",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-18T19:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06bbfcf2_1bd35fff",
+      "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6d48430_d907379c",
         "filename": "runtime/base/hash_set.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-18T17:56:48Z",
       "side": 1,
       "message": "Consider adding a default move constructor\n\n   Iterator(Iterator\u0026\u0026) \u003d default;",
+      "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06bbfcf2_3e8df1c8",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-18T19:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6d48430_d907379c",
       "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c6d48430_ca451325",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-18T19:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06bbfcf2_fb7d4b6d",
+      "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06bbfcf2_3b8ce303",
         "filename": "runtime/base/hash_set.h",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "c6d48430_ea2e8f0d",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-18T19:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06bbfcf2_3b8ce303",
+      "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6bd08e7_fdf1bf68",
         "filename": "runtime/base/hash_set.h",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2015-03-18T17:56:48Z",
       "side": 1,
       "message": "Is there any reason why this can\u0027t be const?",
+      "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6bd08e7_8683949e",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-18T19:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6bd08e7_fdf1bf68",
       "revId": "e3c5ef816e4ad2ba1d5caf46c5d3f2ef73c05f37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
