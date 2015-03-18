@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06a21cbf_c0c4de91",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "OVERRIDE ?",
+      "range": {
+        "startLine": 451,
+        "startChar": 43,
+        "endLine": 451,
+        "endChar": 44
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666bd831_c306764c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Please add a comment why you can and are using the array length, as initially it seems more intuitive to use the object itself.",
+      "range": {
+        "startLine": 714,
+        "startChar": 39,
+        "endLine": 714,
+        "endChar": 51
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666bd831_03308e1a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Don\u0027t we have this lower const in the graph already?",
+      "range": {
+        "startLine": 965,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 46
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_80cff6aa",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "two spaces more.",
+      "range": {
+        "startLine": 966,
+        "startChar": 6,
+        "endLine": 966,
+        "endChar": 18
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666bd831_e3fc523c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Why don\u0027t you just let the algorithm run with the knowledge that array.length \u003c constant?",
+      "range": {
+        "startLine": 980,
+        "startChar": 0,
+        "endLine": 981,
+        "endChar": 18
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666bd831_03196e34",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Please add a kConstant for this.",
+      "range": {
+        "startLine": 1018,
+        "startChar": 20,
+        "endLine": 1018,
+        "endChar": 22
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_c0ebbe74",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 313,
+        "startChar": 2,
+        "endLine": 313,
+        "endChar": 9
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_6003d2c6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 382,
+        "startChar": 2,
+        "endLine": 382,
+        "endChar": 9
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_20fdca35",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 332,
+        "startChar": 2,
+        "endLine": 332,
+        "endChar": 9
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_0019a634",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 339,
+        "startChar": 2,
+        "endLine": 339,
+        "endChar": 9
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_61dcf6e7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1487,
+        "startChar": 2,
+        "endLine": 1487,
+        "endChar": 10
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_c0229e58",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Why don\u0027t you require an environment here?",
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_21e6eeaf",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Please add a comment for this.",
+      "range": {
+        "startLine": 1546,
+        "startChar": 0,
+        "endLine": 1547,
+        "endChar": 53
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_01f2ca6c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1567,
+        "startChar": 0,
+        "endLine": 1567,
+        "endChar": 59
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_e1f6c65e",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T15:18:01Z",
+      "side": 1,
+      "message": "Why do you need this now?",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 63
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
