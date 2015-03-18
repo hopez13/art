@@ -22,6 +22,30 @@
       "revId": "a87f7798a315741021dc6ef6043a208664315abe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_83926023",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T21:43:40Z",
+      "side": 1,
+      "message": "The NeedsDexCache in HInstruction is here to prevent generating code for this situation. Indeed the storage_index is relative to the current dex file, which will not work if we use the most outer method (assuming the most outer is in a different dex file).",
+      "parentUuid": "06bbfcf2_3ecf31db",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 91
+      },
+      "revId": "a87f7798a315741021dc6ef6043a208664315abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
