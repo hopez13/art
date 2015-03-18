@@ -710,6 +710,30 @@
       "revId": "97969da72a4c07a00833a6916b764f74ef640949",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_c412b08e",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T21:53:18Z",
+      "side": 1,
+      "message": "Are you saying the current deoptimization support for the debugger cannot deoptimize the current method?",
+      "parentUuid": "06bbfcf2_3e7df1ae",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 63
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
