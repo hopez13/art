@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2612c0d8_a922dd56",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-18T23:07:05Z",
+      "side": 1,
+      "message": "Please add a DCHECK(!IsAoTCompiler()) inside the conditional. Maybe we\u0027ll get so far as to start the runtime when compiling, who knows. E.g., for app images or actual class-loader things that might be the case.",
+      "range": {
+        "startLine": 488,
+        "startChar": 1,
+        "endLine": 490,
+        "endChar": 3
+      },
+      "revId": "05ffa444b26c84e6a4373862840903c36e285d83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
