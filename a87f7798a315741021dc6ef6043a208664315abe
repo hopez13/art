@@ -46,6 +46,30 @@
       "revId": "a87f7798a315741021dc6ef6043a208664315abe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6d4f037_300086b7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-18T22:41:45Z",
+      "side": 1,
+      "message": "I see. So you\u0027re doing the work, but then let the inliner throw it away. I\u0027m not sure I like that design, as it doesn\u0027t make it explicit here that most likely all the outer_dex_cache is overhead. (My running assumption is that there\u0027s a lot of cross-class static accesses.)\n\nI guess the runtime entrypoints haven\u0027t been extended to support it, but maybe it\u0027s worth the effort to check whether there is a type index in the current dex file that matches? Another approach would be to try to load the ArtMethod for the inlined method, when necessary.",
+      "parentUuid": "06a21cbf_83926023",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 91
+      },
+      "revId": "a87f7798a315741021dc6ef6043a208664315abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
