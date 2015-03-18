@@ -22,6 +22,30 @@
       "revId": "ecfff89be36a3aa5efbfa7ab19f0b7952871519e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_837380e4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-18T18:24:18Z",
+      "side": 1,
+      "message": "I know. I was thinking that we would merge this first and thus I added the common parts here. I also need it and as far as I know operator overloading is not encouraged by the style. We should use a function.",
+      "parentUuid": "666bd831_a6cb489d",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 215,
+        "endChar": 3
+      },
+      "revId": "ecfff89be36a3aa5efbfa7ab19f0b7952871519e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
