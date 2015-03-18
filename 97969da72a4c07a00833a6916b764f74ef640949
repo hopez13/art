@@ -554,6 +554,24 @@
     },
     {
       "key": {
+        "uuid": "06a21cbf_e3692ca7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-18T21:51:30Z",
+      "side": 1,
+      "message": "What I don\u0027t get is how can this worked without the environment? By not having the environment, you can\u0027t deopt.",
+      "parentUuid": "e6bd08e7_6b0a89d4",
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "269ba08e_21e6eeaf",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 3
