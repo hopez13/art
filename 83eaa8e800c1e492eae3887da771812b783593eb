@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "666bd831_23c2ead5",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-18T15:54:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "269ba08e_a1f0be61",
+      "range": {
+        "startLine": 211,
+        "startChar": 14,
+        "endLine": 211,
+        "endChar": 54
+      },
+      "revId": "83eaa8e800c1e492eae3887da771812b783593eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "666bd831_23458a05",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-18T15:21:13Z",
       "side": 1,
       "message": "How does that regress compilation times? Should we hash entries instead?",
+      "range": {
+        "startLine": 280,
+        "startChar": 5,
+        "endLine": 280,
+        "endChar": 52
+      },
+      "revId": "83eaa8e800c1e492eae3887da771812b783593eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_609512ba",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-18T15:54:40Z",
+      "side": 1,
+      "message": "I expected this and forgot to comment preemptively :). \n\nOn initial tests the regression is not big, (~3% on big apks like docs)\n\nMy plan was to push this and let golem assess it for me. It\u0027s easier to see the impact on multiple apps.",
+      "parentUuid": "666bd831_23458a05",
       "range": {
         "startLine": 280,
         "startChar": 5,
