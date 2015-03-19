@@ -866,6 +866,30 @@
       "revId": "97969da72a4c07a00833a6916b764f74ef640949",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_66c2cab3",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-19T14:47:53Z",
+      "side": 1,
+      "message": "Not sure about the \"instr-\u003eIsInvoke()\". I think it works now because we do not compile \u003cclinit\u003e.\n\nImagine we compile a \u003cclinit\u003e and a sget/sput causes its invocation, then you deoptimize in a method called from there. When you return from the \"deoptimized\" \u003cclinit\u003e, the current instruction is the sget/sput, not an invoke...\n\nIt\u0027s worth adding a comment about this can work only if we never compile \u003cclinit\u003e. Maybe a CHECK would be even better:\n  CHECK(kDoNotCompileClinit)\nprovided this flag is used by the compiler too.",
+      "parentUuid": "269ba08e_24fddc35",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 63
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
