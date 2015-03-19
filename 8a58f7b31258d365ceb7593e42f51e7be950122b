@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e640a8d5_c2a5e47f",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-03-19T21:02:49Z",
+      "side": 1,
+      "message": "I see other instances of stringstream usages in art.. keeping stringstream.",
+      "parentUuid": "86fc4cc6_b813415a",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06a21cbf_2625e2a2",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 18
@@ -113,6 +137,24 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "06a21cbf_a618d276",
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2620002d_1c3a5998",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-03-19T21:02:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06a21cbf_668f6afb",
       "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
