@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06a21cbf_66040a15",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1037287
+      },
+      "writtenOn": "2015-03-19T11:28:39Z",
+      "side": 1,
+      "message": "Google C++ style generally discourages streams.\nhttp://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Streams\n\nFor any non-android, including here also unnecessarily expands what the compiler has to parse.",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_2625e2a2",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1037287
+      },
+      "writtenOn": "2015-03-19T11:28:39Z",
+      "side": 1,
+      "message": "Maybe factor the three lines above into, say, jstringToCstring(), and use both here and at 71 below.",
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06a21cbf_a618d276",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1037287
+      },
+      "writtenOn": "2015-03-19T11:28:39Z",
+      "side": 1,
+      "message": "Probably worth commenting this.  It will look obscure to anyone not familiar with its genesis.",
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
