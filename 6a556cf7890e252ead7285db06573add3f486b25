@@ -16,6 +16,29 @@
       "revId": "6a556cf7890e252ead7285db06573add3f486b25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_277f1e90",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-19T14:43:35Z",
+      "side": 1,
+      "message": "... most probably because of this. You should not change the registers of your inputs.",
+      "range": {
+        "startLine": 2393,
+        "startChar": 15,
+        "endLine": 2393,
+        "endChar": 24
+      },
+      "revId": "6a556cf7890e252ead7285db06573add3f486b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
