@@ -70,6 +70,30 @@
       "revId": "a87f7798a315741021dc6ef6043a208664315abe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "666bd831_e65f00f9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-19T10:33:32Z",
+      "side": 1,
+      "message": "About your first point: it\u0027s kind of an inlining decision/implementation state. At some point we\u0027ll be able to reference other dex cache in an inlined method. So yes, the builder does some extra work, but inlining heuristics should not mess with the builder. Also, it\u0027s only done once, as we setup the flag on the method that it\u0027s not worth inlining.\n\nAbout your second point: yes, we could implement this improvement in a next change.",
+      "parentUuid": "a6d4f037_300086b7",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 91
+      },
+      "revId": "a87f7798a315741021dc6ef6043a208664315abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
