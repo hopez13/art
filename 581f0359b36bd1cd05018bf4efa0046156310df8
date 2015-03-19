@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a64230dc_5ddc5b10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "These seem like unrelated changes. It will simplify review if they can be split into two different changes.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_5fa1aba0",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "Why not have this logic in OatFileAssistant::GetStatus()?",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 7
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_7f56efe8",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "if GetStatus is changed to return kNeedsSelfRelocation (or whatever the right name is), this could be made cleaner.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 7
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_ffc51f3d",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "I would have called this kDexOptNeeded (or kDexoptNeeded?), to match with the constants defined in dalvik_system_DexFile.cc. This enum could replace those constants perhaps?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_7fd90f1f",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "kPatchoatNeeded",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_3fb2a7c6",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "Doesn\u0027t match the enum name. Probably we don\u0027t need to duplicate the name of the enum in the comment here, it is clear by the comment\u0027s location.",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 17
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_1f824301",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "Add a blank line between these.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 24
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_7f8fcffa",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "I would return an OatStatus here.",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 14
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a64230dc_3d7f0f90",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "Status should be kNeedsSelfPatchoat, and running MakeUpToDate should update the oat file in place.",
+      "range": {
+        "startLine": 494,
+        "startChar": 11,
+        "endLine": 494,
+        "endChar": 30
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c64724eb_1ee9ed80",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "This comment doesn\u0027t make sense.",
+      "range": {
+        "startLine": 503,
+        "startChar": 2,
+        "endLine": 503,
+        "endChar": 32
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e640a8d5_3f3707af",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T17:28:23Z",
+      "side": 1,
+      "message": "This comment is out of date.",
+      "range": {
+        "startLine": 535,
+        "startChar": 2,
+        "endLine": 535,
+        "endChar": 68
+      },
+      "revId": "581f0359b36bd1cd05018bf4efa0046156310df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
