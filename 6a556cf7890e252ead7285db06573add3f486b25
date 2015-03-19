@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "269ba08e_a76d6e01",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2318,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-19T14:13:35Z",
+      "side": 1,
+      "message": "Writing `locations-\u003eSetOut(Location::RequiresRegister());` as I was first advise to do, will make it crash.",
+      "revId": "6a556cf7890e252ead7285db06573add3f486b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
