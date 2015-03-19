@@ -39,6 +39,30 @@
       "revId": "6a556cf7890e252ead7285db06573add3f486b25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_a7e68ed9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2393,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-03-19T15:03:51Z",
+      "side": 1,
+      "message": "Tried, and nope. It does not even fails the tests with a wrong value, it just crashes when dex2oat tries to compile something.",
+      "parentUuid": "269ba08e_277f1e90",
+      "range": {
+        "startLine": 2393,
+        "startChar": 15,
+        "endLine": 2393,
+        "endChar": 24
+      },
+      "revId": "6a556cf7890e252ead7285db06573add3f486b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
