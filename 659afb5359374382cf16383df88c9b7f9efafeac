@@ -34,6 +34,24 @@
       "revId": "659afb5359374382cf16383df88c9b7f9efafeac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46825452_52b1b472",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-19T22:10:11Z",
+      "side": 1,
+      "message": "Right, or just have host versions of the atrace functions which are nops. I wouldn\u0027t be surprised if other people using atrace ran into the same limitation.",
+      "parentUuid": "66259842_b327d866",
+      "revId": "659afb5359374382cf16383df88c9b7f9efafeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
