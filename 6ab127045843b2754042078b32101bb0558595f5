@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06a21cbf_a6a2121e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-19T14:36:37Z",
+      "side": 1,
+      "message": "IMO that should be in the HDeoptimize constructor since it\u0027s mandatory to set its environment.",
+      "range": {
+        "startLine": 984,
+        "startChar": 4,
+        "endLine": 984,
+        "endChar": 63
+      },
+      "revId": "6ab127045843b2754042078b32101bb0558595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
