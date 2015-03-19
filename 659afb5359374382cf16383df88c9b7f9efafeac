@@ -16,6 +16,24 @@
       "revId": "659afb5359374382cf16383df88c9b7f9efafeac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66259842_b327d866",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-19T21:58:38Z",
+      "side": 1,
+      "message": "ATRACE_TAG has to be defined to use the ATRACE macros. I\u0027m using the ATRACE macros instead of directly calling the atrace functions because the macros take care of the case where you compile for the host and the atrace functions aren\u0027t available.\n\nI agree with you though. At one point Brian suggested creating a trace header file for art that does what\u0027s needed to using tracing both on the host and target.\n\nIn one of the internal branches, we set ATRACE_TAG in a header file, which caused me problems when I cherry-picked this change in.\n\nNote that it\u0027s possible to set the tag as a bitwise OR of multiple tags, to have the trace show up, for example, if either of boot trace or art trace are enabled.",
+      "parentUuid": "a64230dc_1de6d358",
+      "revId": "659afb5359374382cf16383df88c9b7f9efafeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
