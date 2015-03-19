@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2620002d_bcb56d32",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-19T21:02:25Z",
+      "side": 1,
+      "message": "Not correctly changed...",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 191,
+        "endChar": 3
+      },
+      "revId": "c22f5b8876b42ee8c8ae5135a2f0eac212f08960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "461df4f5_1d11f755",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 2
@@ -31,6 +54,24 @@
       "side": 1,
       "message": "No, it defaults to the RETURN_VOID case. Talking to agampe I think this CL may not be necessary since we run with do_access_check if not verified.",
       "parentUuid": "461df4f5_1d11f755",
+      "revId": "c22f5b8876b42ee8c8ae5135a2f0eac212f08960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06177cd9_7e56e9e8",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-19T21:02:25Z",
+      "side": 1,
+      "message": "The change is fine. It avoids running other access checks in constructors...",
+      "parentUuid": "2620002d_fc2e850d",
       "revId": "c22f5b8876b42ee8c8ae5135a2f0eac212f08960",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
