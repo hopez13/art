@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86fc4cc6_b813415a",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-19T16:06:13Z",
+      "side": 1,
+      "message": "Simon: Welcome to Android, where Google style is contended.\n\nDimitry, sstream is perfectly fine. Alternatively use a std::string and +, as you\u0027re only appending strings.",
+      "parentUuid": "06a21cbf_66040a15",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06a21cbf_2625e2a2",
         "filename": "runtime/native/java_lang_Runtime.cc",
         "patchSetId": 18
@@ -36,6 +60,24 @@
       "writtenOn": "2015-03-19T11:28:39Z",
       "side": 1,
       "message": "Maybe factor the three lines above into, say, jstringToCstring(), and use both here and at 71 below.",
+      "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86fc4cc6_58b20dd9",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-19T16:06:13Z",
+      "side": 1,
+      "message": "Dimitry: It\u0027s fine the way it is if you don\u0027t want to rewrite.\n\nThe more interesting point is what you want to do with the pending null-pointer exception...\n\n\nSimon: This requires changes that aren\u0027t as simple as moving those lines out. ScopedUtfChars exists to release the char buffer - it doesn\u0027t make a copy itself. As such, you\u0027d have to translate everything to std::string all the time, incurring copies. Dimitry is a low-level guy and likes performance.",
+      "parentUuid": "06a21cbf_2625e2a2",
       "revId": "8a58f7b31258d365ceb7593e42f51e7be950122b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
