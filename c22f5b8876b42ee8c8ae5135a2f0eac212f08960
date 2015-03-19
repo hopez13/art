@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "06177cd9_fe44390a",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-19T21:04:15Z",
+      "side": 1,
+      "message": "Actually, thinking about it, it seems fine.",
+      "parentUuid": "2620002d_bcb56d32",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 191,
+        "endChar": 3
+      },
+      "revId": "c22f5b8876b42ee8c8ae5135a2f0eac212f08960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "461df4f5_1d11f755",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 2
