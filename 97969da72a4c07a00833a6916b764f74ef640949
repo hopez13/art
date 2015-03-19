@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "666bd831_e63620b1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-19T10:50:44Z",
+      "side": 1,
+      "message": "So shouldn\u0027t we use LessOrEqual then?\n\nAbout constants: I think we\u0027ll need something when dealing with inlining. As of now, maybe we could go with a simple HGraph::AddConstant interface, and just allocate the constant?\n\nBut if you you can use LessOrEqual, we can delay dealing with constants for now.",
+      "parentUuid": "06bbfcf2_5b9557b9",
+      "range": {
+        "startLine": 965,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 46
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "666bd831_e3fc523c",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 3
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "I can rerun the algorithm on the block (I actually did this way first). I thought it\u0027s cheaper to just revisit the bounds-check users in the block instead of doing the value range stuffs again.",
       "parentUuid": "666bd831_e3fc523c",
+      "range": {
+        "startLine": 980,
+        "startChar": 0,
+        "endLine": 981,
+        "endChar": 18
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_c422b058",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-19T10:50:44Z",
+      "side": 1,
+      "message": "Will both ways cover the same bounds checks? Or a bound on an array length can help for more, maybe unrelated, bounds checks being removed?\n\nDo we care / is it worth it?\n\nI\u0027d definitely add a comment here to explain why you\u0027re not re-running the algorithm.",
+      "parentUuid": "c6d48430_9cf08d62",
       "range": {
         "startLine": 980,
         "startChar": 0,
@@ -590,6 +638,24 @@
     },
     {
       "key": {
+        "uuid": "269ba08e_e4f6d45e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-19T10:50:44Z",
+      "side": 1,
+      "message": "Oh, I see. I think it actually helps having the NeedsEnvironment and it\u0027s also harmless because the ssa builder will not see this instruction anyway.",
+      "parentUuid": "2612c0d8_ec8d8387",
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "269ba08e_21e6eeaf",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 3
@@ -767,6 +833,30 @@
       "side": 1,
       "message": "It seems to me to be the case. There is a bug:\nhttps://b.corp.google.com/issues/17586779\nshertz probably knows more about it.",
       "parentUuid": "269ba08e_c412b08e",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 63
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "269ba08e_24fddc35",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-19T10:50:44Z",
+      "side": 1,
+      "message": "Ok. Can you please expand the comment with this information? I think it\u0027s worth keeping this info around.",
+      "parentUuid": "66de785c_4edc93e7",
       "range": {
         "startLine": 404,
         "startChar": 6,
