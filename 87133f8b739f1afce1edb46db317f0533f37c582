@@ -22,6 +22,30 @@
       "revId": "87133f8b739f1afce1edb46db317f0533f37c582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2612c0d8_cff6315f",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-19T00:06:10Z",
+      "side": 1,
+      "message": "The debug jit is passed if dalvik.vm.usejit is set also though.",
+      "parentUuid": "2612c0d8_8f7cb96e",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 47
+      },
+      "revId": "87133f8b739f1afce1edb46db317f0533f37c582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
