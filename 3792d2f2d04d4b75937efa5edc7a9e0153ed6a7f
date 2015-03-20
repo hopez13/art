@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "667af834_2b47d9a8",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "worth mentioning that this hash function does not create collisions",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 31
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_cd3f3d6c",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "This is getting nasty, as more implementation details are exposed to the user. I think we should invest in finding a good/efficient abstraction for this.\n\nI already had this discussion with Nicolas and I think we should resume it..",
+      "range": {
+        "startLine": 79,
+        "startChar": 6,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_f1ec60bf",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "length must not be larger than the number of bits which can be fitted in `unsigned`",
+      "range": {
+        "startLine": 131,
+        "startChar": 20,
+        "endLine": 131,
+        "endChar": 57
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_2c613b7f",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "use more exact types. i.e. uint32_t",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_ccbc1f53",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 144,
+        "startChar": 39,
+        "endLine": 144,
+        "endChar": 47
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_91e15cc6",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "Same comment regarding exposing implementation details.",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 87
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_8987f963",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "Is there an actual benefit of having this here? I would just use GetValue()/GetKind()",
+      "range": {
+        "startLine": 225,
+        "startChar": 2,
+        "endLine": 225,
+        "endChar": 41
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_ca5ba38c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "How about naming this DexRegistersRepository? Or something more semantically adequate (even if from a data structure perspective this is a map/dictionary).",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 27
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_6e2baf7b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "kNoneLocationEntryIndex ?",
+      "range": {
+        "startLine": 428,
+        "startChar": 26,
+        "endLine": 428,
+        "endChar": 57
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_49a261f0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "i would get rid of this.",
+      "range": {
+        "startLine": 433,
+        "startChar": 23,
+        "endLine": 433,
+        "endChar": 33
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_ec5a43d8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:10:02Z",
+      "side": 1,
+      "message": "this is a bit hard to read and i think i miss something. Why do you you need to add the offset to the size?",
+      "range": {
+        "startLine": 908,
+        "startChar": 8,
+        "endLine": 908,
+        "endChar": 44
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
