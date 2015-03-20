@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "466b346a_eacf872c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T12:22:41Z",
+      "side": 1,
+      "message": "these should be the sizes necessary to represent max values",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_4bdca510",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
@@ -276,6 +299,52 @@
         "startLine": 92,
         "startChar": 12,
         "endLine": 93,
+        "endChar": 37
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_8a784b44",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T12:22:41Z",
+      "side": 1,
+      "message": "I\u0027m not very keen on this design.\n\nOur usual access pattern is something like:\n\nCodeInfo code_info \u003d m-\u003eGetOptimizedCodeInfo();\nStackMap map \u003d code_info.GetStackMapForNativePcOffset(native_pc_offset);\nMemoryRegion mask \u003d map.GetStackMask(code_info);\n\nwhich makes accessing stack map info a bit silly and redundant.\n\nAn alternative way is to construct the StackMap with a reference to the parent CodeInfo.\n\nThoughts?",
+      "range": {
+        "startLine": 520,
+        "startChar": 20,
+        "endLine": 520,
+        "endChar": 40
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_2a14bff3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T12:22:41Z",
+      "side": 1,
+      "message": "Please document which kind of entries these refers to. I know now, but it\u0027s easier to loose track later.",
+      "range": {
+        "startLine": 611,
+        "startChar": 16,
+        "endLine": 611,
         "endChar": 37
       },
       "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
