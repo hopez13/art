@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "46825452_b20c95c1",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "Access flags and the object size had been set at the resolved state which is one state before initialized. So, there should be a happens-before there.\n\nIf we see the class in the initialized status here, it\u0027s ok to allocate here in this fast path as the other fields should be valid at that point. If we don\u0027t and see the resolved state (or an earlier state) instead even if it\u0027s already initialized due to the lack of a fence, we\u0027d take the slow path.\n\nSo, this seems ok to me.",
+      "parentUuid": "46825452_9ba09771",
+      "range": {
+        "startLine": 896,
+        "startChar": 17,
+        "endLine": 896,
+        "endChar": 48
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "068cdc85_842b567a",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -66,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "068cdc85_9c664250",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "068cdc85_842b567a",
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66259842_16e6ba58",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -77,6 +119,30 @@
       "writtenOn": "2015-03-19T23:13:51Z",
       "side": 1,
       "message": "Is it worth maybe having an 8 byte aligned object size inside of Class? Maybe an idea for another CL.",
+      "range": {
+        "startLine": 901,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 87
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46825452_6d040e43",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "I thought about it, too and a good point. It\u0027d be another CL.",
+      "parentUuid": "66259842_16e6ba58",
       "range": {
         "startLine": 901,
         "startChar": 0,
@@ -112,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "66259842_284a6fb2",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46825452_b87d6133",
+      "range": {
+        "startLine": 910,
+        "startChar": 9,
+        "endLine": 910,
+        "endChar": 36
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46825452_18210d20",
         "filename": "runtime/asm_support.h",
         "patchSetId": 1
@@ -123,6 +213,30 @@
       "writtenOn": "2015-03-19T23:13:51Z",
       "side": 1,
       "message": "If we are going to use defines, maybe we could use the define value to set the corresponding enum value?",
+      "range": {
+        "startLine": 146,
+        "startChar": 42,
+        "endLine": 146,
+        "endChar": 52
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_4299d47a",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "kAccClassIsFinalizable isn\u0027t an enum value.\n\nDo you mean \n\nstatic constexpr uint32_t kAccClassIsFinalizable \u003d ACCESS_FLAGS_CLASS_IS_FINALIZABLE\n\n?\n\nI think that would cause a header file circular dependency issue.",
+      "parentUuid": "46825452_18210d20",
       "range": {
         "startLine": 146,
         "startChar": 42,
@@ -158,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "46825452_2d6a869b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46825452_38e3b149",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 34
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66259842_164a3ab2",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
@@ -169,6 +307,30 @@
       "writtenOn": "2015-03-19T23:13:51Z",
       "side": 1,
       "message": "Call this from within GetObjectSize?",
+      "range": {
+        "startLine": 533,
+        "startChar": 22,
+        "endLine": 533,
+        "endChar": 38
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_628c1805",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-20T20:22:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66259842_164a3ab2",
       "range": {
         "startLine": 533,
         "startChar": 22,
