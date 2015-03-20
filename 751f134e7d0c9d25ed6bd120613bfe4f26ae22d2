@@ -22,6 +22,30 @@
       "revId": "751f134e7d0c9d25ed6bd120613bfe4f26ae22d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a69cf0d8_ad19fd7e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T23:20:21Z",
+      "side": 1,
+      "message": "I see the code above, use_dex_cache. Please reference that.",
+      "parentUuid": "86160cff_143db48f",
+      "range": {
+        "startLine": 1403,
+        "startChar": 6,
+        "endLine": 1404,
+        "endChar": 47
+      },
+      "revId": "751f134e7d0c9d25ed6bd120613bfe4f26ae22d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
