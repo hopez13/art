@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "66259842_30a97106",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-20T22:56:41Z",
+      "side": 1,
+      "message": "Ok, I used LessThanOrEqual now and remembered the constant instruction.",
+      "parentUuid": "666bd831_e63620b1",
+      "range": {
+        "startLine": 965,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 46
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "666bd831_e3fc523c",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 3
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "Will both ways cover the same bounds checks? Or a bound on an array length can help for more, maybe unrelated, bounds checks being removed?\n\nDo we care / is it worth it?\n\nI\u0027d definitely add a comment here to explain why you\u0027re not re-running the algorithm.",
       "parentUuid": "c6d48430_9cf08d62",
+      "range": {
+        "startLine": 980,
+        "startChar": 0,
+        "endLine": 981,
+        "endChar": 18
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66259842_5092edd3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-20T22:56:41Z",
+      "side": 1,
+      "message": "Ok, I now rerun the algorithm on the block. It\u0027s actually simpler.",
+      "parentUuid": "269ba08e_c422b058",
       "range": {
         "startLine": 980,
         "startChar": 0,
@@ -881,6 +929,54 @@
       "side": 1,
       "message": "Not sure about the \"instr-\u003eIsInvoke()\". I think it works now because we do not compile \u003cclinit\u003e.\n\nImagine we compile a \u003cclinit\u003e and a sget/sput causes its invocation, then you deoptimize in a method called from there. When you return from the \"deoptimized\" \u003cclinit\u003e, the current instruction is the sget/sput, not an invoke...\n\nIt\u0027s worth adding a comment about this can work only if we never compile \u003cclinit\u003e. Maybe a CHECK would be even better:\n  CHECK(kDoNotCompileClinit)\nprovided this flag is used by the compiler too.",
       "parentUuid": "269ba08e_24fddc35",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 63
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_4909f461",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-20T22:56:41Z",
+      "side": 1,
+      "message": "I added this comment:\n// TODO: should be tested more once b/17586779 is fixed.",
+      "parentUuid": "269ba08e_24fddc35",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 63
+      },
+      "revId": "97969da72a4c07a00833a6916b764f74ef640949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66259842_d07efdde",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-20T22:56:41Z",
+      "side": 1,
+      "message": "In the clinit example, it seems to me we should re-execute at the dex_pc? So the change on line 405 should be able to handle that. Invocation is considered done when returning to deoptimized caller so it should execute from the dex instruction following dex_pc. Other instructions should be executed at dex_pc.\n\nAlso for the clinit case, right now we go to runtime to do class initialization, and it\u0027s calling the \u003cclinit\u003e through an upcall (ArtMethod::Invoke()), which means deoptimization will stop at the upcall and the method that triggers the \u003cclinit\u003e won\u0027t even be deoptimized.",
+      "parentUuid": "06a21cbf_66c2cab3",
       "range": {
         "startLine": 404,
         "startChar": 6,
