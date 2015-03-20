@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "068cdc85_ababbb52",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T20:32:00Z",
+      "side": 1,
+      "message": "You will have to check whether this works on Mac. Google search indicates it may be complicated.\n\nAlso: should this test be the other way around (to optimistically assume it\u0027s little endian unless proven otherwise)?",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 6
+      },
+      "revId": "447400ddd12d7de00e8784ed5d2702ca1f371c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
