@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66259842_dccffc5a",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-20T18:48:47Z",
+      "side": 1,
+      "message": "Can\u0027t seem to find this class member function on code search, did you forget to \u0027git add\u0027 the Thread class changes?",
+      "revId": "bfb4ede3aae4424ca6c5a0ad7c5c67affc1b0442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_45c0fe7c",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-20T18:48:47Z",
+      "side": 1,
+      "message": "might be able to infer the correct type to use here using a sequence of ATOMIC_XXX_LOCK_FREE macro calls and templates\n\nhttp://en.cppreference.com/w/cpp/atomic/atomic_is_lock_free",
+      "revId": "bfb4ede3aae4424ca6c5a0ad7c5c67affc1b0442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
