@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "068cdc85_1cf32bba",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T22:05:57Z",
+      "side": 1,
+      "message": "I wonder whether it\u0027s better to take this apart, even if it means duplication, and put it behind a constexpr. I know it\u0027s highly unlikely that anyone will use this, but to avoid bit-rot?",
+      "range": {
+        "startLine": 804,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 57
+      },
+      "revId": "767c752fddc64e280dba507457e4f06002b5f678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
