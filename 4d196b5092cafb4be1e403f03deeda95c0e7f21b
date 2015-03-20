@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "068cdc85_972b837a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2752,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T02:58:34Z",
+      "side": 1,
+      "message": "You should either break the loop early, or put a comment that it\u0027s not necessary as it would be a verifier error then anyways, and we don\u0027t really expect them.",
+      "range": {
+        "startLine": 2750,
+        "startChar": 8,
+        "endLine": 2752,
+        "endChar": 9
+      },
+      "revId": "4d196b5092cafb4be1e403f03deeda95c0e7f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
