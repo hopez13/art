@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "466b346a_aae66fd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 76
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_4bdca510",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Nit: rename as native_pc_offset_max_?",
+      "range": {
+        "startLine": 284,
+        "startChar": 11,
+        "endLine": 284,
+        "endChar": 25
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_2bb279c6",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "We should give an explicit name to this special value.",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 69
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_69b2c5d9",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Maybe add parentheses around this expression?  It won\u0027t change its meaning, but IMHO it would make more clear that\n\n  info.HasSmallDexRegisterMap()\n  ⇒ (IsUint\u003cCodeInfo::kBitsForSmallEncoding\u003e(offset)\n     ∨ (offset \u003d\u003d kNoDexRegisterMap))",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_0ab53bad",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 79,
+        "startChar": 17,
+        "endLine": 79,
+        "endChar": 69
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_ebf6b15e",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 37
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_29bccda8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Maybe move these constants into StackMap, as they pertain to StackMap data?",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 88
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_0be9bd80",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Maybe add a more explicit comment regarding this special 0xFF value in the case of a small encoding.",
+      "range": {
+        "startLine": 630,
+        "startChar": 10,
+        "endLine": 630,
+        "endChar": 46
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_2be6f9af",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 638,
+        "startChar": 21,
+        "endLine": 638,
+        "endChar": 61
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_4bab4554",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T11:02:31Z",
+      "side": 1,
+      "message": "Maybe add an \"Offset\" suffix to all of these constants?",
+      "range": {
+        "startLine": 795,
+        "startChar": 0,
+        "endLine": 799,
+        "endChar": 68
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
