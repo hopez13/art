@@ -139,6 +139,30 @@
       "revId": "655043be47d5091caa0977947bd610d315036fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66259842_48cc8be3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-03-20T18:10:09Z",
+      "side": 1,
+      "message": "I was thinking about some kind of check but came to the conclusion that it is too complicated - to do it right we are going to need to keep and maintain a list of acceptable abis for every arch.",
+      "parentUuid": "068cdc85_068e8383",
+      "range": {
+        "startLine": 795,
+        "startChar": 2,
+        "endLine": 795,
+        "endChar": 75
+      },
+      "revId": "655043be47d5091caa0977947bd610d315036fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
