@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "266e407b_acc9aba9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "indices",
+      "range": {
+        "startLine": 44,
+        "startChar": 34,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_cd089d61",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "entry_index values?",
+      "range": {
+        "startLine": 281,
+        "startChar": 59,
+        "endLine": 281,
+        "endChar": 71
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_ad17697c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Why returning `hash * entry.num_dex_registers\u0027; instead of just `hash\u0027?",
+      "range": {
+        "startLine": 319,
+        "startChar": 11,
+        "endLine": 319,
+        "endChar": 41
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_ae275766",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Dex register map",
+      "range": {
+        "startLine": 359,
+        "startChar": 27,
+        "endLine": 359,
+        "endChar": 35
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_4dfd8daf",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Is this really necessary?",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 9
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_6dfad1ba",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Likewise, I think it would be better to name this dex_register_map_hashes_cache_ for the sake of uniformity.  I know those names are long, but I prefer lengthy names over non-uniform or ambiguous ones.",
+      "range": {
+        "startLine": 360,
+        "startChar": 34,
+        "endLine": 360,
+        "endChar": 55
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_8e229b57",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 361,
+        "startChar": 10,
+        "endLine": 361,
+        "endChar": 17
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_4e0d93e9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 9
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_0e178bfb",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "dex_register_map_hash_to_stack_map_indices_?",
+      "range": {
+        "startLine": 363,
+        "startChar": 58,
+        "endLine": 363,
+        "endChar": 92
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_4ccfcfab",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T15:29:31Z",
+      "side": 1,
+      "message": "Yeah, you may want to use an art::HashMap here (I\u0027ve used one in https://android-review.googlesource.com/#/c/142375/3)/.",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 93
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
