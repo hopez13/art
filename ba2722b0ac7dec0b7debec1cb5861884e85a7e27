@@ -45,6 +45,98 @@
       "revId": "ba2722b0ac7dec0b7debec1cb5861884e85a7e27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_6b040115",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T10:01:27Z",
+      "side": 1,
+      "message": "-\u003e and only compile",
+      "range": {
+        "startLine": 35,
+        "startChar": 36,
+        "endLine": 35,
+        "endChar": 62
+      },
+      "revId": "ba2722b0ac7dec0b7debec1cb5861884e85a7e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_a9bbddd5",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T10:01:27Z",
+      "side": 1,
+      "message": "-\u003e Only compile JNI stubs and verify at runtime\n?",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 88
+      },
+      "revId": "ba2722b0ac7dec0b7debec1cb5861884e85a7e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_49a101a1",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T10:01:27Z",
+      "side": 1,
+      "message": "kVerifyRuntime -\u003e kVerifyAtRuntime ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "ba2722b0ac7dec0b7debec1cb5861884e85a7e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_ab18a976",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T10:01:27Z",
+      "side": 1,
+      "message": "verify-at-runtime ?",
+      "range": {
+        "startLine": 897,
+        "startChar": 47,
+        "endLine": 897,
+        "endChar": 61
+      },
+      "revId": "ba2722b0ac7dec0b7debec1cb5861884e85a7e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
