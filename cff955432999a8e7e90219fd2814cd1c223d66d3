@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "466b346a_2d8a99b1",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:54:53Z",
+      "side": 1,
+      "message": "It would be interested to see how many such transformation we actually do. It\u0027s pretty easy to count them if you use OptimizingCompilerStats.",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "466b346a_2d7a99b7",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -36,6 +59,30 @@
       "writtenOn": "2015-03-20T17:37:20Z",
       "side": 1,
       "message": "This seems reasonable, however I wonder whether we could run into infinite loops here.  It might be wise to have a visitor-wide flag stating whether there were a change since we revisited a node, and if not, advance.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 39
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_6d31719a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:54:53Z",
+      "side": 1,
+      "message": "+1. I don\u0027t think we can easily test that this always ends (due to the kind of work done here I think it\u0027s not hard to loop through simplifications by mistake).\n\nShould we be worried about converge time?",
+      "parentUuid": "266e407b_ac01ab08",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -289,6 +336,29 @@
       "writtenOn": "2015-03-20T17:37:20Z",
       "side": 1,
       "message": "Nit: remove empty line.",
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_8d4f0515",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T18:54:53Z",
+      "side": 1,
+      "message": "General comment for all these: I would either (re)name the test names based on the actual function they try to verify (e.g. TryMoveNegOnInputsAfterBinopTest) or add the function name in the test comment.\n\nThis will make easier to see the links between the tests and the implementation.",
+      "range": {
+        "startLine": 281,
+        "startChar": 3,
+        "endLine": 281,
+        "endChar": 15
+      },
       "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
