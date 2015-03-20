@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "266e407b_6c809391",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:56:25Z",
+      "side": 1,
+      "message": "How many functions?  If it\u0027s a small number, I believe removing the corresponding `const\u0027 and `mutable keywords is more sound.",
+      "parentUuid": "266e407b_8c6867f2",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 9
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_8e229b57",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 6
