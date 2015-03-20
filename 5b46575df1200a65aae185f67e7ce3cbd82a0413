@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66259842_f9076f9b",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T00:16:28Z",
+      "side": 1,
+      "message": "Technically this should be \"if constructor\". But then it\u0027s likely slow.",
+      "range": {
+        "startLine": 275,
+        "startChar": 4,
+        "endLine": 275,
+        "endChar": 45
+      },
+      "revId": "5b46575df1200a65aae185f67e7ce3cbd82a0413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
