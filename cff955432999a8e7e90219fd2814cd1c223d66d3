@@ -1,0 +1,486 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "466b346a_2d7a99b7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "GetRevisitCurrent",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_ac01ab08",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "This seems reasonable, however I wonder whether we could run into infinite loops here.  It might be wise to have a visitor-wide flag stating whether there were a change since we revisited a node, and if not, advance.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 39
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_4e3ef33e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "I know it might seem over the top, but maybe you should wrap this pattern in a new method of this visitor.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 30
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_ce298308",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 35
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_ee2ebf0d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "left-\u003eAsNeg()",
+      "range": {
+        "startLine": 252,
+        "startChar": 28,
+        "endLine": 252,
+        "endChar": 36
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_8e237b24",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "right-\u003eAsNeg()",
+      "range": {
+        "startLine": 252,
+        "startChar": 39,
+        "endLine": 252,
+        "endChar": 48
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_8c13875a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "This predicate is a recurring pattern in this file, that could be moved into its own method.",
+      "range": {
+        "startLine": 253,
+        "startChar": 38,
+        "endLine": 253,
+        "endChar": 98
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_ac18cb76",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 253,
+        "startChar": 100,
+        "endLine": 253,
+        "endChar": 101
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_0c547724",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "optimization (and likewise in the rest of this file) ;)",
+      "range": {
+        "startLine": 259,
+        "startChar": 29,
+        "endLine": 259,
+        "endChar": 41
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_ec98037a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "new_left?",
+      "range": {
+        "startLine": 422,
+        "startChar": 18,
+        "endLine": 422,
+        "endChar": 22
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_6ee96f29",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "new_right?",
+      "range": {
+        "startLine": 423,
+        "startChar": 18,
+        "endLine": 423,
+        "endChar": 23
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_6c85f307",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "I think you should move back this definition to where it was, as it is better to have variable definitions near their (first) use.",
+      "range": {
+        "startLine": 488,
+        "startChar": 2,
+        "endLine": 488,
+        "endChar": 48
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_0c11d755",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Nit: remove empty line.",
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_2cfdbb35",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "\"AddNegs1 test case\" (Naming test cases is more robust than using a relative location reference, when test cases are modified/moved/deleted).",
+      "range": {
+        "startLine": 306,
+        "startChar": 28,
+        "endLine": 306,
+        "endChar": 48
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_2e47e7a8",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Interesting test case; have you had a look at the result after GVN?",
+      "range": {
+        "startLine": 337,
+        "startChar": 11,
+        "endLine": 337,
+        "endChar": 44
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_8d45c525",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "\"AddNeg1 test case\"",
+      "range": {
+        "startLine": 405,
+        "startChar": 28,
+        "endLine": 405,
+        "endChar": 43
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_6d3df18e",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "optimization (and likewise below).",
+      "range": {
+        "startLine": 406,
+        "startChar": 49,
+        "endLine": 406,
+        "endChar": 61
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_4c402f12",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Maybe add\n\n  // CHECK-NOT: Sub\n\n?",
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_b1925854",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Maybe also check that this function returns 0 after constant folding (an optimization that is enabled by the \"a + -b → a - b\" simplification)?",
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_8c22a757",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "\"NegSub1 test case\"",
+      "range": {
+        "startLine": 517,
+        "startChar": 28,
+        "endLine": 517,
+        "endChar": 48
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_b101f808",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "Maybe add\n\n  // CHECK-NOT: Sub\n\n?",
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_cdcadd1f",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T17:37:20Z",
+      "side": 1,
+      "message": "\"SubNeg1 test case\"",
+      "range": {
+        "startLine": 608,
+        "startChar": 28,
+        "endLine": 608,
+        "endChar": 48
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
