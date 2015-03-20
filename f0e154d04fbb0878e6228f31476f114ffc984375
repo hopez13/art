@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "266e407b_4906e1d7",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T12:34:51Z",
+      "side": 1,
+      "message": "ignore, I thought this is actually adding the actual value of dex_pc_max and native_pc_max to the size, which is not true...\n\nI think my bad was cause by the ComputeStackMapSize is a bit inconsistent anyway: we pass three sizes and then two extra values based on which we compute the rest of the sizes.",
+      "parentUuid": "466b346a_eacf872c",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_4bdca510",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
