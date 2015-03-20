@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "266e407b_6c57332c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "... map. Add ...",
+      "range": {
+        "startLine": 226,
+        "startChar": 45,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_2c513b35",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": ":-(",
+      "range": {
+        "startLine": 305,
+        "startChar": 6,
+        "endLine": 305,
+        "endChar": 10
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_2d513935",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": ":-((",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 316,
+        "endChar": 8
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_ced0a382",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "Why is this comment here? What part of the code relates to the adjacent entry?",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 74
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_8eda9b9e",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "How can this happen?",
+      "range": {
+        "startLine": 320,
+        "startChar": 11,
+        "endLine": 320,
+        "endChar": 42
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_4ca10fa1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "This kind of looks silly.... !a_loc.Equals(b_loc) is a lot more readable.",
+      "range": {
+        "startLine": 369,
+        "startChar": 12,
+        "endLine": 369,
+        "endChar": 29
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_6d9e516a",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "Why don\u0027t you just put that hash in the StackMapIndex itself?",
+      "range": {
+        "startLine": 387,
+        "startChar": 6,
+        "endLine": 387,
+        "endChar": 44
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_6c9e536a",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "Explain why.",
+      "range": {
+        "startLine": 389,
+        "startChar": 2,
+        "endLine": 389,
+        "endChar": 9
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_4ec593b8",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 392,
+        "startChar": 2,
+        "endLine": 392,
+        "endChar": 9
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_cc93bf5b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T16:12:03Z",
+      "side": 1,
+      "message": "Nit (and strongly prefer :-)) Equals",
+      "range": {
+        "startLine": 215,
+        "startChar": 15,
+        "endLine": 215,
+        "endChar": 18
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
