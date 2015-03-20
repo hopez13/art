@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "466b346a_caa3a325",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T14:53:33Z",
+      "side": 1,
+      "message": "Yeah, I think we shouldn\u0027t pass sizes for inline info and dex register map, but max offsets. The inconsistency should be temporary, as they should all go through a \"HowMayBits\" like method, ust like ComputeStackMaskSize.",
+      "parentUuid": "266e407b_4906e1d7",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 22
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_4bdca510",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
@@ -366,6 +390,30 @@
       "side": 1,
       "message": "Actually, we could do that for all of these objects: instead of passing redundant values like `code_info\u0027 to StackMap\u0027s methods and `number_of_dex_registers\u0027 to DexRegisterMap\u0027s methods, we could simply pass these to the constructors of these objects.  I suggest we try that in another CL.",
       "parentUuid": "466b346a_8a784b44",
+      "range": {
+        "startLine": 520,
+        "startChar": 20,
+        "endLine": 520,
+        "endChar": 40
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_8b7e0dde",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-20T14:53:33Z",
+      "side": 1,
+      "message": "Let\u0027s delay this. As discussed, these classes were written as an abstraction over a memory region. Making them state-full (that is have more fields than the memory region) is not ideal wither because it gives you the impression you can have fast access on the data (which you do not because you need to decompress things).\n\nIdeally, I think we should have a high-level abstraction that contains all fields of a stack map, but uncompressed. And the user should just see that.",
+      "parentUuid": "667af834_ab8c2988",
       "range": {
         "startLine": 520,
         "startChar": 20,
