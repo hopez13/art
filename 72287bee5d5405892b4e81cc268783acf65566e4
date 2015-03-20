@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "466b346a_4d24add9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "266e407b_acc9aba9",
+      "range": {
+        "startLine": 44,
+        "startChar": 34,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "466b346a_cd089d61",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-20T15:29:31Z",
       "side": 1,
       "message": "entry_index values?",
+      "range": {
+        "startLine": 281,
+        "startChar": 59,
+        "endLine": 281,
+        "endChar": 71
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_cc2f3fba",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "466b346a_cd089d61",
       "range": {
         "startLine": 281,
         "startChar": 59,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "266e407b_6c2173c8",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "Remnant of another strategy. Should be removed. I also took into account the kind and value of the location.",
+      "parentUuid": "466b346a_ad17697c",
+      "range": {
+        "startLine": 319,
+        "startChar": 11,
+        "endLine": 319,
+        "endChar": 41
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_ae275766",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-20T15:29:31Z",
       "side": 1,
       "message": "Dex register map",
+      "range": {
+        "startLine": 359,
+        "startChar": 27,
+        "endLine": 359,
+        "endChar": 35
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_eec1dfd1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "667af834_ae275766",
       "range": {
         "startLine": 359,
         "startChar": 27,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "266e407b_8c6867f2",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "i\u0027d have to unconst a lot just because the cache implementation details. I think we\u0027re good exposing const function and keep the cache as a mutable detail.",
+      "parentUuid": "466b346a_4dfd8daf",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 9
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "266e407b_ec632314",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "oki... tough it\u0027s getting harder and hard to read with such long names.",
+      "parentUuid": "466b346a_6dfad1ba",
+      "range": {
+        "startLine": 360,
+        "startChar": 34,
+        "endLine": 360,
+        "endChar": 55
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_8e229b57",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2015-03-20T15:29:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 361,
+        "startChar": 10,
+        "endLine": 361,
+        "endChar": 17
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_4e9833f5",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "667af834_8e229b57",
       "range": {
         "startLine": 361,
         "startChar": 10,
@@ -225,6 +393,78 @@
         "startChar": 2,
         "endLine": 363,
         "endChar": 93
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_aecbd7ef",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "I know, but I don\u0027t want to share state with the function classes. Right now we don\u0027t get any consistent increase in compile times with my tests so I think we\u0027re good",
+      "parentUuid": "266e407b_4ccfcfab",
+      "range": {
+        "startLine": 362,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 93
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "466b346a_0d7d55ae",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "let\u0027s keep this one without a register. It\u0027s way too long... Unless you have a better naming suggestion?",
+      "parentUuid": "667af834_0e178bfb",
+      "range": {
+        "startLine": 363,
+        "startChar": 58,
+        "endLine": 363,
+        "endChar": 92
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "667af834_8e9dbbe8",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-20T16:00:03Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "667af834_4e0d93e9",
+      "range": {
+        "startLine": 363,
+        "startChar": 2,
+        "endLine": 363,
+        "endChar": 9
       },
       "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
