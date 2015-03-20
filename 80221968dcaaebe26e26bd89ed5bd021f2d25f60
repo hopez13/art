@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "266e407b_cccadf1f",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1534,
+      "author": {
+        "id": 1037216
+      },
+      "writtenOn": "2015-03-20T17:25:22Z",
+      "side": 1,
+      "message": "Use \"kArm64PointerSize\" from instruction_set.h\nThat is already (indirectly) included.",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
