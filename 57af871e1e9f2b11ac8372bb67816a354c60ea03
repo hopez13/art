@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "068cdc85_5cd69a46",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:40:20Z",
+      "side": 1,
+      "message": "Out of curiosity, did you verify that the instruction was actually wrongly executed?\n\nMy reading of encoding T3 in the ARMv7-M manual (best manual I could find for this) is that it should have been correct as-is for almost all cases (T3 has more special cases than T4).",
+      "parentUuid": "068cdc85_e1a5697f",
+      "range": {
+        "startLine": 829,
+        "startChar": 8,
+        "endLine": 831,
+        "endChar": 9
+      },
+      "revId": "57af871e1e9f2b11ac8372bb67816a354c60ea03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46825452_6f83a69f",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 2
