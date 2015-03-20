@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "068cdc85_e1a5697f",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:21:15Z",
+      "side": 1,
+      "message": "Please put a comment why this is here. Why is it not possible to unify this and do the set_cc work above, where one would expect it.\n\nI guess it\u0027s awesome thumb encoding, but then that should be explained.",
+      "range": {
+        "startLine": 829,
+        "startChar": 8,
+        "endLine": 831,
+        "endChar": 9
+      },
+      "revId": "57af871e1e9f2b11ac8372bb67816a354c60ea03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46825452_6f83a69f",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:21:15Z",
+      "side": 1,
+      "message": "Maybe make this the same style as above:\n set_cc ? B20 : 0",
+      "range": {
+        "startLine": 858,
+        "startChar": 10,
+        "endLine": 858,
+        "endChar": 32
+      },
+      "revId": "57af871e1e9f2b11ac8372bb67816a354c60ea03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46825452_8f804a92",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:21:15Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 867,
+        "startChar": 8,
+        "endLine": 867,
+        "endChar": 30
+      },
+      "revId": "57af871e1e9f2b11ac8372bb67816a354c60ea03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
