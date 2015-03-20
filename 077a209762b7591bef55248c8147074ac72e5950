@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "46825452_9ba09771",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-20T00:00:10Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need a fence here unless changing the status also implies a change to some other field (e.g. access flags -- but aren\u0027t those flags immutable anyway?)\n\nStores are not reordered with older loads (but loads may be reordered with stores to *different* locations).",
+      "parentUuid": "068cdc85_b6cb30f0",
+      "range": {
+        "startLine": 896,
+        "startChar": 17,
+        "endLine": 896,
+        "endChar": 48
+      },
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_842b567a",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-20T00:00:10Z",
+      "side": 1,
+      "message": "ecx is unused as source after andl? can test be used here instead?\n\nthere is also a TEST r/m32 imm8 encoding (F7) so you should be able to get rid of the movl+andl and turn it into a testl",
+      "revId": "077a209762b7591bef55248c8147074ac72e5950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66259842_16e6ba58",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
