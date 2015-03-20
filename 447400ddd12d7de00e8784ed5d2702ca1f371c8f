@@ -46,6 +46,30 @@
       "revId": "447400ddd12d7de00e8784ed5d2702ca1f371c8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_d66822f3",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T20:59:57Z",
+      "side": 1,
+      "message": "It wasn\u0027t about the shuffling, it was about getting BYTE_ORDER...",
+      "parentUuid": "266e407b_6cc2d3b3",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 6
+      },
+      "revId": "447400ddd12d7de00e8784ed5d2702ca1f371c8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
