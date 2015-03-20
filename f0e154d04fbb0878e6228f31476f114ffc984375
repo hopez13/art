@@ -354,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "667af834_ab8c2988",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-20T12:37:03Z",
+      "side": 1,
+      "message": "Actually, we could do that for all of these objects: instead of passing redundant values like `code_info\u0027 to StackMap\u0027s methods and `number_of_dex_registers\u0027 to DexRegisterMap\u0027s methods, we could simply pass these to the constructors of these objects.  I suggest we try that in another CL.",
+      "parentUuid": "466b346a_8a784b44",
+      "range": {
+        "startLine": 520,
+        "startChar": 20,
+        "endLine": 520,
+        "endChar": 40
+      },
+      "revId": "f0e154d04fbb0878e6228f31476f114ffc984375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "466b346a_2a14bff3",
         "filename": "runtime/stack_map.h",
         "patchSetId": 2
