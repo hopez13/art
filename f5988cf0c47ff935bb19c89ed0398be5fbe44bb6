@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "068cdc85_863ef33b",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:08:18Z",
+      "side": 0,
+      "message": "This warning will go away, at least on the host. Consider putting it into the #else?\n\nBTW, please make sure that the ART host tests still work. The native-bridge test (118) plays with native libraries...",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 98
+      },
+      "revId": "f5988cf0c47ff935bb19c89ed0398be5fbe44bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

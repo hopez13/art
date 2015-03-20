@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "068cdc85_06bd234c",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:08:18Z",
+      "side": 1,
+      "message": "End comment with a period.",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 46
+      },
+      "revId": "655043be47d5091caa0977947bd610d315036fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_8617d3cb",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:08:18Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 79,
+        "startChar": 66,
+        "endLine": 79,
+        "endChar": 68
+      },
+      "revId": "655043be47d5091caa0977947bd610d315036fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_062a03fc",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:08:18Z",
+      "side": 1,
+      "message": "You could consider a static helper function for this whole thing, but it\u0027s not a must.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 6
+      },
+      "revId": "655043be47d5091caa0977947bd610d315036fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "068cdc85_068e8383",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-20T17:08:18Z",
+      "side": 1,
+      "message": "Do we need to sanity-test this somehow? Bridging will make this complicated, though, I guess.",
+      "range": {
+        "startLine": 795,
+        "startChar": 2,
+        "endLine": 795,
+        "endChar": 75
+      },
+      "revId": "655043be47d5091caa0977947bd610d315036fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
