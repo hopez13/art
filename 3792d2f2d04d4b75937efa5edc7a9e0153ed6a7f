@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c61c8421_1685bc08",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:45:11Z",
+      "side": 1,
+      "message": "Is this because the HashMap implementation needs it?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 90
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_2b47d9a8",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 3
@@ -36,6 +59,30 @@
       "writtenOn": "2015-03-20T18:10:02Z",
       "side": 1,
       "message": "This is getting nasty, as more implementation details are exposed to the user. I think we should invest in finding a good/efficient abstraction for this.\n\nI already had this discussion with Nicolas and I think we should resume it..",
+      "range": {
+        "startLine": 79,
+        "startChar": 6,
+        "endLine": 80,
+        "endChar": 70
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66111809_b32fb8ba",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:45:11Z",
+      "side": 1,
+      "message": "Yeah, for now I suggest just passing the CodeInfo to a query on the DexRegisterMap.",
+      "parentUuid": "466b346a_cd3f3d6c",
       "range": {
         "startLine": 79,
         "startChar": 6,
@@ -133,6 +180,53 @@
         "startChar": 1,
         "endLine": 206,
         "endChar": 87
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_76823002",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:45:11Z",
+      "side": 1,
+      "message": "I agree the dictionary should not be exposed.",
+      "parentUuid": "667af834_91e15cc6",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 87
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61790fa_b52fa0ba",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:45:11Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 40
       },
       "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
