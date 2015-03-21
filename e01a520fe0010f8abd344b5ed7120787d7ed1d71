@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c61c8421_5651f433",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T13:56:29Z",
+      "side": 1,
+      "message": "This looks off here. It\u0027s about line 892, right? How about indenting it the same as the assembly?\n\nAlso applies to other cases below.",
+      "range": {
+        "startLine": 891,
+        "startChar": 63,
+        "endLine": 891,
+        "endChar": 80
+      },
+      "revId": "e01a520fe0010f8abd344b5ed7120787d7ed1d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
