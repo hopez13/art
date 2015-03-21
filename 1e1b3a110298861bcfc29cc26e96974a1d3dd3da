@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_76ab5082",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:26:40Z",
+      "side": 1,
+      "message": "Ok, that\u0027s because you\u0027re adding it before looking up. I\u0027m not sure I understand why you have to do this? Why don\u0027t you\n1) lookup? If found, return\n2) If not found add.\n\nNote: Just found out you\u0027re doing this in PS8 :-)",
+      "parentUuid": "667af834_8e55bb57",
+      "range": {
+        "startLine": 320,
+        "startChar": 11,
+        "endLine": 320,
+        "endChar": 42
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "266e407b_4ca10fa1",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 7
@@ -484,6 +508,30 @@
       "side": 1,
       "message": "Yeah, this is a requirement of art::HashMap.  IMHO operator overloading is not so bad, especially when it follows standard patterns (here, the EqualityComparable concept; see http://en.cppreference.com/w/cpp/concept/EqualityComparable).",
       "parentUuid": "667af834_ae83d74e",
+      "range": {
+        "startLine": 215,
+        "startChar": 15,
+        "endLine": 215,
+        "endChar": 18
+      },
+      "revId": "1e1b3a110298861bcfc29cc26e96974a1d3dd3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_169e5c68",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:26:40Z",
+      "side": 1,
+      "message": "Then please introduce operator!\u003d as well. Writing !(a \u003d\u003d b) does not look right.",
+      "parentUuid": "667af834_51b534be",
       "range": {
         "startLine": 215,
         "startChar": 15,
