@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c61c8421_b693285c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:32:58Z",
+      "side": 1,
+      "message": "Instead of having to query this twice, how about having a method, called at the beginning of the FillIn method, that adds a flag to the stack map entry?",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 62
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_9698ac79",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:32:58Z",
+      "side": 1,
+      "message": "2 spaces more indent.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 12
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66111809_7307e048",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:32:58Z",
+      "side": 1,
+      "message": "Aren\u0027t you working on a copy of the entry here?",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 65
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_d6922455",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:32:58Z",
+      "side": 1,
+      "message": "Please add a comment that this is the collision list.",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 63
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66111809_53046442",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-21T14:32:58Z",
+      "side": 1,
+      "message": "Can\u0027t happen if you call FindEntryWithTheSameDexMap on a stack entry only once.",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 317,
+        "endChar": 44
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
