@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66111809_16fadab8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-23T13:53:50Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "666bd831_89ce5dae",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "11ecacc4dbdc77570577f00064a9d479639120fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "666bd831_09e26d1a",
         "filename": "test/459-checker-arm64-caller-callee/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-19T14:14:50Z",
       "side": 1,
       "message": "If you intend to keep these patterns as-is (i.e. with no additional information regarding the instructions\u0027 inputs), then I suggest to use CHECK: instead of CHECK-DAG: to ensure these instructions are in the right order.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 43
+      },
+      "revId": "11ecacc4dbdc77570577f00064a9d479639120fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_59bc87a9",
+        "filename": "test/459-checker-arm64-caller-callee/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-23T13:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "666bd831_09e26d1a",
       "range": {
         "startLine": 50,
         "startChar": 0,
