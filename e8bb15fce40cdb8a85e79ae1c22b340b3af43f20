@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6a1e40d_aecf2c2d",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-23T18:04:23Z",
+      "side": 1,
+      "message": "Use a different naming scheme. This gives the impression it\u0027s an actual Java-level native function. Just SetLdLibraryPath seems fine.",
+      "range": {
+        "startLine": 55,
+        "startChar": 12,
+        "endLine": 55,
+        "endChar": 36
+      },
+      "revId": "e8bb15fce40cdb8a85e79ae1c22b340b3af43f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a1e40d_4e404812",
+        "filename": "runtime/native/java_lang_Runtime.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-23T18:04:23Z",
+      "side": 1,
+      "message": "You can use one UNUSED with commas.",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 32
+      },
+      "revId": "e8bb15fce40cdb8a85e79ae1c22b340b3af43f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a1e40d_cef1d869",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-23T18:04:23Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 713,
+        "startChar": 29,
+        "endLine": 713,
+        "endChar": 31
+      },
+      "revId": "e8bb15fce40cdb8a85e79ae1c22b340b3af43f20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
