@@ -22,6 +22,30 @@
       "revId": "9f2ea83c4f1ae59b9b8c35f6cc61431607842dc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66111809_330608d7",
+        "filename": "runtime/base/hash_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-23T15:49:42Z",
+      "side": 0,
+      "message": "This default value does not seem to make sense, as it would create an \"empty function\" for type `Key\u0027 by default, whereas `art::HashMap\u0027 expects an \"empty function\" for type `std::pair\u003cKey, Value\u003e\u0027 (in my case,  I provided `art::DexRegisterDictionaryEntriesIndicesEmptyFn\u0027 in compiler/optimizing/stack_map_stream.h).  I thought about replacing `EmptyFn\u0027 from the `art::HashSet\u0027 base class template parameter list with `art::HashMapWrapper\u003cEmptyFn\u003e\u0027, but as all users of `art::HashMap\u0027 were providing an actual value for `EmptyFn\u0027, I decided to make it a non-optional parameter.\n\nI added a similar explanation to the commit message.",
+      "parentUuid": "466b346a_2d14d9f3",
+      "range": {
+        "startLine": 51,
+        "startChar": 50,
+        "endLine": 51,
+        "endChar": 64
+      },
+      "revId": "9f2ea83c4f1ae59b9b8c35f6cc61431607842dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
