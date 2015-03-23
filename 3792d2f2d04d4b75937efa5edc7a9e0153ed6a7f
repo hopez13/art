@@ -520,6 +520,30 @@
     },
     {
       "key": {
+        "uuid": "66111809_f6f11e17",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T17:10:19Z",
+      "side": 1,
+      "message": "I think the uniqueness part could be document and does not necessary need to be reflected in the name.\n\nI\u0027m good with DexRegisterLocationSet.",
+      "parentUuid": "a61790fa_35bb9027",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 27
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_6e2baf7b",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -555,6 +579,30 @@
       "side": 1,
       "message": "Renamed to NoLocationEntryIndex.",
       "parentUuid": "667af834_6e2baf7b",
+      "range": {
+        "startLine": 428,
+        "startChar": 26,
+        "endLine": 428,
+        "endChar": 57
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61790fa_989299a6",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T17:10:19Z",
+      "side": 1,
+      "message": "i just realized... why is this a function?",
+      "parentUuid": "c61c8421_d96d3701",
       "range": {
         "startLine": 428,
         "startChar": 26,
