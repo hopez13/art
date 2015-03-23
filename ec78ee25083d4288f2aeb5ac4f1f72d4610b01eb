@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_f93f53d9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T14:55:14Z",
+      "side": 1,
+      "message": "We discussed about this offline. To do this nicely we need markers when the stack map constructions begins and when it ends. I\u0027ll add this in a follow up CL and improve this code.",
+      "parentUuid": "c61c8421_b693285c",
+      "range": {
+        "startLine": 156,
+        "startChar": 10,
+        "endLine": 156,
+        "endChar": 62
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c61c8421_9698ac79",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-21T14:32:58Z",
       "side": 1,
       "message": "2 spaces more indent.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 12
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66111809_13e94c2a",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T14:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c61c8421_9698ac79",
       "range": {
         "startLine": 225,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_b945db77",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T14:55:14Z",
+      "side": 1,
+      "message": "yes, thanks! Forgot to Put it back in the map. I also added a todo to extract this computations in an StackMap.End() method.",
+      "parentUuid": "66111809_7307e048",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 65
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c61c8421_d6922455",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_994a9f85",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T14:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c61c8421_d6922455",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 63
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66111809_53046442",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2015-03-21T14:32:58Z",
       "side": 1,
       "message": "Can\u0027t happen if you call FindEntryWithTheSameDexMap on a stack entry only once.",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 317,
+        "endChar": 44
+      },
+      "revId": "ec78ee25083d4288f2aeb5ac4f1f72d4610b01eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_1957af2c",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T14:55:14Z",
+      "side": 1,
+      "message": "ditto (i.e. will be addressed in a follow up)",
+      "parentUuid": "66111809_53046442",
       "range": {
         "startLine": 317,
         "startChar": 6,
