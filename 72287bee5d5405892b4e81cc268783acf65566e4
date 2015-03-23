@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "a61790fa_18a84955",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T14:54:54Z",
+      "side": 1,
+      "message": "removed const for clarity",
+      "parentUuid": "266e407b_6c809391",
+      "range": {
+        "startLine": 360,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 9
+      },
+      "revId": "72287bee5d5405892b4e81cc268783acf65566e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_8e229b57",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 6
