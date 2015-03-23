@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c6a1e40d_82079c19",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "I added this comment:\n  // The least number of bounds checks that should be eliminated by triggering\n  // the deoptimization technique.",
+      "parentUuid": "a61790fa_55044c42",
+      "range": {
+        "startLine": 446,
+        "startChar": 26,
+        "endLine": 446,
+        "endChar": 55
+      },
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66111809_930d5c70",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-21T14:09:37Z",
       "side": 1,
       "message": "Maybe add some helpers around first_constant_index_bounds_check_map_ to improve readability?",
+      "range": {
+        "startLine": 720,
+        "startChar": 10,
+        "endLine": 721,
+        "endChar": 57
+      },
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86728c8f_b49220a6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "Thought about it. Unfortunately didn\u0027t come up with a concise name for the helper/variable yet. I\u0027ll leave it as is for now.",
+      "parentUuid": "66111809_930d5c70",
       "range": {
         "startLine": 720,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "86728c8f_94c0c42f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "It\u0027s done here since constant+1 below may overflow.\n\nBasically we still want to remember the max constant used as index. But here we want to get a stronger value range for array length.\n\nWhether or not to apply the deoptimization technique will later add a test that the max constant index is \u003c\u003d certain threshold. If the max constant index used is beyond certain threshold, it\u0027s considered as an anomaly and it\u0027s likely to throw exception anyway so we don\u0027t bother to apply the deoptimization technique.",
+      "parentUuid": "a61790fa_15fad4b8",
+      "range": {
+        "startLine": 736,
+        "startChar": 0,
+        "endLine": 739,
+        "endChar": 7
+      },
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a61790fa_7507c848",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-21T14:09:37Z",
       "side": 1,
       "message": "So this is because we are now re-visiting the block, right? I trust your judgement that it\u0027s simpler to re-visit instead of special casing :-)",
+      "range": {
+        "startLine": 974,
+        "startChar": 7,
+        "endLine": 974,
+        "endChar": 22
+      },
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a1e40d_e29b004b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "Yes. This instruction helps narrow value range.",
+      "parentUuid": "a61790fa_7507c848",
       "range": {
         "startLine": 974,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a6731093_f5a5787f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "I added such a threshold. The test is now:\n      if (counter \u003e\u003d kThresholdForAddingDeoptimize \u0026\u0026\n          lower_bound_const_instr-\u003eGetValue() \u003c\u003d kMaxConstantIndexForDeoptimization)",
+      "parentUuid": "c61c8421_f6b640ed",
+      "range": {
+        "startLine": 1041,
+        "startChar": 8,
+        "endLine": 1041,
+        "endChar": 61
+      },
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66111809_d317d47b",
         "filename": "test/449-checker-bce/src/Main.java",
         "patchSetId": 5
@@ -128,6 +248,75 @@
       "writtenOn": "2015-03-21T14:09:37Z",
       "side": 1,
       "message": "For all these tests, shouldn\u0027t you check that there is a HDeoptimize instruction?",
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a1e40d_42ec948c",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "This one doesn\u0027t trigger the deoptmization technique. I added a // CHECK-NOT: Deoptimize.",
+      "parentUuid": "66111809_d317d47b",
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a69cf0d8_10f7740a",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "Added a // CHECK-NOT: Deoptimize.",
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a1e40d_4223f45c",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "Added a // CHECK-NOT: Deoptimize.",
+      "revId": "e8ef71700381aa42cb069400293a224f47612149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a69cf0d8_90e36447",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-23T23:39:25Z",
+      "side": 1,
+      "message": "Added a // CHECK-NOT: Deoptimize.",
       "revId": "e8ef71700381aa42cb069400293a224f47612149",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
