@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_7c821102",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-03-23T15:38:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b8d2cf5_800676c8",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b8094c4_5696f435",
         "filename": "runtime/utf.cc",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_9cf72da3",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-03-23T15:38:00Z",
+      "side": 1,
+      "message": "after a bit of thinking, i\u0027ve decided to emit them as 3 byte sequences, like we did earlier.",
+      "parentUuid": "2b7d20a0_55010cb0",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b8094c4_16907c34",
         "filename": "runtime/utf.cc",
         "patchSetId": 2
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "c61c8421_bcf2e9b2",
+        "filename": "runtime/utf.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-03-23T15:38:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8094c4_16907c34",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b8094c4_567d944b",
         "filename": "runtime/utf_test.cc",
         "patchSetId": 2
@@ -82,6 +136,24 @@
       "writtenOn": "2015-02-13T17:57:48Z",
       "side": 1,
       "message": "maybe order these backwards, since all other \"eq\" assertions are backwards?",
+      "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66111809_56e612b0",
+        "filename": "runtime/utf_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-03-23T15:38:00Z",
+      "side": 1,
+      "message": "hmm, i find that visually confusing since we\u0027re not directly comparing input to expected. we\u0027re comparing some transform of it to expected. as written, it\u0027s easy to visualise this as assert(input-\u003etransform)",
+      "parentUuid": "4b8094c4_567d944b",
       "revId": "a9ce14b74ebbf64d8a19d641667353ad95b682d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
