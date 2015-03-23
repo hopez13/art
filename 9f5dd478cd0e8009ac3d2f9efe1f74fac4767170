@@ -46,6 +46,30 @@
       "revId": "9f5dd478cd0e8009ac3d2f9efe1f74fac4767170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c61c8421_7c1e9190",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T16:11:06Z",
+      "side": 1,
+      "message": "I see... so you\u0027re basically spell out what\u0027s in the if-else sequence below. I don\u0027t think it adds any value as it is.\n\nThe if used to switch to T4 enconding as far as I can tell, but now you\u0027re adding an extra condition and go back to T3. I think we should try to push that part to the switch case above. (Is this the same thing you asked Andreas?)",
+      "parentUuid": "c61c8421_fc12a18d",
+      "range": {
+        "startLine": 829,
+        "startChar": 9,
+        "endLine": 829,
+        "endChar": 22
+      },
+      "revId": "9f5dd478cd0e8009ac3d2f9efe1f74fac4767170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
