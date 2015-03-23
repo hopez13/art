@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a61790fa_f8daad9e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-23T16:50:16Z",
+      "side": 1,
+      "message": "Why not using a similar logic as quick (using values from CompilerOptions)? For particular builds which need different values than the default ones we can update the scripts to pass *-method-max parameters.",
+      "range": {
+        "startLine": 467,
+        "startChar": 26,
+        "endLine": 467,
+        "endChar": 57
+      },
+      "revId": "36540cb4d549c706cc7cd23086684f1548a91042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
