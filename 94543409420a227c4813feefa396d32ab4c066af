@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_99b01bbf",
+        "filename": "compiler/dex/quick/mips/assemble_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-03-24T20:57:44Z",
+      "side": 1,
+      "message": "You are right, I will replace them with the unique kMipsDelta.",
+      "parentUuid": "a3f6a249_63ab56d6",
+      "range": {
+        "startLine": 673,
+        "startChar": 10,
+        "endLine": 673,
+        "endChar": 68
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3fb9632_640d9e6c",
         "filename": "compiler/dex/quick/mips/call_mips.cc",
         "patchSetId": 1
