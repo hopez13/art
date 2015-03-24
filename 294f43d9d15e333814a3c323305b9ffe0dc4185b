@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c63d64a0_0edf4bde",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-24T11:52:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86c44cd3_478950f3",
+      "range": {
+        "startLine": 940,
+        "startChar": 0,
+        "endLine": 940,
+        "endChar": 4
+      },
+      "revId": "294f43d9d15e333814a3c323305b9ffe0dc4185b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a61790fa_fb3f47d9",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 1
