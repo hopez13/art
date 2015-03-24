@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3fb9632_6436be1a",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-24T18:35:02Z",
+      "side": 0,
+      "message": "I guess nothing was trying to bit_cast to a smaller type? The base/casts.h seems to only let you use equivalently-sized types.",
+      "revId": "af87659f462ac650009fce295097cae3dabce171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
