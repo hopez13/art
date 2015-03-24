@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_7a7f7965",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T20:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_f9cdd7b2",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 101
+      },
+      "revId": "471b2458051e6dd39505b3fdb8853b309651b1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_b9d75f43",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-24T17:32:17Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 101
+      },
+      "revId": "471b2458051e6dd39505b3fdb8853b309651b1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_5a84b5e1",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T20:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_b9d75f43",
       "range": {
         "startLine": 271,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_d9d9f31f",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T20:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_99d49b3f",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 101
+      },
+      "revId": "471b2458051e6dd39505b3fdb8853b309651b1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_bad75143",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 10
@@ -82,6 +154,24 @@
       "writtenOn": "2015-03-24T17:32:17Z",
       "side": 1,
       "message": "Please also check that:\n\n  ASSERT_EQ(code_info.GetStackMapAt(0).GetDexRegisterMapOffset(),\n            code_info.GetStackMapAt(1).GetDexRegisterMapOffset());\n  ASSERT_NE(code_info.GetStackMapAt(0).GetDexRegisterMapOffset(),\n            code_info.GetStackMapAt(2).GetDexRegisterMapOffset());\n  ASSERT_NE(code_info.GetStackMapAt(1).GetDexRegisterMapOffset(),\n            code_info.GetStackMapAt(2).GetDexRegisterMapOffset());",
+      "revId": "471b2458051e6dd39505b3fdb8853b309651b1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_dbda13eb",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T20:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_bad75143",
       "revId": "471b2458051e6dd39505b3fdb8853b309651b1d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
