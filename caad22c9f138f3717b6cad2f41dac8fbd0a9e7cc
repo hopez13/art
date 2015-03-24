@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "263640c8_a992bda5",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "I think this can be null. right?",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_b11e9a62",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "hmmm, semantically this also preserve the condition, just that it considers the oposite case.\n\nmaybe rename to PreserveTrueCondition and PreserveFalseCondition?",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a63870b1_707fce8e",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "Is PostOrder mandatory? Is yes, document why.",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a63870b1_d0fc0289",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "could you put this between brackets. In this case I think it will be more readable.",
+      "range": {
+        "startLine": 106,
+        "startChar": 36,
+        "endLine": 106,
+        "endChar": 44
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263640c8_69c285a1",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "2015, here and everywhere else.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a63870b1_105a0a56",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "Please add a short code example. It will make things easier to understand.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 67
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_91f27eb3",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "Not for now, but maybe we should think of a (general) way to enforce the requirement that this is executed after another optimization. We already to that with gvn/lcim.",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 75
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a63870b1_b0ecd6be",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure why we name this with `not`... :)",
+      "range": {
+        "startLine": 37,
+        "startChar": 64,
+        "endLine": 37,
+        "endChar": 86
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263640c8_494a21b3",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "please use brackets.",
+      "range": {
+        "startLine": 76,
+        "startChar": 26,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_318f0afc",
+        "filename": "test/462-checker-logical-not/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-24T15:30:55Z",
+      "side": 1,
+      "message": "do you miss an if after this?",
+      "range": {
+        "startLine": 134,
+        "startChar": 38,
+        "endLine": 134,
+        "endChar": 46
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
