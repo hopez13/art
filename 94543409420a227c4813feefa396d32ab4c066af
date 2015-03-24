@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3f6a249_63ab56d6",
+        "filename": "compiler/dex/quick/mips/assemble_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-24T20:34:44Z",
+      "side": 1,
+      "message": "Is there a reason to have two different pseudo opcodes?",
+      "range": {
+        "startLine": 673,
+        "startChar": 10,
+        "endLine": 673,
+        "endChar": 68
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3fb9632_640d9e6c",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-24T20:34:44Z",
+      "side": 1,
+      "message": "This is done quite often. Put into a helper function, AllocPtrSizeTemp() maybe?",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 66
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3fb9632_c41eb28e",
+        "filename": "compiler/dex/quick/mips/codegen_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-24T20:34:44Z",
+      "side": 1,
+      "message": "Simplify, ternary not necessary.",
+      "range": {
+        "startLine": 232,
+        "startChar": 11,
+        "endLine": 232,
+        "endChar": 39
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3f6a249_235c2e80",
+        "filename": "compiler/dex/quick/mips/codegen_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-24T20:34:44Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 235,
+        "startChar": 11,
+        "endLine": 235,
+        "endChar": 39
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
