@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a63870b1_50b572ac",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "That\u0027s why the !IsEmpty test right above it.",
+      "parentUuid": "263640c8_a992bda5",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c63d64a0_b11e9a62",
         "filename": "compiler/optimizing/boolean_not_simplifier.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-24T15:30:55Z",
       "side": 1,
       "message": "hmmm, semantically this also preserve the condition, just that it considers the oposite case.\n\nmaybe rename to PreserveTrueCondition and PreserveFalseCondition?",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263640c8_8c5ee753",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow. A function 0-\u003e0, 1-\u003e1 returns the input value, while 0-\u003e1, 1-\u003e0 returns its negation. I actually thought that the phrase \"preserve condition\" could be misleading, so Preserve{True,False}Condition doesn\u0027t sound very fitting to me.",
+      "parentUuid": "c63d64a0_b11e9a62",
       "range": {
         "startLine": 51,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_ac63ab14",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_707fce8e",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_d0fc0289",
         "filename": "compiler/optimizing/boolean_not_simplifier.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-24T15:30:55Z",
       "side": 1,
       "message": "could you put this between brackets. In this case I think it will be more readable.",
+      "range": {
+        "startLine": 106,
+        "startChar": 36,
+        "endLine": 106,
+        "endChar": 44
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_3180ea90",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_d0fc0289",
       "range": {
         "startLine": 106,
         "startChar": 36,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c63d64a0_f18ca289",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "263640c8_69c285a1",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_105a0a56",
         "filename": "compiler/optimizing/boolean_not_simplifier.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-24T15:30:55Z",
       "side": 1,
       "message": "Please add a short code example. It will make things easier to understand.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 67
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263640c8_4c114f55",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_105a0a56",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_6c0e1336",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Agreed",
+      "parentUuid": "c63d64a0_91f27eb3",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 75
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_b0ecd6be",
         "filename": "compiler/optimizing/boolean_not_simplifier.h",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2015-03-24T15:30:55Z",
       "side": 1,
       "message": "I\u0027m not sure why we name this with `not`... :)",
+      "range": {
+        "startLine": 37,
+        "startChar": 64,
+        "endLine": 37,
+        "endChar": 86
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a63870b1_3080e690",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Historical reasons... Renamed",
+      "parentUuid": "a63870b1_b0ecd6be",
       "range": {
         "startLine": 37,
         "startChar": 64,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "c63d64a0_518d76c7",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "263640c8_494a21b3",
+      "range": {
+        "startLine": 76,
+        "startChar": 26,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c63d64a0_318f0afc",
         "filename": "test/462-checker-logical-not/src/Main.java",
         "patchSetId": 5
@@ -220,6 +436,30 @@
       "writtenOn": "2015-03-24T15:30:55Z",
       "side": 1,
       "message": "do you miss an if after this?",
+      "range": {
+        "startLine": 134,
+        "startChar": 38,
+        "endLine": 134,
+        "endChar": 46
+      },
+      "revId": "caad22c9f138f3717b6cad2f41dac8fbd0a9e7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_31ae2a13",
+        "filename": "test/462-checker-logical-not/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:25Z",
+      "side": 1,
+      "message": "Done.\nYou\u0027re right that I should test if it\u0027s there (and the other two as well) but it doesn\u0027t contribute to the data flow.",
+      "parentUuid": "c63d64a0_318f0afc",
       "range": {
         "startLine": 134,
         "startChar": 38,
