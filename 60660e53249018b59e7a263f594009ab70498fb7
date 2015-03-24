@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a63870b1_d012428e",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c63d64a0_4ed6b3ef",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_4d8cf904",
         "filename": "compiler/optimizing/boolean_not_simplifier.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "How can that be?",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_51f016de",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "That\u0027s just my paranoia. Removed.",
+      "parentUuid": "a63870b1_4d8cf904",
       "range": {
         "startLine": 24,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_4938614f",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_6d89b5f3",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c63d64a0_ae9b974b",
         "filename": "compiler/optimizing/boolean_not_simplifier.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "Maybe rename to BlocksDoMergeTogether to emphasize it\u0027s just a check?",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_d112468e",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c63d64a0_ae9b974b",
       "range": {
         "startLine": 34,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_c9da919f",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "263640c8_69b285c7",
+      "range": {
+        "startLine": 57,
+        "startChar": 21,
+        "endLine": 57,
+        "endChar": 38
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_cdd469c4",
         "filename": "compiler/optimizing/boolean_not_simplifier.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "Add a comment on why post order.",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_f1010208",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_cdd469c4",
       "range": {
         "startLine": 92,
         "startChar": 7,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c63d64a0_f117427b",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "263640c8_897df96e",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 39
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_0ddf51de",
         "filename": "compiler/optimizing/boolean_not_simplifier.cc",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "unused?",
+      "range": {
+        "startLine": 133,
+        "startChar": 50,
+        "endLine": 133,
+        "endChar": 59
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_f12e62bb",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_0ddf51de",
       "range": {
         "startLine": 133,
         "startChar": 50,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "c63d64a0_1124ced8",
+        "filename": "compiler/optimizing/boolean_not_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Good point, thanks.",
+      "parentUuid": "a63870b1_4de95980",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 41
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c63d64a0_2ed96720",
         "filename": "compiler/optimizing/boolean_not_simplifier.h",
         "patchSetId": 3
@@ -220,6 +436,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "263640c8_093e693d",
+        "filename": "compiler/optimizing/boolean_not_simplifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c63d64a0_2ed96720",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_294dedc9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c63d64a0_ae69d7a7",
+      "range": {
+        "startLine": 1395,
+        "startChar": 0,
+        "endLine": 1395,
+        "endChar": 63
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_cdeb8974",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -266,6 +530,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "If you want it const, please change it to be \u0027\u0026\u0027.",
+      "range": {
+        "startLine": 312,
+        "startChar": 35,
+        "endLine": 312,
+        "endChar": 36
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_71fd1235",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_cdeb8974",
       "range": {
         "startLine": 312,
         "startChar": 35,
@@ -324,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "a63870b1_10dcca0f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_0d0d91ea",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 59
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_4d1799fa",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 3
@@ -347,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_2c217bc9",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_4d1799fa",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 65
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a63870b1_8d3fc16c",
         "filename": "test/462-checker-logical-not/src/Main.java",
         "patchSetId": 3
@@ -358,6 +694,30 @@
       "writtenOn": "2015-03-24T11:33:03Z",
       "side": 1,
       "message": "Should you precede this with \"In the optimzing compiler, ...\"?",
+      "range": {
+        "startLine": 20,
+        "startChar": 14,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "60660e53249018b59e7a263f594009ab70498fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_91451e78",
+        "filename": "test/462-checker-logical-not/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-24T16:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63870b1_8d3fc16c",
       "range": {
         "startLine": 20,
         "startChar": 14,
