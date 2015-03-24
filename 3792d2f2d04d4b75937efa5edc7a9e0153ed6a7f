@@ -544,6 +544,30 @@
     },
     {
       "key": {
+        "uuid": "263640c8_0c2e778b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-24T17:03:37Z",
+      "side": 1,
+      "message": "Alright; I renamed DexRegisterDictionary to DexRegisterLocationSet in PS5.",
+      "parentUuid": "66111809_f6f11e17",
+      "range": {
+        "startLine": 234,
+        "startChar": 6,
+        "endLine": 234,
+        "endChar": 27
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "667af834_6e2baf7b",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
@@ -603,6 +627,30 @@
       "side": 1,
       "message": "i just realized... why is this a function?",
       "parentUuid": "c61c8421_d96d3701",
+      "range": {
+        "startLine": 428,
+        "startChar": 26,
+        "endLine": 428,
+        "endChar": 57
+      },
+      "revId": "3792d2f2d04d4b75937efa5edc7a9e0153ed6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c63d64a0_514ad6b2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-24T17:03:37Z",
+      "side": 1,
+      "message": "Because I could not use a static member here initialy, as it would have required a corresponding definition in a `.cc\u0027 file.  This was triggered by an ASSERT_EQ in stack_map_test.cc, requiring this constant to have an address.  Such a file did not exist at that time, and I did not want to create a stack_map.cc file for just one static member definition.  As we now have a stack_map.cc file with other definitions, I have turned this static member function into a static member in PS5.",
+      "parentUuid": "a61790fa_989299a6",
       "range": {
         "startLine": 428,
         "startChar": 26,
