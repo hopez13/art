@@ -22,6 +22,30 @@
       "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_61d5926f",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-25T22:31:24Z",
+      "side": 1,
+      "message": "I don\u0027t understand.\n\nIn my opinion this is perfectly OK. If the patch is empty, this will create an empty ArrayRef\u003c\u003e which will be nicely forwarded to the CompiledMethod ctor where we shall see it\u0027s empty and we will not touch its data().",
+      "parentUuid": "2362b2ee_f7d9431f",
+      "range": {
+        "startLine": 1097,
+        "startChar": 6,
+        "endLine": 1097,
+        "endChar": 44
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
