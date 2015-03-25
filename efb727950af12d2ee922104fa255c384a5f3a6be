@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "2362b2ee_372a3bf8",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T21:45:39Z",
+      "side": 1,
+      "message": "?\n\nYou check whether the dex cache is populated, and compare two *existing* Java strings if so. No allocations, I would think.\n\nOtherwise you do the CompareModified... that you already have.",
+      "parentUuid": "2362b2ee_b2a9a689",
+      "range": {
+        "startLine": 162,
+        "startChar": 56,
+        "endLine": 164,
+        "endChar": 8
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2362b2ee_8fed5905",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
