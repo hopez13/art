@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3fb9632_9e18f230",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-25T21:29:48Z",
+      "side": 1,
+      "message": "I don\u0027t think it should matter much since we already need to allocate a Field for every single ArtField. But it is possible to use a helper function with some type of object array chain I suppose. Probably good for another CL since it will be a fairly large amount of code.",
+      "parentUuid": "2362b2ee_8f02f936",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 73
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2362b2ee_4fbf61f4",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2362b2ee_b2a9a689",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-25T21:29:48Z",
+      "side": 1,
+      "message": "Worth measuring both, that way does more string allocations so may increase ram usage however.",
+      "parentUuid": "2362b2ee_4fbf61f4",
+      "range": {
+        "startLine": 162,
+        "startChar": 56,
+        "endLine": 164,
+        "endChar": 8
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2362b2ee_8fed5905",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-03-25T03:54:49Z",
       "side": 1,
       "message": "This looks seriously half-assed. If you do it, do it right. Move all of it to avoid the additional call, and throw the few exceptions by hand.",
+      "range": {
+        "startLine": 192,
+        "startChar": 21,
+        "endLine": 192,
+        "endChar": 45
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "435fa627_7357b2b2",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-25T21:29:48Z",
+      "side": 1,
+      "message": "getDeclaredFieldInternal is called by getPublicFieldRecursive, though I supposed I could make getPublicFieldRecursive native too.",
+      "parentUuid": "2362b2ee_8fed5905",
       "range": {
         "startLine": 192,
         "startChar": 21,
