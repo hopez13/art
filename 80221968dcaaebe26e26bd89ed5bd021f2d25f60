@@ -1694,6 +1694,29 @@
     },
     {
       "key": {
+        "uuid": "834c3e8c_e7b99c2c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T21:09:46Z",
+      "side": 1,
+      "message": "Should this be a constexpr for now? I don\u0027t see this ever being changed.",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 35
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_1d7d1731",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
