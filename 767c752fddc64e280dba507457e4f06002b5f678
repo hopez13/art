@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_bdf06bdf",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-25T11:18:14Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/143736",
+      "parentUuid": "a3f6a249_c69913c6",
+      "range": {
+        "startLine": 804,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 57
+      },
+      "revId": "767c752fddc64e280dba507457e4f06002b5f678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_5b07239f",
         "filename": "compiler/dex/quick/mir_to_lir.h",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "writtenOn": "2015-03-25T08:39:37Z",
       "side": 1,
       "message": "Don\u0027t need this anymore?",
+      "range": {
+        "startLine": 1466,
+        "startChar": 4,
+        "endLine": 1467,
+        "endChar": 69
+      },
+      "revId": "767c752fddc64e280dba507457e4f06002b5f678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_5cbf11f4",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-25T11:18:14Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/143736",
+      "parentUuid": "63002af0_5b07239f",
       "range": {
         "startLine": 1466,
         "startChar": 4,
