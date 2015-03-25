@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_01b48ec3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-03-25T17:29:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_1df2b76a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "0d60f46118dcd562990edc428cc71bd4ab60d9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_01892e25",
         "filename": "tools/dexfuzz/README",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_0006ca1f",
+        "filename": "tools/dexfuzz/README",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-03-25T17:29:13Z",
+      "side": 1,
+      "message": "Good catch. I\u0027m removing this anyway, since the build process for dexfuzz as described in the README will now automatically cause core.art to be built.",
+      "parentUuid": "63002af0_01892e25",
+      "range": {
+        "startLine": 81,
+        "startChar": 65,
+        "endLine": 81,
+        "endChar": 74
+      },
+      "revId": "0d60f46118dcd562990edc428cc71bd4ab60d9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_00a00a9d",
         "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-03-25T17:14:45Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 107
+      },
+      "revId": "0d60f46118dcd562990edc428cc71bd4ab60d9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_e002b609",
+        "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-03-25T17:29:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_00a00a9d",
       "range": {
         "startLine": 238,
         "startChar": 4,
