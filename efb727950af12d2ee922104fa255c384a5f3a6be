@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "2362b2ee_f71ee28d",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T21:55:59Z",
+      "side": 1,
+      "message": "Yes, but it\u0027s not clear what is better - adding the string, or comparing against the dex file with your comparator. I think this is highly dependent on workload (String compare is somewhat optimized, so if we do a sequence of FindField it would be nice to have things populated; on the other hand likely nobody else is gonna touch those strings, so we\u0027d save heap not allocating them).",
+      "parentUuid": "c352b622_1be88fa5",
+      "range": {
+        "startLine": 162,
+        "startChar": 56,
+        "endLine": 164,
+        "endChar": 8
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2362b2ee_8fed5905",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
