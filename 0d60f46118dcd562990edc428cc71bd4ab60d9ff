@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_e1d9a21f",
+        "filename": "tools/dexfuzz/src/dexfuzz/Options.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T17:41:36Z",
+      "side": 1,
+      "message": "yea, sgtm.",
+      "parentUuid": "23147232_7f6407cf",
+      "range": {
+        "startLine": 154,
+        "startChar": 6,
+        "endLine": 154,
+        "endChar": 11
+      },
+      "revId": "0d60f46118dcd562990edc428cc71bd4ab60d9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_00a00a9d",
         "filename": "tools/dexfuzz/src/dexfuzz/executors/Device.java",
         "patchSetId": 2
