@@ -16,6 +16,24 @@
       "revId": "af87659f462ac650009fce295097cae3dabce171",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_dbc0d3ab",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T09:48:55Z",
+      "side": 0,
+      "message": "Indeed.  I haven\u0027t found any use case of this version of bit_cast trying to convert to a smaller type.  There were occurrences of conversions to a larger type in runtime/entrypoints/quick/quick_trampoline_entrypoints.cc though, where I used a static_cast in addition to bit_cast:\n\n* https://android-review.googlesource.com/#/c/143613/1/runtime/entrypoints/quick/quick_trampoline_entrypoints.cc@1264\n* https://android-review.googlesource.com/#/c/143613/1/runtime/entrypoints/quick/quick_trampoline_entrypoints.cc@1277\n\nAll other uses were between same-size types.",
+      "parentUuid": "c3fb9632_6436be1a",
+      "revId": "af87659f462ac650009fce295097cae3dabce171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
