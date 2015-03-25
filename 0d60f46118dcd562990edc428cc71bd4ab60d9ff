@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43116641_1df2b76a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-03-25T13:44:27Z",
+      "side": 1,
+      "message": "You may want to add a dependency to build-art-host in the art/tools/dexfuzz/Android.mk file. This way, the host core.art would be automatically built.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "0d60f46118dcd562990edc428cc71bd4ab60d9ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
