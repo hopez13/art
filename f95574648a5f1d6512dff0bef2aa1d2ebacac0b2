@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "43116641_9d1b679d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:35:02Z",
+      "side": 1,
+      "message": "Those definitions are small, I think you should move them into art::HBasicBlock\u0027s definition in compiler/optimizing/nodes.h.",
+      "range": {
+        "startLine": 835,
+        "startChar": 0,
+        "endLine": 841,
+        "endChar": 1
+      },
+      "revId": "f95574648a5f1d6512dff0bef2aa1d2ebacac0b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_be1e158d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:35:02Z",
+      "side": 1,
+      "message": "I think you should keep the DCHECKs on start_block-\u003eGetLoopInformation().",
+      "revId": "f95574648a5f1d6512dff0bef2aa1d2ebacac0b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_7d5e5356",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
