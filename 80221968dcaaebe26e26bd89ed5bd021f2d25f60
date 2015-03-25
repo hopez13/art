@@ -1635,6 +1635,30 @@
     },
     {
       "key": {
+        "uuid": "2362b2ee_3ce8e0a5",
+        "filename": "compiler/dwarf/writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T21:03:26Z",
+      "side": 1,
+      "message": "Disagree for this solution. We have RoundUp, so doing PaddedSize \u003d RoundUp, and insert PaddedSize - size is more expressing the intent.",
+      "parentUuid": "63002af0_3ee325cf",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_9cb6c969",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
