@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "c352b622_1be88fa5",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-25T21:50:56Z",
+      "side": 1,
+      "message": "Actually, that seems like it should be optimal, the current approach in libcore resolves strings if they aren\u0027t already resolved.",
+      "parentUuid": "2362b2ee_372a3bf8",
+      "range": {
+        "startLine": 162,
+        "startChar": 56,
+        "endLine": 164,
+        "endChar": 8
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2362b2ee_8fed5905",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
