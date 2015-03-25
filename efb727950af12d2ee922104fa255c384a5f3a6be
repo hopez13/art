@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2362b2ee_8f02f936",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T03:54:49Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s the existing signature. Maybe you should first explain why you think it\u0027s OK to change this from a list to an array. You\u0027re gonna introduce a lot of explicit array copies into getFields()...\n\nA better approach is probably to structure this correctly *now* rather than later, and have both getDeclaredFields and getFields call a helper function filling an array.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 73
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2362b2ee_4fbf61f4",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T03:54:49Z",
+      "side": 1,
+      "message": "The dex cache lookup isn\u0027t really expensive now, is it? So I don\u0027t see a reason not just to try it first...",
+      "range": {
+        "startLine": 162,
+        "startChar": 56,
+        "endLine": 164,
+        "endChar": 8
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2362b2ee_8fed5905",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T03:54:49Z",
+      "side": 1,
+      "message": "This looks seriously half-assed. If you do it, do it right. Move all of it to avoid the additional call, and throw the few exceptions by hand.",
+      "range": {
+        "startLine": 192,
+        "startChar": 21,
+        "endLine": 192,
+        "endChar": 45
+      },
+      "revId": "efb727950af12d2ee922104fa255c384a5f3a6be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
