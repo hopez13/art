@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23147232_d967b395",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T09:33:02Z",
+      "side": 1,
+      "message": "What about `ndex_regs\u0027? (BTW, I think trailing underscores in identifiers are only for private and protected members.)",
+      "range": {
+        "startLine": 240,
+        "startChar": 11,
+        "endLine": 240,
+        "endChar": 19
+      },
+      "revId": "7948a0409b2e68223ef5fa6aa127a41de7fb49b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
