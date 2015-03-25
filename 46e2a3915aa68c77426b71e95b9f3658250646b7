@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_9d7807be",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:38:15Z",
+      "side": 1,
+      "message": "Alright.  Maybe worth a comment here, then. :)",
+      "parentUuid": "63002af0_3b89f777",
+      "range": {
+        "startLine": 655,
+        "startChar": 4,
+        "endLine": 655,
+        "endChar": 25
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_f93ef73b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 9
@@ -413,6 +437,30 @@
       "side": 1,
       "message": "It does because Java always flips the condition. If you look at the CFG, you\u0027ll see that it does IF_GE (instead of LT) and returns the opposite boolean value. I wish I could make it more explicit in the Java code...",
       "parentUuid": "43116641_5aab95d5",
+      "range": {
+        "startLine": 96,
+        "startChar": 5,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_9c024937",
+        "filename": "test/463-checker-boolean-simplifier/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:38:15Z",
+      "side": 1,
+      "message": "OK, got it.",
+      "parentUuid": "43116641_faa269ee",
       "range": {
         "startLine": 96,
         "startChar": 5,
