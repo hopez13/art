@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_01936e2a",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:04:54Z",
+      "side": 1,
+      "message": "Great. :)",
+      "parentUuid": "43116641_a025dea5",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 52
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_41417667",
         "filename": "compiler/optimizing/constant_folding_test.cc",
         "patchSetId": 8
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The fact that constants are now cached. So folding 1+2 doesn\u0027t create a new constant but reuses the one from offset 3. I didn\u0027t want to change the logic of the tests, so I adjusted the values instead.",
       "parentUuid": "63002af0_41417667",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 44
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_00aa4a4e",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:04:54Z",
+      "side": 1,
+      "message": "OK, thanks for the explanation.",
+      "parentUuid": "63002af0_a1ba7aab",
       "range": {
         "startLine": 213,
         "startChar": 0,
