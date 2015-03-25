@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2362b2ee_f7d9431f",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T21:35:51Z",
+      "side": 1,
+      "message": "You\u0027ll always push a vector, and so you need both a nullptr and that ugly size() \u003e 0 check in the elf writer. Consider a ternary here, maybe, or rewrite how cfi is handled in CompiledMethod.",
+      "range": {
+        "startLine": 1097,
+        "startChar": 6,
+        "endLine": 1097,
+        "endChar": 44
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
