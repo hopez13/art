@@ -46,6 +46,30 @@
       "revId": "7948a0409b2e68223ef5fa6aa127a41de7fb49b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_deda01eb",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T13:50:15Z",
+      "side": 1,
+      "message": "ah, sorry for that, not sure what happened. Supposed to be dex_reg_nr. Anyway changed it back to number_of_dex_registers, though I\u0027d propose to start using regs and similar obvious shorties when possible. Our names are getting way too long.",
+      "parentUuid": "43116641_da9565bd",
+      "range": {
+        "startLine": 240,
+        "startChar": 11,
+        "endLine": 240,
+        "endChar": 19
+      },
+      "revId": "7948a0409b2e68223ef5fa6aa127a41de7fb49b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
