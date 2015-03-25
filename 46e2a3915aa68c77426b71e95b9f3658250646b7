@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43116641_3a258129",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these be member functions of art::HBasicBlock?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_9a8feda7",
+        "filename": "compiler/optimizing/boolean_simplifier.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Nit: cast",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_1a2abdf7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Nit: \"The Java language\"",
+      "range": {
+        "startLine": 1391,
+        "startChar": 5,
+        "endLine": 1391,
+        "endChar": 18
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_fa3ee93b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1373,
+        "startChar": 5,
+        "endLine": 1373,
+        "endChar": 18
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_fbecaf3b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1413,
+        "startChar": 5,
+        "endLine": 1413,
+        "endChar": 18
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_ba38714e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "What about moving this to art::HGraphVisitor::VisitBasicBlock, so that other traversals (such as art::HGraphVisitor::VisitReversePostOrder) may benefit from it?",
+      "range": {
+        "startLine": 655,
+        "startChar": 4,
+        "endLine": 655,
+        "endChar": 25
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_f93ef73b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Turn this into a for-loop?\n\n  for (HLoopInformation* loop_info \u003d start_block-\u003eGetLoopInformation();\n       loop_info !\u003d nullptr;\n       loop_info \u003d loop_info-\u003eGetHeader()-\u003eGetDominator()-\u003eGetLoopInformation()) {\n    // ...\n  }",
+      "range": {
+        "startLine": 1126,
+        "startChar": 2,
+        "endLine": 1126,
+        "endChar": 30
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_3ada219f",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 156,
+        "startChar": 7,
+        "endLine": 156,
+        "endChar": 20
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_5aab95d5",
+        "filename": "test/463-checker-boolean-simplifier/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T10:27:18Z",
+      "side": 1,
+      "message": "This comment does not seem to match the method right after.",
+      "range": {
+        "startLine": 96,
+        "startChar": 5,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
