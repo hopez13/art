@@ -22,6 +22,30 @@
       "revId": "7948a0409b2e68223ef5fa6aa127a41de7fb49b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_da9565bd",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-25T09:47:45Z",
+      "side": 1,
+      "message": "number_of_dex_registers.",
+      "parentUuid": "23147232_d967b395",
+      "range": {
+        "startLine": 240,
+        "startChar": 11,
+        "endLine": 240,
+        "endChar": 19
+      },
+      "revId": "7948a0409b2e68223ef5fa6aa127a41de7fb49b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
