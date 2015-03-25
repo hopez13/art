@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23147232_5ce831f8",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-25T11:26:41Z",
+      "side": 1,
+      "message": "Isn\u0027t that boolean? How about CHECK() that it is?",
+      "range": {
+        "startLine": 676,
+        "startChar": 67,
+        "endLine": 676,
+        "endChar": 89
+      },
+      "revId": "6e07183e822a32856da9eb60006989496e06a9cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_bcd74d43",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-25T11:26:41Z",
+      "side": 1,
+      "message": "My personal preference would be to get rid of this, or just say that ART does not support big endian. I\u0027m not a big fan of code in the codebase that is untested.\n\n(I do understand the move to using a kConstant does help not bitrot the build of the code below).",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 800,
+        "endChar": 6
+      },
+      "revId": "6e07183e822a32856da9eb60006989496e06a9cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
