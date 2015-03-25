@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_dd02ff09",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-25T12:04:16Z",
+      "side": 1,
+      "message": "No, the destination register for the \"select\" pattern in Quick can have any narrow type.\n\n  Object r \u003d cond ? r1 : r2;\n  float f \u003d cond ? f1 : f2;\n  int i \u003d cond ? 1 : -1;\n  bool b \u003d cond ? false : true;",
+      "parentUuid": "23147232_5ce831f8",
+      "range": {
+        "startLine": 676,
+        "startChar": 67,
+        "endLine": 676,
+        "endChar": 89
+      },
+      "revId": "6e07183e822a32856da9eb60006989496e06a9cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_bcd74d43",
         "filename": "compiler/dex/quick/codegen_util.cc",
         "patchSetId": 1
