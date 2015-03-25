@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63002af0_21cf8a5d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:13:12Z",
+      "side": 1,
+      "message": "out_hi?",
+      "range": {
+        "startLine": 2364,
+        "startChar": 15,
+        "endLine": 2364,
+        "endChar": 18
+      },
+      "revId": "fd18f5ac060365286616cce773f8702d6246e4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_e1b082d1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:13:12Z",
+      "side": 1,
+      "message": "out_lo?",
+      "range": {
+        "startLine": 2365,
+        "startChar": 15,
+        "endLine": 2365,
+        "endChar": 18
+      },
+      "revId": "fd18f5ac060365286616cce773f8702d6246e4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_41e3b6cd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2376,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:13:12Z",
+      "side": 1,
+      "message": "Please use kMaxLongShiftValue (and likewise below).",
+      "range": {
+        "startLine": 2376,
+        "startChar": 55,
+        "endLine": 2376,
+        "endChar": 57
+      },
+      "revId": "fd18f5ac060365286616cce773f8702d6246e4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_7f7f6765",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2378,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:13:12Z",
+      "side": 1,
+      "message": "overflowed",
+      "range": {
+        "startLine": 2378,
+        "startChar": 44,
+        "endLine": 2378,
+        "endChar": 52
+      },
+      "revId": "fd18f5ac060365286616cce773f8702d6246e4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_60eea6b7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:13:12Z",
+      "side": 1,
+      "message": "Maybe introduce \n\n  // Size (in bits) of registers.\n  constexpr int kRegisterSizeInBits \u003d kRegisterSize * kBitsPerByte;\n\nin compiler/utils/arm/constants_arm.h and use it here?\nLikewise below.",
+      "range": {
+        "startLine": 2379,
+        "startChar": 48,
+        "endLine": 2379,
+        "endChar": 50
+      },
+      "revId": "fd18f5ac060365286616cce773f8702d6246e4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_bf3a9f94",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T18:13:12Z",
+      "side": 1,
+      "message": "underflowed",
+      "range": {
+        "startLine": 2392,
+        "startChar": 45,
+        "endLine": 2392,
+        "endChar": 54
+      },
+      "revId": "fd18f5ac060365286616cce773f8702d6246e4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
