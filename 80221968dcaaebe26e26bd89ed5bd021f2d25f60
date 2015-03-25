@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_013fee39",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-25T21:21:14Z",
+      "side": 1,
+      "message": "Either\n\n  const_iterator FindIntervalStart(uint32_t from)\n\nor\n\n  std::pair\u003cbool, int32_t\u003e Find(uint32_t from)\n\n(The \"from\" and \"to\" are also bad names but let\u0027s not change them in this CL.)",
+      "parentUuid": "23147232_9fca3bc6",
+      "range": {
+        "startLine": 137,
+        "startChar": 17,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "266e407b_ac2e8bba",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 4
@@ -1647,6 +1671,30 @@
       "side": 1,
       "message": "Disagree for this solution. We have RoundUp, so doing PaddedSize \u003d RoundUp, and insert PaddedSize - size is more expressing the intent.",
       "parentUuid": "63002af0_3ee325cf",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_410cd6bf",
+        "filename": "compiler/dwarf/writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-25T21:21:14Z",
+      "side": 1,
+      "message": "And change the DCHECK above to use IsPowerOfTwo().",
+      "parentUuid": "2362b2ee_3ce8e0a5",
       "range": {
         "startLine": 141,
         "startChar": 0,
