@@ -46,6 +46,30 @@
       "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2362b2ee_1a13dbe1",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-25T22:38:42Z",
+      "side": 1,
+      "message": "Ah, yes, I had forgotten that we actually checked against the size, which is weirdly 0 for an arrayref without backing data. That just means the elf-writer should be updated, as you\u0027ll never so non-nullptr with size 0.",
+      "parentUuid": "63002af0_61d5926f",
+      "range": {
+        "startLine": 1097,
+        "startChar": 6,
+        "endLine": 1097,
+        "endChar": 44
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
