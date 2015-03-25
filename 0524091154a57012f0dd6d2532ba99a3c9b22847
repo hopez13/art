@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "23147232_1cbbd9d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T12:04:05Z",
+      "side": 1,
+      "message": "Expand the documentation here, tell that you eliminate hard errors and allow the fuzzer to move on when it can\u0027t mutate.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_19f88bf7",
         "filename": "test/run-test",
         "patchSetId": 5
@@ -18,6 +41,99 @@
         "startChar": 0,
         "endLine": 494,
         "endChar": 104
+      },
+      "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_7cac159e",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T12:04:05Z",
+      "side": 1,
+      "message": "I think we\u0027re good here. It will be hard to keep in the 120 limit and keep readability.",
+      "parentUuid": "23147232_19f88bf7",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 104
+      },
+      "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_fd05c313",
+        "filename": "tools/dexfuzz/src/dexfuzz/fuzzers/Fuzzer.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T12:04:05Z",
+      "side": 1,
+      "message": "I will make this throw exceptions and ignore them on the caller site based on their type. If the file is not found for example maybe we should actually abort?",
+      "range": {
+        "startLine": 399,
+        "startChar": 18,
+        "endLine": 399,
+        "endChar": 29
+      },
+      "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_5df70fa5",
+        "filename": "tools/dexfuzz/src/dexfuzz/fuzzers/FuzzerMultipleExecute.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T12:04:05Z",
+      "side": 1,
+      "message": "use brakets",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 16
+      },
+      "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_bc54ed27",
+        "filename": "tools/dexfuzz/src/dexfuzz/rawdex/EncodedMethod.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-25T12:04:05Z",
+      "side": 1,
+      "message": "I\u0027d say this is still an IllegalArgumentException.",
+      "range": {
+        "startLine": 34,
+        "startChar": 16,
+        "endLine": 34,
+        "endChar": 27
       },
       "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
