@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_b9c3dfa4",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_3a258129",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_9a8feda7",
         "filename": "compiler/optimizing/boolean_simplifier.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-25T10:27:18Z",
       "side": 1,
       "message": "Nit: cast",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_99e37b48",
+        "filename": "compiler/optimizing/boolean_simplifier.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_9a8feda7",
       "range": {
         "startLine": 18,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_5994c393",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_1a2abdf7",
+      "range": {
+        "startLine": 1391,
+        "startChar": 5,
+        "endLine": 1391,
+        "endChar": 18
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_fa3ee93b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-25T10:27:18Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1373,
+        "startChar": 5,
+        "endLine": 1373,
+        "endChar": 18
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_1a5cfd7f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1373,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_fa3ee93b",
       "range": {
         "startLine": 1373,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_1b5cfb7f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_fbecaf3b",
+      "range": {
+        "startLine": 1413,
+        "startChar": 5,
+        "endLine": 1413,
+        "endChar": 18
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_ba38714e",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-25T10:27:18Z",
       "side": 1,
       "message": "What about moving this to art::HGraphVisitor::VisitBasicBlock, so that other traversals (such as art::HGraphVisitor::VisitReversePostOrder) may benefit from it?",
+      "range": {
+        "startLine": 655,
+        "startChar": 4,
+        "endLine": 655,
+        "endChar": 25
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_3b89f777",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "There\u0027s no need for that. The block merging algorithm removes the blocks from the reverse post order list, so they get skipped automatically. The null checks are really needed only when accessing the \u0027graph-\u003eblocks_\u0027 array directly.",
+      "parentUuid": "43116641_ba38714e",
       "range": {
         "startLine": 655,
         "startChar": 4,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_1ec989a6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_f93ef73b",
+      "range": {
+        "startLine": 1126,
+        "startChar": 2,
+        "endLine": 1126,
+        "endChar": 30
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_3ada219f",
         "filename": "runtime/primitive.h",
         "patchSetId": 9
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_fecdbdb2",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_3ada219f",
+      "range": {
+        "startLine": 156,
+        "startChar": 7,
+        "endLine": 156,
+        "endChar": 20
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_5aab95d5",
         "filename": "test/463-checker-boolean-simplifier/src/Main.java",
         "patchSetId": 9
@@ -197,6 +389,30 @@
       "writtenOn": "2015-03-25T10:27:18Z",
       "side": 1,
       "message": "This comment does not seem to match the method right after.",
+      "range": {
+        "startLine": 96,
+        "startChar": 5,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "46e2a3915aa68c77426b71e95b9f3658250646b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_faa269ee",
+        "filename": "test/463-checker-boolean-simplifier/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-25T11:21:45Z",
+      "side": 1,
+      "message": "It does because Java always flips the condition. If you look at the CFG, you\u0027ll see that it does IF_GE (instead of LT) and returns the opposite boolean value. I wish I could make it more explicit in the Java code...",
+      "parentUuid": "43116641_5aab95d5",
       "range": {
         "startLine": 96,
         "startChar": 5,
