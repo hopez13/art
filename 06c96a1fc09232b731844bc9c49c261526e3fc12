@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63002af0_41129690",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T16:54:53Z",
+      "side": 1,
+      "message": "Maybe introduce a helper similar to art::HBasicBlock::ReplaceAndRemoveInstructionWith (and also use it within the implementation of art::HBasicBlock::ReplaceAndRemoveInstructionWith)?\nDitto for similar changes below.",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 52
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_41417667",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T16:54:53Z",
+      "side": 1,
+      "message": "Out of curiosity, what motivated this change?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 44
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_3f8faf2e",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T16:54:53Z",
+      "side": 1,
+      "message": "Likewise?",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 52
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_604c66a1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T16:54:53Z",
+      "side": 1,
+      "message": "I guess the Arena allocator prevents any memory leak when we overwrite and existing (non-null) `constant`?",
+      "range": {
+        "startLine": 326,
+        "startChar": 29,
+        "endLine": 326,
+        "endChar": 60
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
