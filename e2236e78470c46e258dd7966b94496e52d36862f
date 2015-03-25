@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23147232_798f877f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:15:39Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 728,
+        "startChar": 6,
+        "endLine": 728,
+        "endChar": 104
+      },
+      "revId": "e2236e78470c46e258dd7966b94496e52d36862f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_b9719f0c",
+        "filename": "test/462-checker-inlining-across-dex-files/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:15:39Z",
+      "side": 1,
+      "message": "Nit: not consistent regarding spacing between comment and code.",
+      "revId": "e2236e78470c46e258dd7966b94496e52d36862f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_bdd74b43",
+        "filename": "test/462-checker-inlining-across-dex-files/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:15:39Z",
+      "side": 1,
+      "message": "Maybe add \"CHECK-NOT: InvokeStaticOrDirect\"?",
+      "revId": "e2236e78470c46e258dd7966b94496e52d36862f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_f9503766",
+        "filename": "test/462-checker-inlining-across-dex-files/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:15:39Z",
+      "side": 1,
+      "message": "Maybe add \"CHECK-NOT: InvokeStaticOrDirect\"?",
+      "revId": "e2236e78470c46e258dd7966b94496e52d36862f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_7de3f31f",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-25T11:15:39Z",
+      "side": 1,
+      "message": "This overwrites the $TEST_NAME.jar file created in line 76.  Maybe avoid producing $TEST_NAME.jar in line 76 if $TEST_NAME.jar is (re)created at line 86?",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 47
+      },
+      "revId": "e2236e78470c46e258dd7966b94496e52d36862f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
