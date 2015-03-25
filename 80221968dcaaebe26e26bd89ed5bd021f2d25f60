@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_40e3a2cd",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "It behaves like std::map::find.  The only difference is that it is sparse (many of the mappings are implied).\nThe pair (from,to) is like (key,value), not a range from..to",
+      "parentUuid": "43116641_bd1e2b8d",
+      "range": {
+        "startLine": 137,
+        "startChar": 17,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "266e407b_ac2e8bba",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Nit: \"!\u003d 0u\" for consistency.",
+      "range": {
+        "startLine": 431,
+        "startChar": 21,
+        "endLine": 431,
+        "endChar": 24
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_a0a6feb6",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "266e407b_ac2e8bba",
       "range": {
         "startLine": 431,
         "startChar": 21,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_c128e67d",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_3ea0c56f",
+      "range": {
+        "startLine": 595,
+        "startChar": 35,
+        "endLine": 595,
+        "endChar": 36
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "266e407b_cccadf1f",
         "filename": "compiler/dex/quick/arm64/int_arm64.cc",
         "patchSetId": 4
@@ -82,6 +154,24 @@
       "writtenOn": "2015-03-20T17:25:22Z",
       "side": 1,
       "message": "Use \"kArm64PointerSize\" from instruction_set.h\nThat is already (indirectly) included.",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_41ca964d",
+        "filename": "compiler/dex/quick/arm64/int_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1534,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "266e407b_cccadf1f",
       "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -134,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_e085160b",
+        "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_7df3f371",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_7c6e5580",
         "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.cc",
         "patchSetId": 4
@@ -145,6 +259,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Bulk copy.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_811bfe73",
+        "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_7c6e5580",
       "range": {
         "startLine": 50,
         "startChar": 0,
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_c10fc62f",
+        "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_1d6d17ff",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_bd7bcbb9",
         "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.h",
         "patchSetId": 4
@@ -197,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "63002af0_a10cba3b",
+        "filename": "compiler/dex/quick/lazy_debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_bd7bcbb9",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_bd150bf5",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 4
@@ -208,6 +388,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "CFA adjustment should be outside the if, right?",
+      "range": {
+        "startLine": 956,
+        "startChar": 9,
+        "endLine": 956,
+        "endChar": 40
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_002fea87",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Yes! Well spotted.",
+      "parentUuid": "43116641_bd150bf5",
       "range": {
         "startLine": 956,
         "startChar": 9,
@@ -243,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_e02bd677",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_de08c1da",
+      "range": {
+        "startLine": 971,
+        "startChar": 8,
+        "endLine": 971,
+        "endChar": 40
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_9d124709",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 4
@@ -254,6 +482,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1167,
+        "startChar": 8,
+        "endLine": 1167,
+        "endChar": 39
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_c028d27d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_9d124709",
       "range": {
         "startLine": 1167,
         "startChar": 8,
@@ -289,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_5f84a3e1",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_7d41b3f9",
+      "range": {
+        "startLine": 1177,
+        "startChar": 8,
+        "endLine": 1177,
+        "endChar": 39
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_3c51fdba",
         "filename": "compiler/dex/quick/x86/int_x86.cc",
         "patchSetId": 4
@@ -300,6 +576,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1211,
+        "startChar": 8,
+        "endLine": 1211,
+        "endChar": 40
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_3f79ef7d",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_3c51fdba",
       "range": {
         "startLine": 1211,
         "startChar": 8,
@@ -335,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_1f7e2b66",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_1c5639b3",
+      "range": {
+        "startLine": 1220,
+        "startChar": 8,
+        "endLine": 1220,
+        "endChar": 40
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_dc67a195",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 4
@@ -346,6 +670,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Can you move this to a local variable just like you did above, please?",
+      "range": {
+        "startLine": 766,
+        "startChar": 35,
+        "endLine": 766,
+        "endChar": 101
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_60c5863d",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_dc67a195",
       "range": {
         "startLine": 766,
         "startChar": 35,
@@ -381,6 +729,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_ff925724",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_bc64ed91",
+      "range": {
+        "startLine": 1320,
+        "startChar": 6,
+        "endLine": 1320,
+        "endChar": 30
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_9c612982",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 4
@@ -392,6 +764,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1421,
+        "startChar": 6,
+        "endLine": 1421,
+        "endChar": 31
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_61eeb2b7",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_9c612982",
       "range": {
         "startLine": 1421,
         "startChar": 6,
@@ -427,6 +823,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_e1a6428a",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_3eb685f0",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_3c2b3dae",
         "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
         "patchSetId": 4
@@ -438,6 +858,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "reg_mask !\u003d 0u (we try to avoid implicit conversion to bool)",
+      "range": {
+        "startLine": 79,
+        "startChar": 20,
+        "endLine": 79,
+        "endChar": 28
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_c0d692ef",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_3c2b3dae",
       "range": {
         "startLine": 79,
         "startChar": 20,
@@ -473,6 +917,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_5f5263f1",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_dd579f2b",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_1e462981",
         "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
         "patchSetId": 4
@@ -484,6 +952,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "reg_mask !\u003d 0u",
+      "range": {
+        "startLine": 89,
+        "startChar": 20,
+        "endLine": 89,
+        "endChar": 28
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_a0d39efd",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_1e462981",
       "range": {
         "startLine": 89,
         "startChar": 20,
@@ -519,6 +1011,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_4179767c",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_bd54eb27",
+      "range": {
+        "startLine": 90,
+        "startChar": 10,
+        "endLine": 90,
+        "endChar": 22
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_1d94f740",
         "filename": "compiler/dwarf/debug_frame_writer.h",
         "patchSetId": 4
@@ -530,6 +1046,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_6146b214",
+        "filename": "compiler/dwarf/debug_frame_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_1d94f740",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -565,6 +1105,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_20a54e80",
+        "filename": "compiler/dwarf/debug_frame_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Sadly they are not defined.",
+      "parentUuid": "23147232_3c41fd68",
+      "range": {
+        "startLine": 45,
+        "startChar": 37,
+        "endLine": 45,
+        "endChar": 77
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_9d0c873c",
         "filename": "compiler/dwarf/debug_line_opcode_writer.h",
         "patchSetId": 4
@@ -576,6 +1140,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_e18f62f8",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_9d0c873c",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -611,6 +1199,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_dfdaf3ea",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "I am not sure.  I have just observed it by doing objdump.\nI assume it is to allow DWARF-2 only tools to read it (DWARF is fairly nicely forwards compatible).\nOr, it might just be bug in clang.",
+      "parentUuid": "23147232_9c7fe98d",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_fe2edd89",
         "filename": "compiler/dwarf/debug_line_writer.h",
         "patchSetId": 4
@@ -628,6 +1240,24 @@
     },
     {
       "key": {
+        "uuid": "23147232_9fe47ba9",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done.  This line is kind of difficult to split.",
+      "parentUuid": "63002af0_fe2edd89",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_9e2599a6",
         "filename": "compiler/dwarf/debug_line_writer.h",
         "patchSetId": 4
@@ -639,6 +1269,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Why are we skipping the first one? (It prevents us from using range-based loop.)",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_3fed6f88",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "The opcode 0 is special in DWARF (encodes variable length information).  Therefore it does not have an entry in the header.  We could just remove first element from the array, but I find \"int i \u003d 1\" nice as it is explicit that we are skipping an opcode.",
+      "parentUuid": "63002af0_9e2599a6",
       "range": {
         "startLine": 56,
         "startChar": 17,
@@ -674,6 +1328,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_00580a12",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_5ec5d13c",
+      "range": {
+        "startLine": 59,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_deb0c1d1",
         "filename": "compiler/dwarf/debug_line_writer.h",
         "patchSetId": 4
@@ -685,6 +1363,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "const auto\u0026 (or const FileEntry\u0026)",
+      "range": {
+        "startLine": 63,
+        "startChar": 9,
+        "endLine": 63,
+        "endChar": 13
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_1ff2ab6a",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_deb0c1d1",
       "range": {
         "startLine": 63,
         "startChar": 9,
@@ -720,6 +1422,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_214c2a4e",
+        "filename": "compiler/dwarf/register.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_bdd62bee",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_5c203199",
         "filename": "compiler/dwarf/register.h",
         "patchSetId": 4
@@ -731,6 +1457,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "const (or constexpr and make the constructor and the static functions constexpr as well; the only problem is with X86_64Core - until we upgrade to C++14)",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 13
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_bf005fb9",
+        "filename": "compiler/dwarf/register.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done - made const.  I assume there is no benefit in making this constexpr anyway?",
+      "parentUuid": "23147232_5c203199",
       "range": {
         "startLine": 26,
         "startChar": 8,
@@ -766,6 +1516,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_c13a2696",
+        "filename": "compiler/dwarf/writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_9dd367fe",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_3ee325cf",
         "filename": "compiler/dwarf/writer.h",
         "patchSetId": 4
@@ -777,6 +1551,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Don\u0027t insert each byte on its own:\n\n  size_t extra \u003d data_-\u003esize() \u0026 (alignment - 1);\n  if (extra !\u003d 0) {\n    data-\u003einsert(data-\u003eend(), alignment - extra, 0);\n  }",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_81cade1c",
+        "filename": "compiler/dwarf/writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_3ee325cf",
       "range": {
         "startLine": 141,
         "startChar": 0,
@@ -806,6 +1604,24 @@
     },
     {
       "key": {
+        "uuid": "23147232_ffaff70c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done.  2 bugs actually.",
+      "parentUuid": "23147232_9cb6c969",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_1d7d1731",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -817,6 +1633,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "4 or 8",
+      "range": {
+        "startLine": 445,
+        "startChar": 19,
+        "endLine": 445,
+        "endChar": 20
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_605226f2",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_1d7d1731",
       "range": {
         "startLine": 445,
         "startChar": 19,
@@ -852,6 +1692,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_4047222e",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_bd8bcbb3",
+      "range": {
+        "startLine": 459,
+        "startChar": 26,
+        "endLine": 459,
+        "endChar": 31
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_dc1201dc",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -869,6 +1733,24 @@
     },
     {
       "key": {
+        "uuid": "23147232_df08b3da",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Yes, correct.",
+      "parentUuid": "23147232_dc1201dc",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_81e3fe1e",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -880,6 +1762,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "std::string::npos? It\u0027s a static member.",
+      "range": {
+        "startLine": 543,
+        "startChar": 31,
+        "endLine": 543,
+        "endChar": 45
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_e1dac2ea",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_81e3fe1e",
       "range": {
         "startLine": 543,
         "startChar": 31,
@@ -915,6 +1821,30 @@
     },
     {
       "key": {
+        "uuid": "63002af0_611d921e",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_61bfd2f4",
+      "range": {
+        "startLine": 547,
+        "startChar": 33,
+        "endLine": 547,
+        "endChar": 62
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_fff6d7dc",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -926,6 +1856,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Use insert()/emplace() to insert the new entry.",
+      "range": {
+        "startLine": 549,
+        "startChar": 12,
+        "endLine": 549,
+        "endChar": 59
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_a0fdde36",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_fff6d7dc",
       "range": {
         "startLine": 549,
         "startChar": 12,
@@ -955,6 +1909,24 @@
     },
     {
       "key": {
+        "uuid": "43116641_a0371eae",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Else the file name stays in its original form - which might by just filename, relative path or absolute path.\nWe are really just passing along the file name from the Java compiler to DWARF as is.",
+      "parentUuid": "43116641_20c9cea6",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_9d47e7a8",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -966,6 +1938,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Avoid subscript operator on unordered_map.",
+      "range": {
+        "startLine": 556,
+        "startChar": 26,
+        "endLine": 556,
+        "endChar": 46
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_80189a30",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_9d47e7a8",
       "range": {
         "startLine": 556,
         "startChar": 26,
@@ -1001,6 +1997,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_601d861e",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_80bada02",
+      "range": {
+        "startLine": 558,
+        "startChar": 10,
+        "endLine": 558,
+        "endChar": 43
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_5f36e319",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -1012,6 +2032,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "thumb_offset",
+      "range": {
+        "startLine": 640,
+        "startChar": 8,
+        "endLine": 640,
+        "endChar": 20
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_80cada1c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_5f36e319",
       "range": {
         "startLine": 640,
         "startChar": 8,
@@ -1047,6 +2091,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_c08b32b3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "IncreaseFrameSize() tends to have CHECK_ALIGNED(adjust, kStackAlignment) in it.  I am worried the intermediate adjustments in GenerateFrameEntry might not satisfy it.",
+      "parentUuid": "23147232_dcb6813c",
+      "range": {
+        "startLine": 541,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 35
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_1edf498f",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
@@ -1058,6 +2126,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "DecreaseFrameSize()",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 36
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_61735269",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "63002af0_1edf498f",
       "range": {
         "startLine": 552,
         "startChar": 0,
@@ -1093,6 +2185,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_5faa63fa",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "23147232_1c83d951",
+      "range": {
+        "startLine": 493,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 35
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_7da65311",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -1104,6 +2220,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "DecreaseFrameSize()",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 36
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_41785641",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "43116641_7da65311",
       "range": {
         "startLine": 504,
         "startChar": 0,
@@ -1139,6 +2279,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_3f9fafe0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "43116641_1db51732",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 35
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_bec3b5a4",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -1150,6 +2314,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "DecreaseFrameSize()",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 36
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_217d4a31",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "63002af0_bec3b5a4",
       "range": {
         "startLine": 535,
         "startChar": 0,
@@ -1185,6 +2373,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_ff9817f5",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_be1f35e2",
+      "range": {
+        "startLine": 390,
+        "startChar": 25,
+        "endLine": 390,
+        "endChar": 30
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_bce62d58",
         "filename": "compiler/utils/arm/assembler_arm.cc",
         "patchSetId": 4
@@ -1202,6 +2414,24 @@
     },
     {
       "key": {
+        "uuid": "43116641_80bc1a51",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_bce62d58",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_fcc385b5",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 4
@@ -1213,6 +2443,24 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "constexpr",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63002af0_c18b46b3",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_fcc385b5",
       "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1242,6 +2490,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_40c602eb",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_9cca49c6",
+      "range": {
+        "startLine": 666,
+        "startChar": 25,
+        "endLine": 666,
+        "endChar": 41
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_de1201dc",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 4
@@ -1259,6 +2531,24 @@
     },
     {
       "key": {
+        "uuid": "23147232_bf929fd1",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_de1201dc",
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_9d1c87ee",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 4
@@ -1270,6 +2560,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "arraysize()",
+      "range": {
+        "startLine": 729,
+        "startChar": 25,
+        "endLine": 729,
+        "endChar": 41
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_9f8fdba7",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_9d1c87ee",
       "range": {
         "startLine": 729,
         "startChar": 25,
@@ -1305,6 +2619,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_bfb97f5b",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_7ed08d80",
+      "range": {
+        "startLine": 358,
+        "startChar": 65,
+        "endLine": 358,
+        "endChar": 76
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63002af0_5ed5d16e",
         "filename": "compiler/utils/assembler.h",
         "patchSetId": 4
@@ -1316,6 +2654,30 @@
       "writtenOn": "2015-03-25T15:55:12Z",
       "side": 1,
       "message": "Bogus space, remove.",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 1
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_9fb6bb69",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_5ed5d16e",
       "range": {
         "startLine": 376,
         "startChar": 0,
