@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_9fca3bc6",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-25T20:57:03Z",
+      "side": 1,
+      "message": "So FindIntervalStart?  (FindInterval seems to imply it returns a pair)\n\nOr FindLessThenOrEqual / FindLE?  Given that it returns a value such that it-\u003efrom_ \u003c\u003d from\n\nstd::pair\u003cint, bool\u003e Find(uint32_t from)?  That is, make the fact that some entries are implied better hidden.\n\nbool Find(uint32_t from, *int to)\n\nint Find(uint32_t from, int default)\n\nAny variation above with name Remap.\n\nIn any case, I do not really mind, so give me a method signature, and I will put it in there :-)\n\nAnd thanks for the big review!",
+      "parentUuid": "43116641_a0b6fe68",
+      "range": {
+        "startLine": 137,
+        "startChar": 17,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "266e407b_ac2e8bba",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 4
