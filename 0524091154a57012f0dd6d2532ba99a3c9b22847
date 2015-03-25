@@ -95,6 +95,23 @@
     },
     {
       "key": {
+        "uuid": "43116641_bd006bb9",
+        "filename": "tools/dexfuzz/src/dexfuzz/fuzzers/FuzzerMultipleExecute.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-03-25T13:46:38Z",
+      "side": 1,
+      "message": "safeToExecute() will prevent you from executing the program if it didn\u0027t correctly fuzz, so this isn\u0027t necessary, I think.",
+      "revId": "0524091154a57012f0dd6d2532ba99a3c9b22847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_5df70fa5",
         "filename": "tools/dexfuzz/src/dexfuzz/fuzzers/FuzzerMultipleExecute.java",
         "patchSetId": 5
