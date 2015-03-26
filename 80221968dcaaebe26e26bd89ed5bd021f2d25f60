@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_e2851c0b",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-26T11:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_013fee39",
+      "range": {
+        "startLine": 137,
+        "startChar": 17,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "266e407b_ac2e8bba",
         "filename": "compiler/dex/quick/arm/call_arm.cc",
         "patchSetId": 4
@@ -1707,6 +1731,30 @@
     },
     {
       "key": {
+        "uuid": "438406cc_82f75aa4",
+        "filename": "compiler/dwarf/writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-26T11:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63002af0_410cd6bf",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_9cb6c969",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -1753,6 +1801,30 @@
       "writtenOn": "2015-03-25T21:09:46Z",
       "side": 1,
       "message": "Should this be a constexpr for now? I don\u0027t see this ever being changed.",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 35
+      },
+      "revId": "80221968dcaaebe26e26bd89ed5bd021f2d25f60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "438406cc_42015206",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-26T11:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "834c3e8c_e7b99c2c",
       "range": {
         "startLine": 365,
         "startChar": 2,
