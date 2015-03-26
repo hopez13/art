@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "438406cc_e2818697",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-26T13:53:26Z",
+      "side": 1,
+      "message": "ACtually I think I prefer having this duplicated. It just happens that both paths needs the same thing, but that\u0027s more of a coincidence.",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 32
+      },
+      "revId": "16a98d910297f197378a8f39a777130aaa730036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
