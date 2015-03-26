@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "438406cc_c261e280",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T14:10:57Z",
+      "side": 1,
+      "message": "Good point, thanks",
+      "parentUuid": "438406cc_825c3ad4",
+      "range": {
+        "startLine": 330,
+        "startChar": 13,
+        "endLine": 330,
+        "endChar": 21
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_63735069",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -83,6 +107,30 @@
       "writtenOn": "2015-03-26T12:48:09Z",
       "side": 1,
       "message": "this is a bit misleading as it suggest the constant is always there before calling this. If the constant is not in the graph we create, insert and return it.",
+      "range": {
+        "startLine": 229,
+        "startChar": 52,
+        "endLine": 229,
+        "endChar": 68
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_8302e48d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T14:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_63735069",
       "range": {
         "startLine": 229,
         "startChar": 52,
@@ -201,6 +249,30 @@
       "side": 1,
       "message": "I think you should expand on what canonical means here. I assume you\u0027re talking about the order requirements?",
       "parentUuid": "438406cc_023eea8b",
+      "range": {
+        "startLine": 1963,
+        "startChar": 53,
+        "endLine": 1964,
+        "endChar": 70
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_6207cc9f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T14:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "438406cc_62ca5620",
       "range": {
         "startLine": 1963,
         "startChar": 53,
