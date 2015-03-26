@@ -22,6 +22,30 @@
       "revId": "16a98d910297f197378a8f39a777130aaa730036",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "831efe57_77e9caac",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-26T13:56:05Z",
+      "side": 1,
+      "message": "It isn\u0027t a coincidence.  The value needs to be 16 byte aligned.  The stack is known to be 16 byte aligned, so the amount to pop is always 16.  Note the 8 \u0026 12 above.",
+      "parentUuid": "438406cc_e2818697",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 32
+      },
+      "revId": "16a98d910297f197378a8f39a777130aaa730036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
