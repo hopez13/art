@@ -450,6 +450,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_837f8464",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-26T11:05:47Z",
+      "side": 1,
+      "message": "Oki, then you should document that the reason to keep this dependency around is that trick.",
+      "parentUuid": "43116641_e39c0071",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_60f8e64a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -532,6 +556,30 @@
       "side": 1,
       "message": "I had that but it\u0027s feels off. It\u0027s not just ComponentSize*8, it\u0027s the range of values that can be represented by the type (in bits). That\u0027s 2^16 for short but only 2^1 for boolean.",
       "parentUuid": "438406cc_42307219",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_821b0074",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-26T11:05:47Z",
+      "side": 1,
+      "message": "Oups, I missed that. I can see the context now... Maybe rename it (MaximumNumberOfBitsUsed) and clearly document that this is not the same as the ComponenentSize in bits. Also, if this is used just in one file I would probably make it static there (though this might be a bit extreme)\n\nSince two of us were mislead I can see great potential for confusion.:P",
+      "parentUuid": "43116641_a3516837",
       "range": {
         "startLine": 124,
         "startChar": 16,
