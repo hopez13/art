@@ -84,6 +84,47 @@
     },
     {
       "key": {
+        "uuid": "438406cc_c28fa2a6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-26T14:33:20Z",
+      "side": 1,
+      "message": "Nit: Generally we use `__` for (macro)assembly. Here preferred usage here would be `GetVIXLAssembler()-\u003eStackPointer()`.",
+      "range": {
+        "startLine": 498,
+        "startChar": 34,
+        "endLine": 498,
+        "endChar": 51
+      },
+      "revId": "7309cbb648316d54f15b1424d131be7d200ab0be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_427e08e0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-26T14:33:20Z",
+      "side": 1,
+      "message": "Ok I was worried this was the case.",
+      "parentUuid": "438406cc_2278ce40",
+      "revId": "7309cbb648316d54f15b1424d131be7d200ab0be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_c38b3cb3",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 6
