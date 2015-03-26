@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a37b02ac_7e63c516",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-26T22:19:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a1e40d_dfc5013e",
+      "range": {
+        "startLine": 1423,
+        "startChar": 12,
+        "endLine": 1423,
+        "endChar": 26
+      },
+      "revId": "603a53c8cccdb8b75d73237361082ec7f72c1d1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a69cf0d8_d5d5de6f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-23T21:50:53Z",
       "side": 1,
       "message": "if",
+      "range": {
+        "startLine": 1794,
+        "startChar": 17,
+        "endLine": 1794,
+        "endChar": 23
+      },
+      "revId": "603a53c8cccdb8b75d73237361082ec7f72c1d1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_68b16773",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-26T22:19:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a69cf0d8_d5d5de6f",
       "range": {
         "startLine": 1794,
         "startChar": 17,
