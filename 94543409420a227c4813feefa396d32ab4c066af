@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_02ded0e0",
+        "filename": "compiler/dex/quick/mips/assemble_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-03-26T12:54:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_99b01bbf",
+      "range": {
+        "startLine": 673,
+        "startChar": 10,
+        "endLine": 673,
+        "endChar": 68
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3fb9632_640d9e6c",
         "filename": "compiler/dex/quick/mips/call_mips.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2015-03-24T20:34:44Z",
       "side": 1,
       "message": "This is done quite often. Put into a helper function, AllocPtrSizeTemp() maybe?",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 66
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_e2dabcea",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-03-26T12:54:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3fb9632_640d9e6c",
       "range": {
         "startLine": 86,
         "startChar": 21,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_1c307918",
+        "filename": "compiler/dex/quick/mips/codegen_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-03-26T12:54:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3fb9632_c41eb28e",
+      "range": {
+        "startLine": 232,
+        "startChar": 11,
+        "endLine": 232,
+        "endChar": 39
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3f6a249_235c2e80",
         "filename": "compiler/dex/quick/mips/codegen_mips.h",
         "patchSetId": 1
@@ -106,6 +178,30 @@
       "writtenOn": "2015-03-24T20:34:44Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 235,
+        "startChar": 11,
+        "endLine": 235,
+        "endChar": 39
+      },
+      "revId": "94543409420a227c4813feefa396d32ab4c066af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_fc24a5dc",
+        "filename": "compiler/dex/quick/mips/codegen_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-03-26T12:54:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3f6a249_235c2e80",
       "range": {
         "startLine": 235,
         "startChar": 11,
