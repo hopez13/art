@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "23147232_a27844bd",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23147232_02ced0ae",
+      "range": {
+        "startLine": 483,
+        "startChar": 9,
+        "endLine": 483,
+        "endChar": 57
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_7f41a7f9",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -248,6 +272,30 @@
       "writtenOn": "2015-03-25T19:07:20Z",
       "side": 1,
       "message": "explain why. Goto should be pretty obvious, but SuspendCheck is not. Also even for Goto, given the way we actually use the constants it shouldn\u0027t really matter.",
+      "range": {
+        "startLine": 291,
+        "startChar": 31,
+        "endLine": 292,
+        "endChar": 51
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_e36e40f9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "The SuspendCheck is really more about \"esthetics\". I guess you\u0027re right we shouldn\u0027t worry about that. Alright, removed and constant folding tests fixed (again).",
+      "parentUuid": "23147232_7f41a7f9",
       "range": {
         "startLine": 291,
         "startChar": 31,
@@ -331,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_037254e1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "Could do that but it involves testing if every removed instruction is an IntConst, LongConst, etc, and that seems counterproductive. Plus this way the caching code is in one place.",
+      "parentUuid": "23147232_3f3b2f80",
+      "range": {
+        "startLine": 326,
+        "startChar": 29,
+        "endLine": 326,
+        "endChar": 60
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_df31d39c",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -342,6 +414,30 @@
       "writtenOn": "2015-03-25T19:07:20Z",
       "side": 1,
       "message": "hmm... I see why you do that but this is not nice. My preference is to avoid such dependencies. What if we end up needing to create Float/Double constants in some other build/optimizations phase?\n\nHow about having a Get(Float/Double)Constants on the graph object, similar to the integral case, but which doesn\u0027t cache the results?",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_e39c0071",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "I agree but my reasoning was that we should add this stuff once we actually need it. Right now we don\u0027t and by moving it we would lose canonicalisation with that clever trick of placing the int/float instructions next to each other which doesn\u0027t work once you allow instruction removal. If we ever need it, that somebody will see from the Float/DoubleConst\u0027s friends that the SsaBuilder is currently in charge, and will be in a better position to asses if caching is worth it or not based on the actual requirements.",
+      "parentUuid": "23147232_df31d39c",
       "range": {
         "startLine": 50,
         "startChar": 6,
@@ -377,6 +473,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_a3a608b7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_60f8e64a",
+      "range": {
+        "startLine": 229,
+        "startChar": 13,
+        "endLine": 229,
+        "endChar": 24
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "438406cc_42307219",
         "filename": "runtime/primitive.h",
         "patchSetId": 8
@@ -400,6 +520,30 @@
     },
     {
       "key": {
+        "uuid": "43116641_a3516837",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "I had that but it\u0027s feels off. It\u0027s not just ComponentSize*8, it\u0027s the range of values that can be represented by the type (in bits). That\u0027s 2^16 for short but only 2^1 for boolean.",
+      "parentUuid": "438406cc_42307219",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23147232_1f7d0b31",
         "filename": "runtime/primitive.h",
         "patchSetId": 8
@@ -411,6 +555,30 @@
       "writtenOn": "2015-03-25T19:07:20Z",
       "side": 1,
       "message": "return ComponentSize(type) * kBitsPerByte;",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 5
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_df679395",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T10:08:06Z",
+      "side": 1,
+      "message": "Doesn\u0027t work for boolean",
+      "parentUuid": "23147232_1f7d0b31",
       "range": {
         "startLine": 125,
         "startChar": 0,
