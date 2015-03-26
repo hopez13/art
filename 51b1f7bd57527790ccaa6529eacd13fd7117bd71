@@ -34,6 +34,24 @@
       "revId": "51b1f7bd57527790ccaa6529eacd13fd7117bd71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_e39f60aa",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2015-03-26T14:51:34Z",
+      "side": 1,
+      "message": "Why not combine these with the one above? They look like they are all \"no mapping for localhost\"",
+      "parentUuid": "438406cc_82699aa6",
+      "revId": "51b1f7bd57527790ccaa6529eacd13fd7117bd71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
