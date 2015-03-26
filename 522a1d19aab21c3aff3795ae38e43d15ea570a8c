@@ -165,6 +165,30 @@
       "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "438406cc_a2613eba",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-26T12:30:31Z",
+      "side": 1,
+      "message": "1. Why is the discriminator needed if first_line \u003d\u003d line?  I am afraid I do not follow.  The intention of code above is to attribute the prologue to some source line, but to tell the debugger it should not put a breakpoint there.\n2. I am not sure I follow, but if I understand, I do not think this can be represented in DWARF line table - using discriminators or otherwise.  I do not think that discriminators have any effect on how branching and breakpoints are handled.  I would argue that the backend should do best effort to ensure that target of branch is start of statement, and the debugger should do best effort to handle situations where it is not the case.",
+      "parentUuid": "43116641_63cfd02e",
+      "range": {
+        "startLine": 604,
+        "startChar": 46,
+        "endLine": 604,
+        "endChar": 48
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
