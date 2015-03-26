@@ -52,6 +52,24 @@
       "revId": "51b1f7bd57527790ccaa6529eacd13fd7117bd71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_a36e0826",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-26T15:13:46Z",
+      "side": 1,
+      "message": "Yeah, we should probably merge them. I think the one above should have been device and variant 64.",
+      "parentUuid": "43116641_e39f60aa",
+      "revId": "51b1f7bd57527790ccaa6529eacd13fd7117bd71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
