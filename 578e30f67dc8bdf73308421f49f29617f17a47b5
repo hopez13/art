@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43116641_433bac7e",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-26T12:40:32Z",
+      "side": 1,
+      "message": "Please remove.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23147232_e23d1c90",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-26T12:40:32Z",
+      "side": 1,
+      "message": "EndsWithControlFlowInstruction?",
+      "range": {
+        "startLine": 621,
+        "startChar": 7,
+        "endLine": 621,
+        "endChar": 26
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "438406cc_023eea8b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-26T12:40:32Z",
+      "side": 1,
+      "message": "we need to canonicalize them as well ?",
+      "range": {
+        "startLine": 1963,
+        "startChar": 53,
+        "endLine": 1964,
+        "endChar": 70
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_0335b488",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-26T12:40:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2000,
+        "startChar": 53,
+        "endLine": 2001,
+        "endChar": 70
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
