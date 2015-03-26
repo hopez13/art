@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "438406cc_825c3ad4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-26T13:55:50Z",
+      "side": 1,
+      "message": "Nit: IsUint\u003c1\u003e?",
+      "range": {
+        "startLine": 330,
+        "startChar": 13,
+        "endLine": 330,
+        "endChar": 21
+      },
+      "revId": "578e30f67dc8bdf73308421f49f29617f17a47b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_63735069",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
