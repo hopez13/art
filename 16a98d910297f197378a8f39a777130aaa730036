@@ -70,6 +70,30 @@
       "revId": "16a98d910297f197378a8f39a777130aaa730036",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3971601_41463482",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-26T17:07:24Z",
+      "side": 1,
+      "message": "yes.  Those instructions need the address to be 16 byte aligned.",
+      "parentUuid": "23147232_2d6d45ff",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 32
+      },
+      "revId": "16a98d910297f197378a8f39a777130aaa730036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
