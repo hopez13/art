@@ -474,6 +474,30 @@
     },
     {
       "key": {
+        "uuid": "438406cc_2279ae7d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T12:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43116641_837f8464",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43116641_60f8e64a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -580,6 +604,30 @@
       "side": 1,
       "message": "Oups, I missed that. I can see the context now... Maybe rename it (MaximumNumberOfBitsUsed) and clearly document that this is not the same as the ComponenentSize in bits. Also, if this is used just in one file I would probably make it static there (though this might be a bit extreme)\n\nSince two of us were mislead I can see great potential for confusion.:P",
       "parentUuid": "43116641_a3516837",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "06c96a1fc09232b731844bc9c49c261526e3fc12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_23d9d8f8",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-26T12:11:30Z",
+      "side": 1,
+      "message": "Hardcoded in the HGraph::GetConstant function.",
+      "parentUuid": "23147232_821b0074",
       "range": {
         "startLine": 124,
         "startChar": 16,
