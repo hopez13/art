@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "438406cc_621b3675",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-26T11:36:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2362b2ee_1a13dbe1",
+      "range": {
+        "startLine": 1097,
+        "startChar": 6,
+        "endLine": 1097,
+        "endChar": 44
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "438406cc_a2d7fe42",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "writtenOn": "2015-03-26T07:06:20Z",
       "side": 1,
       "message": "I think it make sense to add rows with the same line but incremented discriminant? This way would keep a finer grained debug line info.\nDiscriminant seems needed in case first_line \u003d\u003d line.",
+      "range": {
+        "startLine": 604,
+        "startChar": 46,
+        "endLine": 604,
+        "endChar": 48
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43116641_e35400e2",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-26T11:36:44Z",
+      "side": 1,
+      "message": "What would be the benefit of adding the discriminators?\nMy understanding is that they are only useful for profile-based opimizations in cases where multiple basic-blocks map to single source line.\nAdding them here would result in new row per every dex bytecode.  This would significantly increase the size of .debug_line, and I do not see immediate benefit of it.",
+      "parentUuid": "438406cc_a2d7fe42",
       "range": {
         "startLine": 604,
         "startChar": 46,
