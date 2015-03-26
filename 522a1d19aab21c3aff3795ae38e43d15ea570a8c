@@ -189,6 +189,30 @@
       "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "438406cc_a2e7feac",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-03-26T13:02:05Z",
+      "side": 1,
+      "message": "AFAIU: The spec reads: \"Discriminator values are assigned arbitrarily by the DWARF producer and serve to distinguish among multiple blocks that may all be associated with the same source file, line, and column.\" If first_line \u003d\u003d line and pc \u003e 0 then we end up with two blocks with the same line.\nFormally we have to set a new discriminator for every row with a line number that is used elsewhere.",
+      "parentUuid": "438406cc_a2613eba",
+      "range": {
+        "startLine": 604,
+        "startChar": 46,
+        "endLine": 604,
+        "endChar": 48
+      },
+      "revId": "522a1d19aab21c3aff3795ae38e43d15ea570a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
