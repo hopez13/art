@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_cf810198",
+        "filename": "compiler/dex/quick/arm64/codegen_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T17:52:50Z",
+      "side": 1,
+      "message": "Oops, should be private. (The point of making it a member was to give access to a protected member of a base class.)",
+      "parentUuid": "63758ab8_50682def",
+      "range": {
+        "startLine": 242,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 50
+      },
+      "revId": "2ea1004da74a1ac85aa5fa497633fcfcb38a71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a3ca80_4ca5132a",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 8
