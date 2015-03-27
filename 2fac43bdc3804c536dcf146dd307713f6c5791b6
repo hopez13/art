@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63758ab8_90d00582",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T18:04:21Z",
+      "side": 1,
+      "message": "Not sure I fully understand why GetBinSizeSum isn\u0027t useful here anymore, did some invariant change?",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_0e53b5f4",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T18:04:21Z",
+      "side": 1,
+      "message": "Not really sure why this doesn\u0027t use something like AssignImageBinSlot or SetImageBinSlot, can you elaborate please?\n\n(I looked at AssignImageBinSlot and it does have handling for kBinDexCache array there, so I am confused why this array is being set in two different places)",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_90a5652d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T18:04:21Z",
+      "side": 1,
+      "message": "Can you please add a comment here about dex caches?",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_70cbe9ef",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T18:04:21Z",
+      "side": 1,
+      "message": "Is this still guaranteeing that the offsets(+size) in a bin don\u0027t overlap with offsets in other bins? I\u0027m not sure its super clear where this guarantee is?",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_b0f8a14b",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T18:04:21Z",
+      "side": 1,
+      "message": "If it\u0027s likely-clean can you move it under \"Likely-clean\", otherwise can you please add a note that classifies how likely the cleanliness is?",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
