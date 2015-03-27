@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_f1ace21a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T19:26:55Z",
+      "side": 1,
+      "message": "I need fixed layout of the dex cache arrays. This is not so apparent for the current patch (I could have 3 different \u0027LinkerPatch\u0027es for types, methods and strings) but I\u0027ve hinted in the comments on the CL that on arm, mips and mips64 I want to promote the start of those arrays to a register and I don\u0027t want to waste 3 registers for that.\n\nI\u0027d also like to change those arrays to native which is another reason why I chose to eagerly move them to the beginning (i.e. to the first slot).",
+      "parentUuid": "43d246e8_5cef372e",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63758ab8_90d00582",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 13
