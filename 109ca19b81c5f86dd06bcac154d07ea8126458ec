@@ -46,6 +46,30 @@
       "revId": "109ca19b81c5f86dd06bcac154d07ea8126458ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_4b4d054d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-27T12:06:22Z",
+      "side": 1,
+      "message": "Worth adding a todo here. I can come back later and clean this and other instances. \n\nIf MaybeRecordImplicitNullCheck does not record anything there shouldn\u0027t be a need for this. It requires a bit of extra work.",
+      "parentUuid": "c3c55625_4ecaf31f",
+      "range": {
+        "startLine": 867,
+        "startChar": 2,
+        "endLine": 868,
+        "endChar": 64
+      },
+      "revId": "109ca19b81c5f86dd06bcac154d07ea8126458ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
