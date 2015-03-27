@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_0cfcf784",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T09:31:27Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "83cfde46_ac7fe38c",
+      "range": {
+        "startLine": 672,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 28
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_ee85df0a",
         "filename": "runtime/asm_support.h",
         "patchSetId": 2
@@ -203,6 +227,30 @@
       "side": 1,
       "message": "It is controlled by ARM_R4_SUSPEND_FLAG? Should we entirely remove that?",
       "parentUuid": "c3c55625_ee85df0a",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_ab510937",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T09:31:27Z",
+      "side": 1,
+      "message": "Isn\u0027t that set to false now? Bill/Vladimir/Andreas: should we get rid of that macro?",
+      "parentUuid": "83cfde46_8c822700",
       "range": {
         "startLine": 31,
         "startChar": 0,
