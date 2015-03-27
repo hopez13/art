@@ -16,6 +16,24 @@
       "revId": "572f07c0f819e69d7ff899773598efc00ed594a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_4cbc3f50",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T12:38:43Z",
+      "side": 1,
+      "message": "Yes, just like the previous implementation. The name of the rule is misleading: it actually removes all oat files in the host out\u0027s directory.\n\nThe rule below clean-oat-target, cleans the oat files on the device through adb.",
+      "parentUuid": "83cfde46_ec672b95",
+      "revId": "572f07c0f819e69d7ff899773598efc00ed594a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
