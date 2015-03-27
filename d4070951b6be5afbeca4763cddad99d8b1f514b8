@@ -16,6 +16,24 @@
       "revId": "d4070951b6be5afbeca4763cddad99d8b1f514b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_0e894b77",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T20:14:41Z",
+      "side": 1,
+      "message": "Implementation for 32-bit x86 should in a separate CL. But thanks for the hint, I\u0027ll have a look at store_method_addr_used_.\n\n(Note that this is still very early WIP, uploaded by mistake.)",
+      "parentUuid": "a3a94260_2e1a0b6e",
+      "revId": "d4070951b6be5afbeca4763cddad99d8b1f514b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
