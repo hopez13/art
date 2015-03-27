@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3ae3665_86644a92",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3921,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-27T11:47:29Z",
+      "side": 1,
+      "message": "Added a comment about cache lines.  In this case, elem_size_ is an implementation technique, and not really related to the alignment at this point.   I won\u0027t argue too much on this at this point if you feel strongly about it.",
+      "parentUuid": "c3c55625_ae5ef7fb",
+      "range": {
+        "startLine": 3920,
+        "startChar": 0,
+        "endLine": 3921,
+        "endChar": 19
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_ce926325",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-27T10:40:30Z",
       "side": 1,
       "message": "Use bit_cast",
+      "range": {
+        "startLine": 3963,
+        "startChar": 0,
+        "endLine": 3968,
+        "endChar": 9
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3a94260_48741f01",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3968,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-27T11:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3c55625_ce926325",
       "range": {
         "startLine": 3963,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e3b7bab3_a76e2a26",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3977,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-27T11:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3c55625_ee8f1ff8",
+      "range": {
+        "startLine": 3973,
+        "startChar": 0,
+        "endLine": 3977,
+        "endChar": 4
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_aeb037be",
         "filename": "compiler/optimizing/code_generator_x86_64.h",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c3ae3665_46bc1250",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-27T11:47:29Z",
+      "side": 1,
+      "message": "Okay, will move.   I wasn\u0027t sure where it really belonged.",
+      "parentUuid": "c3c55625_aeb037be",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 2
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_0e6e2bad",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-03-27T10:40:30Z",
       "side": 1,
       "message": "What is this for? Shouldn\u0027t the fixup be done at the very late?",
+      "range": {
+        "startLine": 1936,
+        "startChar": 0,
+        "endLine": 1939,
+        "endChar": 3
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ae3665_a6614681",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-27T11:47:29Z",
+      "side": 1,
+      "message": "EmitFixup (badly named, and not by me), just adds the fixup to the list, to be done at the end.\n\nShould be \u0027SaveFixup\u0027 or something similar.",
+      "parentUuid": "c3c55625_0e6e2bad",
       "range": {
         "startLine": 1936,
         "startChar": 0,
