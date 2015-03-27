@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "43d246e8_28c226d6",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T23:14:40Z",
+      "side": 1,
+      "message": "CheckJNI does have a check for this...",
+      "parentUuid": "63758ab8_0bb123c1",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 60
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63758ab8_ab5eef52",
         "filename": "runtime/mirror/accessible_object.h",
         "patchSetId": 4
