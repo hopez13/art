@@ -22,6 +22,30 @@
       "revId": "39512207750adce5ee627353a81e6064e40ca88e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_3117ca80",
+        "filename": "compiler/dex/quick/mips/target_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-03-27T15:44:07Z",
+      "side": 1,
+      "message": "You are right, there is no need to be a difference in spill ordering. I will fix this in the patch set 3.",
+      "parentUuid": "43d246e8_155156ba",
+      "range": {
+        "startLine": 847,
+        "startChar": 1,
+        "endLine": 857,
+        "endChar": 3
+      },
+      "revId": "39512207750adce5ee627353a81e6064e40ca88e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
