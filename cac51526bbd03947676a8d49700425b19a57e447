@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43d246e8_1ab21a4a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1770,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T01:12:42Z",
+      "side": 0,
+      "message": "This is old irogers code and I don\u0027t understand it. AFAIK we don\u0027t start the runtime when compiling apps. So I removed this.",
+      "range": {
+        "startLine": 1770,
+        "startChar": 27,
+        "endLine": 1770,
+        "endChar": 65
+      },
+      "revId": "cac51526bbd03947676a8d49700425b19a57e447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_e331729c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1910,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T01:12:42Z",
+      "side": 0,
+      "message": "Similarly, the runtime is not started when compiling the boot image.",
+      "range": {
+        "startLine": 1910,
+        "startChar": 5,
+        "endLine": 1910,
+        "endChar": 85
+      },
+      "revId": "cac51526bbd03947676a8d49700425b19a57e447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
