@@ -156,6 +156,24 @@
       "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_b13f6cd9",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:17:56Z",
+      "side": 1,
+      "message": "Well they are required to not regress GetFieldValue since getting from a Field to an ArtField is slow.",
+      "parentUuid": "438406cc_8263da15",
+      "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
