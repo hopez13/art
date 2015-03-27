@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3c55625_ae5ef7fb",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3921,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T10:40:30Z",
+      "side": 1,
+      "message": "Explain why you need to align. Shouldn\u0027t you use Constant::elem_size_ ?",
+      "range": {
+        "startLine": 3920,
+        "startChar": 0,
+        "endLine": 3921,
+        "endChar": 19
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_ce926325",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T10:40:30Z",
+      "side": 1,
+      "message": "Use bit_cast",
+      "range": {
+        "startLine": 3963,
+        "startChar": 0,
+        "endLine": 3968,
+        "endChar": 9
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_ee8f1ff8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T10:40:30Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3973,
+        "startChar": 0,
+        "endLine": 3977,
+        "endChar": 4
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_aeb037be",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T10:40:30Z",
+      "side": 1,
+      "message": "Looks like this could be in the assembler code?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 2
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_0e6e2bad",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T10:40:30Z",
+      "side": 1,
+      "message": "What is this for? Shouldn\u0027t the fixup be done at the very late?",
+      "range": {
+        "startLine": 1936,
+        "startChar": 0,
+        "endLine": 1939,
+        "endChar": 3
+      },
+      "revId": "c6c4e0c3aad08dd177e75036f9e2148871b800ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
