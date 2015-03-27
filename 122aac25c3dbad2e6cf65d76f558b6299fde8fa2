@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43d246e8_52607bb3",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-27T22:17:57Z",
+      "side": 1,
+      "message": "does class linker itself have this concept? should the constant be shared in class_linker.h?",
+      "range": {
+        "startLine": 400,
+        "startChar": 6,
+        "endLine": 400,
+        "endChar": 49
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_cb36cb18",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-27T22:17:57Z",
+      "side": 1,
+      "message": "should this throw?",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 60
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_ab5eef52",
+        "filename": "runtime/mirror/accessible_object.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-27T22:17:57Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_6b68d7ef",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-27T22:17:57Z",
+      "side": 1,
+      "message": "empty file?",
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_52915bcc",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-27T22:17:57Z",
+      "side": 1,
+      "message": "cut/paste comment, not quite correct in this case",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 48
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_7879a5f5",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-03-27T22:17:57Z",
+      "side": 1,
+      "message": "is that a bug or a feature.",
+      "range": {
+        "startLine": 319,
+        "startChar": 29,
+        "endLine": 319,
+        "endChar": 38
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
