@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "63a3ca80_d75aec53",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:56:12Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "63758ab8_5556dfb3",
+      "range": {
+        "startLine": 399,
+        "startChar": 96,
+        "endLine": 399,
+        "endChar": 97
+      },
+      "revId": "9939c267bd64d66e543bd8983044aa4c7099f5a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a3ca80_2c177780",
         "filename": "runtime/mirror/field-inl.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-27T17:26:33Z",
       "side": 1,
       "message": "self-\u003eAssertPendingException();?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "9939c267bd64d66e543bd8983044aa4c7099f5a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_97bd54a8",
+        "filename": "runtime/mirror/field-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63a3ca80_2c177780",
       "range": {
         "startLine": 41,
         "startChar": 4,
