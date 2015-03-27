@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63758ab8_4b7e40e0",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-27T18:55:37Z",
+      "side": 1,
+      "message": "If the use is before current-\u003eGetStart(), it must be env and should be skipped instead of getting a location. Seems to me that\u0027s a possible case. And the same assert on line 1521 should apply.",
+      "revId": "2abd692f49786c991f318ade4331f7892f877818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
