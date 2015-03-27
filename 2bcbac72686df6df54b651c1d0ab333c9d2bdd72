@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_ce882324",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T09:05:22Z",
+      "side": 1,
+      "message": "Why do you want to remove this? We need it for debugging.",
+      "parentUuid": "83cfde46_0cb637f0",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 16
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_2cbbf3d6",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -41,6 +65,53 @@
         "startChar": 0,
         "endLine": 674,
         "endChar": 28
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_0c8f172e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T09:05:22Z",
+      "side": 1,
+      "message": "Probably me that added this. It is so we don\u0027t force ourselves following the native ABI.",
+      "parentUuid": "83cfde46_2cbbf3d6",
+      "range": {
+        "startLine": 672,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 28
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_ee85df0a",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T09:05:22Z",
+      "side": 1,
+      "message": "I think you can remove this for arm as well.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 25
       },
       "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
