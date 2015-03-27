@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43d246e8_65a377a8",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T22:38:35Z",
+      "side": 1,
+      "message": "The class linker maintains alignment, but our MANAGED macro doesn\u0027t. It results in unaligned fields. To get around this I added padding, which the class linker doesn\u0027t consider. This causes the sizeof(obj) !\u003d object-\u003esizeOf(0.",
+      "parentUuid": "43d246e8_52607bb3",
+      "range": {
+        "startLine": 400,
+        "startChar": 6,
+        "endLine": 400,
+        "endChar": 49
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63758ab8_cb36cb18",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-27T22:17:57Z",
       "side": 1,
       "message": "should this throw?",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 60
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_0bb123c1",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T22:38:35Z",
+      "side": 1,
+      "message": "Not that I know, the previous behavior had some DCHECKS and would have resulted in heap corruption or crashes if non fields were passed in. CheckJNI should handle this case.",
+      "parentUuid": "63758ab8_cb36cb18",
       "range": {
         "startLine": 350,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "63758ab8_ab4d8f4f",
+        "filename": "runtime/mirror/accessible_object.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T22:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63758ab8_ab5eef52",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63758ab8_6b68d7ef",
         "filename": "runtime/mirror/array.h",
         "patchSetId": 4
@@ -82,6 +154,24 @@
       "writtenOn": "2015-03-27T22:17:57Z",
       "side": 1,
       "message": "empty file?",
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_65ea97ec",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T22:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63758ab8_6b68d7ef",
       "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "43d246e8_e513e78f",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T22:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43d246e8_52915bcc",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 48
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a3ca80_7879a5f5",
         "filename": "runtime/native/java_lang_reflect_Field.cc",
         "patchSetId": 4
@@ -122,6 +236,30 @@
       "writtenOn": "2015-03-27T22:17:57Z",
       "side": 1,
       "message": "is that a bug or a feature.",
+      "range": {
+        "startLine": 319,
+        "startChar": 29,
+        "endLine": 319,
+        "endChar": 38
+      },
+      "revId": "122aac25c3dbad2e6cf65d76f558b6299fde8fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_651857a0",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T22:38:35Z",
+      "side": 1,
+      "message": "I\u0027ll delete it, it should already be resolved since we resolve when we create the reflect Field.",
+      "parentUuid": "63a3ca80_7879a5f5",
       "range": {
         "startLine": 319,
         "startChar": 29,
