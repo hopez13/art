@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43d246e8_635b6f0d",
+        "filename": "compiler/dwarf/dwarf_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T23:45:11Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_99bca951",
+        "filename": "compiler/dwarf/dwarf_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T23:45:11Z",
+      "side": 1,
+      "message": "We don\u0027t use header files if there\u0027s only one test using it. Please move this into the .cc file.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 43
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_cfba50ad",
+        "filename": "compiler/dwarf/register.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T23:45:11Z",
+      "side": 1,
+      "message": "Indent + vertical whitespace around.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 4
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
