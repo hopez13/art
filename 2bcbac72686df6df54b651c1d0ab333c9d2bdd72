@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_6cf7bba5",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T09:30:31Z",
+      "side": 1,
+      "message": "We won\u0027t break into a JNI function, but the debugger can still investigate values of DEX registers. This code ensures the stack walker knows where to find those values.",
+      "parentUuid": "63caea3a_cb5a5554",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 16
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_2cbbf3d6",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
