@@ -34,6 +34,29 @@
       "revId": "572f07c0f819e69d7ff899773598efc00ed594a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_09414d68",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-03-27T15:28:49Z",
+      "side": 1,
+      "message": "Does xargs with no arguments remove the files? Don\u0027t you need something like xargs /bin/rm?",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 45,
+        "endChar": 74
+      },
+      "revId": "572f07c0f819e69d7ff899773598efc00ed594a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
