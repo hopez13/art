@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "63caea3a_cb5a5554",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-27T09:28:43Z",
+      "side": 1,
+      "message": "For Java debug, we won\u0027t break in JNI function. When we need to deliver exception or de-optimization, there should always be a callee-save frame(SaveAll) as top quick frame.\n\nI think currently this is only necessary for the stack visitor art test.",
+      "parentUuid": "c3c55625_ce882324",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 16
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_2cbbf3d6",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_ac7fe38c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-27T09:28:43Z",
+      "side": 1,
+      "message": "Now optimizing compiler supports callee-saves. Should we still keep this?",
+      "parentUuid": "83cfde46_0c8f172e",
+      "range": {
+        "startLine": 672,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 28
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_ee85df0a",
         "filename": "runtime/asm_support.h",
         "patchSetId": 2
@@ -107,6 +155,30 @@
       "writtenOn": "2015-03-27T09:05:22Z",
       "side": 1,
       "message": "I think you can remove this for arm as well.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "2bcbac72686df6df54b651c1d0ab333c9d2bdd72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_8c822700",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-27T09:28:43Z",
+      "side": 1,
+      "message": "It is controlled by ARM_R4_SUSPEND_FLAG? Should we entirely remove that?",
+      "parentUuid": "c3c55625_ee85df0a",
       "range": {
         "startLine": 31,
         "startChar": 0,
