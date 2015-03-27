@@ -22,6 +22,30 @@
       "revId": "109ca19b81c5f86dd06bcac154d07ea8126458ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_2b73d997",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T12:02:40Z",
+      "side": 1,
+      "message": "That is an excellent point actually. The null check has already been done because a InvokeStaticOrDirect currently says it cannot do implicit checks.\n\nI removed this code.",
+      "parentUuid": "c3c55625_4ecaf31f",
+      "range": {
+        "startLine": 867,
+        "startChar": 2,
+        "endLine": 868,
+        "endChar": 64
+      },
+      "revId": "109ca19b81c5f86dd06bcac154d07ea8126458ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
