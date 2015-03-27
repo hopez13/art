@@ -105,6 +105,30 @@
       "revId": "572f07c0f819e69d7ff899773598efc00ed594a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_eeb07fd1",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-27T15:35:52Z",
+      "side": 1,
+      "message": "target gets rid of the dalvik cache directory, so I don\u0027t think we need to.",
+      "parentUuid": "43d246e8_26702388",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 45,
+        "endChar": 74
+      },
+      "revId": "572f07c0f819e69d7ff899773598efc00ed594a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
