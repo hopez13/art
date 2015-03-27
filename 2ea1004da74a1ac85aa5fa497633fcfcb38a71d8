@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63758ab8_50682def",
+        "filename": "compiler/dex/quick/arm64/codegen_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T17:42:57Z",
+      "side": 1,
+      "message": "Is there a reason to expose this?",
+      "range": {
+        "startLine": 242,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 50
+      },
+      "revId": "2ea1004da74a1ac85aa5fa497633fcfcb38a71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_4ca5132a",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T17:42:57Z",
+      "side": 1,
+      "message": "I\u0027m not sure that is public, yet...",
+      "range": {
+        "startLine": 390,
+        "startChar": 13,
+        "endLine": 390,
+        "endChar": 44
+      },
+      "revId": "2ea1004da74a1ac85aa5fa497633fcfcb38a71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_0ee975fb",
+        "filename": "compiler/utils/dex_cache_arrays_layout.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T17:42:57Z",
+      "side": 1,
+      "message": "It\u0027s a bit non-typical to not make it kTypesOffset, but I guess it\u0027s OK in this instance.",
+      "range": {
+        "startLine": 74,
+        "startChar": 26,
+        "endLine": 74,
+        "endChar": 39
+      },
+      "revId": "2ea1004da74a1ac85aa5fa497633fcfcb38a71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
