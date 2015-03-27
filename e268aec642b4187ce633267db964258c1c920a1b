@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63758ab8_06891f25",
+        "filename": "runtime/jdwp/jdwp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T19:15:16Z",
+      "side": 1,
+      "message": "I\u0027m sure irogers would wish global lock ordering...",
+      "range": {
+        "startLine": 411,
+        "startChar": 2,
+        "endLine": 413,
+        "endChar": 54
+      },
+      "revId": "e268aec642b4187ce633267db964258c1c920a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_c60fa72f",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T19:15:16Z",
+      "side": 1,
+      "message": "Just to make sure: this is a purely sequential protocol, and this doesn\u0027t need to be a counter?",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 31
+      },
+      "revId": "e268aec642b4187ce633267db964258c1c920a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
