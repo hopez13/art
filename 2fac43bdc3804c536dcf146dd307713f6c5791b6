@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63caea3a_4ea5132a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T19:03:55Z",
+      "side": 1,
+      "message": "This is just an optimization. I don\u0027t like the repeated calculation of the sum. GetBinSizeSum() is now used only in debug builds.",
+      "parentUuid": "63758ab8_90d00582",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43d246e8_0e53b5f4",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 13
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-27T18:04:21Z",
       "side": 1,
       "message": "Not really sure why this doesn\u0027t use something like AssignImageBinSlot or SetImageBinSlot, can you elaborate please?\n\n(I looked at AssignImageBinSlot and it does have handling for kBinDexCache array there, so I am confused why this array is being set in two different places)",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_d181a697",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T19:03:55Z",
+      "side": 1,
+      "message": "I moved this here to avoid triggering the\n\n    DCHECK_LT(bin_slot.GetIndex(), bin_slot_sizes_[bin_slot.GetBin()])\n      \u003c\u003c \"bin slot offset should not exceed the size of that bin\";\n\nin IsImageBinSlotAssigned() when the indexes are assigned out-of-order by AssignImageBinSlot().",
+      "parentUuid": "43d246e8_0e53b5f4",
       "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_af8fd5a6",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T19:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63758ab8_90a5652d",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63758ab8_70cbe9ef",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 13
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_6f07ad9f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T19:03:55Z",
+      "side": 1,
+      "message": "DCHECK()ed in IsImageBinSlotAssigned() called at the end of SetImageBinSlot() called below.",
+      "parentUuid": "63758ab8_70cbe9ef",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63758ab8_b0f8a14b",
         "filename": "compiler/image_writer.h",
         "patchSetId": 13
@@ -81,6 +153,24 @@
       "writtenOn": "2015-03-27T18:04:21Z",
       "side": 1,
       "message": "If it\u0027s likely-clean can you move it under \"Likely-clean\", otherwise can you please add a note that classifies how likely the cleanliness is?",
+      "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_8e38db4e",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-27T19:03:55Z",
+      "side": 1,
+      "message": "Added a comment that it doesn\u0027t matter.",
+      "parentUuid": "63758ab8_b0f8a14b",
       "revId": "2fac43bdc3804c536dcf146dd307713f6c5791b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
