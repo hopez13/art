@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3c55625_4ecaf31f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-27T11:44:06Z",
+      "side": 1,
+      "message": "Null-check noob question: do we not have a mechanism for getting rid of this if there had been a null check already?",
+      "range": {
+        "startLine": 867,
+        "startChar": 2,
+        "endLine": 868,
+        "endChar": 64
+      },
+      "revId": "109ca19b81c5f86dd06bcac154d07ea8126458ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
