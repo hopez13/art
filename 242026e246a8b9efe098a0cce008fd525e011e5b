@@ -22,6 +22,30 @@
       "revId": "242026e246a8b9efe098a0cce008fd525e011e5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_b0868de2",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-27T03:18:38Z",
+      "side": 0,
+      "message": "bdc and I discussed the issue of dual-loaded oat files needing separate dex caches. But I already have the same problem and a possible workaround. Is there something else?",
+      "parentUuid": "43d246e8_f0a73584",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 53
+      },
+      "revId": "242026e246a8b9efe098a0cce008fd525e011e5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
