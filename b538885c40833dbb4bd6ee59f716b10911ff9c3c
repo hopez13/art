@@ -19,6 +19,41 @@
     },
     {
       "key": {
+        "uuid": "63a3ca80_0c863617",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T22:33:50Z",
+      "side": 1,
+      "message": "Ok, I talked to Andreas and he said that this probably means that you want the order of the DexCache arrays to be fixed relative to the 0th dexcache array. Seems like a good idea.",
+      "parentUuid": "63758ab8_6841bd67",
+      "revId": "b538885c40833dbb4bd6ee59f716b10911ff9c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d246e8_a5863f14",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-03-27T22:33:50Z",
+      "side": 1,
+      "message": "I think if you just call \"AssignImageBinSlot\" here (on each of the objects one after the other\") then it will do exactly what you want without having to do any of the other changes on 313-319 or 421-430",
+      "revId": "b538885c40833dbb4bd6ee59f716b10911ff9c3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a3ca80_58470980",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 19
