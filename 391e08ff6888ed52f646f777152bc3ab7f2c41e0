@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63758ab8_8b31b822",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:16:55Z",
+      "side": 1,
+      "message": "Seems less safe if people pass in values which are neither false nor true. In general, I think true is any value not false.",
+      "parentUuid": "438406cc_02226ace",
+      "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "438406cc_c21b229c",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-27T10:28:38Z",
       "side": 1,
       "message": "when will this return null ? (please add a comment).",
+      "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63758ab8_2b6f44f7",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "438406cc_c21b229c",
       "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "43d246e8_71d0244c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:16:55Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "43116641_c3545c29",
+      "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "438406cc_a21e1e8d",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2015-03-27T10:28:38Z",
       "side": 1,
       "message": "nit: this is more readable with an explicit type (instead of auto).",
+      "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a3ca80_b78970f4",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-27T18:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "438406cc_a21e1e8d",
       "revId": "391e08ff6888ed52f646f777152bc3ab7f2c41e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
