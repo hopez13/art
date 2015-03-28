@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43d246e8_54d063f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-28T04:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63a3ca80_ef5aac53",
+      "range": {
+        "startLine": 20,
+        "startChar": 47,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "4c7fff48f5eeb5a363bb4a3ed631b30b0a1e0cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43d246e8_230807ab",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
