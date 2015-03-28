@@ -34,6 +34,24 @@
       "revId": "2abd692f49786c991f318ade4331f7892f877818",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3b7bab3_4dcaed1f",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-28T16:34:50Z",
+      "side": 1,
+      "message": "If we have:\n  def\n  ...\n  if () {\n     ...\n     use1_of_def\n     ...\n     env_use1_of_def\n     ...\n  } else {\n     ...\n     use2_of_def\n     ...\n     env_use2_of_def\n     ...\n  }\nAnd the live interval for def is split across block boundaries. env_use1_of_def and env_use2_of_def fall into a hole of the live interval, or after the end of the live interval. And neither env_use1_of_def should get a location. That\u0027s what I mean by some env uses may be before current-\u003eGetStart().\n\nIs that possible? Or did I get the concept wrong somewhere?",
+      "parentUuid": "c3c55625_74bf80f4",
+      "revId": "2abd692f49786c991f318ade4331f7892f877818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
