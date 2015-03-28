@@ -16,6 +16,24 @@
       "revId": "2abd692f49786c991f318ade4331f7892f877818",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_74bf80f4",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-28T14:00:15Z",
+      "side": 1,
+      "message": "I don\u0027t think this can happen. We\u0027re iterating over the siblings, and the siblings cover the ranges where the instruction is used. So this takes care of environment uses within that range. The only other environment uses are after that range and are checked line 1521.",
+      "parentUuid": "63758ab8_4b7e40e0",
+      "revId": "2abd692f49786c991f318ade4331f7892f877818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
