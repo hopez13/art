@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "63a3ca80_82abcfd4",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-28T04:42:40Z",
+      "side": 1,
+      "message": "Added comment, added test in class_linker_test.",
+      "parentUuid": "63758ab8_74f2f46b",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 65
+      },
+      "revId": "4c7fff48f5eeb5a363bb4a3ed631b30b0a1e0cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43d246e8_fe97f846",
         "filename": "runtime/mirror/object_test.cc",
         "patchSetId": 3
