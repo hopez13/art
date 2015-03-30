@@ -2,6 +2,512 @@
   "comments": [
     {
       "key": {
+        "uuid": "63caea3a_b1b098be",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "do following -\u003e do the following",
+      "range": {
+        "startLine": 28,
+        "startChar": 52,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_517ff464",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "let\u0027s -\u003e we",
+      "range": {
+        "startLine": 36,
+        "startChar": 44,
+        "endLine": 36,
+        "endChar": 49
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_95a9c689",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "I\u0027d drop \"this-\u003e\". Here and all occurences below.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_b5a642b7",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Relative?",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 10
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_b41ba69c",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Relative",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 10
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_f7d9321f",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Having RelOffsets and RelOffset is confusing. How about RelativeOffsetForMany/RelativeOffsetForOne ?",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_55959e3f",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Restores/Restore -\u003e RestoreMany/RestoreOne?",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 15
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_35949241",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Please add a comment what are reg and new_reg. Is that just a move?",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 36
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_d588ae23",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "move this to the beginning of the method?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 35
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_346d76ff",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Style in ART is to call this GetCurrentCFAOffset()",
+      "range": {
+        "startLine": 237,
+        "startChar": 6,
+        "endLine": 237,
+        "endChar": 23
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_d47192dd",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "SetCurrentCFAOffset",
+      "range": {
+        "startLine": 241,
+        "startChar": 7,
+        "endLine": 241,
+        "endChar": 29
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_f585aa0a",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Could you avoid this?",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 32
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_947b0aba",
+        "filename": "compiler/dwarf/debug_frame_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "const? (otherwise make it a pointer).",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 61
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_3501f207",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "the following",
+      "range": {
+        "startLine": 27,
+        "startChar": 55,
+        "endLine": 27,
+        "endChar": 63
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_3446d681",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Add a kConstant for this?",
+      "range": {
+        "startLine": 157,
+        "startChar": 24,
+        "endLine": 157,
+        "endChar": 28
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_b7b08abe",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 172,
+        "startChar": 17,
+        "endLine": 172,
+        "endChar": 21
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_f457ee2a",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "GetCodeFactorBits (applies to here and below).",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 22
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_94546a28",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Please avoid.",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 14
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_b4516637",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "nit: one argument per line?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 61
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_778462e2",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 39,
+        "startChar": 18,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_54acc29d",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 40,
+        "startChar": 21,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_17795e7d",
+        "filename": "compiler/dwarf/debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43d246e8_635b6f0d",
         "filename": "compiler/dwarf/dwarf_test.cc",
         "patchSetId": 1
@@ -135,6 +641,75 @@
         "startChar": 2,
         "endLine": 52,
         "endChar": 4
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_7520da99",
+        "filename": "compiler/dwarf/writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "Why not taking a const char* then?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 55
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_d792f624",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "This is the same code as above. I know it doesn\u0027t come from you, but could you try sharing it?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 1
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_d52e6e8a",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T13:58:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 1
       },
       "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
