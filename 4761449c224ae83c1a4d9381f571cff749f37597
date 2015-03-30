@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3c55625_571b6674",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-30T13:11:52Z",
+      "side": 1,
+      "message": "Do we need this in non-debug? Seems more like a sanity check that should break if somebody tries to use the function in a wrong way, rather than something that could break out in the wild.",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
