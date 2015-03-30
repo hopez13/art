@@ -590,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "63a3ca80_0007d7d4",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-30T15:11:17Z",
+      "side": 1,
+      "message": "That\u0027s not correct. The style guide is against using namespace.\n\nThis is the correct C++ way to ensure \u0027availability\u0027 of the super-classes\u0027 field when templates are involved, and we already do this in our codebase.\n\n(\u0027Using\u0027 is also the now-standard way to do a typedef.)",
+      "parentUuid": "63caea3a_f4036ec4",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 32
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_947b0aba",
         "filename": "compiler/dwarf/debug_frame_writer.h",
         "patchSetId": 1
