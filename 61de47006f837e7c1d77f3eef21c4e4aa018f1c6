@@ -34,6 +34,24 @@
       "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43308612_36d5c23a",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-30T22:30:30Z",
+      "side": 1,
+      "message": "If we iterate through ranges not just intervals, we don\u0027t need to test Covers(). Just \u003c range-\u003eGetStart() instead since we already tested \u003c\u003d range-\u003eGetEnd(). We move to the next sibling when the current sibling runs out of ranges. Is it worth a try?",
+      "parentUuid": "a3ece2ce_2d958d41",
+      "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
