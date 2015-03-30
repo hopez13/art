@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3a94260_ae9276d1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2338,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "__ testl(i1, i1)",
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ae3665_acca87c5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "__ xorl(o, o)",
+      "range": {
+        "startLine": 2350,
+        "startChar": 9,
+        "endLine": 2350,
+        "endChar": 13
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3a94260_0e962ac9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2372,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "__ testl(i1, i1)",
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3b7bab3_f0da96ea",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "xorl(o, o)",
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ae3665_8ce6ab58",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "tstl(i1, i1)",
+      "range": {
+        "startLine": 2443,
+        "startChar": 13,
+        "endLine": 2443,
+        "endChar": 17
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3a94260_ee506e66",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "xorl(res, res)",
+      "range": {
+        "startLine": 2446,
+        "startChar": 13,
+        "endLine": 2446,
+        "endChar": 17
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3a94260_31c4ab90",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "Do we need to have a fixed EBX, or is any register okay?",
+      "range": {
+        "startLine": 2543,
+        "startChar": 54,
+        "endLine": 2543,
+        "endChar": 57
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3b7bab3_b0e41ea9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2614,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T17:33:25Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2614,
+        "startChar": 54,
+        "endLine": 2614,
+        "endChar": 57
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
