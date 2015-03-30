@@ -81,6 +81,30 @@
       "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_34cb36f1",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-30T15:35:30Z",
+      "side": 1,
+      "message": "But these methods are called quite frequently, so adding these might have a non-negligible effect on compile time. If you want to keep it like this, could you first check what the difference is with Golem?",
+      "parentUuid": "63caea3a_f4ca8e98",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
