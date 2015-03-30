@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "83cfde46_928c7c05",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-30T09:25:12Z",
+      "side": 1,
+      "message": "So how come you don\u0027t need to decrement i,e here?",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 996,
+        "endChar": 28
+      },
+      "revId": "2eeb921b1c62ded659c0ded6997d17a52c96313b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_b28978f4",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-30T09:25:12Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1000,
+        "endChar": 53
+      },
+      "revId": "2eeb921b1c62ded659c0ded6997d17a52c96313b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_718470e2",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-30T09:25:12Z",
+      "side": 1,
+      "message": "This assumes the other half was in the array right after \u0027inactive\u0027. Which it should, but could we add a DCHECK? It\u0027s not obvious...",
+      "range": {
+        "startLine": 1033,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 18
+      },
+      "revId": "2eeb921b1c62ded659c0ded6997d17a52c96313b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_f431309c",
         "filename": "test/467-regalloc-pair/smali/TestCase.smali",
         "patchSetId": 3
