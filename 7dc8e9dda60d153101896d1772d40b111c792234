@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63caea3a_b16e5826",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "full stop instead of \u0027and\u0027.",
+      "range": {
+        "startLine": 367,
+        "startChar": 53,
+        "endLine": 367,
+        "endChar": 56
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_5174d400",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "overall rant (you can ignore) :) I still feel we overdo it with names... way too long... for me it\u0027s actually a bit harder to read.",
+      "range": {
+        "startLine": 471,
+        "startChar": 2,
+        "endLine": 471,
+        "endChar": 90
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_f76e12f9",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "nit: flatten?",
+      "range": {
+        "startLine": 473,
+        "startChar": 14,
+        "endLine": 473,
+        "endChar": 26
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_95d78643",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "nit: use a single row. (in the other places as well)",
+      "range": {
+        "startLine": 179,
+        "startChar": 9,
+        "endLine": 179,
+        "endChar": 15
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_55e35e1f",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "instead of if-else use `i % 2` here.",
+      "range": {
+        "startLine": 367,
+        "startChar": 74,
+        "endLine": 367,
+        "endChar": 75
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_1512b68f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "As things are getting more and more complex we should document what kind of compression we apply somewhere at the top. \n\nI can do it in a follow up CL.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_779a2271",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "can you remind me how did we make this work for long constants?",
+      "range": {
+        "startLine": 198,
+        "startChar": 33,
+        "endLine": 198,
+        "endChar": 40
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_32f828f8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "After reading the code again I think the fact we have an \"Internal\" kind and a \"Surface\" one complicates things and is error prone. I suggest we use two enums even if there\u0027s duplication. \n\nThis can be done in another CL.",
+      "range": {
+        "startLine": 480,
+        "startChar": 28,
+        "endLine": 480,
+        "endChar": 43
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_71d5506f",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "I think this is quite obvious so you can remove the remark.",
+      "range": {
+        "startLine": 560,
+        "startChar": 5,
+        "endLine": 562,
+        "endChar": 41
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_54ba8205",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T13:07:03Z",
+      "side": 1,
+      "message": "nit: use this as a first param? since that\u0027s the one you\u0027re gonna set and the rest are just \"helpers\".",
+      "range": {
+        "startLine": 564,
+        "startChar": 43,
+        "endLine": 564,
+        "endChar": 71
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
