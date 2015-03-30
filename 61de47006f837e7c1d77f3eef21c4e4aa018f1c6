@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43308612_7ff2886b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-30T18:49:17Z",
+      "side": 1,
+      "message": "Looks like it\u0027s better to change the order of the two tests.\nTest if (current-\u003eCovers(use-\u003eGetPosition())) first. If it fails, assert it\u0027s an env use and continue. Otherwise, do line 1416 for env use.",
+      "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
