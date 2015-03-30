@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c3c55625_345c9880",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-30T11:05:57Z",
+      "side": 1,
+      "message": "nit: use early return (if you find it more readable as well)",
+      "range": {
+        "startLine": 856,
+        "startChar": 2,
+        "endLine": 856,
+        "endChar": 4
+      },
+      "revId": "2eeb921b1c62ded659c0ded6997d17a52c96313b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_928c7c05",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
