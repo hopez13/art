@@ -614,6 +614,30 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_77aa22fb",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T15:13:42Z",
+      "side": 1,
+      "message": "I said \"kind of\" because I can\u0027t read it fully. So again, what is that for? How would you write the uses without the using?",
+      "parentUuid": "63a3ca80_0007d7d4",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 32
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_947b0aba",
         "filename": "compiler/dwarf/debug_frame_writer.h",
         "patchSetId": 1
