@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63caea3a_3427b66a",
+        "filename": "compiler/dwarf/dwarf_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-30T15:13:26Z",
+      "side": 1,
+      "message": "There\u0027s no objdump on target. Make sure the test is run only on host.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 42
+      },
+      "revId": "1dbff5a9abed2175e02b92cf36ac2ca4ced668bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
