@@ -638,6 +638,30 @@
     },
     {
       "key": {
+        "uuid": "63caea3a_f4312e9c",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-30T15:17:38Z",
+      "side": 1,
+      "message": "It is there so that the users can access the generated buffer with writer.data()\n(on the other hand, I intentionally do not let the users to call writer.push* methods)",
+      "parentUuid": "c3c55625_77aa22fb",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 32
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_947b0aba",
         "filename": "compiler/dwarf/debug_frame_writer.h",
         "patchSetId": 1
