@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3b7bab3_5047e27f",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T11:44:54Z",
+      "side": 1,
+      "message": "all parameters are used",
+      "range": {
+        "startLine": 156,
+        "startChar": 63,
+        "endLine": 156,
+        "endChar": 79
+      },
+      "revId": "5d3305dbe2998307720e83bef17a9f2c0448a926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3ae3665_acfda736",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-30T11:44:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you use kPcDisplacement here?",
+      "range": {
+        "startLine": 161,
+        "startChar": 44,
+        "endLine": 161,
+        "endChar": 46
+      },
+      "revId": "5d3305dbe2998307720e83bef17a9f2c0448a926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
