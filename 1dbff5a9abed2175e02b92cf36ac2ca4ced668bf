@@ -22,6 +22,30 @@
       "revId": "1dbff5a9abed2175e02b92cf36ac2ca4ced668bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_94154af5",
+        "filename": "compiler/dwarf/dwarf_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-30T15:29:07Z",
+      "side": 1,
+      "message": "How do I do that?\nI wrapped the actual test cases with #ifndef HAVE_ANDROID_OS\nThat is not the solution?",
+      "parentUuid": "63caea3a_3427b66a",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 42
+      },
+      "revId": "1dbff5a9abed2175e02b92cf36ac2ca4ced668bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
