@@ -16,6 +16,24 @@
       "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_2d958d41",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T21:12:23Z",
+      "side": 1,
+      "message": "Covers could be expensive, it might make sense to only pay if it\u0027s an environment use.",
+      "parentUuid": "43308612_7ff2886b",
+      "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
