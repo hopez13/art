@@ -694,6 +694,30 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_d740b614",
+        "filename": "runtime/leb128.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-30T14:23:10Z",
+      "side": 1,
+      "message": "Leave this as is. I have made the decision to not share the code and I should be the one to deduplicate if needed.\n\n(I have previously considered\n\n  dest-\u003ereserve(dest-\u003esize(), UnsignedLeb128Size(value));\n  UncodeUnsignedLeb128(\u0026(*dest)[0] + dest-\u003esize(), value);\n\nHowever, this could have very bad impact on performance because, unlike push_back(), consecutive calls to reserve() for one extra element do not guarantee amortized O(1) complexity. libstdc++ would actually reallocate on each call.)",
+      "parentUuid": "c3c55625_d792f624",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 1
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_d52e6e8a",
         "filename": "runtime/leb128.h",
         "patchSetId": 1
