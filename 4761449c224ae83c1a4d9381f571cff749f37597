@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_3546d281",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-30T15:22:10Z",
+      "side": 1,
+      "message": "Yes, although 4-byte alignment would work on all supported platforms would.  Fixed in PS2.",
+      "parentUuid": "c3c55625_1715de3e",
+      "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_571b6674",
         "filename": "runtime/memory_region.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2015-03-30T13:11:52Z",
       "side": 1,
       "message": "Do we need this in non-debug? Seems more like a sanity check that should break if somebody tries to use the function in a wrong way, rather than something that could break out in the wild.",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_f4ca8e98",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-30T15:22:10Z",
+      "side": 1,
+      "message": "I was initially going for DCHECK instead of CHECK here, but as all other assertions in this file are implemented as CHECK*, I eventually decided to stick with that style.",
+      "parentUuid": "c3c55625_571b6674",
       "range": {
         "startLine": 57,
         "startChar": 4,
