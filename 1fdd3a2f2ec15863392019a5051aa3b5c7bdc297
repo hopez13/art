@@ -22,6 +22,29 @@
       "revId": "1fdd3a2f2ec15863392019a5051aa3b5c7bdc297",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_941f8ae2",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-30T15:58:18Z",
+      "side": 1,
+      "message": "Nit: there\u0027s an env variable for this. ANDROID_HOST_OUT iirc",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "1fdd3a2f2ec15863392019a5051aa3b5c7bdc297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
