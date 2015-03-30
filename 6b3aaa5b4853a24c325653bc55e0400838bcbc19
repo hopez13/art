@@ -566,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "63caea3a_f4036ec4",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T15:06:18Z",
+      "side": 1,
+      "message": "So what is that for? C++ style guide kind of asks not to use \"using\".",
+      "parentUuid": "63caea3a_b4bac6ab",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 245,
+        "endChar": 32
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_947b0aba",
         "filename": "compiler/dwarf/debug_frame_writer.h",
         "patchSetId": 1
@@ -883,6 +907,30 @@
       "side": 1,
       "message": "Done.  Is there Art Style document somewhere?  So far I have been following the Google C++ Style Guide, and that seems to differ on many aspects.",
       "parentUuid": "63caea3a_b4516637",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 61
+      },
+      "revId": "6b3aaa5b4853a24c325653bc55e0400838bcbc19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_d50bced4",
+        "filename": "compiler/dwarf/debug_line_opcode_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-30T15:06:18Z",
+      "side": 1,
+      "message": "No, it\u0027s more of a per-person preference. This one is more of a nit than a requirement.\n\n(Note that the capital getters/setters is not following C++ style guide).",
+      "parentUuid": "83cfde46_9561c6ba",
       "range": {
         "startLine": 209,
         "startChar": 0,
