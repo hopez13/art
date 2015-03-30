@@ -22,6 +22,30 @@
       "revId": "02adad12feef399a8d3058575c05208b5eb0311f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43308612_e950a666",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2015-03-30T18:03:45Z",
+      "side": 1,
+      "message": "I was thinking those should get handled as config file options that are longer-lived and more flexible than environment variables",
+      "parentUuid": "03dccefb_fa403614",
+      "range": {
+        "startLine": 128,
+        "startChar": 36,
+        "endLine": 128,
+        "endChar": 65
+      },
+      "revId": "02adad12feef399a8d3058575c05208b5eb0311f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
