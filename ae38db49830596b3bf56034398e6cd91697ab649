@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "83fb5e85_d2b6246a",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-31T19:58:17Z",
+      "side": 1,
+      "message": "Yes, and we should. Done.",
+      "parentUuid": "e3d89a3c_629f78df",
+      "revId": "ae38db49830596b3bf56034398e6cd91697ab649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3d89a3c_82a47c2d",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2015-03-31T15:42:17Z",
       "side": 1,
       "message": "Not accurate and not needed.",
+      "revId": "ae38db49830596b3bf56034398e6cd91697ab649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_32a5e82b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-31T19:58:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d89a3c_82a47c2d",
       "revId": "ae38db49830596b3bf56034398e6cd91697ab649",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
