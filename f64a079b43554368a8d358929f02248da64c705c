@@ -389,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "83fb5e85_0fd52970",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T14:30:29Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "c3f1d6a3_71edb287",
+      "range": {
+        "startLine": 59,
+        "startChar": 12,
+        "endLine": 59,
+        "endChar": 19
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f1d6a3_b1927a23",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 3
