@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a315c284_87157d41",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-31T17:51:54Z",
+      "side": 1,
+      "message": "I think passing the space bitmaps as two arguments might be cleaner here instead of getting them from the heap.",
+      "range": {
+        "startLine": 1169,
+        "startChar": 26,
+        "endLine": 1169,
+        "endChar": 34
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_442b83fe",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-31T17:51:54Z",
+      "side": 1,
+      "message": "Since we are walking the heap in increasing order, I don\u0027t think we need to keep a side array of runs like this. It should be possible to do the merge in the first loop. Thoughts yamauchi?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 0,
+        "endLine": 1185,
+        "endChar": 25
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_a49fd7aa",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-31T17:51:54Z",
+      "side": 1,
+      "message": "Missing whitespace",
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_241da71f",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-31T17:51:54Z",
+      "side": 1,
+      "message": "Why do we need a page map size snapshot?",
+      "range": {
+        "startLine": 215,
+        "startChar": 14,
+        "endLine": 215,
+        "endChar": 36
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_2fcf442f",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-03-31T17:51:54Z",
+      "side": 1,
+      "message": "Is it possible to move this logic into RosAllocSpace::Sweep instead?",
+      "range": {
+        "startLine": 1153,
+        "startChar": 8,
+        "endLine": 1153,
+        "endChar": 18
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
