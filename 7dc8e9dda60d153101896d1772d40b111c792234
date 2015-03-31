@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "63caea3a_14515aba",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63caea3a_b16e5826",
+      "range": {
+        "startLine": 367,
+        "startChar": 53,
+        "endLine": 367,
+        "endChar": 56
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_5174d400",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-03-30T13:07:03Z",
       "side": 1,
       "message": "overall rant (you can ignore) :) I still feel we overdo it with names... way too long... for me it\u0027s actually a bit harder to read.",
+      "range": {
+        "startLine": 471,
+        "startChar": 2,
+        "endLine": 471,
+        "endChar": 90
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_35cb32f1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Yeah, I know.  I have dropped the \"DexRegister\" and \"dex_register_\" prefixes on some names in PS9.",
+      "parentUuid": "63caea3a_5174d400",
       "range": {
         "startLine": 471,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "83cfde46_159f16e0",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "IMHO \"flatten(ed)\" implies a notion of hierarchy/levels, which is irrelevant here.  I used \"concatenated\" to convey the idea that these maps are spliced to one another.",
+      "parentUuid": "c3c55625_f76e12f9",
+      "range": {
+        "startLine": 473,
+        "startChar": 14,
+        "endLine": 473,
+        "endChar": 26
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_95d78643",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2015-03-30T13:07:03Z",
       "side": 1,
       "message": "nit: use a single row. (in the other places as well)",
+      "range": {
+        "startLine": 179,
+        "startChar": 9,
+        "endLine": 179,
+        "endChar": 15
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_f595aabc",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83cfde46_95d78643",
       "range": {
         "startLine": 179,
         "startChar": 9,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_97e6ae58",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Thanks, this looks much better. :)\nDone in PS9.",
+      "parentUuid": "83cfde46_55e35e1f",
+      "range": {
+        "startLine": 367,
+        "startChar": 74,
+        "endLine": 367,
+        "endChar": 75
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_1512b68f",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2015-03-30T13:07:03Z",
       "side": 1,
       "message": "As things are getting more and more complex we should document what kind of compression we apply somewhere at the top. \n\nI can do it in a follow up CL.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cfde46_55027e90",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Totally agreed!  We discussed this with Nicolas, and we think that we should start documenting the CodeInfo/StackMap/DexRegisterMaps format when the code is stable.",
+      "parentUuid": "83cfde46_1512b68f",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_97c30ea5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Long (as in 64-bit wide) constants are implemented using two Dex register locations.  See the implementation of art::CodeGenerator::RecordPcInfo in https://android.googlesource.com/platform/art/+/392351a8aa9c6aec288050ef3f1f5471305b27c1/compiler/optimizing/code_generator.cc, lines 613–619.",
+      "parentUuid": "c3c55625_779a2271",
+      "range": {
+        "startLine": 198,
+        "startChar": 33,
+        "endLine": 198,
+        "endChar": 40
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cfde46_32f828f8",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -174,6 +342,30 @@
       "writtenOn": "2015-03-30T13:07:03Z",
       "side": 1,
       "message": "After reading the code again I think the fact we have an \"Internal\" kind and a \"Surface\" one complicates things and is error prone. I suggest we use two enums even if there\u0027s duplication. \n\nThis can be done in another CL.",
+      "range": {
+        "startLine": 480,
+        "startChar": 28,
+        "endLine": 480,
+        "endChar": 43
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63caea3a_f4128edb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s my to-do list (see line 174). ;)",
+      "parentUuid": "83cfde46_32f828f8",
       "range": {
         "startLine": 480,
         "startChar": 28,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "c3c55625_c2023238",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63caea3a_71d5506f",
+      "range": {
+        "startLine": 560,
+        "startChar": 5,
+        "endLine": 562,
+        "endChar": 41
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_54ba8205",
         "filename": "runtime/stack_map.h",
         "patchSetId": 8
@@ -220,6 +436,30 @@
       "writtenOn": "2015-03-30T13:07:03Z",
       "side": 1,
       "message": "nit: use this as a first param? since that\u0027s the one you\u0027re gonna set and the rest are just \"helpers\".",
+      "range": {
+        "startLine": 564,
+        "startChar": 43,
+        "endLine": 564,
+        "endChar": 71
+      },
+      "revId": "7dc8e9dda60d153101896d1772d40b111c792234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c55625_a21e068d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T09:43:33Z",
+      "side": 1,
+      "message": "Regarding argument ordering, the style says \"When defining a function, parameter order is: inputs, then outputs.\".  `location_catalog_entry_index\u0027 is not an \"output\" per se, but it feels more natural to have it after `index_in_dex_register_map\u0027, which can be seen as a \"primary input\".  More generally, when handling key-value (or index-value) pairs, I think it is better to have the key (or index) first.",
+      "parentUuid": "63caea3a_54ba8205",
       "range": {
         "startLine": 564,
         "startChar": 43,
