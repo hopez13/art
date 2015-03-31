@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a3ece2ce_ed642593",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T10:15:45Z",
+      "side": 1,
+      "message": "not sure how relevant this comment is.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 30
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3ece2ce_cdfde936",
         "filename": "runtime/memory_region.h",
         "patchSetId": 2
@@ -18,6 +41,53 @@
         "startChar": 0,
         "endLine": 33,
         "endChar": 71
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_4c11ffd8",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T10:15:45Z",
+      "side": 1,
+      "message": "I think this adds more clarity. It\u0027s a pity we can\u0027t use other one...",
+      "parentUuid": "a3ece2ce_cdfde936",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_cd8fa9a6",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T10:15:45Z",
+      "side": 1,
+      "message": "since we also have LoadUnligned I\u0027ll probably use a DCHECK here.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 9
       },
       "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
