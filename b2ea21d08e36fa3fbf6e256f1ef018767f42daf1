@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ece2ce_30a5e62b",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T14:22:27Z",
+      "side": 1,
+      "message": "will fix the length.",
+      "range": {
+        "startLine": 92,
+        "startChar": 97,
+        "endLine": 92,
+        "endChar": 107
+      },
+      "revId": "b2ea21d08e36fa3fbf6e256f1ef018767f42daf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_90ac9a1a",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T14:22:27Z",
+      "side": 1,
+      "message": "This could be a visitor but I find having this explicitly here clearer. I don\u0027t have a strong feeling though  :)",
+      "range": {
+        "startLine": 190,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 7
+      },
+      "revId": "b2ea21d08e36fa3fbf6e256f1ef018767f42daf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_11aa6ef9",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T14:22:27Z",
+      "side": 1,
+      "message": "how come this can\u0027t be null?",
+      "range": {
+        "startLine": 474,
+        "startChar": 9,
+        "endLine": 474,
+        "endChar": 22
+      },
+      "revId": "b2ea21d08e36fa3fbf6e256f1ef018767f42daf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
