@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3da2233_fd25e7a4",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-03-31T17:42:43Z",
+      "side": 1,
+      "message": "Isn\u0027t it time GetHighStackIndex removed the need to pass in 4 everywhere?",
+      "range": {
+        "startLine": 85,
+        "startChar": 40,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "a2d15b5e486021bef330b70c21e99557cb116ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
