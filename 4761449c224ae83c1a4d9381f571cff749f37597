@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "83fb5e85_0c07f79f",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T11:17:09Z",
+      "side": 1,
+      "message": "From my experiments, yes, these loads/store are word-aligned.",
+      "parentUuid": "c3f1d6a3_0ebfebf4",
+      "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3c55625_571b6674",
         "filename": "runtime/memory_region.h",
         "patchSetId": 1
@@ -114,6 +132,30 @@
       "side": 1,
       "message": "But these methods are called quite frequently, so adding these might have a non-negligible effect on compile time. If you want to keep it like this, could you first check what the difference is with Golem?",
       "parentUuid": "63caea3a_f4ca8e98",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 9
+      },
+      "revId": "4761449c224ae83c1a4d9381f571cff749f37597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_6d9f95df",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T11:17:09Z",
+      "side": 1,
+      "message": "Fair enough. :) I have changed the CHECKs into DCHECKs, as these assertions are admittedly less critical than others in this file (especially on non-ARM architectures).",
+      "parentUuid": "63caea3a_34cb36f1",
       "range": {
         "startLine": 57,
         "startChar": 4,
