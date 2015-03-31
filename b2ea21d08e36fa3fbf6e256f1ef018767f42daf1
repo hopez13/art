@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "83fb5e85_2f746500",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T14:44:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d89a3c_226e507f",
+      "range": {
+        "startLine": 285,
+        "startChar": 30,
+        "endLine": 285,
+        "endChar": 39
+      },
+      "revId": "b2ea21d08e36fa3fbf6e256f1ef018767f42daf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f1d6a3_11aa6ef9",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 1
@@ -105,6 +129,30 @@
       "writtenOn": "2015-03-31T14:41:21Z",
       "side": 1,
       "message": "would this be better as kNumTypes without the \u0027\u003d\u0027?  Don\u0027t you need one entry for each type when you are multiplying by the size to get reg_type_index?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 13
+      },
+      "revId": "b2ea21d08e36fa3fbf6e256f1ef018767f42daf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_ef9c1db8",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T14:44:48Z",
+      "side": 1,
+      "message": "yes. Thank you!",
+      "parentUuid": "03d68e0c_a0c33ab6",
       "range": {
         "startLine": 60,
         "startChar": 4,
