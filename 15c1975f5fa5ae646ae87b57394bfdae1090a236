@@ -22,6 +22,30 @@
       "revId": "15c1975f5fa5ae646ae87b57394bfdae1090a236",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_129b8c4c",
+        "filename": "compiler/dwarf/dwarf_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-03-31T16:25:29Z",
+      "side": 1,
+      "message": "It is not the same.  assembler_test.h is looking for tools for the target, whereas I look just for the host binary.",
+      "parentUuid": "c3f1d6a3_7415a03e",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 3
+      },
+      "revId": "15c1975f5fa5ae646ae87b57394bfdae1090a236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
