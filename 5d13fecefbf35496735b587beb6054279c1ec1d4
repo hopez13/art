@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3ece2ce_4df8d9f8",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T11:17:53Z",
+      "side": 1,
+      "message": "Removed in PS3.",
+      "parentUuid": "a3ece2ce_ed642593",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 30
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3ece2ce_cdfde936",
         "filename": "runtime/memory_region.h",
         "patchSetId": 2
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a3ece2ce_adc33db6",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T11:17:53Z",
+      "side": 1,
+      "message": "I also think it\u0027s more sound to use the per-platform word length instead of a universal value.  And even if using a 4-byte alignment everywhere works today, it might break later (especially on archs I haven\u0027t tested, such as MIPS and MIPS64).\n\nI also thought about adding a less static version of art::IsAligned in my first patch set; I now think it is probably the best solution, as it is the shortest one. :)  And it appears it already exists (art::IsAlignedParam)!  Done in PS3.",
+      "parentUuid": "83fb5e85_4c11ffd8",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3ece2ce_cd8fa9a6",
         "filename": "runtime/memory_region.h",
         "patchSetId": 2
@@ -83,6 +131,30 @@
       "writtenOn": "2015-03-31T10:15:45Z",
       "side": 1,
       "message": "since we also have LoadUnligned I\u0027ll probably use a DCHECK here.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 9
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_8e3bdb4a",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T11:17:53Z",
+      "side": 1,
+      "message": "Yes, done in PS3.",
+      "parentUuid": "a3ece2ce_cd8fa9a6",
       "range": {
         "startLine": 66,
         "startChar": 4,
