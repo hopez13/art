@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "03af6e90_181b8575",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T23:44:17Z",
+      "side": 1,
+      "message": "I don\u0027t immediately see problems with inlining. \nAnd I\u0027m not sure that checking just the next one captures all the cases. I think we  could potentially have a non-ref equivalent in between?\n\nI will think more about it and adapt the code accordingly.",
+      "parentUuid": "43b5e6d8_fad40940",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 34
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43b5e6d8_3ae841f8",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -128,6 +152,30 @@
       "writtenOn": "2015-03-31T22:10:05Z",
       "side": 1,
       "message": "How about non-phi inputs? We also want them to be properly typed with null on the left/right side instead of 0.",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 16
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23b8f2d3_99f6bbdc",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T23:44:17Z",
+      "side": 1,
+      "message": "good point. I\u0027ll add logic for that as well.",
+      "parentUuid": "43b5e6d8_5addf55c",
       "range": {
         "startLine": 207,
         "startChar": 8,
