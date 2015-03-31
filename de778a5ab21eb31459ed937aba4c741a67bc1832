@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c3f1d6a3_344158fb",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-31T18:56:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83143e89_9afcb287",
+      "range": {
+        "startLine": 517,
+        "startChar": 8,
+        "endLine": 518,
+        "endChar": 74
+      },
+      "revId": "de778a5ab21eb31459ed937aba4c741a67bc1832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "630f4a79_c292c724",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2015-03-31T18:27:14Z",
       "side": 1,
       "message": "Please comment each line, so a reader doesn\u0027t need to go to the ARMv8 instruction manual.",
+      "range": {
+        "startLine": 556,
+        "startChar": 11,
+        "endLine": 565,
+        "endChar": 44
+      },
+      "revId": "de778a5ab21eb31459ed937aba4c741a67bc1832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_9331449e",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-31T18:56:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "630f4a79_c292c724",
       "range": {
         "startLine": 556,
         "startChar": 11,
