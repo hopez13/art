@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ece2ce_cdfde936",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-03-31T08:54:36Z",
+      "side": 1,
+      "message": "If a 4-byte align is enough for all platforms, is it actually worth going into this much trouble rather than just leaving a comment? And if it is, wouldn\u0027t it be easier to implement a non-templated IsAligned with which we could use the original GetInstructionSetPointerSize?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "5d13fecefbf35496735b587beb6054279c1ec1d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
