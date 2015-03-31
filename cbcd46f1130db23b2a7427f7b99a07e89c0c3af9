@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "83fb5e85_6c795b7d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-03-31T08:00:37Z",
+      "side": 1,
+      "message": "It looks like this is already implemented in\n./compiler/dex/quick/x86/int_x86.cc.\n\nMaybe we can share the code?\nAt some point we will want to do that for other archs.",
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63caea3a_5f313b1f",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
