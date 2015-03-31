@@ -22,6 +22,483 @@
       "revId": "f64a079b43554368a8d358929f02248da64c705c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_51a5167f",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Add a comment about ReadAt returning -1 in case of error? Also, it would be nice to document `check_max\u0027.",
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_efb37dc9",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 108
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_7179327d",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit: 0u (to be consistent with the DCHECK on line 54).",
+      "range": {
+        "startLine": 27,
+        "startChar": 25,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_6f794d7d",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 30,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_11842ee1",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 37,
+        "startChar": 32,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_307fa666",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 44,
+        "startChar": 32,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_f0b35ec9",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit:\n\n  (high \u003c\u003c 16) + low\n\n(Just a personal preference, don\u0027t feel obliged.) :)",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 39
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_70a00e71",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "As ReadAt and StoreAt are not specific to stack maps, maybe they could become members of art::MemoryRegion later (maybe with different names)?",
+      "range": {
+        "startLine": 59,
+        "startChar": 12,
+        "endLine": 59,
+        "endChar": 19
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_b1927a23",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit: 0u (to be consistent with the DCHECK on line 71).",
+      "range": {
+        "startLine": 60,
+        "startChar": 25,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_3164cace",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 108
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_1169cea4",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 130
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_af57b5e4",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 110
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_8f5479e1",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 122
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_51735696",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 102
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_f08cfe05",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 104
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_d08902f4",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 104
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_8f9c7970",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 639,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 109
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fb5e85_4fe8d1a6",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Maybe restore the comment about \"+ 1\" before this function call?",
+      "range": {
+        "startLine": 644,
+        "startChar": 64,
+        "endLine": 644,
+        "endChar": 89
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_11eeeeb5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "bit_offset?",
+      "range": {
+        "startLine": 650,
+        "startChar": 28,
+        "endLine": 650,
+        "endChar": 34
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_b1dc3a11",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "Nit: GetNumberOfBytesForEncoding?",
+      "range": {
+        "startLine": 658,
+        "startChar": 9,
+        "endLine": 658,
+        "endChar": 33
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_b0dc3611",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-03-31T13:27:53Z",
+      "side": 1,
+      "message": "bit_offset?",
+      "range": {
+        "startLine": 658,
+        "startChar": 41,
+        "endLine": 658,
+        "endChar": 47
+      },
+      "revId": "f64a079b43554368a8d358929f02248da64c705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
