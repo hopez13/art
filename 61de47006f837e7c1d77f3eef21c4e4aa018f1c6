@@ -52,6 +52,24 @@
       "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f1d6a3_cefde336",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-03-31T09:26:39Z",
+      "side": 1,
+      "message": "This code is iterating over intervals, which can have multiple ranges. And you might have holes between your ranges:\n\n[4, 41[ [52, 87(\n\nIf the environment use is at 43, it is after the start of the interval.",
+      "parentUuid": "43308612_36d5c23a",
+      "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
