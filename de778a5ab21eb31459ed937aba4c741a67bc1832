@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3f1d6a3_d4fd7436",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-03-31T18:30:58Z",
+      "side": 1,
+      "message": "I thought about it but then I decided not to cast to int32_t.",
+      "parentUuid": "a315c284_02805bf6",
+      "range": {
+        "startLine": 506,
+        "startChar": 68,
+        "endLine": 506,
+        "endChar": 84
+      },
+      "revId": "de778a5ab21eb31459ed937aba4c741a67bc1832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83143e89_9afcb287",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 2
