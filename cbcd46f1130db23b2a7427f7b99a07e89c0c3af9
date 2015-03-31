@@ -739,6 +739,30 @@
     },
     {
       "key": {
+        "uuid": "c3f1d6a3_315dea80",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2371,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T15:02:32Z",
+      "side": 1,
+      "message": "yea, but cmp is not free, generates more code and jumping actually is slower then doing the follow up ops (afaik)",
+      "parentUuid": "83fb5e85_cc35ef57",
+      "range": {
+        "startLine": 2371,
+        "startChar": 2,
+        "endLine": 2371,
+        "endChar": 15
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3a94260_0e962ac9",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -844,6 +868,30 @@
       "side": 1,
       "message": "yes, it\u0027s an arithmetic (signed) shift. Tests also proved it right.",
       "parentUuid": "63caea3a_5f47fb7f",
+      "range": {
+        "startLine": 2372,
+        "startChar": 0,
+        "endLine": 2383,
+        "endChar": 33
+      },
+      "revId": "cbcd46f1130db23b2a7427f7b99a07e89c0c3af9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3ece2ce_f0719e0b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-03-31T15:02:32Z",
+      "side": 1,
+      "message": "i don\u0027t think it works, as shifing for negatives rounds towards -infinity where as we need to round towards 0. Did you try (-3)/2 and see what you get? You can run 701 tests for this.",
+      "parentUuid": "83fb5e85_2cd0f37f",
       "range": {
         "startLine": 2372,
         "startChar": 0,
