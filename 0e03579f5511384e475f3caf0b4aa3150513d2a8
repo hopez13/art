@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "630f4a79_e55eedfc",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Not clear what this means.",
+      "range": {
+        "startLine": 1164,
+        "startChar": 9,
+        "endLine": 1164,
+        "endChar": 40
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_9de30ecd",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Insert a space at the beginning of this line to align it better?",
+      "range": {
+        "startLine": 1168,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 2
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a315c284_87157d41",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -18,6 +64,236 @@
         "startChar": 26,
         "endLine": 1169,
         "endChar": 34
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_a4a6b788",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Can you call this Sweep() instead of SweepRosSpace()? The RosAlloc class does not depend on RosAllocSpace.",
+      "range": {
+        "startLine": 1169,
+        "startChar": 36,
+        "endLine": 1169,
+        "endChar": 49
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_bd3b6a4a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Can you be declared where it\u0027s locally used instead of at the top level?",
+      "range": {
+        "startLine": 1171,
+        "startChar": 9,
+        "endLine": 1171,
+        "endChar": 20
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_d5a27bee",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 9,
+        "endLine": 1172,
+        "endChar": 17
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_e5e42daa",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1173,
+        "startChar": 9,
+        "endLine": 1173,
+        "endChar": 19
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_85ed798a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1174,
+        "startChar": 9,
+        "endLine": 1174,
+        "endChar": 20
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_3562ef3a",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1175,
+        "startChar": 9,
+        "endLine": 1175,
+        "endChar": 21
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_fdb042bf",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "indentation does not match the convention.",
+      "range": {
+        "startLine": 1181,
+        "startChar": 0,
+        "endLine": 1181,
+        "endChar": 37
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_55184b2f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Better to pass in the live/mark bitmaps to this function rather than getting it through the heap.",
+      "range": {
+        "startLine": 1181,
+        "startChar": 37,
+        "endLine": 1181,
+        "endChar": 104
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_25b125f8",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "indentation does not match the convention.",
+      "range": {
+        "startLine": 1183,
+        "startChar": 0,
+        "endLine": 1183,
+        "endChar": 37
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_458f017f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Can you insert an early exit case if live_bitmap \u003d\u003d mark_bitmap like in ContinuousMemMapAllocSpace::Sweep() to be safe?\n\nAlso, should we have this logic here as in ContinuousMemMapAllocSpace::Sweep()?\n\n  if (swap_bitmaps) {\n    std::swap(live_bitmap, mark_bitmap);\n  }",
+      "range": {
+        "startLine": 1184,
+        "startChar": 0,
+        "endLine": 1184,
+        "endChar": 1
       },
       "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -48,6 +324,168 @@
     },
     {
       "key": {
+        "uuid": "63e4aaf7_5e0c11c0",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "To clarify what Mathieu means, since we walk in increasing order (which we don\u0027t assume in BulkFree()), it seems possible to remove the second loop (thus no need for \"runs\") and do the per-run bitmap operations (what we currently do in the second loop) when we reach the end of an run in this (first) loop.",
+      "parentUuid": "83143e89_442b83fe",
+      "range": {
+        "startLine": 1185,
+        "startChar": 0,
+        "endLine": 1185,
+        "endChar": 25
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_dd34668f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "This is confusing to me because \"live_bitmap-\u003eBegin()\" means the beginning of the bitmap and \"live_bitmap_begin\" means here the beginning of the space, which are not the same thing.\n\nCan you rename it to simpler \"const uintptr_t begin \u003d Begin();\" rather than getting the same thing via live_bitmap?",
+      "range": {
+        "startLine": 1191,
+        "startChar": 2,
+        "endLine": 1191,
+        "endChar": 57
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83143e89_61d951f8",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "If the page map size has changed, why is this safe?",
+      "range": {
+        "startLine": 1192,
+        "startChar": 20,
+        "endLine": 1192,
+        "endChar": 47
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_b185530c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "This is accessed without taking a lock. Why is this thread-safe?",
+      "range": {
+        "startLine": 1193,
+        "startChar": 21,
+        "endLine": 1193,
+        "endChar": 30
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_5d2b56fe",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "This is space bitmap details. Can this logic move to space_bitmap for better modularity?",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 53
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_fbc04a99",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Can this be declared where it\u0027s used?",
+      "range": {
+        "startLine": 1222,
+        "startChar": 18,
+        "endLine": 1222,
+        "endChar": 25
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e4aaf7_bed99520",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "No lock acquired here. Why is this thread safe?",
+      "range": {
+        "startLine": 1226,
+        "startChar": 12,
+        "endLine": 1226,
+        "endChar": 74
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83143e89_a49fd7aa",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -59,6 +497,305 @@
       "writtenOn": "2015-03-31T17:51:54Z",
       "side": 1,
       "message": "Missing whitespace",
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_9b5156bd",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "This is space bitmap details. Can this logic move to space_bitmap for better modularity?",
+      "range": {
+        "startLine": 1233,
+        "startChar": 41,
+        "endLine": 1233,
+        "endChar": 75
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e4aaf7_dbcd93e1",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Insert space after *",
+      "range": {
+        "startLine": 1234,
+        "startChar": 56,
+        "endLine": 1234,
+        "endChar": 57
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_d3ec573c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Insert space after -",
+      "range": {
+        "startLine": 1234,
+        "startChar": 87,
+        "endLine": 1234,
+        "endChar": 88
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e4aaf7_7bdf1f8e",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1235,
+        "startChar": 41,
+        "endLine": 1235,
+        "endChar": 75
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_7617517f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "This is accessed without taking a lock. Why is this thread-safe? I don\u0027t really understand the above comment.",
+      "range": {
+        "startLine": 1243,
+        "startChar": 12,
+        "endLine": 1243,
+        "endChar": 32
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_fb6e8a26",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Space bitmap details. Can you move this to space bitmap?",
+      "range": {
+        "startLine": 1246,
+        "startChar": 0,
+        "endLine": 1252,
+        "endChar": 62
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e4aaf7_de2e6138",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "We don\u0027t need to use \"run-\u003eto_be_bulk_freed_\" because we walk the space in the increasing order. Correct?",
+      "range": {
+        "startLine": 1262,
+        "startChar": 16,
+        "endLine": 1262,
+        "endChar": 28
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e4aaf7_7e946d42",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Factor this code out into a separate function as it\u0027s duplicated?",
+      "range": {
+        "startLine": 1271,
+        "startChar": 0,
+        "endLine": 1295,
+        "endChar": 11
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_3d73fa69",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "This is accessed without taking the lock. Why is this safe?",
+      "range": {
+        "startLine": 1306,
+        "startChar": 22,
+        "endLine": 1306,
+        "endChar": 45
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a315c284_d38f36f8",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "If this code is identical to the code in BulkFree(), can you factor it out to a function?",
+      "range": {
+        "startLine": 1320,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 3
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_22791bf7",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "Is this needed just for ObjectBytePair? If so, can you move ObjectBytePair to a separate file (I suggest runtime/gc/object_byte_pair.h)?",
+      "range": {
+        "startLine": 36,
+        "startChar": 23,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_e5d42d40",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. Can you explain?",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 490,
+        "endChar": 59
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "630f4a79_6c4caa4f",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 1,
+      "message": "DlMalloc can still be chosen with a build param. This code assumes RosAlloc is used and will probably crash if DlMalloc is used. Can you call SetPageSizeSnapshot() only if GetRosAllocSpace() returns a non-null value?",
+      "range": {
+        "startLine": 213,
+        "startChar": 47,
+        "endLine": 213,
+        "endChar": 63
+      },
       "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

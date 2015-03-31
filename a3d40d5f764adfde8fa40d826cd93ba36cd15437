@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83143e89_9ab03244",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-03-31T22:45:27Z",
+      "side": 0,
+      "message": "Can you keep this GUARDED_BY and instead use NO_THREAD_SAFETY_ANNOTATION in a function where this is accessed without a lock, if it\u0027s necessary at all?",
+      "range": {
+        "startLine": 486,
+        "startChar": 95,
+        "endLine": 487,
+        "endChar": 24
+      },
+      "revId": "a3d40d5f764adfde8fa40d826cd93ba36cd15437",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
