@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83fb5e85_ec1f0be1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-03-31T10:25:18Z",
+      "side": 1,
+      "message": "Compiler has removed \"value \u003d constant-\u003eAsLongConstant()-\u003eGetValue();\" with \"-O2\".\n\nBut I don\u0027t understand how compiler can do this. Though AsLongConstant() and GetValue() are defined as const, it is still possible these function update some other global values.",
+      "revId": "12bca97a9934a00c60776768dcaee958c4981bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
