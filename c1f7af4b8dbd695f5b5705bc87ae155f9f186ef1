@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a315c284_07934dd8",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-03-31T17:58:56Z",
+      "side": 1,
+      "message": "Could you restructure this to make this a bit more expressive? Maybe something like:\n\n uint32_t low_pc \u003d it-\u003elow_pc_;\n // Add in code delta, e.g., thumb bit 0 for Thumb2 code.\n low_pc +\u003d it-\u003ecompiled_method_-\u003eCodeDelta();\n \n ... , low_pc, ...\n\n\nI believe that has better readability.",
+      "range": {
+        "startLine": 635,
+        "startChar": 4,
+        "endLine": 638,
+        "endChar": 48
+      },
+      "revId": "c1f7af4b8dbd695f5b5705bc87ae155f9f186ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
