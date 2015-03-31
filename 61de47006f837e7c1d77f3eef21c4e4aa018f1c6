@@ -70,6 +70,24 @@
       "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23cf1274_a16a5e5c",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-03-31T13:34:08Z",
+      "side": 1,
+      "message": "So my suggestion is to directly iterate through ranges, it\u0027s something like:\nrange \u003d current-\u003eGetFirstRange();\nwhile (range !\u003d nullptr) {\n  // update use\u0027s locations. if use is before\n  // range-\u003eGetStart(), it\u0027s in a hole and we can assert\n  // it must be env use since all real uses must be covered\n  // by ranges.\n\n  range \u003d range-\u003eGetNext();\n  if (range \u003d\u003d nullptr) {\n    current \u003d current-\u003eGetNextSibling();\n    if (current !\u003d nullptr) {\n      range \u003d current-\u003eGetFirstRange();\n    } else {\n      break;\n    }\n  }\n}\n\nThen there is no hole to deal with.",
+      "parentUuid": "c3f1d6a3_cefde336",
+      "revId": "61de47006f837e7c1d77f3eef21c4e4aa018f1c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
