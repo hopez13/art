@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23b8f2d3_fc37a5ac",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-01T16:07:49Z",
+      "side": 1,
+      "message": "This makes little to no sense. A native page size vs a page size, with a comment saying that page size equates to the system page size. What was lacking in the original code was that on MIPS 64 the page size should be 16KB. This isn\u0027t hard to code:\n\n#ifdef __mips64__\nstatic constexpr size_t kPageSize \u003d 16 * KB;\n#else\nstatic constexpr size_t kPageSize \u003d 4 * KB;\n#endif\n\nWhat was also lacking was that during cross-compilation there are instances where kPageSize was being used as a proxy for 4KB. Fix those cases by passing down an appropriate page size argument for what the large object space is set up, remove kLargeObjectAlignment and make it a member of the large object space, ...",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 6
+      },
+      "revId": "eb9b9094fad529a6a001322451be5ff9fbf2cd32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
