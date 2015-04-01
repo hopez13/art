@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3a41acd_1feea3ff",
+        "filename": "test/469-condition-materialization-regression/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-01T21:34:41Z",
+      "side": 1,
+      "message": "Be warn that this could lead to dead code.",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "aef17ecb7ba2a3ec5a209804f6a87c7696bb4d24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
