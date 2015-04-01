@@ -70,6 +70,30 @@
       "revId": "45ca34fb4f2053431aefdb2d5bb7d2e651d99347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3da2233_5d57bb5f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-01T01:33:29Z",
+      "side": 1,
+      "message": "This was my concern as well - we are checking this with some micros. I expect that this won\u0027t be a performance win since the xchg is microcoded on Silvermont.",
+      "parentUuid": "63bd8ac9_c78f6ef8",
+      "range": {
+        "startLine": 3772,
+        "startChar": 0,
+        "endLine": 3799,
+        "endChar": 1
+      },
+      "revId": "45ca34fb4f2053431aefdb2d5bb7d2e651d99347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
