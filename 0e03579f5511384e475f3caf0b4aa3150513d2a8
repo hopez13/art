@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "e3a6dac2_32522ef1",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "OK. Thanks.",
+      "parentUuid": "a315c284_bd3b6a4a",
+      "range": {
+        "startLine": 1171,
+        "startChar": 9,
+        "endLine": 1171,
+        "endChar": 20
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83143e89_d5a27bee",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -348,6 +372,30 @@
     },
     {
       "key": {
+        "uuid": "e3a6dac2_f25ee6fc",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Yes. You are right. That\u0027s actually what I did at the beginning in my memory which seems lost now. The existing patch is done recently again. Thanks.",
+      "parentUuid": "63e4aaf7_5e0c11c0",
+      "range": {
+        "startLine": 1185,
+        "startChar": 0,
+        "endLine": 1185,
+        "endChar": 25
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a315c284_dd34668f",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -405,6 +453,30 @@
       "writtenOn": "2015-03-31T22:45:27Z",
       "side": 1,
       "message": "This is accessed without taking a lock. Why is this thread-safe?",
+      "range": {
+        "startLine": 1193,
+        "startChar": 21,
+        "endLine": 1193,
+        "endChar": 30
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3a6dac2_124d2a4e",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Only read this structure just like BulkFree. Thanks.",
+      "parentUuid": "630f4a79_b185530c",
       "range": {
         "startLine": 1193,
         "startChar": 21,
@@ -664,6 +736,30 @@
     },
     {
       "key": {
+        "uuid": "03a4ceb8_3030686b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "The reason is that the existing mechanism walks one run completely in one iteration. Thus we can use function local flag to indicate the specific run which need to update metadata. BulkFree may cross multiple runs in one iteration. Thus we have to use run local flag to indicate each run which need to update metadata. Thanks.",
+      "parentUuid": "63e4aaf7_de2e6138",
+      "range": {
+        "startLine": 1262,
+        "startChar": 16,
+        "endLine": 1262,
+        "endChar": 28
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63e4aaf7_7e946d42",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -675,6 +771,30 @@
       "writtenOn": "2015-03-31T22:45:27Z",
       "side": 1,
       "message": "Factor this code out into a separate function as it\u0027s duplicated?",
+      "range": {
+        "startLine": 1271,
+        "startChar": 0,
+        "endLine": 1295,
+        "endChar": 11
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c38d5646_4e51d3b9",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Sure. Thanks.",
+      "parentUuid": "63e4aaf7_7e946d42",
       "range": {
         "startLine": 1271,
         "startChar": 0,
@@ -710,6 +830,30 @@
     },
     {
       "key": {
+        "uuid": "c38d5646_2e5c87d2",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "See the comments in the header file.",
+      "parentUuid": "a315c284_3d73fa69",
+      "range": {
+        "startLine": 1306,
+        "startChar": 22,
+        "endLine": 1306,
+        "endChar": 45
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a315c284_d38f36f8",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 2
@@ -721,6 +865,30 @@
       "writtenOn": "2015-03-31T22:45:27Z",
       "side": 1,
       "message": "If this code is identical to the code in BulkFree(), can you factor it out to a function?",
+      "range": {
+        "startLine": 1320,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 3
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3a6dac2_32eeaeb6",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Sure. Thanks.",
+      "parentUuid": "a315c284_d38f36f8",
       "range": {
         "startLine": 1320,
         "startChar": 0,
@@ -756,6 +924,30 @@
     },
     {
       "key": {
+        "uuid": "e3a6dac2_b29c5e70",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Sure. Thanks.",
+      "parentUuid": "630f4a79_22791bf7",
+      "range": {
+        "startLine": 36,
+        "startChar": 23,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "630f4a79_e5d42d40",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 2
@@ -767,6 +959,30 @@
       "writtenOn": "2015-03-31T22:45:27Z",
       "side": 1,
       "message": "I don\u0027t understand this. Can you explain?",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 490,
+        "endChar": 59
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c38d5646_4e78f341",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "The GC thread is sweeping ros space while the mutators are allocating new objects which may be allocated from free_page_run_size_map_. If the latter is done after the former, then the GC thread will bypass fewer pages. In this case, it\u0027s OK because the new pages won\u0027t be swept as a result of no live and mark bitmap set.",
+      "parentUuid": "630f4a79_e5d42d40",
       "range": {
         "startLine": 488,
         "startChar": 0,
@@ -802,6 +1018,30 @@
     },
     {
       "key": {
+        "uuid": "c38d5646_6e7daf30",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Thanks for your comments. We will fix it.",
+      "parentUuid": "630f4a79_6c4caa4f",
+      "range": {
+        "startLine": 213,
+        "startChar": 47,
+        "endLine": 213,
+        "endChar": 63
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83143e89_241da71f",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 2
@@ -825,6 +1065,30 @@
     },
     {
       "key": {
+        "uuid": "e3a6dac2_32c5ce3e",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "Using this snapshot is to avoid walking the extended new pages after pause phase. Thanks.",
+      "parentUuid": "83143e89_241da71f",
+      "range": {
+        "startLine": 215,
+        "startChar": 14,
+        "endLine": 215,
+        "endChar": 36
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "630f4a79_2fcf442f",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 2
@@ -836,6 +1100,30 @@
       "writtenOn": "2015-03-31T17:51:54Z",
       "side": 1,
       "message": "Is it possible to move this logic into RosAllocSpace::Sweep instead?",
+      "range": {
+        "startLine": 1153,
+        "startChar": 8,
+        "endLine": 1153,
+        "endChar": 18
+      },
+      "revId": "0e03579f5511384e475f3caf0b4aa3150513d2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03a4ceb8_500c0cc0",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-01T06:32:07Z",
+      "side": 1,
+      "message": "We just followed the original logic here. Thanks.",
+      "parentUuid": "630f4a79_2fcf442f",
       "range": {
         "startLine": 1153,
         "startChar": 8,
