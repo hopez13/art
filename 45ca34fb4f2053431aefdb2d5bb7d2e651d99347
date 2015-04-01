@@ -46,6 +46,30 @@
       "revId": "45ca34fb4f2053431aefdb2d5bb7d2e651d99347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63bd8ac9_c78f6ef8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-01T00:08:50Z",
+      "side": 1,
+      "message": "Aren\u0027t the xchgl\u0027s implicitly locked and so operating as memory barriers too? Won\u0027t the memory barriers be expensive?",
+      "parentUuid": "03d68e0c_43f8b84a",
+      "range": {
+        "startLine": 3772,
+        "startChar": 0,
+        "endLine": 3799,
+        "endChar": 1
+      },
+      "revId": "45ca34fb4f2053431aefdb2d5bb7d2e651d99347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
