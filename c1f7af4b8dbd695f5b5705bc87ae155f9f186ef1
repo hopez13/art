@@ -22,6 +22,30 @@
       "revId": "c1f7af4b8dbd695f5b5705bc87ae155f9f186ef1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43b5e6d8_da2e6538",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-01T12:00:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a315c284_07934dd8",
+      "range": {
+        "startLine": 635,
+        "startChar": 4,
+        "endLine": 638,
+        "endChar": 48
+      },
+      "revId": "c1f7af4b8dbd695f5b5705bc87ae155f9f186ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
