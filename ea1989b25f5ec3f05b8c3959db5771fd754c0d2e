@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3c8f677_0a132b0f",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-01T00:50:45Z",
+      "side": 1,
+      "message": "a zip (is technically more accurate)",
+      "range": {
+        "startLine": 1039,
+        "startChar": 43,
+        "endLine": 1039,
+        "endChar": 49
+      },
+      "revId": "ea1989b25f5ec3f05b8c3959db5771fd754c0d2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63bd8ac9_e200d8ba",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-01T00:50:45Z",
+      "side": 1,
+      "message": "drop art:: since we are in the namespace?",
+      "range": {
+        "startLine": 387,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 31
+      },
+      "revId": "ea1989b25f5ec3f05b8c3959db5771fd754c0d2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3c8f677_ca7e932b",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-01T00:50:45Z",
+      "side": 1,
+      "message": "\u003c\u003c dex_files[0].GetLocation()\n\nfor context?",
+      "range": {
+        "startLine": 790,
+        "startChar": 4,
+        "endLine": 790,
+        "endChar": 52
+      },
+      "revId": "ea1989b25f5ec3f05b8c3959db5771fd754c0d2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
