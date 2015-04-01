@@ -22,6 +22,30 @@
       "revId": "c07dabbc8d67ea256967b908da3aeb44d83e2bab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a371421d_5d5256f1",
+        "filename": "test/469-uninitialized-locals/smali/Test.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-01T23:08:06Z",
+      "side": 1,
+      "message": "It doesn\u0027t, it\u0027s a soft error. Question is whether it\u0027s correct to make it a hard error.",
+      "parentUuid": "e3a41acd_ff077f4d",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "c07dabbc8d67ea256967b908da3aeb44d83e2bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
