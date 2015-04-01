@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8370be19_0af33f72",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-01T17:53:54Z",
+      "side": 1,
+      "message": "While it will do the right thing, the suggested safe way is to use JNI_TRUE \u0026 JNI_FALSE explicitly.",
+      "range": {
+        "startLine": 376,
+        "startChar": 9,
+        "endLine": 376,
+        "endChar": 46
+      },
+      "revId": "97ae576b819ac752abb9bfdbabddcebc2fc78a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e37fbae4_4dd46dc3",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-01T17:53:54Z",
+      "side": 1,
+      "message": "Consider adding a run-test (in a follow-up CL) that ensures that these constants match the constants in DexFile.java.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 4
+      },
+      "revId": "97ae576b819ac752abb9bfdbabddcebc2fc78a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
