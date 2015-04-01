@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3a41acd_ff077f4d",
+        "filename": "test/469-uninitialized-locals/smali/Test.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-01T21:35:56Z",
+      "side": 1,
+      "message": "How can this pass the verifier?",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "c07dabbc8d67ea256967b908da3aeb44d83e2bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
