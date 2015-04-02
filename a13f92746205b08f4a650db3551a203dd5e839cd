@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "83e35e1e_4fda5115",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-02T18:32:41Z",
+      "side": 1,
+      "message": "huh, indeed, i\u0027m being stupid, the rest should not be needed.",
+      "parentUuid": "63de6a5c_d4112d8c",
+      "range": {
+        "startLine": 587,
+        "startChar": 2,
+        "endLine": 609,
+        "endChar": 15
+      },
+      "revId": "a13f92746205b08f4a650db3551a203dd5e839cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3bdfae6_d445ad74",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 3
