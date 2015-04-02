@@ -22,6 +22,30 @@
       "revId": "3f311cfa86af18ccbd6f1607f037401244ad4d56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e35e1e_8fa4b984",
+        "filename": "compiler/linker/relative_patcher_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-02T19:07:14Z",
+      "side": 1,
+      "message": "I don\u0027t like ASSERT()s in helper functions called by a test. Their behavior is odd.\n\nAnd this CHECK() should be obvious, we\u0027re adding 3 characters at a time above.",
+      "parentUuid": "63de6a5c_1418d52e",
+      "range": {
+        "startLine": 202,
+        "startChar": 6,
+        "endLine": 202,
+        "endChar": 53
+      },
+      "revId": "3f311cfa86af18ccbd6f1607f037401244ad4d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
