@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d4e237_adfbfd8d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "avoid short names like this. You can call this out_register",
+      "range": {
+        "startLine": 2310,
+        "startChar": 11,
+        "endLine": 2310,
+        "endChar": 12
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_e9e8d5ab",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "input_register",
+      "range": {
+        "startLine": 2311,
+        "startChar": 11,
+        "endLine": 2311,
+        "endChar": 13
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_a9e2ddc7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2349,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2348,
+        "startChar": 2,
+        "endLine": 2349,
+        "endChar": 45
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_69dd050b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "ditto\n\nAnd this seems to imply it\u0027s EAX? Don\u0027t you want to DCHECK that?",
+      "range": {
+        "startLine": 2381,
+        "startChar": 11,
+        "endLine": 2381,
+        "endChar": 16
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d4e237_2d102d52",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "Isnt\u0027t that implied? You\u0027re not going to generate code anyway if it\u0027s not, which seems dubious. So should you DCHECK it instead?",
+      "range": {
+        "startLine": 2461,
+        "startChar": 15,
+        "endLine": 2461,
+        "endChar": 43
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e35e1e_6c063b21",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2527,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "Add a comment why you need a temp.",
+      "range": {
+        "startLine": 2527,
+        "startChar": 0,
+        "endLine": 2527,
+        "endChar": 42
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d4e237_0d0d7136",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2598,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2598,
+        "startChar": 0,
+        "endLine": 2598,
+        "endChar": 42
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d4e237_ed1a2570",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T09:59:22Z",
+      "side": 1,
+      "message": "Style has been two empty lines for assembler code. Please keep it as is.",
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
