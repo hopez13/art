@@ -22,6 +22,30 @@
       "revId": "38e2a129743181b7664e3795b16d540016ee63a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03092eaf_082687b0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3872,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-02T16:15:29Z",
+      "side": 1,
+      "message": "For Silvermont, it is 5 cycles - we prefer several moves with scratch over xchg. For other architectures, we can probably get away with using xchg.",
+      "parentUuid": "83cefea1_9ae76dd8",
+      "range": {
+        "startLine": 3872,
+        "startChar": 4,
+        "endLine": 3872,
+        "endChar": 12
+      },
+      "revId": "38e2a129743181b7664e3795b16d540016ee63a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
