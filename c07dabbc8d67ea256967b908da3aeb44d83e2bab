@@ -46,6 +46,30 @@
       "revId": "c07dabbc8d67ea256967b908da3aeb44d83e2bab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e35e1e_ac40a365",
+        "filename": "test/469-uninitialized-locals/smali/Test.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T08:59:12Z",
+      "side": 1,
+      "message": "OK.\n\nCalin: before we go too crazy into fixing fuzzer discovered problems, I think we should fall back to Quick when a method had a soft failure during verification. Optimizing has some requirements on the verifier that Quick doesn\u0027t have.\n\nAndreas: we need to discuss about what\u0027s soft and hard. In this case, I don\u0027t see why this is soft, as it will also fail at runtime. Isn\u0027t the assumption that runtime could recover from a soft failure (like missing class reference or something)?",
+      "parentUuid": "a371421d_5d5256f1",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 11
+      },
+      "revId": "c07dabbc8d67ea256967b908da3aeb44d83e2bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
