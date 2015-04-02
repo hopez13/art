@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "23c4727c_cec99f59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-02T15:40:57Z",
+      "side": 1,
+      "message": "If class unloading were supported then you\u0027d need a free-list to support the gaps in the linear alloc space - or to leak. The overhead from that would eat into these savings. There is also the GC marking overhead of making sure VisitRoots is called. Class unloading was the reason things were done this way in the first place.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "d043889c48f175b67b9e8c8020a519e921e38263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d4e237_0da7b1b5",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
