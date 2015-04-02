@@ -88,6 +88,29 @@
     },
     {
       "key": {
+        "uuid": "2312b2d8_091d69e8",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-02T13:13:24Z",
+      "side": 1,
+      "message": "Are you sure you want to change the resolved_fields_ array to native? This doesn\u0027t really buy you that much. You could keep it as HeapReference\u003cArray\u003e instead, IntArray for 32-bit and LongArray for 64-bit.\n\nI think we should either move all the arrays to native or none of them.",
+      "range": {
+        "startLine": 162,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 27
+      },
+      "revId": "d043889c48f175b67b9e8c8020a519e921e38263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_692f4587",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
