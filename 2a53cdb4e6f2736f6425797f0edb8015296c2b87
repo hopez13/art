@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "83e35e1e_8c4ba737",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T11:43:17Z",
+      "side": 1,
+      "message": "Then I suggest being more explicit here: explicit for the special cases (including 0), and then the general case with a DCHECK.\n\nAbout the div by zero, it is going to be dominated by a HDivZeroCheck, so if we keep the division around, it is fine to not generate any code.",
+      "parentUuid": "a3d4e237_4d55b9da",
+      "range": {
+        "startLine": 2461,
+        "startChar": 15,
+        "endLine": 2461,
+        "endChar": 43
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e35e1e_6c063b21",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
