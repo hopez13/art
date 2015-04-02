@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3bdfae6_2fd5af6f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "make this const?",
+      "range": {
+        "startLine": 989,
+        "startChar": 15,
+        "endLine": 989,
+        "endChar": 25
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c4727c_47c1ed9a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "make this const?",
+      "range": {
+        "startLine": 997,
+        "startChar": 15,
+        "endLine": 997,
+        "endChar": 24
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63de6a5c_48eebe00",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "make this const?",
+      "range": {
+        "startLine": 1005,
+        "startChar": 15,
+        "endLine": 1005,
+        "endChar": 33
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c4727c_87a025e7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "make this const?",
+      "range": {
+        "startLine": 1009,
+        "startChar": 9,
+        "endLine": 1009,
+        "endChar": 13
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3bdfae6_6fe4c74f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "make this const? i assume it doesn\u0027t change outside of the heap.",
+      "range": {
+        "startLine": 1013,
+        "startChar": 25,
+        "endLine": 1013,
+        "endChar": 27
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3bdfae6_0fb0ab41",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 1018,
+        "startChar": 2,
+        "endLine": 1018,
+        "endChar": 8
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63de6a5c_68061a4f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2451,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "same condition as above, combine the if statements?",
+      "range": {
+        "startLine": 2451,
+        "startChar": 28,
+        "endLine": 2451,
+        "endChar": 39
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3bdfae6_0c3b1980",
+        "filename": "runtime/gc/task_processor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-02T21:09:46Z",
+      "side": 1,
+      "message": "GUARDED_BY(lock_)",
+      "range": {
+        "startLine": 80,
+        "startChar": 10,
+        "endLine": 80,
+        "endChar": 25
+      },
+      "revId": "86c2c7bbc9884bc2c5f5da3489790bd0e378af29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
