@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83cefea1_9ae76dd8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3872,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-02T11:54:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure that this is better than using xchg on registers.  I have conflicting timings for 5 cycles and 1.5 cycles for register-register exchange.",
+      "range": {
+        "startLine": 3872,
+        "startChar": 4,
+        "endLine": 3872,
+        "endChar": 12
+      },
+      "revId": "38e2a129743181b7664e3795b16d540016ee63a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
