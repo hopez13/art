@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "83e35e1e_6f5bcd59",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-02T16:53:38Z",
+      "side": 1,
+      "message": "It seems like quick is there by default, see line 40. I would make --interpreter the default, and let --quick and --optimizing be the selectable ones. Perhaps add an extra flag to remove --interpreter if you really only want to compare quick and optimizing.",
+      "parentUuid": "e3a41acd_dfbefbf6",
+      "range": {
+        "startLine": 142,
+        "startChar": 67,
+        "endLine": 142,
+        "endChar": 78
+      },
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e35e1e_af8e552e",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-02T16:53:38Z",
+      "side": 1,
+      "message": "Where\u0027s --fuzz?",
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03a20ebf_a0c8baa3",
         "filename": "test/run-all-tests",
         "patchSetId": 6
@@ -65,6 +106,81 @@
         "endLine": 226,
         "endChar": 13
       },
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_8c93a75a",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-02T16:53:38Z",
+      "side": 1,
+      "message": "You can\u0027t use the fuzzer like that at the moment.\n\nIf you specify --host, then you\u0027re in host mode, which implies x86.\nIf you don\u0027t specify --host or --device, then you\u0027re in device mode, where you must specify the ISA of that device. If that device is arm64, then arm and arm64 can be used. --device\u003d\u003cname\u003e can be used to connect to a specific ADB-connected device (the arg is used with adb -s \u003cname\u003e)\n\nWould you like --host --allarm --x86 --x86_64 to work? You\u0027ll need an arm64 device connected via ADB, and host mode will need to support executing both x86 and x86_64. Additionally we can extend it to support executing on multiple devices, one of which may be a host \"device\".\n\nGuillaume: for now I\u0027d just make sure you replace --x86 with --host.",
+      "parentUuid": "c3ab969c_debe05f7",
+      "range": {
+        "startLine": 226,
+        "startChar": 10,
+        "endLine": 226,
+        "endChar": 13
+      },
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_acfb0b8e",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-02T16:53:38Z",
+      "side": 1,
+      "message": "Perhaps print a message that a full report can be found in report.log?",
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d4e237_f0467e82",
+        "filename": "test/run-test",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-02T16:53:38Z",
+      "side": 1,
+      "message": "Should this be consistent with what you\u0027re doing with run-all-tests, and have --fuzz-repeat as well?\n\nAlso, should \"specify at least two backends\" perhaps say which backends can be specified, and how they can be specified?",
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e35e1e_af409565",
+        "filename": "tools/dexfuzz/src/dexfuzz/fuzzers/FuzzerMultipleExecute.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-02T16:53:38Z",
+      "side": 1,
+      "message": "Nit: remove this?",
       "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
