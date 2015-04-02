@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "a3d4e237_4d55b9da",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-02T11:12:28Z",
+      "side": 1,
+      "message": "Actually no, because there\u0027s still the Zero case. Which would fall in that branch.\n\nCurrently, division by zero is unhandled, I asked for instructions about it.",
+      "parentUuid": "a3d4e237_2d102d52",
+      "range": {
+        "startLine": 2461,
+        "startChar": 15,
+        "endLine": 2461,
+        "endChar": 43
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e35e1e_6c063b21",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
