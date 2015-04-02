@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83e35e1e_4c037f0f",
+        "filename": "test/470-huge-method/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T10:00:59Z",
+      "side": 1,
+      "message": "-\u003e We\u0027re not compiling this method because we consider it huge.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 62
+      },
+      "revId": "dfb5c75fc65e20d4fd11a54e5164bc7e076e1c51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_e9957519",
+        "filename": "test/470-huge-method/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-02T10:00:59Z",
+      "side": 1,
+      "message": "Is that still relevant?",
+      "range": {
+        "startLine": 2031,
+        "startChar": 2,
+        "endLine": 2031,
+        "endChar": 54
+      },
+      "revId": "dfb5c75fc65e20d4fd11a54e5164bc7e076e1c51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
