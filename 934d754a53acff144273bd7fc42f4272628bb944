@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23c4727c_bb51016b",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-02T23:18:21Z",
+      "side": 1,
+      "message": "I merged to get rid of the test breakage, but my question is: is that still correct?\n\nWould the proper thing be to change the switch and just have \n\n case kArm:\n   FALLTHROUGH_INTENDED();\n case kThumb2:\n   ...\n\nyntil such time as we actually treat kArm and kThumb2 different wrt/ codegen?",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 516,
+        "endChar": 5
+      },
+      "revId": "934d754a53acff144273bd7fc42f4272628bb944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
