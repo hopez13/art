@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63de6a5c_1418d52e",
+        "filename": "compiler/linker/relative_patcher_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-02T18:23:11Z",
+      "side": 1,
+      "message": "Should this really be a CHECK? You lose all logging in that case...",
+      "range": {
+        "startLine": 202,
+        "startChar": 6,
+        "endLine": 202,
+        "endChar": 53
+      },
+      "revId": "3f311cfa86af18ccbd6f1607f037401244ad4d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
