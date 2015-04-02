@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83e35e1e_6cb4fbc4",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2015-04-02T10:59:32Z",
+      "side": 1,
+      "message": "looks?",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "c47cec4b7d88709666d6125626f97c9e743d9d48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83e35e1e_ecbfcba2",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2015-04-02T10:59:32Z",
+      "side": 1,
+      "message": "Good. I will add an extra check to exclude cases where adrp is followed by an aligned \"ldr reg, pc+offset\". This will reduce the matches by another order of magnitude: from 53 matches in boot.oat to just 2 (51 of these have the form \"ldr w0, pc+...\" and are therefore all aligned). The remaining 2 matches happen to be loads of the kind \"ldr wregister, [sp, #(4*i)]\". These can also been excluded systematically as sp is guaranteed to be 16 bytes aligned.",
+      "revId": "c47cec4b7d88709666d6125626f97c9e743d9d48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d4e237_ade2ddc7",
+        "filename": "compiler/linker/relative_patcher_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1037505
+      },
+      "writtenOn": "2015-04-02T10:59:32Z",
+      "side": 1,
+      "message": "trampoline",
+      "range": {
+        "startLine": 82,
+        "startChar": 55,
+        "endLine": 82,
+        "endChar": 64
+      },
+      "revId": "c47cec4b7d88709666d6125626f97c9e743d9d48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
