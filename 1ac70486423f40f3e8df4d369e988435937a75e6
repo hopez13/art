@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "03092eaf_8b19517b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-03T01:15:28Z",
+      "side": 1,
+      "message": "Comments from others?",
+      "parentUuid": "83cefea1_8e896f28",
+      "range": {
+        "startLine": 1077,
+        "startChar": 19,
+        "endLine": 1077,
+        "endChar": 26
+      },
+      "revId": "1ac70486423f40f3e8df4d369e988435937a75e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03092eaf_2b838507",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-03T01:04:42Z",
       "side": 1,
       "message": "Why does it need at least two?",
+      "range": {
+        "startLine": 1566,
+        "startChar": 12,
+        "endLine": 1566,
+        "endChar": 15
+      },
+      "revId": "1ac70486423f40f3e8df4d369e988435937a75e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03092eaf_cb1f495e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-03T01:15:28Z",
+      "side": 1,
+      "message": "One for 1 entry, and one for the \u0027default\u0027 aka the next instruction after the switch.",
+      "parentUuid": "03092eaf_2b838507",
       "range": {
         "startLine": 1566,
         "startChar": 12,
