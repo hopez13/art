@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3d47630_7cb01171",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-03T06:50:52Z",
+      "side": 1,
+      "message": "does it need to be volatile if guarded? or are you reading without the lock?",
+      "range": {
+        "startLine": 1170,
+        "startChar": 2,
+        "endLine": 1170,
+        "endChar": 10
+      },
+      "revId": "10a828a72d1882841a618e0d10e94db322967ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
