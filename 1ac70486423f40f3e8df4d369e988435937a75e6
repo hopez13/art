@@ -93,6 +93,30 @@
       "revId": "1ac70486423f40f3e8df4d369e988435937a75e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83cefea1_ae7d4b6a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-03T01:33:03Z",
+      "side": 1,
+      "message": "Hopefully the verifier ensures this.",
+      "parentUuid": "03092eaf_cb1f495e",
+      "range": {
+        "startLine": 1566,
+        "startChar": 12,
+        "endLine": 1566,
+        "endChar": 15
+      },
+      "revId": "1ac70486423f40f3e8df4d369e988435937a75e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
