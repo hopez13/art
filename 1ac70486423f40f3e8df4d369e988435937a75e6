@@ -117,6 +117,30 @@
       "revId": "1ac70486423f40f3e8df4d369e988435937a75e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63de6a5c_437fbc64",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-03T01:54:27Z",
+      "side": 1,
+      "message": "Switch statements *without* any entries are valid dex...",
+      "parentUuid": "83cefea1_ae7d4b6a",
+      "range": {
+        "startLine": 1566,
+        "startChar": 12,
+        "endLine": 1566,
+        "endChar": 15
+      },
+      "revId": "1ac70486423f40f3e8df4d369e988435937a75e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
