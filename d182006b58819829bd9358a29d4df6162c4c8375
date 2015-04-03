@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83cefea1_8eb4cfc5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-03T01:23:06Z",
+      "side": 1,
+      "message": "To make it appropriate, needs to also reflect the inline info it comes from. However, this approach is already friendlier to inlining than the information encoded in dex directly.",
+      "range": {
+        "startLine": 85,
+        "startChar": 26,
+        "endLine": 85,
+        "endChar": 45
+      },
+      "revId": "d182006b58819829bd9358a29d4df6162c4c8375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
