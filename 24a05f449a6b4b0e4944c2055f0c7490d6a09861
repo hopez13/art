@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83519eaa_ffe75b28",
+        "filename": "runtime/arch/x86/instruction_set_features_x86_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-06T14:52:37Z",
+      "side": 1,
+      "message": "This is copied from the test above. I think Ian did it to be able to test Equals.",
+      "parentUuid": "a34222dc_0062e83a",
+      "range": {
+        "startLine": 81,
+        "startChar": 5,
+        "endLine": 81,
+        "endChar": 55
+      },
+      "revId": "24a05f449a6b4b0e4944c2055f0c7490d6a09861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a34222dc_406f9023",
         "filename": "runtime/arch/x86/instruction_set_features_x86_test.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-06T14:37:24Z",
       "side": 1,
       "message": "Why is this false?",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 14
+      },
+      "revId": "24a05f449a6b4b0e4944c2055f0c7490d6a09861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83519eaa_bfe1d315",
+        "filename": "runtime/arch/x86/instruction_set_features_x86_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-06T14:52:37Z",
+      "side": 1,
+      "message": "Because one is 64bit, the other is not.",
+      "parentUuid": "a34222dc_406f9023",
       "range": {
         "startLine": 101,
         "startChar": 2,
