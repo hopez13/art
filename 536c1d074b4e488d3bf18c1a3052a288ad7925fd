@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "c34716eb_940711d3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-06T21:28:02Z",
+      "side": 1,
+      "message": "This will fail to find the verified method if it\u0027s trying to inline something that was compiled previously. You\u0027ll need this change to prevent the verified method from being deleted: https://android-review.googlesource.com/#/c/145462",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 22
+      },
+      "revId": "536c1d074b4e488d3bf18c1a3052a288ad7925fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e35e1e_0fe569a3",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 6
