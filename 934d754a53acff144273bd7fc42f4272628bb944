@@ -22,6 +22,30 @@
       "revId": "934d754a53acff144273bd7fc42f4272628bb944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d4e237_13bb54b3",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-06T09:03:21Z",
+      "side": 1,
+      "message": "What\u0027s the meaning of DW_ISA_ARM_arm? Does it mean that the code is ARM? Or does it allow mixed ARM and Thumb2 code?",
+      "parentUuid": "23c4727c_bb51016b",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 516,
+        "endChar": 5
+      },
+      "revId": "934d754a53acff144273bd7fc42f4272628bb944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
