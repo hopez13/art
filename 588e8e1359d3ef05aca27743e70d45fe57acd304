@@ -94,6 +94,30 @@
       "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83519eaa_86c4cbbf",
+        "filename": "disassembler/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2015-04-06T19:54:57Z",
+      "side": 1,
+      "message": "That doesn\u0027t make sense now, because we set the primary host arch to x86_64 and the secondary to x86.  The default LOCAL_MULTILIB for host is \"first\", which will target x86_64, and x86 should work fine, so I don\u0027t see why we don\u0027t just change the default to \"both\".  It seems bad to sprinkle LOCAL_MULTILIB :\u003d both everywhere, especially because it is not necessary for the device and not clear why it is necessary for the host.",
+      "parentUuid": "83519eaa_86de0bdf",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
