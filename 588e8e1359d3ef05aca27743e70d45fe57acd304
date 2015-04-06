@@ -70,6 +70,30 @@
       "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83519eaa_86de0bdf",
+        "filename": "disassembler/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-04-06T19:46:01Z",
+      "side": 1,
+      "message": "Yes, that\u0027s a decision at the time we added multilib build support to host modules, lots of modules didn\u0027t build for 64-bit, such as the vast number of LLVM related modules.",
+      "parentUuid": "c34716eb_9bad0417",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
