@@ -118,6 +118,30 @@
       "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a34222dc_46e7a355",
+        "filename": "disassembler/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-04-06T20:01:08Z",
+      "side": 1,
+      "message": "I agree. Anything not built for both arch should have been marked properly now, since we actually build with HOST_PREFER_32_BIT when doing SDK builds.\nI\u0027ll change the default to both and verify the build later when I have time.",
+      "parentUuid": "83519eaa_86c4cbbf",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
