@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c34716eb_ad568961",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-06T16:58:31Z",
+      "side": 1,
+      "message": "Introduce another #define for this, maybe SIZEOF_HEAPREFERENCE.",
+      "range": {
+        "startLine": 67,
+        "startChar": 51,
+        "endLine": 67,
+        "endChar": 52
+      },
+      "revId": "25ee9c2e873ef498ad10a87a0c12f9443e23a015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a34222dc_268dbcff",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-06T16:58:31Z",
+      "side": 1,
+      "message": "Really? Why is this here now?",
+      "range": {
+        "startLine": 905,
+        "startChar": 16,
+        "endLine": 905,
+        "endChar": 42
+      },
+      "revId": "25ee9c2e873ef498ad10a87a0c12f9443e23a015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
