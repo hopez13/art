@@ -46,6 +46,30 @@
       "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c34716eb_9bad0417",
+        "filename": "disassembler/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2015-04-06T19:37:06Z",
+      "side": 1,
+      "message": "I see the problem, host_shared_library.mk sets the default to \"first\", not to \"both\" like shared_library.mk does.  Ying, do you know why?",
+      "parentUuid": "c34716eb_bb21e056",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "588e8e1359d3ef05aca27743e70d45fe57acd304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
