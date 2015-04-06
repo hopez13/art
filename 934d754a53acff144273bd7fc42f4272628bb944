@@ -46,6 +46,30 @@
       "revId": "934d754a53acff144273bd7fc42f4272628bb944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_6f82a59d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-06T09:14:01Z",
+      "side": 1,
+      "message": "It means it the full ARM.  The ISA in DWARF can be changed for every instruction, so if you have mixed code, you are expected to annotate the parts correctly.",
+      "parentUuid": "a3d4e237_13bb54b3",
+      "range": {
+        "startLine": 514,
+        "startChar": 4,
+        "endLine": 516,
+        "endChar": 5
+      },
+      "revId": "934d754a53acff144273bd7fc42f4272628bb944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
