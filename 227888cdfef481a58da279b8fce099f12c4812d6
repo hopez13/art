@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23e3924b_81ce9ada",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-07T21:13:50Z",
+      "side": 1,
+      "message": "Help needed here.  Is this the right way of handling this?\nI also don\u0027t know how to remove the inputs below.",
+      "range": {
+        "startLine": 258,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 13
+      },
+      "revId": "227888cdfef481a58da279b8fce099f12c4812d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63258a42_dfa4ce85",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-07T21:13:50Z",
+      "side": 1,
+      "message": "Used to replace HIf with HCompareIf",
+      "range": {
+        "startLine": 429,
+        "startChar": 6,
+        "endLine": 429,
+        "endChar": 29
+      },
+      "revId": "227888cdfef481a58da279b8fce099f12c4812d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
