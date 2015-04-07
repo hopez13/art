@@ -48,6 +48,75 @@
     },
     {
       "key": {
+        "uuid": "837fde20_2c7933c1",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T14:48:54Z",
+      "side": 1,
+      "message": "Tiny remark: would it be too much of a hassle to support ((-x) + (-x))? We could have a query left_neg-\u003eOnlyUsedBy(binop) instead, but would have to be careful about the removals below.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 49
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "637aea34_ab00a904",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T14:48:54Z",
+      "side": 1,
+      "message": "Only CHECK if you want to match the first Goto after the two Negs. Otherwise it will match against the entry block\u0027s Goto.",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 42
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_2dbb6db3",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T14:48:54Z",
+      "side": 1,
+      "message": "If this is meant to occur between SuspendCheck and Goto, you should use plain CHECK",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 362,
+        "endChar": 63
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "634caa14_3b38779c",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 4
@@ -82,6 +151,30 @@
       "writtenOn": "2015-04-07T11:16:44Z",
       "side": 1,
       "message": "Actually, David (thanks!) tells me it is simpler to rewrite this as two paragraphs, the first one containing the exact same set of assertions as the \"before\" stanza, and the second containing only a \"CHECK-NOT: Sub\" line:\n\n  // CHECK-START: long Main.AddNeg2(long, long) instruction_simplifier (after)\n  // CHECK-DAG:     [[Arg1:j\\d+]]     ParameterValue\n  // CHECK-DAG:     [[Arg2:j\\d+]]     ParameterValue\n  // CHECK-DAG:     [[Neg:j\\d+]]      Neg [ [[Arg2]] ]\n  // CHECK-DAG:     [[Add1:j\\d+]]     Add [ [[Arg1]] [[Neg]] ]\n  // CHECK-DAG:     [[Add2:j\\d+]]     Add [ [[Arg1]] [[Neg]] ]\n\n  // CHECK-START: long Main.AddNeg2(long, long) instruction_simplifier (after)\n  // CHECK-NOT:                       Sub",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 56
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837fde20_ac19a37a",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T14:48:54Z",
+      "side": 1,
+      "message": "Let me just expand on Roland\u0027s comment. Be careful with mixing different types of CHECKs. Subsequent CHECK-DAGs don\u0027t enforce an order among one another, but a -NOT between will break that. So imagine a scenario: -DAG,-DAG,-NOT,-DAG. The first two assertions can occur in the output in any order, but the last -DAG will be forced to occur later than them and the -NOT will be checked against the output lines between. That is valid but I don\u0027t think you wanted to do that anywhere in this test file. If you need to limit the scope of the -NOT, use plain CHECK to emphasize that the order is intended.",
+      "parentUuid": "634caa14_7bdb5ff0",
       "range": {
         "startLine": 431,
         "startChar": 0,
