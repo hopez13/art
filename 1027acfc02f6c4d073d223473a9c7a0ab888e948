@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "837fde20_4cceffaf",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T13:18:55Z",
+      "side": 1,
+      "message": "see my other comment for this.",
+      "parentUuid": "83e35e1e_6f5bcd59",
+      "range": {
+        "startLine": 142,
+        "startChar": 67,
+        "endLine": 142,
+        "endChar": 78
+      },
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e35e1e_af8e552e",
         "filename": "test/run-all-tests",
         "patchSetId": 6
@@ -124,6 +148,30 @@
       "side": 1,
       "message": "You can\u0027t use the fuzzer like that at the moment.\n\nIf you specify --host, then you\u0027re in host mode, which implies x86.\nIf you don\u0027t specify --host or --device, then you\u0027re in device mode, where you must specify the ISA of that device. If that device is arm64, then arm and arm64 can be used. --device\u003d\u003cname\u003e can be used to connect to a specific ADB-connected device (the arg is used with adb -s \u003cname\u003e)\n\nWould you like --host --allarm --x86 --x86_64 to work? You\u0027ll need an arm64 device connected via ADB, and host mode will need to support executing both x86 and x86_64. Additionally we can extend it to support executing on multiple devices, one of which may be a host \"device\".\n\nGuillaume: for now I\u0027d just make sure you replace --x86 with --host.",
       "parentUuid": "c3ab969c_debe05f7",
+      "range": {
+        "startLine": 226,
+        "startChar": 10,
+        "endLine": 226,
+        "endChar": 13
+      },
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "637aea34_ebbeb1f6",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T13:18:55Z",
+      "side": 1,
+      "message": "Oki, perhaps I mixed some other ideas here.\n\nWould be hard to change the fuzzer into a mode where it doesn\u0027t require to actually run the programs? The test should be: if Quick can compile it Optimizing should be able to compile it as well. Or more broadly we should never hard crash when compiling valid dex code. Having \"runnable test\" limits our test throughput in this case.",
+      "parentUuid": "2312b2d8_8c93a75a",
       "range": {
         "startLine": 226,
         "startChar": 10,
