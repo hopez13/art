@@ -22,6 +22,30 @@
       "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837fde20_2c8933bb",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T17:32:14Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s a good place for it. If we change the return type to a pointer we might as well allow the use case of testing against nullptr to see if a sibling exists at that point.",
+      "parentUuid": "a3706250_ed456506",
+      "range": {
+        "startLine": 1561,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 33
+      },
+      "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
