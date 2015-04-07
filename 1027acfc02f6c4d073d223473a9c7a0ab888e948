@@ -184,6 +184,30 @@
     },
     {
       "key": {
+        "uuid": "837fde20_ec680ba3",
+        "filename": "test/run-all-tests",
+        "patchSetId": 6
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1063758
+      },
+      "writtenOn": "2015-04-07T15:51:16Z",
+      "side": 1,
+      "message": "So you mean to call dex2oat instead of dalvikvm from within dexfuzz, and detect any crashes that occur there?\n\nNote also that you could just use the fuzzer for mass-fuzzing without the execution part, if you use --repeat\u003dX without --execute.",
+      "parentUuid": "637aea34_ebbeb1f6",
+      "range": {
+        "startLine": 226,
+        "startChar": 10,
+        "endLine": 226,
+        "endChar": 13
+      },
+      "revId": "1027acfc02f6c4d073d223473a9c7a0ab888e948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_acfb0b8e",
         "filename": "test/run-all-tests",
         "patchSetId": 6
