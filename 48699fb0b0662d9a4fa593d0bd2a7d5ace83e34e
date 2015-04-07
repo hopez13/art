@@ -70,6 +70,30 @@
       "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "832a7e12_9db507e5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-07T16:46:27Z",
+      "side": 1,
+      "message": "That is not the point for Jeff, at least. Jeff needs verifier information to correctly fix things up for his string stuff. As long as it\u0027s a simple flag, e.g., Calin\u0027s work, I guess using the inline-disable flag and deleting here is fine.",
+      "parentUuid": "a3706250_ed2fa507",
+      "range": {
+        "startLine": 2277,
+        "startChar": 0,
+        "endLine": 2280,
+        "endChar": 3
+      },
+      "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
