@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "837fde20_ecc48b43",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:11:07Z",
+      "side": 1,
+      "message": "This is brittle and might break in the future if the implementation of art::LiveInterval::GetSiblingAt changes (moreover, art::LiveInterval::GetSiblingAt\u0027s documentation does not mention that the reference it returns can be safely used for pointer equality).  I suggest that art::LiveInterval::GetSiblingAt returns a pointer instead of a reference.",
+      "range": {
+        "startLine": 1557,
+        "startChar": 6,
+        "endLine": 1557,
+        "endChar": 29
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_adce7d5d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:11:07Z",
+      "side": 1,
+      "message": "Why making it conditional (and off by default)?",
+      "range": {
+        "startLine": 349,
+        "startChar": 10,
+        "endLine": 349,
+        "endChar": 33
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837fde20_ec1fab5d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:11:07Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a postcondition of FindRangeAtOrAfter?",
+      "range": {
+        "startLine": 353,
+        "startChar": 4,
+        "endLine": 353,
+        "endChar": 67
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837fde20_4c2fdf86",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:11:07Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 362,
+        "startChar": 11,
+        "endLine": 362,
+        "endChar": 33
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_6ddad515",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:11:07Z",
+      "side": 1,
+      "message": "continue;",
+      "range": {
+        "startLine": 838,
+        "startChar": 35,
+        "endLine": 838,
+        "endChar": 37
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_0dd791ec",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:11:07Z",
+      "side": 1,
+      "message": "Are we certain not to enter infinite recursion here?",
+      "range": {
+        "startLine": 842,
+        "startChar": 25,
+        "endLine": 842,
+        "endChar": 67
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
