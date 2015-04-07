@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e38eda7f_92115a8d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-07T17:34:20Z",
+      "side": 1,
+      "message": "DCHECK_EQ?",
+      "range": {
+        "startLine": 2307,
+        "startChar": 2,
+        "endLine": 2307,
+        "endChar": 8
+      },
+      "revId": "821c29fe9e967fa3a7c123778e324b9ea0140f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "038cce85_90c9545a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2314,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-07T17:34:20Z",
+      "side": 1,
+      "message": "Move to below jBind(\u0026no_div)?",
+      "revId": "821c29fe9e967fa3a7c123778e324b9ea0140f6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
