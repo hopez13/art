@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_cd1ae970",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2310,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d4e237_adfbfd8d",
+      "range": {
+        "startLine": 2310,
+        "startChar": 11,
+        "endLine": 2310,
+        "endChar": 12
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_e9e8d5ab",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -82,6 +106,30 @@
       "writtenOn": "2015-04-02T09:59:22Z",
       "side": 1,
       "message": "input_register",
+      "range": {
+        "startLine": 2311,
+        "startChar": 11,
+        "endLine": 2311,
+        "endChar": 13
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "637aea34_eb99d17b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2311,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2312b2d8_e9e8d5ab",
       "range": {
         "startLine": 2311,
         "startChar": 11,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_8d3aa179",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "What about the special case of \"0x80000000 / -1 \u003d 0x80000000\"? I don\u0027t see how you handle this with\n\nif (instruction-\u003eIsRem()) {\n  __ movl(o, Immediate(0));\n} else {\n  __ movl(o, i1);\n  if (imm \u003d\u003d -1) {\n     __ negl(o);\n  }\n}",
+      "parentUuid": "83e35e1e_8cf16768",
+      "range": {
+        "startLine": 2319,
+        "startChar": 2,
+        "endLine": 2333,
+        "endChar": 7
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_a9e2ddc7",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "837fde20_ecf6cba7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2349,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2312b2d8_a9e2ddc7",
+      "range": {
+        "startLine": 2348,
+        "startChar": 2,
+        "endLine": 2349,
+        "endChar": 45
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_69dd050b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -151,6 +247,30 @@
       "writtenOn": "2015-04-02T09:59:22Z",
       "side": 1,
       "message": "ditto\n\nAnd this seems to imply it\u0027s EAX? Don\u0027t you want to DCHECK that?",
+      "range": {
+        "startLine": 2381,
+        "startChar": 11,
+        "endLine": 2381,
+        "endChar": 16
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_8d462130",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2312b2d8_69dd050b",
       "range": {
         "startLine": 2381,
         "startChar": 11,
@@ -234,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_2de5ada3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e35e1e_8c4ba737",
+      "range": {
+        "startLine": 2461,
+        "startChar": 15,
+        "endLine": 2461,
+        "endChar": 43
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83e35e1e_6c063b21",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -257,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_4d07d9d3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2527,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e35e1e_6c063b21",
+      "range": {
+        "startLine": 2527,
+        "startChar": 0,
+        "endLine": 2527,
+        "endChar": 42
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3d4e237_0d0d7136",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -268,6 +436,30 @@
       "writtenOn": "2015-04-02T09:59:22Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2598,
+        "startChar": 0,
+        "endLine": 2598,
+        "endChar": 42
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837fde20_4c935f2a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2598,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-07T15:50:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d4e237_0d0d7136",
       "range": {
         "startLine": 2598,
         "startChar": 0,
