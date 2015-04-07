@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_2d2ccd3d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-07T15:56:04Z",
+      "side": 1,
+      "message": "OK.  How about making `use_cache\u0027 an argument of this function (instead of a parameter of the template)?  I guess the compiler will be able to optimize for statically-known values anyway, and it would be more legible IMHO.",
+      "parentUuid": "a3706250_add8bdf5",
+      "range": {
+        "startLine": 349,
+        "startChar": 10,
+        "endLine": 349,
+        "endChar": 33
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "837fde20_ec1fab5d",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 7
