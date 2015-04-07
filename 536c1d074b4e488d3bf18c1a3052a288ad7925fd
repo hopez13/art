@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2312b2d8_52966ac9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T11:16:05Z",
+      "side": 1,
+      "message": "I know... didn\u0027t find a good place hence I duplicated a bit.\n\nI moved this to the driver now.",
+      "parentUuid": "2312b2d8_0c133710",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 80
+      },
+      "revId": "536c1d074b4e488d3bf18c1a3052a288ad7925fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c34716eb_940711d3",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-06T21:28:02Z",
       "side": 1,
       "message": "This will fail to find the verified method if it\u0027s trying to inline something that was compiled previously. You\u0027ll need this change to prevent the verified method from being deleted: https://android-review.googlesource.com/#/c/145462",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 22
+      },
+      "revId": "536c1d074b4e488d3bf18c1a3052a288ad7925fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2337126d_e1a58603",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T11:16:05Z",
+      "side": 1,
+      "message": "indeed. thanks",
+      "parentUuid": "c34716eb_940711d3",
       "range": {
         "startLine": 152,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2312b2d8_f201de8b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T11:16:05Z",
+      "side": 1,
+      "message": "moved. (it does make the other check redundant)",
+      "parentUuid": "83e35e1e_0fe569a3",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 3
+      },
+      "revId": "536c1d074b4e488d3bf18c1a3052a288ad7925fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_2c16fbff",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-02T23:02:36Z",
       "side": 1,
       "message": "I\u0027d drop.",
+      "range": {
+        "startLine": 583,
+        "startChar": 2,
+        "endLine": 583,
+        "endChar": 7
+      },
+      "revId": "536c1d074b4e488d3bf18c1a3052a288ad7925fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_72996ef7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T11:16:05Z",
+      "side": 1,
+      "message": "GetVerifiedMethod returns a const pointer.",
+      "parentUuid": "2312b2d8_2c16fbff",
       "range": {
         "startLine": 583,
         "startChar": 2,
