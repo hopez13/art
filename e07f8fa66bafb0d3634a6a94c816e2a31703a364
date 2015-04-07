@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "837fde20_cc7e6f68",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T15:44:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "837fde20_ecc48b43",
+      "range": {
+        "startLine": 1557,
+        "startChar": 6,
+        "endLine": 1557,
+        "endChar": 29
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3706250_adce7d5d",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-07T15:11:07Z",
       "side": 1,
       "message": "Why making it conditional (and off by default)?",
+      "range": {
+        "startLine": 349,
+        "startChar": 10,
+        "endLine": 349,
+        "endChar": 33
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_add8bdf5",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T15:44:40Z",
+      "side": 1,
+      "message": "The problem is that I need to clearly mark calls which should occur in order (i.e. position \u003e\u003d cache_position) so as to DCHECK that the property holds. Maybe I should make use_cache true by default because the problematic calls are all in reg alloc\u0027s DCHECKs.",
+      "parentUuid": "a3706250_adce7d5d",
       "range": {
         "startLine": 349,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_4d411916",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T15:44:40Z",
+      "side": 1,
+      "message": "I should trust my own code more... Removed.",
+      "parentUuid": "837fde20_ec1fab5d",
+      "range": {
+        "startLine": 353,
+        "startChar": 4,
+        "endLine": 353,
+        "endChar": 67
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "837fde20_4c2fdf86",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-07T15:11:07Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 362,
+        "startChar": 11,
+        "endLine": 362,
+        "endChar": 33
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "637aea34_aba42984",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T15:44:40Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "837fde20_4c2fdf86",
       "range": {
         "startLine": 362,
         "startChar": 11,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_ed8325d9",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T15:44:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3706250_6ddad515",
+      "range": {
+        "startLine": 838,
+        "startChar": 35,
+        "endLine": 838,
+        "endChar": 37
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3706250_0dd791ec",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-07T15:11:07Z",
       "side": 1,
       "message": "Are we certain not to enter infinite recursion here?",
+      "range": {
+        "startLine": 842,
+        "startChar": 25,
+        "endLine": 842,
+        "endChar": 67
+      },
+      "revId": "e07f8fa66bafb0d3634a6a94c816e2a31703a364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_0db471b1",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-07T15:44:40Z",
+      "side": 1,
+      "message": "Yes, in the recurvice call start_range \u003d\u003d first_range_ and hence it won\u0027t recurse again. The function is also const, so first_range_ cannot change. But let me just remove that. The DCHECK at the beginning of the method should suffice.",
+      "parentUuid": "a3706250_0dd791ec",
       "range": {
         "startLine": 842,
         "startChar": 25,
