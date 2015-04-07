@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "637aea34_ab93c959",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b8f2d3_59c42391",
+      "range": {
+        "startLine": 199,
+        "startChar": 63,
+        "endLine": 199,
+        "endChar": 64
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3706250_edc48543",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b5e6d8_7ac9d9a5",
+      "range": {
+        "startLine": 199,
+        "startChar": 81,
+        "endLine": 199,
+        "endChar": 82
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43b5e6d8_fad40940",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 2
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "2312b2d8_8c7de76a",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "I thought about the same thing but I still don\u0027t see it happening as they\u0027ll be split in different blocks.\n\nI think if that ever happens we should keep a single one anyway and this check can catch that scenario.\n\nChecking just the next phis will not work as you may still fall in your case (assuming that ever happens).",
+      "parentUuid": "e3a41acd_9fe19316",
+      "range": {
+        "startLine": 203,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 34
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43b5e6d8_3ae841f8",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "23b8f2d3_7c271569",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b5e6d8_3ae841f8",
+      "range": {
+        "startLine": 198,
+        "startChar": 24,
+        "endLine": 198,
+        "endChar": 67
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23b8f2d3_f9d41740",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -153,6 +249,30 @@
       "writtenOn": "2015-03-31T22:10:05Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 202,
+        "startChar": 32,
+        "endLine": 202,
+        "endChar": 76
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03af6e90_bb4d33cb",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b8f2d3_f9d41740",
       "range": {
         "startLine": 202,
         "startChar": 32,
@@ -212,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "43b5e6d8_dd001fbb",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b8f2d3_99f6bbdc",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 207,
+        "endChar": 16
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23b8f2d3_19e38b20",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -246,6 +390,30 @@
       "writtenOn": "2015-03-31T22:10:05Z",
       "side": 1,
       "message": "Add a comment that is going over equivalent phis that are not reference (and therefore floating point).",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 221,
+        "endChar": 7
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43b5e6d8_fdfde335",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03af6e90_18470581",
       "range": {
         "startLine": 215,
         "startChar": 6,
@@ -304,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "43b5e6d8_9d0b07d6",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b8f2d3_99cddbb4",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 69
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23b8f2d3_b9ca9f97",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -327,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "03af6e90_3ebf51f5",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b8f2d3_b9ca9f97",
+      "range": {
+        "startLine": 275,
+        "startChar": 5,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23b8f2d3_d9d75342",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 2
@@ -338,6 +554,30 @@
       "writtenOn": "2015-03-31T22:10:05Z",
       "side": 1,
       "message": "don -\u003e done.",
+      "range": {
+        "startLine": 276,
+        "startChar": 21,
+        "endLine": 276,
+        "endChar": 24
+      },
+      "revId": "da816fda7eee3ad72484b0bc2de59ae0f3d5adf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03af6e90_5ec40591",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:38:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b8f2d3_d9d75342",
       "range": {
         "startLine": 276,
         "startChar": 21,
