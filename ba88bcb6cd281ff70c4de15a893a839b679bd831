@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c375563f_4eb4b3c4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-07T17:56:02Z",
+      "side": 1,
+      "message": "The throwers which pass the criteria (as tested on core.oat) are LoadClass, NullCheck, BoundsCheck, CheckCast, DivZeroCheck.",
+      "range": {
+        "startLine": 254,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 67
+      },
+      "revId": "ba88bcb6cd281ff70c4de15a893a839b679bd831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
