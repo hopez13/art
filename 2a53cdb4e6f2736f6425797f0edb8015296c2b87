@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "a3706250_4d82799d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-07T15:58:54Z",
+      "side": 1,
+      "message": "well, you have -0x800000000 \u003d 0x80000000",
+      "parentUuid": "a3706250_8d3aa179",
+      "range": {
+        "startLine": 2319,
+        "startChar": 2,
+        "endLine": 2333,
+        "endChar": 7
+      },
+      "revId": "2a53cdb4e6f2736f6425797f0edb8015296c2b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2312b2d8_a9e2ddc7",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
