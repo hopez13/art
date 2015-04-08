@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "837fde20_ef2f9d07",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T00:11:25Z",
+      "side": 1,
+      "message": "This value is escape for storing of .eh_frame section larger than 4 GB.\nIt is unrelated to machine architecture, elf 32-bit/64-bit, or to augmentation data (which is what should be used as the condition for this branch).\n\nWhy do not we patch the DWARF sections using .oat_patches or something similar?  I think that would be easier then trying to fix bugs / deficiencies in the DWARF relocator.",
+      "range": {
+        "startLine": 1637,
+        "startChar": 50,
+        "endLine": 1637,
+        "endChar": 60
+      },
+      "revId": "3c54b0023fca579aae006dfa607fb14de5846c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
