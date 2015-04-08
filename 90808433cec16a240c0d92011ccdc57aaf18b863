@@ -22,6 +22,30 @@
       "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e305fac3_57e44c4f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-08T17:28:24Z",
+      "side": 1,
+      "message": "The current code creates the HGraph before the CodeGenerator.  Should I change that?",
+      "parentUuid": "63f82afb_8f6245bc",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 33
+      },
+      "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
