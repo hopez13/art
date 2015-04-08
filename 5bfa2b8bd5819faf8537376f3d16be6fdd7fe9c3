@@ -46,6 +46,30 @@
       "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_8535020e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-08T21:21:33Z",
+      "side": 1,
+      "message": "And the whole sentence actually refers to the fact that previously the sequence was \"call +0; pop \u003creg\u003e; sub \u003creg\u003e, \u003coffset-of-pop\u003e\" and we completely avoid the \"sub\". Instead, we take the anchor offset into account when generating PC-relative offsets or the large switch table.",
+      "parentUuid": "a3c5c2ce_a530fe1d",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
