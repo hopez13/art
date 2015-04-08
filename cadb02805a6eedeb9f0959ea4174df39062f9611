@@ -232,6 +232,24 @@
     },
     {
       "key": {
+        "uuid": "430966dc_5d1c6f94",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2292,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T12:50:50Z",
+      "side": 1,
+      "message": "num stands for numerator, as its main use is to save the numerator while we use [er]ax",
+      "parentUuid": "c3f39619_fe24612e",
+      "revId": "cadb02805a6eedeb9f0959ea4174df39062f9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f39619_9e2f1d09",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
@@ -341,6 +359,24 @@
         "endLine": 2380,
         "endChar": 43
       },
+      "revId": "cadb02805a6eedeb9f0959ea4174df39062f9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_9d628711",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2380,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T12:50:50Z",
+      "side": 1,
+      "message": "it can happen. We just have nothing to do.",
+      "parentUuid": "430966dc_bdb94b12",
       "revId": "cadb02805a6eedeb9f0959ea4174df39062f9611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
