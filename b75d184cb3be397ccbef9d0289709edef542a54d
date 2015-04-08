@@ -90,6 +90,52 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_6152703c",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T14:09:14Z",
+      "side": 1,
+      "message": "Nit: SpillRegisters",
+      "range": {
+        "startLine": 230,
+        "startChar": 7,
+        "endLine": 230,
+        "endChar": 16
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_ff2a9ba7",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T14:09:14Z",
+      "side": 1,
+      "message": "Nit: UnspillRegisters",
+      "range": {
+        "startLine": 231,
+        "startChar": 7,
+        "endLine": 231,
+        "endChar": 18
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "430966dc_1a3e7d8b",
         "filename": "compiler/optimizing/optimizing_cfi_test.cc",
         "patchSetId": 2
@@ -106,6 +152,29 @@
         "startChar": 0,
         "endLine": 46,
         "endChar": 50
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_7d6213bf",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T14:09:14Z",
+      "side": 1,
+      "message": "Nit: fit on a single line?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 60
       },
       "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -177,6 +246,24 @@
       "side": 1,
       "message": "That sounds like the wrong division of responsibility in the optimizing compiler.",
       "parentUuid": "c3f39619_61eef000",
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_212ce88f",
+        "filename": "compiler/optimizing/optimizing_cfi_test_expected.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T14:09:14Z",
+      "side": 1,
+      "message": "FYI the \"ret\" instruction is emitted by the art::InstructionCodeGenerator*::VisitReturnVoid and art::InstructionCodeGenerator*::VisitReturn methods (which also call art::CodeGenerator*::GenerateFrameExit()).",
+      "parentUuid": "83fd1eeb_9fe7172a",
       "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
