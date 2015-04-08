@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83fd1eeb_5fb74f66",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "Is this temporary really needed? It looks that you can use directly the output register and don\u0027t request this anymore for powers of two.",
+      "range": {
+        "startLine": 2260,
+        "startChar": 11,
+        "endLine": 2260,
+        "endChar": 14
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_e1ca00eb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "nit: minor style issue but I would move this before num.",
+      "range": {
+        "startLine": 2282,
+        "startChar": 2,
+        "endLine": 2282,
+        "endChar": 14
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_80833a05",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "add an extra comment why a temp is needed here (as you did for x64)",
+      "range": {
+        "startLine": 2442,
+        "startChar": 8,
+        "endLine": 2442,
+        "endChar": 57
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_5f90efc9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2513,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2513,
+        "startChar": 8,
+        "endLine": 2513,
+        "endChar": 57
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_a0f63ea6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "inline",
+      "range": {
+        "startLine": 2211,
+        "startChar": 2,
+        "endLine": 2212,
+        "endChar": 37
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_c0ab7285",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2273,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "DCHECK",
+      "range": {
+        "startLine": 2273,
+        "startChar": 2,
+        "endLine": 2273,
+        "endChar": 7
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_20034e10",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2327,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "add a TODO to investigate if the two branches can be written in a more compact way.",
+      "range": {
+        "startLine": 2327,
+        "startChar": 6,
+        "endLine": 2327,
+        "endChar": 57
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_ff0bbba6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "give a more explicit name.",
+      "range": {
+        "startLine": 2334,
+        "startChar": 10,
+        "endLine": 2334,
+        "endChar": 14
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_81933cd7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2411,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "you can reverse the condition and use:\n\nIsInt(kBitsPerByte * sizeof(int32_t), imm);",
+      "range": {
+        "startLine": 2410,
+        "startChar": 10,
+        "endLine": 2411,
+        "endChar": 51
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_1f1307e2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 2415,
+        "startChar": 44,
+        "endLine": 2415,
+        "endChar": 47
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_010c4cbe",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2500,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T15:16:07Z",
+      "side": 1,
+      "message": "Not needed for power of twos and -1. Same for x86.",
+      "range": {
+        "startLine": 2500,
+        "startChar": 19,
+        "endLine": 2500,
+        "endChar": 26
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
