@@ -70,6 +70,30 @@
       "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83c43ed3_8afd0fed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-08T21:37:13Z",
+      "side": 1,
+      "message": "SGTM. I think your statement of \"rewrite all PC-relative addressing on x86\" is some what over the top. You\u0027ve inlined the macro to compute the beginning of the method and removed the subtract, adjusting the instructions that use the beginning of the method to incorporate the offset. Its more of a tinker than a rewrite ;-)",
+      "parentUuid": "a3c5c2ce_8535020e",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
