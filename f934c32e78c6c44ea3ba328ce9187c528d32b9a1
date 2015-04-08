@@ -22,6 +22,30 @@
       "revId": "f934c32e78c6c44ea3ba328ce9187c528d32b9a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_c07ed267",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-08T15:33:34Z",
+      "side": 1,
+      "message": "Maybe just return the InlineMethodFlags and let the caller decode it?",
+      "parentUuid": "e3ec1a3e_28f4cfd2",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "f934c32e78c6c44ea3ba328ce9187c528d32b9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
