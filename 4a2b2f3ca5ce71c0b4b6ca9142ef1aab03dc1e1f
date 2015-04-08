@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63a66a29_0b22bdce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T21:10:06Z",
+      "side": 1,
+      "message": "Does it make a real difference? ToLocation will probably not be inlined for example.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "4a2b2f3ca5ce71c0b4b6ca9142ef1aab03dc1e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_01256c28",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T21:10:06Z",
+      "side": 1,
+      "message": "explain why only these two need their cache reset.",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 559,
+        "endChar": 33
+      },
+      "revId": "4a2b2f3ca5ce71c0b4b6ca9142ef1aab03dc1e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
