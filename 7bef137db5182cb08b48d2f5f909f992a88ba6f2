@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "63a66a29_cb16f581",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T20:44:27Z",
+      "side": 1,
+      "message": "sorry to come back to this, but this is actually a bit confusing.\n\n`out` should be `locations-\u003eOut().AsRegister\u003cRegister\u003e();`. And it\u0027s actually exactly that, jut written more complicated with the if below.\n\nOnly `num` an `edx should be handled  in if, and then you should check that the output has the correct value.\n\nif (instruction-\u003eIsDiv()) {\n  DCHECK_EQ(EAX, out);\n} else {\n  DCHECK_EQ(EDX, out);\n}\n\nAlso, please check the other assertions. It should be \nDCHECK_EQ(expected, actual);\n\nSame for x64.",
+      "range": {
+        "startLine": 2281,
+        "startChar": 2,
+        "endLine": 2284,
+        "endChar": 15
+      },
+      "revId": "7bef137db5182cb08b48d2f5f909f992a88ba6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_2bfcd9b2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2441,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T20:44:27Z",
+      "side": 1,
+      "message": "Comments should be full sentences. Start with capital letter and end with full stop.\n\nSame in all the other places.",
+      "range": {
+        "startLine": 2441,
+        "startChar": 9,
+        "endLine": 2441,
+        "endChar": 65
+      },
+      "revId": "7bef137db5182cb08b48d2f5f909f992a88ba6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_05f472d2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2444,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T20:44:27Z",
+      "side": 1,
+      "message": "Hmm,  after your comment I see that now. \n\nBasically, as far as I can tell you need the temporary for constants only because the output is set to be the same as the input. If they were different you could use the output directly to cache what you need on the fly.\n\nI don\u0027t mind forcing the output in EAX or EDX for rem, especially since it seems to make the algorithm simpler, but for constant is not mandatory and we should probably document.\n\nAn extra line\n\"\nWe could have asked for fresh register for output and used that one. However things are slightly simpler if we force the output in EAX and request another temp.\n\"\nwill do the job.\n\nSame for rem and x64.",
+      "range": {
+        "startLine": 2442,
+        "startChar": 6,
+        "endLine": 2444,
+        "endChar": 7
+      },
+      "revId": "7bef137db5182cb08b48d2f5f909f992a88ba6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e305fac3_571d6ce7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 7
@@ -13,6 +82,30 @@
       "writtenOn": "2015-04-08T16:24:59Z",
       "side": 1,
       "message": "IsInt\u003c32\u003e(imm)",
+      "range": {
+        "startLine": 2409,
+        "startChar": 10,
+        "endLine": 2409,
+        "endChar": 15
+      },
+      "revId": "7bef137db5182cb08b48d2f5f909f992a88ba6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_c800af06",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2409,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T20:44:27Z",
+      "side": 1,
+      "message": "or like that :)",
+      "parentUuid": "e305fac3_571d6ce7",
       "range": {
         "startLine": 2409,
         "startChar": 10,
