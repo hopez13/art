@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2312b2d8_5d6f9bf5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Oh C++11! Done.",
+      "parentUuid": "2312b2d8_d2a93a06",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 43
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "634caa14_bba48784",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-07T11:16:44Z",
       "side": 1,
       "message": "kMaxSamePositionSimplifications",
+      "range": {
+        "startLine": 71,
+        "startChar": 23,
+        "endLine": 71,
+        "endChar": 53
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2337126d_c4009006",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "634caa14_bba48784",
       "range": {
         "startLine": 71,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "83fd1eeb_9cb0c5f5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "I had a \u0027next step\u0027 in mind that would allow optimizing away IRs with multiple uses. Instead of checking for `HasOnlyOneNonEnvironmentUse()`, the simplifier would perform local transformations if the IR can be optimized away at every use site.\n\nIf that\u0027s ok I will (or somebody else can) try to produce something along those lines. If we can\u0027t reach something acceptable for the general case then we can consider \u0027local\u0027 improvements.",
+      "parentUuid": "837fde20_2c7933c1",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 49
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "637aea34_ab00a904",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-07T14:48:54Z",
       "side": 1,
       "message": "Only CHECK if you want to match the first Goto after the two Negs. Otherwise it will match against the entry block\u0027s Goto.",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 42
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_5e7915c0",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Fixed here and in other places.",
+      "parentUuid": "637aea34_ab00a904",
       "range": {
         "startLine": 359,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_be465981",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3706250_2dbb6db3",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 362,
+        "endChar": 63
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "634caa14_3b38779c",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-07T11:16:44Z",
       "side": 1,
       "message": "Out of curiosity, did you make these changes to defeat another optimization?  If so, please add a comment about it.",
+      "range": {
+        "startLine": 382,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 33
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_3a5b815a",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Reverted. After a rebase the test was broken, and these changes were part of the testing/fixing attempts.",
+      "parentUuid": "634caa14_3b38779c",
       "range": {
         "startLine": 382,
         "startChar": 0,
@@ -187,6 +331,54 @@
     },
     {
       "key": {
+        "uuid": "430966dc_baab1186",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "I was misunderstanding the `-DAG` suffix. I have finally read the doc in `checker.py` and I reworked the tests to use in-order checks.\n\nI will also prepare a separate patch to fix other tests in the file.",
+      "parentUuid": "837fde20_ac19a37a",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 56
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837fde20_ec456b06",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "634caa14_7bdb5ff0",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 56
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2337126d_44eec000",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 4
@@ -198,6 +390,30 @@
       "writtenOn": "2015-04-07T11:16:44Z",
       "side": 1,
       "message": "simplification",
+      "range": {
+        "startLine": 614,
+        "startChar": 14,
+        "endLine": 614,
+        "endChar": 27
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "637aea34_0b01bdbc",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2337126d_44eec000",
       "range": {
         "startLine": 614,
         "startChar": 14,
@@ -233,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "637aea34_2bfef931",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2337126d_040d186c",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 633,
+        "endChar": 15
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "634caa14_bb3fa768",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 4
@@ -244,6 +484,30 @@
       "writtenOn": "2015-04-07T11:16:44Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 705,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 29
+      },
+      "revId": "855e0cd0cba6f45bb377cd355e33b1994bf0e3e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_fc8e292f",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-08T08:36:55Z",
+      "side": 1,
+      "message": "Reverted.",
+      "parentUuid": "634caa14_bb3fa768",
       "range": {
         "startLine": 705,
         "startChar": 0,
