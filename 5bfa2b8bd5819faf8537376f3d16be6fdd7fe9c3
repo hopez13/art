@@ -22,6 +22,30 @@
       "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_a530fe1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-08T21:18:11Z",
+      "side": 1,
+      "message": "We have register promotion which takes loop depth into account and in X86Mir2Lir::CountRefs() we even double the weight of the anchor uses. I think we should be fine.",
+      "parentUuid": "237f124e_0a739f97",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
