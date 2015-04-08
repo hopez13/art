@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "430966dc_9a83adda",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T10:01:16Z",
+      "side": 1,
+      "message": "Please display the condition in question:\n\n  LOG(FATAL) \u003c\u003c \"Unexpected condition \" \u003c\u003c arm64_cond;",
+      "range": {
+        "startLine": 1677,
+        "startChar": 10,
+        "endLine": 1677,
+        "endChar": 48
+      },
+      "revId": "d02ef36adc0cdaa97be2d934246eca2c1c8fb81d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
