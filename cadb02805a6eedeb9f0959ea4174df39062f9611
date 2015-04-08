@@ -250,6 +250,24 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_01c44c8f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2292,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T13:18:53Z",
+      "side": 1,
+      "message": "oki",
+      "parentUuid": "430966dc_5d1c6f94",
+      "revId": "cadb02805a6eedeb9f0959ea4174df39062f9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f39619_9e2f1d09",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
@@ -377,6 +395,24 @@
       "side": 1,
       "message": "it can happen. We just have nothing to do.",
       "parentUuid": "430966dc_bdb94b12",
+      "revId": "cadb02805a6eedeb9f0959ea4174df39062f9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_81d85c73",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2380,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-08T13:18:53Z",
+      "side": 1,
+      "message": "Yea, you\u0027re right. We do have the check for 0 division but we may still need to generate the code after.\n\nAdd a short note explaining that we don\u0027t generate anything because this will never be executed (because of the DivZeroCheck)",
+      "parentUuid": "430966dc_9d628711",
       "revId": "cadb02805a6eedeb9f0959ea4174df39062f9611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
