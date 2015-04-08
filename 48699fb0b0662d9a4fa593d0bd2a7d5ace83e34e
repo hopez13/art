@@ -94,6 +94,30 @@
       "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_bce821ab",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-08T09:24:38Z",
+      "side": 1,
+      "message": "Given the comment line 2277, it all indicates this CL is for Calin\u0027s work. Jeff, what is is that you require verification results? Optimizing won\u0027t inline allocations as of today anyway...",
+      "parentUuid": "832a7e12_9db507e5",
+      "range": {
+        "startLine": 2277,
+        "startChar": 0,
+        "endLine": 2280,
+        "endChar": 3
+      },
+      "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
