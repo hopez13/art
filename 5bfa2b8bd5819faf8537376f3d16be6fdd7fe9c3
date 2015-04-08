@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "237f124e_0a739f97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-08T21:13:31Z",
+      "side": 1,
+      "message": "Won\u0027t recomputing the PC be a performance regression if you have say a loop using a floating point literal? The literals being PC relative.",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "5bfa2b8bd5819faf8537376f3d16be6fdd7fe9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
