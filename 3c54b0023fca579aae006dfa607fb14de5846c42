@@ -22,6 +22,30 @@
       "revId": "3c54b0023fca579aae006dfa607fb14de5846c42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23e3924b_7638769d",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-08T00:16:51Z",
+      "side": 1,
+      "message": "I think this was done to not add another s***-load of patch locations. You could try to add the oat_patches entries, and let us know by how much it grows.\n\nI would want to point out that I don\u0027t think you are right with \"easier then trying to fix / bugs in the DWARF relocator.\" .oat_patches is our own custom thing, and as far as I remember, everything is 32-bit. To me it sounds like taking advantage of DWARF knowledge is better than trying to encode that into random patches.\n\nAnyways, feel free to clean this code up in a follow-up. This is mostly just a refactor to make it at least not horrible fail when trying to emit 64-bit ELF files.",
+      "parentUuid": "837fde20_ef2f9d07",
+      "range": {
+        "startLine": 1637,
+        "startChar": 50,
+        "endLine": 1637,
+        "endChar": 60
+      },
+      "revId": "3c54b0023fca579aae006dfa607fb14de5846c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
