@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "83fd1eeb_7f1fab8a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-08T13:59:44Z",
+      "side": 1,
+      "message": "I think the \"src_map\" creation should be factored out of BuildMappingTable() to a function of its own.\n\nYes, StackMap is a replacement for vmap used by the truly Optimizing compiler. (There are 2 modes in the optimizing compiler, the truly Optimizing and Baseline. Only the Baseline calls BuildMappingTable().)",
+      "parentUuid": "430966dc_5d80eff7",
+      "range": {
+        "startLine": 444,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 3
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "430966dc_da26c56b",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -135,6 +159,24 @@
       "side": 1,
       "message": "GenerateFrameExit does not generate the ret instruction.  It is done by a visitor just after the call.\nI agree that the output looks incomplete without it, but I was not sure how to call it as well.  I will take another look.",
       "parentUuid": "c3f39619_de724592",
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_9fe7172a",
+        "filename": "compiler/optimizing/optimizing_cfi_test_expected.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-08T13:59:44Z",
+      "side": 1,
+      "message": "That sounds like the wrong division of responsibility in the optimizing compiler.",
+      "parentUuid": "c3f39619_61eef000",
       "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
