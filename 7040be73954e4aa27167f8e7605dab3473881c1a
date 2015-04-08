@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3ec1a3e_c8f1e3b2",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-08T15:53:18Z",
+      "side": 1,
+      "message": "\"owner \u003d \" ?\n\nDid you test this? It seems the owner can\u0027t be set if you exclusively hold the mutator lock.",
+      "range": {
+        "startLine": 673,
+        "startChar": 8,
+        "endLine": 673,
+        "endChar": 19
+      },
+      "revId": "7040be73954e4aa27167f8e7605dab3473881c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3ec1a3e_48895325",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-08T15:53:18Z",
+      "side": 1,
+      "message": "Don\u0027t do this, fix the issues properly.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 3
+      },
+      "revId": "7040be73954e4aa27167f8e7605dab3473881c1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
