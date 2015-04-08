@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83fd1eeb_9f9397ac",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2260,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "The output register is actually the same as the input register.",
+      "parentUuid": "83fd1eeb_5fb74f66",
+      "range": {
+        "startLine": 2260,
+        "startChar": 11,
+        "endLine": 2260,
+        "endChar": 14
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f39619_e1ca00eb",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-08T15:16:07Z",
       "side": 1,
       "message": "nit: minor style issue but I would move this before num.",
+      "range": {
+        "startLine": 2282,
+        "startChar": 2,
+        "endLine": 2282,
+        "endChar": 14
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_ff88db75",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f39619_e1ca00eb",
       "range": {
         "startLine": 2282,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "83fd1eeb_3fa363f5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_80833a05",
+      "range": {
+        "startLine": 2442,
+        "startChar": 8,
+        "endLine": 2442,
+        "endChar": 57
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83fd1eeb_5f90efc9",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-08T15:16:07Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2513,
+        "startChar": 8,
+        "endLine": 2513,
+        "endChar": 57
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_60fee632",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2513,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83fd1eeb_5f90efc9",
       "range": {
         "startLine": 2513,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_6148b0b7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_a0f63ea6",
+      "range": {
+        "startLine": 2211,
+        "startChar": 2,
+        "endLine": 2212,
+        "endChar": 37
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "430966dc_c0ab7285",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-08T15:16:07Z",
       "side": 1,
       "message": "DCHECK",
+      "range": {
+        "startLine": 2273,
+        "startChar": 2,
+        "endLine": 2273,
+        "endChar": 7
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_814b3cb4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2273,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_c0ab7285",
       "range": {
         "startLine": 2273,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_214ea8c5",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2327,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_20034e10",
+      "range": {
+        "startLine": 2327,
+        "startChar": 6,
+        "endLine": 2327,
+        "endChar": 57
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83fd1eeb_ff0bbba6",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2015-04-08T15:16:07Z",
       "side": 1,
       "message": "give a more explicit name.",
+      "range": {
+        "startLine": 2334,
+        "startChar": 10,
+        "endLine": 2334,
+        "endChar": 14
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_5fc10f9b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83fd1eeb_ff0bbba6",
       "range": {
         "startLine": 2334,
         "startChar": 10,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_e15b2088",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2411,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f39619_81933cd7",
+      "range": {
+        "startLine": 2410,
+        "startChar": 10,
+        "endLine": 2411,
+        "endChar": 51
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83fd1eeb_1f1307e2",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_41513468",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83fd1eeb_1f1307e2",
+      "range": {
+        "startLine": 2415,
+        "startChar": 44,
+        "endLine": 2415,
+        "endChar": 47
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3f39619_010c4cbe",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -243,6 +483,30 @@
       "writtenOn": "2015-04-08T15:16:07Z",
       "side": 1,
       "message": "Not needed for power of twos and -1. Same for x86.",
+      "range": {
+        "startLine": 2500,
+        "startChar": 19,
+        "endLine": 2500,
+        "endChar": 26
+      },
+      "revId": "534622c8cb464fd2b506064461b9dae2ba2067ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_c017f2ff",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2500,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-08T16:06:40Z",
+      "side": 1,
+      "message": "I can do it for 1 \u0026 -1. For pow of 2, as said previously, the input register is the same as the output, so we really need this temp",
+      "parentUuid": "c3f39619_010c4cbe",
       "range": {
         "startLine": 2500,
         "startChar": 19,
