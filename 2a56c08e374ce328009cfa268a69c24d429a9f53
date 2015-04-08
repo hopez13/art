@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83fd1eeb_df5b5f88",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3986,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T16:45:32Z",
+      "side": 1,
+      "message": "This method definition is small; please inline it into its class definition.",
+      "range": {
+        "startLine": 3986,
+        "startChar": 0,
+        "endLine": 3986,
+        "endChar": 59
+      },
+      "revId": "2a56c08e374ce328009cfa268a69c24d429a9f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_24f4f6d2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3988,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T16:45:32Z",
+      "side": 1,
+      "message": "Nit: .",
+      "revId": "2a56c08e374ce328009cfa268a69c24d429a9f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_e42faeb5",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2768,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T16:45:32Z",
+      "side": 1,
+      "message": "Nit: \"a 64-bit integer value\"",
+      "range": {
+        "startLine": 2768,
+        "startChar": 24,
+        "endLine": 2768,
+        "endChar": 40
+      },
+      "revId": "2a56c08e374ce328009cfa268a69c24d429a9f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_62d55239",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T16:45:32Z",
+      "side": 1,
+      "message": "Nit: \"a 32-bit integer value\"",
+      "range": {
+        "startLine": 2773,
+        "startChar": 24,
+        "endLine": 2773,
+        "endChar": 40
+      },
+      "revId": "2a56c08e374ce328009cfa268a69c24d429a9f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_c2b9c611",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T16:45:32Z",
+      "side": 1,
+      "message": "Nit: Please fit this ctor on a single line (the coding style allows 100-character lines).",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 3
+      },
+      "revId": "2a56c08e374ce328009cfa268a69c24d429a9f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_82d85e73",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-08T16:45:32Z",
+      "side": 1,
+      "message": "IsConstantAreaEmpty",
+      "range": {
+        "startLine": 723,
+        "startChar": 7,
+        "endLine": 723,
+        "endChar": 24
+      },
+      "revId": "2a56c08e374ce328009cfa268a69c24d429a9f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
