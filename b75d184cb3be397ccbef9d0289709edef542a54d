@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "83fd1eeb_42fc96b3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done (factored)",
+      "parentUuid": "430966dc_e0e15615",
+      "range": {
+        "startLine": 444,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 3
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "430966dc_da26c56b",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -114,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_042bbaad",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_da26c56b",
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83fd1eeb_9f455708",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -125,6 +167,30 @@
       "writtenOn": "2015-04-08T14:49:14Z",
       "side": 1,
       "message": "why not `__`? here and everywhere else",
+      "range": {
+        "startLine": 468,
+        "startChar": 4,
+        "endLine": 468,
+        "endChar": 18
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_c4943247",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Because __ points to the VIXL assembler, which not where the cfi is.",
+      "parentUuid": "83fd1eeb_9f455708",
       "range": {
         "startLine": 468,
         "startChar": 4,
@@ -160,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_e4932e59",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f39619_21db48f1",
+      "range": {
+        "startLine": 507,
+        "startChar": 2,
+        "endLine": 507,
+        "endChar": 3
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83fd1eeb_7f2fab34",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -171,6 +261,30 @@
       "writtenOn": "2015-04-08T14:49:14Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 524,
+        "startChar": 2,
+        "endLine": 524,
+        "endChar": 3
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_44894225",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83fd1eeb_7f2fab34",
       "range": {
         "startLine": 524,
         "startChar": 2,
@@ -206,6 +320,30 @@
     },
     {
       "key": {
+        "uuid": "c3f39619_84aa2a7b",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f39619_6152703c",
+      "range": {
+        "startLine": 230,
+        "startChar": 7,
+        "endLine": 230,
+        "endChar": 16
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83fd1eeb_ff2a9ba7",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 2
@@ -217,6 +355,30 @@
       "writtenOn": "2015-04-08T14:09:14Z",
       "side": 1,
       "message": "Nit: UnspillRegisters",
+      "range": {
+        "startLine": 231,
+        "startChar": 7,
+        "endLine": 231,
+        "endChar": 18
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_60626686",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83fd1eeb_ff2a9ba7",
       "range": {
         "startLine": 231,
         "startChar": 7,
@@ -252,6 +414,54 @@
     },
     {
       "key": {
+        "uuid": "83fd1eeb_22cb4a9f",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_1a3e7d8b",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3f39619_64a71eb5",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_1a3e7d8b",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "430966dc_7d6213bf",
         "filename": "compiler/optimizing/optimizing_cfi_test.cc",
         "patchSetId": 2
@@ -275,6 +485,54 @@
     },
     {
       "key": {
+        "uuid": "430966dc_c06d3283",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_7d6213bf",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83fd1eeb_6203923d",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_7d6213bf",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "430966dc_dad885f7",
         "filename": "compiler/optimizing/optimizing_cfi_test_expected.inc",
         "patchSetId": 2
@@ -286,6 +544,24 @@
       "writtenOn": "2015-04-08T10:18:33Z",
       "side": 1,
       "message": "Missing .cfi_def_cfa_offset: 12",
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_0051eaba",
+        "filename": "compiler/optimizing/optimizing_cfi_test_expected.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430966dc_dad885f7",
       "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -357,6 +633,24 @@
       "side": 1,
       "message": "FYI the \"ret\" instruction is emitted by the art::InstructionCodeGenerator*::VisitReturnVoid and art::InstructionCodeGenerator*::VisitReturn methods (which also call art::CodeGenerator*::GenerateFrameExit()).",
       "parentUuid": "83fd1eeb_9fe7172a",
+      "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430966dc_e055d6a6",
+        "filename": "compiler/optimizing/optimizing_cfi_test_expected.inc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-08T17:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f39619_212ce88f",
       "revId": "b75d184cb3be397ccbef9d0289709edef542a54d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
