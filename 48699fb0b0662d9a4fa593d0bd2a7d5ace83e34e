@@ -166,6 +166,30 @@
       "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e356daec_9e1a816f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T23:04:47Z",
+      "side": 1,
+      "message": "Jeff is intervening in the build process, as all String.\u003cinit\u003e calls need to go to StringFactory.init. But for that you need to keep track of copies of the uninitialized object.",
+      "parentUuid": "a38a229d_ddc98b59",
+      "range": {
+        "startLine": 2277,
+        "startChar": 0,
+        "endLine": 2280,
+        "endChar": 3
+      },
+      "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
