@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3617abc_376ff8f6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "For such cases, it is fine to use GetAssembler instead of __.",
+      "range": {
+        "startLine": 4213,
+        "startChar": 7,
+        "endLine": 4219,
+        "endChar": 25
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_577c6cb1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "If it\u0027s not const, please use a pointer instead.",
+      "range": {
+        "startLine": 4231,
+        "startChar": 13,
+        "endLine": 4231,
+        "endChar": 41
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_1d893326",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "to start -\u003e to the start",
+      "range": {
+        "startLine": 300,
+        "startChar": 12,
+        "endLine": 300,
+        "endChar": 20
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_bd991f7d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "Nit: one per line.",
+      "range": {
+        "startLine": 304,
+        "startChar": 22,
+        "endLine": 305,
+        "endChar": 78
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_bbf687a6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "I don\u0027t understand this TODO, please provide an example.",
+      "range": {
+        "startLine": 312,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 74
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_777970c0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "Nit: one per line.",
+      "range": {
+        "startLine": 400,
+        "startChar": 24,
+        "endLine": 401,
+        "endChar": 80
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_d7407c67",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "You don\u0027t need this, it\u0027s already checked line 2735.",
+      "range": {
+        "startLine": 2733,
+        "startChar": 2,
+        "endLine": 2733,
+        "endChar": 27
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_fb000f06",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2735,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "u -\u003e e (for consistency with other places).",
+      "range": {
+        "startLine": 2735,
+        "startChar": 23,
+        "endLine": 2735,
+        "endChar": 24
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_dbfb538d",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 2736,
+        "startChar": 51,
+        "endLine": 2736,
+        "endChar": 54
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_97460482",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "Why RBP? Please add a comment.",
+      "range": {
+        "startLine": 247,
+        "startChar": 23,
+        "endLine": 247,
+        "endChar": 39
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_b74b0889",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:04:52Z",
+      "side": 1,
+      "message": "Please avoid. It is not the style of the assemblers.",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 273,
+        "endChar": 74
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
