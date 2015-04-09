@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3c5c2ce_053c7241",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2282,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:58:03Z",
+      "side": 1,
+      "message": "DCHECK that this is either eax or edx (it\u0027s not actually used anyway and doesn\u0027t serve other purpose.)",
+      "range": {
+        "startLine": 2282,
+        "startChar": 2,
+        "endLine": 2282,
+        "endChar": 57
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_ab73a918",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:58:03Z",
+      "side": 1,
+      "message": "capital \u0027D\u0027, here and everywhere else.",
+      "range": {
+        "startLine": 2367,
+        "startChar": 13,
+        "endLine": 2367,
+        "endChar": 15
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_c529ba04",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:58:03Z",
+      "side": 1,
+      "message": "DCHECK that this is either eax or edx (it\u0027s not actually used anyway and doesn\u0027t serve other purpose.)",
+      "range": {
+        "startLine": 2317,
+        "startChar": 14,
+        "endLine": 2317,
+        "endChar": 17
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
