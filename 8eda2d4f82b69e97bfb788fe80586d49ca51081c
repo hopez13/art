@@ -22,6 +22,30 @@
       "revId": "8eda2d4f82b69e97bfb788fe80586d49ca51081c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4365e6c2_ba4bf188",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:26:57Z",
+      "side": 1,
+      "message": "Done, I\u0027ve also added a CanInlineCheck and put the three tests there in the HInstruction class. I will suppose that is the predicate function Roland was asking for :)",
+      "parentUuid": "2368f29d_39db6ff1",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 244,
+        "endChar": 36
+      },
+      "revId": "8eda2d4f82b69e97bfb788fe80586d49ca51081c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
