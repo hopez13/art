@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83c43ed3_15d493c1",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T17:38:46Z",
+      "side": 1,
+      "message": "I somewhat dislike this. I understand that currently the packed-switch is the only one using this. But from just \"PcRelLoadRA\" it is *not* obvious that it must be a SwitchTable (instead of generic EmbeddedData).",
+      "range": {
+        "startLine": 1581,
+        "startChar": 4,
+        "endLine": 1582,
+        "endChar": 53
+      },
+      "revId": "1961b609bfefaedb71cee3651c4f931cc3e7393d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
