@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03868e96_470cbded",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-09T00:38:37Z",
+      "side": 1,
+      "message": "Are all of these 3 cases possible? I thought only the first one was.",
+      "range": {
+        "startLine": 84,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 27
+      },
+      "revId": "dad587c0cb21b877b27c5bed6fbcdd25edcb19be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83c43ed3_1965f745",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-09T00:38:37Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 97,
+        "startChar": 36,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "dad587c0cb21b877b27c5bed6fbcdd25edcb19be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03868e96_073b957f",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-09T00:38:37Z",
+      "side": 1,
+      "message": "This seems fine to me.",
+      "range": {
+        "startLine": 33,
+        "startChar": 18,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "dad587c0cb21b877b27c5bed6fbcdd25edcb19be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
