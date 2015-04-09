@@ -589,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "63a66a29_8e06bba0",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:18:03Z",
+      "side": 1,
+      "message": "You are right; if it is the style used in this file, we should stick to std::vector.  I should have checked before, sorry.",
+      "parentUuid": "e3d33a94_8a1fcb5e",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 15
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a66a29_0bb75d39",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 11
