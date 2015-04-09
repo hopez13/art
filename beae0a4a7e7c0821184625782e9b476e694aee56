@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3c5c2ce_25decee0",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T10:01:07Z",
+      "side": 1,
+      "message": "These members do not seem to be used; remove?",
+      "range": {
+        "startLine": 768,
+        "startChar": 11,
+        "endLine": 768,
+        "endChar": 35
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
