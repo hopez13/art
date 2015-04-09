@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a3c5c2ce_85cea22f",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-09T09:53:46Z",
+      "side": 1,
+      "message": "Random guess really.  I think that is the minim amount we might need.  You can look in optimizing_cfi_test_expected.inc for examples of cfi data.  They then to be slightly over 16, but those functions have some forced spills.",
+      "parentUuid": "a3c5c2ce_055592db",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 25
+      },
+      "revId": "e63ea9795c44468bba4e3db6e95c9555429a40ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d12e8c_48e4bf4f",
         "filename": "compiler/optimizing/optimizing_cfi_test.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-09T09:42:38Z",
       "side": 1,
       "message": "is this for your personal debugging?",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "e63ea9795c44468bba4e3db6e95c9555429a40ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_e5d316da",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-09T09:53:46Z",
+      "side": 1,
+      "message": "I used it to generate the content of optimizing_cfi_test_expected.inc.\nIt might be useful in the future if it needs to be updated.",
+      "parentUuid": "03d12e8c_48e4bf4f",
       "range": {
         "startLine": 36,
         "startChar": 24,
