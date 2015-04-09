@@ -46,6 +46,30 @@
       "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_eeaf7fde",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:49:19Z",
+      "side": 1,
+      "message": "Actually, I just noticed that art::LiveInterval::GetSiblingsAt already has this check as invariant in its while-loop, so it is fine.  Maybe it should be part of art::LiveInterval::GetSiblingsAt\u0027s documentation?\n\nFeel free to keep the DCHECKs in art::RegisterAllocator::ConnectSplitSiblings as well.",
+      "parentUuid": "837fde20_2c8933bb",
+      "range": {
+        "startLine": 1561,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 33
+      },
+      "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
