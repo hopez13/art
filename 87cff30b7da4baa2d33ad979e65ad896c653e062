@@ -22,6 +22,30 @@
       "revId": "87cff30b7da4baa2d33ad979e65ad896c653e062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_dde26bc9",
+        "filename": "compiler/dwarf/debug_info_entry_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-09T23:12:20Z",
+      "side": 1,
+      "message": "I am not sure if it makes difference here.  The abbreviations are pretty short - at most dozen bytes currently.",
+      "parentUuid": "e356daec_b51f685e",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "87cff30b7da4baa2d33ad979e65ad896c653e062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
