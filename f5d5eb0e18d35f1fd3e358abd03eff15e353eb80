@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63a66a29_ee777f51",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T13:52:58Z",
+      "side": 1,
+      "message": "I think you need an or with GetIncludeDebugSymbols here. You can include debug symbols without generating GDB info.",
+      "range": {
+        "startLine": 438,
+        "startChar": 44,
+        "endLine": 438,
+        "endChar": 69
+      },
+      "revId": "f5d5eb0e18d35f1fd3e358abd03eff15e353eb80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
