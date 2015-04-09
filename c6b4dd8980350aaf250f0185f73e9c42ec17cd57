@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394aac1_3b035710",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "indentation is off. Why is this here and not in the assemblers?",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 54
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_5b102353",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 52
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_3758d85a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "R0? And why?",
+      "range": {
+        "startLine": 545,
+        "startChar": 37,
+        "endLine": 545,
+        "endChar": 48
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_5d83bb05",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "S0",
+      "range": {
+        "startLine": 550,
+        "startChar": 39,
+        "endLine": 550,
+        "endChar": 51
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_57554c21",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "Can\u0027t you move the cfi here in GenerateFrameExit?",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1215,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_7b0ddf35",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1226,
+        "startChar": 0,
+        "endLine": 1229,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_bb1f675e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2457,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "In GenerateFrameExit?",
+      "range": {
+        "startLine": 2453,
+        "startChar": 0,
+        "endLine": 2457,
+        "endChar": 63
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_97ab6486",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 54
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_9df1c3b3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "In GenerateFrameExit?",
+      "range": {
+        "startLine": 1118,
+        "startChar": 0,
+        "endLine": 1122,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_db143345",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "indentation.",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 485,
+        "endChar": 57
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_bdf67fa6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "indentation.",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 55
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_fb19ef79",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:31:38Z",
+      "side": 1,
+      "message": "In GenerateFrameExit?",
+      "range": {
+        "startLine": 1144,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
