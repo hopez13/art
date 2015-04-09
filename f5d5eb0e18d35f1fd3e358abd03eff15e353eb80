@@ -70,6 +70,30 @@
       "revId": "f5d5eb0e18d35f1fd3e358abd03eff15e353eb80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03868e96_7b2cf890",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T15:07:03Z",
+      "side": 1,
+      "message": "IncludeDebugSymbols is a subset of GDBInformation (in fact, the latter forces the former). Currently IncludeDebugSymbols writes at least the symtab and such.\n\nAs such, it sounds like you want to change this back, and potentially clean up in a follow-up CL.",
+      "parentUuid": "63a66a29_aea57704",
+      "range": {
+        "startLine": 438,
+        "startChar": 44,
+        "endLine": 438,
+        "endChar": 69
+      },
+      "revId": "f5d5eb0e18d35f1fd3e358abd03eff15e353eb80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
