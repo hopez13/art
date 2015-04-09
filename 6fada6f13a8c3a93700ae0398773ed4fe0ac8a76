@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394aac1_1bb4dbc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:45:58Z",
+      "side": 1,
+      "message": "This is more of a \"tidy follow-up\" of the div/rem improvement CL, right?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "6fada6f13a8c3a93700ae0398773ed4fe0ac8a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_dbc99359",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:45:58Z",
+      "side": 1,
+      "message": "Make this another DCHECK.",
+      "range": {
+        "startLine": 2231,
+        "startChar": 44,
+        "endLine": 2231,
+        "endChar": 93
+      },
+      "revId": "6fada6f13a8c3a93700ae0398773ed4fe0ac8a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_3d034f10",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:45:58Z",
+      "side": 1,
+      "message": "What else can it be?",
+      "range": {
+        "startLine": 2366,
+        "startChar": 30,
+        "endLine": 2366,
+        "endChar": 70
+      },
+      "revId": "6fada6f13a8c3a93700ae0398773ed4fe0ac8a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_17a0349e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2374,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:45:58Z",
+      "side": 1,
+      "message": "instruction-\u003eAsDiv()",
+      "range": {
+        "startLine": 2374,
+        "startChar": 26,
+        "endLine": 2374,
+        "endChar": 57
+      },
+      "revId": "6fada6f13a8c3a93700ae0398773ed4fe0ac8a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_f7bae0d0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:45:58Z",
+      "side": 1,
+      "message": "What else can it be? If anything, you could just check IsIntConstant.",
+      "range": {
+        "startLine": 2445,
+        "startChar": 43,
+        "endLine": 2445,
+        "endChar": 75
+      },
+      "revId": "6fada6f13a8c3a93700ae0398773ed4fe0ac8a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_fbce4f5e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2439,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:45:58Z",
+      "side": 1,
+      "message": "instruction-\u003eAsDiv()",
+      "range": {
+        "startLine": 2439,
+        "startChar": 41,
+        "endLine": 2439,
+        "endChar": 52
+      },
+      "revId": "6fada6f13a8c3a93700ae0398773ed4fe0ac8a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
