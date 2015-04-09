@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "03d12e8c_6bcedddd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T14:53:18Z",
+      "side": 1,
+      "message": "Ah.. I see. Personally I don\u0027t care that much but I value consistency. And looking in the codebase statistically we use a single space :)",
+      "parentUuid": "e3d33a94_0a2c7b8f",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_45894aba",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 11
