@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "234d525a_e6e224c9",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T22:56:10Z",
+      "side": 1,
+      "message": "If the chaining was done by the verifier, you wouldn\u0027t have to friend-class this.",
+      "range": {
+        "startLine": 745,
+        "startChar": 2,
+        "endLine": 745,
+        "endChar": 27
+      },
+      "revId": "d0ad2eea51850ed5972c23d03380b2305cdf7cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
