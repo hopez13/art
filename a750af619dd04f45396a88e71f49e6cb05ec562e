@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "63a66a29_0e964bc8",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T14:16:43Z",
+      "side": 1,
+      "message": "see my other comment",
+      "parentUuid": "a3c5c2ce_25ba4e21",
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a66a29_ee677f1f",
         "filename": "compiler/optimizing/code_generator_utils.cc",
         "patchSetId": 9
@@ -214,6 +232,24 @@
       "writtenOn": "2015-04-09T14:04:02Z",
       "side": 1,
       "message": "If it is meant to be shared among back ends, the contents of this file should be merged into compiler/optimizing.code_generator.h.",
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_08a76787",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T14:16:43Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep this separate. code_generator.h is mainly filled up with classes. Adding static functions there will not be very readable. We had instances in the past where a codegen util (or something global for optimizing) file would have come in handy. (e.g. GetInt64ValueOf or the likes)",
+      "parentUuid": "a3c5c2ce_c5b41a38",
       "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
