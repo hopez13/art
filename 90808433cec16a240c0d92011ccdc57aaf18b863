@@ -694,6 +694,30 @@
     },
     {
       "key": {
+        "uuid": "23dab2a9_2f250dd7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4089,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-09T16:50:57Z",
+      "side": 1,
+      "message": "Undone :-)\n\nI tried using Store, but it assumes Word alignment, which is 8 on x86_64, and so it DCHECKS.  Changed back to StoreUnaligned.",
+      "parentUuid": "23dab2a9_cc827f4c",
+      "range": {
+        "startLine": 4089,
+        "startChar": 11,
+        "endLine": 4089,
+        "endChar": 25
+      },
+      "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_65160601",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 7
