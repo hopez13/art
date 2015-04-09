@@ -118,6 +118,30 @@
       "revId": "f5d5eb0e18d35f1fd3e358abd03eff15e353eb80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "237f124e_72b418c5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T15:31:30Z",
+      "side": 1,
+      "message": "As I wrote:\n\n1) Please change it back to not change semantics for now.\n\n2) A follow-up combining the flags is fine. Just be sure you update the preopt settings in build/, if necessary.\n\nThe advantage of two flags was different levels of debug support. E.g., symtab itself is enough to get at least the name of the last Java frame, while not increasing the oat size as badly as complete DWARF info.",
+      "parentUuid": "03d12e8c_ebaf6dde",
+      "range": {
+        "startLine": 438,
+        "startChar": 44,
+        "endLine": 438,
+        "endChar": 69
+      },
+      "revId": "f5d5eb0e18d35f1fd3e358abd03eff15e353eb80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
