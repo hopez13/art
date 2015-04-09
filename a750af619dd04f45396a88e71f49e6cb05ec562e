@@ -2,6 +2,402 @@
   "comments": [
     {
       "key": {
+        "uuid": "a3c5c2ce_25ba4e21",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Likewise, the contents of this file should be merged into compiler/optimizing.code_generator.cc.",
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_ee677f1f",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "For the sake of type safety, instead of this boolean argument, what about turning this function into a template an introducing CalculateMagicAndShiftForDivRemInt and CalculateMagicAndShiftForDivRemLong facades?",
+      "range": {
+        "startLine": 21,
+        "startChar": 54,
+        "endLine": 21,
+        "endChar": 66
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_ee2adfa7",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "What I meant was: \"Implementation according to\", or maybe \"Implementation following\". :)",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_2b898526",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": ".",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 22
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_8e623b11",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "This condition is exactly the same as the one from the previous line; did I miss something?",
+      "range": {
+        "startLine": 36,
+        "startChar": 32,
+        "endLine": 36,
+        "endChar": 84
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_6e1f0f8b",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "calculated",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_4e1cd394",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "32 - p",
+      "range": {
+        "startLine": 46,
+        "startChar": 86,
+        "endLine": 46,
+        "endChar": 90
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_8b1fd15e",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "What about introducing an intermediate variable here :\n\n  uint64_t sign_bit \u003d\n    is_long ? (static_cast\u003cuint64_t\u003e(divisor) \u003e\u003e 63) : (static_cast\u003cuint32_t\u003e(divisor) \u003e\u003e 31);\n  uint64_t tmp \u003d exp + sign_bit;\n\n?",
+      "range": {
+        "startLine": 55,
+        "startChar": 24,
+        "endLine": 56,
+        "endChar": 72
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_8e4b5b89",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Please add parentheses.",
+      "range": {
+        "startLine": 57,
+        "startChar": 30,
+        "endLine": 57,
+        "endChar": 41
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_c5b41a38",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "If it is meant to be shared among back ends, the contents of this file should be merged into compiler/optimizing.code_generator.h.",
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_0e580b5a",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": ", as out arguments `magic` and `shift`.",
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_85aa22d0",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Move this function to the `art\u0027 namespace.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 96
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_8ec4fb42",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "IsIntConstant? (I believe this method does not support long values yet; maybe implement support for longs in another CL?)",
+      "range": {
+        "startLine": 2231,
+        "startChar": 28,
+        "endLine": 2231,
+        "endChar": 38
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_aebf37a3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 2235,
+        "startChar": 2,
+        "endLine": 2235,
+        "endChar": 5
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_282503d7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "HDiv* div",
+      "range": {
+        "startLine": 2250,
+        "startChar": 50,
+        "endLine": 2250,
+        "endChar": 79
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_681ffb8a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2251,
+        "startChar": 2,
+        "endLine": 2251,
+        "endChar": 31
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_481cbf94",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2257,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 2257,
+        "startChar": 2,
+        "endLine": 2257,
+        "endChar": 5
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_2b93452b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2259,
+        "startChar": 9,
+        "endLine": 2259,
+        "endChar": 32
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_053c7241",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 9
@@ -42,6 +438,52 @@
         "startChar": 2,
         "endLine": 2282,
         "endChar": 57
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_0bdbe1f0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "IsIntConstant",
+      "range": {
+        "startLine": 2363,
+        "startChar": 17,
+        "endLine": 2363,
+        "endChar": 27
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_287223e2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 2364,
+        "startChar": 8,
+        "endLine": 2364,
+        "endChar": 11
       },
       "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -96,6 +538,184 @@
     },
     {
       "key": {
+        "uuid": "a3c5c2ce_68553b22",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "IsIntConstant",
+      "range": {
+        "startLine": 2442,
+        "startChar": 27,
+        "endLine": 2442,
+        "endChar": 37
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_28a0639e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2516,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "IsIntConstant",
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_ab63b5c6",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "We should implement these for the ARM and ARM64 back ends too.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 68
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_08864716",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Please use Int64FromConstant().",
+      "range": {
+        "startLine": 2216,
+        "startChar": 2,
+        "endLine": 2221,
+        "endChar": 3
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_8ef7db5b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unexpected type \" \u003c\u003c instruction-\u003eGetResultType();",
+      "range": {
+        "startLine": 2251,
+        "startChar": 6,
+        "endLine": 2251,
+        "endChar": 34
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_ab173500",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "HDiv* div",
+      "range": {
+        "startLine": 2255,
+        "startChar": 53,
+        "endLine": 2255,
+        "endChar": 82
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_a8f1f3b2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2256,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2256,
+        "startChar": 2,
+        "endLine": 2256,
+        "endChar": 31
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_6b16dd00",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Please use Int64FromConstant().",
+      "range": {
+        "startLine": 2264,
+        "startChar": 2,
+        "endLine": 2269,
+        "endChar": 3
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_c529ba04",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 9
@@ -136,6 +756,75 @@
         "startChar": 14,
         "endLine": 2317,
         "endChar": 17
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_ab40d5f7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2325,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "branches?",
+      "range": {
+        "startLine": 2325,
+        "startChar": 21,
+        "endLine": 2325,
+        "endChar": 27
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_c819cf7a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2389,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "numerator",
+      "range": {
+        "startLine": 2389,
+        "startChar": 16,
+        "endLine": 2389,
+        "endChar": 31
+      },
+      "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_889a3746",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2444,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T14:04:02Z",
+      "side": 1,
+      "message": "Please use Int64FromConstant().",
+      "range": {
+        "startLine": 2439,
+        "startChar": 4,
+        "endLine": 2444,
+        "endChar": 5
       },
       "revId": "a750af619dd04f45396a88e71f49e6cb05ec562e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
