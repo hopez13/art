@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23dab2a9_e95015b9",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-09T00:12:50Z",
+      "side": 1,
+      "message": "You don\u0027t really need to initialize it, as the default initializer is invalid.",
+      "revId": "31f1a397bbf29d9d9ffbe65a281e3704d93e006c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3cab6dd_0c32dba0",
+        "filename": "compiler/linker/x86/relative_patcher_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-09T00:12:50Z",
+      "side": 1,
+      "message": "You could use shift and mask operations involving kDummy32BitOffset.",
+      "range": {
+        "startLine": 43,
+        "startChar": 42,
+        "endLine": 43,
+        "endChar": 47
+      },
+      "revId": "31f1a397bbf29d9d9ffbe65a281e3704d93e006c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
