@@ -45,6 +45,52 @@
       "revId": "af3befb0760f54b52c2dc9a188c299bc61bf74e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "237f124e_a3d730ea",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-04-09T17:52:13Z",
+      "side": 1,
+      "message": "nit: nullptr here and elsewhere.",
+      "range": {
+        "startLine": 210,
+        "startChar": 55,
+        "endLine": 210,
+        "endChar": 59
+      },
+      "revId": "af3befb0760f54b52c2dc9a188c299bc61bf74e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03868e96_91399b54",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-04-09T17:52:13Z",
+      "side": 1,
+      "message": "unique_ptr",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 7
+      },
+      "revId": "af3befb0760f54b52c2dc9a188c299bc61bf74e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
