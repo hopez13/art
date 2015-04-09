@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e356daec_b51f685e",
+        "filename": "compiler/dwarf/debug_info_entry_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T21:02:17Z",
+      "side": 1,
+      "message": "In the compiler-driver deduping we implemented Murmur3, which is supposed to be faster than FNV.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "87cff30b7da4baa2d33ad979e65ad896c653e062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
