@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03d12e8c_6b109d53",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T11:45:18Z",
+      "side": 1,
+      "message": "misses RecordSimplification",
+      "range": {
+        "startLine": 406,
+        "startChar": 35,
+        "endLine": 406,
+        "endChar": 43
+      },
+      "revId": "851f42380c3fd2fd2a971ad7533b5696ec129949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_c5825a4c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T11:45:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 447,
+        "startChar": 35,
+        "endLine": 447,
+        "endChar": 43
+      },
+      "revId": "851f42380c3fd2fd2a971ad7533b5696ec129949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
