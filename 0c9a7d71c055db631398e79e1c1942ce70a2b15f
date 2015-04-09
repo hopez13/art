@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "03d12e8c_ab6d7583",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-09T13:40:23Z",
+      "side": 1,
+      "message": "Thanks for your comments. I think they are and were pretty clear. I\u0027ll fix all of this.",
+      "parentUuid": "03d12e8c_8b99917d",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 15
+      },
+      "revId": "0c9a7d71c055db631398e79e1c1942ce70a2b15f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d12e8c_0b864116",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-04-09T11:40:04Z",
       "side": 1,
       "message": "I presume that here you want to express two independent things: (a) the param becomes input of Return, and (b) the Add instruction is removed. You should do that separately:\n\n  // CHECK-START: long Main.Add0(long) instruction_simplifier (after)\n  // CHECK-DAG:         [[Arg:j\\d+]] ParameterValue\n  // CHECK-DAG:                      Return [ [[Arg]] ]\n\n  // CHECK-START: long Main.Add0(long) instruction_simplifier (after)\n  // CHECK-NOT:                      Add\n\nWhat you wrote says: find Param, find Return appearing after Param, make sure there\u0027s no Add between them. That happens to be correct for a simple test case like this one, but wouldn\u0027t hold for more complicated CFG because the Add could be in a different block, dumped after the Return\u0027s block.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 55
+      },
+      "revId": "0c9a7d71c055db631398e79e1c1942ce70a2b15f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_ae40d7f7",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-09T13:40:23Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "03d12e8c_0b864116",
       "range": {
         "startLine": 41,
         "startChar": 2,
