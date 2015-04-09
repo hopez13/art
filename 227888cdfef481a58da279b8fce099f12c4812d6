@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e3d33a94_ca4b8336",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-09T17:27:03Z",
+      "side": 1,
+      "message": "If I try removing the cond first, I get:\nart/compiler/optimizing/nodes.cc:503] Check failed: instruction-\u003eGetEnvUses().IsEmpty()\n\nfrom Remove\n\nIf I remove the compare first, I get:\nart/compiler/optimizing/nodes.cc:502] Check failed: instruction-\u003eGetUses().IsEmpty()\n\nfrom Remove",
+      "parentUuid": "a3c5c2ce_289983f8",
+      "range": {
+        "startLine": 258,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 13
+      },
+      "revId": "227888cdfef481a58da279b8fce099f12c4812d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63258a42_dfa4ce85",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
