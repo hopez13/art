@@ -209,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "a3c5c2ce_05a0f2e4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T11:37:29Z",
+      "side": 1,
+      "message": "document why you need temps.",
+      "range": {
+        "startLine": 766,
+        "startChar": 4,
+        "endLine": 767,
+        "endChar": 53
+      },
+      "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a66a29_6b2f0135",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 7
@@ -312,6 +335,29 @@
       "writtenOn": "2015-04-09T10:47:58Z",
       "side": 1,
       "message": "Use ATTRIBUTE_UNUSED instead of UNUSED on line 4079.",
+      "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_659d66b1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4089,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T11:37:29Z",
+      "side": 1,
+      "message": "can this actually be unaligned?",
+      "range": {
+        "startLine": 4089,
+        "startChar": 11,
+        "endLine": 4089,
+        "endChar": 25
+      },
       "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -434,6 +480,30 @@
     },
     {
       "key": {
+        "uuid": "63a66a29_ce2f23b6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T11:37:29Z",
+      "side": 1,
+      "message": "You only need this in the builder which is constructed after the codegen.\n\nI\u0027m not so fond of this dependency as the builder should not be concerned with codegen details...\n\nI can see this being only temporary until we support switch generation in all backends. So please move this to the builder only, set it in the constructor and document that it should be removed once we completed the other backends as well.",
+      "parentUuid": "e305fac3_57e44c4f",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 33
+      },
+      "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d12e8c_2bcea5ae",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -450,6 +520,29 @@
         "startChar": 2,
         "endLine": 1600,
         "endChar": 10
+      },
+      "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_c58d3a84",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T11:37:29Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed.",
+      "range": {
+        "startLine": 1619,
+        "startChar": 2,
+        "endLine": 1619,
+        "endChar": 59
       },
       "revId": "90808433cec16a240c0d92011ccdc57aaf18b863",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
