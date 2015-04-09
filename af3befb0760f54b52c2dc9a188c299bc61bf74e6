@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "237f124e_d2fec430",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-09T15:43:05Z",
+      "side": 1,
+      "message": "So it turns out we don\u0027t have the right support for unwind at the moment, anyways. We don\u0027t emit eh_frame_hdr and PT_GNU_EH_FRAME. So while libunwind does find oat files with this CL, it still can\u0027t find the CFI things. :-(",
+      "range": {
+        "startLine": 48,
+        "startChar": 35,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "af3befb0760f54b52c2dc9a188c299bc61bf74e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "237f124e_7207b8d3",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
