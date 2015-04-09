@@ -78,6 +78,20 @@ static void DeleteDirectoryContents(const std::string& dir, bool recurse) {
     }
   }
   CHECK_EQ(0, closedir(c_dir)) << "Unable to close directory.";
+
+  // Sync the dir so that the deletion is committed.
+  int dir_fd = open(dir.c_str(), O_RDONLY);
+  if (dir_fd < 0) {
+    PLOG(ERROR) << "Could not open dir " << dir << " for syncing.";
+  } else {
+    if (fsync(dir_fd) < 0) {
+      PLOG(ERROR) << "Unable to sync dir " << dir;
+    }
+
+    if (close(dir_fd) < 0) {
+      PLOG(ERROR) << "Unable to close dir " << dir << " after syncing.";
+    }
+  }
 }
 
 }  // namespace impl
