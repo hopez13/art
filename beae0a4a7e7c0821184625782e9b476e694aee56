@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "03d12e8c_e8565362",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "use single space.",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3c5c2ce_45894aba",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3991,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "please document. (make it clear that\u0027s the offset into constant area and not a random area)",
+      "range": {
+        "startLine": 3991,
+        "startChar": 8,
+        "endLine": 3991,
+        "endChar": 25
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_aba56904",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 3994,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "The name should suggest that this will return an address. How about AndressOfDoubleLiteral or DoubleLiteralAddress.",
+      "range": {
+        "startLine": 3994,
+        "startChar": 29,
+        "endLine": 3994,
+        "endChar": 42
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d12e8c_887877f4",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 11
@@ -117,6 +186,98 @@
     },
     {
       "key": {
+        "uuid": "a3c5c2ce_85722263",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "Add document for this field as it\u0027s not obvious.",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 26
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_6bc421ad",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1971,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "fixup !\u003d nullptr",
+      "range": {
+        "startLine": 1971,
+        "startChar": 6,
+        "endLine": 1971,
+        "endChar": 11
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_4bee7900",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2703,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "If we have a lot of constants this could potentially be slow. Did you have any practical observations related to this?",
+      "range": {
+        "startLine": 2703,
+        "startChar": 2,
+        "endLine": 2703,
+        "endChar": 51
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_cbe1c915",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "please document (especially the what gets return)",
+      "range": {
+        "startLine": 270,
+        "startChar": 8,
+        "endLine": 270,
+        "endChar": 17
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_c5553aa7",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 11
@@ -132,6 +293,29 @@
         "startLine": 285,
         "startChar": 4,
         "endLine": 285,
+        "endChar": 15
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63a66a29_0bb75d39",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-09T10:44:03Z",
+      "side": 1,
+      "message": "document the what this functions return.",
+      "range": {
+        "startLine": 715,
+        "startChar": 6,
+        "endLine": 715,
         "endChar": 15
       },
       "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
