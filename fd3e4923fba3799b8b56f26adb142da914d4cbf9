@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a38a229d_fd19e779",
+        "filename": "compiler/optimizing/optimizing_cfi_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-09T22:28:54Z",
+      "side": 1,
+      "message": "The destructor of Arm64 assembler has IsDirty flag to check that the code it has produced was consumed by someone.\nHowever, this flag will only get set in the Finalize method (which also calls the FinalizeInstructions method.",
+      "range": {
+        "startLine": 79,
+        "startChar": 14,
+        "endLine": 79,
+        "endChar": 22
+      },
+      "revId": "fd3e4923fba3799b8b56f26adb142da914d4cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
