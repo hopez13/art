@@ -22,6 +22,30 @@
       "revId": "d0ad2eea51850ed5972c23d03380b2305cdf7cb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e356daec_5e06594e",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-09T22:58:44Z",
+      "side": 1,
+      "message": "But then the thread would need to friend the verifier since TLS isn\u0027t public.",
+      "parentUuid": "234d525a_e6e224c9",
+      "range": {
+        "startLine": 745,
+        "startChar": 2,
+        "endLine": 745,
+        "endChar": 27
+      },
+      "revId": "d0ad2eea51850ed5972c23d03380b2305cdf7cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
