@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4365e6c2_da2a65a8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03d12e8c_0b4e41c5",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 102
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a66a29_f111208c",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 8
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "2368f29d_d9fb538d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03d12e8c_aeb90312",
+      "range": {
+        "startLine": 242,
+        "startChar": 48,
+        "endLine": 242,
+        "endChar": 67
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2368f29d_994c7b53",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "I\u0027ve left this one, do you have an example of exactly what you would want as a predicate function? I was unsure of exactly what you wanted :)",
+      "parentUuid": "63a66a29_f111208c",
+      "range": {
+        "startLine": 241,
+        "startChar": 33,
+        "endLine": 242,
+        "endChar": 35
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63a66a29_d16ce404",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-09T16:21:46Z",
       "side": 1,
       "message": "Is this really needed?",
+      "range": {
+        "startLine": 248,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 47
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4365e6c2_1a25bdd6",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63a66a29_d16ce404",
       "range": {
         "startLine": 248,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "83999efb_1ca0559e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c5c2ce_2816a3d1",
+      "range": {
+        "startLine": 251,
+        "startChar": 13,
+        "endLine": 251,
+        "endChar": 36
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_083c8741",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-09T16:21:46Z",
       "side": 1,
       "message": "TODO:",
+      "range": {
+        "startLine": 328,
+        "startChar": 5,
+        "endLine": 328,
+        "endChar": 9
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83999efb_bcb041f5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c5c2ce_083c8741",
       "range": {
         "startLine": 328,
         "startChar": 5,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "2368f29d_f993b758",
+        "filename": "test/472-checker-inliner-throw/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c5c2ce_88d4f774",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_e8d92bab",
         "filename": "test/472-checker-inliner-throw/src/Main.java",
         "patchSetId": 8
@@ -174,6 +342,30 @@
       "writtenOn": "2015-04-09T16:21:46Z",
       "side": 1,
       "message": "Please indent using spaces instead of tabs.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2368f29d_39860f17",
+        "filename": "test/472-checker-inliner-throw/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c5c2ce_e8d92bab",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "2368f29d_798087f8",
+        "filename": "test/472-checker-inliner-throw/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c5c2ce_28c4e3bd",
+      "range": {
+        "startLine": 76,
+        "startChar": 10,
+        "endLine": 76,
+        "endChar": 55
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d12e8c_2ef7d3da",
         "filename": "test/472-checker-inliner-throw/src/Main.java",
         "patchSetId": 8
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "4365e6c2_ba35b10d",
+        "filename": "test/472-checker-inliner-throw/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03d12e8c_2ef7d3da",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 65
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d12e8c_0ef48fd2",
         "filename": "test/472-checker-inliner-throw/src/Main.java",
         "patchSetId": 8
@@ -243,6 +483,30 @@
       "writtenOn": "2015-04-09T16:21:46Z",
       "side": 1,
       "message": "!(ex instanceof ArithmeticException)",
+      "range": {
+        "startLine": 106,
+        "startChar": 10,
+        "endLine": 106,
+        "endChar": 54
+      },
+      "revId": "3c8db7664411b0ed7441428e7ddd66569bb23430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83999efb_fcbac9d0",
+        "filename": "test/472-checker-inliner-throw/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1016743
+      },
+      "writtenOn": "2015-04-09T19:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03d12e8c_0ef48fd2",
       "range": {
         "startLine": 106,
         "startChar": 10,
