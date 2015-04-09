@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394aac1_fbe72fd6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:58:54Z",
+      "side": 1,
+      "message": "If the compare is used by an environment, it could be that ReplaceAndRemoveInstructionWith doesn\u0027t do that for you.",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 53
+      },
+      "revId": "5c7b7af8ac0f8162781ad4649c20bd603faf499b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_57aaac7d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1948,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:58:54Z",
+      "side": 1,
+      "message": "Do you really need a new instruction? Could we make HIf take a HCompare directlry and use the same materialization trick we do for HCondition?",
+      "range": {
+        "startLine": 1948,
+        "startChar": 6,
+        "endLine": 1948,
+        "endChar": 16
+      },
+      "revId": "5c7b7af8ac0f8162781ad4649c20bd603faf499b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
