@@ -117,6 +117,52 @@
     },
     {
       "key": {
+        "uuid": "a3c5c2ce_c5553aa7",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T10:40:32Z",
+      "side": 1,
+      "message": "Please use GrowableArray instead of std::vector.",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 15
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d12e8c_2bf7c5da",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-09T10:40:32Z",
+      "side": 1,
+      "message": "This member does not seem to be used; remove?",
+      "range": {
+        "startLine": 767,
+        "startChar": 23,
+        "endLine": 767,
+        "endChar": 32
+      },
+      "revId": "beae0a4a7e7c0821184625782e9b476e694aee56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3c5c2ce_25decee0",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 11
