@@ -22,6 +22,30 @@
       "revId": "1961b609bfefaedb71cee3651c4f931cc3e7393d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_57d8ec71",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-09T18:28:36Z",
+      "side": 1,
+      "message": "The meaning of raw \"PcRel\" instruction is not well defined on 32-bit x86, it definitely needs some anchor. So, yes, this could use some cleanup but that\u0027s out of scope of this CL.",
+      "parentUuid": "83c43ed3_15d493c1",
+      "range": {
+        "startLine": 1581,
+        "startChar": 4,
+        "endLine": 1582,
+        "endChar": 53
+      },
+      "revId": "1961b609bfefaedb71cee3651c4f931cc3e7393d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
