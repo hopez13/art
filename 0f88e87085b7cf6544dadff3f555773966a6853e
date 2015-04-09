@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3617abc_b7b068f5",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-09T21:37:36Z",
+      "side": 1,
+      "message": "Why does this method require a file for itself? Please try to make this a static function of code_generator.h.\n\nAlso, you\u0027re missing a namespace.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 96
+      },
+      "revId": "0f88e87085b7cf6544dadff3f555773966a6853e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
