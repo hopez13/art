@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2368f29d_39db6ff1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-09T19:23:23Z",
+      "side": 1,
+      "message": "JC, can you please move this inside \"current-\u003eCanThrow()\" since it is only relevant for that.",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 244,
+        "endChar": 36
+      },
+      "revId": "8eda2d4f82b69e97bfb788fe80586d49ca51081c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
