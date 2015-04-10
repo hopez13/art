@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_a06d7483",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3844,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T13:57:34Z",
+      "side": 1,
+      "message": "imo if we know it\u0027s slow on all or most relevant IA cpus I would just add a comment. Otherwise we should expands the isa features as it\u0027s serve better for documentation.",
+      "parentUuid": "6394aac1_fe7c7d36",
+      "range": {
+        "startLine": 3832,
+        "startChar": 0,
+        "endLine": 3844,
+        "endChar": 3
+      },
+      "revId": "fa10a8b18eebd5825b2aa72586c2b4db002e1154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_9ae8e9ab",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
