@@ -69,6 +69,30 @@
       "revId": "5c7b7af8ac0f8162781ad4649c20bd603faf499b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_57d70ceb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1948,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:01:53Z",
+      "side": 1,
+      "message": "If HCompare is like HCondition, there\u0027s nothing you need to do for HIf.",
+      "parentUuid": "83999efb_3c3c3142",
+      "range": {
+        "startLine": 1948,
+        "startChar": 6,
+        "endLine": 1948,
+        "endChar": 16
+      },
+      "revId": "5c7b7af8ac0f8162781ad4649c20bd603faf499b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
