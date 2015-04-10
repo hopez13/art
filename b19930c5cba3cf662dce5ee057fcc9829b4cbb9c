@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_1e512969",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T16:01:59Z",
+      "side": 1,
+      "message": "My intuition is that it should read\n\n  // nc \u003d -exp + (exp + 1) % d, where d \u003c\u003d -2 and exp \u003d 2^31 for int or 2^63 for long\n\nMaybe change the comment and add a TODO to ensure we check that again later?",
+      "parentUuid": "6394aac1_be7835f4",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 84
+      },
+      "revId": "b19930c5cba3cf662dce5ee057fcc9829b4cbb9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_be9af545",
         "filename": "compiler/optimizing/code_generator_utils.h",
         "patchSetId": 2
