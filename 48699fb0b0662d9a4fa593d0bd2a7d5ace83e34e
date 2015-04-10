@@ -214,6 +214,30 @@
       "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "636d8ab3_2bc944a7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-10T15:28:38Z",
+      "side": 1,
+      "message": "Yes, deletion was an optimization of mathieuc for svelte devices. Originally we kept all of them around until driver shutdown.\n\nYeah, you\u0027d need a dataflow analysis to track which registers have uninitialized copies that magically become fixed. As Quick needs to do the same, I told Jeff to use the verifier results for the time being - that\u0027s what VerifiedMethod is for, after all. I think that approach is the right one until 1) Quick is deprecated and 2) we do re-compilation at runtime.",
+      "parentUuid": "e3617abc_775fb0f9",
+      "range": {
+        "startLine": 2277,
+        "startChar": 0,
+        "endLine": 2280,
+        "endChar": 3
+      },
+      "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
