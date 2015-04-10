@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_ba9a0d46",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T13:35:23Z",
+      "side": 1,
+      "message": "OK. Should we add a CodeGeneratorHelpers class then?",
+      "parentUuid": "a38a229d_c0f7e05a",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "b19930c5cba3cf662dce5ee057fcc9829b4cbb9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_da40a167",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
