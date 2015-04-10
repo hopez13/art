@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394aac1_be9af545",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:29:08Z",
+      "side": 1,
+      "message": "Could you move this to CodeGenerator as a static function and avoid this file?",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "b19930c5cba3cf662dce5ee057fcc9829b4cbb9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_da40a167",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:29:08Z",
+      "side": 1,
+      "message": "Strange indentation. I suggest:\n\nSlowPathCodeX86* slow_path \u003d new (GetGraph()-\u003eGetArena()) DivRemMinusOneSlowPathX86(\n    out.AsRegister\u003cRegister\u003e(), is_div);\n\nOr move DivRemMinusOneSlowPathX86 to the new line.",
+      "range": {
+        "startLine": 2381,
+        "startChar": 8,
+        "endLine": 2383,
+        "endChar": 22
+      },
+      "revId": "b19930c5cba3cf662dce5ee057fcc9829b4cbb9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
