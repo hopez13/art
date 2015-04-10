@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4365e6c2_5d100f53",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3844,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T13:37:57Z",
+      "side": 1,
+      "message": "Question:  Should I just say that xchg is slow on some IA cpus, or should I augment X86InstructionSetFeatures to have a \u0027AvoidExchange\u0027 field, and set that from the variant?",
+      "parentUuid": "a38a229d_a0c9f42b",
+      "range": {
+        "startLine": 3832,
+        "startChar": 0,
+        "endLine": 3844,
+        "endChar": 3
+      },
+      "revId": "fa10a8b18eebd5825b2aa72586c2b4db002e1154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_9ae8e9ab",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
