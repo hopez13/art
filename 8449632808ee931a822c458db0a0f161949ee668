@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3617abc_5df1ebe1",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-10T17:24:09Z",
+      "side": 1,
+      "message": "This actually checks for erroneous declaring class. I don\u0027t know if it matters but let\u0027s preserve the semantics.",
+      "range": {
+        "startLine": 102,
+        "startChar": 40,
+        "endLine": 102,
+        "endChar": 91
+      },
+      "revId": "8449632808ee931a822c458db0a0f161949ee668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
