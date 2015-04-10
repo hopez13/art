@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_20fc04b3",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:17:14Z",
+      "side": 1,
+      "message": "Oh right, I didn\u0027t see that!  Sorry.",
+      "parentUuid": "6394aac1_9e5d395a",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 328,
+        "endChar": 41
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_b7d4e874",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "writtenOn": "2015-04-10T10:53:41Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 41
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_3e58a55a",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:17:14Z",
+      "side": 1,
+      "message": "But I think my comment is valid here, as you highlighted it hereinbefore. :)",
+      "parentUuid": "e3617abc_b7d4e874",
       "range": {
         "startLine": 365,
         "startChar": 2,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_f7b4a037",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:17:14Z",
+      "side": 1,
+      "message": "Yes, probably.  I was about to suggest this:\n\n  // CHECK-START: long Main.AddNegs3(long, long) instruction_simplifier (after)\n  // CHECK:                           Goto\n  // -------------- Loop\n  // CHECK:                           SuspendCheck\n  // CHECK-NOT:                       Neg\n  // CHECK:                           Goto\n\nbut I think your initial solution is better.",
+      "parentUuid": "a38a229d_60f1ace2",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 42
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_c0be00f7",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 6
@@ -130,6 +202,30 @@
       "writtenOn": "2015-04-10T10:53:41Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 750,
+        "endChar": 42
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_601fec8a",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:17:14Z",
+      "side": 1,
+      "message": "Sorry, scratch this comment as well.",
+      "parentUuid": "a38a229d_c0be00f7",
       "range": {
         "startLine": 729,
         "startChar": 0,
