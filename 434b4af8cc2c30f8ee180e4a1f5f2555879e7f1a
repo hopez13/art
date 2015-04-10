@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_dad981ab",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T15:31:29Z",
+      "side": 1,
+      "message": "Yes, sorry; I also missed the other Neg instructions there.  The current version looks good to me.",
+      "parentUuid": "6394aac1_fe7d5d69",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 41
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_17c4b4bd",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 6
