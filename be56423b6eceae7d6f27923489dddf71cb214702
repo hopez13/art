@@ -70,6 +70,30 @@
       "revId": "be56423b6eceae7d6f27923489dddf71cb214702",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_4004b0cd",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T13:41:15Z",
+      "side": 1,
+      "message": "Sorry if I wasn\u0027t clear enough. So if VerifyAtRuntime flag is set we won\u0027t do any verification so we don\u0027t know if we\u0027re gonna crash or not. This is to be on the safe side.\n\nHowever, now that I spell it out I realize it\u0027s redundant as the check at L588 already covers this... will fix.",
+      "parentUuid": "6394aac1_1e93e92a",
+      "range": {
+        "startLine": 587,
+        "startChar": 7,
+        "endLine": 587,
+        "endChar": 62
+      },
+      "revId": "be56423b6eceae7d6f27923489dddf71cb214702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
