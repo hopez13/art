@@ -283,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_97c9a42c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2457,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:55:16Z",
+      "side": 1,
+      "message": "Note that __ Ret() must be before RestoreState(), and therego RestoreState can not be in GenerateFrameExit",
+      "parentUuid": "6394aac1_bb1f675e",
+      "range": {
+        "startLine": 2453,
+        "startChar": 0,
+        "endLine": 2457,
+        "endChar": 63
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_97ab6486",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 10
@@ -317,6 +341,30 @@
       "writtenOn": "2015-04-09T21:31:38Z",
       "side": 1,
       "message": "In GenerateFrameExit?",
+      "range": {
+        "startLine": 1118,
+        "startChar": 0,
+        "endLine": 1122,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_9ba46b30",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:55:16Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "a38a229d_9df1c3b3",
       "range": {
         "startLine": 1118,
         "startChar": 0,
@@ -386,6 +434,30 @@
       "writtenOn": "2015-04-09T21:31:38Z",
       "side": 1,
       "message": "In GenerateFrameExit?",
+      "range": {
+        "startLine": 1144,
+        "startChar": 0,
+        "endLine": 1148,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_b7cea82f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:55:16Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "6394aac1_fb19ef79",
       "range": {
         "startLine": 1144,
         "startChar": 0,
