@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_d7d31cda",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:57:29Z",
+      "side": 1,
+      "message": "Actually, maybe it\u0027s an abstraction you need. This code does not have to know about dwarf. So things like RelOffsetForMany should be internal to the assemblers, and the code here should call a method that will take care of lowering it down to dwarf things.",
+      "parentUuid": "a38a229d_5dd73beb",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 54
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_5b102353",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_f7d820f7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:57:29Z",
+      "side": 1,
+      "message": "OK, but you could still write R0, right?",
+      "parentUuid": "6394aac1_bbf7675b",
+      "range": {
+        "startLine": 545,
+        "startChar": 37,
+        "endLine": 545,
+        "endChar": 48
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_5d83bb05",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -166,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_fba3af22",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:57:29Z",
+      "side": 1,
+      "message": "Same here, write S0.",
+      "parentUuid": "e3617abc_d714fc44",
+      "range": {
+        "startLine": 550,
+        "startChar": 39,
+        "endLine": 550,
+        "endChar": 51
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_57554c21",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -201,6 +273,30 @@
       "side": 1,
       "message": "In this case, I could, but not in general.  Usually the generation of \"ret\" instruction is not part of GenerateFrameExit().",
       "parentUuid": "e3617abc_57554c21",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1215,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_1b993bf8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:57:29Z",
+      "side": 1,
+      "message": "Well then, could we move __ret to GenerateFrameExit?",
+      "parentUuid": "e3617abc_f719007a",
       "range": {
         "startLine": 1212,
         "startChar": 0,
