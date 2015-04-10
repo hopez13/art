@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a38a229d_60e8cc7c",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T13:28:23Z",
+      "side": 1,
+      "message": "This is duplicated now. Could you move this logic to the ElfWriter?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 99
+      },
+      "revId": "3c54b0023fca579aae006dfa607fb14de5846c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "837fde20_ef2f9d07",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 2
