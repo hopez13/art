@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a38a229d_a0c9f42b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3844,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T13:23:45Z",
+      "side": 1,
+      "message": "Explain why you\u0027re not just using xchgl.",
+      "range": {
+        "startLine": 3832,
+        "startChar": 0,
+        "endLine": 3844,
+        "endChar": 3
+      },
+      "revId": "fa10a8b18eebd5825b2aa72586c2b4db002e1154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_9ae8e9ab",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T13:23:45Z",
+      "side": 1,
+      "message": "Explain why not xchgq.",
+      "range": {
+        "startLine": 3519,
+        "startChar": 0,
+        "endLine": 3521,
+        "endChar": 34
+      },
+      "revId": "fa10a8b18eebd5825b2aa72586c2b4db002e1154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
