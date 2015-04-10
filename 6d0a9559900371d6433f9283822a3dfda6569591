@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "83999efb_a2949a45",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T12:21:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_974c4453",
+      "range": {
+        "startLine": 314,
+        "startChar": 71,
+        "endLine": 314,
+        "endChar": 80
+      },
+      "revId": "6d0a9559900371d6433f9283822a3dfda6569591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2368f29d_cdf7095b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T12:21:34Z",
+      "side": 1,
+      "message": "No, the official instructions is pand",
+      "parentUuid": "a38a229d_7d6f9723",
+      "range": {
+        "startLine": 314,
+        "startChar": 56,
+        "endLine": 314,
+        "endChar": 60
+      },
+      "revId": "6d0a9559900371d6433f9283822a3dfda6569591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_37a7f887",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 1
@@ -106,6 +154,30 @@
       "writtenOn": "2015-04-10T08:17:02Z",
       "side": 1,
       "message": "Is that a x64 convention? Since RBP is a register used by the register allocator, I assume nothing will be written in it...",
+      "range": {
+        "startLine": 247,
+        "startChar": 4,
+        "endLine": 247,
+        "endChar": 61
+      },
+      "revId": "6d0a9559900371d6433f9283822a3dfda6569591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2368f29d_adf2d56b",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T12:21:34Z",
+      "side": 1,
+      "message": "Yes, the value of RBP isn\u0027t used by the instruction.  instead the offset is added to the RIP",
+      "parentUuid": "e3617abc_f7a4a085",
       "range": {
         "startLine": 247,
         "startChar": 4,
