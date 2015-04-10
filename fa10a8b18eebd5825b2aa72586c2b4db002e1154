@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_fe7c7d36",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3844,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T13:51:02Z",
+      "side": 1,
+      "message": "Yeah, we do have something equivalent for ARM64 to figure out which barrier to use. Andreas, thoughts?",
+      "parentUuid": "4365e6c2_5d100f53",
+      "range": {
+        "startLine": 3832,
+        "startChar": 0,
+        "endLine": 3844,
+        "endChar": 3
+      },
+      "revId": "fa10a8b18eebd5825b2aa72586c2b4db002e1154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_9ae8e9ab",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
