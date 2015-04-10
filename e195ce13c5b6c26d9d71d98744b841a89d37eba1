@@ -1,0 +1,348 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394aac1_3e034510",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1783,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "\"for the calls to InstructionCodeGeneratorX86::PushOntoFPStack and/or X86Assembler::fstps below\"?",
+      "range": {
+        "startLine": 1783,
+        "startChar": 32,
+        "endLine": 1783,
+        "endChar": 40
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_9dbb8358",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1802,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "!\u003d",
+      "range": {
+        "startLine": 1802,
+        "startChar": 25,
+        "endLine": 1802,
+        "endChar": 26
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_80a798b3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Remove empty line before `break\u0027.",
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_60aa8c7e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Please preserve this comment:\n\n  // Processing a Dex `long-to-double\u0027 instruction.",
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_00bb88d6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1835,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "\"for the calls to InstructionCodeGeneratorX86::PushOntoFPStack and/or X86Assembler::fstpl below\"?",
+      "range": {
+        "startLine": 1835,
+        "startChar": 36,
+        "endLine": 1835,
+        "endChar": 40
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_defb418d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1854,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "!\u003d",
+      "range": {
+        "startLine": 1854,
+        "startChar": 25,
+        "endLine": 1854,
+        "endChar": 26
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_7e0dcd35",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1857,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Remove empty line before `break\u0027.",
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_dbd993ab",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Long line; please place one argument per line.",
+      "range": {
+        "startLine": 2197,
+        "startChar": 50,
+        "endLine": 2198,
+        "endChar": 101
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_e0677c1f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2204,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Maybe implement `filds\u0027 (FILD for 32-bit integers) in compiler/utils/x86/assembler_x86.cc?",
+      "range": {
+        "startLine": 2204,
+        "startChar": 6,
+        "endLine": 2204,
+        "endChar": 38
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_774890b7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2221,
+        "startChar": 8,
+        "endLine": 2221,
+        "endChar": 40
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_807958c3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Please introduce\n\n  bool is_wide \u003d !is_float;\n\nand use it here.",
+      "range": {
+        "startLine": 2249,
+        "startChar": 58,
+        "endLine": 2249,
+        "endChar": 67
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_607c4cb2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "/* is_fp */ true",
+      "range": {
+        "startLine": 2249,
+        "startChar": 52,
+        "endLine": 2249,
+        "endChar": 56
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_9ef1b9b3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2250,
+        "startChar": 49,
+        "endLine": 2250,
+        "endChar": 58
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_5e83b105",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2250,
+        "startChar": 43,
+        "endLine": 2250,
+        "endChar": 47
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_3dad0f15",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Please document.",
+      "range": {
+        "startLine": 175,
+        "startChar": 50,
+        "endLine": 175,
+        "endChar": 74
+      },
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_9ae2a91a",
+        "filename": "test/422-type-conversion/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T11:52:35Z",
+      "side": 1,
+      "message": "Can you also add a test case for the long-to-double conversion?",
+      "revId": "e195ce13c5b6c26d9d71d98744b841a89d37eba1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
