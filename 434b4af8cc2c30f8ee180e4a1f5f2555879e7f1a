@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3617abc_7736d063",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T10:53:41Z",
+      "side": 1,
+      "message": "Move this check into its own CHECK-START block?",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 328,
+        "endChar": 41
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_b7d4e874",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T10:53:41Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 41
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_17c4b4bd",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T10:53:41Z",
+      "side": 1,
+      "message": "Maybe these checks should be uncorrelated? E.g.\n\n1. First ensure the graph is not changed first:\n\n  // CHECK-START: long Main.AddNegs3(long, long) instruction_simplifier (after)\n  // -------------- Arguments and initial negation operations.\n  // CHECK-DAG:     [[Arg1:j\\d+]]     ParameterValue\n  // CHECK-DAG:     [[Arg2:j\\d+]]     ParameterValue\n  // CHECK-DAG:     [[Neg1:j\\d+]]     Neg [ [[Arg1]] ]\n  // CHECK-DAG:     [[Neg2:j\\d+]]     Neg [ [[Arg2]] ]\n  // CHECK:                           Goto\n  // -------------- Loop\n  // CHECK:                           SuspendCheck\n  // CHECK:         [[Add:j\\d+]]      Add [ [[Neg1]] [[Neg2]] ]\n  // CHECK:                           Goto\n\n2. Then check no Neg instruction has been inserted in the loop:\n\n  // CHECK-START: long Main.AddNegs3(long, long) instruction_simplifier (after)\n  // -------------- Loop\n  // CHECK:                           SuspendCheck\n  // CHECK-NOT:                       Neg\n  // CHECK:                           Goto\n\nDavid, what do you think?",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 42
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_c0be00f7",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T10:53:41Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 750,
+        "endChar": 42
+      },
+      "revId": "434b4af8cc2c30f8ee180e4a1f5f2555879e7f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
