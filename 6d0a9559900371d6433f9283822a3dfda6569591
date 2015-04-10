@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3617abc_974c4453",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T08:40:02Z",
+      "side": 1,
+      "message": "guarantee",
+      "range": {
+        "startLine": 314,
+        "startChar": 71,
+        "endLine": 314,
+        "endChar": 80
+      },
+      "revId": "6d0a9559900371d6433f9283822a3dfda6569591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_37a7f887",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 1
