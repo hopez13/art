@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83999efb_df117f8c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4219,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_376ff8f6",
+      "range": {
+        "startLine": 4213,
+        "startChar": 7,
+        "endLine": 4219,
+        "endChar": 25
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_577c6cb1",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-09T21:04:52Z",
       "side": 1,
       "message": "If it\u0027s not const, please use a pointer instead.",
+      "range": {
+        "startLine": 4231,
+        "startChar": 13,
+        "endLine": 4231,
+        "endChar": 41
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2368f29d_1fddab0b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4231,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_577c6cb1",
       "range": {
         "startLine": 4231,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4365e6c2_1ade9de0",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38a229d_1d893326",
+      "range": {
+        "startLine": 300,
+        "startChar": 12,
+        "endLine": 300,
+        "endChar": 20
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_bd991f7d",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-09T21:04:52Z",
       "side": 1,
       "message": "Nit: one per line.",
+      "range": {
+        "startLine": 304,
+        "startChar": 22,
+        "endLine": 305,
+        "endChar": 78
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83999efb_1f25a7d6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38a229d_bd991f7d",
       "range": {
         "startLine": 304,
         "startChar": 22,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4365e6c2_3adb61f1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_bbf687a6",
+      "range": {
+        "startLine": 312,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 74
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_777970c0",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 12
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-09T21:04:52Z",
       "side": 1,
       "message": "Nit: one per line.",
+      "range": {
+        "startLine": 400,
+        "startChar": 24,
+        "endLine": 401,
+        "endChar": 80
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83999efb_5f1f2f8a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_777970c0",
       "range": {
         "startLine": 400,
         "startChar": 24,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "2368f29d_1f584b13",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "I need it. If the size is 0, then 0 - 1 \u003d\u003d max_unsigned_int",
+      "parentUuid": "e3617abc_d7407c67",
+      "range": {
+        "startLine": 2733,
+        "startChar": 2,
+        "endLine": 2733,
+        "endChar": 27
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_fb000f06",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 12
@@ -174,6 +342,30 @@
       "writtenOn": "2015-04-09T21:04:52Z",
       "side": 1,
       "message": "u -\u003e e (for consistency with other places).",
+      "range": {
+        "startLine": 2735,
+        "startChar": 23,
+        "endLine": 2735,
+        "endChar": 24
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4365e6c2_baf7715b",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2735,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_fb000f06",
       "range": {
         "startLine": 2735,
         "startChar": 23,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "4365e6c2_daec258e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 2736,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_dbfb538d",
+      "range": {
+        "startLine": 2736,
+        "startChar": 51,
+        "endLine": 2736,
+        "endChar": 54
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_97460482",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 12
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "83999efb_5f7c8fb1",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Same as above.  That is how RIP is done.\n\nDone.",
+      "parentUuid": "e3617abc_97460482",
+      "range": {
+        "startLine": 247,
+        "startChar": 23,
+        "endLine": 247,
+        "endChar": 39
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_b74b0889",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 12
@@ -243,6 +483,30 @@
       "writtenOn": "2015-04-09T21:04:52Z",
       "side": 1,
       "message": "Please avoid. It is not the style of the assemblers.",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 273,
+        "endChar": 74
+      },
+      "revId": "f55c3e0825cdfc4c5a27730031177d1a0198ec5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4365e6c2_5ae8157c",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-10T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_b74b0889",
       "range": {
         "startLine": 272,
         "startChar": 7,
