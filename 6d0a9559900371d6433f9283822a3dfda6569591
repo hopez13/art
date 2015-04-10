@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3617abc_37a7f887",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:17:02Z",
+      "side": 1,
+      "message": "No need?",
+      "range": {
+        "startLine": 2767,
+        "startChar": 6,
+        "endLine": 2767,
+        "endChar": 24
+      },
+      "revId": "6d0a9559900371d6433f9283822a3dfda6569591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_f7a4a085",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:17:02Z",
+      "side": 1,
+      "message": "Is that a x64 convention? Since RBP is a register used by the register allocator, I assume nothing will be written in it...",
+      "range": {
+        "startLine": 247,
+        "startChar": 4,
+        "endLine": 247,
+        "endChar": 61
+      },
+      "revId": "6d0a9559900371d6433f9283822a3dfda6569591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
