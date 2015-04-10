@@ -46,6 +46,30 @@
       "revId": "7a573ee72409beb7d85a5f367fdc397cf9b6fe55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "636d8ab3_46067720",
+        "filename": "runtime/quick/inline_method_analyser.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-10T17:04:07Z",
+      "side": 1,
+      "message": "Yep, I made sure that at least the Opt compiler would break when there\u0027s a new unhandled enum entry. :-)",
+      "parentUuid": "a38a229d_4322facf",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 44
+      },
+      "revId": "7a573ee72409beb7d85a5f367fdc397cf9b6fe55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
