@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6394aac1_5e62d1be",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "Maybe add a kConstant for this?",
+      "range": {
+        "startLine": 917,
+        "startChar": 24,
+        "endLine": 917,
+        "endChar": 27
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_5a83b105",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "tid -\u003e thraed_id_\nroot_type -\u003e type_",
+      "range": {
+        "startLine": 50,
+        "startChar": 23,
+        "endLine": 50,
+        "endChar": 41
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_1e412917",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "Same comment as line 84?",
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_9ec9b92c",
+        "filename": "runtime/handle.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "Inconsistent with other uses that seem to be first thing at declaration?",
+      "range": {
+        "startLine": 74,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 19
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_2093242b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "kConstant? And share it with the other 128 use?",
+      "range": {
+        "startLine": 1085,
+        "startChar": 22,
+        "endLine": 1085,
+        "endChar": 25
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_9a1aa96f",
+        "filename": "runtime/mirror/object_reference.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "StackReference",
+      "range": {
+        "startLine": 94,
+        "startChar": 63,
+        "endLine": 94,
+        "endChar": 76
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_808a38e6",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "Remove new line?",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 254,
+        "endChar": 3
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_ded341da",
+        "filename": "runtime/reference_table.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T12:59:47Z",
+      "side": 1,
+      "message": "kConstant?",
+      "range": {
+        "startLine": 241,
+        "startChar": 22,
+        "endLine": 241,
+        "endChar": 25
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
