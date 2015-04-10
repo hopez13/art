@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "e356daec_447e8266",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:57:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_bdb047f5",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1038,
+        "endChar": 3
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c43ed3_198e8d7f",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 5
@@ -1049,6 +1073,30 @@
       "side": 1,
       "message": "Do you really need that?\n\n  SomeType* array \u003d alloc-\u003eAllocArray\u003cSomeArray\u003e(self, num_elems);\n  std::uninitialized_fill_n(array, num_elems, SomeType());",
       "parentUuid": "e356daec_5ddad614",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "636d8ab3_c848d1b9",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:57:17Z",
+      "side": 1,
+      "message": "Didn\u0027t know about that, SGTM.",
+      "parentUuid": "e3617abc_fdbabfd0",
       "range": {
         "startLine": 37,
         "startChar": 0,
