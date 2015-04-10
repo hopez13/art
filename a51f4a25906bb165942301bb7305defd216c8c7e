@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_fbf72f08",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T10:25:23Z",
+      "side": 1,
+      "message": ":) The alternative is  why would you want to have n^2 traversal instead of a linear one? I know that\u0027s just in debug mode but still...\n\nThe alternative is to allocate at use site (which is a waste knowing that we need to do it for each method) or have something lighter on the stack (but i was lazy to re-do the bit manipulation of a bitvector and this is more convenient).\n\nNo strong opinions here though  (it\u0027s a minor thing) so if it bothers you much i can change it.",
+      "parentUuid": "a38a229d_5d165b00",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 46
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_373e188c",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -140,6 +164,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_7dcb17cc",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T10:25:23Z",
+      "side": 1,
+      "message": "Indeed. I keep forgetting that we hold phis and the rest in different list :)",
+      "parentUuid": "a38a229d_bd459f07",
+      "range": {
+        "startLine": 224,
+        "startChar": 10,
+        "endLine": 224,
+        "endChar": 26
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_1bb05b70",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -197,6 +245,30 @@
       "writtenOn": "2015-04-10T08:53:10Z",
       "side": 1,
       "message": "As we saw, makes a new case to handle in a switch :-) You actually don\u0027t need this if you get rid of the cache.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_dd242b2f",
+        "filename": "runtime/primitive.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T10:25:23Z",
+      "side": 1,
+      "message": "nope, it doesn\u0027t. It makes a new case only if you introduce a new value in the enum.",
+      "parentUuid": "e3617abc_7738909d",
       "range": {
         "startLine": 60,
         "startChar": 0,
