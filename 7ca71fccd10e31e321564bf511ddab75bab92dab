@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "234d525a_48277168",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "237f124e_186e867e",
+      "range": {
+        "startLine": 908,
+        "startChar": 27,
+        "endLine": 908,
+        "endChar": 33
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "237f124e_18bcc64e",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "This is not the right function, you\u0027re not copying objects... :-)",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1038,
+        "endChar": 3
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_c813610d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "CopyAndFixupObjects seems like a good place to copy, or do you want me to rename it.",
+      "parentUuid": "237f124e_18bcc64e",
       "range": {
         "startLine": 1029,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "234d525a_a88c5dcc",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83c43ed3_198e8d7f",
+      "range": {
+        "startLine": 1063,
+        "startChar": 2,
+        "endLine": 1067,
+        "endChar": 47
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c43ed3_19b5ed31",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "Put into a separate, named method.",
+      "range": {
+        "startLine": 1068,
+        "startChar": 6,
+        "endLine": 1104,
+        "endChar": 51
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "636d8ab3_26a5fb7f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83c43ed3_19b5ed31",
       "range": {
         "startLine": 1068,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "636d8ab3_012b89ad",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03868e96_b862ffbb",
+      "range": {
+        "startLine": 1189,
+        "startChar": 4,
+        "endLine": 1208,
+        "endChar": 5
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "237f124e_d88dfe00",
         "filename": "compiler/image_writer.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "There\u0027s no apostrophe in plurals...",
+      "range": {
+        "startLine": 129,
+        "startChar": 40,
+        "endLine": 129,
+        "endChar": 41
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_8e1faa89",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "237f124e_d88dfe00",
       "range": {
         "startLine": 129,
         "startChar": 40,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e356daec_b8175800",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "237f124e_586e4ead",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 58
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c43ed3_b99db9b3",
         "filename": "compiler/image_writer.h",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "Nicolas says no to this. Please introduce a struct.",
+      "range": {
+        "startLine": 305,
+        "startChar": 27,
+        "endLine": 305,
+        "endChar": 52
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e356daec_a789f5bc",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83c43ed3_b99db9b3",
       "range": {
         "startLine": 305,
         "startChar": 27,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "234d525a_73b7ca38",
+        "filename": "compiler/utils/dex_cache_arrays_layout.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "We could pass this in everywhere but that seems like it would not provide any real advantage IMO.",
+      "parentUuid": "6394aac1_5b166300",
+      "range": {
+        "startLine": 84,
+        "startChar": 31,
+        "endLine": 84,
+        "endChar": 86
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "237f124e_fba71cb2",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -220,6 +436,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "Separate function.",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 3
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_8e06c14b",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "237f124e_fba71cb2",
       "range": {
         "startLine": 425,
         "startChar": 0,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "234d525a_ae79c5c2",
+        "filename": "runtime/art_field.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38a229d_fd4ba735",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 71
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "636d8ab3_931a9c6f",
         "filename": "runtime/check_jni.cc",
         "patchSetId": 5
@@ -266,6 +530,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 1002,
+        "endChar": 6
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e356daec_c2cfc7dc",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "I need to think of a good way to check this field.",
+      "parentUuid": "636d8ab3_931a9c6f",
       "range": {
         "startLine": 996,
         "startChar": 0,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "e356daec_bd5d8259",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03868e96_18d5ab6f",
+      "range": {
+        "startLine": 1119,
+        "startChar": 2,
+        "endLine": 1119,
+        "endChar": 46
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "234d525a_3158f05a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -312,6 +624,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "Why is the order here changed, without any comments? If you had chosen intuitive names...",
+      "range": {
+        "startLine": 1485,
+        "startChar": 2,
+        "endLine": 1485,
+        "endChar": 50
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_4eb05971",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1485,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "234d525a_3158f05a",
       "range": {
         "startLine": 1485,
         "startChar": 2,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "234d525a_6e135de1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2928,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "We don\u0027t GC any classes currently.",
+      "parentUuid": "a38a229d_7d2cf73e",
+      "range": {
+        "startLine": 2928,
+        "startChar": 22,
+        "endLine": 2928,
+        "endChar": 58
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "636d8ab3_f3ce705e",
         "filename": "runtime/class_linker.h",
         "patchSetId": 5
@@ -358,6 +718,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "Where\u0027s the comment what SetupClass is gonna do?",
+      "range": {
+        "startLine": 508,
+        "startChar": 2,
+        "endLine": 510,
+        "endChar": 50
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_ae2c653f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "636d8ab3_f3ce705e",
       "range": {
         "startLine": 508,
         "startChar": 2,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "e356daec_5d865617",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "234d525a_f119087a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 37
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_db24332f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -404,6 +812,30 @@
       "writtenOn": "2015-04-10T09:56:22Z",
       "side": 1,
       "message": "I don\u0027t think this is still valid. Previously we could have had empty array but now we have nullptr instead.",
+      "range": {
+        "startLine": 2713,
+        "startChar": 12,
+        "endLine": 2713,
+        "endChar": 37
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "636d8ab3_6196fdc9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2713,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_db24332f",
       "range": {
         "startLine": 2713,
         "startChar": 12,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "636d8ab3_61135de1",
+        "filename": "runtime/image.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "I was going to rewrite the image stuff into an array of \"sections\" which should be cleaner in a separate CL.",
+      "parentUuid": "6394aac1_3b3c3742",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_bbaa07d0",
         "filename": "runtime/jdwp/jdwp_event.cc",
         "patchSetId": 5
@@ -450,6 +906,30 @@
       "writtenOn": "2015-04-10T09:56:22Z",
       "side": 1,
       "message": "Please realign.",
+      "range": {
+        "startLine": 122,
+        "startChar": 16,
+        "endLine": 122,
+        "endChar": 22
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_d9e2551b",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_bbaa07d0",
       "range": {
         "startLine": 122,
         "startChar": 16,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "e356daec_5ddad614",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Is it OK if I rename to AllocAndConstructArray? It seems like this is a handy place to have this functionality.",
+      "parentUuid": "a38a229d_9d5623b4",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "234d525a_718a78e9",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 5
@@ -496,6 +1000,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "Please document why it\u0027s now OK to overwrite with null.",
+      "range": {
+        "startLine": 436,
+        "startChar": 2,
+        "endLine": 437,
+        "endChar": 88
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_198f7d2d",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Actually, I don\u0027t think we overwrite with null anymore, I\u0027ll delete.",
+      "parentUuid": "234d525a_718a78e9",
       "range": {
         "startLine": 436,
         "startChar": 2,
@@ -555,6 +1083,54 @@
     },
     {
       "key": {
+        "uuid": "636d8ab3_e5e2181b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "636d8ab3_f37cb036",
+      "range": {
+        "startLine": 1157,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 46
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "234d525a_9910cd54",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_bb720763",
+      "range": {
+        "startLine": 1157,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 46
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "636d8ab3_337f0829",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 5
@@ -566,6 +1142,30 @@
       "writtenOn": "2015-04-09T20:06:33Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 1161,
+        "startChar": 41,
+        "endLine": 1161,
+        "endChar": 49
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e356daec_1d4cce4d",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-10T19:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "636d8ab3_337f0829",
       "range": {
         "startLine": 1161,
         "startChar": 41,
