@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_bdb047f5",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-10T19:33:30Z",
+      "side": 1,
+      "message": "Maybe we could split it out to CopyAndFixupNativeData()?",
+      "parentUuid": "234d525a_c813610d",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1038,
+        "endChar": 3
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c43ed3_198e8d7f",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 5
@@ -413,6 +437,30 @@
       "side": 1,
       "message": "We could pass this in everywhere but that seems like it would not provide any real advantage IMO.",
       "parentUuid": "6394aac1_5b166300",
+      "range": {
+        "startLine": 84,
+        "startChar": 31,
+        "endLine": 84,
+        "endChar": 86
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_ddb5fbe3",
+        "filename": "compiler/utils/dex_cache_arrays_layout.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-10T19:33:30Z",
+      "side": 1,
+      "message": "Style preferences... not important.",
+      "parentUuid": "234d525a_73b7ca38",
       "range": {
         "startLine": 84,
         "startChar": 31,
@@ -977,6 +1025,30 @@
       "side": 1,
       "message": "Is it OK if I rename to AllocAndConstructArray? It seems like this is a handy place to have this functionality.",
       "parentUuid": "a38a229d_9d5623b4",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "7ca71fccd10e31e321564bf511ddab75bab92dab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_fdbabfd0",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-10T19:33:30Z",
+      "side": 1,
+      "message": "Do you really need that?\n\n  SomeType* array \u003d alloc-\u003eAllocArray\u003cSomeArray\u003e(self, num_elems);\n  std::uninitialized_fill_n(array, num_elems, SomeType());",
+      "parentUuid": "e356daec_5ddad614",
       "range": {
         "startLine": 37,
         "startChar": 0,
