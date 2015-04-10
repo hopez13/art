@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_c0f7e05a",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T13:32:34Z",
+      "side": 1,
+      "message": "I think it\u0027s nicer to have an utility file here. We\u0027re starting to pile up static functions in CodeGenerator class which shouldn\u0027t be there imo (e.g. GetInt32ValueOf). The alternative to mix static function and classes it\u0027s pretty ugly.\n\nThere are also some constant definition too and other functions which could potentially be separated here as they are utilities.",
+      "parentUuid": "6394aac1_be9af545",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "b19930c5cba3cf662dce5ee057fcc9829b4cbb9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_da40a167",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
