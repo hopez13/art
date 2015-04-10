@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_9e40d9f8",
+        "filename": "compiler/optimizing/code_generator_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T13:39:53Z",
+      "side": 1,
+      "message": "That sounds equally good to me. I\u0027d still keep it in a separate file, but if it\u0027s a separate class I don\u0027t mind having it in the code generator either. Up to you :)\n\nside thought: I have the feeling that in future we might expand this o be an utility for the optimizing in general, but until that need arises I think it\u0027s to focus on the generator.",
+      "parentUuid": "e3617abc_ba9a0d46",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "b19930c5cba3cf662dce5ee057fcc9829b4cbb9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_da40a167",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
