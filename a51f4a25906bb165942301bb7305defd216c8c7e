@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_a3bf3ea3",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "removed. after thinking about it we should need to make to many look aheads in the normal case so it shouldn\u0027t matter.",
+      "parentUuid": "6394aac1_fbf72f08",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 46
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_373e188c",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -95,6 +119,54 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_bd0cc771",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_373e188c",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 175,
+        "endChar": 25
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_c1628612",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_dbc513de",
+      "range": {
+        "startLine": 175,
+        "startChar": 21,
+        "endLine": 175,
+        "endChar": 23
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_fbcacfea",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_e167821f",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_fbcacfea",
+      "range": {
+        "startLine": 208,
+        "startChar": 19,
+        "endLine": 208,
+        "endChar": 23
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_9d40e3f8",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -129,6 +225,30 @@
       "writtenOn": "2015-04-10T08:53:10Z",
       "side": 1,
       "message": "I think the comment is misplaced. Here you should just say that non-phi instructions are already correctly typed, so you don\u0027t need to process them.",
+      "range": {
+        "startLine": 215,
+        "startChar": 5,
+        "endLine": 217,
+        "endChar": 61
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_dd117b8c",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38a229d_9d40e3f8",
       "range": {
         "startLine": 215,
         "startChar": 5,
@@ -188,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_03463280",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a38a229d_7dcb17cc",
+      "range": {
+        "startLine": 224,
+        "startChar": 10,
+        "endLine": 224,
+        "endChar": 26
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_1bb05b70",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -211,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_fd163f81",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6394aac1_1bb05b70",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 26
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_5bbae34f",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 4
@@ -222,6 +390,30 @@
       "writtenOn": "2015-04-10T08:53:10Z",
       "side": 1,
       "message": "I\u0027d add a helper function for this, that you could also use for the HGraphChecker. Something like GetPhiEquivalentOfType(Primitive::Type type).",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 54
+      },
+      "revId": "a51f4a25906bb165942301bb7305defd216c8c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_7d522f3c",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T19:24:45Z",
+      "side": 1,
+      "message": "thought about it but I didn\u0027t find a good place for it (this relates to the discussion about the utility file from the other CL). I added something extra on the phi node. I think it\u0027s a bit of a stretch but still reasonable and it makes this code look better.",
+      "parentUuid": "6394aac1_5bbae34f",
       "range": {
         "startLine": 223,
         "startChar": 0,
