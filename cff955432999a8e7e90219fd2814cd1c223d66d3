@@ -813,6 +813,30 @@
     },
     {
       "key": {
+        "uuid": "634caa14_fb51afec",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T15:34:41Z",
+      "side": 1,
+      "message": "Indeed!\n\nTo prevent regressions, I suggest adding an additional Checker (Czecher?) :) section to make sure the two additions are merged:\n\n  // CHECK-START: int Main.AddNegs2(int, int) GVN (after)\n  // ...\n\n(Maybe in another CL?)",
+      "parentUuid": "83cfde46_b5cac2c5",
+      "range": {
+        "startLine": 337,
+        "startChar": 11,
+        "endLine": 337,
+        "endChar": 44
+      },
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66111809_13faecb8",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 2
@@ -1018,6 +1042,24 @@
       "side": 1,
       "message": "I checked that manually. But when I add a test it fails although the output looks ok. From a quick test it looks like the checker only looks at the first instance of the line matching `CHECK-START`.",
       "parentUuid": "667af834_b1925854",
+      "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2312b2d8_12cb52cd",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-10T15:34:41Z",
+      "side": 1,
+      "message": "Yeah,  when an optimization is performed more than once with the same name (here, \"constant_folding\"), Checker only looks at the first instance.\n\nCan you add add an explicit name (e.g. \"constant_folding_after_inlining\") to the \"fold2\" object (through an additional argument to its ctor) in RunOptimizations in compiler/optimizing/optimizing_compiler.cc, and add a new Checker stanza starting with:\n\n  // CHECK-START: int Main.NegNeg2(int) constant_folding_after_inlining (after)\n  // ...\n\nto ensure the second constant folding pass produces this constant 0 as return value?",
+      "parentUuid": "c61c8421_9c50cde8",
       "revId": "cff955432999a8e7e90219fd2814cd1c223d66d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
