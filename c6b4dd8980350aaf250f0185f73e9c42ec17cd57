@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_5d8c9bcb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T09:22:51Z",
+      "side": 1,
+      "message": "So some of the methods would start with __ cfi(). and some would be part of assembler?  I would not like the inconsistency.  I could wrap all dwarf methods in all assemblers, but that seems like an overkill.  I also can not do it just once in the base class since the register type is platform specific, and I would like to keep it that way.\n\nThe old CFI code just used ints for everything helper methods to covert (ART) ints to (DWARF) ints.  The main motivation for existence of those small helper methods is to make sure the correct remapping from ART reg number to DWARF reg number is always done, and it is difficult to omit or use the wrong one.\n\nTo be clear, I do not particularly like those small conversion methods, but it is the best solution I could think of.",
+      "parentUuid": "e3617abc_d7d31cda",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 54
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_5b102353",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -167,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_b71ce823",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T09:22:51Z",
+      "side": 1,
+      "message": "Oh, I see what you mean.  Yes, that would be better.",
+      "parentUuid": "e3617abc_f7d820f7",
+      "range": {
+        "startLine": 545,
+        "startChar": 37,
+        "endLine": 545,
+        "endChar": 48
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_5d83bb05",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "Same here, write S0.",
       "parentUuid": "e3617abc_d714fc44",
+      "range": {
+        "startLine": 550,
+        "startChar": 39,
+        "endLine": 550,
+        "endChar": 51
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_bb0687a0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T09:22:51Z",
+      "side": 1,
+      "message": "True.",
+      "parentUuid": "6394aac1_fba3af22",
       "range": {
         "startLine": 550,
         "startChar": 39,
@@ -320,6 +392,30 @@
       "writtenOn": "2015-04-10T09:14:00Z",
       "side": 1,
       "message": "Please do. (That was my intention here: https://android-review.googlesource.com/#/c/145700/2/compiler/optimizing/optimizing_cfi_test_expected.inc@58 )",
+      "parentUuid": "6394aac1_1b993bf8",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1215,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_3709b8dd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T09:22:51Z",
+      "side": 1,
+      "message": "I agree.  If fact, I initially put the cfi code in GenerateFrameExit as you suggested.  I found later that I need to move it up a level.  Which also introduces replication.  It also make the cfi test slightly more awkward.  I just was not brave enough to move it.",
       "parentUuid": "6394aac1_1b993bf8",
       "range": {
         "startLine": 1212,
