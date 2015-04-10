@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a38a229d_5dd73beb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:52:46Z",
+      "side": 1,
+      "message": "Where in the assemblers should it be?\nDo you effectively want to revert changes of \"Implement CFI for JNI.\" Patch Set 2?",
+      "parentUuid": "6394aac1_3b035710",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 54
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_5b102353",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "6394aac1_bbf7675b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:52:46Z",
+      "side": 1,
+      "message": "The first argument is the \"base register\" - it is the register that corresponds to bit 0 in the mask.\nSo mask 00000101 would apply to R0 and R2.",
+      "parentUuid": "e3617abc_3758d85a",
+      "range": {
+        "startLine": 545,
+        "startChar": 37,
+        "endLine": 545,
+        "endChar": 48
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_5d83bb05",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -82,6 +130,30 @@
       "writtenOn": "2015-04-09T21:31:38Z",
       "side": 1,
       "message": "S0",
+      "range": {
+        "startLine": 550,
+        "startChar": 39,
+        "endLine": 550,
+        "endChar": 51
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_d714fc44",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:52:46Z",
+      "side": 1,
+      "message": "whereas here mask 00000101 would apply to S0 and S2",
+      "parentUuid": "a38a229d_5d83bb05",
       "range": {
         "startLine": 550,
         "startChar": 39,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "e3617abc_f719007a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:52:46Z",
+      "side": 1,
+      "message": "In this case, I could, but not in general.  Usually the generation of \"ret\" instruction is not part of GenerateFrameExit().",
+      "parentUuid": "e3617abc_57554c21",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1215,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_7b0ddf35",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 10
@@ -128,6 +224,30 @@
       "writtenOn": "2015-04-09T21:31:38Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1226,
+        "startChar": 0,
+        "endLine": 1229,
+        "endChar": 50
+      },
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a38a229d_7dd4f7e5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-10T08:52:46Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "6394aac1_7b0ddf35",
       "range": {
         "startLine": 1226,
         "startChar": 0,
