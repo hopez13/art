@@ -22,6 +22,30 @@
       "revId": "01e3a0eecf76a212a626ccba20be7660e7a23897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e32fba6e_b0edbeba",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-10T22:03:51Z",
+      "side": 1,
+      "message": "Yeah. Then we should also about the Array native code.",
+      "parentUuid": "c326369c_fa29d103",
+      "range": {
+        "startLine": 802,
+        "startChar": 29,
+        "endLine": 802,
+        "endChar": 35
+      },
+      "revId": "01e3a0eecf76a212a626ccba20be7660e7a23897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
