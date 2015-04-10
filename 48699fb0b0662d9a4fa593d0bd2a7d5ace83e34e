@@ -190,6 +190,30 @@
       "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3617abc_775fb0f9",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-10T08:37:23Z",
+      "side": 1,
+      "message": "I see. So about these verified_method objects. They\u0027re all being created before any compilation right? So deleting one after its \"main\" compilation is sort of an optimization.\n\nSince we\u0027ll probably end up recompiling it at runtime, potentially many times, if we ever need those results (and Jeff is currently putting that requirement), we\u0027ll probably have to keep them around, instead of verifying again and again.\n\nJeff: how hard would it be to not rely on the verifier? I guess \"baseline\" compilation would require data flow analysis....",
+      "parentUuid": "e356daec_9e1a816f",
+      "range": {
+        "startLine": 2277,
+        "startChar": 0,
+        "endLine": 2280,
+        "endChar": 3
+      },
+      "revId": "48699fb0b0662d9a4fa593d0bd2a7d5ace83e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
