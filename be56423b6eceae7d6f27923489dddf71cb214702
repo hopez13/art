@@ -22,6 +22,30 @@
       "revId": "be56423b6eceae7d6f27923489dddf71cb214702",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6394aac1_bbd4c774",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-10T09:38:46Z",
+      "side": 1,
+      "message": "because if this is set we don\u0027t pre-verify and we may crash if we hit verification errors.\n\nNote that this fallback is temporary until we\u0027ll fix optimizing not to crash in the cases where verification soft-fails",
+      "parentUuid": "6394aac1_7b623f86",
+      "range": {
+        "startLine": 587,
+        "startChar": 7,
+        "endLine": 587,
+        "endChar": 62
+      },
+      "revId": "be56423b6eceae7d6f27923489dddf71cb214702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
