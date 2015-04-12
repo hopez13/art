@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50368edf_52b4b4e4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-12T23:31:46Z",
+      "side": 1,
+      "message": "Problem: this order means that a well-working error (i.e., one that isn\u0027t rethrown), won\u0027t have an abort message. Please consider changing ThrowInternalError to take the abort message as a fallback.",
+      "range": {
+        "startLine": 1563,
+        "startChar": 2,
+        "endLine": 1567,
+        "endChar": 55
+      },
+      "revId": "bd9cf9f6bbf285ec7a5b74ce655a9e68e0f6e434",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
