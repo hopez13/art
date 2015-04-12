@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e32fba6e_d3615737",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-12T19:58:11Z",
+      "side": 1,
+      "message": "Consider the same as for debug_symbols: make it true by default in debug builds, and change build/ to turn it off for pre-opting.",
+      "range": {
+        "startLine": 504,
+        "startChar": 23,
+        "endLine": 504,
+        "endChar": 28
+      },
+      "revId": "840324754839a8abfba1a96e417be7728d416a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
