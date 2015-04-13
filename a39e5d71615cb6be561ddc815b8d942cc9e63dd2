@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_0955da20",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-13T23:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_490be6ab",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 11
+      },
+      "revId": "a39e5d71615cb6be561ddc815b8d942cc9e63dd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9033a6f4_69722263",
         "filename": "runtime/jdwp/jdwp.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-13T22:44:57Z",
       "side": 1,
       "message": "Please add a comment here. I had to look up the implementation of IDSizes to understand why it\u0027s fine to just change the typedefs here without anything else.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "a39e5d71615cb6be561ddc815b8d942cc9e63dd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_3b90d918",
+        "filename": "runtime/jdwp/jdwp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-13T23:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_69722263",
       "range": {
         "startLine": 50,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_3b0459cf",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-13T23:08:11Z",
+      "side": 1,
+      "message": "No, they are all 8 bytes now.",
+      "parentUuid": "b0242aae_1bcabd9c",
+      "range": {
+        "startLine": 260,
+        "startChar": 3,
+        "endLine": 260,
+        "endChar": 23
+      },
+      "revId": "a39e5d71615cb6be561ddc815b8d942cc9e63dd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_09ca7a9c",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-13T22:44:57Z",
       "side": 1,
       "message": "Is that really required? We really see a *resolved* class with fields that haven\u0027t been fully initialized?",
+      "range": {
+        "startLine": 817,
+        "startChar": 45,
+        "endLine": 817,
+        "endChar": 54
+      },
+      "revId": "a39e5d71615cb6be561ddc815b8d942cc9e63dd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_acbdb8a5",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-13T23:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_09ca7a9c",
       "range": {
         "startLine": 817,
         "startChar": 45,
