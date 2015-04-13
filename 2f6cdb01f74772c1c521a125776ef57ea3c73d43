@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50e84e65_e2c3e6b5",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-13T08:53:50Z",
+      "side": 1,
+      "message": "check that this is false? Or rename it, otherwise it\u0027s confusing with the comment above.",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "2f6cdb01f74772c1c521a125776ef57ea3c73d43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f4e242_dfd9dbf6",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-13T08:53:50Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 64,
+        "startChar": 26,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "2f6cdb01f74772c1c521a125776ef57ea3c73d43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
