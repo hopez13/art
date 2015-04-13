@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e32fba6e_e68e9b2f",
+        "filename": "runtime/gc/task_processor.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-13T00:28:52Z",
+      "side": 1,
+      "message": "Would we want to do this in RunAllTasks in case we were to call Start from another thread.",
+      "range": {
+        "startLine": 116,
+        "startChar": 20,
+        "endLine": 116,
+        "endChar": 24
+      },
+      "revId": "1f87ce3bdaffd3c42c8588e9274b0660a1eb15d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
