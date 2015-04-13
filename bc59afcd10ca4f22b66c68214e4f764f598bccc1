@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30ebda64_2141cef8",
+        "filename": "compiler/dwarf/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-13T08:50:20Z",
+      "side": 1,
+      "message": "enums.h is *very* generic. How about calling this file dwarf_globals.h or dward_definitions.h ?",
+      "revId": "bc59afcd10ca4f22b66c68214e4f764f598bccc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
