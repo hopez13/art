@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_fcc929a8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-13T21:30:59Z",
+      "side": 1,
+      "message": "First as Any and SameAsFirstInput do not work together. We\u0027re missing a DCHECK in the location summary to prevent it.",
+      "range": {
+        "startLine": 2727,
+        "startChar": 5,
+        "endLine": 2732,
+        "endChar": 54
+      },
+      "revId": "b5ff23c349dc784fc77999088e08643b3cfa91c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
