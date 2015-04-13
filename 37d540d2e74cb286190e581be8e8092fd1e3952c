@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0f4e242_9fe353a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-13T10:15:45Z",
+      "side": 1,
+      "message": "on x86.",
+      "revId": "37d540d2e74cb286190e581be8e8092fd1e3952c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30ebda64_c12fc236",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-13T10:15:45Z",
+      "side": 1,
+      "message": "We do not use this style to document methods; please rephrase this comment.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 5
+      },
+      "revId": "37d540d2e74cb286190e581be8e8092fd1e3952c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
