@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0f4e242_c22fc436",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-13T17:08:44Z",
+      "side": 1,
+      "message": "kNumberOfXRegisters \u003d 33 is bad. 1 \u003c\u003c 32 is implementation-defined and could easily be 1. Can we change kNumberOfXRegisters to 32? (This actually applies to all the other places where it\u0027s used.)",
+      "range": {
+        "startLine": 161,
+        "startChar": 30,
+        "endLine": 161,
+        "endChar": 49
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f4e242_826d3c87",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-13T17:08:44Z",
+      "side": 1,
+      "message": "C++11:\n\n  for (auto r : callee_save_regs) {\n    Arm64ManagedRegister reg \u003d r.AsArm64();",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 61
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f4e242_82bf7c43",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-13T17:08:44Z",
+      "side": 1,
+      "message": "C++11:\n\n  for (auto r : callee_save_regs) {\n    Arm64ManagedRegister reg \u003d r.AsArm64();",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 61
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f4e242_c2610483",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-13T17:08:44Z",
+      "side": 1,
+      "message": "large",
+      "range": {
+        "startLine": 721,
+        "startChar": 57,
+        "endLine": 721,
+        "endChar": 63
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f4e242_62723863",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-13T17:08:44Z",
+      "side": 1,
+      "message": "add space before \u0027(\u0027",
+      "range": {
+        "startLine": 51,
+        "startChar": 30,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
