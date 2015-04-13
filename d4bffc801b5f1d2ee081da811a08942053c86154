@@ -70,6 +70,30 @@
       "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50e84e65_855d4459",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-13T11:24:04Z",
+      "side": 1,
+      "message": "I\u0027ve now removed the DCHECK from GetSiblingAt, so that it can return a nullptr if there isn\u0027t a sibling defined at the given position. That\u0027s what this algorithm originally permitted (even though i don\u0027t see a scenario when that could happen). Is that okay with you?",
+      "parentUuid": "63a66a29_eeaf7fde",
+      "range": {
+        "startLine": 1561,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 33
+      },
+      "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
