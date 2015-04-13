@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30ebda64_e19646c5",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-13T11:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_170754d4",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 563,
+        "endChar": 35
+      },
+      "revId": "e749ec2a29903740813330ac846a192b2b77be93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a38a229d_1d82139c",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-10T09:14:05Z",
       "side": 1,
       "message": "Not a big fan of leaking this... Could you avoid it?",
+      "range": {
+        "startLine": 588,
+        "startChar": 8,
+        "endLine": 588,
+        "endChar": 30
+      },
+      "revId": "e749ec2a29903740813330ac846a192b2b77be93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30ebda64_413cd274",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-13T11:34:42Z",
+      "side": 1,
+      "message": "Not really. I was thinking of making it an argument of Covers but it would still be there. Doing the Reset/Advance at the right time is really the whole point of this CL.",
+      "parentUuid": "a38a229d_1d82139c",
       "range": {
         "startLine": 588,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f0f4e242_ff3b7f49",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-13T11:34:42Z",
+      "side": 1,
+      "message": "Replaced with Covers_Slow",
+      "parentUuid": "a38a229d_3d7fcf28",
+      "range": {
+        "startLine": 349,
+        "startChar": 30,
+        "endLine": 349,
+        "endChar": 53
+      },
+      "revId": "e749ec2a29903740813330ac846a192b2b77be93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_5701ccbb",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-10T09:14:05Z",
       "side": 1,
       "message": "The inlining of these methods do not seem related to your changes. Please make this a standalone CL.",
+      "range": {
+        "startLine": 593,
+        "startChar": 0,
+        "endLine": 665,
+        "endChar": 3
+      },
+      "revId": "e749ec2a29903740813330ac846a192b2b77be93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f4e242_1f274333",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-13T11:34:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3617abc_5701ccbb",
       "range": {
         "startLine": 593,
         "startChar": 0,
