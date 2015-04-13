@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "f0f4e242_42f4d403",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-13T18:17:47Z",
+      "side": 1,
+      "message": "The comment above relates to this field.  It is the length of the section.  The 0xffffffff escape is intended for multi-gigabyte executables.  The person who originally wrote the code assumed it was related to the machine architecture.  I switched to 32-bit to save space, and added comment for the next person maintaining this.",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "2f6cdb01f74772c1c521a125776ef57ea3c73d43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30ebda64_24f9dcfb",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-13T18:17:47Z",
+      "side": 1,
+      "message": "This field on the other hand depends on whether the architecture is 32-bit or 64-bit.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 27
+      },
+      "revId": "2f6cdb01f74772c1c521a125776ef57ea3c73d43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f4e242_dfd9dbf6",
         "filename": "compiler/dwarf/headers.h",
         "patchSetId": 4
