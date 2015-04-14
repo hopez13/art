@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "709c722a_9e3b3999",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:03:31Z",
+      "side": 1,
+      "message": "if (IsImage()) {\n  // Verification error in the image itself.\n  return false;\n} else if (IsImageClass()) {\n  // We trust methods in the image are always verified.\n  // FIXME: Why can the first case happen then?\n  return true;\n} else {\n  // FIXME: What\u0027s this case?\n  ... \n}",
+      "range": {
+        "startLine": 2353,
+        "startChar": 4,
+        "endLine": 2353,
+        "endChar": 21
+      },
+      "revId": "cf5b906bb4ee16118489b06c0eda00f041233c0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
