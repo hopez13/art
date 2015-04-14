@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_e5c97afb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "Yes, that was the reason.",
+      "parentUuid": "10597645_8f28b605",
+      "range": {
+        "startLine": 596,
+        "startChar": 56,
+        "endLine": 596,
+        "endChar": 57
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10597645_af1b7af3",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-14T21:36:54Z",
       "side": 1,
       "message": "What if the dex files this oat file depends on are moved to a different directory? Should we have support for relative encoded dex locations for the classpath dependencies like we have for the encoded dex locations in the oat file? Though I\u0027m not sure how that would work.",
+      "range": {
+        "startLine": 602,
+        "startChar": 0,
+        "endLine": 602,
+        "endChar": 43
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_77b42933",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "Honestly, this is a complicated mess. I talked to Fyodor. We probably do want relative paths here. However, this isn\u0027t available here, and the class-path argument of dex2oat doesn\u0027t make it easier, either.",
+      "parentUuid": "10597645_af1b7af3",
       "range": {
         "startLine": 602,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_9d6c4a07",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "I don\u0027t like docs. Most of them have not been open-sourced. I\u0027ll add source comments.",
+      "parentUuid": "904c868c_8ad30f53",
+      "range": {
+        "startLine": 602,
+        "startChar": 0,
+        "endLine": 605,
+        "endChar": 42
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506daeeb_1d86576b",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-14T21:36:54Z",
       "side": 1,
       "message": "Add a comment to the header file saying dex_dependencies is allowed to be null.",
+      "range": {
+        "startLine": 612,
+        "startChar": 6,
+        "endLine": 612,
+        "endChar": 33
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_798bfe72",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "506daeeb_1d86576b",
       "range": {
         "startLine": 612,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_b2df3c54",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "To me this is an implementation detail. I maybe should put a TODO on this.",
+      "parentUuid": "904c868c_cac907a9",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 72
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "904c868c_aad6cb42",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-14T21:36:54Z",
       "side": 1,
       "message": "Would the code be cleaner and more robust if you had two kinds of separators instead of one? Like:  location1\u003dchecksum1;location2\u003dchecksum2;...",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 3
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_3d0f9635",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "That increases parsing overhead, though. E.g., the case below doesn\u0027t care about the checksums. It also requires another character that isn\u0027t allowed in file names, instead of just one.",
+      "parentUuid": "904c868c_aad6cb42",
       "range": {
         "startLine": 621,
         "startChar": 0,
@@ -186,6 +330,54 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_527b78b9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "I can change it to hex, decimal was just easier.",
+      "parentUuid": "10597645_0f9a86eb",
+      "range": {
+        "startLine": 630,
+        "startChar": 59,
+        "endLine": 630,
+        "endChar": 61
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_dd1d3267",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "No, istringstream is not better than strtol. The right things would be stoi, but that throws an exception on error...\n\nI should write a helper though that checks for errors better (which istringstream is also not doing).",
+      "parentUuid": "506daeeb_fd9cc3b7",
+      "range": {
+        "startLine": 630,
+        "startChar": 4,
+        "endLine": 630,
+        "endChar": 63
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506daeeb_dd9f7faa",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2015-04-14T21:36:54Z",
       "side": 1,
       "message": "Is 0 a legal checksum value?",
+      "range": {
+        "startLine": 631,
+        "startChar": 8,
+        "endLine": 631,
+        "endChar": 22
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_3d3c3690",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "Possibly. With better error checking this won\u0027t be necessary.",
+      "parentUuid": "506daeeb_dd9f7faa",
       "range": {
         "startLine": 631,
         "startChar": 8,
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "9033a6f4_d444f77d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "506daeeb_5d77ef02",
+      "range": {
+        "startLine": 643,
+        "startChar": 29,
+        "endLine": 643,
+        "endChar": 60
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "904c868c_2adadb65",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -243,6 +483,30 @@
       "writtenOn": "2015-04-14T21:36:54Z",
       "side": 1,
       "message": "The oat file assistant has a function to GetRequiredDexChecksum. Could that function be reused here? I feel like getting the required dex checksum is an OatFileAssistant kind of task.",
+      "range": {
+        "startLine": 639,
+        "startChar": 1,
+        "endLine": 653,
+        "endChar": 5
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_9dd8caf4",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "I\u0027ll use it.",
+      "parentUuid": "904c868c_2adadb65",
       "range": {
         "startLine": 639,
         "startChar": 1,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_5226d8b3",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "506daeeb_bd964b92",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 673,
+        "endChar": 3
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506daeeb_9dc267a1",
         "filename": "runtime/oat_file.h",
         "patchSetId": 2
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "9033a6f4_68ee8e37",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "I thought it was clear. :-)\n\nStatic and \"not [...] the class-loader environment\" means checks on disk - going to the location and looking at it. Checks against the class-loader, i.e., what the \u0027environment\u0027 is at runtime, will come in another CL.\n\nI\u0027ll clarify.",
+      "parentUuid": "506daeeb_9dc267a1",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 93
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10597645_ef64d294",
         "filename": "runtime/oat_file.h",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2015-04-14T21:36:54Z",
       "side": 1,
       "message": "I feel like this would be more clear if there was some separate EncodedDexLocations class with a GetLocations() method, rather than passing around encoded dex locations as a string (sometimes std::string, sometimes char*) and calling methods on OatFile to encode and decode it.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 83
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_a858f68c",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T23:46:37Z",
+      "side": 1,
+      "message": "I didn\u0027t want to put something heavyweight onto it. Technically it\u0027s possible to parse and do *everything* on the string as is, which is backed by the file. So no memory required. Putting a class around it will abstract that only minimally - you still have to construct that object somewhere. It\u0027s also a purely oat-related thing, which your class name doesn\u0027t express.\n\nI felt the complication and memory management of that wasn\u0027t worth it at this stage, and could be solved better by just letting OatFile handle it. I am considering hiding the inputs and using non-static functions that look up the header value implicitly. It\u0027s mainly this way right now for testing.",
+      "parentUuid": "10597645_ef64d294",
       "range": {
         "startLine": 258,
         "startChar": 0,
