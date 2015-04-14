@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9033a6f4_98c46be4",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 0,
+      "message": "Was this null check not useful?",
+      "range": {
+        "startLine": 234,
+        "startChar": 2,
+        "endLine": 234,
+        "endChar": 35
+      },
+      "revId": "a29d93b380c9aeb8270e281aefbdd0c77a430d43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "b0242aae_530f01e6",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 77
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_31dd94e3",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Can this be size_t? Why auto?",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 12
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_71255c61",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Is this used?",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 12
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3617abc_5daacb7d",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -66,6 +135,765 @@
         "startChar": 8,
         "endLine": 321,
         "endChar": 71
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_ededf307",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Might be more intuitive if kBinMirrorCount comes after kBinArtMethodNotInitialized and kBinSize comes last?",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 134,
+        "endChar": 19
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_eeea80ed",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "struct members don\u0027t need the _ suffix.",
+      "range": {
+        "startLine": 312,
+        "startChar": 11,
+        "endLine": 312,
+        "endChar": 18
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_b16744d4",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Document what this second value of the pair is?",
+      "range": {
+        "startLine": 353,
+        "startChar": 32,
+        "endLine": 353,
+        "endChar": 41
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_e3f17fae",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Would it be cleaner if GetImageSize() includes the art field size or it\u0027s renamed to something else?",
+      "range": {
+        "startLine": 172,
+        "startChar": 26,
+        "endLine": 172,
+        "endChar": 38
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_dbe0aa15",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "It would have been nicer if git/gerrit showed us a diff from mirror/art_field.h.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_18299b83",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Be more specific?",
+      "range": {
+        "startLine": 996,
+        "startChar": 13,
+        "endLine": 996,
+        "endChar": 31
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_7c765085",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Add a one liner to say what kind of checks we do?",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 41
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_7ce2d052",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "I guess this is the case where we might trigger a read barrier when it may or may not have been visited as a root yet (mostly due to BufferedRootVisitor).\n\nIt might be ok either way, using the to-space copy or the from-space one, as VisitFieldRoots only deals with the field in the non-moving ArtField, but it might be less error-prone if this situation can be avoided.\n\nOr, does BufferedRootVisitor guarantee that the class is visited (corresponding to line 937) before the fields are (corresponding to line 938) so that we will always call VisitFieldRoots() on an already forwarded class (root)?\n\nMaybe visit the fields as a separate root set (independent of classes, ie. this function)?\n\nSimilar comment in the for loop in lines 941-943.",
+      "range": {
+        "startLine": 938,
+        "startChar": 6,
+        "endLine": 938,
+        "endChar": 17
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_5ab38dc8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "This is correct, but for the CC collector, a non-moving object has the notion of whether it\u0027s been marked (logically in to-space) for the to-space invariant, we should still visit the declaring classes of fields. I see the code does so fine, but the comment could bemisleading if it\u0027s interpreted as not needing to visit them.",
+      "range": {
+        "startLine": 940,
+        "startChar": 39,
+        "endLine": 940,
+        "endChar": 89
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_6526aab4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Maybe is there a race condition between this and GC? If some fields are allocated and their declaring class is set, but they haven\u0027t been pointed to by the class, GC may not see those declaring class and fail to update them?",
+      "range": {
+        "startLine": 1486,
+        "startChar": 26,
+        "endLine": 1487,
+        "endChar": 56
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_d7f07d63",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "I assume this would happen for an OOME as a result of heap allocation failure for methods?",
+      "range": {
+        "startLine": 1492,
+        "startChar": 16,
+        "endLine": 1492,
+        "endChar": 27
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_37b461c0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1871,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Now that LoadClass is split into two parts, update the comment around class.h:91 to include SetupClass?",
+      "range": {
+        "startLine": 1871,
+        "startChar": 18,
+        "endLine": 1871,
+        "endChar": 28
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_f7d499e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1915,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Is it ok to assume we never fail to allocate in linear alloc?",
+      "range": {
+        "startLine": 1915,
+        "startChar": 2,
+        "endLine": 1915,
+        "endChar": 23
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_a55b720e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Maybe we should call this before above the for loop so GC can see the declaring class field in the ArtField?",
+      "range": {
+        "startLine": 1933,
+        "startChar": 2,
+        "endLine": 1933,
+        "endChar": 29
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_bc9a7844",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "This may fit in one line.",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 31
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_1a974548",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 995,
+        "startChar": 58,
+        "endLine": 995,
+        "endChar": 60
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_194cfecd",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 473,
+        "startChar": 39,
+        "endLine": 473,
+        "endChar": 40
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_dc32e421",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 136,
+        "startChar": 43,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_9c2c5cc8",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 147,
+        "startChar": 39,
+        "endLine": 147,
+        "endChar": 40
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_dceae4a4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "When do we have end !\u003d mem_map-\u003eEnd()? Leave a comment?",
+      "range": {
+        "startLine": 48,
+        "startChar": 61,
+        "endLine": 48,
+        "endChar": 64
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_e5f187ae",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Worth inlining this?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 13
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_180cfbee",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Maybe fit in one line?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 84
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_a6ea6571",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Why can\u0027t this be RootVisitor?",
+      "range": {
+        "startLine": 987,
+        "startChar": 23,
+        "endLine": 987,
+        "endChar": 30
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_778d4403",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Say this is the size of ifields_ in the comment?",
+      "range": {
+        "startLine": 1179,
+        "startChar": 11,
+        "endLine": 1179,
+        "endChar": 31
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_f34b90b5",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "similar",
+      "range": {
+        "startLine": 1188,
+        "startChar": 11,
+        "endLine": 1188,
+        "endChar": 29
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_a6cdc568",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Retain UNLIKELY?",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 7
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_f1202454",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "DCHECK_LE? What is this checking?",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 12
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_7881bf48",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Should we check this is an int or long array?",
+      "range": {
+        "startLine": 39,
+        "startChar": 27,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_260f9535",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Can/should this be a template param?",
+      "range": {
+        "startLine": 120,
+        "startChar": 50,
+        "endLine": 120,
+        "endChar": 58
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_e6186d78",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 124,
+        "startChar": 62,
+        "endLine": 124,
+        "endChar": 70
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_7129d482",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Should these four be left as DCHECKs?",
+      "range": {
+        "startLine": 309,
+        "startChar": 2,
+        "endLine": 309,
+        "endChar": 7
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_c3aa03d4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "Indentation is off",
+      "range": {
+        "startLine": 455,
+        "startChar": 59,
+        "endLine": 455,
+        "endChar": 60
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_58760385",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3988,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T21:52:23Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 3988,
+        "startChar": 54,
+        "endLine": 3988,
+        "endChar": 55
       },
       "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
