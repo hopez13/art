@@ -22,6 +22,30 @@
       "revId": "8dc7324da5bd0f2afd2ab558ab04882329a61fe8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_a125baa7",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-14T22:38:36Z",
+      "side": 1,
+      "message": "Ideally, I would always want to have CFI around (since it is needed for backtraces, and ARM spec says it should be always present), however, that is unlikely to happen due its size.  So this option provides a mid-ground, and option for us to decide whether to include it or not outside the compiler.",
+      "parentUuid": "b0926a12_5d429b01",
+      "range": {
+        "startLine": 153,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 3
+      },
+      "revId": "8dc7324da5bd0f2afd2ab558ab04882329a61fe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
