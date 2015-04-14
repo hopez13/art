@@ -45,6 +45,29 @@
       "revId": "4809d0a8a5fca85a67dd0588ead5dfbd0f1acf96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_f6514234",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-14T17:58:24Z",
+      "side": 1,
+      "message": "We could use a default param as in\n\n...\u003csize_t kBufferSize \u003d kDefaultBufferedRootCount\u003e\n\n?",
+      "range": {
+        "startLine": 172,
+        "startChar": 17,
+        "endLine": 172,
+        "endChar": 28
+      },
+      "revId": "4809d0a8a5fca85a67dd0588ead5dfbd0f1acf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
