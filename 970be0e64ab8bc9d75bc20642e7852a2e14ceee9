@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_615d7256",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T18:22:46Z",
+      "side": 1,
+      "message": "How about a helper then for these cases? I bet this is not the only place we\u0027re trying to know if we\u0027re dealing with the boot class loader...",
+      "parentUuid": "d0299e86_30deb208",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1270,
+        "endChar": 77
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_3edf8556",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "Depends. See the branches above. If the class is \"found,\" then whatever DefineClass throws. Otherwise a pre-allocated NoClassDefFoundError. I did not want to replicate the above, but in a follow-up the above branch can likely be moved down here completely.",
       "parentUuid": "709c722a_fef03dde",
+      "range": {
+        "startLine": 1419,
+        "startChar": 33,
+        "endLine": 1419,
+        "endChar": 82
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_03559220",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T18:22:46Z",
+      "side": 1,
+      "message": "I was trying to come up with a better way of saying we don\u0027t know what the right exception is. Maybe a FIXME: what is the right exception is better?",
+      "parentUuid": "9033a6f4_6417e044",
       "range": {
         "startLine": 1419,
         "startChar": 33,
