@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_ff86fb16",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "Why not WithNoSwap?",
+      "range": {
+        "startLine": 99,
+        "startChar": 59,
+        "endLine": 99,
+        "endChar": 67
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_7ec8ad57",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "Why not stack destinations? Please add a comment.",
+      "range": {
+        "startLine": 310,
+        "startChar": 46,
+        "endLine": 310,
+        "endChar": 70
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_3fdf8356",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "I don\u0027t understand this: Are you saying GetScratchLocationFor must allocate two registers?",
+      "range": {
+        "startLine": 115,
+        "startChar": 41,
+        "endLine": 116,
+        "endChar": 28
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_607c8c6f",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "I\u0027d drop, it\u0027s pretty obvious from the API.",
+      "range": {
+        "startLine": 116,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 93
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_9fed7709",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "returns -\u003e return",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 12
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_7e9aed47",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "What does \"pollute\" mean in this context?",
+      "range": {
+        "startLine": 138,
+        "startChar": 80,
+        "endLine": 138,
+        "endChar": 87
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_1e9f2937",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "need -\u003e needs",
+      "range": {
+        "startLine": 138,
+        "startChar": 53,
+        "endLine": 138,
+        "endChar": 57
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_008d8803",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "I\u0027d drop.",
+      "range": {
+        "startLine": 142,
+        "startChar": 24,
+        "endLine": 142,
+        "endChar": 42
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_e08f3cfc",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "when -\u003e after",
+      "range": {
+        "startLine": 142,
+        "startChar": 12,
+        "endLine": 142,
+        "endChar": 16
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_5f0b6f5d",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "circle -\u003e cycle",
+      "range": {
+        "startLine": 183,
+        "startChar": 73,
+        "endLine": 183,
+        "endChar": 79
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_000ca8ee",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T15:34:13Z",
+      "side": 1,
+      "message": "extra space?",
+      "range": {
+        "startLine": 158,
+        "startChar": 34,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
