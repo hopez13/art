@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "709c722a_7bc43fe3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T11:48:38Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 74
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_bd907fc7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T11:48:38Z",
+      "side": 1,
+      "message": "mechanism",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_1bc97bfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T11:48:38Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 76
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_5ba5c302",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T11:48:38Z",
+      "side": 1,
+      "message": "Maybe document this new argument?",
+      "range": {
+        "startLine": 164,
+        "startChar": 41,
+        "endLine": 164,
+        "endChar": 48
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_3c7c7133",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T11:48:38Z",
+      "side": 1,
+      "message": "has",
+      "range": {
+        "startLine": 305,
+        "startChar": 24,
+        "endLine": 305,
+        "endChar": 28
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_fc7da92e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T11:48:38Z",
+      "side": 1,
+      "message": "has",
+      "range": {
+        "startLine": 307,
+        "startChar": 5,
+        "endLine": 307,
+        "endChar": 9
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506daeeb_9a74adf9",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 4
