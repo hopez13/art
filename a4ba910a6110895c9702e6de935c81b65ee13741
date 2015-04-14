@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_9ec0192b",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-14T14:11:25Z",
+      "side": 1,
+      "message": "If you want to keep kNumberOfXRegisters \u003d 33, it\u0027s OK. But then you shouldn\u0027t use it as the upper bound for for-loops like this one. If the core_spill_mask contained x0, you could also easily push the bogus x32 here. You can get away with this only because x0 is not in the spill mask.\n\nI\u0027m going to accept this CL as it is but it would be preferable to clean this up everywhere. Preferably by using\n\n  for (uint32_t mask \u003d core_spill_mask; mask !\u003d 0u; mask \u003d mask \u0026 (mask - 1u)) {\n    int x_reg \u003d CTZ(mask);",
+      "parentUuid": "90a1e660_1ca09518",
+      "range": {
+        "startLine": 161,
+        "startChar": 30,
+        "endLine": 161,
+        "endChar": 49
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f4e242_826d3c87",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 3
