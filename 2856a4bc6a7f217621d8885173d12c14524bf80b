@@ -1,0 +1,521 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0242aae_c45452ac",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Too many columns",
+      "range": {
+        "startLine": 89,
+        "startChar": 96,
+        "endLine": 89,
+        "endChar": 97
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_df354455",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Too many columns",
+      "range": {
+        "startLine": 445,
+        "startChar": 90,
+        "endLine": 445,
+        "endChar": 115
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_041ffae2",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Is there a cleaner way to do this without needing PrettyMethod, maybe vmarko would know.",
+      "range": {
+        "startLine": 1554,
+        "startChar": 31,
+        "endLine": 1554,
+        "endChar": 46
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_840beaaa",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Columns",
+      "range": {
+        "startLine": 1554,
+        "startChar": 98,
+        "endLine": 1554,
+        "endChar": 106
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_7f63f03f",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "ATTRIBUTE_UNUSED",
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_af96bf48",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Seems like there is a lot of areas in this file where we don\u0027t call RESTORE_REFS_AND_ARGS_CALLEE_SAVE_FRAME. That is probably compaction bugs.",
+      "range": {
+        "startLine": 979,
+        "startChar": 4,
+        "endLine": 979,
+        "endChar": 37
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_6f48d73e",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Isn\u0027t klass here the array class? I don\u0027t see how it would ever be the string class.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 61,
+        "endLine": 1057,
+        "endChar": 66
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_bad4c6e3",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Seems like this would regress all calls, is there a way to avoid this check?",
+      "range": {
+        "startLine": 604,
+        "startChar": 10,
+        "endLine": 604,
+        "endChar": 21
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_1a5bda10",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "This is probably a minor slowdown, we could introduce a new quickened byte code to speed it up if we wanted to.",
+      "range": {
+        "startLine": 528,
+        "startChar": 25,
+        "endLine": 528,
+        "endChar": 26
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_e21e27e5",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 432,
+        "startChar": 55,
+        "endLine": 432,
+        "endChar": 70
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_5a3cc274",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "class is included twice, and heap should be in the above section.",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_fad92ef6",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_fa0b6ed6",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 90,
+        "startChar": 22,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_5dc39c8a",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Please don\u0027t access members directly, use GetField32 to access count_ here.",
+      "range": {
+        "startLine": 107,
+        "startChar": 40,
+        "endLine": 107,
+        "endChar": 46
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_9a546aab",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "I think you can rely on overflow behavior i.e. if (static_cast\u003cuint32_t\u003e(index) \u003e count_) {...",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 14
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_c2bfab0b",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "You can just return here without the condition.",
+      "range": {
+        "startLine": 150,
+        "startChar": 11,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_a28c9f8d",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 162,
+        "startChar": 15,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_8291a3a2",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 14
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_1ab3da7b",
+        "filename": "runtime/native/java_nio_charset_Charsets.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Is this copied? Why doesn\u0027t it follow the ART convention.",
+      "range": {
+        "startLine": 99,
+        "startChar": 10,
+        "endLine": 99,
+        "endChar": 14
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_2f52cf6a",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 90,
+        "startChar": 72,
+        "endLine": 90,
+        "endChar": 97
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_1a151ac2",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "This makes a copy, then you insert into the copy",
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_7d377812",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "I think you can do\nstd::set\u003cuint32_t\u003e reg_set \u003d { 1 };",
+      "range": {
+        "startLine": 148,
+        "startChar": 26,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_3ae21652",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T01:15:07Z",
+      "side": 1,
+      "message": "Maybe easier to use an unordered_set or something",
+      "range": {
+        "startLine": 350,
+        "startChar": 21,
+        "endLine": 350,
+        "endChar": 42
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
