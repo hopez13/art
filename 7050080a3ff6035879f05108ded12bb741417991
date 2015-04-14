@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_83b442e6",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-04-14T18:37:38Z",
+      "side": 1,
+      "message": "I remember that when I was collecting the calls positions in ProcessInstruction I had to sort the them by the lifetime_position_ in order to get a monotonic ascending list.\n\nvoid RegisterAllocator::ProcessInstruction(HInstruction* instruction) {\n if (locations-\u003eWillCall()) {\n  \u003e\u003e\u003e\u003e\n }\n}",
+      "parentUuid": "90a1e660_1f71678b",
+      "range": {
+        "startLine": 319,
+        "startChar": 14,
+        "endLine": 319,
+        "endChar": 90
+      },
+      "revId": "7050080a3ff6035879f05108ded12bb741417991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_5f67efd4",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 1
