@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10597645_8f28b605",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Are you using \u0027*\u0027 instead of \u0027:\u0027 to avoid collision with the multdex separator? If so, perhaps add a comment here, or move the definition of this next to the multidex separator.",
+      "range": {
+        "startLine": 596,
+        "startChar": 56,
+        "endLine": 596,
+        "endChar": 57
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10597645_af1b7af3",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "What if the dex files this oat file depends on are moved to a different directory? Should we have support for relative encoded dex locations for the classpath dependencies like we have for the encoded dex locations in the oat file? Though I\u0027m not sure how that would work.",
+      "range": {
+        "startLine": 602,
+        "startChar": 0,
+        "endLine": 602,
+        "endChar": 43
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "904c868c_8ad30f53",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Is the format of this documented anywhere? In a comment with an example, or in a doc describing the oat file format (is there such a thing?) would be nice.",
+      "range": {
+        "startLine": 602,
+        "startChar": 0,
+        "endLine": 605,
+        "endChar": 42
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_1d86576b",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Add a comment to the header file saying dex_dependencies is allowed to be null.",
+      "range": {
+        "startLine": 612,
+        "startChar": 6,
+        "endLine": 612,
+        "endChar": 33
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "904c868c_cac907a9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Put this assumption in the header file so callers know?",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 72
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "904c868c_aad6cb42",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Would the code be cleaner and more robust if you had two kinds of separators instead of one? Like:  location1\u003dchecksum1;location2\u003dchecksum2;...",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 3
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_fd9cc3b7",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "You use ostringstream to write the encoded dex locations string. Why not use istringstream to parse the encoded dex locations string?",
+      "range": {
+        "startLine": 630,
+        "startChar": 4,
+        "endLine": 630,
+        "endChar": 63
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10597645_0f9a86eb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Are checksums normally printed out in decimal or hex? My personal preference would be hex.",
+      "range": {
+        "startLine": 630,
+        "startChar": 59,
+        "endLine": 630,
+        "endChar": 61
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_dd9f7faa",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Is 0 a legal checksum value?",
+      "range": {
+        "startLine": 631,
+        "startChar": 8,
+        "endLine": 631,
+        "endChar": 22
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_5d77ef02",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "Add more context to the message, such as \" while checking dex file dependencies\"?",
+      "range": {
+        "startLine": 643,
+        "startChar": 29,
+        "endLine": 643,
+        "endChar": 60
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "904c868c_2adadb65",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "The oat file assistant has a function to GetRequiredDexChecksum. Could that function be reused here? I feel like getting the required dex checksum is an OatFileAssistant kind of task.",
+      "range": {
+        "startLine": 639,
+        "startChar": 1,
+        "endLine": 653,
+        "endChar": 5
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_bd964b92",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "This duplicates code from above. How about parsing the encoded dex dependencies in a separate function that is reused here and in the Check?",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 673,
+        "endChar": 3
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_9dc267a1",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment, and it isn\u0027t obvious to me what this function is checking.\n\nIs it this: dex_dependencies is the std::string returned by EncodeDexFileDependencies on the currently opened dex files, and it checks that the encoded dex file dependencies stored in the oat file match that? And \u0027msg\u0027 is used for an error_msg?\n\n(Presumably it will make more sense to me as I review the rest of the change.)",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 93
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10597645_ef64d294",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-14T21:36:54Z",
+      "side": 1,
+      "message": "I feel like this would be more clear if there was some separate EncodedDexLocations class with a GetLocations() method, rather than passing around encoded dex locations as a string (sometimes std::string, sometimes char*) and calling methods on OatFile to encode and decode it.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 83
+      },
+      "revId": "f62dab70ee6fb75176f1fd250a7f75d3d031000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
