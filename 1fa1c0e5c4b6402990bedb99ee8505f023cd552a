@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "709c722a_9b0eeb36",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-14T08:53:15Z",
+      "side": 1,
+      "message": "At this point, we have the content of the file 3 times in memory: the MemMap \"map\", the char buffer \"tmp\" and the string \"string_data\".\n\nI think we should get rid of the MemMap and the char buffer once the string is allocated. You can even get rid of the MemMap once you copied its content in the \"tmp\" char buffer.",
+      "range": {
+        "startLine": 678,
+        "startChar": 18,
+        "endLine": 678,
+        "endChar": 29
+      },
+      "revId": "1fa1c0e5c4b6402990bedb99ee8505f023cd552a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
