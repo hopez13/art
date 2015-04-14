@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_eaacb59c",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0242aae_c45452ac",
+      "range": {
+        "startLine": 89,
+        "startChar": 96,
+        "endLine": 89,
+        "endChar": 97
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_df354455",
         "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
         "patchSetId": 26
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "Too many columns",
+      "range": {
+        "startLine": 445,
+        "startChar": 90,
+        "endLine": 445,
+        "endChar": 115
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_2a8abd1d",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_df354455",
       "range": {
         "startLine": 445,
         "startChar": 90,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_5c7b9f74",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0242aae_840beaaa",
+      "range": {
+        "startLine": 1554,
+        "startChar": 98,
+        "endLine": 1554,
+        "endChar": 106
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_7f63f03f",
         "filename": "compiler/dex/quick/x86/call_x86.cc",
         "patchSetId": 26
@@ -105,6 +177,24 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "ATTRIBUTE_UNUSED",
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_3d00d003",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_7f63f03f",
       "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -145,6 +235,30 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "Isn\u0027t klass here the array class? I don\u0027t see how it would ever be the string class.",
+      "range": {
+        "startLine": 1057,
+        "startChar": 61,
+        "endLine": 1057,
+        "endChar": 66
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_fda5a87f",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "It is. I showed Mathieu he read the change wrong.",
+      "parentUuid": "b0242aae_6f48d73e",
       "range": {
         "startLine": 1057,
         "startChar": 61,
@@ -249,6 +363,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_4a762985",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_5a3cc274",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_fad92ef6",
         "filename": "runtime/mirror/string-inl.h",
         "patchSetId": 26
@@ -272,6 +410,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_dc0b0f25",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_fad92ef6",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_fa0b6ed6",
         "filename": "runtime/mirror/string-inl.h",
         "patchSetId": 26
@@ -283,6 +445,30 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 90,
+        "startChar": 22,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_2a5bdd10",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_fa0b6ed6",
       "range": {
         "startLine": 90,
         "startChar": 22,
@@ -341,6 +527,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_4a2aa933",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_5dc39c8a",
+      "range": {
+        "startLine": 107,
+        "startChar": 40,
+        "endLine": 107,
+        "endChar": 46
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9033a6f4_c2bfab0b",
         "filename": "runtime/mirror/string-inl.h",
         "patchSetId": 26
@@ -352,6 +562,30 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "You can just return here without the condition.",
+      "range": {
+        "startLine": 150,
+        "startChar": 11,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_ea64b5cb",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_c2bfab0b",
       "range": {
         "startLine": 150,
         "startChar": 11,
@@ -387,6 +621,30 @@
     },
     {
       "key": {
+        "uuid": "9033a6f4_5d76fc8d",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_a28c9f8d",
+      "range": {
+        "startLine": 162,
+        "startChar": 15,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9033a6f4_8291a3a2",
         "filename": "runtime/mirror/string-inl.h",
         "patchSetId": 26
@@ -398,6 +656,30 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "And here",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 14
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_7c12db55",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_8291a3a2",
       "range": {
         "startLine": 174,
         "startChar": 6,
@@ -456,6 +738,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_fc25aba6",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0242aae_2f52cf6a",
+      "range": {
+        "startLine": 90,
+        "startChar": 72,
+        "endLine": 90,
+        "endChar": 97
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_1a151ac2",
         "filename": "runtime/verifier/register_line.cc",
         "patchSetId": 26
@@ -473,6 +779,24 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_7ccd3b66",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0299e86_1a151ac2",
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9033a6f4_7d377812",
         "filename": "runtime/verifier/register_line.cc",
         "patchSetId": 26
@@ -484,6 +808,30 @@
       "writtenOn": "2015-04-14T01:15:07Z",
       "side": 1,
       "message": "I think you can do\nstd::set\u003cuint32_t\u003e reg_set \u003d { 1 };",
+      "range": {
+        "startLine": 148,
+        "startChar": 26,
+        "endLine": 148,
+        "endChar": 28
+      },
+      "revId": "2856a4bc6a7f217621d8885173d12c14524bf80b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_fd57e8df",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-14T03:42:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033a6f4_7d377812",
       "range": {
         "startLine": 148,
         "startChar": 26,
