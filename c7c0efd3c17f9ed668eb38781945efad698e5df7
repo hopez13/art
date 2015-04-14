@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "506daeeb_9a74adf9",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T07:24:16Z",
+      "side": 1,
+      "message": "Please don\u0027t add dependencies on the compiler. Things were supposed to be cleanly separated...",
+      "range": {
+        "startLine": 443,
+        "startChar": 11,
+        "endLine": 443,
+        "endChar": 26
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f4e242_c29904c6",
         "filename": "runtime/mirror/art_method.cc",
         "patchSetId": 4
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "Good point! I\u0027ll fix it.",
       "parentUuid": "f0f4e242_c29904c6",
+      "range": {
+        "startLine": 470,
+        "startChar": 41,
+        "endLine": 470,
+        "endChar": 64
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "904c868c_074dd84d",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T07:24:16Z",
+      "side": 1,
+      "message": "You could generalize ShadowFrameUnderConstruction to be a general stack of \"OutOfLineShadowFrames,\" maybe.",
+      "parentUuid": "10597645_17b4de31",
       "range": {
         "startLine": 470,
         "startChar": 41,
