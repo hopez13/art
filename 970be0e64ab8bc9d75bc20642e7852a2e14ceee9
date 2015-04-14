@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_30deb208",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "There is none. Internally we use null to signal the boot classpath (see for example FindClass), but on the Java side the \"fake\" java.lang.BootClassLoader is the top-most parent of class-loaders.",
+      "parentUuid": "90a1e660_5c285d04",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1270,
+        "endChar": 77
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_da96664a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_a0edb408",
+      "range": {
+        "startLine": 1269,
+        "startChar": 6,
+        "endLine": 1270,
+        "endChar": 77
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_3edf8556",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-14T12:54:46Z",
       "side": 1,
       "message": "-\u003e User-defined class loader?",
+      "range": {
+        "startLine": 1291,
+        "startChar": 5,
+        "endLine": 1291,
+        "endChar": 26
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_84fbec8c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "It is not just user-defined. E.g., DexClassLoader is not supported right now. I\u0027ll change to \"Unsupported.\"",
+      "parentUuid": "709c722a_3edf8556",
       "range": {
         "startLine": 1291,
         "startChar": 5,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d0299e86_30a9125d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_7c2d1913",
+      "range": {
+        "startLine": 1418,
+        "startChar": 34,
+        "endLine": 1418,
+        "endChar": 36
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_fef03dde",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2015-04-14T12:54:46Z",
       "side": 1,
       "message": "-\u003e What is the right exception?",
+      "range": {
+        "startLine": 1419,
+        "startChar": 33,
+        "endLine": 1419,
+        "endChar": 82
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_6417e044",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "Depends. See the branches above. If the class is \"found,\" then whatever DefineClass throws. Otherwise a pre-allocated NoClassDefFoundError. I did not want to replicate the above, but in a follow-up the above branch can likely be moved down here completely.",
+      "parentUuid": "709c722a_fef03dde",
       "range": {
         "startLine": 1419,
         "startChar": 33,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_dac3063b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_bed39552",
+      "range": {
+        "startLine": 120,
+        "startChar": 5,
+        "endLine": 120,
+        "endChar": 9
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_fc1129d5",
         "filename": "runtime/class_linker.h",
         "patchSetId": 3
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "506daeeb_5dea8fa6",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_fc1129d5",
+      "range": {
+        "startLine": 121,
+        "startChar": 69,
+        "endLine": 121,
+        "endChar": 75
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_e0f3bce8",
         "filename": "runtime/class_linker.h",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2015-04-14T12:54:46Z",
       "side": 1,
       "message": "Please document what non-supported is.",
+      "range": {
+        "startLine": 122,
+        "startChar": 65,
+        "endLine": 122,
+        "endChar": 80
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_f0b26ac3",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T17:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_e0f3bce8",
       "range": {
         "startLine": 122,
         "startChar": 65,
