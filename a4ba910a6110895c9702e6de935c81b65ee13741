@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_1ca09518",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-14T12:11:35Z",
+      "side": 1,
+      "message": "If we want to distinguish sp and zr, we *do* have 32 registers. Having different names for sp and zr can help us to detect misuse of these two registers earlier.",
+      "parentUuid": "f0f4e242_c22fc436",
+      "range": {
+        "startLine": 161,
+        "startChar": 30,
+        "endLine": 161,
+        "endChar": 49
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f4e242_826d3c87",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-13T17:08:44Z",
       "side": 1,
       "message": "C++11:\n\n  for (auto r : callee_save_regs) {\n    Arm64ManagedRegister reg \u003d r.AsArm64();",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 61
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_9d4b43b7",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-14T12:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f4e242_826d3c87",
       "range": {
         "startLine": 647,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_9b74abf9",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-14T12:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f4e242_82bf7c43",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 61
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f4e242_c2610483",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_bb716708",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-14T12:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f4e242_c2610483",
+      "range": {
+        "startLine": 721,
+        "startChar": 57,
+        "endLine": 721,
+        "endChar": 63
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f4e242_62723863",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2015-04-13T17:08:44Z",
       "side": 1,
       "message": "add space before \u0027(\u0027",
+      "range": {
+        "startLine": 51,
+        "startChar": 30,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "a4ba910a6110895c9702e6de935c81b65ee13741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_3ca55129",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-14T12:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f4e242_62723863",
       "range": {
         "startLine": 51,
         "startChar": 30,
