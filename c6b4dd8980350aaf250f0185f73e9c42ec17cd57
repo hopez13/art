@@ -524,6 +524,40 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_a37a9eb3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-04-14T18:45:53Z",
+      "side": 1,
+      "message": "move to common_arm64.h?",
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_8162fe11",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-04-14T18:45:53Z",
+      "side": 1,
+      "message": "Would be nice to add the extra checks that VIXL uses, just in case we abuse this at some point.\n\n1966   VIXL_ASSERT(!(mem.IsPreIndex() || mem.IsPostIndex()));\n1967   VIXL_ASSERT(!registers.Overlaps(tmp_list_));\n1968   VIXL_ASSERT(!registers.Overlaps(fptmp_list_));\n1969   VIXL_ASSERT(!registers.IncludesAliasOf(sp));\n\n\nAlso when the offset cannot be encoded into the immediate field it would be nice to precompute it using BaseMemOperandForLoadStoreCPURegList(). Otherwise this will be computed for each Stp/Ldp. This might be outside the scope of this patch so you can add a TODO.",
+      "revId": "c6b4dd8980350aaf250f0185f73e9c42ec17cd57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_bb1f675e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 10
