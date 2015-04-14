@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_5c285d04",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "What\u0027s the difference between null and the BootClassLoader loader?",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1270,
+        "endChar": 77
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_a0edb408",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 1269,
+        "startChar": 6,
+        "endLine": 1270,
+        "endChar": 77
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_3edf8556",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "-\u003e User-defined class loader?",
+      "range": {
+        "startLine": 1291,
+        "startChar": 5,
+        "endLine": 1291,
+        "endChar": 26
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_7c2d1913",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "boot cp loader -\u003e boot classpath ?",
+      "range": {
+        "startLine": 1418,
+        "startChar": 34,
+        "endLine": 1418,
+        "endChar": 36
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_fef03dde",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "-\u003e What is the right exception?",
+      "range": {
+        "startLine": 1419,
+        "startChar": 33,
+        "endLine": 1419,
+        "endChar": 82
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_bed39552",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "Finds (for consistency)",
+      "range": {
+        "startLine": 120,
+        "startChar": 5,
+        "endLine": 120,
+        "endChar": 9
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_fc1129d5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "Returns",
+      "range": {
+        "startLine": 121,
+        "startChar": 69,
+        "endLine": 121,
+        "endChar": 75
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_e0f3bce8",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-14T12:54:46Z",
+      "side": 1,
+      "message": "Please document what non-supported is.",
+      "range": {
+        "startLine": 122,
+        "startChar": 65,
+        "endLine": 122,
+        "endChar": 80
+      },
+      "revId": "970be0e64ab8bc9d75bc20642e7852a2e14ceee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
