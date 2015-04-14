@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9033a6f4_980b525d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "The buffering is only used in some places, I have ideas of how we could use it for thread roots but it requires some changes to shadow frame layout.",
+      "parentUuid": "9033a6f4_82376311",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 62
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6394aac1_5e62d1be",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_15fcc6b0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "It was just for convenience, I am open to changing it, but I think anything that modifies roots probably wants the buffered implementation which should be faster.",
+      "parentUuid": "b0242aae_cfd34b52",
+      "range": {
+        "startLine": 517,
+        "startChar": 17,
+        "endLine": 517,
+        "endChar": 37
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0242aae_afea3fa3",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 6
@@ -106,6 +154,30 @@
       "writtenOn": "2015-04-14T01:16:09Z",
       "side": 1,
       "message": "If this is the only VerifyRoot call site, could it be merged/inlined here?",
+      "range": {
+        "startLine": 498,
+        "startChar": 16,
+        "endLine": 498,
+        "endChar": 26
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_35f462d1",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0242aae_afea3fa3",
       "range": {
         "startLine": 498,
         "startChar": 16,
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_75daea66",
+        "filename": "runtime/gc_root-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "Same comment as other file, I think that causes strict aliasing problems.",
+      "parentUuid": "b0242aae_0f0cb3ee",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 48
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0242aae_8f47830f",
         "filename": "runtime/gc_root-inl.h",
         "patchSetId": 6
@@ -152,6 +248,30 @@
       "writtenOn": "2015-04-14T01:16:09Z",
       "side": 1,
       "message": "Here too",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_f8f016de",
+        "filename": "runtime/gc_root-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "b0242aae_8f47830f",
       "range": {
         "startLine": 36,
         "startChar": 40,
@@ -269,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_cae45953",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "Single root visitor is only used for when the root isn\u0027t updated currently, is that OK?",
+      "parentUuid": "9033a6f4_a27c9f6f",
+      "range": {
+        "startLine": 124,
+        "startChar": 25,
+        "endLine": 124,
+        "endChar": 45
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9033a6f4_a2281f05",
         "filename": "runtime/gc_root.h",
         "patchSetId": 6
@@ -280,6 +424,30 @@
       "writtenOn": "2015-04-14T01:16:09Z",
       "side": 1,
       "message": "Can this be MirrorType?",
+      "range": {
+        "startLine": 160,
+        "startChar": 38,
+        "endLine": 160,
+        "endChar": 52
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_7dd898a5",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "I think the problem with doing that is that casting a mirror::CompressedReference\u003cMirrorType\u003e* to mirror::CompressedReference\u003cmirror::Object\u003e* breaks strict aliasing requirements.",
+      "parentUuid": "9033a6f4_a2281f05",
       "range": {
         "startLine": 160,
         "startChar": 38,
@@ -538,6 +706,30 @@
       "writtenOn": "2015-04-14T01:16:09Z",
       "side": 1,
       "message": "Mostly StackReference \u003d\u003d CompressedReference. Maybe worth keeping StackReference for documenting purpose?",
+      "range": {
+        "startLine": 62,
+        "startChar": 14,
+        "endLine": 62,
+        "endChar": 28
+      },
+      "revId": "bb87e0f1a52de656bc77cb01cb887e51a0e5198b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_dd354c55",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 1,
+      "message": "What do you mean keep? I kept it as a typedef. We cast StackReference* to CompressedReference* in a few places.",
+      "parentUuid": "d0299e86_ba8726a9",
       "range": {
         "startLine": 62,
         "startChar": 14,

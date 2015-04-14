@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9033a6f4_5815ea72",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "9033a6f4_a2a5bf05",
+      "range": {
+        "startLine": 254,
+        "startChar": 4,
+        "endLine": 254,
+        "endChar": 28
+      },
+      "revId": "e57fc0f0260fcb1d08cbb720ec95c04c0f394b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_ba1ba6f3",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-14T01:16:09Z",
       "side": 0,
       "message": "Was this update redundant? Or, is it now done by some other code?",
+      "range": {
+        "startLine": 1384,
+        "startChar": 0,
+        "endLine": 1386,
+        "endChar": 9
+      },
+      "revId": "e57fc0f0260fcb1d08cbb720ec95c04c0f394b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_7c3c1b75",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 0,
+      "message": "The current invariant is that if the vreg is not a reference, the reference vreg is 0. The new code works since we can safely cast a StackReference to a CompressedReference.",
+      "parentUuid": "d0299e86_ba1ba6f3",
       "range": {
         "startLine": 1384,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0242aae_ea35d554",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2320,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d0299e86_9ad34a8a",
+      "range": {
+        "startLine": 2320,
+        "startChar": 4,
+        "endLine": 2320,
+        "endChar": 37
+      },
+      "revId": "e57fc0f0260fcb1d08cbb720ec95c04c0f394b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0299e86_5aaf22e4",
         "filename": "runtime/transaction.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-14T01:16:09Z",
       "side": 0,
       "message": "Was this code redundant?",
+      "range": {
+        "startLine": 432,
+        "startChar": 8,
+        "endLine": 432,
+        "endChar": 61
+      },
+      "revId": "e57fc0f0260fcb1d08cbb720ec95c04c0f394b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0299e86_bc6de386",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-14T03:10:49Z",
+      "side": 0,
+      "message": "I believe so.",
+      "parentUuid": "d0299e86_5aaf22e4",
       "range": {
         "startLine": 432,
         "startChar": 8,
