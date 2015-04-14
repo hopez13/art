@@ -22,6 +22,30 @@
       "revId": "f3bffa9d3387a1d869d9818635b65ad6ca8cdf1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9033a6f4_6ddd8394",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-14T19:04:58Z",
+      "side": 1,
+      "message": "Yes, it is currently necessary. How do you handle the situation: PathClassLoader -\u003e SomethingSomething -\u003e BootClassLoader? You either have to actually run the Java code for SomethingSomething, which is a larger refactor (though could be done) or report that it is *not* valid to look for the class in the PathClassLoader.",
+      "parentUuid": "d0299e86_8b91b7a2",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 4
+      },
+      "revId": "f3bffa9d3387a1d869d9818635b65ad6ca8cdf1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
