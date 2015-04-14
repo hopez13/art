@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_c0a9e08a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T15:01:39Z",
+      "side": 1,
+      "message": "Yes; I\u0027ve updated the commit message.  I\u0027ve submitted a patch to golem to check the impact of this change, but the armv7/armv8 builds are still down. :(",
+      "parentUuid": "709c722a_5e329123",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "61432bfe1327aff32271170da7ccc8907216e0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_80375811",
         "filename": "compiler/utils/arm/assembler_arm.h",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-04-14T13:00:15Z",
       "side": 1,
       "message": "How is that different than LoadDImmediate?",
+      "range": {
+        "startLine": 613,
+        "startChar": 15,
+        "endLine": 613,
+        "endChar": 32
+      },
+      "revId": "61432bfe1327aff32271170da7ccc8907216e0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_dea8e15a",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-14T15:01:39Z",
+      "side": 1,
+      "message": "Thanks, I hadn\u0027t seen LoadDImmediate!  Removed.",
+      "parentUuid": "709c722a_be05d542",
       "range": {
         "startLine": 613,
         "startChar": 15,
