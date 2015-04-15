@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9033a6f4_8fd3fcd7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-15T00:47:48Z",
+      "side": 1,
+      "message": "This is not a very portable solution. I know we use it in other parts (grep shows 3 places), but there are issues with this. Please consider std::numeric_limits\u003cuint32_t\u003e::max or just 0xFFFFFFFFU.",
+      "range": {
+        "startLine": 220,
+        "startChar": 28,
+        "endLine": 220,
+        "endChar": 38
+      },
+      "revId": "11008a3b1955758e155c2f7c3144bdcecca97148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
