@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_c50b3025",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T15:40:57Z",
+      "side": 1,
+      "message": "metadata, check",
+      "range": {
+        "startLine": 2352,
+        "startChar": 37,
+        "endLine": 2352,
+        "endChar": 51
+      },
+      "revId": "7c7420b57ad5fb86db4772ac36abcdb7f48287c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_65181c77",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T15:40:57Z",
+      "side": 1,
+      "message": "Can you drop the handle?",
+      "range": {
+        "startLine": 2361,
+        "startChar": 0,
+        "endLine": 2364,
+        "endChar": 50
+      },
+      "revId": "7c7420b57ad5fb86db4772ac36abcdb7f48287c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_f1a2b0a7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T15:40:57Z",
+      "side": 1,
+      "message": "This looks nasty. Can\u0027t we just query?",
+      "range": {
+        "startLine": 2366,
+        "startChar": 6,
+        "endLine": 2366,
+        "endChar": 29
+      },
+      "revId": "7c7420b57ad5fb86db4772ac36abcdb7f48287c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
