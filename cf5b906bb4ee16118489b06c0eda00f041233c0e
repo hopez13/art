@@ -22,6 +22,30 @@
       "revId": "cf5b906bb4ee16118489b06c0eda00f041233c0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_6201f28a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2353,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-15T12:07:18Z",
+      "side": 1,
+      "message": "we discussed this offline.\n\nI updated the code to better reflect the assumptions.",
+      "parentUuid": "709c722a_9e3b3999",
+      "range": {
+        "startLine": 2353,
+        "startChar": 4,
+        "endLine": 2353,
+        "endChar": 21
+      },
+      "revId": "cf5b906bb4ee16118489b06c0eda00f041233c0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
