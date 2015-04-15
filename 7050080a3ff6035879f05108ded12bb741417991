@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_a3d05e78",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:48:54Z",
+      "side": 1,
+      "message": "We call ProcessInstruction in linear post order, so we should get the right order.",
+      "parentUuid": "b0926a12_83b442e6",
+      "range": {
+        "startLine": 319,
+        "startChar": 14,
+        "endLine": 319,
+        "endChar": 90
+      },
+      "revId": "7050080a3ff6035879f05108ded12bb741417991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_5f67efd4",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 1
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_62181277",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:48:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_23776e52",
+      "range": {
+        "startLine": 751,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 28
+      },
+      "revId": "7050080a3ff6035879f05108ded12bb741417991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_a21ffa88",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 1
@@ -154,6 +202,30 @@
       "writtenOn": "2015-04-15T07:54:02Z",
       "side": 1,
       "message": "Document the fact that these are only stored in the first sibling.",
+      "range": {
+        "startLine": 824,
+        "startChar": 5,
+        "endLine": 824,
+        "endChar": 44
+      },
+      "revId": "7050080a3ff6035879f05108ded12bb741417991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_03c4b2bd",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:48:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_a21ffa88",
       "range": {
         "startLine": 824,
         "startChar": 5,
