@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0926a12_66fa64f5",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T14:17:02Z",
+      "side": 1,
+      "message": "Why both?\nAnd isn\u0027t the new one at the start?",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 49
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_86ff70e2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T14:17:02Z",
+      "side": 1,
+      "message": "Drop the const.",
+      "range": {
+        "startLine": 646,
+        "startChar": 2,
+        "endLine": 646,
+        "endChar": 7
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_e45af00a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T14:17:02Z",
+      "side": 1,
+      "message": "Explain why this has to be slow. Should you DCHECK(kIsDebugBuild) ?",
+      "range": {
+        "startLine": 714,
+        "startChar": 49,
+        "endLine": 714,
+        "endChar": 60
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_04583c10",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T14:17:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 743,
+        "startChar": 49,
+        "endLine": 743,
+        "endChar": 60
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_451ac0a5",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T14:17:02Z",
+      "side": 1,
+      "message": "Nullptr is returned -\u003e Returns nullptr",
+      "range": {
+        "startLine": 820,
+        "startChar": 27,
+        "endLine": 820,
+        "endChar": 34
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
