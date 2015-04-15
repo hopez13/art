@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_62bfb244",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T11:40:14Z",
+      "side": 1,
+      "message": "There might be intersecting cycles on arm32, For example, a two intersecting cycles case, (R0,R1 -\u003e R2,R3) (R2-\u003eR0) (R3-\u003eR1). We allocate a scratch location R6 to save the value of R2. We perform R2-\u003eR6, the rest moves becomes (R0,R1 -\u003e R2,R3) (R6-\u003eR0) (R3-\u003eR1). None of the rest moves can be performed. We still have dependency need to resolve. So we will need another scratch location.\n\nAlso we can make cases with more intersecting cycles. So we will need unknown number of scratch locations at the same time. This is the main complexity.\n\nWe can allocate stack locations or spill registers on arm32. But to get the best performance, we should try to find out dead registers in the backend. Also the cleanup code here means restoring the sp and registers in case we allocate stack locations(such as, orig_sp - 8) or spill registers.",
+      "parentUuid": "709c722a_e180a295",
+      "range": {
+        "startLine": 115,
+        "startChar": 41,
+        "endLine": 116,
+        "endChar": 28
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_9fed7709",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 5
