@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0926a12_03eb5225",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:59:56Z",
+      "side": 1,
+      "message": "/* absolute_dex_locations */ ?",
+      "range": {
+        "startLine": 1243,
+        "startChar": 81,
+        "endLine": 1243,
+        "endChar": 88
+      },
+      "revId": "70e49f0308c744e590a4ab73fe2c21ec90ee9d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_e10e62e9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:59:56Z",
+      "side": 1,
+      "message": "comes ?",
+      "range": {
+        "startLine": 600,
+        "startChar": 3,
+        "endLine": 600,
+        "endChar": 7
+      },
+      "revId": "70e49f0308c744e590a4ab73fe2c21ec90ee9d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_63a57603",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:59:56Z",
+      "side": 1,
+      "message": "-\u003e absolute_dex_location ?",
+      "range": {
+        "startLine": 257,
+        "startChar": 59,
+        "endLine": 257,
+        "endChar": 75
+      },
+      "revId": "70e49f0308c744e590a4ab73fe2c21ec90ee9d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_02290e83",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:59:56Z",
+      "side": 1,
+      "message": "ditto?",
+      "range": {
+        "startLine": 272,
+        "startChar": 58,
+        "endLine": 272,
+        "endChar": 74
+      },
+      "revId": "70e49f0308c744e590a4ab73fe2c21ec90ee9d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_c222469d",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T08:59:56Z",
+      "side": 1,
+      "message": "a pointer to a.... What is this pointer pointing to? Please add it as a comment.",
+      "range": {
+        "startLine": 281,
+        "startChar": 13,
+        "endLine": 281,
+        "endChar": 25
+      },
+      "revId": "70e49f0308c744e590a4ab73fe2c21ec90ee9d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
