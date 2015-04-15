@@ -22,6 +22,76 @@
       "revId": "349da6d9e005526b2b135ef78c62d69721880c2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_04659c8e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-15T15:26:28Z",
+      "side": 1,
+      "message": "This is not actually needed. It was an optimization for the boot image. I replaced this with a todo for now to make sure we don\u0027t mess things.",
+      "parentUuid": "709c722a_243e98de",
+      "range": {
+        "startLine": 2350,
+        "startChar": 6,
+        "endLine": 2350,
+        "endChar": 13
+      },
+      "revId": "349da6d9e005526b2b135ef78c62d69721880c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_64bfc044",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2363,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-15T15:26:28Z",
+      "side": 1,
+      "message": "This was wrong. In my test I used the wrong method_index during inline which created weird results.",
+      "range": {
+        "startLine": 2359,
+        "startChar": 4,
+        "endLine": 2363,
+        "endChar": 37
+      },
+      "revId": "349da6d9e005526b2b135ef78c62d69721880c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_a4614883",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-15T15:26:28Z",
+      "side": 1,
+      "message": "This was wrong as it only applies when compiling the boot image. I replaced this with a query for system classes.",
+      "range": {
+        "startLine": 2367,
+        "startChar": 11,
+        "endLine": 2367,
+        "endChar": 23
+      },
+      "revId": "349da6d9e005526b2b135ef78c62d69721880c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
