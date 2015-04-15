@@ -1,0 +1,757 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "709c722a_c1fa463c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Please describe the high level changes (there are many)",
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_c3156af0",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "You should move that to a dedicated method used by both Quick and Optimizing compilers. It\u0027s better to have this code in only one place.",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 25
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_819afe44",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Please comment why this is not supported by all configurations.",
+      "range": {
+        "startLine": 164,
+        "startChar": 10,
+        "endLine": 166,
+        "endChar": 65
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_62325224",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 1669,
+        "startChar": 27,
+        "endLine": 1669,
+        "endChar": 31
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_219f6a37",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Your test is slightly different than in compiler/dex/mir_method_info.cc. Having it in a separate method would be nice.",
+      "range": {
+        "startLine": 1677,
+        "startChar": 12,
+        "endLine": 1677,
+        "endChar": 88
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_41a4f684",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 1694,
+        "startChar": 29,
+        "endLine": 1694,
+        "endChar": 33
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_a1b29ac2",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "DCHECK(verified_method !\u003d nullptr) ?",
+      "range": {
+        "startLine": 1712,
+        "startChar": 32,
+        "endLine": 1712,
+        "endChar": 47
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_01a6ee8b",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long line",
+      "range": {
+        "startLine": 1712,
+        "startChar": 10,
+        "endLine": 1712,
+        "endChar": 122
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_e3350687",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1713,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1713,
+        "startChar": 10,
+        "endLine": 1713,
+        "endChar": 107
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_033352a2",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "std::set\u003cuint32_t\u003e\u0026",
+      "range": {
+        "startLine": 1716,
+        "startChar": 12,
+        "endLine": 1716,
+        "endChar": 30
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_82375e11",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1717,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Or you could use a C++11 range-based for loop\n\n  for (uint32_t reg : reg_set) {\n    ...\n    move_mir-\u003edalvikInsn.vA \u003d reg;\n    ...\n  }",
+      "range": {
+        "startLine": 1717,
+        "startChar": 12,
+        "endLine": 1717,
+        "endChar": 84
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_02234ed4",
+        "filename": "compiler/dex/quick/arm/call_arm.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long lines",
+      "range": {
+        "startLine": 652,
+        "startChar": 6,
+        "endLine": 653,
+        "endChar": 148
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_617c926f",
+        "filename": "compiler/dex/quick/arm64/call_arm64.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long lines",
+      "range": {
+        "startLine": 487,
+        "startChar": 6,
+        "endLine": 488,
+        "endChar": 150
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_81819ed4",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long line (and below)",
+      "range": {
+        "startLine": 306,
+        "startChar": 4,
+        "endLine": 306,
+        "endChar": 109
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_417b9674",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Is it thread safe or should it be guarded by lock_ (like inline_methods_) ?",
+      "range": {
+        "startLine": 355,
+        "startChar": 32,
+        "endLine": 355,
+        "endChar": 52
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_018d8e03",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long lines",
+      "range": {
+        "startLine": 436,
+        "startChar": 6,
+        "endLine": 437,
+        "endChar": 145
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_a1893af8",
+        "filename": "compiler/dex/quick/x86/call_x86.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long lines",
+      "range": {
+        "startLine": 372,
+        "startChar": 6,
+        "endLine": 373,
+        "endChar": 145
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_037ef22a",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Add a description please",
+      "range": {
+        "startLine": 117,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 63
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_c186c6e5",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Another String.\u003cinit\u003e detection that should be in a separate function used everywhere",
+      "range": {
+        "startLine": 594,
+        "startChar": 21,
+        "endLine": 594,
+        "endChar": 93
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_426cf605",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "const SafeMap\u003cuint32_t, std::set\u003cuint32_t\u003e\u003e\u0026",
+      "range": {
+        "startLine": 664,
+        "startChar": 4,
+        "endLine": 664,
+        "endChar": 41
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_c277a6ca",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Long line",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 104
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_a3937ed3",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "I don\u0027t think the cost for non-String init call is too high. But we may want to introduce a special EntryPointFromInterpreter* function to deal with String.\u003cinit\u003e in the future.",
+      "range": {
+        "startLine": 487,
+        "startChar": 5,
+        "endLine": 487,
+        "endChar": 11
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_83abe2ff",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "I don\u0027t understand. You reach this point because\n\n  method_to_string_init_map-\u003efind(method_ref) \u003d\u003d method_to_string_init_map-\u003eend() (lines 673-674)\n\nso how could have it changed?",
+      "range": {
+        "startLine": 676,
+        "startChar": 10,
+        "endLine": 676,
+        "endChar": 89
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_c24ec696",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Plus, SafeMap::Put checks you do not overwrite an element at the given key (DCHECK). So if you think you may need to update the element at \"method_ref\", then you must use Overwrite",
+      "range": {
+        "startLine": 677,
+        "startChar": 35,
+        "endLine": 677,
+        "endChar": 38
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_414dd64c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "const std::set\u003cuint32_t\u003e\u0026",
+      "range": {
+        "startLine": 686,
+        "startChar": 8,
+        "endLine": 686,
+        "endChar": 26
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_c32c8a44",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Not needed",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 10
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_e22502d9",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "const uint8_t* const",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 16
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_636d7684",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "Not needed",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 10
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_83720260",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "const uint16_t* const",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 17
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_21d3ead9",
+        "filename": "runtime/native/java_lang_String.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 39,
+        "startChar": 27,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_e2b662ca",
+        "filename": "runtime/native/java_lang_reflect_Constructor.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "IIUC, we need this to route the invoke to the right method. It\u0027s worth adding a comment.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 3
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_e3b2e675",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "I think you always allocate this map (in Runtime::Init) so why not just MethodRefToStringInitRegMap?",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 747,
+        "endChar": 46
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_02026e0b",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T09:17:43Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 567,
+        "startChar": 48,
+        "endLine": 567,
+        "endChar": 52
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
