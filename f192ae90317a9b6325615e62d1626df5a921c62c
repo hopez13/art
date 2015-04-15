@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "90a1e660_c2afa65d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T09:35:57Z",
+      "side": 1,
+      "message": "Move to initializer list.",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 83
+      },
+      "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d080bec6_568cb48c",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -66,6 +89,98 @@
         "startChar": 8,
         "endLine": 391,
         "endChar": 82
+      },
+      "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_81599ee3",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T09:35:57Z",
+      "side": 1,
+      "message": "Move the code to a new helper function and use it:\n\n  uint32_t NewQuickCodeOffset(CompiledMethod* compiled_method,\n                              const ClassDataItemIterator\u0026 it,\n                              uint32_t thumb_offset);",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 82
+      },
+      "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_02a6ee8b",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T09:35:57Z",
+      "side": 1,
+      "message": "Use the new helper function.",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 84
+      },
+      "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_22768a8d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T09:35:57Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 550,
+        "startChar": 26,
+        "endLine": 550,
+        "endChar": 56
+      },
+      "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_82819ed4",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T09:35:57Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 553,
+        "startChar": 7,
+        "endLine": 553,
+        "endChar": 18
       },
       "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
