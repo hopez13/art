@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_817c3ee7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-15T11:22:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "837fde20_4cdeffe1",
+      "range": {
+        "startLine": 2758,
+        "startChar": 0,
+        "endLine": 2758,
+        "endChar": 107
+      },
+      "revId": "0641e89bcc03f3aed679dbb92ea9570c834d871d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3706250_2db7ed67",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_a22ffa36",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-15T11:22:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3706250_2db7ed67",
+      "range": {
+        "startLine": 2654,
+        "startChar": 0,
+        "endLine": 2654,
+        "endChar": 107
+      },
+      "revId": "0641e89bcc03f3aed679dbb92ea9570c834d871d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3706250_cda42931",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-07T16:16:29Z",
       "side": 1,
       "message": "Can this actually happen?",
+      "range": {
+        "startLine": 2639,
+        "startChar": 0,
+        "endLine": 2639,
+        "endChar": 59
+      },
+      "revId": "0641e89bcc03f3aed679dbb92ea9570c834d871d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_41ce3604",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2639,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-15T11:22:32Z",
+      "side": 1,
+      "message": "Nope, added LOG(FATAL)",
+      "parentUuid": "a3706250_cda42931",
       "range": {
         "startLine": 2639,
         "startChar": 0,
