@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "709c722a_243e98de",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T12:44:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be IsImageClass ?",
+      "range": {
+        "startLine": 2350,
+        "startChar": 6,
+        "endLine": 2350,
+        "endChar": 13
+      },
+      "revId": "349da6d9e005526b2b135ef78c62d69721880c2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
