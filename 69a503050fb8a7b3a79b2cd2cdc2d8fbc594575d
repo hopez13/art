@@ -46,6 +46,30 @@
       "revId": "69a503050fb8a7b3a79b2cd2cdc2d8fbc594575d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907ac6a8_7463e83f",
+        "filename": "compiler/jni/jni_cfi_test_expected.inc",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-15T08:39:47Z",
+      "side": 1,
+      "message": "184 would not be 16B aligned, so violate our stack alignment (and ARM64\u0027s). The old frame was rounded up, and padding is inserted \"before\" the spills. To note here is that for JNI, the handle-scope is part of the frame.",
+      "parentUuid": "709c722a_a13b7a98",
+      "range": {
+        "startLine": 108,
+        "startChar": 34,
+        "endLine": 108,
+        "endChar": 38
+      },
+      "revId": "69a503050fb8a7b3a79b2cd2cdc2d8fbc594575d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
