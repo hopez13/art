@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_c2ea46ee",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "There will be a lot of work to implement the no swap version on ARM32, because there will be intersecting circles on ARM32 due to register and register pair overlap.\n\nSo I prefer to implement this in a separate CL.",
+      "parentUuid": "90a1e660_ff86fb16",
+      "range": {
+        "startLine": 99,
+        "startChar": 59,
+        "endLine": 99,
+        "endChar": 67
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_7ec8ad57",
         "filename": "compiler/optimizing/parallel_move_resolver.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-14T15:34:13Z",
       "side": 1,
       "message": "Why not stack destinations? Please add a comment.",
+      "range": {
+        "startLine": 310,
+        "startChar": 46,
+        "endLine": 310,
+        "endChar": 70
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_c387aaa8",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_7ec8ad57",
       "range": {
         "startLine": 310,
         "startChar": 46,
@@ -87,6 +135,54 @@
         "startChar": 29,
         "endLine": 116,
         "endChar": 93
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_8210be85",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Agree. This is actually ARM32 specific comment.",
+      "parentUuid": "b0926a12_607c8c6f",
+      "range": {
+        "startLine": 116,
+        "startChar": 29,
+        "endLine": 116,
+        "endChar": 93
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_21e44ad5",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "We only need one scratch location to resolve one cycle. And on ARM64, we do have enough blocked registers.\n\nBut things will become complicated on ARM32. We can have intersecting cycles on ARM32, because one location can be blocked by multiple moves. We will have to resolve multiple cycles at the same time, which means we will need multiple scratch locations. So GetScratchLocationFor() should have the ability to allocate scratch location dynamically.",
+      "parentUuid": "90a1e660_3fdf8356",
+      "range": {
+        "startLine": 115,
+        "startChar": 41,
+        "endLine": 116,
+        "endChar": 28
       },
       "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -163,6 +259,78 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_a2085a5b",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Dropped, as it is an obvious requirement for the backend.",
+      "parentUuid": "90a1e660_9fed7709",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 12
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_c1d486e5",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_1e9f2937",
+      "range": {
+        "startLine": 138,
+        "startChar": 53,
+        "endLine": 138,
+        "endChar": 57
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_22152a74",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "I mean the backend should not return a scratch stack location which overlaps with current frame. This comment can be dropped, since it is an obvious requirement for the backend.",
+      "parentUuid": "709c722a_7e9aed47",
+      "range": {
+        "startLine": 138,
+        "startChar": 80,
+        "endLine": 138,
+        "endChar": 87
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_008d8803",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 5
@@ -209,6 +377,54 @@
     },
     {
       "key": {
+        "uuid": "709c722a_61957215",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_e08f3cfc",
+      "range": {
+        "startLine": 142,
+        "startChar": 12,
+        "endLine": 142,
+        "endChar": 16
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_c2056642",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_008d8803",
+      "range": {
+        "startLine": 142,
+        "startChar": 24,
+        "endLine": 142,
+        "endChar": 42
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_5f0b6f5d",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 5
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_a3185e29",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_5f0b6f5d",
+      "range": {
+        "startLine": 183,
+        "startChar": 73,
+        "endLine": 183,
+        "endChar": 79
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_000ca8ee",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 5
@@ -243,6 +483,30 @@
       "writtenOn": "2015-04-14T15:34:13Z",
       "side": 1,
       "message": "extra space?",
+      "range": {
+        "startLine": 158,
+        "startChar": 34,
+        "endLine": 158,
+        "endChar": 35
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_a1fdba36",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-15T09:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_000ca8ee",
       "range": {
         "startLine": 158,
         "startChar": 34,
