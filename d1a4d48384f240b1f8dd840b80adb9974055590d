@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_e180a295",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-15T09:24:30Z",
+      "side": 1,
+      "message": "\"We only need one scratch location to resolve one cycle\": You mean on 64bits right?\n\nBesides allocating two scratch registers on arm32 for pairs, what else is needed?",
+      "parentUuid": "709c722a_21e44ad5",
+      "range": {
+        "startLine": 115,
+        "startChar": 41,
+        "endLine": 116,
+        "endChar": 28
+      },
+      "revId": "d1a4d48384f240b1f8dd840b80adb9974055590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_9fed7709",
         "filename": "compiler/optimizing/parallel_move_resolver.h",
         "patchSetId": 5
