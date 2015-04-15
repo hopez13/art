@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "b07b4aac_bb388f9c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-04-15T19:28:43Z",
+      "side": 1,
+      "message": "\u0027\\0\u0027",
+      "range": {
+        "startLine": 636,
+        "startChar": 38,
+        "endLine": 636,
+        "endChar": 39
+      },
+      "revId": "70e49f0308c744e590a4ab73fe2c21ec90ee9d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_63a57603",
         "filename": "runtime/oat_file.h",
         "patchSetId": 1
