@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d080bec6_568cb48c",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-15T09:19:55Z",
+      "side": 1,
+      "message": "You can avoid the duplication. Use deduped as a flag whether things have been \"handled.\"\n\n  if (!debuggable_) {\n    auto ...\n    if (...) {\n      ...\n      deduped \u003d true;\n    } \n  }\n  if (!deduped) {\n     ... ;\n     if (!debuggable) {\n       dedupe_map_ ...\n     }\n  }",
+      "range": {
+        "startLine": 386,
+        "startChar": 8,
+        "endLine": 391,
+        "endChar": 82
+      },
+      "revId": "f192ae90317a9b6325615e62d1626df5a921c62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
