@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "90a1e660_0287ce14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-15T08:40:13Z",
+      "side": 1,
+      "message": "displayed",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "e55bf316edd5969d129780b3568d02dea5e5f76e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_a3bcde49",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 2
