@@ -117,6 +117,52 @@
       "revId": "7050080a3ff6035879f05108ded12bb741417991",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_23776e52",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-15T07:54:02Z",
+      "side": 1,
+      "message": "DCHECK that this is the first sibling?",
+      "range": {
+        "startLine": 751,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 28
+      },
+      "revId": "7050080a3ff6035879f05108ded12bb741417991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_a21ffa88",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-15T07:54:02Z",
+      "side": 1,
+      "message": "Document the fact that these are only stored in the first sibling.",
+      "range": {
+        "startLine": 824,
+        "startChar": 5,
+        "endLine": 824,
+        "endChar": 44
+      },
+      "revId": "7050080a3ff6035879f05108ded12bb741417991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
