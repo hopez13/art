@@ -22,6 +22,30 @@
       "revId": "69a503050fb8a7b3a79b2cd2cdc2d8fbc594575d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_a13b7a98",
+        "filename": "compiler/jni/jni_cfi_test_expected.inc",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T08:28:11Z",
+      "side": 1,
+      "message": "Looks that way. Compare \"str d8, [sp, #40]\" with \"stp d8, d9, [sp, #32]\".",
+      "parentUuid": "90a1e660_1fc967fa",
+      "range": {
+        "startLine": 108,
+        "startChar": 34,
+        "endLine": 108,
+        "endChar": 38
+      },
+      "revId": "69a503050fb8a7b3a79b2cd2cdc2d8fbc594575d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
