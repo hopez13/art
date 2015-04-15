@@ -22,6 +22,30 @@
       "revId": "a29d93b380c9aeb8270e281aefbdd0c77a430d43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0242aae_bafb8c8c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-15T00:53:40Z",
+      "side": 0,
+      "message": "I don\u0027t think it mattered, I was considering having no guarantee that the pointer was null if num fields \u003d\u003d 0 but I decided against it later.",
+      "parentUuid": "9033a6f4_98c46be4",
+      "range": {
+        "startLine": 234,
+        "startChar": 2,
+        "endLine": 234,
+        "endChar": 35
+      },
+      "revId": "a29d93b380c9aeb8270e281aefbdd0c77a430d43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
