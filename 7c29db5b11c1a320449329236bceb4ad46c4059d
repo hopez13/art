@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_517b6474",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T16:38:16Z",
+      "side": 1,
+      "message": "And PrettyMethod() is pretty expensive.",
+      "parentUuid": "b0926a12_c3156af0",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 25
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_819afe44",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 27
@@ -111,6 +135,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_24af78e5",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T16:38:16Z",
+      "side": 1,
+      "message": "Even without the signature, PrettyMethod() is expensive.",
+      "parentUuid": "709c722a_219f6a37",
+      "range": {
+        "startLine": 1677,
+        "startChar": 12,
+        "endLine": 1677,
+        "endChar": 88
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_41a4f684",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 27
@@ -127,6 +175,29 @@
         "startChar": 29,
         "endLine": 1694,
         "endChar": 33
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_91efacb4",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T16:38:16Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 1695,
+        "startChar": 0,
+        "endLine": 1701,
+        "endChar": 68
       },
       "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -318,6 +389,29 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_65c9fc2b",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T16:38:16Z",
+      "side": 1,
+      "message": "Reuse kProtoCacheDefs.",
+      "range": {
+        "startLine": 314,
+        "startChar": 26,
+        "endLine": 314,
+        "endChar": 46
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_417b9674",
         "filename": "compiler/dex/quick/dex_file_method_inliner.h",
         "patchSetId": 27
@@ -334,6 +428,29 @@
         "startChar": 32,
         "endLine": 355,
         "endChar": 52
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_c5e330a0",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-15T16:38:16Z",
+      "side": 1,
+      "message": "This is also subject to b/19918641 .",
+      "range": {
+        "startLine": 897,
+        "startChar": 0,
+        "endLine": 899,
+        "endChar": 98
       },
       "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
