@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "b07b4aac_d5519c66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "709c722a_7bc43fe3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 74
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d080bec6_f61140d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "b0926a12_bd907fc7",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_1bc97bfa",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-14T11:48:38Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 76
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07b4aac_f54e18c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "709c722a_1bc97bfa",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b07b4aac_78be7df8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_5ba5c302",
+      "range": {
+        "startLine": 164,
+        "startChar": 41,
+        "endLine": 164,
+        "endChar": 48
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_3c7c7133",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "907ac6a8_f4b5b82d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_3c7c7133",
+      "range": {
+        "startLine": 305,
+        "startChar": 24,
+        "endLine": 305,
+        "endChar": 28
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_fc7da92e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-14T11:48:38Z",
       "side": 1,
       "message": "has",
+      "range": {
+        "startLine": 307,
+        "startChar": 5,
+        "endLine": 307,
+        "endChar": 9
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b07b4aac_b548a0ba",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_fc7da92e",
       "range": {
         "startLine": 307,
         "startChar": 5,
@@ -234,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "10597645_fe0b5ed6",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Good idea. I\u0027ll try that.",
+      "parentUuid": "904c868c_074dd84d",
+      "range": {
+        "startLine": 470,
+        "startChar": 41,
+        "endLine": 470,
+        "endChar": 64
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30ebda64_24867c62",
         "filename": "runtime/thread.h",
         "patchSetId": 4
@@ -269,6 +437,30 @@
       "side": 1,
       "message": "It\u0027s possible there is nested case for QuickExceptionHandler. And each QuickExceptionHandler calls GetLongJumpContext() and then ReleaseLongJumpContext(), so the DCHECK(tlsPtr_.long_jump_context \u003d\u003d nullptr); isn\u0027t accurate.\n\ntlsPtr_.long_jump_context is basically a cached context to avoid allocating a context each time GetLongJumpContext() is called. Since we only cache one, we just delete the one that\u0027s not needed.\n\nGuess I can also do it as:\n    if (tlsPtr_.long_jump_context !\u003d nullptr) {\n      // We already have one context for reuse.\n      delete context;\n    } else {\n      // Save context for reuse.\n      tlsPtr_.long_jump_context \u003d context;\n    }\nIs this better?",
       "parentUuid": "30ebda64_24867c62",
+      "range": {
+        "startLine": 357,
+        "startChar": 4,
+        "endLine": 359,
+        "endChar": 5
+      },
+      "revId": "c7c0efd3c17f9ed668eb38781945efad698e5df7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506daeeb_43d2ac04",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-15T18:27:45Z",
+      "side": 1,
+      "message": "Actually we can\u0027t delete context since it\u0027s yet to be used for longjump. Still need to delete tlsPtr_.long_jump_context. I\u0027ll add some comments.",
+      "parentUuid": "904c868c_a764c4ca",
       "range": {
         "startLine": 357,
         "startChar": 4,
