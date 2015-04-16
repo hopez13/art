@@ -22,6 +22,30 @@
       "revId": "a435a66eb187a35b5ee1427893fbf0517ca6606c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_2b76658d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-16T17:17:03Z",
+      "side": 1,
+      "message": "You\u0027re right, disabling that flag will skip instrumentation for native. I\u0027ll fix that in the next PS.\n\nWhen we instrument code with interpreter, we must keep updating native method\u0027s entrypoint with the instrumentation entry/exit stubs, interpreter only applies to pure Java methods.\n\nI\u0027d like to test entrypoints in instrumentation_test too. I could not manage to do that because there is no oat file during these tests.",
+      "parentUuid": "907ac6a8_ac284905",
+      "range": {
+        "startLine": 580,
+        "startChar": 6,
+        "endLine": 580,
+        "endChar": 42
+      },
+      "revId": "a435a66eb187a35b5ee1427893fbf0517ca6606c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
