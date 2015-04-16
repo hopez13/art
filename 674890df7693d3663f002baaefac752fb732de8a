@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_b09980c6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-16T15:16:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_6a5d4756",
+      "range": {
+        "startLine": 2723,
+        "startChar": 0,
+        "endLine": 2724,
+        "endChar": 55
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_8cf54f53",
         "filename": "compiler/optimizing/primitive_type_propagation.cc",
         "patchSetId": 8
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_acbccb49",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-16T15:16:11Z",
+      "side": 1,
+      "message": "I moved here caused it seems more sensible to have all the type analysis in the same place. I don\u0027t have a strong opinion though.",
+      "parentUuid": "709c722a_2a673f24",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_6cf00362",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 8
@@ -105,6 +153,30 @@
       "writtenOn": "2015-04-16T13:20:54Z",
       "side": 1,
       "message": "Could this be merged with the old step 7? It feels kind of related.",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_2c0bdbac",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-16T15:16:11Z",
+      "side": 1,
+      "message": "Could be if we run again the dead phi pass. This is rather unnecessary imo so I kept it here.",
+      "parentUuid": "b0926a12_6cf00362",
       "range": {
         "startLine": 185,
         "startChar": 5,
