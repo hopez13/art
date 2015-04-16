@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "10dc16fc_7963fb3f",
+        "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T20:17:39Z",
+      "side": 1,
+      "message": "Just a note: this does not have the kUseTlabFastPath code. But it can\u0027t use the kUseTlabFastPath logic because we need to do more than just allocate like copying bytes/chars. As we now combine an allocation call and a constructor call into one, this could be faster than before.",
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_6f5eb97d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 28
@@ -41,6 +58,52 @@
         "startChar": 4,
         "endLine": 672,
         "endChar": 31
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907ac6a8_fb22719c",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T20:17:39Z",
+      "side": 1,
+      "message": "How about we call \n\nreturn GetClass\u003ckVerifyFlags, kReadBarrierOption\u003e()-\u003eIsStringClass\u003ckReadBarrierOption\u003e();\n\nlike IsArtMethod()?",
+      "range": {
+        "startLine": 343,
+        "startChar": 65,
+        "endLine": 343,
+        "endChar": 82
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d080bec6_cd81ffd3",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T20:17:39Z",
+      "side": 1,
+      "message": "Just call IsString() instead?",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 72
       },
       "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
