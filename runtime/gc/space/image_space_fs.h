@@ -159,6 +159,14 @@ static void MarkZygoteStart(const InstructionSet isa, const uint32_t max_failed_
   if (max_failed_boots != 0 && num_failed_boots > max_failed_boots) {
     LOG(WARNING) << "Incomplete boot detected. Pruning dalvik cache";
     impl::DeleteDirectoryContents(isa_subdir, false);
+
+    // Recreate the boot marker for the framework.
+    file.reset(OS::CreateEmptyFile(file_name));
+
+    if (file.get() == nullptr) {
+      PLOG(WARNING) << "Failed to create boot marker.";
+      return;
+    }
   }
 
   ++num_failed_boots;
