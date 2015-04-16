@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_85ce8833",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-16T11:35:20Z",
+      "side": 1,
+      "message": "It\u0027s just easier and the penalty is negligible. I\u0027ve now refactored it...\noriginal interval: done properly, but need to be a little conservative (don\u0027t know exactly where the linear scan is at the moment).\nnew interval: moved StartNewScan inside reg alloc and therefore not needed here.",
+      "parentUuid": "b0926a12_66fa64f5",
+      "range": {
+        "startLine": 575,
+        "startChar": 0,
+        "endLine": 575,
+        "endChar": 49
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0926a12_86ff70e2",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-15T14:17:02Z",
       "side": 1,
       "message": "Drop the const.",
+      "range": {
+        "startLine": 646,
+        "startChar": 2,
+        "endLine": 646,
+        "endChar": 7
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_44864463",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-16T11:35:20Z",
+      "side": 1,
+      "message": "Done. But now the functions cannot be const either.",
+      "parentUuid": "b0926a12_86ff70e2",
       "range": {
         "startLine": 646,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_8f2d4516",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-16T11:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_e45af00a",
+      "range": {
+        "startLine": 714,
+        "startChar": 49,
+        "endLine": 714,
+        "endChar": 60
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_04583c10",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 13
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_70f0d861",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-16T11:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_04583c10",
+      "range": {
+        "startLine": 743,
+        "startChar": 49,
+        "endLine": 743,
+        "endChar": 60
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_451ac0a5",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 13
@@ -105,6 +201,30 @@
       "writtenOn": "2015-04-15T14:17:02Z",
       "side": 1,
       "message": "Nullptr is returned -\u003e Returns nullptr",
+      "range": {
+        "startLine": 820,
+        "startChar": 27,
+        "endLine": 820,
+        "endChar": 34
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_2f22f122",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-16T11:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90a1e660_451ac0a5",
       "range": {
         "startLine": 820,
         "startChar": 27,
