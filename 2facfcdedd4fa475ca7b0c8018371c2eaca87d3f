@@ -93,6 +93,30 @@
       "revId": "2facfcdedd4fa475ca7b0c8018371c2eaca87d3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907ac6a8_9a0b3b5d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-16T17:40:28Z",
+      "side": 1,
+      "message": "if we do it on the host, add host only logging to log if we EVER find a match...",
+      "parentUuid": "907ac6a8_aca5a905",
+      "range": {
+        "startLine": 651,
+        "startChar": 2,
+        "endLine": 651,
+        "endChar": 37
+      },
+      "revId": "2facfcdedd4fa475ca7b0c8018371c2eaca87d3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
