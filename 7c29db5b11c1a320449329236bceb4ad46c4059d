@@ -789,6 +789,30 @@
     },
     {
       "key": {
+        "uuid": "709c722a_2f775152",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-16T10:51:34Z",
+      "side": 1,
+      "message": "The locking patters here are odd and should be cleaned up. But as long as they remain that way, this needs to be GUARDED_BY(lock_).",
+      "parentUuid": "d080bec6_565349bf",
+      "range": {
+        "startLine": 355,
+        "startChar": 32,
+        "endLine": 355,
+        "endChar": 52
+      },
+      "revId": "7c29db5b11c1a320449329236bceb4ad46c4059d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_c5e330a0",
         "filename": "compiler/dex/quick/gen_invoke.cc",
         "patchSetId": 27
