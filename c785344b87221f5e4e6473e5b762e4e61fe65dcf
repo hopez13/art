@@ -590,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "d080bec6_8a1a0da3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T18:56:11Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "9033a6f4_8f153c76",
+      "range": {
+        "startLine": 938,
+        "startChar": 6,
+        "endLine": 938,
+        "endChar": 17
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0242aae_5ab38dc8",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
@@ -637,6 +661,30 @@
     },
     {
       "key": {
+        "uuid": "907ac6a8_75275032",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T18:56:11Z",
+      "side": 1,
+      "message": "What\u0027s done? Any code/comment change?",
+      "parentUuid": "9033a6f4_af37d810",
+      "range": {
+        "startLine": 940,
+        "startChar": 39,
+        "endLine": 940,
+        "endChar": 89
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0242aae_6526aab4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
@@ -672,6 +720,30 @@
       "side": 1,
       "message": "I think this race is handled by not having any suspend before the arrays are filled in, does that seem correct? I\u0027ll add a comment.",
       "parentUuid": "b0242aae_6526aab4",
+      "range": {
+        "startLine": 1486,
+        "startChar": 26,
+        "endLine": 1487,
+        "endChar": 56
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10dc16fc_d3dd260c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T18:56:11Z",
+      "side": 1,
+      "message": "Seems ok. But under the CC collector, bear in mind that objects may get moved even if a thread holds a shared mutator lock and not having a suspend point.",
+      "parentUuid": "d0299e86_d5487240",
       "range": {
         "startLine": 1486,
         "startChar": 26,
@@ -860,6 +932,30 @@
       "side": 1,
       "message": "I thought about that, but that would mean that we have some fields with null declaring classes during this point. I think the current behavior is OK since we never update the roots concurrently.",
       "parentUuid": "b0242aae_a55b720e",
+      "range": {
+        "startLine": 1933,
+        "startChar": 2,
+        "endLine": 1933,
+        "endChar": 29
+      },
+      "revId": "c785344b87221f5e4e6473e5b762e4e61fe65dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10dc16fc_13a08e18",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T18:56:11Z",
+      "side": 1,
+      "message": "GC seeing null declaring classes seems fine in terms of marking. A mutator won\u0027t see the field yet. What goes wrong with that?\n\nDon\u0027t we update the roots concurrently with CMS or CC?",
+      "parentUuid": "d0299e86_b5e2864f",
       "range": {
         "startLine": 1933,
         "startChar": 2,
