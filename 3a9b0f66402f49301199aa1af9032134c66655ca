@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_10395451",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-16T13:33:29Z",
+      "side": 1,
+      "message": "Nit: use !\u003d for an early return to avoid the indentation?",
+      "range": {
+        "startLine": 2351,
+        "startChar": 3,
+        "endLine": 2351,
+        "endChar": 35
+      },
+      "revId": "3a9b0f66402f49301199aa1af9032134c66655ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_0aa0439d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-16T13:33:29Z",
+      "side": 1,
+      "message": "Maybe rephrase to \"We cannot verify ... so it cannot be inlined\".",
+      "range": {
+        "startLine": 123,
+        "startChar": 24,
+        "endLine": 123,
+        "endChar": 49
+      },
+      "revId": "3a9b0f66402f49301199aa1af9032134c66655ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
