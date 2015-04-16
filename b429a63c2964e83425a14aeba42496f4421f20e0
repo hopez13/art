@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10597645_da48a3bb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-16T04:16:23Z",
+      "side": 1,
+      "message": "this will fail for loading the same oat twice for different classloaders right?",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 57
+      },
+      "revId": "b429a63c2964e83425a14aeba42496f4421f20e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
