@@ -117,6 +117,30 @@
       "revId": "2facfcdedd4fa475ca7b0c8018371c2eaca87d3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d080bec6_2aff39a9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-16T18:34:23Z",
+      "side": 1,
+      "message": "Isn\u0027t there a image writer test, or some such, that could be extended to check there are no missing strings?",
+      "parentUuid": "907ac6a8_9a0b3b5d",
+      "range": {
+        "startLine": 651,
+        "startChar": 2,
+        "endLine": 651,
+        "endChar": 37
+      },
+      "revId": "2facfcdedd4fa475ca7b0c8018371c2eaca87d3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
