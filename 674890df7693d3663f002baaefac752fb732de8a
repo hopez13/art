@@ -22,6 +22,98 @@
       "revId": "674890df7693d3663f002baaefac752fb732de8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_6a5d4756",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-16T13:20:54Z",
+      "side": 1,
+      "message": "How about:\nwhile (next !\u003d null \u0026\u0026 next-\u003easPhi()-\u003eGetRegNumber() \u003d\u003d reg_number) {\n  if (next-\u003eGetType() \u003d\u003d GetType()) return next;\n  next \u003d next-\u003eGetNext();\n}\nreturn nullptr;",
+      "range": {
+        "startLine": 2723,
+        "startChar": 0,
+        "endLine": 2724,
+        "endChar": 55
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_8cf54f53",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-16T13:20:54Z",
+      "side": 1,
+      "message": "part -\u003e are part",
+      "range": {
+        "startLine": 76,
+        "startChar": 44,
+        "endLine": 76,
+        "endChar": 48
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_2a673f24",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-16T13:20:54Z",
+      "side": 1,
+      "message": "Please do this outside of type propagation. I don\u0027t think we should make type propagation responsible for correct typing in the graph. The SsaBuilder should do it.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_6cf00362",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-16T13:20:54Z",
+      "side": 1,
+      "message": "Could this be merged with the old step 7? It feels kind of related.",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 193,
+        "endChar": 5
+      },
+      "revId": "674890df7693d3663f002baaefac752fb732de8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
