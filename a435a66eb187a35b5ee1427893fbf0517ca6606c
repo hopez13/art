@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "907ac6a8_ac284905",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-16T16:38:12Z",
+      "side": 1,
+      "message": "This actually means we don\u0027t trace native methods anymore. This has been wrong for a while, though, and when I mentioned it to Brian a while ago he was under the impression we did this correctly before (maybe before we fully deopted).",
+      "range": {
+        "startLine": 580,
+        "startChar": 6,
+        "endLine": 580,
+        "endChar": 42
+      },
+      "revId": "a435a66eb187a35b5ee1427893fbf0517ca6606c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
