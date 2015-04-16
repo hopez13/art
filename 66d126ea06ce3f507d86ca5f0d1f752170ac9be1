@@ -22,6 +22,30 @@
       "revId": "66d126ea06ce3f507d86ca5f0d1f752170ac9be1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_8a721360",
+        "filename": "test/468-checker-bool-simplifier-regression/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-16T15:40:37Z",
+      "side": 1,
+      "message": "Fixed in https://android-review.googlesource.com/#/c/147006/1",
+      "parentUuid": "709c722a_8481acd4",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 2
+      },
+      "revId": "66d126ea06ce3f507d86ca5f0d1f752170ac9be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
