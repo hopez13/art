@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0926a12_ccd4b7e5",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-16T13:03:49Z",
+      "side": 1,
+      "message": "const SafeMap\u003cuint32_t, std::set\u003cuint32_t\u003e\u003e\u0026",
+      "range": {
+        "startLine": 1704,
+        "startChar": 10,
+        "endLine": 1704,
+        "endChar": 47
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_6f5eb97d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-16T13:03:49Z",
+      "side": 1,
+      "message": "MethodRefToStringInitRegMap\u0026",
+      "range": {
+        "startLine": 672,
+        "startChar": 4,
+        "endLine": 672,
+        "endChar": 31
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
