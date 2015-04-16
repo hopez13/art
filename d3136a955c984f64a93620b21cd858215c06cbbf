@@ -22,6 +22,30 @@
       "revId": "d3136a955c984f64a93620b21cd858215c06cbbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d080bec6_5ec3578a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-04-16T21:33:45Z",
+      "side": 1,
+      "message": "\u003e Undefined for C++? And/or which architectures? \n\nUndefined for C++.\n\n\u003e Also, though it\u0027s undefined, is it consistent? That is the same shift will produce the same result during the same execution?\n\nOur compilers (clang more than gcc, but gcc does it too) love to optimize out undefined behavior. The code isn\u0027t question isn\u0027t guaranteed to run at all (and if the compiler can prove that it will be UB for a given execution it will in fact screw you over here, we\u0027ve seen it in v8).\n\nThose arguments aside, I\u0027m trying to turn on parts of ubsan for our host builds (to minimize differences in behavior between gcc/clang and also protect us from future compiler optimizations) and that means we\u0027ll have to be ubsan clean.",
+      "parentUuid": "709c722a_b508905b",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "d3136a955c984f64a93620b21cd858215c06cbbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
