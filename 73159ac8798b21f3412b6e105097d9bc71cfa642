@@ -16,6 +16,24 @@
       "revId": "73159ac8798b21f3412b6e105097d9bc71cfa642",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "907ac6a8_ad860060",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-16T20:48:50Z",
+      "side": 1,
+      "message": "I see how the check can fail as the \u0027this\u0027 pointer in VisitFieldRoots may be a from-space one.\n\nVisiting potentially more than once (the old approach) seems fine.",
+      "parentUuid": "10dc16fc_24a0ea18",
+      "revId": "73159ac8798b21f3412b6e105097d9bc71cfa642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
