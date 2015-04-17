@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0926a12_574d944c",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-17T05:21:26Z",
+      "side": 1,
+      "message": "Why do you test for NullConst here? Wouldn\u0027t it be sufficient to test just for IntConst? You discard NullConst immediate afterwards anyway. Same below...",
+      "range": {
+        "startLine": 190,
+        "startChar": 14,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "a4f8831d6533e4fe5aed18433099e1130d95a877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
