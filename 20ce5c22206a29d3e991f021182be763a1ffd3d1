@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "90a1e660_36c9e8fa",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-17T16:10:25Z",
+      "side": 1,
+      "message": "I think MixedCase is the style we should use by default: http://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Function_Names",
+      "parentUuid": "b0926a12_d261b2b9",
+      "range": {
+        "startLine": 396,
+        "startChar": 7,
+        "endLine": 396,
+        "endChar": 18
+      },
+      "revId": "20ce5c22206a29d3e991f021182be763a1ffd3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_909a4245",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 19
