@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0926a12_3758088c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-17T16:05:04Z",
+      "side": 1,
+      "message": "remove, no need.",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "ca33aa8e5799358b24f7999baf16d20b84c5b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_55f90cfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-17T16:05:04Z",
+      "side": 1,
+      "message": "make a full stop here and start a new sentence (easier to read)",
+      "range": {
+        "startLine": 11,
+        "startChar": 66,
+        "endLine": 11,
+        "endChar": 69
+      },
+      "revId": "ca33aa8e5799358b24f7999baf16d20b84c5b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_5617d443",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-17T16:05:04Z",
+      "side": 1,
+      "message": "CoverSlow",
+      "range": {
+        "startLine": 13,
+        "startChar": 51,
+        "endLine": 13,
+        "endChar": 62
+      },
+      "revId": "ca33aa8e5799358b24f7999baf16d20b84c5b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_f5edb839",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-17T16:05:04Z",
+      "side": 1,
+      "message": "CoverSlow. Or is there any style guide for this type of functions I\u0027m not aware?",
+      "range": {
+        "startLine": 395,
+        "startChar": 7,
+        "endLine": 395,
+        "endChar": 18
+      },
+      "revId": "ca33aa8e5799358b24f7999baf16d20b84c5b93f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
