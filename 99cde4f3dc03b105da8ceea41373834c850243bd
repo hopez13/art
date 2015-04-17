@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_36256862",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-17T15:33:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether it is relevant, but should we also block VIXLpools in slow-path code?  Here, we load a constant (instruction_-\u003eGetStringIndex())) and we record PC information later in line 230 through InvokeRuntime (which calls RecordPcInfo).",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 84
+      },
+      "revId": "99cde4f3dc03b105da8ceea41373834c850243bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
