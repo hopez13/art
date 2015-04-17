@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a1e660_2b22e522",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-17T08:36:05Z",
+      "side": 1,
+      "message": "AllocateScratchLocation -\u003e AllocateScratchLocationFor? Also maybe it will be clearer to give a kind to this method instead of a location?",
+      "range": {
+        "startLine": 141,
+        "startChar": 19,
+        "endLine": 141,
+        "endChar": 42
+      },
+      "revId": "9928b43a430f1ecfa4622c51a5b4a9c1f2d85941",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_b583b005",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-17T08:36:05Z",
+      "side": 1,
+      "message": "So this is only stressed in the test right? NoSwap is currently only for arm64 which does not have pairs.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 37
+      },
+      "revId": "9928b43a430f1ecfa4622c51a5b4a9c1f2d85941",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
