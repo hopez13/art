@@ -94,6 +94,30 @@
       "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_564114f7",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-17T15:42:04Z",
+      "side": 1,
+      "message": "Yes, sounds good.",
+      "parentUuid": "50e84e65_855d4459",
+      "range": {
+        "startLine": 1561,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 33
+      },
+      "revId": "d4bffc801b5f1d2ee081da811a08942053c86154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
