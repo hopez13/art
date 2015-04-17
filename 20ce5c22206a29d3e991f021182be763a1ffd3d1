@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_f25aae0a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-17T16:06:10Z",
+      "side": 1,
+      "message": "There is a DCHECK in FindRangeAtOrAfter. As we discussed, it will allow an earlier position if it happens to fall into the same hole but the result is still correct.",
+      "parentUuid": "b0926a12_9281ead4",
+      "range": {
+        "startLine": 387,
+        "startChar": 39,
+        "endLine": 388,
+        "endChar": 9
+      },
+      "revId": "20ce5c22206a29d3e991f021182be763a1ffd3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90a1e660_766d3084",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 19
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_d261b2b9",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-17T16:06:10Z",
+      "side": 1,
+      "message": "Do we have something similar somewhere else? Don\u0027t know what the rule for this is. Renamed.",
+      "parentUuid": "90a1e660_766d3084",
+      "range": {
+        "startLine": 396,
+        "startChar": 7,
+        "endLine": 396,
+        "endChar": 18
+      },
+      "revId": "20ce5c22206a29d3e991f021182be763a1ffd3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_909a4245",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 19
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-17T15:34:22Z",
       "side": 1,
       "message": "Please add a comment on what this does.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 410,
+        "endChar": 5
+      },
+      "revId": "20ce5c22206a29d3e991f021182be763a1ffd3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a1e660_9659dce3",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-17T16:06:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_909a4245",
       "range": {
         "startLine": 407,
         "startChar": 0,
