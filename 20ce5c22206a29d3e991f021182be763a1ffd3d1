@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0926a12_9281ead4",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-17T15:34:22Z",
+      "side": 1,
+      "message": "And it\u0027s because of holes that you cannot DCHECK that right? Could you integrate the notion of holes in a DCHECK?",
+      "range": {
+        "startLine": 387,
+        "startChar": 39,
+        "endLine": 388,
+        "endChar": 9
+      },
+      "revId": "20ce5c22206a29d3e991f021182be763a1ffd3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_909a4245",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-17T15:34:22Z",
+      "side": 1,
+      "message": "Please add a comment on what this does.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 410,
+        "endChar": 5
+      },
+      "revId": "20ce5c22206a29d3e991f021182be763a1ffd3d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
