@@ -69,6 +69,30 @@
       "revId": "d3136a955c984f64a93620b21cd858215c06cbbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0926a12_9759dce3",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-17T09:27:09Z",
+      "side": 1,
+      "message": "Yep, it should, it will produce more variability.\n\nThanks Dan.",
+      "parentUuid": "709c722a_1502a40b",
+      "range": {
+        "startLine": 389,
+        "startChar": 59,
+        "endLine": 389,
+        "endChar": 94
+      },
+      "revId": "d3136a955c984f64a93620b21cd858215c06cbbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
