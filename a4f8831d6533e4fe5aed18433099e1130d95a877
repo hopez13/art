@@ -22,6 +22,30 @@
       "revId": "a4f8831d6533e4fe5aed18433099e1130d95a877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_f5b618ca",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-17T09:16:54Z",
+      "side": 1,
+      "message": "you are right. Initially this method did some other work that required the check. During refactoring I missed this.\n\nThanks.",
+      "parentUuid": "b0926a12_574d944c",
+      "range": {
+        "startLine": 190,
+        "startChar": 14,
+        "endLine": 190,
+        "endChar": 37
+      },
+      "revId": "a4f8831d6533e4fe5aed18433099e1130d95a877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
