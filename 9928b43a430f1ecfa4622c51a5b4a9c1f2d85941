@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_b7d09878",
+        "filename": "compiler/optimizing/parallel_move_resolver.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-17T10:55:14Z",
+      "side": 1,
+      "message": "Good point! At first I think there might be constant location which can be int, long, float and double. Now I realize that we should never allocate a scratch location for constant.",
+      "parentUuid": "90a1e660_2b22e522",
+      "range": {
+        "startLine": 141,
+        "startChar": 19,
+        "endLine": 141,
+        "endChar": 42
+      },
+      "revId": "9928b43a430f1ecfa4622c51a5b4a9c1f2d85941",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_b583b005",
         "filename": "compiler/optimizing/parallel_move_test.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-17T08:36:05Z",
       "side": 1,
       "message": "So this is only stressed in the test right? NoSwap is currently only for arm64 which does not have pairs.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 37
+      },
+      "revId": "9928b43a430f1ecfa4622c51a5b4a9c1f2d85941",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_754e884f",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-17T10:55:14Z",
+      "side": 1,
+      "message": "Yes. Because the test cases here are written for 32-bit and have register pairs.",
+      "parentUuid": "709c722a_b583b005",
       "range": {
         "startLine": 122,
         "startChar": 0,
