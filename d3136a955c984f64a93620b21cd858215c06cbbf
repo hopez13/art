@@ -46,6 +46,29 @@
       "revId": "d3136a955c984f64a93620b21cd858215c06cbbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_1502a40b",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-17T08:50:05Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be\n\n  (sizeof(entry.dex_register_map_hash) * kBitsPerByte)\n\n?",
+      "range": {
+        "startLine": 389,
+        "startChar": 59,
+        "endLine": 389,
+        "endChar": 94
+      },
+      "revId": "d3136a955c984f64a93620b21cd858215c06cbbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
