@@ -22,6 +22,30 @@
       "revId": "99cde4f3dc03b105da8ceea41373834c850243bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "709c722a_f0a8665a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-04-17T15:38:43Z",
+      "side": 1,
+      "message": "Unless the runtime code is looking at the instruction stream to find this particular `mov` instruction, I don\u0027t think there is any issue.\n\nThe code inserted by VIXL will not modify registers or anything. It will be a dump of data, with a branch over it if required. So the value moved in this reg will still be in the correct place when we reach the call to runtime.",
+      "parentUuid": "90a1e660_36256862",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 84
+      },
+      "revId": "99cde4f3dc03b105da8ceea41373834c850243bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
