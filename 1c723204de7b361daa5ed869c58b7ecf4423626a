@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "b0926a12_92532af1",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-17T16:02:44Z",
+      "side": 1,
+      "message": "Because you\u0027re allowing code to change `this\u0027 within that method (or in other methods it may call), which is not possible if the method is `const\u0027.",
+      "parentUuid": "90a1e660_567cb433",
+      "range": {
+        "startLine": 646,
+        "startChar": 2,
+        "endLine": 646,
+        "endChar": 7
+      },
+      "revId": "1c723204de7b361daa5ed869c58b7ecf4423626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "709c722a_e45af00a",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 13
