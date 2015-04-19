@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b03eeaea_83d3c2d7",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-19T00:43:38Z",
+      "side": 1,
+      "message": "Indentation is off here.",
+      "range": {
+        "startLine": 127,
+        "startChar": 46,
+        "endLine": 127,
+        "endChar": 51
+      },
+      "revId": "13ca6f7353d43ff088bc2769756b1b3536b30c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f03ce2f3_62be78c6",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-19T00:43:38Z",
+      "side": 1,
+      "message": "I think there are some assumptions here that (run size) % (objects per bitmap word) \u003d\u003d 0, worth documenting?",
+      "range": {
+        "startLine": 1168,
+        "startChar": 33,
+        "endLine": 1168,
+        "endChar": 34
+      },
+      "revId": "13ca6f7353d43ff088bc2769756b1b3536b30c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0435e7f_a154f825",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-19T00:43:38Z",
+      "side": 1,
+      "message": "This if statement seems unnecessary.",
+      "revId": "13ca6f7353d43ff088bc2769756b1b3536b30c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0435e7f_c1578429",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-19T00:43:38Z",
+      "side": 1,
+      "message": "Includes are sorted alphabetically.",
+      "range": {
+        "startLine": 35,
+        "startChar": 13,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "13ca6f7353d43ff088bc2769756b1b3536b30c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b03eeaea_c3dcaae9",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-19T00:43:38Z",
+      "side": 1,
+      "message": "Can you make these lines \u003c\u003d 100 characers?",
+      "range": {
+        "startLine": 580,
+        "startChar": 98,
+        "endLine": 580,
+        "endChar": 102
+      },
+      "revId": "13ca6f7353d43ff088bc2769756b1b3536b30c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b03eeaea_e3e3a69f",
+        "filename": "runtime/gc/object_byte_pair.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-19T00:43:38Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "13ca6f7353d43ff088bc2769756b1b3536b30c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
