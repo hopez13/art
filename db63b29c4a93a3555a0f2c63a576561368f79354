@@ -25,6 +25,259 @@
     },
     {
       "key": {
+        "uuid": "7048f2a0_3bbf7745",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Please add a helper in CompilerDriver: IsStringInitMethod.",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 598,
+        "endChar": 64
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_304e884e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "This has the potential of being null in case of inlining. You should probably return false if it is (this will bailout to using quick).",
+      "range": {
+        "startLine": 667,
+        "startChar": 5,
+        "endLine": 668,
+        "endChar": 99
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_c0677e97",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Please add a helper in CompilerDriver.",
+      "range": {
+        "startLine": 1856,
+        "startChar": 10,
+        "endLine": 1856,
+        "endChar": 67
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_50d86cf3",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Can we deopt/ask for stack traces for these methods? If yes, you need to call RecordPcInfo.",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 894,
+        "endChar": 100
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_80c9f6fc",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Why don\u0027t you need a slow path in case of null for this one?",
+      "range": {
+        "startLine": 913,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 13
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_40bfee43",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1016,
+        "startChar": 0,
+        "endLine": 1016,
+        "endChar": 30
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_30c9682d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 30
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_20c46ae2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 30
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_7bc9fff9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 2234,
+        "startChar": 31,
+        "endLine": 2234,
+        "endChar": 32
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_1bc43be2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 2246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "is_string_init_ ?",
+      "range": {
+        "startLine": 2246,
+        "startChar": 13,
+        "endLine": 2246,
+        "endChar": 25
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_9bafab10",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 2247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:14:10Z",
+      "side": 1,
+      "message": "Add a comment what this is.",
+      "range": {
+        "startLine": 2247,
+        "startChar": 10,
+        "endLine": 2247,
+        "endChar": 29
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10dc16fc_7963fb3f",
         "filename": "runtime/entrypoints/quick/quick_alloc_entrypoints.cc",
         "patchSetId": 28
