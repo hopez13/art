@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "305cba63_6d7c9d34",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-20T15:53:44Z",
+      "side": 1,
+      "message": "What does this have to do with your CL\u0027s stated intent? Different CL, please.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06c3e17_cb5af50a",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-20T15:53:44Z",
+      "side": 1,
+      "message": "Why this change? Can you share your analysis that shows this is better? For a simple branch predictor it sounds like this will be worse.",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 18
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
