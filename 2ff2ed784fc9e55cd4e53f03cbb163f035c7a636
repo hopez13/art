@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10089662_537b5674",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-20T17:51:33Z",
+      "side": 1,
+      "message": "Please add a comment on why this is needed.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 3
+      },
+      "revId": "2ff2ed784fc9e55cd4e53f03cbb163f035c7a636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_83d3c0d7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-20T17:51:33Z",
+      "side": 1,
+      "message": "I think you should extend the comment instead of removing it, by saying that the zero case has been handled by the constand folding pass or the new case you added to this method.",
+      "range": {
+        "startLine": 404,
+        "startChar": 4,
+        "endLine": 404,
+        "endChar": 25
+      },
+      "revId": "2ff2ed784fc9e55cd4e53f03cbb163f035c7a636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
