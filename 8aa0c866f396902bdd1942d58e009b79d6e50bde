@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7048f2a0_fe0e9d36",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-20T15:48:30Z",
+      "side": 1,
+      "message": "Maybe leave\n\n  // CHECK-DAG:     [[NotArg:z\\d+]]    BooleanNot [ [[Arg]] ]\n\nhere and add a comment similar to the one in art::InstructionSimplifierVisitor::VisitBooleanNot about relying on the DCE for the removal of this dead instruction?",
+      "revId": "8aa0c866f396902bdd1942d58e009b79d6e50bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
