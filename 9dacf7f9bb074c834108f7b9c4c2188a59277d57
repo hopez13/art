@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7048f2a0_9bb5eb2f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T12:53:26Z",
+      "side": 1,
+      "message": "expect -\u003e except",
+      "range": {
+        "startLine": 534,
+        "startChar": 51,
+        "endLine": 534,
+        "endChar": 57
+      },
+      "revId": "9dacf7f9bb074c834108f7b9c4c2188a59277d57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_d05e1cc4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T12:53:26Z",
+      "side": 1,
+      "message": "I\u0027d drop this comment and the TODO. Just say that we need data-flow analysis to get rid of duplicate memory barriers.",
+      "range": {
+        "startLine": 534,
+        "startChar": 12,
+        "endLine": 534,
+        "endChar": 49
+      },
+      "revId": "9dacf7f9bb074c834108f7b9c4c2188a59277d57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
