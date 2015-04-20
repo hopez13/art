@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "103a56f6_e038c29d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": ": public ValueObject { ?",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 33
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_fb2fcf35",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "The HLoopInformation contains a bitset of the blocks it contains. Could yo uuse that instead?",
+      "range": {
+        "startLine": 267,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 7
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_307cc86e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Please add a small Java code snippet of what this covers. I don\u0027t understand why the offsets are not relative to the induction variable.",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 11
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_1081c4d2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Renamed this to found_array_length_ to avoid naming typos?",
+      "range": {
+        "startLine": 336,
+        "startChar": 8,
+        "endLine": 336,
+        "endChar": 21
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_80d3b6d7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "an -\u003e a",
+      "range": {
+        "startLine": 357,
+        "startChar": 41,
+        "endLine": 357,
+        "endChar": 43
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_9b004bbc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Add \" relative ti the induction variable\" ?",
+      "range": {
+        "startLine": 363,
+        "startChar": 5,
+        "endLine": 363,
+        "endChar": 76
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_507b4c74",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Add a check that ...., and HDeoptimize otherwise.",
+      "range": {
+        "startLine": 581,
+        "startChar": 5,
+        "endLine": 581,
+        "endChar": 58
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_803c5676",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 615,
+        "startChar": 5,
+        "endLine": 615,
+        "endChar": 70
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_3b6db785",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 619,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 61
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_d0861ce5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 668,
+        "startChar": 95,
+        "endLine": 668,
+        "endChar": 105
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_1b727b61",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 668,
+        "startChar": 61,
+        "endLine": 668,
+        "endChar": 65
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_e02c4244",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "const\u0026 ?",
+      "range": {
+        "startLine": 714,
+        "startChar": 25,
+        "endLine": 714,
+        "endChar": 60
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_5b7c0334",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "This looks ok. It\u0027s resetting previous instructions added for another array? Should you do it when you actually know that the deopt is ok?",
+      "range": {
+        "startLine": 727,
+        "startChar": 4,
+        "endLine": 727,
+        "endChar": 36
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_406d2e84",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Please add a comment about this 1 check.",
+      "range": {
+        "startLine": 728,
+        "startChar": 4,
+        "endLine": 728,
+        "endChar": 26
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_9b7deb30",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Nit: How about doing if (Add.. \u0026\u0026 Add..) { ... } else { remove \u0026\u0026 clear } ?",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 737,
+        "endChar": 7
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_5076ac84",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Comment please.",
+      "range": {
+        "startLine": 738,
+        "startChar": 6,
+        "endLine": 738,
+        "endChar": 34
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_80773650",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "if (Add.. \u0026\u0026 Add..) { } ?",
+      "range": {
+        "startLine": 739,
+        "startChar": 6,
+        "endLine": 746,
+        "endChar": 20
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_106c24b7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Maybe rename this to instructions_added_ to avoid any confusion? With this name, it looks like it only contains HDeoptimization instructions.",
+      "range": {
+        "startLine": 795,
+        "startChar": 32,
+        "endLine": 795,
+        "endChar": 54
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_1b59dbe1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Add a comment on what this checks.",
+      "range": {
+        "startLine": 1203,
+        "startChar": 0,
+        "endLine": 1205,
+        "endChar": 62
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_9ba5eb81",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "continue??",
+      "range": {
+        "startLine": 524,
+        "startChar": 6,
+        "endLine": 524,
+        "endChar": 12
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_e0bd62a5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "Please add a comment on why you need to do this.",
+      "range": {
+        "startLine": 526,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 5
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_00d84617",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "duplicated.",
+      "range": {
+        "startLine": 689,
+        "startChar": 7,
+        "endLine": 689,
+        "endChar": 14
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_fb898ff7",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T10:54:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 716,
+        "startChar": 7,
+        "endLine": 716,
+        "endChar": 14
+      },
+      "revId": "2e2dd41462d643bcda4361e53a521a5f16f64b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
