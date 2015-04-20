@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f055c239_664160f8",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-20T16:13:10Z",
+      "side": 1,
+      "message": "The Dekker approach is well-known and inefficient, for GC, precisely because of this - what is the polling interval the garbage collector should use and how do you avoid what Dalvik had of 1ms of sleep before re-polling? Note the 1ms, and without load, leads to 500us of extra GC pause on average, and 1ms at the high-end. It also requires memory barriers on architectures without TSO, meaning an x86 only analysis isn\u0027t properly representative. The current Mutex and ReaderWriterMutex are known to be inefficient:\nhttps://android-review.googlesource.com/#/c/143024/\nWhy not fix them as shown in that patch? Your 25% performance improvement is very unspecific and an analysis of GC pause time is also necessary. Pragmatically, given the trade-offs in this patch the option to use a Dekker style approach for the mutator lock should be behind a flag.",
+      "range": {
+        "startLine": 547,
+        "startChar": 54,
+        "endLine": 547,
+        "endChar": 92
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305cba63_6d7c9d34",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 4,
         "endLine": 131,
         "endChar": 18
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d06c3e17_4b5ee57c",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2015-04-20T16:13:10Z",
+      "side": 1,
+      "message": "This is missing documentation.",
+      "range": {
+        "startLine": 556,
+        "startChar": 2,
+        "endLine": 556,
+        "endChar": 40
       },
       "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
