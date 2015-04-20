@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7048f2a0_3b01378c",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-20T11:32:44Z",
+      "side": 1,
+      "message": "i\u0027d prefer\n`if () {\n} else {\nUNREACHABLE()\n}\n`",
+      "range": {
+        "startLine": 67,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 46
+      },
+      "revId": "88c13cddc3a4184908662b0f3de796565d348c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_b00398c7",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-20T11:32:44Z",
+      "side": 1,
+      "message": "do you really need this branch? Isn\u0027t checking the Out() enough?",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 37
+      },
+      "revId": "88c13cddc3a4184908662b0f3de796565d348c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_1b06fba3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-20T11:32:44Z",
+      "side": 1,
+      "message": "Isn\u0027t it enough to do it in AllocateLocations?",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 44
+      },
+      "revId": "88c13cddc3a4184908662b0f3de796565d348c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
