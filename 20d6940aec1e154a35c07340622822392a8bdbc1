@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "103a56f6_201d8a66",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T09:01:38Z",
+      "side": 1,
+      "message": "I\u0027d drop, since the call is already on two lines.",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 524,
+        "endChar": 35
+      },
+      "revId": "20d6940aec1e154a35c07340622822392a8bdbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_80129652",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T09:01:38Z",
+      "side": 1,
+      "message": "Add a helper in HGraphBuilder for this.",
+      "range": {
+        "startLine": 532,
+        "startChar": 11,
+        "endLine": 532,
+        "endChar": 58
+      },
+      "revId": "20d6940aec1e154a35c07340622822392a8bdbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_70b930dc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T09:01:38Z",
+      "side": 1,
+      "message": "This looks odd: you\u0027re doing \"not\" but still adding the barrier...",
+      "range": {
+        "startLine": 535,
+        "startChar": 17,
+        "endLine": 535,
+        "endChar": 45
+      },
+      "revId": "20d6940aec1e154a35c07340622822392a8bdbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7048f2a0_5be9a3ac",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T09:01:38Z",
+      "side": 1,
+      "message": "I don\u0027t think this works if it\u0027s a constructor method that calls \"new\".",
+      "range": {
+        "startLine": 536,
+        "startChar": 7,
+        "endLine": 539,
+        "endChar": 50
+      },
+      "revId": "20d6940aec1e154a35c07340622822392a8bdbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_50beacc5",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T09:01:38Z",
+      "side": 1,
+      "message": "Maybe check that there is no other barrier?",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 44
+      },
+      "revId": "20d6940aec1e154a35c07340622822392a8bdbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_a0287a80",
+        "filename": "test/476-checker-ctor-memory-barrier/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T09:01:38Z",
+      "side": 1,
+      "message": "What is this? Shouldn\u0027t you use CHECK-DAG to check the order?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "20d6940aec1e154a35c07340622822392a8bdbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
