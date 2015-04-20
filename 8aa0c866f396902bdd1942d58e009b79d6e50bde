@@ -16,6 +16,24 @@
       "revId": "8aa0c866f396902bdd1942d58e009b79d6e50bde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_43ea58a6",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-20T15:55:11Z",
+      "side": 1,
+      "message": "I don\u0027t see much point in doing that. This tests the simplification and it is valid regardless of the dangling BoolNot. All it means is that if somebody changes InstSimpl to remove it, they\u0027ll have to come back and change the test. Do you see a reason?",
+      "parentUuid": "7048f2a0_fe0e9d36",
+      "revId": "8aa0c866f396902bdd1942d58e009b79d6e50bde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
