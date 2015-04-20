@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "103a56f6_c3dca8e9",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-20T17:49:54Z",
+      "side": 1,
+      "message": "We should add a comment that the boolean simplifier makes sure that for `if (a instanceof A)` the input for HIf is either an HInstanceOf or BooleanNot.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 28
+      },
+      "revId": "0d13fee6f4330cc9cb100c43135490a34c11d7a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
