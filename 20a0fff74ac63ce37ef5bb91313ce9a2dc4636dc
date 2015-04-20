@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7048f2a0_1b6c3bb7",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-20T09:33:17Z",
+      "side": 1,
+      "message": "Maybe return a Boolean value instead of DCHECK-ing in this method, and late callers (e.g. CodeGenerator::CompileInternal on line 164) do the DCHECK?",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 11
+      },
+      "revId": "20a0fff74ac63ce37ef5bb91313ce9a2dc4636dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103a56f6_60e952ad",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-20T09:33:17Z",
+      "side": 1,
+      "message": "CheckTypeConsistency?",
+      "range": {
+        "startLine": 77,
+        "startChar": 12,
+        "endLine": 77,
+        "endChar": 31
+      },
+      "revId": "20a0fff74ac63ce37ef5bb91313ce9a2dc4636dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
