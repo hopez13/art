@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "103a56f6_800bb6aa",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:42:35Z",
+      "side": 1,
+      "message": "Yes I need it. Out just says it has the be the same as the first input. So we need to check if the first input has the expected type.",
+      "parentUuid": "10089662_b00398c7",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 37
+      },
+      "revId": "88c13cddc3a4184908662b0f3de796565d348c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7048f2a0_1b06fba3",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -59,6 +83,30 @@
       "writtenOn": "2015-04-20T11:32:44Z",
       "side": 1,
       "message": "Isn\u0027t it enough to do it in AllocateLocations?",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 44
+      },
+      "revId": "88c13cddc3a4184908662b0f3de796565d348c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10089662_900bf4d7",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-20T11:42:35Z",
+      "side": 1,
+      "message": "No, this is after register allocation (for both baseline and linear scan).",
+      "parentUuid": "7048f2a0_1b06fba3",
       "range": {
         "startLine": 172,
         "startChar": 6,
