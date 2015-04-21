@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70f6329f_aba84959",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T09:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70f6329f_cb0b1525",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0f19ea3_6e482f3f",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-21T09:42:57Z",
       "side": 1,
       "message": "A comment explaining the back-edge uses, or maybe even the overall reasoning, would be really useful here.",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 65
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_8ba58d81",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T09:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f19ea3_6e482f3f",
       "range": {
         "startLine": 903,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d0f19ea3_ee3b7f97",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T09:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f19ea3_8e575be1",
+      "range": {
+        "startLine": 368,
+        "startChar": 42,
+        "endLine": 368,
+        "endChar": 58
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0f19ea3_0e536bf2",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-21T09:42:57Z",
       "side": 1,
       "message": "IsParent",
+      "range": {
+        "startLine": 708,
+        "startChar": 15,
+        "endLine": 708,
+        "endChar": 31
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_ebb251c3",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T09:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f19ea3_0e536bf2",
       "range": {
         "startLine": 708,
         "startChar": 15,
