@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_6142f101",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T22:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "302afabf_610b115e",
+      "range": {
+        "startLine": 529,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 45
+      },
+      "revId": "e47a5831e67bdc08826c58c24d657ff5cfcdaf66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d01a7eb3_ee352187",
         "filename": "runtime/mirror/abstract_method.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-21T21:36:33Z",
       "side": 1,
       "message": "mirror::Class?",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 33
+      },
+      "revId": "e47a5831e67bdc08826c58c24d657ff5cfcdaf66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_c9549f27",
+        "filename": "runtime/mirror/abstract_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T22:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d01a7eb3_ee352187",
       "range": {
         "startLine": 61,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d01a7eb3_29529338",
+        "filename": "runtime/mirror/abstract_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T22:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d01a7eb3_8e7c6d35",
+      "range": {
+        "startLine": 62,
+        "startChar": 16,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "e47a5831e67bdc08826c58c24d657ff5cfcdaf66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f02302ea_4226cab3",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-21T21:38:16Z",
       "side": 1,
       "message": "do you want to say while like you did elsewhere?",
+      "range": {
+        "startLine": 1056,
+        "startChar": 2,
+        "endLine": 1056,
+        "endChar": 33
+      },
+      "revId": "e47a5831e67bdc08826c58c24d657ff5cfcdaf66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_e904fb19",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T22:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f02302ea_4226cab3",
       "range": {
         "startLine": 1056,
         "startChar": 2,
