@@ -22,6 +22,30 @@
       "revId": "b1fceadbd42b3047a9c06a8af6239c737d67344e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02302ea_e6cd5be3",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T03:54:35Z",
+      "side": 1,
+      "message": "Sorry, that\u0027s my paper-writing telling me to use the formal and way better-sounding \"whether\" all the time. :-)\n\nWhether here is correct IMHO, but then I\u0027m not a native speaker. The options do not have to be explicit, as long as they are binary and implied, i.e., in this example the class should be compiled or not.",
+      "parentUuid": "f00a225c_52ceb203",
+      "range": {
+        "startLine": 424,
+        "startChar": 12,
+        "endLine": 424,
+        "endChar": 19
+      },
+      "revId": "b1fceadbd42b3047a9c06a8af6239c737d67344e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
