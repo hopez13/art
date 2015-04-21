@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "70f6329f_4be9e5ac",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-21T10:58:24Z",
+      "side": 1,
+      "message": "This seems to expose inaccessible constructors if the referer_class is unresolved.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 7
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_0bcebd34",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-21T10:58:24Z",
+      "side": 1,
+      "message": "What about the\n\n    (!compiler_driver-\u003eGetCompilerOptions().GetCompilePic() \u0026\u0026\n          mUnit-\u003eGetCompilationUnit()-\u003einstruction_set !\u003d kX86 \u0026\u0026\n          mUnit-\u003eGetCompilationUnit()-\u003einstruction_set !\u003d kX86_64)\n\ncondition from MirMethodLoweringInfo?",
+      "range": {
+        "startLine": 1665,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 11
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_2e1bc72c",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-21T10:58:24Z",
+      "side": 1,
+      "message": "This should be conditional on method_info.IsSpecial().",
+      "range": {
+        "startLine": 1557,
+        "startChar": 0,
+        "endLine": 1561,
+        "endChar": 3
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "102176e2_889f5762",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 29
