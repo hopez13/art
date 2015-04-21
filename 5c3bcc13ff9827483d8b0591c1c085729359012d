@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "102176e2_889f5762",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T08:30:42Z",
+      "side": 1,
+      "message": "Helper in CompilerDriver?",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 66
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_2bf1f9ad",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T08:30:42Z",
+      "side": 1,
+      "message": "is_string_init",
+      "range": {
+        "startLine": 616,
+        "startChar": 6,
+        "endLine": 616,
+        "endChar": 17
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "102176e2_e8ac139d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T08:30:42Z",
+      "side": 1,
+      "message": "IsStringTypeIndex ?",
+      "range": {
+        "startLine": 1881,
+        "startChar": 28,
+        "endLine": 1881,
+        "endChar": 43
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "102176e2_089b6773",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T08:30:42Z",
+      "side": 1,
+      "message": "Why is that here? Don\u0027t we know it when we generate code?",
+      "range": {
+        "startLine": 2249,
+        "startChar": 6,
+        "endLine": 2249,
+        "endChar": 29
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
