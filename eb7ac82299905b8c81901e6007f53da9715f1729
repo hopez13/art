@@ -22,6 +22,29 @@
       "revId": "eb7ac82299905b8c81901e6007f53da9715f1729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_b170bad6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3901,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T15:08:39Z",
+      "side": 1,
+      "message": "We don\u0027t always need this anymore. So please guard it with the necessary conditions.\n\nSimilar in the other places.",
+      "range": {
+        "startLine": 3900,
+        "startChar": 2,
+        "endLine": 3901,
+        "endChar": 27
+      },
+      "revId": "eb7ac82299905b8c81901e6007f53da9715f1729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
