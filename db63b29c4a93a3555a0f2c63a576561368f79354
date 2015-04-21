@@ -677,6 +677,30 @@
     },
     {
       "key": {
+        "uuid": "d01a7eb3_70f91dfb",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-21T00:37:37Z",
+      "side": 1,
+      "message": "Do you mind adding ReadBarrierOption kReadBarrierOption to Class::IsStringClass and pass kReadBarrierOption from this function to it like what IsArtMethod() does?",
+      "parentUuid": "f02302ea_a1afd20f",
+      "range": {
+        "startLine": 343,
+        "startChar": 65,
+        "endLine": 343,
+        "endChar": 82
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d080bec6_cd81ffd3",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 28
