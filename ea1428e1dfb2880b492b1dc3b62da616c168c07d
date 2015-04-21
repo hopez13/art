@@ -22,6 +22,30 @@
       "revId": "ea1428e1dfb2880b492b1dc3b62da616c168c07d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_f13b6297",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T17:05:50Z",
+      "side": 1,
+      "message": "The number of blocks does not matter any more for inlining, or does it? That\u0027s the reason why I\u0027ve put it here and not into the inliner.\n\nI\u0027m just thinking that we really should run the inliner as early as possible. The conditions for inlining have changed and running fold/inst_simp separately on the inner method does not help any more. On the contrary, running them on the entire graph would be beneficial.",
+      "parentUuid": "d0f19ea3_517b5674",
+      "range": {
+        "startLine": 348,
+        "startChar": 5,
+        "endLine": 348,
+        "endChar": 21
+      },
+      "revId": "ea1428e1dfb2880b492b1dc3b62da616c168c07d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
