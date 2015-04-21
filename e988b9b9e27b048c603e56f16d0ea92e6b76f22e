@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50276ef4_be5a5109",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T22:46:19Z",
+      "side": 1,
+      "message": "Consistency with above would move the FindSystemClass in here.",
+      "range": {
+        "startLine": 554,
+        "startChar": 42,
+        "endLine": 554,
+        "endChar": 52
+      },
+      "revId": "e988b9b9e27b048c603e56f16d0ea92e6b76f22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
