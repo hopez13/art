@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f02302ea_b9589d8d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T19:27:00Z",
+      "side": 1,
+      "message": "Can you be more specific here? We\u0027re losing a pretty strong invariant.",
+      "range": {
+        "startLine": 382,
+        "startChar": 6,
+        "endLine": 385,
+        "endChar": 40
+      },
+      "revId": "0767a6e85866efaeca3ea26c1860f9c00f4a4f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
