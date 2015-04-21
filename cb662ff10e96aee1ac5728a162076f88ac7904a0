@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "102176e2_ab14d5c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-21T20:52:41Z",
+      "side": 1,
+      "message": "Why do you reuse the variable?",
+      "range": {
+        "startLine": 535,
+        "startChar": 2,
+        "endLine": 535,
+        "endChar": 12
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_f19362d2",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-21T20:52:41Z",
+      "side": 1,
+      "message": "Avoid implicit conversion from bool to size_t.",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 75
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_8e0bdbd7",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-21T20:52:41Z",
+      "side": 1,
+      "message": "Bogus space.",
+      "range": {
+        "startLine": 341,
+        "startChar": 41,
+        "endLine": 341,
+        "endChar": 42
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
