@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0150a85_a8ddf30c",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-04-21T10:12:59Z",
+      "side": 1,
+      "message": "I am sorry to misguide you by a wrong word \"polling\" used in the comments. This patch does not use the polling mechanism to suspend threads. SuspendAll succeeds when the last runnable thread transits to the suspended state. The only difference is that originally the SuspendAll is achieved by grabbing the mutator lock exclusively and now it is achieved by all other threads pass a barrier. A thread in runnable state will pass the barrier when it transits to suspended state and threads already in suspended will get their barrier passed by the thread requesting the SuspendAll. This modification removes the lock/unlock on the mutator lock when threads transit between runnable and suspended.\nA study shows that in ART thread state change is the costliest part of the JNI. One big problem is that the mutator lock needs CAS to acquire and release between the thread state changes. The 25% JNI performance improvement by this patch is measured by a small benchmark (repeatedly call the same native function which does nothing but return). The benefit could also be observed in some benchmarks like smartbench.Mandelbrot +4%, SmartBench.String +12% and CFBench.javaMIPS +50%. I only observe 2% regression on one benchmark and did not find other negative effects.\nAbout the GC, I’ve tested this modification on Android GC Bench, the patch does not influence the pause time and we are evaluating the influence on the real apps.\nI will test the effects of this patch on ARM later and also will read the patch you mentioned.",
+      "parentUuid": "f055c239_664160f8",
+      "range": {
+        "startLine": 547,
+        "startChar": 54,
+        "endLine": 547,
+        "endChar": 92
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305cba63_6d7c9d34",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-20T15:53:44Z",
       "side": 1,
       "message": "What does this have to do with your CL\u0027s stated intent? Different CL, please.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0150a85_68e49bd6",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-04-21T10:12:59Z",
+      "side": 1,
+      "message": "I will refactor the code and reupload.",
+      "parentUuid": "305cba63_6d7c9d34",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "700f1279_d7bd6ca5",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-04-21T10:12:59Z",
+      "side": 1,
+      "message": "Not tested yet, maybe this change is wrong, I will check it later. Thanks.",
+      "parentUuid": "d06c3e17_cb5af50a",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 18
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d06c3e17_4b5ee57c",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-20T16:13:10Z",
       "side": 1,
       "message": "This is missing documentation.",
+      "range": {
+        "startLine": 556,
+        "startChar": 2,
+        "endLine": 556,
+        "endChar": 40
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0150a85_48e9dfac",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-04-21T10:12:59Z",
+      "side": 1,
+      "message": "10s time out for suspend all. Will add the comment.\nActually, we do not need a timed increment here. just need to increase the barrier number here.",
+      "parentUuid": "d06c3e17_4b5ee57c",
       "range": {
         "startLine": 556,
         "startChar": 2,
