@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "907ac6a8_5577b450",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0926a12_ccd4b7e5",
+      "range": {
+        "startLine": 1704,
+        "startChar": 10,
+        "endLine": 1704,
+        "endChar": 47
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7048f2a0_3bbf7745",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 28
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-20T11:14:10Z",
       "side": 1,
       "message": "Please add a helper in CompilerDriver: IsStringInitMethod.",
+      "range": {
+        "startLine": 595,
+        "startChar": 0,
+        "endLine": 598,
+        "endChar": 64
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_89111dd7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7048f2a0_3bbf7745",
       "range": {
         "startLine": 595,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_ec51c334",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10089662_304e884e",
+      "range": {
+        "startLine": 667,
+        "startChar": 5,
+        "endLine": 668,
+        "endChar": 99
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "103a56f6_c0677e97",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 28
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-20T11:14:10Z",
       "side": 1,
       "message": "Please add a helper in CompilerDriver.",
+      "range": {
+        "startLine": 1856,
+        "startChar": 10,
+        "endLine": 1856,
+        "endChar": 67
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_7b58e38c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "103a56f6_c0677e97",
       "range": {
         "startLine": 1856,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f02302ea_b6a276a6",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Yes, these methods can throw since they might try to alloc when out of memory. I\u0027ll add the call to RecordPcInfo.",
+      "parentUuid": "10089662_50d86cf3",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 894,
+        "endChar": 100
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "103a56f6_80c9f6fc",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 28
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-20T11:14:10Z",
       "side": 1,
       "message": "Why don\u0027t you need a slow path in case of null for this one?",
+      "range": {
+        "startLine": 913,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 13
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02302ea_b09f1eab",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "This method is an internal method for allocating a string from a character array without checks. Anything that calls it should error check first.",
+      "parentUuid": "103a56f6_80c9f6fc",
       "range": {
         "startLine": 913,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f02302ea_8a32ab9b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "103a56f6_40bfee43",
+      "range": {
+        "startLine": 1016,
+        "startChar": 0,
+        "endLine": 1016,
+        "endChar": 30
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10089662_30c9682d",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 28
@@ -174,6 +342,30 @@
       "writtenOn": "2015-04-20T11:14:10Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 30
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_29d3c98b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10089662_30c9682d",
       "range": {
         "startLine": 1045,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "d01a7eb3_09d88da4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "103a56f6_20c46ae2",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 30
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7048f2a0_7bc9fff9",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 28
@@ -220,6 +436,30 @@
       "writtenOn": "2015-04-20T11:14:10Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 2234,
+        "startChar": 31,
+        "endLine": 2234,
+        "endChar": 32
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "302afabf_2c963b4b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7048f2a0_7bc9fff9",
       "range": {
         "startLine": 2234,
         "startChar": 31,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_8c864716",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 2246,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7048f2a0_1bc43be2",
+      "range": {
+        "startLine": 2246,
+        "startChar": 13,
+        "endLine": 2246,
+        "endChar": 25
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7048f2a0_9bafab10",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 28
@@ -266,6 +530,30 @@
       "writtenOn": "2015-04-20T11:14:10Z",
       "side": 1,
       "message": "Add a comment what this is.",
+      "range": {
+        "startLine": 2247,
+        "startChar": 10,
+        "endLine": 2247,
+        "endChar": 29
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_e9e7f154",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 2247,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7048f2a0_9bafab10",
       "range": {
         "startLine": 2247,
         "startChar": 10,
@@ -318,6 +606,30 @@
     },
     {
       "key": {
+        "uuid": "907ac6a8_bb0639a2",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "709c722a_6f5eb97d",
+      "range": {
+        "startLine": 672,
+        "startChar": 4,
+        "endLine": 672,
+        "endChar": 31
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "907ac6a8_fb22719c",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 28
@@ -341,6 +653,30 @@
     },
     {
       "key": {
+        "uuid": "f02302ea_a1afd20f",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "907ac6a8_fb22719c",
+      "range": {
+        "startLine": 343,
+        "startChar": 65,
+        "endLine": 343,
+        "endChar": 82
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d080bec6_cd81ffd3",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 28
@@ -352,6 +688,30 @@
       "writtenOn": "2015-04-16T20:17:39Z",
       "side": 1,
       "message": "Just call IsString() instead?",
+      "range": {
+        "startLine": 348,
+        "startChar": 9,
+        "endLine": 348,
+        "endChar": 72
+      },
+      "revId": "db63b29c4a93a3555a0f2c63a576561368f79354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "302afabf_7d48df3e",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-21T00:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d080bec6_cd81ffd3",
       "range": {
         "startLine": 348,
         "startChar": 9,
