@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0f19ea3_b18f1afd",
+        "filename": "test/474-checker-boolean-input/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T16:49:10Z",
+      "side": 0,
+      "message": "hmm, how did this pass before? We shouldn\u0027t generate any invokes below... What am I missing?",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 57
+      },
+      "revId": "0746453bdf87c4d76b646c5bdcea49b7cce0a47e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
