@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0f19ea3_d1058642",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T14:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f19ea3_ee99bfc5",
+      "range": {
+        "startLine": 7,
+        "startChar": 48,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "9e09ae2e18735a4758a19d44c8e39e49db1d7f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "102176e2_a8edfb3a",
         "filename": "compiler/optimizing/dead_code_elimination.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-21T13:29:48Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "9e09ae2e18735a4758a19d44c8e39e49db1d7f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_eb99b1c5",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T14:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "102176e2_a8edfb3a",
       "range": {
         "startLine": 32,
         "startChar": 2,
