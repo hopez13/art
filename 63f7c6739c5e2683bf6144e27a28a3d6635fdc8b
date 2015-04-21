@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "700f1279_97a5b481",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-21T11:24:51Z",
+      "side": 1,
+      "message": "// Constant folding handles the zero case pretty well but sometimes\n  // it is possible that a zero constant can appear as the input of mul\n  // due to other simplifications. Handle this case.",
+      "range": {
+        "startLine": 353,
+        "startChar": 2,
+        "endLine": 355,
+        "endChar": 63
+      },
+      "revId": "63f7c6739c5e2683bf6144e27a28a3d6635fdc8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
