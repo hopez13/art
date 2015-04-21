@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0f19ea3_31968a4b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3901,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T15:37:53Z",
+      "side": 1,
+      "message": "you can also branch here if instruction-\u003eIsClassFinal()",
+      "range": {
+        "startLine": 3901,
+        "startChar": 6,
+        "endLine": 3901,
+        "endChar": 42
+      },
+      "revId": "1a9400ab2439417845c63f3dd4f3556d3d976ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f6329f_6e15cf73",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4065,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T15:37:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 4065,
+        "startChar": 6,
+        "endLine": 4065,
+        "endChar": 42
+      },
+      "revId": "1a9400ab2439417845c63f3dd4f3556d3d976ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
