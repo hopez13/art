@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "102176e2_6b3e5ddf",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-21T15:08:30Z",
+      "side": 1,
+      "message": "You can actually do better here: at the point we generate code, the null check has been removed as an input of the InstanceOf, so now you have an input that can be null.\n\nYou should somehow keep the non-null information around for these HInstruction.",
+      "range": {
+        "startLine": 3878,
+        "startChar": 0,
+        "endLine": 3878,
+        "endChar": 45
+      },
+      "revId": "eb7ac82299905b8c81901e6007f53da9715f1729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
