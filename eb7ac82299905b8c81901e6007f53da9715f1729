@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0f19ea3_51435671",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-21T15:12:02Z",
+      "side": 1,
+      "message": "yep. So check, prepare_for_register_allocator to see what gets removed. Basically all the BoundType will be removed so we probably need a way to annotate the HInstanceOf/HCheckCast instructions that there output can\u0027t be null.",
+      "parentUuid": "102176e2_6b3e5ddf",
+      "range": {
+        "startLine": 3878,
+        "startChar": 0,
+        "endLine": 3878,
+        "endChar": 45
+      },
+      "revId": "eb7ac82299905b8c81901e6007f53da9715f1729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0f19ea3_b170bad6",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
