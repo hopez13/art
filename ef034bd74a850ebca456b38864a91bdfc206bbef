@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f6329f_cb0b1525",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T09:42:57Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_6e482f3f",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T09:42:57Z",
+      "side": 1,
+      "message": "A comment explaining the back-edge uses, or maybe even the overall reasoning, would be really useful here.",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 65
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_8e575be1",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T09:42:57Z",
+      "side": 1,
+      "message": "Explain what a \u0027parent\u0027 interval is.",
+      "range": {
+        "startLine": 368,
+        "startChar": 42,
+        "endLine": 368,
+        "endChar": 58
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_0e536bf2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T09:42:57Z",
+      "side": 1,
+      "message": "IsParent",
+      "range": {
+        "startLine": 708,
+        "startChar": 15,
+        "endLine": 708,
+        "endChar": 31
+      },
+      "revId": "ef034bd74a850ebca456b38864a91bdfc206bbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
