@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f02302ea_d900f1bc",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T19:20:36Z",
+      "side": 1,
+      "message": "Long lines.",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 133
+      },
+      "revId": "cf77f377f1d21ca0d4587b63ee4b472f9ef685db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_3ad13b7c",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T19:20:36Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 264,
+        "endChar": 65
+      },
+      "revId": "cf77f377f1d21ca0d4587b63ee4b472f9ef685db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "302afabf_0bad1497",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T19:20:36Z",
+      "side": 1,
+      "message": "As this is not directly called from JNI, please make this a proper bool and fix the callers.",
+      "range": {
+        "startLine": 275,
+        "startChar": 80,
+        "endLine": 275,
+        "endChar": 99
+      },
+      "revId": "cf77f377f1d21ca0d4587b63ee4b472f9ef685db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01a7eb3_9ddf8954",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T19:20:36Z",
+      "side": 1,
+      "message": "Compile the boot image with and without, and dump the init-failures. (--dump-init-failures\u003dx.log). Compare, and if necessary, open a bug. Don\u0027t leave a TODO here.",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 45
+      },
+      "revId": "cf77f377f1d21ca0d4587b63ee4b472f9ef685db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
