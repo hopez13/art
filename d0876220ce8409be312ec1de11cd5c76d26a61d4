@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f6329f_0b723d61",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T12:01:19Z",
+      "side": 1,
+      "message": "This should be rewritten with the GetRightConstant, btw...",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 82
+      },
+      "revId": "d0876220ce8409be312ec1de11cd5c76d26a61d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "102176e2_48ceff03",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-21T12:01:19Z",
+      "side": 1,
+      "message": "HAS transformed! :D Oh, ye of little faith...",
+      "range": {
+        "startLine": 113,
+        "startChar": 32,
+        "endLine": 113,
+        "endChar": 48
+      },
+      "revId": "d0876220ce8409be312ec1de11cd5c76d26a61d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
