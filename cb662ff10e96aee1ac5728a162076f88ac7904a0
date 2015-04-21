@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d01a7eb3_e351ba66",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-21T21:13:43Z",
+      "side": 1,
+      "message": "@vmarko: I asked him the same and still believe his answer is bogus.",
+      "parentUuid": "f02302ea_ff0e75e8",
+      "range": {
+        "startLine": 535,
+        "startChar": 2,
+        "endLine": 535,
+        "endChar": 12
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0f19ea3_f19362d2",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
