@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "90148689_07f6b8a5",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-04-21T11:59:51Z",
+      "side": 1,
+      "message": "When multiple threads change their states intensively, there would be severe cache line invalidations caused by the CAS on mutator lock. I think that is why the patch boosts certain multi-thread benchmarks.",
+      "parentUuid": "f055c239_664160f8",
+      "range": {
+        "startLine": 547,
+        "startChar": 54,
+        "endLine": 547,
+        "endChar": 92
+      },
+      "revId": "27d63633c3ba0db27508ac1fe4018fbc3930deb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "305cba63_6d7c9d34",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 1
