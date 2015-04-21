@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f02302ea_ff0e75e8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T20:59:04Z",
+      "side": 1,
+      "message": "Its easier to copy paste, there was a few bugs from copying and forgetting to update a variable in earlier versions of the CL.",
+      "parentUuid": "102176e2_ab14d5c6",
+      "range": {
+        "startLine": 535,
+        "startChar": 2,
+        "endLine": 535,
+        "endChar": 12
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0f19ea3_f19362d2",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_06918bca",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T20:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f19ea3_f19362d2",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 75
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70f6329f_8e0bdbd7",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-21T20:52:41Z",
       "side": 1,
       "message": "Bogus space.",
+      "range": {
+        "startLine": 341,
+        "startChar": 41,
+        "endLine": 341,
+        "endChar": 42
+      },
+      "revId": "cb662ff10e96aee1ac5728a162076f88ac7904a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "302afabf_4606e3a4",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T20:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70f6329f_8e0bdbd7",
       "range": {
         "startLine": 341,
         "startChar": 41,
