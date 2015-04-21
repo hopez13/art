@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d01a7eb3_0897d590",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-21T20:52:02Z",
+      "side": 1,
+      "message": "When we start the runtime, we call AddImageStringsToTable which would make LookupStrong return above. In practice, I think it would be hard to see this bug, but this seems like a good fix.",
+      "range": {
+        "startLine": 249,
+        "startChar": 25,
+        "endLine": 249,
+        "endChar": 26
+      },
+      "revId": "a446d8671b30438003472c1de1363fc0699a7f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
