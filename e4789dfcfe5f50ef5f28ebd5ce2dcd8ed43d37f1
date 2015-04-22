@@ -22,6 +22,29 @@
       "revId": "e4789dfcfe5f50ef5f28ebd5ce2dcd8ed43d37f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b566fa_25d5d4de",
+        "filename": "compiler/dex/type_inference.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2015-04-22T19:37:24Z",
+      "side": 1,
+      "message": "\"the register\" -\u003e \"register promotion\"?",
+      "range": {
+        "startLine": 64,
+        "startChar": 71,
+        "endLine": 64,
+        "endChar": 72
+      },
+      "revId": "e4789dfcfe5f50ef5f28ebd5ce2dcd8ed43d37f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
