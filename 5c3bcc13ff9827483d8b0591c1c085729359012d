@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_ec80cbfa",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-22T09:46:28Z",
+      "side": 1,
+      "message": "But I don\u0027t see why you need the offset, as this should be statically determined.",
+      "parentUuid": "d08d1e46_821aaaa2",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 66
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70f6329f_2bf1f9ad",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 29
@@ -319,6 +343,30 @@
       "side": 1,
       "message": "I\u0027d like to store something in the invoke to flag it as a string init, and I might as well just store the offset so I don\u0027t have to look it up later.",
       "parentUuid": "102176e2_089b6773",
+      "range": {
+        "startLine": 2249,
+        "startChar": 6,
+        "endLine": 2249,
+        "endChar": 29
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_22814efd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-22T09:46:28Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand why the offset cannot be found statically. Why do you need to look it up?",
+      "parentUuid": "302afabf_e84ec695",
       "range": {
         "startLine": 2249,
         "startChar": 6,
