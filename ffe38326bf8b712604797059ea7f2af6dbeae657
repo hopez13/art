@@ -16,6 +16,24 @@
       "revId": "ffe38326bf8b712604797059ea7f2af6dbeae657",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_8fa8195a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-22T16:55:26Z",
+      "side": 1,
+      "message": "I was thinking about this too.  I\u0027ll try to factor common things, if that doesn\u0027t make the code too hard to read.",
+      "parentUuid": "d080bec6_f0fda735",
+      "revId": "ffe38326bf8b712604797059ea7f2af6dbeae657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
