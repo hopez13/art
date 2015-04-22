@@ -163,6 +163,30 @@
       "revId": "0f6b3079cbeb6f6b7cdb9048fedca767999fa062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_042326a2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1728,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:10:12Z",
+      "side": 1,
+      "message": "I currently feel this doesn\u0027t belong in the runtime (utils), as dex2oat is the only user. But that makes testing rather complicated.\n\nI\u0027ll leave this for a follow-up to refactor elegantly.",
+      "parentUuid": "d01a7eb3_a9e4c3d6",
+      "range": {
+        "startLine": 1652,
+        "startChar": 0,
+        "endLine": 1728,
+        "endChar": 3
+      },
+      "revId": "0f6b3079cbeb6f6b7cdb9048fedca767999fa062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
