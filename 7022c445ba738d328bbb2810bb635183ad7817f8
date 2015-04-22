@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10a416b9_7aaf26e4",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-22T19:13:23Z",
+      "side": 1,
+      "message": "Indentation is off",
+      "range": {
+        "startLine": 144,
+        "startChar": 24,
+        "endLine": 144,
+        "endChar": 33
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_fa9956c5",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-22T19:13:23Z",
+      "side": 1,
+      "message": "Can you put this below with the other includes, and sort it?",
+      "range": {
+        "startLine": 18,
+        "startChar": 24,
+        "endLine": 18,
+        "endChar": 36
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_26958c16",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-22T19:13:23Z",
+      "side": 1,
+      "message": "Maybe we want to pass these as arguments, this would be required if we ever want to have multiple RosAlloc spaces exist at the same time.",
+      "range": {
+        "startLine": 1216,
+        "startChar": 14,
+        "endLine": 1216,
+        "endChar": 35
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_3aa59e04",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-22T19:13:23Z",
+      "side": 1,
+      "message": "Is there a reason we cant change the default RosAllocSpace Sweep to be SweepWalkPagemap?",
+      "range": {
+        "startLine": 1182,
+        "startChar": 26,
+        "endLine": 1182,
+        "endChar": 42
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_46eff0b4",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-22T19:13:23Z",
+      "side": 1,
+      "message": "Indentation is off here.",
+      "range": {
+        "startLine": 540,
+        "startChar": 43,
+        "endLine": 540,
+        "endChar": 59
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
