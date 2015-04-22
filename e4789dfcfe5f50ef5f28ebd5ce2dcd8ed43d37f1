@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50984e8f_25ba784d",
+        "filename": "compiler/dex/type_inference.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-22T17:49:49Z",
+      "side": 1,
+      "message": "Fix: PS17 wasn\u0027t using ModifiedSReg().",
+      "range": {
+        "startLine": 523,
+        "startChar": 27,
+        "endLine": 523,
+        "endChar": 48
+      },
+      "revId": "e4789dfcfe5f50ef5f28ebd5ce2dcd8ed43d37f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
