@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b088aa37_0df191ad",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-22T09:40:15Z",
+      "side": 1,
+      "message": "Maybe change this to CanDoImplicitNullCheckOn(null_check-\u003eInputAt(0)) ?",
+      "range": {
+        "startLine": 832,
+        "startChar": 30,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "cbc9c667b3cce5ac929c7cc47fa1e6ef09f0ba4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
