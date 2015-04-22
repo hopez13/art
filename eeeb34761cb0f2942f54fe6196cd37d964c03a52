@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "50984e8f_a5cd6807",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T17:38:07Z",
+      "side": 1,
+      "message": "sgtm. i was thinking to a similar solution.",
+      "parentUuid": "b0718a1d_2b9abd46",
+      "range": {
+        "startLine": 3878,
+        "startChar": 19,
+        "endLine": 3878,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_8f7019d7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
