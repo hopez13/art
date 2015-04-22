@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f02302ea_c2775a4f",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "This isn\u0027t necessary anymore, so I\u0027ve removed it.",
+      "parentUuid": "70f6329f_4be9e5ac",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 7
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70f6329f_0bcebd34",
         "filename": "compiler/dex/mir_optimization.cc",
         "patchSetId": 29
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-21T10:58:24Z",
       "side": 1,
       "message": "What about the\n\n    (!compiler_driver-\u003eGetCompilerOptions().GetCompilePic() \u0026\u0026\n          mUnit-\u003eGetCompilationUnit()-\u003einstruction_set !\u003d kX86 \u0026\u0026\n          mUnit-\u003eGetCompilationUnit()-\u003einstruction_set !\u003d kX86_64)\n\ncondition from MirMethodLoweringInfo?",
+      "range": {
+        "startLine": 1665,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 11
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02302ea_a2e2264f",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "The compiler needs to turn the new_instance of string into a nop in any case. I\u0027ve also removed that condition from MirMethodLoweringInfo.",
+      "parentUuid": "70f6329f_0bcebd34",
       "range": {
         "startLine": 1665,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_fcea08ed",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "I added that check in addition to the StringInitMethodIndex check in case we add other special intrinsics later.",
+      "parentUuid": "d0f19ea3_2e1bc72c",
+      "range": {
+        "startLine": 1557,
+        "startChar": 0,
+        "endLine": 1561,
+        "endChar": 3
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "102176e2_889f5762",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 29
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-21T08:30:42Z",
       "side": 1,
       "message": "Helper in CompilerDriver?",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 66
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08d1e46_821aaaa2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "If you don\u0027t mind me having to look up the inliner twice, since I\u0027d have to do that in the helper, and again later when setting the string_init_offset.",
+      "parentUuid": "102176e2_889f5762",
       "range": {
         "startLine": 612,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_88daaa63",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70f6329f_2bf1f9ad",
+      "range": {
+        "startLine": 616,
+        "startChar": 6,
+        "endLine": 616,
+        "endChar": 17
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "102176e2_e8ac139d",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 29
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-21T08:30:42Z",
       "side": 1,
       "message": "IsStringTypeIndex ?",
+      "range": {
+        "startLine": 1881,
+        "startChar": 28,
+        "endLine": 1881,
+        "endChar": 43
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f02302ea_1a755cf4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "102176e2_e8ac139d",
       "range": {
         "startLine": 1881,
         "startChar": 28,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "302afabf_e84ec695",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "I\u0027d like to store something in the invoke to flag it as a string init, and I might as well just store the offset so I don\u0027t have to look it up later.",
+      "parentUuid": "102176e2_089b6773",
+      "range": {
+        "startLine": 2249,
+        "startChar": 6,
+        "endLine": 2249,
+        "endChar": 29
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "309d9a70_b428ce80",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 29
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "10a416b9_59d357d8",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "Noted. Will address in later patch.",
+      "parentUuid": "309d9a70_b428ce80",
+      "range": {
+        "startLine": 489,
+        "startChar": 73,
+        "endLine": 489,
+        "endChar": 74
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10a416b9_93991ef9",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 29
@@ -197,6 +389,30 @@
       "writtenOn": "2015-04-22T01:21:22Z",
       "side": 1,
       "message": "(already mentioned once) Should pass in kReadBarrierOption to IsStringClass().",
+      "range": {
+        "startLine": 343,
+        "startChar": 68,
+        "endLine": 343,
+        "endChar": 69
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08d1e46_8231ca1c",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-22T01:41:05Z",
+      "side": 1,
+      "message": "Noted. Will address in another patch.",
+      "parentUuid": "10a416b9_93991ef9",
       "range": {
         "startLine": 343,
         "startChar": 68,
