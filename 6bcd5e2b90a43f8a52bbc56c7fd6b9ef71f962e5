@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30867a2e_ac86cb15",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2104,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-22T20:39:01Z",
+      "side": 1,
+      "message": "I think this can fail, as the output may be the same as the first input.  Is there any way to prevent that without using SameAsFirstInput or kOutputOverlap?  Which would be preferred?",
+      "revId": "6bcd5e2b90a43f8a52bbc56c7fd6b9ef71f962e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30867a2e_cc83ff04",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-22T20:39:01Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "6bcd5e2b90a43f8a52bbc56c7fd6b9ef71f962e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5083ee1c_8d5ae509",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2153,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-22T20:39:01Z",
+      "side": 1,
+      "message": "and again",
+      "revId": "6bcd5e2b90a43f8a52bbc56c7fd6b9ef71f962e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
