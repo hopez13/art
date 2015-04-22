@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_6f7bed74",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T17:05:23Z",
+      "side": 1,
+      "message": "You can\u0027t trust the input to have the most precise value, but it will never be incorrect. If it is, then we have a bug.\n\nI mentioned before that we could end up with patterns where the input of the HInstanceOf is a HNewInstance for example.\n\nIf we don\u0027t check for that or we don\u0027t propagate the info then we may miss on not-adding the check.",
+      "parentUuid": "9070061a_871488c7",
+      "range": {
+        "startLine": 3878,
+        "startChar": 19,
+        "endLine": 3878,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_8f7019d7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I suggested it. It avoids confusing readers that might thing it\u0027s the same as Input(0)-\u003eCanBeNull.",
       "parentUuid": "90972654_8f7019d7",
+      "range": {
+        "startLine": 3352,
+        "startChar": 2,
+        "endLine": 3352,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_8581449a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3352,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T17:05:23Z",
+      "side": 1,
+      "message": "oki, then it\u0027s good to add a short story why we need it.\n\ni.e.: Ideally the code generator would only have to look at the input to decide if it needs to null check the object. However, because we replace the inputs during the preparation for register allocator we loose the nullability information. This indicates whether or not the input of the instruction can be null.\n\nor something along these lines.",
+      "parentUuid": "706b9231_6676b085",
       "range": {
         "startLine": 3352,
         "startChar": 2,
