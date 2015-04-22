@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9070061a_871488c7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-22T16:12:20Z",
+      "side": 1,
+      "message": "But the point is that you can not trust the input, so what Guillaume is doing looks right to me.",
+      "parentUuid": "50984e8f_450fbc33",
+      "range": {
+        "startLine": 3878,
+        "startChar": 19,
+        "endLine": 3878,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_8f7019d7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-22T15:16:49Z",
       "side": 1,
       "message": "Don\u0027t think it\u0027s needed. There are a lot of other stuff we have for codegen and we don\u0027t document them.",
+      "range": {
+        "startLine": 3352,
+        "startChar": 2,
+        "endLine": 3352,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706b9231_6676b085",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3352,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-22T16:12:20Z",
+      "side": 1,
+      "message": "I suggested it. It avoids confusing readers that might thing it\u0027s the same as Input(0)-\u003eCanBeNull.",
+      "parentUuid": "90972654_8f7019d7",
       "range": {
         "startLine": 3352,
         "startChar": 2,
