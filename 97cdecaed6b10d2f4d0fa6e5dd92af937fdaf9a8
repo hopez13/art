@@ -367,6 +367,236 @@
       "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_04b086b9",
+        "filename": "runtime/arch/arm/context_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 83,
+        "startChar": 56,
+        "endLine": 83,
+        "endChar": 59
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08d1e46_42ffe2e2",
+        "filename": "runtime/arch/arm64/context_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 83,
+        "startChar": 56,
+        "endLine": 83,
+        "endChar": 59
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08d1e46_a2ede63a",
+        "filename": "runtime/arch/mips/context_mips.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 82,
+        "startChar": 60,
+        "endLine": 82,
+        "endChar": 63
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_9a25b1da",
+        "filename": "runtime/arch/mips64/context_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 82,
+        "startChar": 60,
+        "endLine": 82,
+        "endChar": 63
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_ba2275cd",
+        "filename": "runtime/arch/x86/context_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 95,
+        "startChar": 67,
+        "endLine": 95,
+        "endChar": 70
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_da1f3988",
+        "filename": "runtime/arch/x86/entrypoints_init_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr, and below.",
+      "range": {
+        "startLine": 99,
+        "startChar": 31,
+        "endLine": 99,
+        "endChar": 34
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_fa1cfd95",
+        "filename": "runtime/arch/x86_64/entrypoints_init_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr, and below.",
+      "range": {
+        "startLine": 104,
+        "startChar": 31,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_247caa6e",
+        "filename": "runtime/arch/x86_64/entrypoints_init_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 125,
+        "startChar": 29,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_4481aed1",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 347,
+        "startChar": 61,
+        "endLine": 347,
+        "endChar": 64
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d08d1e46_a2b88627",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-22T03:39:59Z",
+      "side": 1,
+      "message": "-ptr",
+      "range": {
+        "startLine": 435,
+        "startChar": 65,
+        "endLine": 435,
+        "endChar": 68
+      },
+      "revId": "97cdecaed6b10d2f4d0fa6e5dd92af937fdaf9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
