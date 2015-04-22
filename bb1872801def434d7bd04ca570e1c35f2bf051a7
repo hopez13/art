@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90972654_4ca0ff19",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T13:12:03Z",
+      "side": 1,
+      "message": "good spot!",
+      "range": {
+        "startLine": 473,
+        "startChar": 8,
+        "endLine": 473,
+        "endChar": 27
+      },
+      "revId": "bb1872801def434d7bd04ca570e1c35f2bf051a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_629756c2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T13:12:03Z",
+      "side": 1,
+      "message": "for consistency we should call this InsertInstructionAfter. \n\nThere\u0027s a similar function InsertInstructionBefore but on the basic block. This looks like a good opportunity to make things more consistent.",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 26
+      },
+      "revId": "bb1872801def434d7bd04ca570e1c35f2bf051a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
