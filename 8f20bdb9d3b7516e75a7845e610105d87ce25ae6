@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b088aa37_ad64fd93",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-22T12:13:50Z",
+      "side": 1,
+      "message": "Maybe pass `nullptr\u0027 as default value for this argument?",
+      "range": {
+        "startLine": 32,
+        "startChar": 63,
+        "endLine": 32,
+        "endChar": 68
+      },
+      "revId": "8f20bdb9d3b7516e75a7845e610105d87ce25ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_0c427700",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-22T12:13:50Z",
+      "side": 1,
+      "message": "Maybe give it a different name (as it is the case for `simplify2\u0027), so that we can assess it with Czecher, sorry, Checker? :P",
+      "revId": "8f20bdb9d3b7516e75a7845e610105d87ce25ae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
