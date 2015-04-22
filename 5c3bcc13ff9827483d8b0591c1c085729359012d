@@ -160,6 +160,52 @@
       "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_b428ce80",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-22T01:21:22Z",
+      "side": 1,
+      "message": "This should pass kReadBarrierOption to IsStringClass().",
+      "range": {
+        "startLine": 489,
+        "startChar": 73,
+        "endLine": 489,
+        "endChar": 74
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_93991ef9",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-22T01:21:22Z",
+      "side": 1,
+      "message": "(already mentioned once) Should pass in kReadBarrierOption to IsStringClass().",
+      "range": {
+        "startLine": 343,
+        "startChar": 68,
+        "endLine": 343,
+        "endChar": 69
+      },
+      "revId": "5c3bcc13ff9827483d8b0591c1c085729359012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
