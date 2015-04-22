@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50984e8f_8536e490",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-22T17:00:10Z",
+      "side": 1,
+      "message": "\"FIXME: Add fp registers (undefined) once libunwind adds support for them. Bug: \u003cbug-number\u003e\"\n\nor something similar.",
+      "range": {
+        "startLine": 115,
+        "startChar": 9,
+        "endLine": 115,
+        "endChar": 75
+      },
+      "revId": "87f0531093fdd889fcc4b06269ef978dda43c9f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
