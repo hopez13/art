@@ -22,6 +22,30 @@
       "revId": "cbc9c667b3cce5ac929c7cc47fa1e6ef09f0ba4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_c2e3c2cd",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T10:19:22Z",
+      "side": 1,
+      "message": "Yea I was thinking between the two and went for the \"imiplicit\" parameter way. Since you thought about it as well I\u0027ll change it :)",
+      "parentUuid": "b088aa37_0df191ad",
+      "range": {
+        "startLine": 832,
+        "startChar": 30,
+        "endLine": 832,
+        "endChar": 52
+      },
+      "revId": "cbc9c667b3cce5ac929c7cc47fa1e6ef09f0ba4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
