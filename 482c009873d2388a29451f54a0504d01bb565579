@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_4caf1fe4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-22T13:40:25Z",
+      "side": 1,
+      "message": "It is probably obvious for us, but maybe not for other people. :)  So I would document it.  (BTW, I think we can find such clarifications in other places in this file).",
+      "parentUuid": "90972654_0ca51704",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 80
+      },
+      "revId": "482c009873d2388a29451f54a0504d01bb565579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_2daacdd4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
