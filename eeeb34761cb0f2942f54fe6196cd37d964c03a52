@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_30f5c651",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T17:43:42Z",
+      "side": 1,
+      "message": "ah, just seen it. I think it\u0027s ok. I;m not very convinced of the naming but I\u0027m good with it.\n\nIt will need to be || instead of \u0026\u0026 though.",
+      "parentUuid": "50984e8f_85b3847a",
+      "range": {
+        "startLine": 3878,
+        "startChar": 19,
+        "endLine": 3878,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_8f7019d7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
