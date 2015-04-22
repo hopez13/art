@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_ec960b93",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T14:02:59Z",
+      "side": 1,
+      "message": "You convinced me when saying that whoever removes the nodes is responsible for preserving the info.\n\nAs for the a.f()... if (a instanceof A): yeap, that\u0027s a different propagation that we need to make.",
+      "parentUuid": "b0718a1d_a838734e",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 7
+      },
+      "revId": "25cd4e15e34d5bed6c870945e333f9a93aff0264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0718a1d_280643a4",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
