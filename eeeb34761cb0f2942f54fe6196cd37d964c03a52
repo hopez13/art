@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50984e8f_450fbc33",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T15:16:49Z",
+      "side": 1,
+      "message": "You can skip this if !obj-\u003eCanBeNull() (obj \u003d instruction_-\u003eInAt(0).\n\nSo it should be smth like\nif (obj-\u003eCanBeNull() || instruction-\u003eMustDoNullCheck()).\n\nSo given that you need to do an || here I\u0027m thinking that  maybe \"MustDoNullCheck\" is not the best name either. I don\u0027t have a better naming suggestion though.\n\nThe alternative is to SetMustDoNullCheck() when the input cannot be null but I also don\u0027t know a good place to do it.",
+      "range": {
+        "startLine": 3878,
+        "startChar": 19,
+        "endLine": 3878,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_8f7019d7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3352,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T15:16:49Z",
+      "side": 1,
+      "message": "Don\u0027t think it\u0027s needed. There are a lot of other stuff we have for codegen and we don\u0027t document them.",
+      "range": {
+        "startLine": 3352,
+        "startChar": 2,
+        "endLine": 3352,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_affb15b9",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T15:16:49Z",
+      "side": 1,
+      "message": "you need to do the same for the null check, right?",
+      "range": {
+        "startLine": 45,
+        "startChar": 35,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
