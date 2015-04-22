@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_8ced873b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T13:29:26Z",
+      "side": 1,
+      "message": "Doing it here you\u0027ll also miss patterns where the direct input cannot be null anyway (which may result because of inlining).\n\ne.g.\nvoid f() {return new A()}\nvoid g() {\n Object x \u003d f(); // this will be inlined and instanceof will not have a bound type as input.\n if (x instanceof A) {\n }\n}\n\nHowever I\u0027m not sure I\u0027d move this to prepare_for_register_allocation.cc.\n\nThis still deals with nullability propagation which is one thing this analysis does. Having related stuff together seems better to me. An you already have all the info you need for that after this pass. What do you think Nicolas?\n\nAlso, thinking forward we\u0027d like to detect also cases like\na.f()\n...\nif (a instanceOf A){...}\nwhich will probably require to look at the dominators anyway. I wouldn\u0027t do that either in prepare_for_reg_alloc.\n\nIf kept here a good place for it would be as a separate iteration over nodes at the end of ReferenceTypePropagation::Run().",
+      "parentUuid": "706b9231_c34bd6b5",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 7
+      },
+      "revId": "25cd4e15e34d5bed6c870945e333f9a93aff0264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0718a1d_280643a4",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
