@@ -22,6 +22,30 @@
       "revId": "641547a5f18ca2ea54469cceadcfef64f132e5e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_42e7b2ae",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-22T11:11:04Z",
+      "side": 1,
+      "message": "makes the line longer and harder to parse imo but if that\u0027s the recommended style right now I\u0027ll change it in a follow up.",
+      "parentUuid": "b088aa37_ed61a5b9",
+      "range": {
+        "startLine": 1162,
+        "startChar": 0,
+        "endLine": 1162,
+        "endChar": 16
+      },
+      "revId": "641547a5f18ca2ea54469cceadcfef64f132e5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
