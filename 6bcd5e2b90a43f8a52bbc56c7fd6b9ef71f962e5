@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "706b9231_29aac9d4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-22T21:07:49Z",
+      "side": 1,
+      "message": "You can check if the input is a constant and then adjust the output.",
+      "parentUuid": "30867a2e_ec0b6324",
+      "revId": "6bcd5e2b90a43f8a52bbc56c7fd6b9ef71f962e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30867a2e_cc83ff04",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
