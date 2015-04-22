@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_70d2ee04",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-22T16:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9070061a_871488c7",
+      "range": {
+        "startLine": 3878,
+        "startChar": 19,
+        "endLine": 3878,
+        "endChar": 34
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_8f7019d7",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -107,6 +131,30 @@
       "writtenOn": "2015-04-22T15:16:49Z",
       "side": 1,
       "message": "you need to do the same for the null check, right?",
+      "range": {
+        "startLine": 45,
+        "startChar": 35,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "eeeb34761cb0f2942f54fe6196cd37d964c03a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_ef227d9c",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-22T16:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90972654_affb15b9",
       "range": {
         "startLine": 45,
         "startChar": 35,
