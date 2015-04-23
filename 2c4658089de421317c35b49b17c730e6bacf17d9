@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90972654_727cb034",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T14:46:13Z",
+      "side": 1,
+      "message": "I think this is way too obscure. Just say that we cannot emit a clinit check ourselves due to dex cache limitations.",
+      "range": {
+        "startLine": 135,
+        "startChar": 64,
+        "endLine": 135,
+        "endChar": 83
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_28492fbe",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T14:46:13Z",
+      "side": 1,
+      "message": "Please leave this as HInvoke. We can and will inline InvokeVirtual/Interface.",
+      "range": {
+        "startLine": 50,
+        "startChar": 17,
+        "endLine": 50,
+        "endChar": 37
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_0be0a512",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T14:46:13Z",
+      "side": 1,
+      "message": "This looks a bit too much. I\u0027d hide it with just a flag that says we cannot emit the clinit check.",
+      "range": {
+        "startLine": 2218,
+        "startChar": 0,
+        "endLine": 2226,
+        "endChar": 4
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_732af833",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T14:46:13Z",
+      "side": 1,
+      "message": "Would you need this if the clinit check was the last argument?",
+      "range": {
+        "startLine": 2259,
+        "startChar": 0,
+        "endLine": 2274,
+        "endChar": 3
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_930e84e8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T14:46:13Z",
+      "side": 1,
+      "message": "Since this will only be used by one pass, we should probably move this code over there.",
+      "range": {
+        "startLine": 2280,
+        "startChar": 0,
+        "endLine": 2288,
+        "endChar": 3
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_d28ac4b2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T14:46:13Z",
+      "side": 1,
+      "message": "All of this belongs to HInvokeStatic. Callers should know what they are dealing with.",
+      "range": {
+        "startLine": 2291,
+        "startChar": 0,
+        "endLine": 2309,
+        "endChar": 3
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
