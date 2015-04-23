@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_75df3a55",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T17:26:02Z",
+      "side": 1,
+      "message": "Could we do:\n\nBuilder:\nHinvokeStaticOrDirect(arguments, (null if implicit)/(clinit if explicit)).\n\nInliner:\nDon\u0027t inline HInvokeStaticOrDirect that have null at the end of the input.\n\nPepareForAlloc:\nRemove last input of HInvokeStaticOrDirect.",
+      "parentUuid": "50984e8f_6b585112",
+      "range": {
+        "startLine": 2218,
+        "startChar": 0,
+        "endLine": 2226,
+        "endChar": 4
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_732af833",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "No; but I would still need to keep the checks somewhere.  I\u0027ll try to move the extra input at the end of the input list in another patch set.",
       "parentUuid": "b088aa37_732af833",
+      "range": {
+        "startLine": 2259,
+        "startChar": 0,
+        "endLine": 2274,
+        "endChar": 3
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_f5d32a51",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T17:26:02Z",
+      "side": 1,
+      "message": "Sure, I\u0027d try to keep the checks. But it would be nice to avoid leaking this start position offset change.",
+      "parentUuid": "b088aa37_d399ecc5",
       "range": {
         "startLine": 2259,
         "startChar": 0,
@@ -237,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_33631041",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T17:26:02Z",
+      "side": 1,
+      "message": "Oh I see. Then nevermind, it\u0027s probably better to have this here.\n\nOr instead of deleting it, which could be error prone with the InputCount() and number_of_arguments difference, could we just set it to the null constant in prepare_for_register_allocation ?",
+      "parentUuid": "b088aa37_337cf0e5",
+      "range": {
+        "startLine": 2280,
+        "startChar": 0,
+        "endLine": 2288,
+        "endChar": 3
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_d28ac4b2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -272,6 +344,30 @@
       "side": 1,
       "message": "What do you mean? We no longer have a HInvokeStatic class, as it has been turned into HInvokeStaticOrDirect.  Should we reintroduce it?",
       "parentUuid": "90972654_d28ac4b2",
+      "range": {
+        "startLine": 2291,
+        "startChar": 0,
+        "endLine": 2309,
+        "endChar": 3
+      },
+      "revId": "2c4658089de421317c35b49b17c730e6bacf17d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_ebf46156",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T17:26:02Z",
+      "side": 1,
+      "message": "Sorry I thought this class was HInvoke. So this should be here, scratch my comment.\n\nMaybe rename IsInvokeStatic to IsStatic to avoid the confusion with the instruction  name?",
+      "parentUuid": "90972654_d24ba4b5",
       "range": {
         "startLine": 2291,
         "startChar": 0,
