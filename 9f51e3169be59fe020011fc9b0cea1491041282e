@@ -22,6 +22,30 @@
       "revId": "9f51e3169be59fe020011fc9b0cea1491041282e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_25c03898",
+        "filename": "tools/symbolize.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-04-23T06:35:49Z",
+      "side": 1,
+      "message": "\u0027find\u0027 is supported in toybox now which is included in the minimal build. (embedded.mk)",
+      "parentUuid": "10a416b9_051c00eb",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "9f51e3169be59fe020011fc9b0cea1491041282e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
