@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0d43e30_594fa7c4",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:02:04Z",
+      "side": 1,
+      "message": "I am having trouble understanding why this wouldn\u0027t leave a dangling pointer. When CmdlineParser goes out of scope it\u0027ll take save_destination_ with it and then save_destination will just point to garbage memory.",
+      "revId": "037d9a262b3bd2f1f3ef59059e3cc6ad9d3e4877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
