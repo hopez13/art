@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b088aa37_53e41cd6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-23T13:19:02Z",
+      "side": 1,
+      "message": "Aren\u0027t we removing the NullCheck here? I don\u0027t get it.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 58
+      },
+      "revId": "b024b19a4a5b37abc380f6859ef1e07df6b6a837",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_33c87057",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 8
