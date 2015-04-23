@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_53717c8a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 3354,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T13:54:56Z",
+      "side": 1,
+      "message": "instead of DCHECK, how about ClearMustDoNullCheck(). that way we will be sure that we can\u0027t do it even if we want it :)",
+      "parentUuid": "b088aa37_f386e8e4",
+      "range": {
+        "startLine": 3354,
+        "startChar": 2,
+        "endLine": 3354,
+        "endChar": 96
+      },
+      "revId": "76022a06692fd4ea1177e0369ad48fd4587e7be2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_1367f4d5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
