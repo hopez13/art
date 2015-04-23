@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50984e8f_0b6785d5",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "Split in two:\n- RemoveDeadBlocks()\n- RemoveDeadInstructions()",
+      "range": {
+        "startLine": 49,
+        "startChar": 27,
+        "endLine": 49,
+        "endChar": 30
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_6b8df102",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "nit: maybe name this \"MarkLiveBlocks\"?",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 20
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_926afc17",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "size",
+      "range": {
+        "startLine": 70,
+        "startChar": 21,
+        "endLine": 70,
+        "endChar": 22
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_738bd872",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "nit: i\u0027d use a while in this case, but that\u0027s just my preference.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 8
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_ab753978",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "something\u0027s not right here: num_back_edges should not be less than 0 as this branch implies.",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 10
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_f248a0bb",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "please comment out these cases.",
+      "range": {
+        "startLine": 936,
+        "startChar": 14,
+        "endLine": 936,
+        "endChar": 53
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_ab7ad96e",
+        "filename": "test/480-checker-dead-blocks/info.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "this doesn\u0027t match with the test directory name.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 76
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_f396e892",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "do you need this comparison to produce the expected dex?",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_1377f403",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T17:08:05Z",
+      "side": 1,
+      "message": "same question",
+      "range": {
+        "startLine": 90,
+        "startChar": 22,
+        "endLine": 90,
+        "endChar": 30
+      },
+      "revId": "119be432122773199f4f97d8d69eb7444fb6b809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
