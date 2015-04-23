@@ -45,6 +45,30 @@
       "revId": "b0c8615b97abb3fcadc6d98285fefb16b0602845",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_f25ee0c3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4065,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T14:58:58Z",
+      "side": 1,
+      "message": "or add an \u0026\u0026 instruction-\u003eIsClassFinal() ?",
+      "parentUuid": "b088aa37_b332a09b",
+      "range": {
+        "startLine": 4065,
+        "startChar": 0,
+        "endLine": 4065,
+        "endChar": 39
+      },
+      "revId": "b0c8615b97abb3fcadc6d98285fefb16b0602845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
