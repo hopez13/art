@@ -22,6 +22,30 @@
       "revId": "49c0b1c34ae4e1a0abc1a1a305f056b228ce7754",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_12544ca9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3903,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-23T14:49:43Z",
+      "side": 1,
+      "message": "Right. Some tests were failing.",
+      "parentUuid": "50984e8f_689df7b0",
+      "range": {
+        "startLine": 3903,
+        "startChar": 0,
+        "endLine": 3903,
+        "endChar": 29
+      },
+      "revId": "49c0b1c34ae4e1a0abc1a1a305f056b228ce7754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
