@@ -46,6 +46,30 @@
       "revId": "0746453bdf87c4d76b646c5bdcea49b7cce0a47e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0f19ea3_91d93ef8",
+        "filename": "test/474-checker-boolean-input/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T16:43:12Z",
+      "side": 0,
+      "message": "ok, I just noticed that this refers to another function. IMO it reads better if you just move it right before the relevant functions.",
+      "parentUuid": "102176e2_0b208151",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 57
+      },
+      "revId": "0746453bdf87c4d76b646c5bdcea49b7cce0a47e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
