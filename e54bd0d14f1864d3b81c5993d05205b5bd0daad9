@@ -1,0 +1,214 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "309d9a70_6e7cc6e6",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "remove before merge",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_8e81ea4b",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "this can probably be a \u003e instead of a \u003e\u003d+1",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b566fa_b790ef1a",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "line length? didn\u0027t want to add new lines here.",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_08232dd4",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "This might be kind of weird and inconsistent with the other ones, I\u0027d love to hear feedback on this one. FWIW I just used the encoding I already implemented in smali earlier.\n\nI will probably want to implement support for the rest of the opcodes and then go back and fix the encoding for all of them once we are 95% certain what the \"right\" encodings are.",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_8e580a8e",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "remove, unused",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b566fa_773ca790",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "There\u0027s a constexpr for this in one of the headers (fwiw the old code just had \u0027arg[5]\u0027 and this was a refactoring)",
+      "range": {
+        "startLine": 495,
+        "startChar": 31,
+        "endLine": 495,
+        "endChar": 32
+      },
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_c86cc508",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "remove comment",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_0e4c1ace",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "This could be more DRY",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_69be80f8",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90b566fa_f7d2f7d3",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_89c3a489",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2170,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "remove blank line",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_c9ccccbb",
+        "filename": "test/955-lambda-smali/smali/CmpLong.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T01:02:59Z",
+      "side": 1,
+      "message": "rename to SanityCheck?",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
