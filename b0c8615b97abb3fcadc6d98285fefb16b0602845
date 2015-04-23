@@ -117,6 +117,30 @@
       "revId": "b0c8615b97abb3fcadc6d98285fefb16b0602845",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_2b06c94d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-23T15:01:55Z",
+      "side": 1,
+      "message": "-\u003e ||\n\nMaybe with so many tiny differences between the cases, we should stop trying to share code. So we have two cases:\n\n- final and null/not-null\n- non-final and null/not-null",
+      "parentUuid": "90972654_f25ee0c3",
+      "range": {
+        "startLine": 4065,
+        "startChar": 0,
+        "endLine": 4065,
+        "endChar": 39
+      },
+      "revId": "b0c8615b97abb3fcadc6d98285fefb16b0602845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
