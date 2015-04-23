@@ -110,6 +110,143 @@
     },
     {
       "key": {
+        "uuid": "10a416b9_9cc91bfd",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "Double new line",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_dcb2c375",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "There\u0027s a constexpr for this",
+      "range": {
+        "startLine": 605,
+        "startChar": 28,
+        "endLine": 605,
+        "endChar": 30
+      },
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_5ca6d339",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "constexpr for this",
+      "range": {
+        "startLine": 654,
+        "startChar": 15,
+        "endLine": 654,
+        "endChar": 16
+      },
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_1fc1a52d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "constexpr for this",
+      "range": {
+        "startLine": 680,
+        "startChar": 15,
+        "endLine": 680,
+        "endChar": 16
+      },
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_bcb41f34",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "Not sure how to test these failing paths, once I remove the soft verification fails IIUC it will just bail out at compile time.\n\nAnd if we run with --no-verify then it needs to skip this altogether.",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d43e30_dcf4c556",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "I think this needs to be additionally guarded by do_access_check?",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_3fb029ba",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-23T18:22:30Z",
+      "side": 1,
+      "message": "Add a test for this",
+      "revId": "e54bd0d14f1864d3b81c5993d05205b5bd0daad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10a416b9_c86cc508",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
