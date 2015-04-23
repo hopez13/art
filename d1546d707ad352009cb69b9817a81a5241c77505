@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b088aa37_d393acd2",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-23T15:51:59Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be next to the declaration?",
+      "range": {
+        "startLine": 1104,
+        "startChar": 2,
+        "endLine": 1104,
+        "endChar": 92
+      },
+      "revId": "d1546d707ad352009cb69b9817a81a5241c77505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_cb119d51",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-23T15:51:59Z",
+      "side": 1,
+      "message": "You can use the HLoopInformationOutwardIterator and turn this into a for loop",
+      "range": {
+        "startLine": 1118,
+        "startChar": 2,
+        "endLine": 1118,
+        "endChar": 32
+      },
+      "revId": "d1546d707ad352009cb69b9817a81a5241c77505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
