@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "30867a2e_8c802795",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-23T03:15:09Z",
+      "side": 1,
+      "message": "Actually at the beginning, I tried to make this function an abstract one in space.cc something like SpaceWalkBitmap. After using the bitmaps as the arguments, unfortunately the template function due to ContinuousSpaceBitmap couldn\u0027t been inherited. Also it seems inappropriate, since this function is unique for RosSpace. IF there are multiple RosSpace, it\u0027s easy to replace the existing GetRosAllocSpace() to get the right RosSpace, since one RosAlloc is corresponding to one RosSpace. I am still trying to find more elegant approach next.",
+      "parentUuid": "309d9a70_26958c16",
+      "range": {
+        "startLine": 1216,
+        "startChar": 14,
+        "endLine": 1216,
+        "endChar": 35
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10a416b9_3aa59e04",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 5
@@ -82,6 +106,30 @@
       "writtenOn": "2015-04-22T19:13:23Z",
       "side": 1,
       "message": "Is there a reason we cant change the default RosAllocSpace Sweep to be SweepWalkPagemap?",
+      "range": {
+        "startLine": 1182,
+        "startChar": 26,
+        "endLine": 1182,
+        "endChar": 42
+      },
+      "revId": "7022c445ba738d328bbb2810bb635183ad7817f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5083ee1c_2d63b940",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1015518
+      },
+      "writtenOn": "2015-04-23T03:15:09Z",
+      "side": 1,
+      "message": "I haven\u0027t found the exceptions yet. If multiple RosSpaces exist, it may need to change a little bit here to make sure that we get the RosSpace right one by one. I will keep an eye on this and fix it if there is any exception here going forward. Thanks.",
+      "parentUuid": "10a416b9_3aa59e04",
       "range": {
         "startLine": 1182,
         "startChar": 26,
