@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "50984e8f_aba3f97c",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-23T16:34:40Z",
+      "side": 1,
+      "message": "Our internal Copyright Notice Usage says that the notice must include\n\n  \"the year the file was created in full numeric form\n  (e.g., 2010); don\u0027t change this if you edit, move, or\n  copy the file.\"\n\nI would go for 2014 as most of the contents of the new file comes from compiler/optimizing/stack_map_stream.h.",
+      "parentUuid": "b088aa37_33ff90e4",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "c416d3359179b0ec6152104db8240f4d11c54bc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_73275832",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 2
