@@ -16,6 +16,24 @@
       "revId": "037d9a262b3bd2f1f3ef59059e3cc6ad9d3e4877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d43e30_bc47c92d",
+        "filename": "cmdline/cmdline_parser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2015-04-23T18:27:14Z",
+      "side": 1,
+      "message": "I think that is possible. When CmdlineParser goes out of scope, I am not sure any other dynamic object will become dangling pointer or being deleted multiple times. So far I have only a proved case of extra delete.",
+      "parentUuid": "d0d43e30_594fa7c4",
+      "revId": "037d9a262b3bd2f1f3ef59059e3cc6ad9d3e4877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
