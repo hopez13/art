@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_f36188b9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 3354,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-23T14:04:55Z",
+      "side": 1,
+      "message": "so just to clarify on the suggestion.\n\nsince we know that we should never transition from false to true here it\u0027s better to change this setter into:\n\nvoid ClearMustDoNullCheck() const { must_do_null_check_ \u003d false; }\n\nand then in the caller we should do\nif (!obj-\u003eCanBeNull()) {\n  check_cast-\u003eClearMustDoNullCheck();\n}\n\nIt will also be self documenting that this should never go from false to true.",
+      "parentUuid": "b088aa37_53717c8a",
+      "range": {
+        "startLine": 3354,
+        "startChar": 2,
+        "endLine": 3354,
+        "endChar": 96
+      },
+      "revId": "76022a06692fd4ea1177e0369ad48fd4587e7be2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_1367f4d5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
