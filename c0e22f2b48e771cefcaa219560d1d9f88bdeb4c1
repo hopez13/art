@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "d076fe11_d09f1161",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-23T23:21:56Z",
+      "side": 1,
+      "message": "Catching exception is a property of method and not whether the optimization is enabled. Thus, I am not sure that this makes sense to call like this. I would prefer simply marking it to true if there are indeed catch blocks.",
+      "range": {
+        "startLine": 330,
+        "startChar": 10,
+        "endLine": 330,
+        "endChar": 31
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5083ee1c_73a4b285",
+        "filename": "compiler/optimizing/graph_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-23T23:21:56Z",
+      "side": 1,
+      "message": "Can you use SetInitialBits instead?",
+      "range": {
+        "startLine": 94,
+        "startChar": 12,
+        "endLine": 94,
+        "endChar": 18
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5083ee1c_33815ad3",
+        "filename": "compiler/optimizing/graph_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-23T23:21:56Z",
+      "side": 1,
+      "message": "From what I can tell, you are disabling SimplifyCFG because all blocks are visited. Is there a reason why?",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30867a2e_ef90b5c8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-23T23:21:56Z",
+      "side": 1,
+      "message": "I would prefer naming it \"has_catch_handlers\"",
+      "range": {
+        "startLine": 323,
+        "startChar": 7,
+        "endLine": 323,
+        "endChar": 28
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5083ee1c_737bd274",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1013855
+      },
+      "writtenOn": "2015-04-23T23:21:56Z",
+      "side": 1,
+      "message": "Maybe comment that this is an over-approximation since it doesn\u0027t seem you are actually analyzing what is live into those blocks. I wonder if it would be cleaner to integrate catch blocks into graph and then replace them with deopt nodes once we successfully model the data flow.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 11
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_ec77ebc9",
         "filename": "runtime/thread.h",
         "patchSetId": 8
