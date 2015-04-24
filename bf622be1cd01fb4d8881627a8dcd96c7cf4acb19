@@ -142,6 +142,30 @@
       "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_724e5b4f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-24T22:12:55Z",
+      "side": 1,
+      "message": "I think Nicolas wants the DCHECK removed. The options are:\n\n1) Generate the slow-path, but not branch to it.\n2) Fast bail-out. I don\u0027t think that needs rearrangement. Just a \"simple\"\n\n if (isConstant() \u0026\u0026 isConstant() \u0026\u0026 ...) {\n   return;\n }",
+      "parentUuid": "d076fe11_d7a54380",
+      "range": {
+        "startLine": 3838,
+        "startChar": 6,
+        "endLine": 3838,
+        "endChar": 43
+      },
+      "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
