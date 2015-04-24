@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90972654_20f01261",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T17:34:14Z",
+      "side": 1,
+      "message": "You should move this after line 3843 to avoid writing the slow path again.",
+      "range": {
+        "startLine": 3823,
+        "startChar": 0,
+        "endLine": 3838,
+        "endChar": 3
+      },
+      "revId": "6c8af854069972c87917c35fb0de986e99afbb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_214e564e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3779,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T17:34:14Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3764,
+        "startChar": 0,
+        "endLine": 3779,
+        "endChar": 3
+      },
+      "revId": "6c8af854069972c87917c35fb0de986e99afbb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
