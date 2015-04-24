@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "706b9231_0f334870",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T21:50:24Z",
+      "side": 1,
+      "message": "We shouldn\u0027t do this. Who knows what optimizations after BCE can do.",
+      "range": {
+        "startLine": 3838,
+        "startChar": 6,
+        "endLine": 3838,
+        "endChar": 43
+      },
+      "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
