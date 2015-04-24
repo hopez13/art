@@ -22,6 +22,30 @@
       "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d076fe11_97e90bb0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T21:54:40Z",
+      "side": 1,
+      "message": "You told me not to check for them both being constants because BCE fixed it.  \n\nDo you want me to make this an \u0027if\u0027 and not generate any code if it is in range?  Or should I just delete the DCHECK?",
+      "parentUuid": "706b9231_0f334870",
+      "range": {
+        "startLine": 3838,
+        "startChar": 6,
+        "endLine": 3838,
+        "endChar": 43
+      },
+      "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
