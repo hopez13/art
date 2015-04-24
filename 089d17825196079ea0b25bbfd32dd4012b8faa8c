@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90972654_b54e02c7",
+        "filename": "compiler/dex/quick/gen_invoke.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-24T14:29:37Z",
+      "side": 1,
+      "message": "This should also be hidden under IsSpecial().",
+      "range": {
+        "startLine": 1553,
+        "startChar": 2,
+        "endLine": 1554,
+        "endChar": 30
+      },
+      "revId": "089d17825196079ea0b25bbfd32dd4012b8faa8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_96361c91",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-24T14:29:37Z",
+      "side": 1,
+      "message": "This comment seems rather dated. Add Class and String.",
+      "range": {
+        "startLine": 397,
+        "startChar": 4,
+        "endLine": 397,
+        "endChar": 65
+      },
+      "revId": "089d17825196079ea0b25bbfd32dd4012b8faa8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
