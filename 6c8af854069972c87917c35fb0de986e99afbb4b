@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "50984e8f_31aaba7f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T17:41:44Z",
+      "side": 1,
+      "message": "The thing is, if they are both constants, BCE left the bounds check only if won\u0027t succeed. So this change more or less looks like doing constant folding in the codegen, which we could avoid.",
+      "parentUuid": "5083ee1c_7ee9d9ac",
+      "range": {
+        "startLine": 3823,
+        "startChar": 0,
+        "endLine": 3838,
+        "endChar": 3
+      },
+      "revId": "6c8af854069972c87917c35fb0de986e99afbb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_214e564e",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
