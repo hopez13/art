@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_e01fea87",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T15:20:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b088aa37_76f906fb",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 5
+      },
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_96ed923b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 9
@@ -36,6 +60,24 @@
       "writtenOn": "2015-04-24T14:22:22Z",
       "side": 1,
       "message": "Add a DCHECK that this is not a back edge?",
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_f6bfb60a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T15:20:08Z",
+      "side": 1,
+      "message": "Won\u0027t work. This *could* be a back edge if the entire loop is being removed. That\u0027s difficult to DCHECK here, hence the changes to SSAChecker.",
+      "parentUuid": "b088aa37_96ed923b",
       "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "50984e8f_d6f3841b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T15:20:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50984e8f_166d6c84",
+      "range": {
+        "startLine": 938,
+        "startChar": 73,
+        "endLine": 938,
+        "endChar": 78
+      },
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5083ee1c_7e439971",
         "filename": "test/480-checker-dead-blocks/src/Main.java",
         "patchSetId": 9
@@ -76,6 +142,24 @@
       "writtenOn": "2015-04-24T14:18:09Z",
       "side": 1,
       "message": "extra spaces",
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_761278db",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T15:20:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5083ee1c_7e439971",
       "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
