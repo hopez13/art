@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d076fe11_3bff6be4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T01:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b088aa37_96fe72aa",
+      "revId": "7e4bb42810c903eb3b9d6ba9ca79ee3c27b5bf60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50984e8f_4b8b4db8",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 19
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "5083ee1c_f3ea62ed",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T01:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50984e8f_4b8b4db8",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 53
+      },
+      "revId": "7e4bb42810c903eb3b9d6ba9ca79ee3c27b5bf60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_165d2257",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 19
@@ -53,6 +95,30 @@
       "writtenOn": "2015-04-23T19:49:58Z",
       "side": 1,
       "message": "You could have a separate buffer for the non-literal constants. Then the used_for_non_literal_ wouldn\u0027t be needed.",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 33
+      },
+      "revId": "7e4bb42810c903eb3b9d6ba9ca79ee3c27b5bf60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30867a2e_72c82ea6",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T01:01:45Z",
+      "side": 1,
+      "message": "Done\n\nIn fact, we only need a count of the number of 0 words, and not a second buffer.",
+      "parentUuid": "b088aa37_165d2257",
       "range": {
         "startLine": 317,
         "startChar": 4,
