@@ -118,6 +118,30 @@
       "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d076fe11_d7a54380",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3838,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T22:06:46Z",
+      "side": 1,
+      "message": "So what is the final decision?  Should I check and not call AddSlowPath if it is in range (with some code rearrangement)?  Or leave the DCHECK?",
+      "parentUuid": "706b9231_6ff4bc04",
+      "range": {
+        "startLine": 3838,
+        "startChar": 6,
+        "endLine": 3838,
+        "endChar": 43
+      },
+      "revId": "bf622be1cd01fb4d8881627a8dcd96c7cf4acb19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
