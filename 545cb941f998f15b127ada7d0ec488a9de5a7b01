@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0cfca9d_29aa557f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T21:12:49Z",
+      "side": 1,
+      "message": "that HasArrayAccesses is true when ...",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706b9231_4f72a062",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T21:12:49Z",
+      "side": 1,
+      "message": "Actually you don\u0027t need it here since there is no bounds check. Which makes me think we should rename the flat to SetHasBoundsChecks.",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1000,
+        "endChar": 36
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706b9231_6f775c51",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T21:12:49Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 49,
+        "startChar": 36,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
