@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_419b6272",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-24T15:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b088aa37_41b442e5",
+      "range": {
+        "startLine": 446,
+        "startChar": 5,
+        "endLine": 446,
+        "endChar": 40
+      },
+      "revId": "8418ae3b269f827ecad41e4ed901f759a154ca1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_014f9a93",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-24T15:51:44Z",
       "side": 1,
       "message": "Two nits:\n* I\u0027d move the declaration of InsertInstructionAfter after InsertInstructionBefore\u0027s.\n* I would document these two methods as David did in https://android-review.googlesource.com/#/c/147877/4/compiler/optimizing/nodes.h.",
+      "range": {
+        "startLine": 570,
+        "startChar": 2,
+        "endLine": 570,
+        "endChar": 79
+      },
+      "revId": "8418ae3b269f827ecad41e4ed901f759a154ca1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_61905e4c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-04-24T15:56:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b088aa37_014f9a93",
       "range": {
         "startLine": 570,
         "startChar": 2,
