@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0d43e30_2a8119d3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-24T17:47:43Z",
+      "side": 1,
+      "message": "You can make this more compact by doing\nif (cmp !\u003d 0) {\nreturn cmp \u003e 0;\n}\nreturn dex_file_ \u003c rhs.dex_file_;",
+      "range": {
+        "startLine": 746,
+        "startChar": 17,
+        "endLine": 746,
+        "endChar": 18
+      },
+      "revId": "2f9c49adbe5521099cca79d427758140b5f9f627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
