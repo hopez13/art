@@ -39,6 +39,213 @@
       "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_953bc64a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Does this work? Since we simplify the cfg to only have one back edge, how can a loop survive without having a back edge?",
+      "range": {
+        "startLine": 922,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 5
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_f62c1644",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Explain why this is safe.",
+      "range": {
+        "startLine": 939,
+        "startChar": 9,
+        "endLine": 939,
+        "endChar": 52
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_36721e62",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Why not?",
+      "range": {
+        "startLine": 950,
+        "startChar": 8,
+        "endLine": 950,
+        "endChar": 59
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_5677aa50",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "How many predecessors can you have? Only two right? Isn\u0027t the dominator then obvious?",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 967,
+        "endChar": 5
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_b6328e9b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Does this case actually happen today?",
+      "range": {
+        "startLine": 979,
+        "startChar": 0,
+        "endLine": 981,
+        "endChar": 7
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_d670248a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Where/when is the deletion happening?",
+      "range": {
+        "startLine": 1021,
+        "startChar": 47,
+        "endLine": 1021,
+        "endChar": 76
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_55223e23",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Huh, but you\u0027re calling it unconditionally.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 83
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_35d852a5",
+        "filename": "compiler/utils/growable_array.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Who needs this?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_b67d2e30",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:20:14Z",
+      "side": 1,
+      "message": "Add a test for while (inlineFalse()) ?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
