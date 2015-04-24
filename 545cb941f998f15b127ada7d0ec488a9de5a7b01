@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5083ee1c_79d2d304",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T21:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0cfca9d_29aa557f",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "706b9231_4f72a062",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "30867a2e_38be95f7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T21:17:53Z",
+      "side": 1,
+      "message": "Would you like me to rename it?  Should I only check in VisitBoundsCheck?",
+      "parentUuid": "706b9231_4f72a062",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1000,
+        "endChar": 36
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "706b9231_6f775c51",
         "filename": "compiler/optimizing/graph_checker.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-24T21:12:49Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 49,
+        "startChar": 36,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d076fe11_37185776",
+        "filename": "compiler/optimizing/graph_checker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T21:17:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "706b9231_6f775c51",
       "range": {
         "startLine": 49,
         "startChar": 36,
