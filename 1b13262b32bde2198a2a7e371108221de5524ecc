@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "b088aa37_76f906fb",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T14:22:22Z",
+      "side": 1,
+      "message": "Alternatively, you could call MaybeRecordDeadBlock() and let the logic in there.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 5
+      },
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_96ed923b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T14:22:22Z",
+      "side": 1,
+      "message": "Add a DCHECK that this is not a back edge?",
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_166d6c84",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T14:22:22Z",
+      "side": 1,
+      "message": "What\u0027s \"it\" and what\u0027s later in this context? Please avoid time-based comments.",
+      "range": {
+        "startLine": 938,
+        "startChar": 73,
+        "endLine": 938,
+        "endChar": 78
+      },
+      "revId": "1b13262b32bde2198a2a7e371108221de5524ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5083ee1c_7e439971",
         "filename": "test/480-checker-dead-blocks/src/Main.java",
         "patchSetId": 9
