@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "706b9231_cf1130d6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T21:46:34Z",
+      "side": 1,
+      "message": "Mingyao, what do you think? The flag is only for knowing if we need to run BCE, so shouldn\u0027t it be based on the presence of HBoundsCheck?",
+      "parentUuid": "30867a2e_38be95f7",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1000,
+        "endChar": 36
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "706b9231_6f775c51",
         "filename": "compiler/optimizing/graph_checker.h",
         "patchSetId": 1
