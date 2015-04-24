@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b088aa37_56a08a19",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "IsFastStaticMethod -\u003e IsClassOfStaticMethodAvailableToReferrer ?",
+      "range": {
+        "startLine": 178,
+        "startChar": 29,
+        "endLine": 178,
+        "endChar": 46
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_36abfe01",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "This looks very close if not indentical to code is IsFastStaticField. Can\u0027t you refactor?",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 5
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_35aa12d5",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "Rephrase.",
+      "range": {
+        "startLine": 283,
+        "startChar": 5,
+        "endLine": 283,
+        "endChar": 50
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_969912f9",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_f6f44856",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "This should be in a different CL. This CL is fixing a bug, you should make the optimization standalone.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 50
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_b5b5222f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. If the clinit check is not required it should not be in the graph. The code generators should not see it.",
+      "range": {
+        "startLine": 2218,
+        "startChar": 0,
+        "endLine": 2219,
+        "endChar": 59
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b088aa37_560b2aab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "Drop \u0027declaring\u0027 ?",
+      "range": {
+        "startLine": 2220,
+        "startChar": 19,
+        "endLine": 2220,
+        "endChar": 30
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_760158be",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "as -\u003e a",
+      "range": {
+        "startLine": 2251,
+        "startChar": 25,
+        "endLine": 2251,
+        "endChar": 27
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_56fe5432",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2259,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "explicit",
+      "range": {
+        "startLine": 2259,
+        "startChar": 23,
+        "endLine": 2259,
+        "endChar": 31
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_36fbd042",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-24T13:56:06Z",
+      "side": 1,
+      "message": "If the load ...",
+      "range": {
+        "startLine": 96,
+        "startChar": 10,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "50380813cf5152208550d1dc713e6ed7ad7f91f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
