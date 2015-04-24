@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "90b566fa_4b36b161",
+        "filename": "compiler/dex/mir_optimization.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d08d1e46_22a65639",
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10a416b9_441d2e65",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 30
@@ -30,6 +48,30 @@
       "writtenOn": "2015-04-22T03:12:34Z",
       "side": 1,
       "message": "We no longer call this, please guard behind the if (kComputeEagerResolvedStrings)",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_1d81b6fc",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10a416b9_441d2e65",
       "range": {
         "startLine": 91,
         "startChar": 4,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "309d9a70_9d004606",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309d9a70_1a0b815e",
+      "range": {
+        "startLine": 1232,
+        "startChar": 38,
+        "endLine": 1232,
+        "endChar": 40
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d08d1e46_62a05e1a",
         "filename": "runtime/entrypoints_order_test.cc",
         "patchSetId": 30
@@ -76,6 +142,30 @@
       "writtenOn": "2015-04-22T03:12:34Z",
       "side": 1,
       "message": "Line too long",
+      "range": {
+        "startLine": 171,
+        "startChar": 89,
+        "endLine": 171,
+        "endChar": 95
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_4b5456aa",
+        "filename": "runtime/entrypoints_order_test.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d08d1e46_62a05e1a",
       "range": {
         "startLine": 171,
         "startChar": 89,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "90b566fa_f11faa14",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "309d9a70_3a104584",
+      "range": {
+        "startLine": 671,
+        "startChar": 27,
+        "endLine": 671,
+        "endChar": 30
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d08d1e46_a29966f8",
         "filename": "runtime/native/java_lang_reflect_Constructor.cc",
         "patchSetId": 30
@@ -128,6 +242,24 @@
     },
     {
       "key": {
+        "uuid": "90b566fa_eb90dd9e",
+        "filename": "runtime/native/java_lang_reflect_Constructor.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "accessible isn\u0027t even in this method anymore.",
+      "parentUuid": "d08d1e46_a29966f8",
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d08d1e46_2201f68b",
         "filename": "runtime/runtime.h",
         "patchSetId": 30
@@ -139,6 +271,30 @@
       "writtenOn": "2015-04-22T03:12:34Z",
       "side": 1,
       "message": "const reference possible? If you are writing from here, then I suppose leaving it is OK.",
+      "range": {
+        "startLine": 564,
+        "startChar": 2,
+        "endLine": 564,
+        "endChar": 29
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a416b9_466d2b84",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Yea I\u0027m updating the map after I get it, so I can\u0027t make it const.",
+      "parentUuid": "d08d1e46_2201f68b",
       "range": {
         "startLine": 564,
         "startChar": 2,
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "309d9a70_fdd792e6",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10a416b9_44c8ce57",
+      "range": {
+        "startLine": 263,
+        "startChar": 99,
+        "endLine": 263,
+        "endChar": 100
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10a416b9_64cdd266",
         "filename": "test/201-built-in-exception-detail-messages/src/Main.java",
         "patchSetId": 30
@@ -185,6 +365,30 @@
       "writtenOn": "2015-04-22T03:12:34Z",
       "side": 1,
       "message": "Line too long",
+      "range": {
+        "startLine": 412,
+        "startChar": 100,
+        "endLine": 412,
+        "endChar": 103
+      },
+      "revId": "7d9f6252bd801c593dcb11c7bb20ec4dfed54706",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "309d9a70_bda8aa59",
+        "filename": "test/201-built-in-exception-detail-messages/src/Main.java",
+        "patchSetId": 30
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-24T02:56:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10a416b9_64cdd266",
       "range": {
         "startLine": 412,
         "startChar": 100,
