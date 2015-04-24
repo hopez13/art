@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "10a416b9_014f7418",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T22:30:26Z",
+      "side": 1,
+      "message": "Yes looks like it should be renamed to SetHasBoundsChecks() and only verify in VisitBoundsCheck().",
+      "parentUuid": "706b9231_cf1130d6",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1000,
+        "endChar": 36
+      },
+      "revId": "545cb941f998f15b127ada7d0ec488a9de5a7b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "706b9231_6f775c51",
         "filename": "compiler/optimizing/graph_checker.h",
         "patchSetId": 1
