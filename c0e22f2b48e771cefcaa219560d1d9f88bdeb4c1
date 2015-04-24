@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0d43e30_aab64937",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T21:18:05Z",
+      "side": 1,
+      "message": "Ok. I renamed it to MethodHasCatchBlocks.",
+      "parentUuid": "d076fe11_d09f1161",
+      "range": {
+        "startLine": 330,
+        "startChar": 10,
+        "endLine": 330,
+        "endChar": 31
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5083ee1c_73a4b285",
         "filename": "compiler/optimizing/graph_test.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-23T23:21:56Z",
       "side": 1,
       "message": "Can you use SetInitialBits instead?",
+      "range": {
+        "startLine": 94,
+        "startChar": 12,
+        "endLine": 94,
+        "endChar": 18
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d43e30_cd363f92",
+        "filename": "compiler/optimizing/graph_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T21:18:05Z",
+      "side": 1,
+      "message": "Thanks. Didn\u0027t notice that method.",
+      "parentUuid": "5083ee1c_73a4b285",
       "range": {
         "startLine": 94,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "10a416b9_d259c0e2",
+        "filename": "compiler/optimizing/graph_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T21:18:05Z",
+      "side": 1,
+      "message": "This CL added a parameter for SimplifyCFG so I just need this parameter. SimplifyCFG does\n  // (1): Split critical edges.\n  // (2): Simplify loops by having only one back edge, and one preheader.\nso I\u0027m not disabling any of those.",
+      "parentUuid": "5083ee1c_33815ad3",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30867a2e_ef90b5c8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-23T23:21:56Z",
       "side": 1,
       "message": "I would prefer naming it \"has_catch_handlers\"",
+      "range": {
+        "startLine": 323,
+        "startChar": 7,
+        "endLine": 323,
+        "endChar": 28
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d43e30_8d2047c7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T21:18:05Z",
+      "side": 1,
+      "message": "renamed to method_has_catch_blocks_.",
+      "parentUuid": "30867a2e_ef90b5c8",
       "range": {
         "startLine": 323,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "309d9a70_fe413a18",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T21:18:05Z",
+      "side": 1,
+      "message": "Add this comment:\n            // This is very coarse-grained since we don\u0027t analyze yet whether current\n            // can throw an exception that\u0027s caught by one of the catch blocks.",
+      "parentUuid": "5083ee1c_737bd274",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 11
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_ec77ebc9",
         "filename": "runtime/thread.h",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-22T09:06:10Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 115,
+        "startChar": 34,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "c0e22f2b48e771cefcaa219560d1d9f88bdeb4c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d43e30_4a01f58a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-24T21:18:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "90972654_ec77ebc9",
       "range": {
         "startLine": 115,
         "startChar": 34,
