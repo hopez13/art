@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_767ca634",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Absolutely. We could even use the numerical bounds analysis from bounds-check elimination to remove branches.",
+      "parentUuid": "5083ee1c_3e620114",
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d076fe11_469a8747",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2015-04-24T13:06:33Z",
       "side": 1,
       "message": "Make this a local?",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90972654_f5324a6a",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d076fe11_469a8747",
       "range": {
         "startLine": 34,
         "startChar": 26,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_d68abab2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "You\u0027re right. This can happen only when the entire loop is being deleted. Removed.",
+      "parentUuid": "90972654_953bc64a",
+      "range": {
+        "startLine": 922,
+        "startChar": 0,
+        "endLine": 924,
+        "endChar": 5
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_f62c1644",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -76,6 +142,30 @@
       "writtenOn": "2015-04-24T13:20:14Z",
       "side": 1,
       "message": "Explain why this is safe.",
+      "range": {
+        "startLine": 939,
+        "startChar": 9,
+        "endLine": 939,
+        "endChar": 52
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_96ddfce4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b088aa37_f62c1644",
       "range": {
         "startLine": 939,
         "startChar": 9,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_f6b97658",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Ah yeah, let me explain. This would otherwise violate the fact that dominators are removed before the blocks they dominate (`this` would be the dominator of `successor`). I\u0027ve changed the comment.",
+      "parentUuid": "b088aa37_36721e62",
+      "range": {
+        "startLine": 950,
+        "startChar": 8,
+        "endLine": 950,
+        "endChar": 59
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_5677aa50",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -122,6 +236,30 @@
       "writtenOn": "2015-04-24T13:20:14Z",
       "side": 1,
       "message": "How many predecessors can you have? Only two right? Isn\u0027t the dominator then obvious?",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 967,
+        "endChar": 5
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_164e8c4d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Nope, can have more than two predecessors with the merging.",
+      "parentUuid": "b088aa37_5677aa50",
       "range": {
         "startLine": 956,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_55f4fe03",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Yep, e.g. with the block containing Return",
+      "parentUuid": "b088aa37_b6328e9b",
+      "range": {
+        "startLine": 979,
+        "startChar": 0,
+        "endLine": 981,
+        "endChar": 7
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50984e8f_d670248a",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 8
@@ -168,6 +330,30 @@
       "writtenOn": "2015-04-24T13:20:14Z",
       "side": 1,
       "message": "Where/when is the deletion happening?",
+      "range": {
+        "startLine": 1021,
+        "startChar": 47,
+        "endLine": 1021,
+        "endChar": 76
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_d647042d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Moved next to the delete.",
+      "parentUuid": "50984e8f_d670248a",
       "range": {
         "startLine": 1021,
         "startChar": 47,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_b59c42b7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Added condition.",
+      "parentUuid": "90972654_55223e23",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 83
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_35d852a5",
         "filename": "compiler/utils/growable_array.h",
         "patchSetId": 8
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_d599cec5",
+        "filename": "compiler/utils/growable_array.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "MergeWith in DCHECK",
+      "parentUuid": "90972654_35d852a5",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b088aa37_b67d2e30",
         "filename": "test/480-checker-dead-blocks/src/Main.java",
         "patchSetId": 8
@@ -237,6 +471,30 @@
       "writtenOn": "2015-04-24T13:20:14Z",
       "side": 1,
       "message": "Add a test for while (inlineFalse()) ?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_760cb8ef",
+        "filename": "test/480-checker-dead-blocks/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-24T14:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b088aa37_b67d2e30",
       "range": {
         "startLine": 117,
         "startChar": 0,
