@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b088aa37_a17086d6",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-24T15:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90972654_e07a8ab4",
+      "range": {
+        "startLine": 160,
+        "startChar": 45,
+        "endLine": 160,
+        "endChar": 63
+      },
+      "revId": "f4a31c8da7380e58c5c64fbea4ffe46b077e15ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_806c6607",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 9
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "90972654_008156fc",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-24T15:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90972654_806c6607",
+      "range": {
+        "startLine": 284,
+        "startChar": 30,
+        "endLine": 285,
+        "endChar": 37
+      },
+      "revId": "f4a31c8da7380e58c5c64fbea4ffe46b077e15ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90972654_40499e92",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 9
@@ -82,6 +130,30 @@
       "writtenOn": "2015-04-24T15:25:52Z",
       "side": 1,
       "message": "This doesn\u0027t really apply for methods. I suggest renaming this method to IsClassOfStaticMemberAvailableToReferrer, and update the comment.",
+      "range": {
+        "startLine": 468,
+        "startChar": 1,
+        "endLine": 469,
+        "endChar": 55
+      },
+      "revId": "f4a31c8da7380e58c5c64fbea4ffe46b077e15ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50984e8f_36975091",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-24T15:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90972654_40499e92",
       "range": {
         "startLine": 468,
         "startChar": 1,
