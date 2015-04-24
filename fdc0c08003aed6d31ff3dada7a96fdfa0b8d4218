@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5083ee1c_3e620114",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T13:06:33Z",
+      "side": 1,
+      "message": "Do you want to consider simplifying Switch blocks if/when https://android-review.googlesource.com/145123 merges?  It should be a different CL.",
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d076fe11_469a8747",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-24T13:06:33Z",
+      "side": 1,
+      "message": "Make this a local?",
+      "range": {
+        "startLine": 34,
+        "startChar": 26,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "fdc0c08003aed6d31ff3dada7a96fdfa0b8d4218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
