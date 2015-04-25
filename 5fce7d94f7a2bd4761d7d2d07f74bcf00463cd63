@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90fc86c6_0406764d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "GetLoopHead?",
+      "range": {
+        "startLine": 267,
+        "startChar": 4,
+        "endLine": 267,
+        "endChar": 61
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f712e2_e331121f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "Please use the HBlocksInLoopIterator instead.",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 270,
+        "endChar": 69
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_0210aa83",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "How about changing the iteration then:\n\nfor (HBasicBlock* block \u003d back_edge; block !\u003d header\u0027s dominator; block \u003d block-\u003eGetDominator()) ?\n\nThat might lead to using a different array though :) But it will avoid the expensive Dominates call.",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 7
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_e4311a1f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "Given the name of the method, you could probably DCHECK that the block is a loop header.",
+      "range": {
+        "startLine": 464,
+        "startChar": 31,
+        "endLine": 464,
+        "endChar": 70
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_c4361e15",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "Add -\u003e Adds (or Returns -\u003e Return below, as long as it\u0027s consistent).",
+      "range": {
+        "startLine": 566,
+        "startChar": 5,
+        "endLine": 566,
+        "endChar": 8
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_a42b22af",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 600,
+        "startChar": 5,
+        "endLine": 600,
+        "endChar": 8
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_84302618",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "Is there a reason the order is different than line 718? If not, please make it consistent.",
+      "range": {
+        "startLine": 725,
+        "startChar": 10,
+        "endLine": 726,
+        "endChar": 54
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_64264ae6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "is that `Hif` ?",
+      "range": {
+        "startLine": 946,
+        "startChar": 36,
+        "endLine": 946,
+        "endChar": 47
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_82f11ae3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "what\u0027s \u0027it\u0027 ?",
+      "range": {
+        "startLine": 946,
+        "startChar": 26,
+        "endLine": 946,
+        "endChar": 28
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_041d568f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "What does it mean to not be \"for\" the loop?",
+      "range": {
+        "startLine": 946,
+        "startChar": 54,
+        "endLine": 946,
+        "endChar": 57
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_22ee0e04",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "Move this comment to line 1200?\n\nAlso please add a DCHECK that this is the case.",
+      "range": {
+        "startLine": 1192,
+        "startChar": 11,
+        "endLine": 1193,
+        "endChar": 17
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_e20a6659",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "nit: surround with ()",
+      "range": {
+        "startLine": 510,
+        "startChar": 42,
+        "endLine": 510,
+        "endChar": 80
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f712e2_43a0e69e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "env -\u003e `env`.",
+      "range": {
+        "startLine": 1010,
+        "startChar": 15,
+        "endLine": 1010,
+        "endChar": 18
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_42eb12f3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-25T14:53:56Z",
+      "side": 1,
+      "message": "things -\u003e instructions that require an environment (like HDeoptimization).",
+      "range": {
+        "startLine": 1011,
+        "startChar": 35,
+        "endLine": 1011,
+        "endChar": 51
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
