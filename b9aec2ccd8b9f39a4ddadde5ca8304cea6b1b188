@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0d99e70_171d7e8f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-25T03:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0d42a38_d6bdbafa",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 82
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f222e5_32d76e42",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-25T00:56:03Z",
       "side": 1,
       "message": "seems confusing, can we look know here and log what will happen?",
+      "range": {
+        "startLine": 943,
+        "startChar": 83,
+        "endLine": 943,
+        "endChar": 95
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_1672220c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-25T03:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f222e5_32d76e42",
       "range": {
         "startLine": 943,
         "startChar": 83,
