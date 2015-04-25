@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0d42a38_fc1ad526",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-25T20:55:46Z",
+      "side": 1,
+      "message": "static",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 58
+      },
+      "revId": "35259d5d482c00b91e29023f7c892913c510e271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f222e5_78ddd5e1",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-25T20:55:46Z",
+      "side": 1,
+      "message": "May be null. You even remembered to mark that on the declaration of GetCallingClass.",
+      "range": {
+        "startLine": 475,
+        "startChar": 9,
+        "endLine": 475,
+        "endChar": 17
+      },
+      "revId": "35259d5d482c00b91e29023f7c892913c510e271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d99e70_a2bd46c9",
+        "filename": "runtime/native/java_lang_reflect_Constructor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-25T20:55:46Z",
+      "side": 1,
+      "message": "What if this is coming from native? GetMethodID doesn\u0027t have problems returning *anything*. So the comment needs to be updated (as JNI doesn\u0027t enforce access checks).\n\nAlso, please *do* the access check in a debug build.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 3
+      },
+      "revId": "35259d5d482c00b91e29023f7c892913c510e271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
