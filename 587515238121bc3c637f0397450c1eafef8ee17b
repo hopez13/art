@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "90e3a61e_6cff5ba8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-25T22:19:04Z",
+      "side": 1,
+      "message": "handling",
+      "range": {
+        "startLine": 14,
+        "startChar": 24,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "587515238121bc3c637f0397450c1eafef8ee17b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0fd0ac2_c56bba9f",
         "filename": "compiler/dex/gvn_dead_code_elimination_test.cc",
         "patchSetId": 2
@@ -59,6 +82,30 @@
       "writtenOn": "2015-04-25T17:11:19Z",
       "side": 1,
       "message": "Just as a discussion starter (I think it\u0027s fine as is): if we made this a variadic templated function, the call sites would look very simple (and should all be fully inlined). But the definition of the function is then a little bit more complex.",
+      "range": {
+        "startLine": 720,
+        "startChar": 2,
+        "endLine": 720,
+        "endChar": 28
+      },
+      "revId": "587515238121bc3c637f0397450c1eafef8ee17b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_0a1d5b8f",
+        "filename": "compiler/dex/gvn_dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-25T22:19:04Z",
+      "side": 1,
+      "message": "Agreed, looks like a good idea!",
+      "parentUuid": "f00b02a7_473fce86",
       "range": {
         "startLine": 720,
         "startChar": 2,
