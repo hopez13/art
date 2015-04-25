@@ -22,6 +22,30 @@
       "revId": "8114c02798b5dc096d0e8e9636652a45f08aab82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_dc71595e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-25T21:48:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f222e5_38fe2d32",
+      "range": {
+        "startLine": 475,
+        "startChar": 8,
+        "endLine": 475,
+        "endChar": 31
+      },
+      "revId": "8114c02798b5dc096d0e8e9636652a45f08aab82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
