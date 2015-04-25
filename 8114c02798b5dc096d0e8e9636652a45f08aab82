@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0f222e5_38fe2d32",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-25T21:24:09Z",
+      "side": 1,
+      "message": "Is that the correct way? Could you write a test? We have some unattached-thread tests in 004-JniTest, I think.",
+      "range": {
+        "startLine": 475,
+        "startChar": 8,
+        "endLine": 475,
+        "endChar": 31
+      },
+      "revId": "8114c02798b5dc096d0e8e9636652a45f08aab82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
