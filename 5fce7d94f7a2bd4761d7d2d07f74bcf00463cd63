@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "70f712e2_03fb0e42",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T13:51:06Z",
+      "side": 1,
+      "message": "Oh I see. Then nevermind my comment. It looks like inconsistent, but doing initial first and end later is logically consistent. Please do as you prefer :)",
+      "parentUuid": "b0fd0ac2_65688669",
+      "range": {
+        "startLine": 725,
+        "startChar": 10,
+        "endLine": 726,
+        "endChar": 54
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90fc86c6_64264ae6",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 3
@@ -435,6 +459,30 @@
       "side": 1,
       "message": "Moved. Also it\u0027s not a DCHECK, I added this comment:\n            // We expect the loop body is in false successor of the loop\n            // in common dex code.",
       "parentUuid": "5034ce65_22ee0e04",
+      "range": {
+        "startLine": 1192,
+        "startChar": 11,
+        "endLine": 1193,
+        "endChar": 17
+      },
+      "revId": "5fce7d94f7a2bd4761d7d2d07f74bcf00463cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_64b76ac7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T13:51:06Z",
+      "side": 1,
+      "message": "Why do we need to rely on this? And why does it matter?",
+      "parentUuid": "b0fd0ac2_25628e87",
       "range": {
         "startLine": 1192,
         "startChar": 11,
