@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30375a6d_a111be51",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T19:58:34Z",
+      "side": 1,
+      "message": "Can the false successor be in an inner loop, and then it\u0027s wrong to pick the true successor?\n\nI think here you should do block-\u003eGetLoopInformation()-\u003eContains(instruction-\u003eIfFalseSuccessor()) to protect against this case.",
+      "range": {
+        "startLine": 1187,
+        "startChar": 3,
+        "endLine": 1192,
+        "endChar": 11
+      },
+      "revId": "206d6fd6cae5ba8c4d5f0e230111fe77b9d5c0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
