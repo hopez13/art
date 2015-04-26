@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5034ce65_62b736c7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "I think you can remove this now.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 32
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f712e2_430c66ef",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "-\u003e if (loop_info-\u003eContains(array-\u003eGetBlock())",
+      "range": {
+        "startLine": 299,
+        "startChar": 12,
+        "endLine": 299,
+        "endChar": 72
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_24c1722e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "\" *\" -\u003e \"* \"",
+      "range": {
+        "startLine": 311,
+        "startChar": 21,
+        "endLine": 311,
+        "endChar": 22
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_04be76a0",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 315,
+        "startChar": 13,
+        "endLine": 315,
+        "endChar": 14
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_64de4a09",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "It would be nice to get rid of this. It\u0027s only used to backtrack right? See my comments below for suggestions.",
+      "range": {
+        "startLine": 450,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 48
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f712e2_23196a2d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 459,
+        "startChar": 28,
+        "endLine": 459,
+        "endChar": 29
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_84e826ab",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "Could we refactor this to:\n\nbool CanAddDeoptimizationConstant(HInstruction* value, int32_t constant, bool* is_proven)\n\nWhere is_proven is the result of line 572?",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 578,
+        "endChar": 5
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f712e2_a33b1a7d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "Ditto:\n\nbool CanAddDeoptimizationArrayLength(value, array_length, offset, bool* is_proven)",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 53
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f712e2_63364294",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "Change this to:\n\nif (AddDeoptimizationConstant(..., \u0026is_constant_proven) \u0026\u0026 AddDeoptimizationArrayLength(..., \u0026is_array_length_proven) {\n  if (!is_constant_proven) AddDeoptimizationConstant()\n  if (!is_length_proven) AddDeoptimizationArrayLength()\n}\n\n?",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 719,
+        "endChar": 7
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_44db4e17",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 726,
+        "endChar": 7
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_42beb2a1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "Then you shouldn\u0027t need this.",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 730,
+        "endChar": 39
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_e2e906b2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "Maybe add a finder.HasFoundArray() helper?",
+      "range": {
+        "startLine": 748,
+        "startChar": 15,
+        "endLine": 748,
+        "endChar": 47
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_24d85218",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "not -\u003e not defined",
+      "range": {
+        "startLine": 945,
+        "startChar": 21,
+        "endLine": 945,
+        "endChar": 25
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_02ef4ab5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-26T14:14:37Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you need this. We know where the loop body is, why do we need to be conservative on what DEX generates?",
+      "range": {
+        "startLine": 1194,
+        "startChar": 0,
+        "endLine": 1199,
+        "endChar": 11
+      },
+      "revId": "f0b361e172ce6d03adfbf0a04bfd87381a1bbe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
