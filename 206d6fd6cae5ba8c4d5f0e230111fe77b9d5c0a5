@@ -22,6 +22,30 @@
       "revId": "206d6fd6cae5ba8c4d5f0e230111fe77b9d5c0a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0027e8c_2cfef731",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-27T01:24:30Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll make the change in my next CL.",
+      "parentUuid": "30375a6d_a111be51",
+      "range": {
+        "startLine": 1187,
+        "startChar": 3,
+        "endLine": 1192,
+        "endChar": 11
+      },
+      "revId": "206d6fd6cae5ba8c4d5f0e230111fe77b9d5c0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
