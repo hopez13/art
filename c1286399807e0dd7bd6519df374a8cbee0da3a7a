@@ -118,6 +118,30 @@
       "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_6fc74dc5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T17:28:05Z",
+      "side": 1,
+      "message": "Alright; I also spoke with Nicolas offline, and we agreed on materializing number_of_arguments as a member of HInvoke.  I will do this in the next patch set.",
+      "parentUuid": "90e3a61e_efc8dd2a",
+      "range": {
+        "startLine": 2227,
+        "startChar": 2,
+        "endLine": 2227,
+        "endChar": 72
+      },
+      "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
