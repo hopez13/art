@@ -46,6 +46,30 @@
       "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_24361c61",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T15:28:32Z",
+      "side": 1,
+      "message": "This is already the case: all ctors of HInvoke subclasses take a `number_of_arguments\u0027 argument.  This value is passed to HInvoke\u0027s ctor to set the size of its `inputs_\u0027 array, which is returned by InputCounts().  Do you think we should materialize `number_of_arguments\u0027 within HInvoke?",
+      "parentUuid": "90e3a61e_ef669dd7",
+      "range": {
+        "startLine": 2227,
+        "startChar": 2,
+        "endLine": 2227,
+        "endChar": 72
+      },
+      "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
