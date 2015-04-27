@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "90e3a61e_4fca519e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T14:07:37Z",
+      "side": 1,
+      "message": "This was missing, so instruction can be null afterwards.",
+      "range": {
+        "startLine": 389,
+        "startChar": 4,
+        "endLine": 389,
+        "endChar": 10
+      },
+      "revId": "bbf091a2ff4ef9b08f519d2657a1ab6d1425c123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0fd0ac2_082327a3",
         "filename": "runtime/utils.h",
         "patchSetId": 2
