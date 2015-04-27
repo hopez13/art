@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "500f6eb1_0a72fb0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-27T11:04:45Z",
+      "side": 1,
+      "message": "Mark, please add personal question in the comments, rather than in the commit message. Or make sure that they are removed before the final CL. Having them in git history is not ideal as they loose context in time :)\n\nAlso, if they are in the commit message it\u0027s harder to initiate and follow up a conversation.",
+      "range": {
+        "startLine": 14,
+        "startChar": 14,
+        "endLine": 16,
+        "endChar": 45
+      },
+      "revId": "b0bd8915cb257cdaf46ba663c450a6543bca75af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
