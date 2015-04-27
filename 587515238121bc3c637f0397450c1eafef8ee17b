@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90e3a61e_2c0f1335",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-27T08:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_6cff5ba8",
+      "range": {
+        "startLine": 14,
+        "startChar": 24,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "587515238121bc3c637f0397450c1eafef8ee17b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0fd0ac2_c56bba9f",
         "filename": "compiler/dex/gvn_dead_code_elimination_test.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_41fb1241",
+        "filename": "compiler/dex/gvn_dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-27T08:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0fd0ac2_c56bba9f",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 20
+      },
+      "revId": "587515238121bc3c637f0397450c1eafef8ee17b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0fd0ac2_a570be88",
         "filename": "compiler/dex/gvn_dead_code_elimination_test.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-04-25T17:11:19Z",
       "side": 1,
       "message": "I believe you can make this a constexpr, no?",
+      "range": {
+        "startLine": 719,
+        "startChar": 9,
+        "endLine": 719,
+        "endChar": 14
+      },
+      "revId": "587515238121bc3c637f0397450c1eafef8ee17b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_0c0c573c",
+        "filename": "compiler/dex/gvn_dead_code_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-27T08:23:30Z",
+      "side": 1,
+      "message": "I\u0027ll keep this const to be consistent with the rest of the file.",
+      "parentUuid": "b0fd0ac2_a570be88",
       "range": {
         "startLine": 719,
         "startChar": 9,
