@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f0f222e5_be11e551",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "That flag was there to avoid the checks if we decide it\u0027s too much overhead. I\u0027ll remove it.",
+      "parentUuid": "30375a6d_01abca01",
+      "range": {
+        "startLine": 87,
+        "startChar": 22,
+        "endLine": 87,
+        "endChar": 44
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_8ce847ab",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -60,6 +84,30 @@
       "writtenOn": "2015-04-27T09:45:14Z",
       "side": 1,
       "message": "Shouldn\u0027t it be \u0027\u003c\u0027 here to match the operator\u003c ? Otherwise it\u0027s worth a comment.",
+      "range": {
+        "startLine": 747,
+        "startChar": 17,
+        "endLine": 747,
+        "endChar": 18
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_76ca819e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "I\u0027ll add a comment.\n\nIt must be \u003e. std::priority_queue is a max-heap, but dex files have types ordered ascendingly. So to be able to 1) iterate over the file easily and 2) grab the smallest element one has to revert the comparison here.",
+      "parentUuid": "90e3a61e_8ce847ab",
       "range": {
         "startLine": 747,
         "startChar": 17,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d0d99e70_e8cd6f38",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "OK, will do.",
+      "parentUuid": "500f6eb1_0a167bfb",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 33
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_0cb0d7b9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -106,6 +178,30 @@
       "writtenOn": "2015-04-27T09:45:14Z",
       "side": 1,
       "message": "Shouldn\u0027t we delete the DEX file in a destructor?",
+      "range": {
+        "startLine": 815,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 35
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_82524869",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "I decided to use value objects for the pairs, as that makes updating more explicit (otherwise you\u0027d need to make really sure you\u0027re not screwing around with something that\u0027s in the heap). That means you have to be *really* careful when assigning etc.",
+      "parentUuid": "90e3a61e_0cb0d7b9",
       "range": {
         "startLine": 815,
         "startChar": 4,
@@ -188,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "b0d42a38_16b9fd0e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "That comment is placed correctly. The dex_lock_ is used when you look at the oat files. It could be more extensive, agreed.",
+      "parentUuid": "30375a6d_810cbaf0",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 826,
+        "endChar": 32
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_2a65bfc5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -199,6 +319,30 @@
       "writtenOn": "2015-04-27T08:39:40Z",
       "side": 1,
       "message": "\u0027heap\u0027 is overloaded. Could you rename this to \u0027queue\u0027?",
+      "range": {
+        "startLine": 829,
+        "startChar": 43,
+        "endLine": 829,
+        "endChar": 47
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f222e5_3e0f3535",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "500f6eb1_2a65bfc5",
       "range": {
         "startLine": 829,
         "startChar": 43,
@@ -234,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "f0f222e5_1e0c713c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "This isn\u0027t magic. You know that if it\u0027s not empty than at least index 0 exists - and any dex file out of the boot class-path is fine. I could have used an iterator, but that\u0027s just boilerplate.",
+      "parentUuid": "30375a6d_610f36e6",
+      "range": {
+        "startLine": 836,
+        "startChar": 54,
+        "endLine": 836,
+        "endChar": 55
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_cc1c0f6c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -245,6 +413,30 @@
       "writtenOn": "2015-04-27T08:39:40Z",
       "side": 1,
       "message": "the heap -\u003e the queue.",
+      "range": {
+        "startLine": 859,
+        "startChar": 15,
+        "endLine": 859,
+        "endChar": 23
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f222e5_fe176d44",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-27T15:24:09Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "90e3a61e_cc1c0f6c",
       "range": {
         "startLine": 859,
         "startChar": 15,
