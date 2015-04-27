@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e3a61e_ef669dd7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T15:21:09Z",
+      "side": 1,
+      "message": "How about passing it to the HInvoke when being created? The builder should know that.",
+      "range": {
+        "startLine": 2227,
+        "startChar": 2,
+        "endLine": 2227,
+        "endChar": 72
+      },
+      "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
