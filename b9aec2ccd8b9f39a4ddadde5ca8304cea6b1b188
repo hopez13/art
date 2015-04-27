@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_84c4c8bf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T15:36:12Z",
+      "side": 1,
+      "message": "Sorry, even with your explanation, I fail to see the relationship with the lock. Good we agree the comment could be extended :-)",
+      "parentUuid": "b0d42a38_16b9fd0e",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 826,
+        "endChar": 32
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_2a65bfc5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -390,6 +414,30 @@
       "side": 1,
       "message": "This isn\u0027t magic. You know that if it\u0027s not empty than at least index 0 exists - and any dex file out of the boot class-path is fine. I could have used an iterator, but that\u0027s just boilerplate.",
       "parentUuid": "30375a6d_610f36e6",
+      "range": {
+        "startLine": 836,
+        "startChar": 54,
+        "endLine": 836,
+        "endChar": 55
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_6fdd0de2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T15:36:12Z",
+      "side": 1,
+      "message": "\"any dex file out of the boot class-path is fine\" is the magic part. So I think this deserves a comment. Especially since on line 833 you mention \"the dex files\" (plural).",
+      "parentUuid": "f0f222e5_1e0c713c",
       "range": {
         "startLine": 836,
         "startChar": 54,
