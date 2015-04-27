@@ -25,6 +25,99 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_01abca01",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-27T09:45:14Z",
+      "side": 1,
+      "message": "Agreed, I don\u0027t see why we need the flag as is.",
+      "parentUuid": "500f6eb1_6a5bb710",
+      "range": {
+        "startLine": 87,
+        "startChar": 22,
+        "endLine": 87,
+        "endChar": 44
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_8ce847ab",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-27T09:45:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be \u0027\u003c\u0027 here to match the operator\u003c ? Otherwise it\u0027s worth a comment.",
+      "range": {
+        "startLine": 747,
+        "startChar": 17,
+        "endLine": 747,
+        "endChar": 18
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_0a167bfb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-27T09:45:14Z",
+      "side": 1,
+      "message": "We should also clear the field of the object. I find it dangerous to delete a pointer and still may be able to access it.",
+      "range": {
+        "startLine": 809,
+        "startChar": 4,
+        "endLine": 809,
+        "endChar": 33
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_0cb0d7b9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-27T09:45:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we delete the DEX file in a destructor?",
+      "range": {
+        "startLine": 815,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 35
+      },
+      "revId": "b9aec2ccd8b9f39a4ddadde5ca8304cea6b1b188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d42a38_d6bdbafa",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
