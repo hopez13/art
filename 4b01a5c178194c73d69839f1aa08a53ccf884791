@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30375a6d_84584813",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-27T13:53:30Z",
+      "side": 1,
+      "message": "Why not implement floats too?",
+      "range": {
+        "startLine": 246,
+        "startChar": 57,
+        "endLine": 247,
+        "endChar": 20
+      },
+      "revId": "4b01a5c178194c73d69839f1aa08a53ccf884791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_cf488192",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-27T13:53:30Z",
+      "side": 1,
+      "message": "Urgh, this is pretty ugly. Are you doing this just to retain the constant lookup in the ssa builder? SafeMap has lookup in O(log n) which really isn\u0027t that much of a difference...",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 52
+      },
+      "revId": "4b01a5c178194c73d69839f1aa08a53ccf884791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
