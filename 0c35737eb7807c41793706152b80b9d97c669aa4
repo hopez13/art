@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5034ce65_68b9572a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T21:54:14Z",
+      "side": 1,
+      "message": "I\u0027d reverse the comment and state this first: \"We only deoptimize if we can guarantee the loop goes through the full monotonic range. This requires a) the loop has no early exit, b) .... \"",
+      "range": {
+        "startLine": 723,
+        "startChar": 35,
+        "endLine": 724,
+        "endChar": 35
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_c88ae36e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T21:54:14Z",
+      "side": 1,
+      "message": "This is not really a guaranteed. It\u0027s kind of explaining the HDeoptimization approach (ie detecting rare cases that do not happen in normal circonstanstances).",
+      "range": {
+        "startLine": 725,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 50
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fc86c6_4dca519e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T21:54:14Z",
+      "side": 1,
+      "message": "of what?",
+      "range": {
+        "startLine": 729,
+        "startChar": 8,
+        "endLine": 729,
+        "endChar": 20
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5034ce65_e876c705",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T21:54:14Z",
+      "side": 1,
+      "message": "The comment about overflow/underflow was clearer to me :-) Why can\u0027t we handle +2 then?",
+      "range": {
+        "startLine": 780,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 57
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
