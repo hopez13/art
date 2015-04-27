@@ -94,6 +94,30 @@
       "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_efc8dd2a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2227,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-27T15:32:42Z",
+      "side": 1,
+      "message": "If you add that as a parameter to the ctor then you don\u0027t need to make this virtual and overwrite it. I was thinking about this case when I made the remark.",
+      "parentUuid": "500f6eb1_0d5fb5c1",
+      "range": {
+        "startLine": 2227,
+        "startChar": 2,
+        "endLine": 2227,
+        "endChar": 72
+      },
+      "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
