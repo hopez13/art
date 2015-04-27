@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30375a6d_214ccecd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T11:04:25Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 78
+      },
+      "revId": "97f9bf5f269c448e07e54b56f94b403dab04315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_ea5d677f",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T11:04:25Z",
+      "side": 1,
+      "message": "Maybe add a quick comment about what this new method does?",
+      "revId": "97f9bf5f269c448e07e54b56f94b403dab04315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_6c819b97",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T11:04:25Z",
+      "side": 1,
+      "message": "OVERRIDE?",
+      "revId": "97f9bf5f269c448e07e54b56f94b403dab04315e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
