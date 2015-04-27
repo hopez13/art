@@ -22,6 +22,30 @@
       "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_84392854",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2227,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-27T15:28:24Z",
+      "side": 1,
+      "message": "Also, could you document why this is different from InputCount?. For all the other instructions this is a given and worth adding a comment line.",
+      "parentUuid": "90e3a61e_ef669dd7",
+      "range": {
+        "startLine": 2227,
+        "startChar": 2,
+        "endLine": 2227,
+        "endChar": 72
+      },
+      "revId": "c1286399807e0dd7bd6519df374a8cbee0da3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
