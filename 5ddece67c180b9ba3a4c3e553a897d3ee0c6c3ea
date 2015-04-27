@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0d42a38_79b0326d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-27T21:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_8cff2778",
+      "range": {
+        "startLine": 618,
+        "startChar": 1,
+        "endLine": 622,
+        "endChar": 69
+      },
+      "revId": "5ddece67c180b9ba3a4c3e553a897d3ee0c6c3ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_6c051b13",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 34
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-27T08:09:26Z",
       "side": 1,
       "message": "Then you can remove this.",
+      "range": {
+        "startLine": 630,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 83
+      },
+      "revId": "5ddece67c180b9ba3a4c3e553a897d3ee0c6c3ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_59bd7643",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-27T21:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_6c051b13",
       "range": {
         "startLine": 630,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b0d42a38_b9a45a2d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 1966,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-27T21:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30375a6d_213cce8f",
+      "range": {
+        "startLine": 1966,
+        "startChar": 33,
+        "endLine": 1966,
+        "endChar": 59
+      },
+      "revId": "5ddece67c180b9ba3a4c3e553a897d3ee0c6c3ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_6a90571a",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 34
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b0d42a38_4cd7f240",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-27T21:35:41Z",
+      "side": 1,
+      "message": "Yea, the compiler will use the new thread pointer offset call path in the code generator instead.",
+      "parentUuid": "500f6eb1_6a90571a",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 882,
+        "endChar": 1
+      },
+      "revId": "5ddece67c180b9ba3a4c3e553a897d3ee0c6c3ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_ea7b2776",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 34
@@ -105,6 +201,30 @@
       "writtenOn": "2015-04-27T08:09:26Z",
       "side": 1,
       "message": "Please add: \"Note that there are multiple string init methods, each having its own offset\".",
+      "range": {
+        "startLine": 2318,
+        "startChar": 5,
+        "endLine": 2318,
+        "endChar": 84
+      },
+      "revId": "5ddece67c180b9ba3a4c3e553a897d3ee0c6c3ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f222e5_6902a90d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 2318,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-27T21:35:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "500f6eb1_ea7b2776",
       "range": {
         "startLine": 2318,
         "startChar": 5,
