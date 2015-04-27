@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e3a61e_ecc22b38",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T09:09:01Z",
+      "side": 1,
+      "message": "is a power",
+      "range": {
+        "startLine": 431,
+        "startChar": 36,
+        "endLine": 431,
+        "endChar": 44
+      },
+      "revId": "d7658ff8fa62b2e7ff0078a6f7d4c260c7318320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_2cc1532e",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T09:09:01Z",
+      "side": 1,
+      "message": "Nit: maybe align the instructions with the ones from previous blocks?",
+      "revId": "d7658ff8fa62b2e7ff0078a6f7d4c260c7318320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_6a04d7cf",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-27T09:09:01Z",
+      "side": 1,
+      "message": "Maybe also try with other values (e.g. negative ones)?",
+      "range": {
+        "startLine": 938,
+        "startChar": 17,
+        "endLine": 938,
+        "endChar": 21
+      },
+      "revId": "d7658ff8fa62b2e7ff0078a6f7d4c260c7318320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
