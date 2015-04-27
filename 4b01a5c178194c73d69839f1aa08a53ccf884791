@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_e4c8342b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T14:05:36Z",
+      "side": 1,
+      "message": "Because the \"value\" is a int64_t. Users of the graph shouldn\u0027t worry about casting their float or double constants to a int64_t.",
+      "parentUuid": "30375a6d_84584813",
+      "range": {
+        "startLine": 246,
+        "startChar": 57,
+        "endLine": 247,
+        "endChar": 20
+      },
+      "revId": "4b01a5c178194c73d69839f1aa08a53ccf884791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_cf488192",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-27T13:53:30Z",
       "side": 1,
       "message": "Urgh, this is pretty ugly. Are you doing this just to retain the constant lookup in the ssa builder? SafeMap has lookup in O(log n) which really isn\u0027t that much of a difference...",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 52
+      },
+      "revId": "4b01a5c178194c73d69839f1aa08a53ccf884791",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_ad754981",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T14:05:36Z",
+      "side": 1,
+      "message": "No, it\u0027s for making \"equivalent\" instructions consistent: they are following each other. I added a comment.",
+      "parentUuid": "90e3a61e_cf488192",
       "range": {
         "startLine": 263,
         "startChar": 0,
