@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "70f712e2_5729bc82",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 34
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-27T21:37:45Z",
+      "side": 1,
+      "message": "Not sure I follow. What happens if this does not get executed, and we instead generate:\n\nString a \u003d NewStringFromBytes(bytes).\n\nIs NewStringFromBytes a native that calls the right thread entry point?",
+      "parentUuid": "b0d42a38_4cd7f240",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 882,
+        "endChar": 1
+      },
+      "revId": "5ddece67c180b9ba3a4c3e553a897d3ee0c6c3ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_ea7b2776",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 34
