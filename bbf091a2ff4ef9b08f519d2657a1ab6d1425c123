@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "b0fd0ac2_ebe9e5b1",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-27T23:28:00Z",
+      "side": 1,
+      "message": "I experimented, and this test seems right, even for denorms",
+      "parentUuid": "b0fd0ac2_082327a3",
+      "revId": "bbf091a2ff4ef9b08f519d2657a1ab6d1425c123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_64de6409",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -77,6 +95,30 @@
       "side": 1,
       "message": "Is this describing the significand?  i.e. is the significand \u003d\u003d 0?",
       "parentUuid": "30375a6d_64de6409",
+      "range": {
+        "startLine": 311,
+        "startChar": 23,
+        "endLine": 311,
+        "endChar": 33
+      },
+      "revId": "bbf091a2ff4ef9b08f519d2657a1ab6d1425c123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0fd0ac2_cbee29b8",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-27T23:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0fd0ac2_48291f83",
       "range": {
         "startLine": 311,
         "startChar": 23,
