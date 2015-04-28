@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0d42a38_048bf573",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 38
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-28T03:22:10Z",
+      "side": 1,
+      "message": "This needs to be OR_DELIVER, as mentioned in a discussion.",
+      "range": {
+        "startLine": 39,
+        "startChar": 130,
+        "endLine": 39,
+        "endChar": 134
+      },
+      "revId": "848f70a3d73833fc1bf3032a9ff6812e429661d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
