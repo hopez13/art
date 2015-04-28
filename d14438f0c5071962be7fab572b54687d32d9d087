@@ -34,6 +34,24 @@
       "revId": "d14438f0c5071962be7fab572b54687d32d9d087",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f222e5_ea58b85c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T23:18:42Z",
+      "side": 0,
+      "message": "I am confused, the string_init case only happens when code_item \u003d\u003d nullptr right?\n\nOtherwise why isn\u0027t the extra code on line 507 hoisted out to 512?",
+      "parentUuid": "f0f222e5_d60fe0b4",
+      "revId": "d14438f0c5071962be7fab572b54687d32d9d087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
