@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "500f6eb1_7ea379ad",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-28T21:01:59Z",
+      "side": 1,
+      "message": "True, but all of those classes die in the next CL anyway, so I would not worry about the template here.",
+      "parentUuid": "30375a6d_95b4f4c1",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 30
+      },
+      "revId": "0c5bbc11a6af7b4f83b3929bc99de690635095c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_7efff9a7",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
