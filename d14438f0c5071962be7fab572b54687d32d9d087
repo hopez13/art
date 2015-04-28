@@ -16,6 +16,24 @@
       "revId": "d14438f0c5071962be7fab572b54687d32d9d087",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f222e5_d60fe0b4",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-28T22:59:43Z",
+      "side": 0,
+      "message": "In the case of string_init, these values will be off by one because the method being called is changed. I think I removed the check just to make things work, but the check can be put back with special logic for the string_init case.",
+      "parentUuid": "f0f222e5_5b81d9fb",
+      "revId": "d14438f0c5071962be7fab572b54687d32d9d087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
