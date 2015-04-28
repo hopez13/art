@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30375a6d_a7dc6e99",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-28T10:06:44Z",
+      "side": 1,
+      "message": "How about intrinsics? Do they not depend on InputCount?",
+      "range": {
+        "startLine": 1292,
+        "startChar": 0,
+        "endLine": 1292,
+        "endChar": 63
+      },
+      "revId": "3e3d73349a2de81d14e2279f60ffbd9ab3f3ac28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
