@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f00b02a7_f0279632",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_924cdc52",
+      "range": {
+        "startLine": 359,
+        "startChar": 14,
+        "endLine": 359,
+        "endChar": 25
+      },
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_27361e61",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2015-04-28T10:07:34Z",
       "side": 1,
       "message": "It would be good if, at some point, we can improve on this to skip \u0027instructions that have no side effects\u0027.",
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0027e8c_b06b55ee",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "In the TODO :-)",
+      "parentUuid": "30375a6d_27361e61",
       "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "d0027e8c_706efdfd",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_7242901e",
+      "range": {
+        "startLine": 371,
+        "startChar": 12,
+        "endLine": 371,
+        "endChar": 14
+      },
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_e7d27686",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -76,6 +142,24 @@
       "writtenOn": "2015-04-28T10:07:34Z",
       "side": 1,
       "message": "Could the opposite situation occur?",
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0027e8c_307885bb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "No, the generated code always compares to 0 on the RHS",
+      "parentUuid": "30375a6d_e7d27686",
       "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "f00b02a7_d02c9219",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_523f9486",
+      "range": {
+        "startLine": 376,
+        "startChar": 11,
+        "endLine": 376,
+        "endChar": 42
+      },
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_07067aa3",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -116,6 +224,24 @@
       "writtenOn": "2015-04-28T10:07:34Z",
       "side": 1,
       "message": "What about environment uses? Should this use `HasOnlyOneNonEnvironmentUse()`?",
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f00b02a7_b0211e20",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30375a6d_07067aa3",
       "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "d0027e8c_9058595c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_f2efa083",
+      "range": {
+        "startLine": 396,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 39
+      },
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_32e768b0",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -156,6 +306,24 @@
       "writtenOn": "2015-04-28T10:07:34Z",
       "side": 1,
       "message": "See other comment about the environment use.",
+      "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0fd0ac2_ceb3d7fc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-28T15:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_32e768b0",
       "revId": "b727c8f3703b82290e84053dbf45efb20abcc3dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
