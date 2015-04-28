@@ -22,6 +22,30 @@
       "revId": "3adfc4bbe6c42d574bd2069d8e38a13d5ad98ccf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_9342a66c",
+        "filename": "test/100-reflect2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T13:26:56Z",
+      "side": 0,
+      "message": "Done.\n\nI added the \"setAccessible(false)\" in case the test runs after the new one in the future (who knows who may modify the code).",
+      "parentUuid": "30375a6d_cad17700",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 3
+      },
+      "revId": "3adfc4bbe6c42d574bd2069d8e38a13d5ad98ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
