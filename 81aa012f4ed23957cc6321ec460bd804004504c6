@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0d42a38_d82cae96",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-04-28T17:22:23Z",
+      "side": 1,
+      "message": "Is this cast necessary?",
+      "range": {
+        "startLine": 68,
+        "startChar": 31,
+        "endLine": 68,
+        "endChar": 58
+      },
+      "revId": "81aa012f4ed23957cc6321ec460bd804004504c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
