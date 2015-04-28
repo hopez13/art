@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d0d99e70_774f0993",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-28T21:46:22Z",
+      "side": 1,
+      "message": "It needs to be a guarantee. Otherwise there might be performance regressions observed like for Fannkuch.\n\nThe guarantee is if the loop doesn\u0027t throw AIOOBE, no deoptimization is triggered. It\u0027s the same as saying if deoptimization is triggered, the loop must throw AIOOBE.",
+      "parentUuid": "5034ce65_c88ae36e",
+      "range": {
+        "startLine": 725,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 50
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90fc86c6_4dca519e",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "b0d42a38_37b4dc31",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-28T21:46:22Z",
+      "side": 1,
+      "message": "I want to mean if the loop throws AIOOBE, we may not add deoptimization (compare to if deoptimization is triggered, the loop must throw AIOOBE), like when increment is 2. I guess it\u0027s not that useful so I deleted this comment.",
+      "parentUuid": "90fc86c6_4dca519e",
+      "range": {
+        "startLine": 729,
+        "startChar": 8,
+        "endLine": 729,
+        "endChar": 20
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5034ce65_e876c705",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2015-04-27T21:54:14Z",
       "side": 1,
       "message": "The comment about overflow/underflow was clearer to me :-) Why can\u0027t we handle +2 then?",
+      "range": {
+        "startLine": 780,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 57
+      },
+      "revId": "0c35737eb7807c41793706152b80b9d97c669aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d99e70_26da7566",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-04-28T21:46:22Z",
+      "side": 1,
+      "message": "+2 may skip the last element, so the end_ may not actually be used. Then using end_ to test against array.length is not accurate and may trigger deoptimization even if the loop doesn\u0027t throw AIOOBE.",
+      "parentUuid": "5034ce65_e876c705",
       "range": {
         "startLine": 780,
         "startChar": 0,
