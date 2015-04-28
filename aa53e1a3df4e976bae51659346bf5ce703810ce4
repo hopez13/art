@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e3a61e_b5e342ce",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "Your max is really 4 so you should use a separate constant. In the verifier, we\u0027ll need to check there is at most 4 arguments.",
+      "range": {
+        "startLine": 458,
+        "startChar": 52,
+        "endLine": 458,
+        "endChar": 66
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_95e846ab",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you don\u0027t follow the format 35c here. For me, the difference is you have a closure/reference instead of a method index, right?\n\nYou could have vA\u003dcount, vB\u003dclosure register, {vC,...,vG}\u003dargs.",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 12
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_55b41ec0",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "This also needs kVerifyVarArgNonZero (or kVerifyVarArg if there may be no args)",
+      "range": {
+        "startLine": 265,
+        "startChar": 92,
+        "endLine": 265,
+        "endChar": 103
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_f531c01e",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "I think they\u0027re fine here.",
+      "range": {
+        "startLine": 268,
+        "startChar": 10,
+        "endLine": 268,
+        "endChar": 73
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_d3aa5efc",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "If it is not used, we should remove it (in a separate CL though)",
+      "range": {
+        "startLine": 269,
+        "startChar": 6,
+        "endLine": 269,
+        "endChar": 79
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_75fff0a7",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "It\u0027s defined in the interpreter.cc file. However, it seems it is still defined in art::interpreter namespace while we declare in the art namespace only here.",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_d305be97",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "DoCallCommon",
+      "range": {
+        "startLine": 511,
+        "startChar": 63,
+        "endLine": 511,
+        "endChar": 69
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_957a866f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "It\u0027s an optimization for the interpreter. It contains the 1st 16-bits loaded to know the opcode (low 8 bits) so we don\u0027t need to reload them to access vA (number of args for invoke-XXX)\n\nHowever, this used to be useful when this method was inlined. Because of stack space issue, it is no longer inlined so this may no longer be true.",
+      "range": {
+        "startLine": 657,
+        "startChar": 9,
+        "endLine": 657,
+        "endChar": 85
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_d5992e53",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "Should be wrapped to next line.",
+      "range": {
+        "startLine": 140,
+        "startChar": 75,
+        "endLine": 141,
+        "endChar": 37
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_75903a1a",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "Not sure this is needed here. This is used to interpret with instrumentation (especially when debugger is active). I don\u0027t think the instruction will impact instrumentation.",
+      "range": {
+        "startLine": 2405,
+        "startChar": 4,
+        "endLine": 2405,
+        "endChar": 27
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_331f7ae3",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "This is an artifact of Portable compiler removal.",
+      "range": {
+        "startLine": 91,
+        "startChar": 9,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_358ab2ec",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-28T16:49:40Z",
+      "side": 1,
+      "message": "Why micro-optimization? This avoids an indirection when accessing vregs.",
+      "range": {
+        "startLine": 324,
+        "startChar": 9,
+        "endLine": 324,
+        "endChar": 94
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
