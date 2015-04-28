@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0d99e70_23a02719",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "I\u0027m personally not a fan of how my code turned out either (I wrote the smali encoding much much before I saw any of this code here).\n\nWhat if (in a future CL) I changed it to be more like 35x, always var-args up to 5, but change the verifier to say that it must be *at least 1* to encode the requirement that one of the registers is omnipresent?\n\nI\u0027m not sure about changing this constant for now, I am able to reuse most of the GetVarArgs calling code as well because they both take an array of the same size. If I add a new constant kMaxVarArgs \u003d 4, I\u0027d have to redo the rest of the code to handle different sized arrays.\n\nMaybe this function name could be renamed instead to differentiate it from a regular var arg, like GetAllRegisters25x or something along those lines?",
+      "parentUuid": "90e3a61e_b5e342ce",
+      "range": {
+        "startLine": 458,
+        "startChar": 52,
+        "endLine": 458,
+        "endChar": 66
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_95e846ab",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-28T16:49:40Z",
       "side": 1,
       "message": "I don\u0027t understand why you don\u0027t follow the format 35c here. For me, the difference is you have a closure/reference instead of a method index, right?\n\nYou could have vA\u003dcount, vB\u003dclosure register, {vC,...,vG}\u003dargs.",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 12
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_491b4e2c",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "This one doesn\u0027t take a type ID like 35c does, and it also needs only 2 bytes to encode.\n\nIf you are saying I should include the type id -- then that\u0027s certainly a possibility, and I may want to include the type id here to make it easier for the verifier.",
+      "parentUuid": "90e3a61e_95e846ab",
       "range": {
         "startLine": 465,
         "startChar": 10,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "f0f222e5_47fa24f5",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll try to remove this in a future CL",
+      "parentUuid": "500f6eb1_d3aa5efc",
+      "range": {
+        "startLine": 269,
+        "startChar": 6,
+        "endLine": 269,
+        "endChar": 79
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_75fff0a7",
         "filename": "runtime/interpreter/interpreter.h",
         "patchSetId": 4
@@ -128,6 +200,30 @@
       "writtenOn": "2015-04-28T16:49:40Z",
       "side": 1,
       "message": "It\u0027s defined in the interpreter.cc file. However, it seems it is still defined in art::interpreter namespace while we declare in the art namespace only here.",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d99e70_638cef8c",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "Yep, eclipse had a trouble finding it because of the namespaces.\n\nFWIW putting \"extern \"C\"\" inside a namespace doesn\u0027t seem to do anything, it just erases the namespace from the symbol name.",
+      "parentUuid": "30375a6d_75fff0a7",
       "range": {
         "startLine": 52,
         "startChar": 16,
@@ -186,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "d0d99e70_c3684322",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "As far as I can tell you would still need to switch inside of the GetVarArgs function because inst_data could either be the 0th short or the 1st short \n\nUnless it always assumes its being passed in the 1st short, but then you won\u0027t get the 5th register...\n\nAnyway since 5 registers can\u0027t be encoded in a single short for 35x, I just am not sure what the intent was.",
+      "parentUuid": "90e3a61e_957a866f",
+      "range": {
+        "startLine": 657,
+        "startChar": 9,
+        "endLine": 657,
+        "endChar": 85
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_d5992e53",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -232,6 +352,30 @@
     },
     {
       "key": {
+        "uuid": "f0f222e5_07af7ce4",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "Is it safe to leave in or a correctness issue? What file should I look at to learn more?",
+      "parentUuid": "90e3a61e_75903a1a",
+      "range": {
+        "startLine": 2405,
+        "startChar": 4,
+        "endLine": 2405,
+        "endChar": 27
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_331f7ae3",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -266,6 +410,30 @@
       "writtenOn": "2015-04-28T16:49:40Z",
       "side": 1,
       "message": "Why micro-optimization? This avoids an indirection when accessing vregs.",
+      "range": {
+        "startLine": 324,
+        "startChar": 9,
+        "endLine": 324,
+        "endChar": 94
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0d99e70_06c899a4",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-04-28T18:58:31Z",
+      "side": 1,
+      "message": "That\u0027s why I was asking. It just makes the code harder to understand the way it is now.",
+      "parentUuid": "90e3a61e_358ab2ec",
       "range": {
         "startLine": 324,
         "startChar": 9,
