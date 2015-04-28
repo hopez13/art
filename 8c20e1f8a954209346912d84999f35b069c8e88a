@@ -22,6 +22,30 @@
       "revId": "8c20e1f8a954209346912d84999f35b069c8e88a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_d3481e92",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-28T13:19:39Z",
+      "side": 1,
+      "message": "I was actually considering this option while refactoring this piece of code, but went for the parameterization solution as it seemed shorter. :)  I\u0027ll try the subclassing approach.",
+      "parentUuid": "30375a6d_6a8aab1f",
+      "range": {
+        "startLine": 81,
+        "startChar": 21,
+        "endLine": 81,
+        "endChar": 45
+      },
+      "revId": "8c20e1f8a954209346912d84999f35b069c8e88a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
