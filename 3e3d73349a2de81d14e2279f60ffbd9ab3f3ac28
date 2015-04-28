@@ -22,6 +22,29 @@
       "revId": "3e3d73349a2de81d14e2279f60ffbd9ab3f3ac28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_47cec2df",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-28T10:12:00Z",
+      "side": 1,
+      "message": "Note for follow-up CL: share MoveArguments between architectures.",
+      "range": {
+        "startLine": 89,
+        "startChar": 12,
+        "endLine": 89,
+        "endChar": 25
+      },
+      "revId": "3e3d73349a2de81d14e2279f60ffbd9ab3f3ac28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
