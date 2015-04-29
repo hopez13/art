@@ -46,6 +46,30 @@
       "revId": "b14db951162672a681cc4013e2c67e91f9bad12b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f8f2fa_84d7cc3f",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-29T21:46:11Z",
+      "side": 1,
+      "message": "That would require tracking the location, though, else you\u0027d deduplicate non-duplicates.\n\nI feel that if you run with checkjni, you want that info, and we should KISS.",
+      "parentUuid": "90fd66eb_427136d9",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 53
+      },
+      "revId": "b14db951162672a681cc4013e2c67e91f9bad12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
