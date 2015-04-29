@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "705392ca_03620e87",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T16:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_834d9e20",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "e31e0058538507a61f1ad0698809191643d06d8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_01d3aad9",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-29T16:27:00Z",
       "side": 1,
       "message": "Can\u0027t you just do loop_information_ \u003d preheader-\u003eGetLoopInformation() ?",
+      "range": {
+        "startLine": 1052,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 5
+      },
+      "revId": "e31e0058538507a61f1ad0698809191643d06d8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_a5a45e2d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T16:42:04Z",
+      "side": 1,
+      "message": "Oh, yeah! Thanks",
+      "parentUuid": "30e3da4b_01d3aad9",
       "range": {
         "startLine": 1052,
         "startChar": 0,
