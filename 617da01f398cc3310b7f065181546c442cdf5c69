@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "500f6eb1_b92b4baf",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T12:32:28Z",
+      "side": 1,
+      "message": "Nit: maybe add blank lines before and after code snippets?",
+      "range": {
+        "startLine": 760,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 8
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_5edb1517",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 2
@@ -82,6 +105,30 @@
       "writtenOn": "2015-04-29T08:11:28Z",
       "side": 1,
       "message": "not to -\u003e to not (though I\u0027m no english expert)",
+      "range": {
+        "startLine": 783,
+        "startChar": 14,
+        "endLine": 783,
+        "endChar": 20
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_1049d293",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T12:32:28Z",
+      "side": 1,
+      "message": "I think the initial phrasing is correct. :)",
+      "parentUuid": "30375a6d_15cea434",
       "range": {
         "startLine": 783,
         "startChar": 14,
