@@ -46,6 +46,30 @@
       "revId": "466e94a4c9c031f42d23fd148282c9abb893c1d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_10b472e3",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-04-29T12:38:17Z",
+      "side": 1,
+      "message": "huh, ok, that I\u0027m not so sure of the benefits here :P. \n`\u003d default` is longer then `{}`. But it\u0027s up to you if you wanna keep it :)",
+      "parentUuid": "90e3a61e_208832b9",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "466e94a4c9c031f42d23fd148282c9abb893c1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
