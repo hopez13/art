@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_157c64e4",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "500f6eb1_be769152",
+      "range": {
+        "startLine": 263,
+        "startChar": 13,
+        "endLine": 263,
+        "endChar": 23
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_c0e3aecd",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-29T10:41:26Z",
       "side": 1,
       "message": "??? \nAll comments of this algorithm are very confusing to me... The word \u0027use\u0027 appears way too many times.",
+      "range": {
+        "startLine": 264,
+        "startChar": 59,
+        "endLine": 265,
+        "endChar": 60
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_20fb9242",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "OK, rephrased.",
+      "parentUuid": "90e3a61e_c0e3aecd",
       "range": {
         "startLine": 264,
         "startChar": 59,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "500f6eb1_9ee18d4f",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_00ead6a5",
+      "range": {
+        "startLine": 273,
+        "startChar": 80,
+        "endLine": 273,
+        "endChar": 103
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_35e88826",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-04-29T10:41:26Z",
       "side": 1,
       "message": "\"Therefore the previous call to AddUse\"",
+      "range": {
+        "startLine": 274,
+        "startChar": 56,
+        "endLine": 274,
+        "endChar": 85
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_5ec435be",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30375a6d_35e88826",
       "range": {
         "startLine": 274,
         "startChar": 56,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_f55d407f",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "500f6eb1_9ea4ed2d",
+      "range": {
+        "startLine": 275,
+        "startChar": 21,
+        "endLine": 275,
+        "endChar": 46
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30375a6d_b585785f",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-04-29T10:41:26Z",
       "side": 1,
       "message": "This can\u0027t be null because intervals aren\u0027t split until after the uses have been created, right?",
+      "range": {
+        "startLine": 278,
+        "startChar": 12,
+        "endLine": 278,
+        "endChar": 26
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_3e362161",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Right.",
+      "parentUuid": "30375a6d_b585785f",
       "range": {
         "startLine": 278,
         "startChar": 12,
@@ -157,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "500f6eb1_3ed1817c",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Isn\u0027t that what the two checks below guarantee? Why duplicating the checks?",
+      "parentUuid": "30375a6d_75b9302a",
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_a04c2252",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -168,6 +330,30 @@
       "writtenOn": "2015-04-29T10:41:26Z",
       "side": 1,
       "message": "Can you call this something like \"backedge_use_position\" here and on 273?",
+      "range": {
+        "startLine": 285,
+        "startChar": 12,
+        "endLine": 285,
+        "endChar": 58
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_60dabaec",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_a04c2252",
       "range": {
         "startLine": 285,
         "startChar": 12,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_756b701e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_60b4fac0",
+      "range": {
+        "startLine": 291,
+        "startChar": 25,
+        "endLine": 291,
+        "endChar": 35
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_c075ee80",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -214,6 +424,30 @@
       "writtenOn": "2015-04-29T10:41:26Z",
       "side": 1,
       "message": "private?",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 43
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_fed2c985",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_c075ee80",
       "range": {
         "startLine": 512,
         "startChar": 0,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "500f6eb1_bedc5199",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30375a6d_b5dc9899",
+      "range": {
+        "startLine": 544,
+        "startChar": 8,
+        "endLine": 544,
+        "endChar": 46
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_403c5e90",
         "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
         "patchSetId": 2
@@ -260,6 +518,30 @@
       "writtenOn": "2015-04-29T10:41:26Z",
       "side": 1,
       "message": "Split the CHECK and CHECK-NOT into two test cases. Just to be sure...",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 81
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_95687421",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T10:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e3a61e_403c5e90",
       "range": {
         "startLine": 53,
         "startChar": 0,
