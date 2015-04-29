@@ -333,6 +333,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_f0c8ee2a",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-29T13:25:31Z",
+      "side": 1,
+      "message": "It\u0027s not lambdas that do that. They have a special compile-time type that doesn\u0027t need to use new/delete. It\u0027s the std::function\u003c\u003e that needs to encapsulate an arbitrary type of object while erasing its type from the std::function\u003c\u003e\u0027s own interface. To do that, it will use a polymorphic base class that provides an interface for the invoke and the templated constructor/assignment will create an object of a derived class that can hold a copy of the provided object.",
+      "parentUuid": "90e3a61e_80eec633",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 17
+      },
+      "revId": "e103f0f4648b7eb1f20dd910deae1be8b5df6dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d42a38_74c4a2e2",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
