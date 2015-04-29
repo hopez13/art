@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "30375a6d_359408bb",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-29T09:54:29Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 116,
+        "startChar": 33,
+        "endLine": 116,
+        "endChar": 41
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_b5e342ce",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 4
@@ -84,6 +107,30 @@
       "side": 1,
       "message": "This one doesn\u0027t take a type ID like 35c does, and it also needs only 2 bytes to encode.\n\nIf you are saying I should include the type id -- then that\u0027s certainly a possibility, and I may want to include the type id here to make it easier for the verifier.",
       "parentUuid": "90e3a61e_95e846ab",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 12
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_950cf4f0",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-29T09:54:29Z",
+      "side": 1,
+      "message": "My point is the only difference between an invoke-lambda and other invoke-XXX instructions is you have a closure register index instead of a method index. But yes, because of that difference, you should use a different format (35x?).\n\nHowever, I still recommend having vA\u003dargs count, vB\u003dclosure register index and [vC,...,vG]\u003dargs because it also adheres to how the verifier checks invoke arguments (see line 864 of https://android.googlesource.com/platform/art/+/master/runtime/verifier/method_verifier.cc).\n\nFor the verification itself, you definitely need to know the method index. The create-lambda already has it so I wonder if we can rely on its existence right before the invoke-lambda? Otherwise, you\u0027ll need to add it in the invoke-lambda and the format would become vA\u003dargs count, vB\u003dmethod index, [vC,...,VG]\u003dargs *always with* vC\u003dclosure register index",
+      "parentUuid": "b0d42a38_491b4e2c",
       "range": {
         "startLine": 465,
         "startChar": 10,
@@ -376,6 +423,30 @@
     },
     {
       "key": {
+        "uuid": "30375a6d_55166cfc",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-29T09:54:29Z",
+      "side": 1,
+      "message": "The idea behind this \"update\" was to being able to attach a debugger at any time during app execution. So when returning from a method (after a debugger attached or detached), we would switch to interpret with the \"alternative\" instruction handlers that support debugging (if attached) or get back to \"normal\" handlers (that do not support debugging).\n\nCan CREATE_LAMBDA cause method invocation? If yes, this probably needs to stay.\n\nYou can take a look at the definitions of these alternative handlers (below, at the end of this method) with macro INSTRUMENTATION_INSTRUCTION_HANDLER. And you can take a look at Instrumentation::IsActive.",
+      "parentUuid": "f0f222e5_07af7ce4",
+      "range": {
+        "startLine": 2405,
+        "startChar": 4,
+        "endLine": 2405,
+        "endChar": 27
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "500f6eb1_331f7ae3",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -440,6 +511,23 @@
         "endLine": 324,
         "endChar": 94
       },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_5edaf5eb",
+        "filename": "test/run-test",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-29T09:54:29Z",
+      "side": 1,
+      "message": "I think you should do that in a separate CL.",
       "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
