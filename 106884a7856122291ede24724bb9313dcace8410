@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "90e3a61e_6033daa2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T11:13:38Z",
+      "side": 1,
+      "message": "Which DCHECKs? This has to do with the back-edge position, not the position of the user itself.",
+      "parentUuid": "500f6eb1_3ed1817c",
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_a04c2252",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
