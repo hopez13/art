@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "90e3a61e_80eec633",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-29T12:53:45Z",
+      "side": 1,
+      "message": "Done.  I did not know that lambdas internally do new/delete.  I should look up the C++ implementation details.  I expected that the compiler would expand them out pretty much exactly into what I have written now.",
+      "parentUuid": "90e3a61e_c08f2e2e",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 17
+      },
+      "revId": "e103f0f4648b7eb1f20dd910deae1be8b5df6dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d42a38_74c4a2e2",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
