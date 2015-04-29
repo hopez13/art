@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30375a6d_b5249866",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T08:46:28Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 78
+      },
+      "revId": "9a3766c37f4864932766d325406a8bf4fe3d5f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_5e8d5502",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T08:46:28Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 558,
+        "endChar": 16
+      },
+      "revId": "9a3766c37f4864932766d325406a8bf4fe3d5f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_0032d622",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T08:46:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 5
+      },
+      "revId": "9a3766c37f4864932766d325406a8bf4fe3d5f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_f51a2027",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T08:46:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 23
+      },
+      "revId": "9a3766c37f4864932766d325406a8bf4fe3d5f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_e036aa14",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T08:46:28Z",
+      "side": 1,
+      "message": "Long line.",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 106
+      },
+      "revId": "9a3766c37f4864932766d325406a8bf4fe3d5f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_c02baeae",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T08:46:28Z",
+      "side": 1,
+      "message": "Nit: maybe add a blank line before UseInvokeForNullability to separate it from Visit methods?",
+      "revId": "9a3766c37f4864932766d325406a8bf4fe3d5f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
