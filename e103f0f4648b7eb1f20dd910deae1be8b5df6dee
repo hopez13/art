@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "f0f222e5_e3058314",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-29T04:19:49Z",
+      "side": 1,
+      "message": "Searching for \u003cfunctional\u003e doesn\u0027t mean you find lambdas. We use it for function pointers, too. In fact, except for Igor\u0027s cmdline parser, I believe most use of lambdas has been scrubbed from the main files (the only existence is in *tests* for the optimizing compiler and one assembler [because it was the only typable way to get things done generically, languages without integrated reflection suck...]).\n\nDon\u0027t change things, yet. I was waiting for bdc to weigh in.",
+      "parentUuid": "90e3a61e_753cba42",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 17
+      },
+      "revId": "e103f0f4648b7eb1f20dd910deae1be8b5df6dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d42a38_74c4a2e2",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
