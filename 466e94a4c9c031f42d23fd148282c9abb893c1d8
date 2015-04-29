@@ -22,6 +22,30 @@
       "revId": "466e94a4c9c031f42d23fd148282c9abb893c1d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_208832b9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T11:29:38Z",
+      "side": 1,
+      "message": "No, as far as I know.  This seems to be confirmed by these:\n\n* http://en.cppreference.com/w/cpp/language/default_constructor\n* http://en.cppreference.com/w/cpp/language/default_initialization",
+      "parentUuid": "500f6eb1_defee5e5",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "466e94a4c9c031f42d23fd148282c9abb893c1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
