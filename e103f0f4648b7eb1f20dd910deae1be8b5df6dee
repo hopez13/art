@@ -357,6 +357,30 @@
     },
     {
       "key": {
+        "uuid": "30e3da4b_e1de8657",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-29T14:38:35Z",
+      "side": 1,
+      "message": "Ah, I did not know that.  My intuition was that the compiler\u0027s lambda type would already be deriving from some polymorphic base class, and std::function\u003c\u003e would just take reference to that.  But I suppose that might make lifetime management difficult in some cases.  I suppose replacing std::function with templated type might work for cases where people really care about performance.\n\nBack to the CL.  Are you happy with it as it is now?",
+      "parentUuid": "30375a6d_f0c8ee2a",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 17
+      },
+      "revId": "e103f0f4648b7eb1f20dd910deae1be8b5df6dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d42a38_74c4a2e2",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
