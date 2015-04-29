@@ -46,6 +46,30 @@
       "revId": "9bd5bfa578d25e5e9dde982d6e29ffee0858ad27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_b9d22bd3",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T13:53:49Z",
+      "side": 1,
+      "message": "Nit: I think we use a 4-space indentation in this case:\n\n  RegisterAllocator::CallerCalleePreference RegisterAllocator::GetCallerCalleePreference(\n      LiveInterval* interval) const {\n    // ...",
+      "parentUuid": "500f6eb1_90197cb2",
+      "range": {
+        "startLine": 847,
+        "startChar": 0,
+        "endLine": 847,
+        "endChar": 118
+      },
+      "revId": "9bd5bfa578d25e5e9dde982d6e29ffee0858ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
