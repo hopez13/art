@@ -70,6 +70,30 @@
       "revId": "466e94a4c9c031f42d23fd148282c9abb893c1d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_f0954e3e",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T12:43:14Z",
+      "side": 1,
+      "message": "I guess you know already :-), but please go with {}. We\u0027ll always have none c++19 readers, and there\u0027s no need to confuse them.",
+      "parentUuid": "30375a6d_10b472e3",
+      "range": {
+        "startLine": 117,
+        "startChar": 23,
+        "endLine": 117,
+        "endChar": 25
+      },
+      "revId": "466e94a4c9c031f42d23fd148282c9abb893c1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
