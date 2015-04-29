@@ -323,6 +323,30 @@
     },
     {
       "key": {
+        "uuid": "30e3da4b_413c9242",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-29T19:02:05Z",
+      "side": 1,
+      "message": "I wouldn\u0027t complain about the missing error checking if it was a DCHECK():\n\n  DCHECK_LE(lseek(elf_file-\u003eFd(), 0, SEEK_CUR), offset) \u003c\u003c \"Seeking backwards\";",
+      "parentUuid": "30e3da4b_811fbae0",
+      "range": {
+        "startLine": 783,
+        "startChar": 40,
+        "endLine": 783,
+        "endChar": 59
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_611c36ec",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
